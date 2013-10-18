@@ -1,0 +1,268 @@
+<HTML>
+<Header>
+<Title>ODM2 Foreign Keys</Title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<Link href="../css/doc.css" rel="stylesheet" type="text/css">
+</Header>
+<Body>
+<table class="logo">
+<tr>
+<td class="logo">ODM2 [ODM2_v0.81.xml]</td>
+</tr>
+</table>
+<table class="horzMenu">
+<tr>
+<td class="horzMenu"><a class="horzMenu" href="../index.html"> Home</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../tables/index.html">Tables</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../schemas/index.html">Schemas</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../diagrams/index.html">Diagrams</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../foreignKeys/index.html">Foreign Keys</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../indexes/index.html">Indexes</a></td><td class="horzMenuFiller"></td>
+</tr>
+</table>
+<hr>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="Header">Name</td><td class="Header">Parent Table</td><td class="Header">Child Table</td><td class="Header">Parent Columns</td><td class="Header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_MethodAnnotations_fk_MethodAnnotations_Annotations.html">fk_MethodAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_MethodAnnotations.html">ODM2Annotations.MethodAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_MethodAnnotations_fk_MethodAnnotations_Methods.html">fk_MethodAnnotations_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Annotations_MethodAnnotations.html">ODM2Annotations.MethodAnnotations</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_ObservationAnnotations_fk_ObservationAnnotations_Annotations.html">fk_ObservationAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_ObservationAnnotations.html">ODM2Annotations.ObservationAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_ObservationAnnotations_fk_ObservationAnnotations_Observations.html">fk_ObservationAnnotations_Observations</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Annotations_ObservationAnnotations.html">ODM2Annotations.ObservationAnnotations</a></td><td>ResultID</td><td>ObservationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_VariableAnnotations_fk_VariableAnnotations_Annotations.html">fk_VariableAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_VariableAnnotations.html">ODM2Annotations.VariableAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_VariableAnnotations_fk_VariableAnnotations_Variables.html">fk_VariableAnnotations_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Annotations_VariableAnnotations.html">ODM2Annotations.VariableAnnotations</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_ActionPeople_fk_ActionPeople_Roles.html">fk_ActionPeople_Roles</a></td><td><a href="../tables/ODM2Core_Roles.html">ODM2Core.Roles</a></td><td><a href="../tables/ODM2Core_ActionPeople.html">ODM2Core.ActionPeople</a></td><td>RoleID</td><td>RoleID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_ActionPeople_fk_PersonRoles_Events.html">fk_PersonRoles_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_ActionPeople.html">ODM2Core.ActionPeople</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_ActionPeople_fk_PersonRoles_People.html">fk_PersonRoles_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Core_ActionPeople.html">ODM2Core.ActionPeople</a></td><td>PersonID</td><td>PersonID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Actions_fk_Actions_Directives.html">fk_Actions_Directives</a></td><td><a href="../tables/ODM2Core_Directives.html">ODM2Core.Directives</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td>DirectiveID</td><td>DirectiveID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Actions_fk_Events_Equipment.html">fk_Events_Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td>EquipmentID</td><td>EquipmentID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Actions_fk_Events_Features.html">fk_Events_Features</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Actions_fk_Events_Methods.html">fk_Events_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Actions_fk_Events_ParentChild.html">fk_Events_ParentChild</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td>ActionID</td><td>ParentActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_DataSetsResults_fk_DataSetsResultsSets_DataSets.html">fk_DataSetsResultsSets_DataSets</a></td><td><a href="../tables/ODM2Core_DataSets.html">ODM2Core.DataSets</a></td><td><a href="../tables/ODM2Core_DataSetsResults.html">ODM2Core.DataSetsResults</a></td><td>DataSetID</td><td>DataSetID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_DataSetsResults_fk_DataSetsResultsSets_ResultsSets.html">fk_DataSetsResultsSets_ResultsSets</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_DataSetsResults.html">ODM2Core.DataSetsResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Methods_fk_Methods_Organizations.html">fk_Methods_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td>OrganizationID</td><td>OrganizationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_OrganizationPeople_fk_OrganizationPeople_Organizations.html">fk_OrganizationPeople_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_OrganizationPeople.html">ODM2Core.OrganizationPeople</a></td><td>OrganizationID</td><td>OrganizationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_OrganizationPeople_fk_OrganizationPeople_People.html">fk_OrganizationPeople_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Core_OrganizationPeople.html">ODM2Core.OrganizationPeople</a></td><td>PersonID</td><td>PersonID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Organizations_fk_Organizations_Organizations.html">fk_Organizations_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td>OrganizationID</td><td>ParentOrganizationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_RelatedResults_fk_RelatedObservations_Observations_AreRelated.html">fk_RelatedObservations_Observations_AreRelated</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_RelatedResults.html">ODM2Core.RelatedResults</a></td><td>ResultID</td><td>RelatedResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_RelatedResults_fk_RelatedResultsSets_ResultsSets.html">fk_RelatedResultsSets_ResultsSets</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_RelatedResults.html">ODM2Core.RelatedResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_ResultsSets_Actions.html">fk_ResultsSets_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Results_fk_ResultsSets_QualityControlLevels.html">fk_ResultsSets_QualityControlLevels</a></td><td><a href="../tables/ODM2Core_QualityControlLevels.html">ODM2Core.QualityControlLevels</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>QualityControlLevelID</td><td>QualityControlLevelID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_ResultsSets_Units.html">fk_ResultsSets_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>UnitsID</td><td>UnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Results_fk_ResultsSets_Variables.html">fk_ResultsSets_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_SamplingFeatures_fk_SamplingFeatures_SpatialReferences.html">fk_SamplingFeatures_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationAction_Standards_fk_CalibrationAction_Standards_CalibrationActions.html">fk_CalibrationAction_Standards_CalibrationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationAction_Standards.html">ODM2Equipment.CalibrationAction_Standards</a></td><td>CalibrationActionID</td><td>CalibrationActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationAction_Standards_fk_CalibrationAction_Standards_CalibrationStandards.html">fk_CalibrationAction_Standards_CalibrationStandards</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandards.html">ODM2Equipment.CalibrationStandards</a></td><td><a href="../tables/ODM2Equipment_CalibrationAction_Standards.html">ODM2Equipment.CalibrationAction_Standards</a></td><td>CalibrationStandardID</td><td>CalibrationStandardID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationActions_fk_CalibrationActions_ConfigurationActions.html">fk_CalibrationActions_ConfigurationActions</a></td><td><a href="../tables/ODM2Equipment_ConfigurationActions.html">ODM2Equipment.ConfigurationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td>ConfigurationActionID</td><td>ConfigurationActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationActions_fk_Calibrations_Events.html">fk_Calibrations_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationEquations_fk_CalibrationEquations_CalibrationActions.html">fk_CalibrationEquations_CalibrationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationEquations.html">ODM2Equipment.CalibrationEquations</a></td><td>CalibrationActionID</td><td>CalibrationActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationEquations_fk_CalibrationEquations_InstrumentOutputVariables.html">fk_CalibrationEquations_InstrumentOutputVariables</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td><a href="../tables/ODM2Equipment_CalibrationEquations.html">ODM2Equipment.CalibrationEquations</a></td><td>InstrumentOutputVariableID</td><td>InstrumentOutputVariableID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationStandards_fk_CalibrationStandards_Organizations.html">fk_CalibrationStandards_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandards.html">ODM2Equipment.CalibrationStandards</a></td><td>OrganizationID</td><td>CalibrationStandardVendorID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationStandards_fk_CalibrationStandards_Specimen.html">fk_CalibrationStandards_Specimen</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandards.html">ODM2Equipment.CalibrationStandards</a></td><td>SpecimenID</td><td>SpecimenID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationStandardValues_fk_CalibrationStandardValues_CalibrationStandards.html">fk_CalibrationStandardValues_CalibrationStandards</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandards.html">ODM2Equipment.CalibrationStandards</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandardValues.html">ODM2Equipment.CalibrationStandardValues</a></td><td>CalibrationStandardID</td><td>CalibrationStandardID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationStandardValues_fk_CalibrationStandardValues_Units.html">fk_CalibrationStandardValues_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandardValues.html">ODM2Equipment.CalibrationStandardValues</a></td><td>UnitsID</td><td>UnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationStandardValues_fk_CalibrationStandardValues_Variables.html">fk_CalibrationStandardValues_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandardValues.html">ODM2Equipment.CalibrationStandardValues</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_ConfigurationActions_fk_ConfigurationEvents_Events.html">fk_ConfigurationEvents_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Equipment_ConfigurationActions.html">ODM2Equipment.ConfigurationActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_EquipmentModels.html">fk_Equipment_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>ModelID</td><td>ModelID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_Organizations.html">fk_Equipment_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>OrganizationID</td><td>EquipmentVendorID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_ParentChild.html">fk_Equipment_ParentChild</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>EquipmentID</td><td>ParentEquipmentID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_People.html">fk_Equipment_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>PersonID</td><td>EquipmentOwnerID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_EquipmentModels_fk_EquipmentModels_Organizations.html">fk_EquipmentModels_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td>OrganizationID</td><td>ModelManufacturerID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_ConfigurationEvents.html">fk_InstrumentOutputVariables_ConfigurationEvents</a></td><td><a href="../tables/ODM2Equipment_ConfigurationActions.html">ODM2Equipment.ConfigurationActions</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>ConfigurationActionID</td><td>ConfigurationActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_Units.html">fk_InstrumentOutputVariables_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>UnitsID</td><td>UnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_Variables.html">fk_InstrumentOutputVariables_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_MaintenenceActions_fk_MaintenenceActions_Actions.html">fk_MaintenenceActions_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Equipment_MaintenenceActions.html">ODM2Equipment.MaintenenceActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Extension_ExtensionProperties_fk_ExtensionProperties_Units.html">fk_ExtensionProperties_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Extension_ExtensionProperties.html">ODM2Extension.ExtensionProperties</a></td><td>UnitsID</td><td>PropertyUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Extension_MethodExtensionPropertyValues_fk_MethodExtensionPropertyValues_ExtensionProperties.html">fk_MethodExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2Extension_ExtensionProperties.html">ODM2Extension.ExtensionProperties</a></td><td><a href="../tables/ODM2Extension_MethodExtensionPropertyValues.html">ODM2Extension.MethodExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Extension_MethodExtensionPropertyValues_fk_MethodExtensionPropertyValues_Methods.html">fk_MethodExtensionPropertyValues_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Extension_MethodExtensionPropertyValues.html">ODM2Extension.MethodExtensionPropertyValues</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Extension_ObservationExtensionPropertyValues_fk_ObservationExtensionPropertyValues_ExtensionProperties.html">fk_ObservationExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2Extension_ExtensionProperties.html">ODM2Extension.ExtensionProperties</a></td><td><a href="../tables/ODM2Extension_ObservationExtensionPropertyValues.html">ODM2Extension.ObservationExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Extension_ObservationExtensionPropertyValues_fk_ObservationExtensionPropertyValues_Observations.html">fk_ObservationExtensionPropertyValues_Observations</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Extension_ObservationExtensionPropertyValues.html">ODM2Extension.ObservationExtensionPropertyValues</a></td><td>ResultID</td><td>ObservationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Extension_ResultsSetsExtensionPropertyValues_fk_ResultsSetsExtensionPropertyValues_ExtensionProperties.html">fk_ResultsSetsExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2Extension_ExtensionProperties.html">ODM2Extension.ExtensionProperties</a></td><td><a href="../tables/ODM2Extension_ResultsSetsExtensionPropertyValues.html">ODM2Extension.ResultsSetsExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Extension_ResultsSetsExtensionPropertyValues_fk_ResultsSetsExtensionPropertyValues_ResultsSets.html">fk_ResultsSetsExtensionPropertyValues_ResultsSets</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Extension_ResultsSetsExtensionPropertyValues.html">ODM2Extension.ResultsSetsExtensionPropertyValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Extension_VariableExtensionPropertyValues_fk_VariableExtensionPropertyValues_ExtensionProperties.html">fk_VariableExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2Extension_ExtensionProperties.html">ODM2Extension.ExtensionProperties</a></td><td><a href="../tables/ODM2Extension_VariableExtensionPropertyValues.html">ODM2Extension.VariableExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Extension_VariableExtensionPropertyValues_fk_VariableExtensionPropertyValues_Variables.html">fk_VariableExtensionPropertyValues_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Extension_VariableExtensionPropertyValues.html">ODM2Extension.VariableExtensionPropertyValues</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_InputResults_fk_InputObservation_ObservationProvenance.html">fk_InputObservation_ObservationProvenance</a></td><td><a href="../tables/ODM2Provenance_ResultProvenance.html">ODM2Provenance.ResultProvenance</a></td><td><a href="../tables/ODM2Provenance_InputResults.html">ODM2Provenance.InputResults</a></td><td>ResultProvenanceID</td><td>ResultProvenanceID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_InputResults_fk_InputObservation_Observations.html">fk_InputObservation_Observations</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_InputResults.html">ODM2Provenance.InputResults</a></td><td>ResultID</td><td>InputResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_ResultProvenance_fk_ObservationProvenance_Methods.html">fk_ObservationProvenance_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Provenance_ResultProvenance.html">ODM2Provenance.ResultProvenance</a></td><td>MethodID</td><td>ProcessMethodID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_ResultProvenance_fk_ObservationProvenance_Observations.html">fk_ObservationProvenance_Observations</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultProvenance.html">ODM2Provenance.ResultProvenance</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_ResultVersions_fk_ObservationVersions_Observations_Version.html">fk_ObservationVersions_Observations_Version</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultVersions.html">ODM2Provenance.ResultVersions</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_ResultVersions_fk_ObservationVersions_Observations_VersionOf.html">fk_ObservationVersions_Observations_VersionOf</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultVersions.html">ODM2Provenance.ResultVersions</a></td><td>ResultID</td><td>VersionOfResultsSetID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_ResultValues_fk_Values_Results.html">fk_Values_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_ResultValues.html">ODM2Results.ResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Samples_AnalysisBatchEvents_fk_AnalysisBatchEvents_CalibrationEvents.html">fk_AnalysisBatchEvents_CalibrationEvents</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td><a href="../tables/ODM2Samples_AnalysisBatchEvents.html">ODM2Samples.AnalysisBatchEvents</a></td><td>CalibrationActionID</td><td>CalibrationEventID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Samples_AnalysisBatchEvents_fk_AnalysisBatchEvents_ConfigurationEvents.html">fk_AnalysisBatchEvents_ConfigurationEvents</a></td><td><a href="../tables/ODM2Equipment_ConfigurationActions.html">ODM2Equipment.ConfigurationActions</a></td><td><a href="../tables/ODM2Samples_AnalysisBatchEvents.html">ODM2Samples.AnalysisBatchEvents</a></td><td>ConfigurationActionID</td><td>ConfigurationEventID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Samples_AnalysisBatchEvents_fk_AnalysisEvents_Events.html">fk_AnalysisEvents_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Samples_AnalysisBatchEvents.html">ODM2Samples.AnalysisBatchEvents</a></td><td>ActionID</td><td>EventID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Samples_SamplePreparationEvent_fk_SamplePreparationEvent_Events.html">fk_SamplePreparationEvent_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Samples_SamplePreparationEvent.html">ODM2Samples.SamplePreparationEvent</a></td><td>ActionID</td><td>EventID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_AlternateIDs_fk_LabCodes_SamplingFeatures.html">fk_LabCodes_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_AlternateIDs.html">ODM2SamplingFeatures.AlternateIDs</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_FeatureParents_fk_FeatureParents_Features.html">fk_FeatureParents_Features</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_FeatureParents.html">ODM2SamplingFeatures.FeatureParents</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_FeatureParents_fk_FeatureParents_FeaturesParent.html">fk_FeatureParents_FeaturesParent</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_FeatureParents.html">ODM2SamplingFeatures.FeatureParents</a></td><td>SamplingFeatureID</td><td>ParentFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Sites_fk_Sites_SamplingFeatures.html">fk_Sites_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_Sites.html">ODM2SamplingFeatures.Sites</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Specimens_fk_Samples_Features.html">fk_Samples_Features</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Sensors_BatchSampleLines_fk_BatchSampleLines_AnalysisBatchEvents.html">fk_BatchSampleLines_AnalysisBatchEvents</a></td><td><a href="../tables/ODM2Samples_AnalysisBatchEvents.html">ODM2Samples.AnalysisBatchEvents</a></td><td><a href="../tables/ODM2Sensors_BatchSampleLines.html">ODM2Sensors.BatchSampleLines</a></td><td>AnalysisBacthEventID</td><td>AnalysisBacthEventID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Sensors_DataLoggerFiles_fk_DataLoggerFiles_DeploymentEvents.html">fk_DataLoggerFiles_DeploymentEvents</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td><a href="../tables/ODM2Sensors_DataLoggerFiles.html">ODM2Sensors.DataLoggerFiles</a></td><td>DeploymentActionID</td><td>DeploymentActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Sensors_DeploymentActions_fk_DeploymentEvents_CalibrationEvents.html">fk_DeploymentEvents_CalibrationEvents</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td>CalibrationActionID</td><td>CalibrationActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Sensors_DeploymentActions_fk_DeploymentEvents_ConfigurationEvents.html">fk_DeploymentEvents_ConfigurationEvents</a></td><td><a href="../tables/ODM2Equipment_ConfigurationActions.html">ODM2Equipment.ConfigurationActions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td>ConfigurationActionID</td><td>ConfigurationActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Sensors_DeploymentActions_fk_DeploymentEvents_Events.html">fk_DeploymentEvents_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Sensors_Photos_fk_Photos_Events.html">fk_Photos_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Sensors_Photos.html">ODM2Sensors.Photos</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Sensors_SiteVisitActions_fk_SiteVisitEvents_Events.html">fk_SiteVisitEvents_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Sensors_SiteVisitActions.html">ODM2Sensors.SiteVisitActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+</table>
+</Body>
+</HTML>
