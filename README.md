@@ -11,4 +11,3 @@ View HTML based documentation of the ODM2 schema:
 
 ![ODM2 Schematic](/doc/images/odm2_schematic.jpg)
 
-Where is Jeff?
