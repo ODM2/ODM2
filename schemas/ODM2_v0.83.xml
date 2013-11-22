@@ -2508,15 +2508,6 @@ ProfileCoverages
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="332" y="403">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
-SpatialSamplingFeatures, in which "the value of a property varies 
-within the scope of the feature."  Therefore these SamplingFeatures 
-can be used to record Coverage results.</Note>
-      <Note bkCl="ffffffe6" x="16" y="9">See OGC O&amp;M documentation 
-for examples of different types of 
-SamplingPoints, SamplingCurves &amp;
-SamplingSurfaces and their respectively
-required attributes/metadata.</Note>
       <Note bkCl="ffffffe6" x="304" y="481">OGC O&amp;M documentation
 Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
 Sampling Model:
@@ -2538,6 +2529,15 @@ SamplingFeature, via FeatureParents</Note>
 relationships between any SamplingFeatures,
 including between Specimens and allowing
 composites (i.e. multiple parents).</Note>
+      <Note bkCl="ffffffe6" x="332" y="403">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
+SpatialSamplingFeatures, in which "the value of a property varies 
+within the scope of the feature."  Therefore these SamplingFeatures 
+can be used to record Coverage results.</Note>
+      <Note bkCl="ffffffe6" x="16" y="9">See OGC O&amp;M documentation 
+for examples of different types of 
+SamplingPoints, SamplingCurves &amp;
+SamplingSurfaces and their respectively
+required attributes/metadata.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2582,7 +2582,12 @@ composites (i.e. multiple parents).</Note>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentActions.fk_DeploymentEvents_Events"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.Photos.fk_Photos_Events"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.SiteVisitActions.fk_SiteVisitEvents_Events"/>
-    <Notes/>
+    <Notes>
+      <Note bkCl="ffffffe6" x="626" y="383">Can SensorDeployment be an ObservationAct,
+in which the Results table gets new rows 
+(one for each variable) but for which there are 
+not yet any data values?</Note>
+    </Notes>
     <Zones/>
   </Dgm>
   <RnmMgr NxRnmId="291">
@@ -3295,7 +3300,9 @@ composites (i.e. multiple parents).</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
