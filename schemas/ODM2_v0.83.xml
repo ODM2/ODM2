@@ -2378,6 +2378,17 @@ similar to ExtensionProperties?</Note>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
+      <Note bkCl="ffe3e4e0" x="983" y="299">* ResultTypeCV:
+Measurements
+CategoryObservations
+CountObservations
+TruthObservations
+TemporalObservations
+GeometryObservations
+PointCoverages
+TimeSeriesCoverages
+ProfileCoverages
+   etc</Note>
       <Note bkCl="ffffffe6" x="25" y="54">See OGC O&amp;M documentation for 
 definitions and specifications 
 regarding each of these
@@ -2412,17 +2423,6 @@ became available".  It's useful to conceptualize Results
 as a catalog of values. So, having an XYZT bounding box
 may be useful, though that's available
 from Actions and SamplingFeatures.</Note>
-      <Note bkCl="ffe3e4e0" x="983" y="299">* ResultTypeCV:
-Measurements
-CategoryObservations
-CountObservations
-TruthObservations
-TemporalObservations
-GeometryObservations
-PointCoverages
-TimeSeriesCoverages
-ProfileCoverages
-   etc</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2508,15 +2508,6 @@ ProfileCoverages
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="332" y="403">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
-SpatialSamplingFeatures, in which "the value of a property varies 
-within the scope of the feature."  Therefore these SamplingFeatures 
-can be used to record Coverage results.</Note>
-      <Note bkCl="ffffffe6" x="16" y="9">See OGC O&amp;M documentation 
-for examples of different types of 
-SamplingPoints, SamplingCurves &amp;
-SamplingSurfaces and their respectively
-required attributes/metadata.</Note>
       <Note bkCl="ffffffe6" x="304" y="481">OGC O&amp;M documentation
 Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
 Sampling Model:
@@ -2538,6 +2529,15 @@ SamplingFeature, via FeatureParents</Note>
 relationships between any SamplingFeatures,
 including between Specimens and allowing
 composites (i.e. multiple parents).</Note>
+      <Note bkCl="ffffffe6" x="332" y="403">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
+SpatialSamplingFeatures, in which "the value of a property varies 
+within the scope of the feature."  Therefore these SamplingFeatures 
+can be used to record Coverage results.</Note>
+      <Note bkCl="ffffffe6" x="16" y="9">See OGC O&amp;M documentation 
+for examples of different types of 
+SamplingPoints, SamplingCurves &amp;
+SamplingSurfaces and their respectively
+required attributes/metadata.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2565,7 +2565,7 @@ composites (i.e. multiple parents).</Note>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DataLoggerFiles" x="922" y="487"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DeploymentActions" x="572" y="487"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="355" y="258"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="983" y="256"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="947" y="198"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="341" y="19"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="663" y="14"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="ConfigurationActions" x="634" y="238"/>
@@ -2582,7 +2582,16 @@ composites (i.e. multiple parents).</Note>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentActions.fk_DeploymentEvents_Events"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.Photos.fk_Photos_Events"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.SiteVisitActions.fk_SiteVisitEvents_Events"/>
-    <Notes/>
+    <Notes>
+      <Note bkCl="ffffffe6" x="601" y="359">Can SensorDeployment be an ObservationAct,
+in which the Results table gets new rows 
+(one for each variable) but for which there are 
+not yet any data values?
+Or if ResultType = TimeSeries (or ActionType = Deploy and Observe),
+then  additional field are added 
+(similar to Specimens being a subclass of SamplingFeatures).</Note>
+      <Note bkCl="ffffffe6" x="968" y="612">Test note for GitHub.</Note>
+    </Notes>
     <Zones/>
   </Dgm>
   <RnmMgr NxRnmId="291">
@@ -3295,11 +3304,16 @@ composites (i.e. multiple parents).</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (10)</TreePath>
     <TreePath>/Diagrams (10)</TreePath>
+    <TreePath>/Diagrams (10)/ODM2SamplingFeatures</TreePath>
+    <TreePath>/Diagrams (10)/ODM2Sensors</TreePath>
   </TreePaths>
 </Db>
