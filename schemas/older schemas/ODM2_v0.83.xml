@@ -2378,6 +2378,19 @@ similar to ExtensionProperties?</Note>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="26" y="157">Complex Result? (Array Object)?
+Shown in O&amp;M.  Arrays are allowed
+in PostGreSQL, but not consistently in 
+all RDBMSs.
+
+Can an array (such as a spectrum) be
+accomodated by a coverage?
+</Note>
+      <Note bkCl="ffe3e4e0" x="654" y="109">O&amp;M ResultTime meaning: "the time when the result
+became available".  It's useful to conceptualize Results 
+as a catalog of values. So, having an XYZT bounding box
+may be useful, though that's available
+from Actions and SamplingFeatures.</Note>
       <Note bkCl="ffe3e4e0" x="983" y="299">* ResultTypeCV:
 Measurements
 CategoryObservations
@@ -2410,19 +2423,6 @@ common ones.</Note>
       <Note bkCl="ffe3e4e0" x="315" y="266">Values table may represent a
 Coverage or a "constant value"
 (which may be complex type)</Note>
-      <Note bkCl="ffffffe6" x="26" y="157">Complex Result? (Array Object)?
-Shown in O&amp;M.  Arrays are allowed
-in PostGreSQL, but not consistently in 
-all RDBMSs.
-
-Can an array (such as a spectrum) be
-accomodated by a coverage?
-</Note>
-      <Note bkCl="ffe3e4e0" x="654" y="109">O&amp;M ResultTime meaning: "the time when the result
-became available".  It's useful to conceptualize Results 
-as a catalog of values. So, having an XYZT bounding box
-may be useful, though that's available
-from Actions and SamplingFeatures.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2590,7 +2590,6 @@ not yet any data values?
 Or if ResultType = TimeSeries (or ActionType = Deploy and Observe),
 then  additional field are added 
 (similar to Specimens being a subclass of SamplingFeatures).</Note>
-      <Note bkCl="ffffffe6" x="968" y="612">Test note for GitHub.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -3304,16 +3303,11 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (10)</TreePath>
     <TreePath>/Diagrams (10)</TreePath>
-    <TreePath>/Diagrams (10)/ODM2SamplingFeatures</TreePath>
-    <TreePath>/Diagrams (10)/ODM2Sensors</TreePath>
   </TreePaths>
 </Db>
