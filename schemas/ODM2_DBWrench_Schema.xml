@@ -519,7 +519,7 @@
         <Cm>CV term describing the system from which the PersonUniqueID is derived</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonFirstName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>First name of the person</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonMiddleName" nu="1">
@@ -527,7 +527,7 @@
         <Cm>Middle name of the person</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonLastName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>Last name of the person</Cm>
       </Cl>
       <UniqueConstraints/>
@@ -2040,7 +2040,7 @@ single foreign key column.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2097,6 +2097,9 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="22" y="625">Secondary contact info 
+can be added as an 
+Extension property</Note>
       <Note bkCl="ffffffe6" x="1140" y="457">DataValues are not included in the Core
 to allow for Catalog implementations.
 Also, DataValues are stored in 
@@ -2133,9 +2136,6 @@ but, an Affiliation record must
 be created for each person because
 that is how people get linked to 
 actions.</Note>
-      <Note bkCl="ffffffe6" x="22" y="625">Secondary contact info 
-can be added as an 
-Extension property</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="286" x="534" y="164"/>
