@@ -14,7 +14,7 @@
         <Cm>Primary key.</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV for types of annotations.</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationCode" nu="1">
@@ -22,7 +22,7 @@
         <Cm>A short text code that identifies the annotation (e.g., "A' for "Approved data").</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationText" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Full text of the annotation.</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationDateTime" nu="1">
@@ -35,7 +35,13 @@
       </Cl>
       <Cl au="0" df="" nm="AnnotatorID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foregn key identifier for the person that created the annotation</Cm>
       </Cl>
+      <Fk deAc="3" nm="fk_Annotations_People" prLkCl="PersonID" upAc="3">
+        <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotatorID" prCl="PersonID"/>
+      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -43,9 +49,11 @@
       <TblOpts/>
       <Cl au="0" df="" nm="MethodID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the method being annotated</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the annotation added to the method</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_MethodAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
         <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
@@ -64,15 +72,19 @@
       <TblOpts/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the result being annotated</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the annotation added to the result</Cm>
       </Cl>
       <Cl au="0" df="" nm="BeginDateTime" nu="0">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Beginning date/time of the annotation</Cm>
       </Cl>
       <Cl au="0" df="" nm="EndDateTime" nu="0">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Ending date/time of the annotation</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
         <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
@@ -91,9 +103,11 @@
       <TblOpts/>
       <Cl au="0" df="" nm="ValueID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the result value being annotrated</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the annotation applied to the result value</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
         <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
@@ -112,9 +126,11 @@
       <TblOpts/>
       <Cl au="0" df="" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the variable being annotated</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the annotation added to the variable</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_VariableAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
         <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
@@ -141,14 +157,15 @@
       </Cl>
       <Cl au="0" df="" nm="AffiliationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of a person.</Cm>
+        <Cm>Foreign key identifier of a person</Cm>
       </Cl>
       <Cl au="0" df="" nm="IsActionLead" nu="0">
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Indicator of whether the affiliated person was the lead for the action</Cm>
       </Cl>
       <Cl au="0" df="" nm="RoleID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for a role played by a person in performing an action.</Cm>
+        <Cm>Foreign key identifier for a role played by a person in performing an action</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ActionPeople_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -177,7 +194,7 @@
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ActionTypeCV" nu="0">
-        <DT arr="0" ds="Char" en="" id="1" ln="64" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the type of action (e.g., observation, sample collection, sample analysis)</Cm>
       </Cl>
       <Cl au="0" df="" nm="BeginDateTime" nu="0">
@@ -213,11 +230,12 @@
         <Cm>Foreign key identifier for the directive under which the action was completed</Cm>
       </Cl>
       <Cl au="0" df="" nm="ActionNotes" nu="1">
-        <DT arr="0" ds="Char" en="" id="1" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text notes that accompany the action</Cm>
       </Cl>
       <Cl au="0" df="" nm="ParentActionID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Unique identifier of the action that is the parent of this action</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Actions_Directives" prLkCl="DirectiveID" upAc="3">
         <PrTb mn="0" nm="Directives" oe="1" sch="ODM2Core" zr="0"/>
@@ -253,6 +271,7 @@
       <Pk ClNs="AffiliationID" nm="pkAffiliations"/>
       <Cl au="1" df="" nm="AffiliationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primay key</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -279,15 +298,16 @@
         <Cm>The primary phone number of the person</Cm>
       </Cl>
       <Cl au="0" df="" nm="PrimaryEmail" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="30" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>The primary email address of the person</Cm>
       </Cl>
       <Cl au="0" df="" nm="PrimaryAddress" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>The primary mailing address of the person, including street, city, state, zip, and country</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonLink" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A URL for the website for a person</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Affiliations_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
@@ -315,23 +335,23 @@
         <Cm>A resolvable, globally unique identifier (e.g., DOI)</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetUniqueIDTypeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the system from which the OrganizationUniqueID is derived (e.g., DOI)</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>A short text code identifying the dataset</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetTitle" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A text title for the dataset</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetAbstract" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>A text abstract describing the dataset</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetTopicCategoryCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term(s) describing the </Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetCitation" nu="0">
@@ -374,7 +394,7 @@
         <Cm>Unique identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DirectiveDescription" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the directive under which the action was taken.</Cm>
       </Cl>
       <UniqueConstraints/>
@@ -386,23 +406,26 @@
       <Pk ClNs="IdentifierID" nm="pkIdentifiers"/>
       <Cl au="0" df="" nm="IdentifierID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="IdentifierType" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Refers to the name of the ODM2 table where the Identifier is used.</Cm>
       </Cl>
       <Cl au="0" df="" nm="IdentifierSystem" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="64" sc="null" sg="1" un="0"/>
-        <Cm>i.e. IGSN, SWRC Sample Number, etc. </Cm>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Defines the identifier system used (i.e. IGSN, SWRC Sample Number, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="IdentifierSystemOrganizationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign Key identifier for the organization affiliated with the identifier system</Cm>
       </Cl>
       <Cl au="0" df="" nm="IdentifierCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="64" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>??????</Cm>
       </Cl>
       <Cl au="0" df="" nm="IdentifierURN" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="64" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>i.e.  urn:ioos:station:wmo:41001, urn:ioos:sensor:wmo:41001:baro1, urn:igsn:specimen:stroud:14567, urn:odm2:staff:stroud:aauf23</Cm>
       </Cl>
       <UniqueConstraints/>
@@ -421,7 +444,7 @@
         <Cm>A resolvable, globally unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodUniqueIDTypeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the system from which the MethodUniqueID is derived</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodCode" nu="0">
@@ -433,11 +456,11 @@
         <Cm>Full text name of the method</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Full text description of the method</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the type of method (e.g., sample collection, laboratory analytical, field, sample prepratation, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationID" nu="1">
@@ -446,6 +469,7 @@
       </Cl>
       <Cl au="0" df="" nm="MethodLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A URL to a full description of the method</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Methods_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
@@ -468,11 +492,11 @@
         <Cm>A resolvable, globally unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationUniqueIDTypeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the system from which the OrganizationUniqueID is derived</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>A text code identifying the Organization (e.g., USGS)</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationName" nu="0">
@@ -484,15 +508,16 @@
         <Cm>A text description of the organization</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term defining the type of organization (e.g., government agency, university, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationLink" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A URL for the organization's website</Cm>
       </Cl>
       <Cl au="0" df="" nm="ParentOrganizationID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the parent organization of the current organization</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Organizations_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
@@ -515,19 +540,19 @@
         <Cm>A resolvable, globally unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonUniqueIDTypeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the system from which the PersonUniqueID is derived</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonFirstName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>First name of the person</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonMiddleName" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Middle name of the person</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonLastName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Last name of the person</Cm>
       </Cl>
       <UniqueConstraints/>
@@ -551,6 +576,7 @@
       </Cl>
       <Cl au="0" df="" nm="Explanation" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text explanation of the quality control level</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -568,6 +594,7 @@
       </Cl>
       <Cl au="0" df="" nm="RelationshipRole" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the relationship shared by two results</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_RelatedResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -588,12 +615,12 @@
       <Cm>Describes the results of observation actions (e.g., groups of one or more numeric data values that result from an observation action)</Cm>
       <TblOpts/>
       <Pk ClNs="ResultID" nm="pkResults"/>
-      <Cl au="1" df="" nm="ResultID" nu="0">
+      <Cl au="1" df="" nm="ResultID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the result type (e.g., time series, measurement, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
@@ -613,7 +640,7 @@
         <Cm>Foreign key identifier for the QualityControlLevel of the result</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultDateTime" nu="1">
-        <DT arr="0" ds="Date" en="" id="91" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Date and time at which the result became available (could be used as analysis time for samples)</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultDateTimeUTCOffset" nu="1">
@@ -629,11 +656,11 @@
         <Cm>UTCOffset of ValidDateTime</Cm>
       </Cl>
       <Cl au="0" df="" nm="StatusCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Status of the result (e.g., finished, ongoing, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="SampledMediumCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term defining the environmental medium that the result represents (e.g., air, soil, water)</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueCount" nu="0">
@@ -641,7 +668,7 @@
         <Cm>Number of data values contained within the result</Cm>
       </Cl>
       <Cl au="0" df="" nm="IntendedObservationSpacing" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Intended temporal spacing of the observations in the result</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Results_Actions" prLkCl="ActionID" upAc="3">
@@ -673,9 +700,11 @@
       <Pk ClNs="RoleID" nm="pkRoles"/>
       <Cl au="1" df="" nm="RoleID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key</Cm>
       </Cl>
       <Cl au="0" df="" nm="RoleDescription" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the role played by an affiliated person</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -689,7 +718,7 @@
         <Cm>Primary key.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term descripting the type of sampling feature.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureUniqueID" nu="1">
@@ -697,7 +726,7 @@
         <Cm>A resolvable, globally unique ID, like IGSN; could be URN's</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureUniqueIDTypeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the name of the system from which the unique ID was derived</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
@@ -729,11 +758,12 @@
         <Cm>Text name for the unit</Cm>
       </Cl>
       <Cl au="0" df="" nm="UnitsTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term that defines the unit type</Cm>
       </Cl>
       <Cl au="0" df="" nm="UnitsAbbreviation" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Text abbreviation for the unit</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -743,30 +773,39 @@
       <Pk ClNs="VariableID" nm="pkVariables"/>
       <Cl au="1" df="" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primay key</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Unique text code for the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableNameCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term for the variable name</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableDefinition" nu="1">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text definition of the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term defining the variable type</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpeciationCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term defining the spciation of the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term defining the value type for the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term defining the data type for the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="NoDataValue" nu="0">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>No data value for the variable</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -780,23 +819,23 @@
       <Pk ClNs="TermID" nm="pkCVTerms"/>
       <Cl au="0" df="" nm="TermID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key.</Cm>
+        <Cm>Primary key</Cm>
       </Cl>
       <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term.</Cm>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Definition of term.</Cm>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Definition of term</Cm>
       </Cl>
       <Cl au="0" df="" nm="ODMVocabulary" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Name of the ODM controlled vocabulary to which the term belongs.</Cm>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Name of the ODM controlled vocabulary to which the term belongs</Cm>
       </Cl>
       <Cl au="0" df="" nm="SourceVocabulary" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Name and/or description of the source vocabulary from which the term was derived.</Cm>
+        <Cm>Name and/or description of the source vocabulary from which the term was derived</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -910,7 +949,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="CalibrationStandardTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="CalibrationStandardLotCode" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
@@ -922,7 +961,7 @@
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="CalibrationStandardCertificateLink" nu="1">
-        <DT arr="0" ds="Char" en="" id="1" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="Char" en="" id="1" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_CalibrationStandards_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
@@ -995,7 +1034,8 @@
         <Cm>Foreign key identifier of the Action that is the configuration action</Cm>
       </Cl>
       <Cl au="0" df="" nm="ConfigurationFilePath" nu="1">
-        <DT arr="0" ds="Char" en="" id="1" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>File path to a file containing information about the configuration</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ConfigurationActions_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -1014,15 +1054,15 @@
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="EquipmentCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="16" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>A text code that identifies the piece of equipment</Cm>
       </Cl>
       <Cl au="0" df="" nm="EquipmentName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A text name for the piece of equipment</Cm>
       </Cl>
       <Cl au="0" df="" nm="EquipmentTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the equipment type (e.g., sensor, datalogger, solar panel, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelID" nu="0">
@@ -1105,15 +1145,15 @@
         <Cm>A part number for the equipment model</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text name of the equipment model</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the equipment model</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelNotes" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text notes that go with the equipment model</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelSpecificationsFile" nu="1">
@@ -1157,7 +1197,8 @@
         <Cm>Foreign key identifier for the units of the instrument output variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="OutputFileColumnLabel" nu="1">
-        <DT arr="0" ds="Char" en="" id="1" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Header label of the datalogger file output column</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_InstrumentOutputVariables_ConfigurationActions" prLkCl="ConfigurationActionID" upAc="3">
         <PrTb mn="0" nm="ConfigurationActions" oe="1" sch="ODM2Equipment" zr="0"/>
@@ -1181,7 +1222,7 @@
       <Cm>Describes equipment maintenance actions</Cm>
       <TblOpts/>
       <Pk ClNs="MaintenanceActionID" nm="pkMaintenenceActions"/>
-      <Cl au="1" df="" nm="MaintenanceActionID" nu="0">
+      <Cl au="1" df="" nm="MaintenanceActionID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
@@ -1194,7 +1235,8 @@
         <Cm>A boolean indicator of whether the maintenance action is a factory service</Cm>
       </Cl>
       <Cl au="0" df="" nm="FactoryServiceCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>A text code assigned by the factory that identifies the service</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_MaintenenceActions_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -1216,15 +1258,15 @@
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text name of the extension property</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the extension property</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyDataTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term specifying the data type of the property value</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyUnitsID" nu="1">
@@ -1252,6 +1294,7 @@
       </Cl>
       <Cl au="0" df="" nm="PropertyValue" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text or numeric value of the extension property</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_MethodExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
         <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
@@ -1266,31 +1309,7 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="ObservationExtensionPropertyValues">
-      <TblOpts/>
-      <Cl au="0" df="" nm="ObservationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="PropertyID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="PropertyValue" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_ObservationExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
-        <CdTb mn="1" nm="ObservationExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
-        <ClPr cdCl="PropertyID" prCl="PropertyID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ObservationExtensionPropertyValues_Observations" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ObservationExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
-        <ClPr cdCl="ObservationID" prCl="ResultID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="ResultsSetsExtensionPropertyValues">
+    <Tbl UsSo="1" nm="ResultsExtensionPropertyValues">
       <Cm>Links extension properties to a Result</Cm>
       <TblOpts/>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -1302,16 +1321,17 @@
         <Cm>Foreign key identifier for the extension propery</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyValue" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text or numeric value of the extension property</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultsSetsExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
         <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
-        <CdTb mn="1" nm="ResultsSetsExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ResultsSetsExtensionPropertyValues_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultsSetsExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1321,12 +1341,15 @@
       <TblOpts/>
       <Cl au="0" df="" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the variable being extended</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the extension property being applied to the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyValue" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text or numeric value of the extension property for the variable</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_VariableExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
         <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
@@ -1430,11 +1453,12 @@
         <Cm>Text code identifying the version</Cm>
       </Cl>
       <Cl au="0" df="" nm="VersionDefinition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text definition of the version</Cm>
       </Cl>
       <Cl au="0" df="" nm="VersionExplanation" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>A text explanation of the version</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ObservationVersions_Observations_VersionOf" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -1460,7 +1484,7 @@
         <Cm>Primary key</Cm>
       </Cl>
       <Cl au="0" df="" nm="OffsetOriginDescription" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Description of the origin of the coordinate system for the X, Y, and Z coordinates that specify the offset from the sampilng feature.</Cm>
       </Cl>
       <Cl au="0" df="" nm="OffsetCoordinateUnitsID" nu="0">
@@ -1488,7 +1512,8 @@
         <Cm>Foreign key identifier of the Result containing the data value</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataValue" nu="0">
-        <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Numeric data value of the result</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueDateTime" nu="0">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
@@ -1496,34 +1521,39 @@
       </Cl>
       <Cl au="0" df="" nm="ValueDateTimeUTCOffset" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>UTC offset of the date/time associated with the Result value</Cm>
       </Cl>
       <Cl au="0" df="" nm="OffsetOriginID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the offset origin</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueXLocation" nu="1">
-        <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>X coordinate of the value offset with respect to the offset origin</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueYLocation" nu="1">
-        <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Y coordinate of the value offset with respect to the offset origin</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueZLocation" nu="1">
-        <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Z coordinate of the value offset with respect to the offset origin</Cm>
       </Cl>
       <Cl au="0" df="" nm="CensorCodeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term specifying whether the result is censored or not (e.g., below a detection limit)</Cm>
       </Cl>
       <Cl au="0" df="" nm="QualityCodeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>CV term </Cm>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term specifying the quality of the result value</Cm>
       </Cl>
       <Cl au="0" df="" nm="AggregationDuration" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Could be over Z (profile) or T (timeseries)</Cm>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Description of the time support of the result value</Cm>
       </Cl>
       <Cl au="0" df="" nm="InterpolationTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Could be over Z (profile) or T (timeseries)</Cm>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term describing the type of aggregation or interpolation that does done over the AggregationDuration</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultValues_OffsetOrigins" prLkCl="OffsetOriginID" upAc="3">
         <PrTb mn="0" nm="OffsetOrigins" oe="1" sch="ODM2Results" zr="0"/>
@@ -1581,6 +1611,38 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="BatchSampleLines">
+      <Cm>Describes sample analysis batch sample lines</Cm>
+      <TblOpts/>
+      <Pk ClNs="BatchSampleLineID" nm="pkBatchSampleLines"/>
+      <Cl au="1" df="" nm="BatchSampleLineID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnalysisBacthActionID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SampleID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnalysisBatchActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="BatchLineNumber" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="BatchLineLabel" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_BatchSampleLines_AnalysisBatchActions" prLkCl="AnalysisBacthActionID" upAc="3">
+        <PrTb mn="0" nm="AnalysisBatchActions" oe="1" sch="ODM2Samples" zr="0"/>
+        <CdTb mn="1" nm="BatchSampleLines" oe="0" sch="ODM2Samples" zr="1"/>
+        <ClPr cdCl="AnalysisBacthActionID" prCl="AnalysisBacthActionID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Sensors" stB="BatchSampleLines"/>
+      </SchTrHis>
+    </Tbl>
     <Tbl UsSo="1" nm="SamplePreparationAction">
       <Cm>Describes sample preparation events</Cm>
       <TblOpts/>
@@ -1614,7 +1676,7 @@
         <Cm>Foreign key identifier for the Sampling Feature to which the alterative ID applies</Cm>
       </Cl>
       <Cl au="0" df="" nm="AlternateCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>Text code of the alternative identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="AlternateCodeDescription" nu="0">
@@ -1645,11 +1707,12 @@
         <Cm>Foreign key identifier of a Sampling Feature that is the parent of the current Sampling Feature</Cm>
       </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A text description of the type of relationship among the Sampling Features</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpatialOffsetID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of a spatial offset from the feature parent</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_FeatureParents_Features" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -1708,11 +1771,12 @@
         <Cm>The elevation of the site in meters above some vertical datum</Cm>
       </Cl>
       <Cl au="0" df="" nm="VerticalDatumCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A CV term describing the vertical datum to which the site elevation is referenced</Cm>
       </Cl>
       <Cl au="0" df="" nm="SiteTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A CV term describing the site type</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Sites_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -1730,7 +1794,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="SpatialOffsetTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="64" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="Offset1Value" nu="0">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
@@ -1748,7 +1812,7 @@
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="Offset3UnitID" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1789,11 +1853,11 @@
         <Cm>Foreign key identifier for the Sampling Feature that is the specimen</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpecimenUniqueID" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpecimenUniqueIDTypeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the system from which the SpecimentUniqueID is deriv</Cm>
       </Cl>
       <Cl au="0" df="" nm="IsFieldSpecimen" nu="0">
@@ -1801,11 +1865,12 @@
         <Cm>A boolean indicating whether the speciment was collected in the field</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpecimenTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A CV term defining the type of speciment (e.g., aquatic sample, core, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpecimenMediumCV" nu="0">
-        <DT arr="0" ds="Char" en="" id="1" ln="20" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A CV term defining the medium of the specimen</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Samples_Features" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -1818,36 +1883,6 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about sensor deployment and management for in situ data." nm="ODM2Sensors">
-    <Tbl UsSo="1" nm="BatchSampleLines">
-      <Cm>Describes sample analysis batch sample lines</Cm>
-      <TblOpts/>
-      <Pk ClNs="BatchSampleLineID" nm="pkBatchSampleLines"/>
-      <Cl au="1" df="" nm="BatchSampleLineID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="AnalysisBacthActionID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="SampleID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="AnalysisBatchActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="BatchLineNumber" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="BatchLineLabel" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_BatchSampleLines_AnalysisBatchActions" prLkCl="AnalysisBacthActionID" upAc="3">
-        <PrTb mn="0" nm="AnalysisBatchActions" oe="1" sch="ODM2Samples" zr="0"/>
-        <CdTb mn="1" nm="BatchSampleLines" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="AnalysisBacthActionID" prCl="AnalysisBacthActionID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="DataLoggerFiles">
       <Cm>Destibes datalogger files created by a deployment action</Cm>
       <TblOpts/>
@@ -1865,7 +1900,8 @@
         <Cm>File path to the datalogger file</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataLoggerOutputFileDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the datalogger file</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_DataLoggerFiles_DeploymentEvents" prLkCl="DeploymentActionID" upAc="3">
         <PrTb mn="0" nm="DeploymentActions" oe="1" sch="ODM2Sensors" zr="0"/>
@@ -1881,7 +1917,7 @@
       <Cm>Describes actions that are deployment events</Cm>
       <TblOpts/>
       <Pk ClNs="DeploymentActionID" nm="pkDeploymentActions"/>
-      <Cl au="1" df="" nm="DeploymentActionID" nu="0">
+      <Cl au="1" df="" nm="DeploymentActionID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier for the deployment </Cm>
       </Cl>
@@ -1890,11 +1926,11 @@
         <Cm>Foreign key identifer for the Action that is the deployment</Cm>
       </Cl>
       <Cl au="0" df="" nm="DeploymentTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term that describes the type of the deployment</Cm>
       </Cl>
       <Cl au="0" df="" nm="DeploymentDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>A text description of the deployment</Cm>
       </Cl>
       <Cl au="0" df="" nm="ConfigurationActionID" nu="0">
@@ -1910,11 +1946,12 @@
         <Cm>Foreign key idenfier for the SpatialOffset of the deployment</Cm>
       </Cl>
       <Cl au="0" df="" nm="DeploymentNotes" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text notes describing the deployment</Cm>
       </Cl>
       <Cl au="0" df="" nm="DeploymentSchematic" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>File path of of a file containing a schematic of the deployment.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_DeploymentEvents_CalibrationEvents" prLkCl="CalibrationActionID" upAc="3">
         <PrTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="0"/>
@@ -1948,11 +1985,11 @@
         <Cm>Foreign key identifier for the Action with which the photo is associated</Cm>
       </Cl>
       <Cl au="0" df="" nm="PhotoFilePath" nu="0">
-        <DT arr="0" ds="Char" en="" id="1" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File name, path, or URL of the photo file</Cm>
       </Cl>
       <Cl au="0" df="" nm="PhotoDescription" nu="1">
-        <DT arr="0" ds="Char" en="" id="1" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the photograph</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Photos_Events" prLkCl="ActionID" upAc="3">
@@ -1975,7 +2012,7 @@
         <Cm>Foreign key identifier for the Action that is the Site Visit</Cm>
       </Cl>
       <Cl au="0" df="" nm="SiteVisitEnvironmentalObservations" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the environmental conditions at the site when it was visited</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SiteVisitEvents_Events" prLkCl="ActionID" upAc="3">
@@ -2040,7 +2077,7 @@ single foreign key column.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2076,7 +2113,7 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1181" y="150"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1184" y="305"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1190" y="379"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Identifiers" x="1148" y="812"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Identifiers" x="1325" y="708"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
@@ -2097,6 +2134,12 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="386" y="639">A person does not need to be 
+associated with an Organization,
+but, an Affiliation record must
+be created for each person because
+that is how people get linked to 
+actions.</Note>
       <Note bkCl="ffffffe6" x="22" y="625">Secondary contact info 
 can be added as an 
 Extension property</Note>
@@ -2130,12 +2173,6 @@ ObservationActs from ResultsSets:
 1. Allows Results for many Variables
     from each ObservationAct 
 2. Allows for other ActionTypes</Note>
-      <Note bkCl="ffffffe6" x="386" y="639">A person does not need to be 
-associated with an Organization,
-but, an Affiliation record must
-be created for each person because
-that is how people get linked to 
-actions.</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="286" x="534" y="164"/>
@@ -2294,18 +2331,23 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ExtensionProperties" x="43" y="93"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="MethodExtensionPropertyValues" x="16" y="225"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="64" y="332"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="407" y="325"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ResultsSetsExtensionPropertyValues" x="401" y="222"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Identifiers" x="850" y="222"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ExtensionProperties" x="342" y="68"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="MethodExtensionPropertyValues" x="395" y="249"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="391" y="364"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="850" y="378"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ResultsExtensionPropertyValues" x="827" y="239"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Identifiers" x="1233" y="140"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="VariableExtensionPropertyValues" x="0" y="263"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="87" y="518"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
     <FkGl bkCl="ff000000" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsSetsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsSetsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extension.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extension.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_Variables"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="861" y="152">Can Identifiers be implemented in a way
+      <Note bkCl="ffffffe6" x="1229" y="71">Can Identifiers be implemented in a way
 similar to ExtensionProperties?</Note>
     </Notes>
     <Zones/>
@@ -2455,7 +2497,7 @@ from Actions and SamplingFeatures.</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="48" y="169"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="161" y="70"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="604" y="333"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Sensors" tbl="BatchSampleLines" x="937" y="569"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Samples" tbl="BatchSampleLines" x="937" y="569"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Samples" tbl="SamplePreparationAction" x="285" y="629"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
@@ -2464,11 +2506,11 @@ from Actions and SamplingFeatures.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Samples.AnalysisBatchActions.fk_AnalysisBatchActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Samples.BatchSampleLines.fk_BatchSampleLines_AnalysisBatchActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Samples.SamplePreparationAction.fk_SamplePreparationEvent_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.BatchSampleLines.fk_BatchSampleLines_AnalysisBatchActions"/>
     <Notes/>
     <Zones/>
   </Dgm>
@@ -2593,7 +2635,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="291">
+  <RnmMgr NxRnmId="294">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -2840,7 +2882,7 @@ then  additional field are added
       <Rnm id="195" nNm="ODM2Results" oNm="ODM2ResultsSets"/>
       <Rnm id="91" nNm="ODM2ResultsSets" oNm="ODM2Observations"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultsSetsExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultsExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
       <Rnm id="252" nNm="ResultID" oNm="ResultsSetID"/>
       <Rnm id="92" nNm="ResultsSetID" oNm="ResultsSetsID"/>
     </RnmCh>
@@ -3286,6 +3328,12 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="BatchSampleLines" SupCls="Schema" SupNme="ODM2Sensors">
       <Rnm id="290" nNm="AnalysisBatchActionID" oNm="AnalysisBatchEventID"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ObservationExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
+      <Rnm id="292" nNm="ResultID" oNm="ObservationID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Extension" SupCls="" SupNme="">
+      <Rnm id="293" nNm="ResultsExtensionPropertyValues" oNm="ResultsSetsExtensionPropertyValues"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3303,7 +3351,9 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Samples" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extension" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
