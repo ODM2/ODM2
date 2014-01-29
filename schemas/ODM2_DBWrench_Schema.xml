@@ -2173,9 +2173,6 @@ ObservationActs from ResultsSets:
 1. Allows Results for many Variables
     from each ObservationAct 
 2. Allows for other ActionTypes</Note>
-      <Note bkCl="ffffffe6" x="1424" y="154">DataSets -- suggestions from IEDA:
-- Use Dublin Core ISO metadata standard
-- Look at DataCite.org</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="286" x="534" y="164"/>
@@ -3354,10 +3351,9 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Samples" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extension" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Samples" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
