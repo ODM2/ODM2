@@ -322,33 +322,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="DataSetExternalIdentifers">
-      <TblOpts/>
-      <Cl au="0" df="" nm="DataSetID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentiferSystemID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="DataSetExternalIdentifer" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="DataSetExternalIdentiferURN" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_DataSet_ExternalIdentifiers" prLkCl="DataSetID" upAc="3">
-        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataSetExternalIdentifers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DataSetID" prCl="DataSetID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_DataSetIdentifiers_IdentiferSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
-        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataSetExternalIdentifers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ExternalIdentiferSystemID" prCl="ExternalIdentifierSystemID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="DataSets">
       <Cm>Describes groupings of observation results that can be considered "datasets"</Cm>
       <TblOpts/>
@@ -416,58 +389,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the directive under which the action was taken.</Cm>
       </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="ExternalIdentifierSystems">
-      <Cm>A single table for connecting various primary keys with points to outside systems.</Cm>
-      <TblOpts/>
-      <Pk ClNs="ExternalIdentifierSystemID" nm="pkExternalIdentifierSystems"/>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Defines the identifier system used (i.e. IGSN, SWRC Sample Number, etc.)</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="IdentifierSystemOrganizationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign Key identifier for the organization affiliated with the identifier system</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemURNresolverURL" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="MethodExternalIdentifiers">
-      <TblOpts/>
-      <Cl au="0" df="" nm="MethodID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="MethodExternalIdentifier" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="MethodExternalIdentifierURN" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_MethodIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
-        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="MethodExternalIdentifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Methods_ExternalIdentifiers" prLkCl="MethodID" upAc="3">
-        <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="MethodExternalIdentifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="MethodID" prCl="MethodID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -571,37 +492,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Last name of the person</Cm>
       </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="PersonExternalIdentifiers">
-      <Cm>Cross reference "linking" table to allow many to many </Cm>
-      <TblOpts/>
-      <Cl au="0" df="" nm="PersonID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign Key to People table</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="PersonExternalIdentifier" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The actual identifier string/code (i.e. the person's social security number)</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="PersonExternalIdenifierURN" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Uniform Resource Name (URN) is a persistent, location-independent identifier for an online resource that follows the following scheme: i.e. urn:ioos:station:wmo:41001, urn:ioos:sensor:wmo:41001:baro1, urn:igsn:specimen:stroud:14567, urn:odm2:staff:stroud:aauf23</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_PersonIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
-        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="PersonExternalIdentifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_People_ExternalIdentifiers" prLkCl="PersonID" upAc="3">
-        <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="PersonExternalIdentifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="PersonID" prCl="PersonID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -756,34 +646,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="SamplingFeatureExternalIdentifiers">
-      <TblOpts/>
-      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureExternalIdentifier" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID, like IGSN; could be URN</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureExternalIdentiferURN" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
-        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SamplingFeatureExternalIdentifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SampingFeatures_ExternalIdentifiers" prLkCl="SamplingFeatureID" upAc="3">
-        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SamplingFeatureExternalIdentifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="SamplingFeatures">
       <Cm>Describes the sampling features on which observations are made.</Cm>
       <TblOpts/>
@@ -832,33 +694,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>Text abbreviation for the unit</Cm>
       </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="VariableExternalIdentifiers">
-      <TblOpts/>
-      <Cl au="0" df="" nm="VariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="VariableExternalIdentifer" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="VariableExternalIdentifierURN" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_MethodExternalIdentifier_Systems" prLkCl="VariableID" upAc="3">
-        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="VariableExternalIdentifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="VariableID" prCl="VariableID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Variable_ExternalIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
-        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="VariableExternalIdentifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -1457,6 +1292,187 @@
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
+    </Tbl>
+    <CustomTypes/>
+  </Sch>
+  <Sch Cm="" nm="ODM2ExternalIdentifiers">
+    <Tbl UsSo="1" nm="DataSetExternalIdentifers">
+      <TblOpts/>
+      <Cl au="0" df="" nm="DataSetID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentiferSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DataSetExternalIdentifer" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DataSetExternalIdentiferURN" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_DataSet_ExternalIdentifiers" prLkCl="DataSetID" upAc="3">
+        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataSetExternalIdentifers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="DataSetID" prCl="DataSetID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_DataSetIdentifiers_IdentiferSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
+        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
+        <CdTb mn="1" nm="DataSetExternalIdentifers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="ExternalIdentiferSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="DataSetExternalIdentifers"/>
+        <StPr stA="ODM2Annotations" stB="DataSetExternalIdentifers"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="ExternalIdentifierSystems">
+      <Cm>A single table for connecting various primary keys with points to outside systems.</Cm>
+      <TblOpts/>
+      <Pk ClNs="ExternalIdentifierSystemID" nm="pkExternalIdentifierSystems"/>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemName" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Defines the identifier system used (i.e. IGSN, SWRC Sample Number, etc.)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="IdentifierSystemOrganizationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign Key identifier for the organization affiliated with the identifier system</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemURNresolverURL" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="ExternalIdentifierSystems"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="MethodExternalIdentifiers">
+      <TblOpts/>
+      <Cl au="0" df="" nm="MethodID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="MethodExternalIdentifier" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="MethodExternalIdentifierURN" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_MethodIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
+        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
+        <CdTb mn="1" nm="MethodExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Methods_ExternalIdentifiers" prLkCl="MethodID" upAc="3">
+        <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="MethodExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="MethodID" prCl="MethodID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="MethodExternalIdentifiers"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="PersonExternalIdentifiers">
+      <Cm>Cross reference "linking" table to allow many to many </Cm>
+      <TblOpts/>
+      <Cl au="0" df="" nm="PersonID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign Key to People table</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PersonExternalIdentifier" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The actual identifier string/code (i.e. the person's social security number)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="PersonExternalIdenifierURN" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Uniform Resource Name (URN) is a persistent, location-independent identifier for an online resource that follows the following scheme: i.e. urn:ioos:station:wmo:41001, urn:ioos:sensor:wmo:41001:baro1, urn:igsn:specimen:stroud:14567, urn:odm2:staff:stroud:aauf23</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_PersonIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
+        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
+        <CdTb mn="1" nm="PersonExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_People_ExternalIdentifiers" prLkCl="PersonID" upAc="3">
+        <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="PersonExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="PersonID" prCl="PersonID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="PersonExternalIdentifiers"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="SamplingFeatureExternalIdentifiers">
+      <TblOpts/>
+      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureExternalIdentifier" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A resolvable, globally unique ID, like IGSN; could be URN</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureExternalIdentiferURN" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
+        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
+        <CdTb mn="1" nm="SamplingFeatureExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SampingFeatures_ExternalIdentifiers" prLkCl="SamplingFeatureID" upAc="3">
+        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="SamplingFeatureExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="SamplingFeatureExternalIdentifiers"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="VariableExternalIdentifiers">
+      <TblOpts/>
+      <Cl au="0" df="" nm="VariableID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="VariableExternalIdentifer" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="VariableExternalIdentifierURN" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_MethodExternalIdentifier_Systems" prLkCl="VariableID" upAc="3">
+        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="VariableExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="VariableID" prCl="VariableID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Variable_ExternalIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
+        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
+        <CdTb mn="1" nm="VariableExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="VariableExternalIdentifiers"/>
+      </SchTrHis>
     </Tbl>
     <CustomTypes/>
   </Sch>
@@ -2147,7 +2163,7 @@ single foreign key column.</Note>
       </VbCfg>
     </RnCf>
     <DiaProps>
-      <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
+      <Show AllCols="1" FkCols="1" FkNms="0" PkCols="1"/>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
@@ -2167,12 +2183,6 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1181" y="150"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1184" y="305"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1190" y="379"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ExternalIdentifierSystems" x="555" y="952"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="PersonExternalIdentifiers" x="2" y="777"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatureExternalIdentifiers" x="286" y="779"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="MethodExternalIdentifiers" x="630" y="779"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="VariableExternalIdentifiers" x="915" y="778"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetExternalIdentifers" x="1205" y="778"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
@@ -2182,26 +2192,16 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetExternalIdentifers.fk_DataSet_ExternalIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetExternalIdentifers.fk_DataSetIdentifiers_IdentiferSystems"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.MethodExternalIdentifiers.fk_Methods_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.PersonExternalIdentifiers.fk_ExternalIdentifierSystems_PersonIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.PersonExternalIdentifiers.fk_People_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatureExternalIdentifiers.fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatureExternalIdentifiers.fk_SampingFeatures_ExternalIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.VariableExternalIdentifiers.fk_MethodExternalIdentifier_Systems"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.VariableExternalIdentifiers.fk_Variable_ExternalIdentifiers"/>
     <Notes>
       <Note bkCl="ffffffe6" x="750" y="55">Reasons for separating
 ObservationActs from ResultsSets:
@@ -2405,7 +2405,7 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="391" y="364"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="850" y="378"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ResultsExtensionPropertyValues" x="827" y="239"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ExternalIdentifierSystems" x="1233" y="140"/>
+    <TbGl bkCl="ffff9999" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="1233" y="140"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="VariableExtensionPropertyValues" x="0" y="263"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="87" y="518"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
@@ -2419,6 +2419,51 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
       <Note bkCl="ffffffe6" x="1229" y="71">Can Identifiers be implemented in a way
 similar to ExtensionProperties?</Note>
     </Notes>
+    <Zones/>
+  </Dgm>
+  <Dgm nm="ODM2ExternalIdentifers">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+      <VbCfg>
+        <Fg ky="Auto Number" vl="0"/>
+        <Fg ky="Check" vl="0"/>
+        <Fg ky="Comment" vl="0"/>
+        <Fg ky="Data Type" vl="0"/>
+        <Fg ky="Default" vl="0"/>
+        <Fg ky="ENUM Values" vl="0"/>
+        <Fg ky="Length" vl="0"/>
+        <Fg ky="Name" vl="1"/>
+        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Schema Name" vl="1"/>
+        <Fg ky="Signed" vl="0"/>
+      </VbCfg>
+    </RnCf>
+    <DiaProps>
+      <Show AllCols="1" FkCols="1" FkNms="0" PkCols="1"/>
+      <ErNotation>DbwErNotation</ErNotation>
+      <svg path=""/>
+    </DiaProps>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="DataSetExternalIdentifers" x="844" y="261"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="464" y="97"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="MethodExternalIdentifiers" x="458" y="260"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="VariableExternalIdentifiers" x="661" y="365"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SamplingFeatureExternalIdentifiers" x="24" y="260"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="PersonExternalIdentifiers" x="256" y="364"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="70" y="524"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="545" y="527"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="980" y="526"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="325" y="525"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="766" y="527"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSet_ExternalIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSetIdentifiers_IdentiferSystems"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_Methods_ExternalIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_ExternalIdentifierSystems_PersonIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_People_ExternalIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SampingFeatures_ExternalIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_MethodExternalIdentifier_Systems"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_Variable_ExternalIdentifiers"/>
+    <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Provenance">
@@ -3473,22 +3518,16 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Samples" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extension" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
-    <TreePath>/Schemas (10)</TreePath>
-    <TreePath>/Schemas (10)/ODM2Core</TreePath>
-    <TreePath>/Schemas (10)/ODM2Core/Tables (22)</TreePath>
-    <TreePath>/Schemas (10)/ODM2Extension</TreePath>
-    <TreePath>/Schemas (10)/ODM2SamplingFeatures</TreePath>
-    <TreePath>/Schemas (10)/ODM2SamplingFeatures/Tables (5)</TreePath>
-    <TreePath>/Diagrams (10)</TreePath>
-    <TreePath>/Diagrams (10)/ODM2Core</TreePath>
+    <TreePath>/Schemas (11)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Annotations</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core/Tables (16)</TreePath>
+    <TreePath>/Diagrams (11)</TreePath>
   </TreePaths>
 </Db>
