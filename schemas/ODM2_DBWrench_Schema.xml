@@ -1345,9 +1345,14 @@
       <Cl au="0" df="" nm="ExternalIdentifierSystemDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemURNresolverURL" nu="1">
+      <Cl au="0" df="" nm="ExternalIdentifierSystemURNResolverURL" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
+      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_Organizations" prLkCl="OrganizationID" upAc="3">
+        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ExternalIdentifierSystems" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="IdentifierSystemOrganizationID" prCl="OrganizationID"/>
+      </Fk>
       <UniqueConstraints/>
       <SchTrHis>
         <StPr stA="ODM2Core" stB="ExternalIdentifierSystems"/>
@@ -2203,6 +2208,12 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="342" y="46">In the barebones implementation:
+Actions are all ObservationActs
+on a SamplingFeature
+by at least one Person
+using a Method
+producing at least one ResultsSet.</Note>
       <Note bkCl="ffffffe6" x="750" y="55">Reasons for separating
 ObservationActs from ResultsSets:
 1. Allows Results for many Variables
@@ -2236,12 +2247,6 @@ containing many values in a series).</Note>
 linked to Actions rather
 than Results?
 Actions already group Results.</Note>
-      <Note bkCl="ffffffe6" x="342" y="46">In the barebones implementation:
-Actions are all ObservationActs
-on a SamplingFeature
-by at least one Person
-using a Method
-producing at least one ResultsSet.</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="286" x="534" y="164"/>
@@ -2747,7 +2752,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="327">
+  <RnmMgr NxRnmId="328">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3501,6 +3506,9 @@ then  additional field are added
       <Rnm id="325" nNm="DataSetID" oNm="DataSet"/>
       <Rnm id="324" nNm="DataSet" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExternalIdentifierSystems" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="327" nNm="ExternalIdentifierSystemURNResolverURL" oNm="ExternalIdentifierSystemURNresolverURL"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3519,15 +3527,10 @@ then  additional field are added
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Annotations</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core/Tables (16)</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
   </TreePaths>
 </Db>
