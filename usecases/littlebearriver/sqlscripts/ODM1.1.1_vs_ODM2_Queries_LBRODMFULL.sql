@@ -84,15 +84,12 @@ WHERE s.SamplingFeatureID IN (
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --For ODM 1.1.1, this query would return "time series" from both sensors and samples.
 USE LittleBearRiverODM;
-SELECT * 
-FROM SeriesCatalog 
-WHERE VariableID = 6;
-
-USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
-	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription
-FROM Sites s, Variables v, Methods m, Units u, DataValues dv
-WHERE dv.VariableID = 6 AND v.VariableID = dv.VariableID AND s.SiteID = dv.SiteID AND m.MethodID = dv.MethodID AND v.VariableUnitsID = u.UnitsID
+	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
+FROM Sites s, Variables v, Methods m, Units u, (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID FROM DataValues WHERE VariableID = 6) AS sq, 
+	QualityControlLevels qc, Sources src
+WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.VariableID AND v.VariableUnitsID = u.UnitsID AND qc.QualityControlLevelID = sq.QualityControlLevelID
+	AND src.SourceID = sq.SourceID;
 
 
 --For ODM2, this returns only Results with type "Time Series Coverage" that are associated directly with a sampling feature that is a site.
@@ -209,10 +206,14 @@ ORDER BY VariableID;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --9.  Give me a list of TimeSeries that have been measured for a particular Variable at a particular Site.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--For ODM 1.1.1, this query would return "time series" from both sensors and samples.
 USE LittleBearRiverODM;
-SELECT *
-FROM SeriesCatalog
-WHERE SiteID = 1 AND VariableID = 6;
+SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
+	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
+FROM Sites s, Variables v, Methods m, Units u, (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID FROM DataValues WHERE VariableID = 6 AND SiteID = 1) AS sq, 
+	QualityControlLevels qc, Sources src
+WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.VariableID AND v.VariableUnitsID = u.UnitsID AND qc.QualityControlLevelID = sq.QualityControlLevelID
+	AND src.SourceID = sq.SourceID;
 
 
 --For ODM2 this returns only Results with type "Time Series Coverage" that are associated directly with a sampling feature that is a site.
@@ -236,9 +237,9 @@ WHERE v.VariableID = 6 AND s.SiteID = 1 AND r.ResultTypeCV = 'Time Series Covera
 --10.  Give me a list of Methods that have been used to measure or create results for a particular Variable.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 USE LittleBearRiverODM;
-SELECT DISTINCT MethodID, MethodDescription
-FROM SeriesCatalog
-WHERE VariableID = 36;
+SELECT DISTINCT m.MethodID, m.MethodDescription 
+FROM Methods m, (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID FROM DataValues WHERE VariableID = 36) AS sq 
+WHERE m.MethodID = sq.MethodID
 
 
 USE ODM2;
@@ -247,26 +248,20 @@ FROM ODM2Core.Methods m, ODM2Core.Actions a, ODM2Core.Results r, ODM2Core.Variab
 WHERE m.MethodID = a.MethodID AND a.ActionID = r.ActionID AND r.VariableID = v.VariableID and v.VariableID = 36;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---11.  Give me a list of TimeSeries that have been measured by a particular Person or Organization.
+--11.  Give me a list of TimeSeries that have been measured by a particular Person
 --NOTES:
 --For ODM2 this is only going to include "Time Series Coverage" results associated directly with a 
 --sampling feature that is a site and not "Measurement" Results
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---ODM 1.1 created by a Person
 USE LittleBearRiverODM;
-SELECT *
-FROM SeriesCatalog sc, Sources s
-WHERE sc.SourceID = s.SourceID AND s.ContactName = 'Jeff Horsburgh';
+SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
+	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
+FROM Sites s, Variables v, Methods m, Units u, (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID FROM DataValues) AS sq, 
+	QualityControlLevels qc, Sources src
+WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.VariableID AND v.VariableUnitsID = u.UnitsID AND qc.QualityControlLevelID = sq.QualityControlLevelID
+	AND src.SourceID = sq.SourceID AND src.ContactName = 'Jeff Horsburgh';
 
 
---ODM 1.1 created by an Organization
-USE LittleBearRiverODM;
-SELECT * 
-FROM SeriesCatalog 
-WHERE SourceID = 1;
-
-
---ODM2 created by a Person
 USE ODM2;
 SELECT r.ResultID, s.SiteID, s.SiteCode, s.SiteName, s.SiteTypeCV, r.VariableID, v.VariableCode, v.VariableNameCV, v.SpeciationCV, r.UnitsID, 
 	u.UnitsName, r.SampledMediumCV,	v.ValueTypeCV, r.IntendedObservationSpacing, v.DataTypeCV, a.MethodID, m.MethodDescription, o.OrganizationCode, 
@@ -277,6 +272,21 @@ FROM ODM2Core.Results r, ODM2SamplingFeatures.Sites s, ODM2Core.Variables v, ODM
 WHERE r.ActionID = a.ActionID AND r.UnitsID = u.UnitsID AND r.VariableID = v.VariableID AND r.QualityControlLevelID = qc.QualityControlLevelID 
 	AND a.SamplingFeatureID = s.SamplingFeatureID AND a.ActionID = ap.ActionID AND ap.AffiliationID = af.AffiliationID AND p.PersonID = af.PersonID 
 	AND af.OrganizationID = o.OrganizationID AND a.MethodID = m.MethodID AND p.PersonID = 1;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+--12.  Give me a list of TimeSeries that have been measured by a particular Organization.
+--NOTES:
+--For ODM2 this is only going to include "Time Series Coverage" results associated directly with a 
+--sampling feature that is a site and not "Measurement" Results
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+USE LittleBearRiverODM;
+SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
+	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
+FROM Sites s, Variables v, Methods m, Units u, (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID FROM DataValues) AS sq, 
+	QualityControlLevels qc, Sources src
+WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.VariableID AND v.VariableUnitsID = u.UnitsID AND qc.QualityControlLevelID = sq.QualityControlLevelID
+	AND src.SourceID = sq.SourceID AND src.SourceID = 1;
+
 
 --ODM2 created by an organization
 USE ODM2;
@@ -291,14 +301,17 @@ WHERE r.ActionID = a.ActionID AND r.UnitsID = u.UnitsID AND r.VariableID = v.Var
 	AND af.OrganizationID = o.OrganizationID AND a.MethodID = m.MethodID AND o.OrganizationID = 1;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---12.  Give me a list of TimeSeries for a particular Site and QualityControlLevel
+--13.  Give me a list of TimeSeries for a particular Site and QualityControlLevel
 --NOTES:
 --For ODM2 this is only going to include "Time Series Coverage" results and not "Measurement" Results
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
-Use LittleBearRiverODM;
-SELECT * 
-FROM SeriesCatalog
-WHERE SiteID = 1 AND QualityControlLevelID = 1;
+USE LittleBearRiverODM;
+SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
+	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
+FROM Sites s, Variables v, Methods m, Units u, (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID FROM DataValues WHERE SiteID = 1 AND QualityControlLevelID = 1) AS sq, 
+	QualityControlLevels qc, Sources src
+WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.VariableID AND v.VariableUnitsID = u.UnitsID AND qc.QualityControlLevelID = sq.QualityControlLevelID
+	AND src.SourceID = sq.SourceID;
 
 
 USE ODM2;
@@ -318,12 +331,12 @@ WHERE s.SiteID = 1 AND r.QualityControlLevelID = 1 AND r.ResultTypeCV = 'Time Se
 );
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---13.  Give me a list of Sites where Observations have been made for a particular Variable within a given SampleMedium.
+--14.  Give me a list of Sites where Observations have been made for a particular Variable within a given SampleMedium.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 USE LittleBearRiverODM;
-SELECT SiteCode, SiteName 
-FROM SeriesCatalog
-WHERE VariableID = 65 AND SampleMedium = 'Surface Water';
+SELECT DISTINCT s.SiteCode, s.SiteName
+FROM Sites s, (SELECT DISTINCT SiteID, VariableID FROM DataValues) AS sq, Variables v
+WHERE s.SiteID = sq.SiteID AND v.VariableID = sq.VariableID AND v.VariableID = 65 AND v.SampleMedium = 'Surface Water';
 
 
 --For ODM2, I have to check both the Site SamplingFeature AND any children SamplingFeatures
@@ -347,60 +360,60 @@ WHERE s.SamplingFeatureID IN (
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---14.  Give me a list of Sites where there are at least n Observations of a particular Variable.
+--15.  Give me a list of Sites where there are at least n Observations of a particular Variable.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---15.  Give me a list of Sites where a particular Method has been used to measure a particular Variable.
+--16.  Give me a list of Sites where a particular Method has been used to measure a particular Variable.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---16.  Give me all of the metadata for a given Site.
+--17.  Give me all of the metadata for a given Site.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---17.  Give me all of the metadata for a given Variable.
+--18.  Give me all of the metadata for a given Variable.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---18.  Give me the list of Observations made at a given Site.
+--19.  Give me the list of Observations made at a given Site.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---19.  Give me all of the Sites having data that fall within a given geographic bounding box.
+--20.  Give me all of the Sites having data that fall within a given geographic bounding box.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---20.  Give me a list of all Observation Results (time series or otherwise) that fall within a geographic bounding box.
+--21.  Give me a list of all Observation Results (time series or otherwise) that fall within a geographic bounding box.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---21.  Give me time matched values for a set of Variables (e.g., dissolved oxygen and temperature) at a site.
+--22.  Give me time matched values for a set of Variables (e.g., dissolved oxygen and temperature) at a site.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---22.  Give me a list of Sites where there are Observations of a set of Variables (e.g., dissolved oxygen and temperature).
+--23.  Give me a list of Sites where there are Observations of a set of Variables (e.g., dissolved oxygen and temperature).
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---23.  Give me a list of Observations or Datasets measured by a particular person.
+--24.  Give me a list of Observations or Datasets measured by a particular person.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---24.  Give me a list of Annotations associated with a Site, or a Variable, or a Method, or an ObservationResult, or an individual DataValue.
+--25.  Give me a list of Annotations associated with a Site, or a Variable, or a Method, or an ObservationResult, or an individual DataValue.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---25.  Give me a list of Sites of a particular SiteType.
+--26.  Give me a list of Sites of a particular SiteType.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
