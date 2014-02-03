@@ -70,7 +70,7 @@
     <Tbl UsSo="1" nm="ResultAnnotations">
       <TblOpts/>
       <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the result being annotated</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
@@ -101,7 +101,7 @@
     <Tbl UsSo="1" nm="ResultValueAnnotations">
       <TblOpts/>
       <Cl au="0" df="" nm="ValueID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the result value being annotrated</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
@@ -360,7 +360,7 @@
         <Cm>Foreign key identifier of the DataSet</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Result</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_DataSetsResults_DataSets" prLkCl="DataSetID" upAc="3">
@@ -521,11 +521,11 @@
       <Cm>Describes Results that are related to one another</Cm>
       <TblOpts/>
       <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of a Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="RelatedResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key idntifier for a Result that is related to the Result given in ResultID</Cm>
       </Cl>
       <Cl au="0" df="" nm="RelationshipRole" nu="0">
@@ -551,7 +551,7 @@
       <Cm>Describes the results of observation actions (e.g., groups of one or more numeric data values that result from an observation action)</Cm>
       <TblOpts/>
       <Pk ClNs="ResultID" nm="pkResults"/>
-      <Cl au="1" df="" nm="ResultID" nu="1">
+      <Cl au="1" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
@@ -1150,7 +1150,7 @@
       <Cm>Describes equipment maintenance actions</Cm>
       <TblOpts/>
       <Pk ClNs="MaintenanceActionID" nm="pkMaintenenceActions"/>
-      <Cl au="1" df="" nm="MaintenanceActionID" nu="1">
+      <Cl au="1" df="" nm="MaintenanceActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
@@ -1241,7 +1241,7 @@
       <Cm>Links extension properties to a Result</Cm>
       <TblOpts/>
       <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the result to which the extension property applies</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyID" nu="0">
@@ -1507,7 +1507,7 @@
         <Cm>Foreign key identifier for the provenance record describing the derived result</Cm>
       </Cl>
       <Cl au="0" df="" nm="InputResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key indentifier for the input result from which the derived result was created</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_InputResults_ResultProvenance" prLkCl="ResultProvenanceID" upAc="3">
@@ -1532,7 +1532,7 @@
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the derived result for wich the provenance is being tracked</Cm>
       </Cl>
       <Cl au="0" df="" nm="ProcessedDateTime" nu="0">
@@ -1573,11 +1573,11 @@
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the result version</Cm>
       </Cl>
       <Cl au="0" df="" nm="VersionOfResultsSetID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Result that the current Result is a version of</Cm>
       </Cl>
       <Cl au="0" df="" nm="VersionCode" nu="0">
@@ -2009,7 +2009,7 @@
       <Cm>Describes actions that are deployment events</Cm>
       <TblOpts/>
       <Pk ClNs="DeploymentActionID" nm="pkDeploymentActions"/>
-      <Cl au="1" df="" nm="DeploymentActionID" nu="1">
+      <Cl au="1" df="" nm="DeploymentActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier for the deployment </Cm>
       </Cl>
@@ -3754,13 +3754,25 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
-    <TreePath>/Schemas (11)/ODM2ExternalIdentifiers</TreePath>
+    <TreePath>/Schemas (11)/ODM2Annotations</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core/Tables (16)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Extension</TreePath>
+    <TreePath>/Schemas (11)/ODM2Extension/Tables (4)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Provenance</TreePath>
+    <TreePath>/Schemas (11)/ODM2Provenance/Tables (3)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Provenance/Tables (3)/ResultVersions</TreePath>
+    <TreePath>/Schemas (11)/ODM2Provenance/Tables (3)/ResultVersions/Columns (6)</TreePath>
     <TreePath>/Schemas (11)/ODM2Results</TreePath>
+    <TreePath>/Schemas (11)/ODM2Results/Tables (2)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Sensors</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
+    <TreePath>/Diagrams (11)/ODM2Sensors</TreePath>
   </TreePaths>
 </Db>
