@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Db flnm="ODM2_DBWrench_Schema" nm="ODM2" ver="1.3.4">
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="ODM2_DBWrench_Schema" nm="ODM2" ver="1.3.4">
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>/home/mayorga/Desktop/RIGHT NOW/2011_NSF_GeoInfoS2I2/ProjectWork/ODM2schema/DBdocDW</DocFolder>
+  <DocFolder>\home\mayorga\Desktop\RIGHT NOW\2011_NSF_GeoInfoS2I2\ProjectWork\ODM2schema\DBdocDW</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="Annotations">
       <Cm>Contains text annotations added to various objects within ODM.</Cm>
@@ -553,7 +552,7 @@
       <TblOpts/>
       <Pk ClNs="ResultID" nm="pkResults"/>
       <Cl au="1" df="" nm="ResultID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultTypeCV" nu="0">
@@ -890,7 +889,7 @@
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="CalibrationStandardCertificateLink" nu="1">
-        <DT arr="0" ds="Char" en="" id="1" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_CalibrationStandards_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
@@ -1637,11 +1636,11 @@
       <TblOpts/>
       <Pk ClNs="ValueID" nm="pkResultValues"/>
       <Cl au="1" df="" nm="ValueID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Result containing the data value</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataValue" nu="0">
@@ -2137,6 +2136,7 @@
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="475" y="25"/>
@@ -2148,16 +2148,36 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1103" y="348"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="115" y="316"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="67" y="210"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.ResultAnnotations.fk_ResultAnnotations_Annotations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.ResultAnnotations.fk_ResultAnnotations_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.ResultValueAnnotations.fk_ResultValueAnnotations_Annotations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.ResultValueAnnotations.fk_ResultValueAnnotations_ResultValues"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.VariableAnnotations.fk_VariableAnnotations_Annotations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.VariableAnnotations.fk_VariableAnnotations_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Methods" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.ResultAnnotations.fk_ResultAnnotations_Annotations" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.ResultAnnotations.fk_ResultAnnotations_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.ResultValueAnnotations.fk_ResultValueAnnotations_Annotations" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.ResultValueAnnotations.fk_ResultValueAnnotations_ResultValues" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.VariableAnnotations.fk_VariableAnnotations_Annotations" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.VariableAnnotations.fk_VariableAnnotations_Variables" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.ResultValues.fk_ResultValues_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes>
       <Note bkCl="ffffffe6" x="0" y="145">Rather than having a cross-reference table for every other table, could have a single cross-ref with "TableNameCV" and "TableNameID" where the concatenation equals the primary key of the target table.
 </Note>
@@ -2188,6 +2208,7 @@ single foreign key column.</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="1" FkNms="0" PkCols="1"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="166" y="167"/>
@@ -2206,26 +2227,68 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1181" y="150"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1184" y="305"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1190" y="379"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_Directives" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_Methods" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_ParentChild" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Affiliations.fk_Affiliations_People" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Methods.fk_Methods_Organizations" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Organizations.fk_Organizations_Organizations" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_QualityControlLevels" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Units" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes>
+      <Note bkCl="ffe3e4e0" x="1206" y="62">Maybe Datasets should be
+linked to Actions rather
+than Results?
+Actions already group Results.</Note>
       <Note bkCl="ffffffe6" x="342" y="46">In the barebones implementation:
 Actions are all ObservationActs
 on a SamplingFeature
@@ -2261,10 +2324,6 @@ the ResultsSetType</Note>
       <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
 i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
 containing many values in a series).</Note>
-      <Note bkCl="ffe3e4e0" x="1206" y="62">Maybe Datasets should be
-linked to Actions rather
-than Results?
-Actions already group Results.</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="286" x="534" y="164"/>
@@ -2289,6 +2348,7 @@ Actions already group Results.</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffccccff" sch="ODM2CV" tbl="CVTerms" x="40" y="35"/>
@@ -2348,6 +2408,7 @@ DataSetTopicCategoryCV</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationActions" x="337" y="639"/>
@@ -2362,21 +2423,51 @@ DataSetTopicCategoryCV</Note>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationEquations" x="388" y="745"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationAction_Standards" x="37" y="892"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenenceActions" x="649" y="639"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationStandards"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationActions.fk_CalibrationActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationActions.fk_CalibrationActions_ConfigurationActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_CalibrationActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_InstrumentOutputVariables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandardValues.fk_CalibrationStandardValues_CalibrationStandards"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.ConfigurationActions.fk_ConfigurationActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_ConfigurationActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.MaintenenceActions.fk_MaintenenceActions_Actions"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_Equipment" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_ParentChild" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationActions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationStandards" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.CalibrationActions.fk_CalibrationActions_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.CalibrationActions.fk_CalibrationActions_ConfigurationActions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_CalibrationActions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_InstrumentOutputVariables" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.CalibrationStandardValues.fk_CalibrationStandardValues_CalibrationStandards" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.ConfigurationActions.fk_ConfigurationActions_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_ConfigurationActions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.MaintenenceActions.fk_MaintenenceActions_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes>
       <Note bkCl="ffffffe6" x="735" y="242">Look at SensorML
 Make sure this fits!</Note>
@@ -2421,6 +2512,7 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ExtensionProperties" x="342" y="68"/>
@@ -2431,13 +2523,27 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="1233" y="140"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="VariableExtensionPropertyValues" x="0" y="263"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="87" y="518"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_Variables"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Extension.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Extension.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_Variables" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes>
       <Note bkCl="ffffffe6" x="1229" y="71">Can Identifiers be implemented in a way
 similar to ExtensionProperties?</Note>
@@ -2463,6 +2569,7 @@ similar to ExtensionProperties?</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="1" FkNms="0" PkCols="1"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="DataSetExternalIdentifers" x="844" y="261"/>
@@ -2476,16 +2583,36 @@ similar to ExtensionProperties?</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="980" y="526"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="325" y="525"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="766" y="527"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSets_ExternalIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_ExternalIdentifierSystems_DataSetIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_Methods_ExternalIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_ExternalIdentifierSystems_PersonIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_People_ExternalIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SampingFeatures_ExternalIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_ExternalIdentifierSystems_VariableIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_Variables_ExternalIdentifiers"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSets_ExternalIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_ExternalIdentifierSystems_DataSetIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_Methods_ExternalIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_ExternalIdentifierSystems_PersonIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_People_ExternalIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SampingFeatures_ExternalIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_ExternalIdentifierSystems_VariableIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_Variables_ExternalIdentifiers" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes/>
     <Zones/>
   </Dgm>
@@ -2508,6 +2635,7 @@ similar to ExtensionProperties?</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultProvenance" x="282" y="114"/>
@@ -2515,12 +2643,24 @@ similar to ExtensionProperties?</Note>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultVersions" x="595" y="381"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="288" y="265"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="12" y="190"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.InputResults.fk_InputResults_ResultProvenance"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.InputResults.fk_InputResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultProvenance.fk_ResultProvenance_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultProvenance.fk_ResultProvenance_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultVersions.fk_ObservationVersions_Observations_VersionOf"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultVersions.fk_ResultVersions_Results"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.InputResults.fk_InputResults_ResultProvenance" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.InputResults.fk_InputResults_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.ResultProvenance.fk_ResultProvenance_Methods" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.ResultProvenance.fk_ResultProvenance_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.ResultVersions.fk_ObservationVersions_Observations_VersionOf" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.ResultVersions.fk_ResultVersions_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes>
       <Note bkCl="ffffffe6" x="618" y="191">Where do we add publications?</Note>
       <Note bkCl="ffffffe6" x="183" y="60">Can "ResultProvenance" table be subsumed into "Actions/Events" as a subclass or ActionType?</Note>
@@ -2546,16 +2686,25 @@ similar to ExtensionProperties?</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="380" y="31"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="431" y="342"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="708" y="33"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="735" y="354"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.ResultValues.fk_ResultValues_Results" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes>
       <Note bkCl="ffe3e4e0" x="983" y="299">* ResultTypeCV:
 Measurements
@@ -2624,6 +2773,7 @@ from Actions and SamplingFeatures.</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Samples" tbl="AnalysisBatchActions" x="634" y="569"/>
@@ -2636,18 +2786,42 @@ from Actions and SamplingFeatures.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="604" y="333"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Samples" tbl="BatchSampleLines" x="937" y="569"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Samples" tbl="SamplePreparationAction" x="285" y="629"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Samples.AnalysisBatchActions.fk_AnalysisBatchActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Samples.BatchSampleLines.fk_BatchSampleLines_AnalysisBatchActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Samples.SamplePreparationAction.fk_SamplePreparationEvent_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_Equipment" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_Methods" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_ParentChild" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Samples.AnalysisBatchActions.fk_AnalysisBatchActions_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Samples.BatchSampleLines.fk_BatchSampleLines_AnalysisBatchActions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Samples.SamplePreparationAction.fk_SamplePreparationEvent_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes/>
     <Zones/>
   </Dgm>
@@ -2670,6 +2844,7 @@ from Actions and SamplingFeatures.</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="345" y="79"/>
@@ -2678,12 +2853,24 @@ from Actions and SamplingFeatures.</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="667" y="96"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="0" y="101"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="977" y="50"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_SpatialOffsets"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_SpatialOffsets" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes>
       <Note bkCl="ffffffe6" x="675" y="357">OGC O&amp;M documentation
 Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
@@ -2737,6 +2924,7 @@ required attributes/metadata.</Note>
     <DiaProps>
       <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
       <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DataLoggerFiles" x="922" y="487"/>
@@ -2748,17 +2936,39 @@ required attributes/metadata.</Note>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="ConfigurationActions" x="634" y="238"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="SiteVisitActions" x="158" y="484"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="Photos" x="370" y="614"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.ConfigurationActions.fk_ConfigurationActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_ConfigurationActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.DataLoggerFiles.fk_DataLoggerFiles_DeploymentEvents"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentActions.fk_DeploymentEvents_ConfigurationEvents"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentActions.fk_DeploymentEvents_Events"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.Photos.fk_Photos_Events"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.SiteVisitActions.fk_SiteVisitEvents_Events"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_Equipment" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_ParentChild" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.ConfigurationActions.fk_ConfigurationActions_Actions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_ConfigurationActions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Sensors.DataLoggerFiles.fk_DataLoggerFiles_DeploymentEvents" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Sensors.DeploymentActions.fk_DeploymentEvents_ConfigurationEvents" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Sensors.DeploymentActions.fk_DeploymentEvents_Events" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Sensors.Photos.fk_Photos_Events" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Sensors.SiteVisitActions.fk_SiteVisitEvents_Events" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes>
       <Note bkCl="ffffffe6" x="601" y="359">Can SensorDeployment be an ObservationAct,
 in which the Results table gets new rows 
@@ -3549,8 +3759,8 @@ then  additional field are added
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core/Tables (16)</TreePath>
+    <TreePath>/Schemas (11)/ODM2ExternalIdentifiers</TreePath>
+    <TreePath>/Schemas (11)/ODM2Results</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
   </TreePaths>
 </Db>
