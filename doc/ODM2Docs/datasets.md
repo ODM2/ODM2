@@ -8,4 +8,4 @@ The Datasets entity is used to encode information about groups of Results that a
 * All of the Results collected by a particular Person
 * All of the Results collected by a particular Organization
 
-ODM2 does not constrain how Results are grouped into datasets - this is determined by the user.
+ODM2 does not constrain how Results are grouped into Datasets - this is determined by the user.
