@@ -16,7 +16,7 @@ ODM2 inherits extensively from ODM 1.1.1, which was developed as part of the Con
 * ...
 
 ### ODM2Core Entities ###
-The following are entities in the ODM2 Core schema:
+The following are entities in the [ODM2 Core schema](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Core.html):
 
 * [Actions](actions.md) - Actions are performed by people and may have a result.
 * [Datasets](datasets.md) - Enables grouping of results into a larger dataset.
