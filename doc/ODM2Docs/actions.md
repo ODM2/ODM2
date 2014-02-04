@@ -14,7 +14,7 @@ Each Action is associated with a "Sampling Feature" at which or on which it is p
 
 Actions are performed by one or more People, each of which may be affiliated with an Organization. Each of the People who participate in an Action may have a Role. For example, the "Observation act" is performed by a Person whose role is "Observer."
 
-Actions are modeled generically so that many different types of actions can be recorded and associated indirectly with an observation.  Each observation "Result" must have only one Action direclty associagted with it (i.e., the "Observation act"), but an Action may result in multiple Results.  "Observation acts" may have many other Actions associated with them.  Relationships among Actions (e.g., in the case of a workflow of many Actions that culminates in an "Observation act") can be encoded using parent/child relationships among Actions.
+Actions are modeled generically so that many different types of actions can be recorded and associated indirectly with an observation.  Each observation "Result" must have only one Action direclty associated with it (i.e., the "Observation act"), but an Action may result in multiple Results.  "Observation acts" may have many other Actions associated with them.  Relationships among Actions (e.g., in the case of a workflow of many Actions that culminates in an "Observation act") can be encoded using parent/child relationships among Actions.
 
 The following are two examples of how Actions can be used to describe the workflow of generating ex situ versus in situ observations.
 

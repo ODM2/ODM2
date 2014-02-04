@@ -15,10 +15,10 @@ The following are entities in the ODM2 Core schema:
 * [Datasets](datasets.md) - Enables grouping of results into a larger dataset.
 * [Directives](directives.md) - The reason(s) for which an action was taken.
 * [Methods](methods.md) - The procedure used to perform an action.
-* Organizations - A group of people.
-* People - Individuals that perform actions.
-* Quality Control Levels - Levels to which data have been quality controlled.
-* Related Results - Enables specifying relationships among results.
+* [Organizations](organizations.md) - A group of people.
+* [People](people.md) - Individuals that perform actions.
+* [Quality Control Levels](qualitycontrollevels.md) - Levels to which data have been quality controlled.
+* [Related Results](relatedresults.md) - Enables specifying relationships among results.
 * Results - The result of an action.
 * Roles - Capacities in which people act.
 * Sampling Features - Where an action was performed.
