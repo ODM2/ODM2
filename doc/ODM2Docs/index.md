@@ -8,31 +8,37 @@ The next version of the Observations Data Model.
 ODM2 is organized with a "core" schema and multiple "extension" schemas that extend the functionality of the core.
 
 ### ODM2Core ###
-* Actions
-* Datasets
-* Directives
-* Methods
-* Organizations
-* People 
-* Quality Control Levels
-* Related Results
-* Results
-* Roles
-* Sampling Features
-* Units
-* Variables
+
+The following are entities in the ODM2 Core schema:
+
+* Actions - Actions are performed by people and may have a result.
+* Datasets - Enables grouping of results into a larger dataset.
+* Directives - The reason(s) for which an action was taken.
+* Methods - The procedure used to perform an action.
+* Organizations - A group of people.
+* People - Individuals that perform actions.
+* Quality Control Levels - Levels to which data have been quality controlled.
+* Related Results - Enables specifying relationships among results.
+* Results - The result of an action.
+* Roles - Capacities in which people act.
+* Sampling Features - Where an action was performed.
+* Units - Units of measure.
+* Variables - What was observed.
 
 ### ODM2 Extensions ###
-* Annotations
-* Equipment
-* Controlled Vocabulary
-* Extension
-* External Identifiers
-* Provenance
-* Results
-* Samples
-* Sampling Features
-* Sensors
+
+The following are extensions to the ODM2 Core:
+
+* Annotations - Data qualifying comments and annotations on other entities.
+* Equipment - Information for managing sampling or laboratory equipment.
+* Controlled Vocabulary - Entities for enforcing CVs.
+* Extension - A general extensibility mechanism for ODM2 (adding new attributes).
+* External Identifiers - Linking entities in ODM2 to external repositories.
+* Provenance - Information about versions and provenance.
+* Results - Values for observation results.
+* Samples - Information for managing ex situ, sample-based data.
+* Sampling Features - Information about sampling features on which observations are made.
+* Sensors - Information about sensors and in situ sampling equipment.
 
 ###  Project WIKI ###
 
