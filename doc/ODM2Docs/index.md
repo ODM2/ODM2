@@ -11,7 +11,7 @@ ODM2 is organized with a "core" schema and multiple "extension" schemas that ext
 
 The following are entities in the ODM2 Core schema:
 
-* Actions - Actions are performed by people and may have a result.
+* [Actions](actions.md) - Actions are performed by people and may have a result.
 * Datasets - Enables grouping of results into a larger dataset.
 * Directives - The reason(s) for which an action was taken.
 * Methods - The procedure used to perform an action.
