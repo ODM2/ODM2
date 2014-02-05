@@ -35,7 +35,7 @@ The following are extensions to the ODM2 Core:
 * Extension - A general extensibility mechanism for ODM2 (adding new attributes).
 * External Identifiers - Linking entities in ODM2 to external repositories.
 * Provenance - Information about versions and provenance.
-* [Results](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Results.html) - Values for observation results.
+* [Results](ext_results.md) ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Results.html)) - Values for observation results.
 * Samples - Information for managing ex situ, sample-based data.
 * [Sampling Features](ext_samplingfeatures.md) ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2SamplingFeatures.html)) - Information about sampling features on which observations are made.
 * [Sampling Features] - Information about sampling features on which observations are made.
