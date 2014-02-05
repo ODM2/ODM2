@@ -53,7 +53,7 @@ The following are articles that describe best practices for using ODM2:
 
 * [Preparing Site information](bp_preparingsiteinformation.md)
 * [Preparing Variable information](bp_preparingvariableinformation.md)
-* [Handling dates and times](bp_datesandtimes.md)
+* [Handling dates and times](bp_handlingdatesandtimes.md)
 * [Use of NoData values](bp_nodatavalues.md)
 * [Encode data reported as trace concentration](bp_traceconcentrations.bp)
 * [Encode data for co-located sensors](bp_co-locatedsensors.md)
