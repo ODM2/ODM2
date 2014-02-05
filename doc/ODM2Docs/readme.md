@@ -29,17 +29,16 @@ The following are entities in the [ODM2 Core schema](http://uchic.github.io/ODM2
 ### ODM2 Extensions ###
 The following are extensions to the ODM2 Core:
 
-* Annotations - Data qualifying comments and annotations on other entities.
-* Equipment - Information for managing sampling or laboratory equipment.
-* Controlled Vocabulary - Entities for enforcing CVs.
-* Extension - A general extensibility mechanism for ODM2 (adding new attributes).
-* External Identifiers - Linking entities in ODM2 to external repositories.
-* Provenance - Information about versions and provenance.
+* Annotations ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Annotations.html)) - Data qualifying comments and annotations on other entities.
+* Equipment ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Equipment.html)) - Information for managing sampling or laboratory equipment.
+* Controlled Vocabulary ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2CV.html)) - Entities for enforcing CVs.
+* Extension ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Extension.html)) - A general extensibility mechanism for ODM2 (adding new attributes).
+* External Identifiers ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2ExternalIdentifers.html)) - Linking entities in ODM2 to external repositories.
+* Provenance ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Provenance.html)) - Information about versions and provenance.
 * [Results](ext_results.md) ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Results.html)) - Values for observation results.
-* Samples - Information for managing ex situ, sample-based data.
+* Samples ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Samples.html)) - Information for managing ex situ, sample-based data.
 * [Sampling Features](ext_samplingfeatures.md) ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2SamplingFeatures.html)) - Information about sampling features on which observations are made.
-* [Sampling Features] - Information about sampling features on which observations are made.
-* Sensors - Information about sensors and in situ sampling equipment.
+* Sensors ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Sensors.html)) - Information about sensors and in situ sampling equipment.
 
 ### Additional Concepts ###
 The following are additional concepts that are important.
