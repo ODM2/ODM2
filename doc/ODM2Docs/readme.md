@@ -10,7 +10,7 @@ ODM2 is organized with a "core" schema and multiple "extension" schemas that ext
 ODM2 inherits extensively from ODM 1.1.1, which was developed as part of the Consortium of Universities for the Advancement of Hydrologic Science, Inc. (CUAHSI) Hydrologic Information System (HIS) project. ODM2 also inherits features from the Open Geospatial Consortium (OGC) Observations & Measurements (O&M) standard. 
 
 ### ODM2Core Entities ###
-The following are entities in the ODM2 Core schema:
+The following are entities in the [ODM2 Core schema](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Core.html):
 
 * [Actions](core_actions.md) - Actions are performed by people and may have a result.
 * [Datasets](core_datasets.md) - Enables grouping of results into a larger dataset.
@@ -35,9 +35,13 @@ The following are extensions to the ODM2 Core:
 * Extension - A general extensibility mechanism for ODM2 (adding new attributes).
 * External Identifiers - Linking entities in ODM2 to external repositories.
 * Provenance - Information about versions and provenance.
-* Results - Values for observation results.
+* [Results](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Results.html) - Values for observation results.
 * Samples - Information for managing ex situ, sample-based data.
+<<<<<<< HEAD
 * [Sampling Features](ext_samplingfeatures.md) - Information about sampling features on which observations are made.
+=======
+* [Sampling Features](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2SamplingFeatures.html) - Information about sampling features on which observations are made.
+>>>>>>> 24fbd5ccde350f3d0af9734049c21a06813544f4
 * Sensors - Information about sensors and in situ sampling equipment.
 
 ### Additional Concepts ###
