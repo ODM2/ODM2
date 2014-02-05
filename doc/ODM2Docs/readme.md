@@ -37,11 +37,8 @@ The following are extensions to the ODM2 Core:
 * Provenance - Information about versions and provenance.
 * [Results](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Results.html) - Values for observation results.
 * Samples - Information for managing ex situ, sample-based data.
-<<<<<<< HEAD
-* [Sampling Features](ext_samplingfeatures.md) - Information about sampling features on which observations are made.
-=======
-* [Sampling Features](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2SamplingFeatures.html) - Information about sampling features on which observations are made.
->>>>>>> 24fbd5ccde350f3d0af9734049c21a06813544f4
+* [Sampling Features](ext_samplingfeatures.md) ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2SamplingFeatures.html)) - Information about sampling features on which observations are made.
+* [Sampling Features] - Information about sampling features on which observations are made.
 * Sensors - Information about sensors and in situ sampling equipment.
 
 ### Additional Concepts ###
