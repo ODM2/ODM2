@@ -1,5 +1,5 @@
-People
-======
+ODM2 Core: People
+=================
 
 People are included in ODM2 so that observations and other types of Actions can be affiliated with the individual People that perform them. People are represented by thier first, middle, and last names. People are linked to Organizations using the Affiliations entity. People can be affiliated with one or more Organizations, but a person does not have to be affiliated with an Organization to perform an Action. However, all Actions must be performed by a person. The following describe how a Person is affiliated with an Action:
 

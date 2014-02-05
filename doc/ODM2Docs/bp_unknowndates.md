@@ -1,0 +1,9 @@
+ODM2 Best Practices: Encoding Data for which the Exact Date is Unknown
+======================================================================
+
+In some cases you may come across historical data in a report or publication for which the exact date on which the data were collected is unknown. For example, a year might be given, but the month and day are unknown. Another example is when the year month and day are given, but the exact time of the observation is unknown. If you want to put these data in your ODM2 instance you will have to decide how to handle the fact that the exact date/time is unknown.
+
+ODM2 requires that each observation has a valid date/time. For the first example above, this means that you can't just enter the year. One solution is to input a data/time that is at the beginning of the interval that is known and then use an Annotation to indicate that the exact date/time of the observation is unknown. The following is how you might handle the two examples above.
+
+1. **Only the year is known:** If the year of the sample is 1982, use a LocalDateTime of "1/1/1982 12:00 AM" (e.g., midnight on the first day of the year that is known). Insert an Annotation on the data value that says something like "The actual date of the observation is unknown. The recorded date is at midnight of the first day of the year in which the observation was known to occur."
+2. **The year, month, and day are known:** If the date of the observation is 6/12/2012, but the time is unknown, use a LocalDateTime of "6/12/2012 12:00 AM" (e.g., midnight on the day that the observations was known to occur). Insert an Annotation on the data value that says something like "The actual time on which the observation was made is unknown. The recorded date is at midnight on the day during which the observation was known to occur."

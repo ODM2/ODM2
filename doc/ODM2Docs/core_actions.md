@@ -1,5 +1,5 @@
-Actions
-=======
+ODM2 Core: Actions
+==================
 
 In ODM2, the "Actions" entity is used to encode information about activities or actions that are performed in the process of making observations.  The fundamental Action type associated with an observation is an "Observation act."  Observation "Results" can only be created by an Action of type "Observation act." Every Result must be associated with a single Action of type "Observation act."  However, Actions can be of many different types. The full list of Action types is a controlled vocabulary. The following is a list of some other types of Actions that can be encoded using ODM2.  
 

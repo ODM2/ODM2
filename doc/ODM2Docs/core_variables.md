@@ -1,5 +1,5 @@
-Variables
-=========
+ODM2 Core: Variables
+====================
 
 Variables specify the property of the Sampling Feature that was observed. Each Result can have a single Variable. Variables are described by a type (from a controlled vocabulary), a unique code, a name (from a controlled vocabulary), a definition, a speciation, a value type (from a controlled vocabulary), a data type (from a controlled vocabulary) and a no data value.
 

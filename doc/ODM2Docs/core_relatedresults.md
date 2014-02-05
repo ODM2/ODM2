@@ -1,5 +1,5 @@
-Related Results
-===============
+ODM2 Core: Related Results
+==========================
 
 ODM2 allows users to create relationships among observation Results. Essentially, this is a mechanism for grouping Results. The nature of the relationship between Results must be specified by the user and is described in the RelationshipRole attribute. Specifying relationships among Results is optional and not required in the ODM2 Core schema. The following are potential use cases for using RelatedResults:
 

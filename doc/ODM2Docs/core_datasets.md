@@ -1,5 +1,5 @@
-Datasets
-========
+ODM2 Core: Datasets
+===================
 
 The Datasets entity is used to encode information about groups of Results that are logically related. A Dataset has a title, an abstract, and is the entity in ODM2 that would receive a citation. A Dataset may consist of a single result or could be a group of many Results. Any particular Result may participate in zero or more Datasets. The following are examples of Datasets that could be represented in ODM2:
 

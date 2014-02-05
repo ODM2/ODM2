@@ -1,5 +1,5 @@
-Roles
-=====
+ODM2 Core: Roles
+================
 
 Roles specify the part that a Person plays in performing an Action. It is not required to specify a Role for a person that participates in an Action. The description of a Role is created by the user and is not subject to a controlled vocabulary. Examples of roles that might be useful in implementing ODM2 instances include:
 

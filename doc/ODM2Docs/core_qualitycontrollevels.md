@@ -1,5 +1,5 @@
-Quality Control Levels
-======================
+ODM2 Core: Quality Control Levels
+=================================
 
 Each Result recorded in ODM2 has a QualityControlLevel, which specifies the level of quality control processing that the Result has been subjected to. QualityControlLevels are not specified using a controlled vocabulary, but every Result must have a designated QualityControlLevel. QualityControlLevels are specified by a code, a definition, and an explanation. The following is a default QualityControlLevel system that can be adopted by users of ODM2:
 

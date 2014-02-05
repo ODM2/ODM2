@@ -1,5 +1,5 @@
-Methods
-=======
+ODM2 Core: Methods
+==================
 
 The Methods entity is used to encode information about the procedure used to perform an Action. Every Action must be performed using a Method. Methods are modeled generically in ODM2 and can be of many types, including:
 

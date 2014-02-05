@@ -1,5 +1,5 @@
-Results
-=======
+ODM2 Core: Results
+==================
 
 In ODM2, an observation is made up of two elements - an Action that is of type "Observation act" and a "Result" that is the outcome of that Action. This is a critical distinction for ODM2 as the separation of Actions and their Results enables:
 
@@ -35,7 +35,10 @@ Each Result is described by the following metadata:
 * A ValueCount that specifies the number of data values in the result
 * An IntendedObservationSpacing that specifies the intended temporal spacing of the resulting data values (some Results may have data values whose spacing varies)
 
+#### SampledMedium ####
+The SampledMedium field is intended to capture the physical medium that is sampled. For example, if a physical sample (e.g., bottle) of stream water is collected, the SampleMedium would be “Surface water.” If a physical sample of water from a groundwater well is collected, the SampleMedium would be “Groundwater.” For in-situ sensors, the SampleMedium is generally the medium in which the sensor is installed (e.g., “Surface water” for a temperature sensor in a stream) or the medium that the sensor actually measured (e.g., “Precipitation” for a tipping bucket rain gage).
 
+It is possible for there to be multiple sampled media at a single given Site. For example, at a Site having SiteType = “Stream,” one might install a temperature sensor in the water column (SampledMedium = “Surface water”), collect bottles of water for nutrient concentration measurements (SampledMedium = “Surface water”), collect sediment samples for measurement of trace metal concentrations (SampledMedium = “Sediment”), and collect fish specimens for analysis of toxic chemical concentrations (SampledMedium = “Tissue”). The SampleMedium field should be populated using terms from the SampledMedium controlled vocabulary.
 
 
 

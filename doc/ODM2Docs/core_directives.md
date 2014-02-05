@@ -1,5 +1,5 @@
-Directives
-==========
+ODM2 Core: Directives
+=====================
 
 The Directives entity is used to encode information about why an Action is performed.  For example, a Directive might state that an Action is performed as part of a particular:
 
