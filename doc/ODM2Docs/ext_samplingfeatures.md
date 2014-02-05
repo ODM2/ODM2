@@ -12,5 +12,13 @@ In many cases, we wish to make observations on geospatial features that can be i
 
 The ODM2 Sampling Features extension enables the encoding of detailed information about Sampling Features. ODM2 focuses on Sampling Features that are Sites/Stations and Specimens, but several other types of Sampling Features can be represented.
 
+### Sampling Features that are Sites ###
+ODM2 adopts the ODM 1.1.1 representation of point monitoring locations as Sites. 
+
 #### SiteType ####
 The SiteType field should be populated using terms from the ODM2 SiteType controlled vocabulary. The SiteType CV currently includes terms from the USGS Site Type Codes (USGS SiteTypes). Although a good place to start, the USGS site types include a few terms that could be considered “Features of Interest” and not “Sampling Features” (e.g., "stream, ocean, canal, ditch spring, glacier, atmosphere, etc.""). Some moderation is needed to ensure that ODM2 SiteTypes are consistently “Sampling Features” and not “Features of Interest.”  
+
+### Sampling Features that are Specimens ###
+
+
+### Relationships Among Sampling Features ###
