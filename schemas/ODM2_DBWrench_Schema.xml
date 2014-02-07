@@ -1111,11 +1111,11 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to ExternalIdentifierSystems</Cm>
       </Cl>
-      <Cl au="0" df="" nm="MethodExternalIdentifier" nu="0">
+      <Cl au="0" df="" nm="ExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique ID, such as a NEMI method number; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
-      <Cl au="0" df="" nm="MethodExternalIdentifierURI" nu="1">
+      <Cl au="0" df="" nm="ExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
       </Cl>
@@ -2366,7 +2366,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="337">
+  <RnmMgr NxRnmId="339">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3137,6 +3137,7 @@ then  additional field are added
       <Rnm id="332" nNm="ActionID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="338" nNm="ExternalIdentifierURI" oNm="MethodExternalIdentifierURI"/>
       <Rnm id="333" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2ExternalIdentifiers" SupCls="" SupNme="">
@@ -3147,6 +3148,9 @@ then  additional field are added
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="336" nNm="SourceTable" oNm="uff"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="337" nNm="ExternalIdentifier" oNm="MethodExternalIdentifier"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -3165,9 +3169,9 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extension" selected="0"/>
   </OpenEditors>
   <TreePaths>
