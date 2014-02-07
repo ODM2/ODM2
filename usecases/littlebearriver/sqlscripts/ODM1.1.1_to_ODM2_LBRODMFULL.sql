@@ -182,8 +182,8 @@ FROM LittleBearRiverODM.dbo.LabMethods lm, ODM2.ODM2Core.Organizations org
 WHERE lm.LabName = org.OrganizationName AND org.OrganizationID > @MaxOrganizationID;
 --Add the LabMethods from ODM 1.1 to the ODM2 Methods table
 SET IDENTITY_INSERT ODM2.ODM2Core.Methods ON; 
-INSERT INTO ODM2.ODM2Core.Methods (MethodID, MethodUniqueID, MethodUniqueIDTypeCV, MethodCode, MethodName, MethodDescription, MethodTypeCV, OrganizationID, MethodLink)
-SELECT MethodID, MethodUniqueID, MethodUniqueIDTypeCV, MethodCode, MethodName, MethodDescription, MethodTypeCV,	OrganizationID, MethodLink 
+INSERT INTO ODM2.ODM2Core.Methods (MethodID, MethodTypeCV, MethodCode, MethodName, MethodDescription, MethodLink, OrganizationID)
+SELECT MethodID, MethodTypeCV, MethodCode, MethodName, MethodDescription, MethodLink, OrganizationID  
 FROM #TempLabMethodInfo 
 ORDER BY MethodID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Methods OFF;
