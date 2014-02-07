@@ -1144,7 +1144,31 @@
     </Tbl>
     <CustomTypes/>
   </Sch>
-  <Sch Cm="A general extnsibility mechanism for entities in ODM2." nm="ODM2Extension">
+  <Sch Cm="A general extensibility mechanism for any entity/object/table in ODM2." nm="ODM2Extensions">
+    <Tbl UsSo="1" nm="ActionsExtensionPropertyValues">
+      <TblOpts/>
+      <Cl au="0" df="" nm="ActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyValue" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ActionExtentionProperites_Actions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ActionsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ActionExtentionProperites_ExtentionProperties" prLkCl="PropertyID" upAc="3">
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="ActionsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="PropertyID" prCl="PropertyID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="ExtensionProperties">
       <Cm>Describes extension properties added to objects in an ODM database</Cm>
       <TblOpts/>
@@ -1171,7 +1195,7 @@
       </Cl>
       <Fk deAc="3" nm="fk_ExtensionProperties_Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2Extension" zr="1"/>
+        <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="PropertyUnitsID" prCl="UnitsID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1193,13 +1217,13 @@
         <Cm>Text or numeric value of the extension property</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_MethodExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
-        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_MethodExtensionPropertyValues_Methods" prLkCl="MethodID" upAc="3">
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="MethodID" prCl="MethodID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1221,14 +1245,38 @@
         <Cm>Text or numeric value of the extension property</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultsSetsExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
-        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ResultsSetsExtensionPropertyValues_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="SamplingFeatureExtensionPropertyValues">
+      <TblOpts/>
+      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyValue" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ExtensionProperties_SFExtentionProperties" prLkCl="PropertyID" upAc="3">
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="SamplingFeatureExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="PropertyID" prCl="PropertyID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SamplingFeatures_SFExtentionProperties" prLkCl="SamplingFeatureID" upAc="3">
+        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="SamplingFeatureExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1248,8 +1296,8 @@
         <Cm>Text or numeric value of the extension property for the variable</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_VariableExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
-        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <UniqueConstraints/>
@@ -2364,7 +2412,7 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     </Notes>
     <Zones/>
   </Dgm>
-  <Dgm nm="ODM2Extension">
+  <Dgm nm="ODM2Extensions">
     <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
@@ -2385,21 +2433,33 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ExtensionProperties" x="342" y="68"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="MethodExtensionPropertyValues" x="395" y="249"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="391" y="364"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ExtensionProperties" x="343" y="10"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="MethodExtensionPropertyValues" x="448" y="265"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="406"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="850" y="378"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ResultsExtensionPropertyValues" x="827" y="239"/>
-    <TbGl bkCl="ffff9999" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="1233" y="140"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="VariableExtensionPropertyValues" x="0" y="263"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ResultsExtensionPropertyValues" x="697" y="169"/>
+    <TbGl bkCl="ffff9999" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="1071" y="11"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="VariableExtensionPropertyValues" x="1100" y="188"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="4" y="354"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="295" y="354"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="SamplingFeatureExtensionPropertyValues" x="5" y="265"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ActionsExtensionPropertyValues" x="320" y="162"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.ActionsExtensionPropertyValues.fk_ActionExtentionProperites_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.ActionsExtensionPropertyValues.fk_ActionExtentionProperites_ExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.SamplingFeatureExtensionPropertyValues.fk_ExtensionProperties_SFExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.SamplingFeatureExtensionPropertyValues.fk_SamplingFeatures_SFExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="1229" y="71">Can Identifiers be implemented in a way
-similar to ExtensionProperties?</Note>
+      <Note bkCl="ffffffe6" x="1088" y="118">ExtensionProperties are implemented in a way
+similar to ExternalIdentifiers.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2727,7 +2787,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="333">
+  <RnmMgr NxRnmId="336">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3434,7 +3494,7 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ObservationExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
       <Rnm id="292" nNm="ResultID" oNm="ObservationID"/>
     </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Extension" SupCls="" SupNme="">
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Extensions" SupCls="" SupNme="">
       <Rnm id="293" nNm="ResultsExtensionPropertyValues" oNm="ResultsSetsExtensionPropertyValues"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
@@ -3497,6 +3557,15 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionAnnotations" SupCls="Schema" SupNme="ODM2Annotations">
       <Rnm id="332" nNm="ActionID" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
+      <Rnm id="333" nNm="ODM2Extensions" oNm="ODM2Extension"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatureExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
+      <Rnm id="334" nNm="SamplingFeatureID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionsExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
+      <Rnm id="335" nNm="ActionID" oNm="Id"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3514,9 +3583,10 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
