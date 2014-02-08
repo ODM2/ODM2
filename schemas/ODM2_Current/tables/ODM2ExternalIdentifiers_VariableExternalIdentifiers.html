@@ -30,7 +30,10 @@
 <td class="Header">PK</td><td class="Header">Name</td><td class="Header">Data Type</td><td class="Header">NULLs</td><td class="Header">A/N</td><td class="Header">Default</td><td class="Header">Comment</td><td class="Header">FK</td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2ExternalIdentifiers_VariableExternalIdentifiers_VariableID.html">VariableID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign Key to Variables</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2ExternalIdentifiers_VariableExternalIdentifiers_VariableID.html">VariableID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign Key to Variables</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2ExternalIdentifiers_VariableExternalIdentifiers_ExternalIdentifierSystemID.html">ExternalIdentifierSystemID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign Key to ExternalIdentifierSystems</td><td class="FkCol">
@@ -64,6 +67,9 @@
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2ExternalIdentifiers_VariableExternalIdentifiers_fk_ExternalIdentifierSystems_VariableIdentifiers.html">fk_ExternalIdentifierSystems_VariableIdentifiers</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_VariableExternalIdentifiers.html">ODM2ExternalIdentifiers.VariableExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_VariableExternalIdentifiers_fk_Variables_ExternalIdentifiers.html">fk_Variables_ExternalIdentifiers</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2ExternalIdentifiers_VariableExternalIdentifiers.html">ODM2ExternalIdentifiers.VariableExternalIdentifiers</a></td><td>VariableID</td><td>VariableID</td>
 </tr>
 </table>
 <br>

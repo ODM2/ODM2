@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr>
+<tr class="altRow">
 <td class="title_nm">Results</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -48,7 +48,10 @@
 </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_Results_VariableID.html">VariableID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign key identifier for the Variable of the result</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_VariableID.html">VariableID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the Variable of the result</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_UnitsID.html">UnitsID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the Units of the result</td><td class="FkCol">
@@ -124,6 +127,9 @@
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_Units.html">fk_Results_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>UnitsID</td><td>UnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_Variables.html">fk_Results_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>VariableID</td><td>VariableID</td>
 </tr>
 </table>
 <br>
