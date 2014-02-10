@@ -677,13 +677,25 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term descripting the type of sampling feature.</Cm>
       </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureName" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Sampling Feature name (free text).</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureGeotype" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>point2d, line2d, etc</Cm>
+      </Cl>
       <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Spatial Reference System for the feature geometry.</Cm>
       </Cl>
       <Cl au="0" df="" nm="FeatureGeometry" nu="1">
-        <DT arr="0" ds="BLOB" en="" id="2004" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Actual geometry of the feature. Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
+        <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Notes" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
@@ -874,10 +886,10 @@
         <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="CalibrationStandardVendorID" prCl="OrganizationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_CalibrationStandards_Specimen" prLkCl="SpecimenID" upAc="3">
+      <Fk deAc="3" nm="fk_CalibrationStandards_Specimen" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="Specimens" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
         <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="SpecimenID" prCl="SpecimenID"/>
+        <ClPr cdCl="SpecimenID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1795,11 +1807,7 @@
     <Tbl UsSo="1" nm="Sites">
       <Cm>Describes sampling features that are point sites</Cm>
       <TblOpts/>
-      <Pk ClNs="SiteID" nm="pkSites"/>
-      <Cl au="1" df="" nm="SiteID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
+      <Pk ClNs="SamplingFeatureID" nm="pkSites"/>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Sampling Feature that is the Site</Cm>
@@ -1901,11 +1909,7 @@
     <Tbl UsSo="1" nm="Specimens">
       <Cm>Equivalent to O&amp;M Sampling Feature Type "Specimen".  Describes physical samples or specimens.</Cm>
       <TblOpts/>
-      <Pk ClNs="SpecimenID" nm="pkSpecimens"/>
-      <Cl au="1" df="" nm="SpecimenID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
+      <Pk ClNs="SamplingFeatureID" nm="pkSpecimens"/>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Sampling Feature that is the specimen</Cm>
@@ -2614,12 +2618,12 @@ from Actions and SamplingFeatures.</Note>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
         <Fg ky="Comment" vl="0"/>
-        <Fg ky="Data Type" vl="0"/>
+        <Fg ky="Data Type" vl="1"/>
         <Fg ky="Default" vl="0"/>
         <Fg ky="ENUM Values" vl="0"/>
         <Fg ky="Length" vl="0"/>
         <Fg ky="Name" vl="1"/>
-        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Nullable" vl="1"/>
         <Fg ky="Schema Name" vl="1"/>
         <Fg ky="Signed" vl="0"/>
       </VbCfg>
@@ -2630,11 +2634,11 @@ from Actions and SamplingFeatures.</Note>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="345" y="79"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="392" y="204"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="115" y="206"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="398" y="226"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="106" y="289"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="667" y="96"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="0" y="101"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="977" y="50"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="1003" y="57"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
@@ -2649,12 +2653,12 @@ https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_mo
       <Note bkCl="ffe3e4e0" x="341" y="12">SamplingFeatureTypeCV:
 SamplingPoints, SamplingCurves,
 SamplingSurfaces, SamplingSolids</Note>
-      <Note bkCl="ffe3e4e0" x="394" y="379">Sites is a special, widely used
+      <Note bkCl="ffe3e4e0" x="379" y="410">Sites is a special, widely used
 SamplingFeature type that's a Point (XY) 
 Geometry. But named, polygon (XY) 
 spatial  units (watersheds, admin units) 
 should also be accounted for.</Note>
-      <Note bkCl="ffffffe6" x="116" y="322">Recommendation for ODM2 regarding
+      <Note bkCl="ffffffe6" x="118" y="406">Recommendation for ODM2 regarding
 Specimens: A specimen will not have 
 location information. That information
 will be associated from its parent 
@@ -2672,6 +2676,10 @@ for examples of different types of
 SamplingPoints, SamplingCurves &amp;
 SamplingSurfaces and their respectively
 required attributes/metadata.</Note>
+      <Note bkCl="ffffffe6" x="34" y="194">[From Emilio] I reccommend removing
+SpatialReferences table. It serves no
+unique purpose that can't be served by
+existing, external systems and codes.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2727,7 +2735,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="333">
+  <RnmMgr NxRnmId="334">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3497,6 +3505,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionAnnotations" SupCls="Schema" SupNme="ODM2Annotations">
       <Rnm id="332" nNm="ActionID" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="333" nNm="Notes" oNm="notes"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3514,23 +3525,16 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
     <TreePath>/Schemas (11)/ODM2Annotations</TreePath>
     <TreePath>/Schemas (11)/ODM2Annotations/Tables (6)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core/Tables (15)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Provenance</TreePath>
-    <TreePath>/Schemas (11)/ODM2Provenance/Tables (3)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Provenance/Tables (3)/ResultVersions</TreePath>
-    <TreePath>/Schemas (11)/ODM2Provenance/Tables (3)/ResultVersions/Columns (6)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Results</TreePath>
-    <TreePath>/Schemas (11)/ODM2Results/Tables (2)</TreePath>
     <TreePath>/Schemas (11)/ODM2Sensors</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
     <TreePath>/Diagrams (11)/ODM2Sensors</TreePath>
