@@ -237,10 +237,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>ActionID of the action that is the parent of this action.  One ParentAction can have many ChildActions.</Cm>
       </Cl>
-      <Cl au="0" df="" nm="PreviousActionID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>ActionID of the preceeding action in a linear sequence of actions (i.e. no branches).  One PreviousAction can only have one FollowingAction.</Cm>
-      </Cl>
       <Cl au="0" df="" nm="WorkFlowID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key to WorkFlows table that enables sequences of actions that follow a defined sequence of methods.</Cm>
@@ -264,11 +260,6 @@
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Actions" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ParentActionID" prCl="ActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Actions_PreviousFollowing" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="PreviousActionID" prCl="ActionID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Actions_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -2182,7 +2173,6 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_PreviousFollowing"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_WorkFlows_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
@@ -2341,7 +2331,6 @@ DataSetTopicCategoryCV</Note>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenenceActions" x="649" y="639"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_PreviousFollowing"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationStandards"/>
@@ -2490,6 +2479,11 @@ similar to ExtensionProperties?</Note>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
+      <Note bkCl="ffe3e4e0" x="654" y="109">O&amp;M ResultTime meaning: "the time when the result
+became available".  It's useful to conceptualize Results 
+as a catalog of values. So, having an XYZT bounding box
+may be useful, though that's available
+from Actions and SamplingFeatures.</Note>
       <Note bkCl="ffe3e4e0" x="983" y="299">* ResultTypeCV:
 Measurements
 CategoryObservations
@@ -2530,11 +2524,6 @@ all RDBMSs.
 Can an array (such as a spectrum) be
 accomodated by a coverage?
 </Note>
-      <Note bkCl="ffe3e4e0" x="654" y="109">O&amp;M ResultTime meaning: "the time when the result
-became available".  It's useful to conceptualize Results 
-as a catalog of values. So, having an XYZT bounding box
-may be useful, though that's available
-from Actions and SamplingFeatures.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2572,7 +2561,6 @@ from Actions and SamplingFeatures.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_PreviousFollowing"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
@@ -2686,7 +2674,6 @@ required attributes/metadata.</Note>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="Photos" x="370" y="614"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_PreviousFollowing"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.ConfigurationActions.fk_ConfigurationActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
