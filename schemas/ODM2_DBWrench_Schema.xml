@@ -600,6 +600,9 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Units of the result</Cm>
       </Cl>
+      <Cl au="0" df="" nm="TaxonomicClassifierID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="QualityControlLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the QualityControlLevel of the result</Cm>
@@ -645,6 +648,11 @@
         <PrTb mn="0" nm="QualityControlLevels" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="QualityControlLevelID" prCl="QualityControlLevelID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Results_Taxon" prLkCl="TaxonomicClassifierID" upAc="3">
+        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -706,14 +714,45 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureNote" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text notes describing the sampling feature</Cm>
-      </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="TaxonomicClassifiers">
+      <TblOpts/>
+      <Pk ClNs="TaxonomicClassifierID" nm="pkTaxonomicClassifiers"/>
+      <Cl au="0" df="" nm="TaxonomicClassifierID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>ID</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="TaxonomicClassifierTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled Vocabulary for the type of taxonomy</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="TaxonomicClassifierName" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Taxonomic classification</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="TaxonomicClassifierCommonName" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Taxonomic classification using a common name</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="TaxonomicClassifierNotes" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Description or remarks about Taxonomic Classifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ParentTaxonomicClassifierID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>ID of the Classifier that is one higher level in the taxonomic hiearchy</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_ParentTaxon_Taxon" prLkCl="TaxonomicClassifierID" upAc="3">
+        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="TaxonomicClassifiers" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="ParentTaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -755,7 +794,7 @@
       </Cl>
       <Cl au="0" df="" nm="VariableCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Unique text code for th variable</Cm>
+        <Cm>Unique text code for the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableNameCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1552,6 +1591,33 @@
         <StPr stA="ODM2Core" stB="SamplingFeatureExternalIdentifiers"/>
       </SchTrHis>
     </Tbl>
+    <Tbl UsSo="1" nm="TaxonomicClassifierExternalIdentifiers">
+      <TblOpts/>
+      <Cl au="0" df="" nm="TaxonomicClassifierID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="TaxonomicClassifierExternalItentifier" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="TaxonomicClassifierExternalItentifierURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_TaxonIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
+        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
+        <CdTb mn="1" nm="TaxonomicClassifierExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Taxon_ExternalIdentifers" prLkCl="TaxonomicClassifierID" upAc="3">
+        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="TaxonomicClassifierExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="VariableExternalIdentifiers">
       <TblOpts/>
       <Cl au="0" df="" nm="VariableID" nu="0">
@@ -2277,10 +2343,10 @@ single foreign key column.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="166" y="167"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="253" y="154"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="877" y="219"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="999" y="645"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="1096" y="553"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1280" y="537"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="1078" y="538"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="635" y="473"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="571" y="220"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="376" y="474"/>
@@ -2290,9 +2356,10 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Directives" x="281" y="281"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Roles" x="65" y="360"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1181" y="150"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1184" y="305"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1190" y="379"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1181" y="283"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1182" y="349"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="859" y="473"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1005" y="640"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
@@ -2310,9 +2377,19 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="994" y="51">A ResultsSet describes
+metadata for one or more
+DataValues that are stored in
+Results tables specific to
+the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
+i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
+containing many values in a series).</Note>
       <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
 i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
 containing many values in a series).</Note>
@@ -2340,21 +2417,16 @@ actions.</Note>
       <Note bkCl="ffffffe6" x="250" y="650">Secondary contact info 
 can be added as an 
 Extension property</Note>
-      <Note bkCl="ffffffe6" x="1140" y="457">DataValues are not included in the Core
+      <Note bkCl="ffffffe6" x="1175" y="436">DataValues are not included in the Core
 to allow for Catalog implementations.
 Also, DataValues are stored in 
 different tables according to the ResultsSetType</Note>
       <Note bkCl="ffffffe6" x="574" y="66">An ObservationAct is 
 the only ActionType that 
 can produce a ResultSet.</Note>
-      <Note bkCl="ffffffe6" x="994" y="51">A ResultsSet describes
-metadata for one or more
-DataValues that are stored in
-Results tables specific to
-the ResultsSetType</Note>
     </Notes>
     <Zones>
-      <Zone bkCl="ffece9d8" h="621" nm="Observations" w="286" x="534" y="164"/>
+      <Zone bkCl="ffece9d8" h="621" nm="Observations" w="296" x="534" y="164"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
@@ -2512,15 +2584,15 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     </DiaProps>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ExtensionProperties" x="343" y="10"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="MethodExtensionPropertyValues" x="448" y="265"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="406"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="850" y="378"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="608" y="461"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="854" y="349"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ResultsExtensionPropertyValues" x="697" y="169"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="VariableExtensionPropertyValues" x="1100" y="188"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="VariableExtensionPropertyValues" x="1065" y="166"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="4" y="354"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="295" y="354"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="SamplingFeatureExtensionPropertyValues" x="5" y="265"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ActionsExtensionPropertyValues" x="320" y="162"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1217" y="389"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1167" y="351"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
@@ -2563,7 +2635,7 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="DataSetExternalIdentifers" x="844" y="261"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="DataSetExternalIdentifers" x="1067" y="364"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="464" y="97"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="MethodExternalIdentifiers" x="458" y="260"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="VariableExternalIdentifiers" x="661" y="365"/>
@@ -2571,9 +2643,12 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="PersonExternalIdentifiers" x="256" y="364"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="70" y="524"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="545" y="527"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="980" y="526"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1292" y="529"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="325" y="525"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="767" y="526"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="767" y="525"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="980" y="528"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="TaxonomicClassifierExternalIdentifiers" x="844" y="261"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSets_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_ExternalIdentifierSystems_DataSetIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers"/>
@@ -2582,6 +2657,8 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_People_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SampingFeatures_ExternalIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers.fk_ExternalIdentifierSystems_TaxonIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers.fk_Taxon_ExternalIdentifers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_ExternalIdentifierSystems_VariableIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_Variables_ExternalIdentifiers"/>
     <Notes/>
@@ -2655,6 +2732,19 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="26" y="157">Complex Result? (Array Object)?
+Shown in O&amp;M.  Arrays are allowed
+in PostGreSQL, but not consistently in 
+all RDBMSs.
+
+Can an array (such as a spectrum) be
+accomodated by a coverage?
+</Note>
+      <Note bkCl="ffe3e4e0" x="654" y="109">O&amp;M ResultTime meaning: "the time when the result
+became available".  It's useful to conceptualize Results 
+as a catalog of values. So, having an XYZT bounding box
+may be useful, though that's available
+from Actions and SamplingFeatures.</Note>
       <Note bkCl="ffe3e4e0" x="983" y="299">* ResultTypeCV:
 Measurements
 CategoryObservations
@@ -3651,11 +3741,28 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionsExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
       <Rnm id="335" nNm="ActionID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="336" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="336" nNm="TaxonomicClassifierID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="343" nNm="TaxonomicClassifierCommonName" oNm="TaxonCommonName"/>
+      <Rnm id="337" nNm="TaxonCommonName" oNm="TaxonomicClassifierCommonName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifierExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="338" nNm="TaxonomicClassifierID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetExternalIdentifers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="337" nNm="DataSetExternalIdentiferURI" oNm="DataSetExternalIdentiferURN"/>
+      <Rnm id="339" nNm="DataSetExternalIdentiferURI" oNm="DataSetExternalIdentiferURN"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="340" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="342" nNm="TaxonomicClassifierName" oNm="TaxonomicClassiferName"/>
+      <Rnm id="341" nNm="TaxonomicClassiferName" oNm="TaxonName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="344" nNm="TaxonomicClassifierNotes" oNm="TaxonNotes"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -3674,16 +3781,18 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
     <TreePath>/Schemas (11)/ODM2Core</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core/Tables (16)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core/Tables (17)</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
   </TreePaths>
 </Db>
