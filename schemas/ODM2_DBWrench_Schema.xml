@@ -694,17 +694,25 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term descripting the type of sampling feature.</Cm>
       </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureName" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Sampling Feature name (free text).</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureGeotype" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>point2d, line2d, etc</Cm>
+      </Cl>
       <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Spatial Reference System for the feature geometry.</Cm>
       </Cl>
       <Cl au="0" df="" nm="FeatureGeometry" nu="1">
-        <DT arr="0" ds="BLOB" en="" id="2004" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Actual geometry of the feature. Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
+        <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureNote" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text notes describing the sampling feature</Cm>
+        <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
@@ -972,10 +980,10 @@
         <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="CalibrationStandardVendorID" prCl="OrganizationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_CalibrationStandards_Specimen" prLkCl="SpecimenID" upAc="3">
+      <Fk deAc="3" nm="fk_CalibrationStandards_Specimen" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="Specimens" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
         <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="SpecimenID" prCl="SpecimenID"/>
+        <ClPr cdCl="SpecimenID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1984,11 +1992,7 @@
     <Tbl UsSo="1" nm="Sites">
       <Cm>Describes sampling features that are point sites</Cm>
       <TblOpts/>
-      <Pk ClNs="SiteID" nm="pkSites"/>
-      <Cl au="1" df="" nm="SiteID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
+      <Pk ClNs="SamplingFeatureID" nm="pkSites"/>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Sampling Feature that is the Site</Cm>
@@ -2090,11 +2094,7 @@
     <Tbl UsSo="1" nm="Specimens">
       <Cm>Equivalent to O&amp;M Sampling Feature Type "Specimen".  Describes physical samples or specimens.</Cm>
       <TblOpts/>
-      <Pk ClNs="SpecimenID" nm="pkSpecimens"/>
-      <Cl au="1" df="" nm="SpecimenID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
+      <Pk ClNs="SamplingFeatureID" nm="pkSpecimens"/>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Sampling Feature that is the specimen</Cm>
@@ -2421,6 +2421,9 @@ metadata for one or more
 DataValues that are stored in
 Results tables specific to
 the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
+i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
+containing many values in a series).</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="296" x="534" y="164"/>
@@ -2774,6 +2777,19 @@ common ones.</Note>
       <Note bkCl="ffe3e4e0" x="315" y="266">Values table may represent a
 Coverage or a "constant value"
 (which may be complex type)</Note>
+      <Note bkCl="ffffffe6" x="26" y="157">Complex Result? (Array Object)?
+Shown in O&amp;M.  Arrays are allowed
+in PostGreSQL, but not consistently in 
+all RDBMSs.
+
+Can an array (such as a spectrum) be
+accomodated by a coverage?
+</Note>
+      <Note bkCl="ffe3e4e0" x="654" y="109">O&amp;M ResultTime meaning: "the time when the result
+became available".  It's useful to conceptualize Results 
+as a catalog of values. So, having an XYZT bounding box
+may be useful, though that's available
+from Actions and SamplingFeatures.</Note>
     </Notes>
     <Zones/>
   </Dgm>
