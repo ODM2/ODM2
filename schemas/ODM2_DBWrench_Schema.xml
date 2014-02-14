@@ -2845,12 +2845,12 @@ from Actions and SamplingFeatures.</Note>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
         <Fg ky="Comment" vl="0"/>
-        <Fg ky="Data Type" vl="0"/>
+        <Fg ky="Data Type" vl="1"/>
         <Fg ky="Default" vl="0"/>
         <Fg ky="ENUM Values" vl="0"/>
         <Fg ky="Length" vl="0"/>
         <Fg ky="Name" vl="1"/>
-        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Nullable" vl="1"/>
         <Fg ky="Schema Name" vl="1"/>
         <Fg ky="Signed" vl="0"/>
       </VbCfg>
@@ -2861,11 +2861,11 @@ from Actions and SamplingFeatures.</Note>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="345" y="79"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="395" y="220"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="116" y="225"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="398" y="226"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="106" y="289"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="667" y="96"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="0" y="101"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="977" y="50"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="1003" y="57"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
@@ -2880,12 +2880,12 @@ https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_mo
       <Note bkCl="ffe3e4e0" x="341" y="12">SamplingFeatureTypeCV:
 SamplingPoints, SamplingCurves,
 SamplingSurfaces, SamplingSolids</Note>
-      <Note bkCl="ffe3e4e0" x="394" y="379">Sites is a special, widely used
+      <Note bkCl="ffe3e4e0" x="379" y="410">Sites is a special, widely used
 SamplingFeature type that's a Point (XY) 
 Geometry. But named, polygon (XY) 
 spatial  units (watersheds, admin units) 
 should also be accounted for.</Note>
-      <Note bkCl="ffffffe6" x="116" y="322">Recommendation for ODM2 regarding
+      <Note bkCl="ffffffe6" x="118" y="406">Recommendation for ODM2 regarding
 Specimens: A specimen will not have 
 location information. That information
 will be associated from its parent 
@@ -2903,6 +2903,10 @@ for examples of different types of
 SamplingPoints, SamplingCurves &amp;
 SamplingSurfaces and their respectively
 required attributes/metadata.</Note>
+      <Note bkCl="ffffffe6" x="34" y="194">[From Emilio] I reccommend removing
+SpatialReferences table. It serves no
+unique purpose that can't be served by
+existing, external systems and codes.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2958,7 +2962,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="345">
+  <RnmMgr NxRnmId="338">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
