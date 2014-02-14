@@ -698,8 +698,8 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Sampling Feature name (free text).</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureGeotype" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      <Cl au="0" df="" nm="SamplingFeatureGeotypeCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>point2d, line2d, etc</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
@@ -2382,6 +2382,13 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="1175" y="436">DataValues are not included in the Core
+to allow for Catalog implementations.
+Also, DataValues are stored in 
+different tables according to the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="574" y="66">An ObservationAct is 
+the only ActionType that 
+can produce a ResultSet.</Note>
       <Note bkCl="ffffffe6" x="994" y="51">A ResultsSet describes
 metadata for one or more
 DataValues that are stored in
@@ -2417,13 +2424,6 @@ actions.</Note>
       <Note bkCl="ffffffe6" x="250" y="650">Secondary contact info 
 can be added as an 
 Extension property</Note>
-      <Note bkCl="ffffffe6" x="1175" y="436">DataValues are not included in the Core
-to allow for Catalog implementations.
-Also, DataValues are stored in 
-different tables according to the ResultsSetType</Note>
-      <Note bkCl="ffffffe6" x="574" y="66">An ObservationAct is 
-the only ActionType that 
-can produce a ResultSet.</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="296" x="534" y="164"/>
@@ -2962,7 +2962,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="338">
+  <RnmMgr NxRnmId="339">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3764,6 +3764,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="344" nNm="TaxonomicClassifierNotes" oNm="TaxonNotes"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="338" nNm="SamplingFeatureGeotypeCV" oNm="SamplingFeatureGeotype"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3781,18 +3784,16 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core</TreePath>
-    <TreePath>/Schemas (11)/ODM2Core/Tables (17)</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
   </TreePaths>
 </Db>
