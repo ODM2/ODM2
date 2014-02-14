@@ -10,9 +10,11 @@
       <TblOpts/>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the Action being annotated.</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the annotation being added to the Action.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ActionAnnotations_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -128,7 +130,7 @@
       <TblOpts/>
       <Cl au="0" df="" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key of the result value being annotrated</Cm>
+        <Cm>Foreign key of the result value being annotated</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -152,9 +154,11 @@
       <TblOpts/>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the SamplingFeature being annotated.</Cm>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the Annotation applied to the SamplingFeature.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatureAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
         <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
@@ -647,6 +651,11 @@
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="UnitsID" prCl="UnitsID"/>
       </Fk>
+      <Fk deAc="3" nm="fk_Results_Variables" prLkCl="VariableID" upAc="3">
+        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="VariableID" prCl="VariableID"/>
+      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -693,7 +702,7 @@
         <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
       </Cl>
-      <Cl au="0" df="" nm="Notes" nu="1">
+      <Cl au="0" df="" nm="SamplingFeatureNote" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
       </Cl>
@@ -724,6 +733,48 @@
       <Cl au="0" df="" nm="UnitsAbbreviation" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>Text abbreviation for the unit</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="Variables">
+      <Cm>Stores information about measured properties.</Cm>
+      <TblOpts/>
+      <Pk ClNs="VariableID" nm="pkVariables"/>
+      <Cl au="1" df="" nm="VariableID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VariableTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary for the type of variable</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VariableCode" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Unique text code for th variable</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VariableNameCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary for the name of the variable</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VariableDefinition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text definition of the variable</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SpeciationCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Speciation for the variable (e.g., expressed as P or as PO4)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ValueTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary for ValueType</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary for DataType</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="NoDataValue" nu="0">
+        <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1156,7 +1207,34 @@
     </Tbl>
     <CustomTypes/>
   </Sch>
-  <Sch Cm="A general extnsibility mechanism for entities in ODM2." nm="ODM2Extension">
+  <Sch Cm="A general extensibility mechanism for any entity/object/table in ODM2." nm="ODM2Extensions">
+    <Tbl UsSo="1" nm="ActionsExtensionPropertyValues">
+      <TblOpts/>
+      <Cl au="0" df="" nm="ActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the Action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the extension property added to the Action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyValue" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Value of the extension property added to the Action</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_ActionExtentionProperites_Actions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ActionsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ActionExtentionProperites_ExtentionProperties" prLkCl="PropertyID" upAc="3">
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="ActionsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="PropertyID" prCl="PropertyID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="ExtensionProperties">
       <Cm>Describes extension properties added to objects in an ODM database</Cm>
       <TblOpts/>
@@ -1183,7 +1261,7 @@
       </Cl>
       <Fk deAc="3" nm="fk_ExtensionProperties_Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2Extension" zr="1"/>
+        <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="PropertyUnitsID" prCl="UnitsID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1205,13 +1283,13 @@
         <Cm>Text or numeric value of the extension property</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_MethodExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
-        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_MethodExtensionPropertyValues_Methods" prLkCl="MethodID" upAc="3">
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="MethodID" prCl="MethodID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1233,14 +1311,41 @@
         <Cm>Text or numeric value of the extension property</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultsSetsExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
-        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ResultsSetsExtensionPropertyValues_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="SamplingFeatureExtensionPropertyValues">
+      <TblOpts/>
+      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the SamplingFeature being extended</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the extension property being added to the sampling feature </Cm>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyValue" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Value of the property being added to the sampling feature</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_ExtensionProperties_SFExtentionProperties" prLkCl="PropertyID" upAc="3">
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="SamplingFeatureExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="PropertyID" prCl="PropertyID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SamplingFeatures_SFExtentionProperties" prLkCl="SamplingFeatureID" upAc="3">
+        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="SamplingFeatureExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1260,9 +1365,14 @@
         <Cm>Text or numeric value of the extension property for the variable</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_VariableExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extension" zr="0"/>
-        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2Extension" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
+        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_VariableExtensionPropertyValues_Variables" prLkCl="VariableID" upAc="3">
+        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <ClPr cdCl="VariableID" prCl="VariableID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1284,7 +1394,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique ID, such as an DOI; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DataSetExternalIdentiferURN" nu="1">
+      <Cl au="0" df="" nm="DataSetExternalIdentiferURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
       </Cl>
@@ -1352,7 +1462,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique ID, such as a NEMI method number; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
-      <Cl au="0" df="" nm="MethodExternalIdentifierURN" nu="1">
+      <Cl au="0" df="" nm="MethodExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
       </Cl>
@@ -1460,6 +1570,11 @@
         <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
         <CdTb mn="1" nm="VariableExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
         <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Variables_ExternalIdentifiers" prLkCl="VariableID" upAc="3">
+        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="VariableExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="VariableID" prCl="VariableID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis>
@@ -2173,6 +2288,7 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1181" y="150"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1184" y="305"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1190" y="379"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="859" y="473"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
@@ -2191,7 +2307,11 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
+i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
+containing many values in a series).</Note>
       <Note bkCl="ffe3e4e0" x="1206" y="62">Maybe Datasets should be
 linked to Actions rather
 than Results?
@@ -2368,7 +2488,7 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     </Notes>
     <Zones/>
   </Dgm>
-  <Dgm nm="ODM2Extension">
+  <Dgm nm="ODM2Extensions">
     <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
@@ -2389,21 +2509,35 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ExtensionProperties" x="342" y="68"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="MethodExtensionPropertyValues" x="395" y="249"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="391" y="364"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ExtensionProperties" x="343" y="10"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="MethodExtensionPropertyValues" x="448" y="265"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="406"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="850" y="378"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="ResultsExtensionPropertyValues" x="827" y="239"/>
-    <TbGl bkCl="ffff9999" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="1233" y="140"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extension" tbl="VariableExtensionPropertyValues" x="0" y="263"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extension.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ResultsExtensionPropertyValues" x="697" y="169"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="VariableExtensionPropertyValues" x="1100" y="188"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="4" y="354"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="295" y="354"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="SamplingFeatureExtensionPropertyValues" x="5" y="265"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ActionsExtensionPropertyValues" x="320" y="162"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1217" y="389"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.ActionsExtensionPropertyValues.fk_ActionExtentionProperites_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.ActionsExtensionPropertyValues.fk_ActionExtentionProperites_ExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.SamplingFeatureExtensionPropertyValues.fk_ExtensionProperties_SFExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.SamplingFeatureExtensionPropertyValues.fk_SamplingFeatures_SFExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2Extensions.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_Variables"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="1229" y="71">Can Identifiers be implemented in a way
-similar to ExtensionProperties?</Note>
+      <Note bkCl="ffffffe6" x="786" y="28">ExtensionProperties are implemented in a way
+similar to ExternalIdentifiers.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2438,6 +2572,7 @@ similar to ExtensionProperties?</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="545" y="527"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="980" y="526"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="325" y="525"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="767" y="526"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSets_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_ExternalIdentifierSystems_DataSetIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers"/>
@@ -2447,6 +2582,7 @@ similar to ExtensionProperties?</Note>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SampingFeatures_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_ExternalIdentifierSystems_VariableIdentifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_Variables_ExternalIdentifiers"/>
     <Notes/>
     <Zones/>
   </Dgm>
@@ -3442,7 +3578,7 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ObservationExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
       <Rnm id="292" nNm="ResultID" oNm="ObservationID"/>
     </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Extension" SupCls="" SupNme="">
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Extensions" SupCls="" SupNme="">
       <Rnm id="293" nNm="ResultsExtensionPropertyValues" oNm="ResultsSetsExtensionPropertyValues"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
@@ -3505,8 +3641,20 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionAnnotations" SupCls="Schema" SupNme="ODM2Annotations">
       <Rnm id="332" nNm="ActionID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="333" nNm="Notes" oNm="notes"/>
+    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
+      <Rnm id="333" nNm="ODM2Extensions" oNm="ODM2Extension"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatureExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
+      <Rnm id="334" nNm="SamplingFeatureID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionsExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
+      <Rnm id="335" nNm="ActionID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="336" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetExternalIdentifers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="337" nNm="DataSetExternalIdentiferURI" oNm="DataSetExternalIdentiferURN"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -3525,17 +3673,16 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Annotations</TreePath>
-    <TreePath>/Schemas (11)/ODM2Annotations/Tables (6)</TreePath>
-    <TreePath>/Schemas (11)/ODM2Sensors</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core/Tables (16)</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
     <TreePath>/Diagrams (11)/ODM2Sensors</TreePath>
   </TreePaths>
