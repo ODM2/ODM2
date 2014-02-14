@@ -2343,7 +2343,7 @@ single foreign key column.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="166" y="167"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="253" y="154"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="877" y="219"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1280" y="537"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="1078" y="538"/>
@@ -2382,6 +2382,14 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="994" y="51">A ResultsSet describes
+metadata for one or more
+DataValues that are stored in
+Results tables specific to
+the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
+i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
+containing many values in a series).</Note>
       <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
 i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
 containing many values in a series).</Note>
@@ -2416,14 +2424,6 @@ different tables according to the ResultsSetType</Note>
       <Note bkCl="ffffffe6" x="574" y="66">An ObservationAct is 
 the only ActionType that 
 can produce a ResultSet.</Note>
-      <Note bkCl="ffffffe6" x="994" y="51">A ResultsSet describes
-metadata for one or more
-DataValues that are stored in
-Results tables specific to
-the ResultsSetType</Note>
-      <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
-i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
-containing many values in a series).</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="296" x="534" y="164"/>
@@ -2584,15 +2584,15 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     </DiaProps>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ExtensionProperties" x="343" y="10"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="MethodExtensionPropertyValues" x="448" y="265"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="406"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="850" y="378"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="608" y="461"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="854" y="349"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ResultsExtensionPropertyValues" x="697" y="169"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="VariableExtensionPropertyValues" x="1100" y="188"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="VariableExtensionPropertyValues" x="1065" y="166"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="4" y="354"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="295" y="354"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="SamplingFeatureExtensionPropertyValues" x="5" y="265"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ActionsExtensionPropertyValues" x="320" y="162"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1217" y="389"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1167" y="351"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
@@ -2643,7 +2643,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="PersonExternalIdentifiers" x="256" y="364"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="70" y="524"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="545" y="527"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1262" y="531"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1292" y="529"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="325" y="525"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="767" y="525"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="980" y="528"/>
@@ -2861,8 +2861,8 @@ from Actions and SamplingFeatures.</Note>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="345" y="79"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="392" y="204"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="115" y="206"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="395" y="220"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="116" y="225"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="667" y="96"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="0" y="101"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="977" y="50"/>
@@ -3777,12 +3777,12 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
