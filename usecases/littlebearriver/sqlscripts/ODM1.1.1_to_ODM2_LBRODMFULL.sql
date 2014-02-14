@@ -21,9 +21,9 @@ ALTER TABLE ODM2.ODM2Core.SamplingFeatures ADD FeatureGeometry geometry NULL;
 GO
 --Now add the sites 
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures ON; 
-INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureUniqueID, SamplingFeatureUniqueIDTypeCV, SpatialReferenceID, FeatureGeometry)
-SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, NULL AS SamplingFeatureUniqueID, NULL AS SamplingFeatureUniqueIDTypeCV, s.LatLongDatumID AS SpatialReferenceID, 
-	geometry::Point(s.Longitude, s.Latitude, sr.SRSID) AS FeatureGeometry
+INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SpatialReferenceID, FeatureGeometry, SamplingFeatureNote)
+SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.LatLongDatumID AS SpatialReferenceID, 
+	geometry::Point(s.Longitude, s.Latitude, sr.SRSID) AS FeatureGeometry, s.Comments AS SamplingFeatureNote
 FROM LittleBearRiverODM.dbo.Sites s, LittleBearRiverODM.dbo.SpatialReferences sr
 WHERE s.LatLongDatumID = sr.SpatialReferenceID
 ORDER BY SamplingFeatureID;
@@ -45,24 +45,23 @@ DECLARE @MaxSamplingFeatureID AS int;
 SELECT @MaxSamplingFeatureID = MAX(SamplingFeatureID) FROM ODM2.ODM2Core.SamplingFeatures;
 --Create a teporary table with the information that is needed.
 SELECT DISTINCT smp.SampleID AS SpecimenID, smp.SampleID + @MaxSamplingFeatureID AS SamplingFeatureID, 'Specimen' AS SamplingFeatureTypeCV, 
-	NULL AS SamplingFeatureUniqueID, NULL AS SamplingFeatureUniqueIDTypeCV, NULL AS SpatialReferenceID, NULL AS FeatureGeometry,
-	smp.LabSampleCode AS SpecimenUniqueID, 'Lab Sample Code' AS SpecimenUniqueIDTypeCV, 1 AS IsFieldSpecimen, smp.SampleType AS SpecimenTypeCV, 
-	vr.SampleMedium AS SpecimenMediumCV, st.SiteID
+	NULL AS SpatialReferenceID, NULL AS FeatureGeometry, smp.LabSampleCode AS SpecimenUniqueID, 'Lab Sample Code' AS SpecimenUniqueIDTypeCV, 
+	1 AS IsFieldSpecimen, smp.SampleType AS SpecimenTypeCV, vr.SampleMedium AS SpecimenMediumCV, st.SiteID
 INTO #TempSpecimenInfo
 FROM LittleBearRiverODM.dbo.Samples smp, LittleBearRiverODM.dbo.DataValues dv, LittleBearRiverODM.dbo.Variables vr, LittleBearRiverODM.dbo.Sites st
 WHERE smp.SampleID = dv.SampleID AND dv.VariableID = vr.VariableID AND dv.SiteID = st.SiteID
 
 --Insert the records for the specimens in the ODM2Core.SamplingFeature table using the SampleID + the max SamplingFeatureID as the SamplingFeatureID
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures ON;
-INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureUniqueID, SamplingFeatureUniqueIDTypeCV, SpatialReferenceID, FeatureGeometry)
-SELECT SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureUniqueID, SamplingFeatureUniqueIDTypeCV, SpatialReferenceID, NULL AS FeatureGeometry
+INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SpatialReferenceID, FeatureGeometry, SamplingFeatureNote)
+SELECT SamplingFeatureID, SamplingFeatureTypeCV, SpatialReferenceID, NULL AS FeatureGeometry, NULL AS SamplingFeatureNote
 FROM #TempSpecimenInfo 
 ORDER BY SamplingFeatureID;
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures OFF;
 --Insert records into the ODM2SamplingFeatures.Specimens table for the samples
 SET IDENTITY_INSERT ODM2.ODM2SamplingFeatures.Specimens ON;
-INSERT INTO ODM2.ODM2SamplingFeatures.Specimens (SpecimenID, SamplingFeatureID, SpecimenUniqueID, SpecimenUniqueIDTypeCV, IsFieldSpecimen, SpecimenTypeCV, SpecimenMediumCV)
-SELECT SpecimenID, SamplingFeatureID, SpecimenUniqueID, SpecimenUniqueIDTypeCV, IsFieldSpecimen, SpecimenTypeCV, SpecimenMediumCV
+INSERT INTO ODM2.ODM2SamplingFeatures.Specimens (SpecimenID, SamplingFeatureID, IsFieldSpecimen, SpecimenTypeCV, SpecimenMediumCV)
+SELECT SpecimenID, SamplingFeatureID, IsFieldSpecimen, SpecimenTypeCV, SpecimenMediumCV
 FROM #TempSpecimenInfo
 ORDER BY SpecimenID;
 SET IDENTITY_INSERT ODM2.ODM2SamplingFeatures.Specimens OFF;
@@ -111,10 +110,9 @@ SET IDENTITY_INSERT ODM2.ODM2Core.Variables OFF;
 --------------------------------------------------------------------------------------
 --Load the Methods from ODM 1.1 - can just move these straight across and use the same IDs
 SET IDENTITY_INSERT ODM2.ODM2Core.Methods ON; 
-INSERT INTO ODM2.ODM2Core.Methods (MethodID, MethodUniqueID, MethodUniqueIDTypeCV, MethodCode, MethodName, MethodDescription, 
-	MethodTypeCV, OrganizationID, MethodLink)
-SELECT MethodID, NULL AS MethodUniqueID, NULL AS MethodUniqueIDTypeCV, MethodID AS MethodCode, MethodDescription AS MethodName, 
-	MethodDescription, 'Unknown' AS MethodTypeCV, NULL AS OrganizationID, MethodLink 
+INSERT INTO ODM2.ODM2Core.Methods (MethodID, MethodTypeCV, MethodCode, MethodName, MethodDescription, MethodLink, OrganizationID)
+SELECT MethodID, 'Unknown' AS MethodTypeCV, MethodID AS MethodCode, MethodDescription AS MethodName, 
+	MethodDescription, MethodLink, NULL AS OrganizationID  
 FROM LittleBearRiverODM.dbo.Methods 
 ORDER BY MethodID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Methods OFF;
@@ -126,10 +124,10 @@ SET IDENTITY_INSERT ODM2.ODM2Core.Methods OFF;
 --2.  This uses "Research Institute" as the OrganizationTypeCV for now - this won't be true for all organizations stored in ODM 1.1 databases
 --------------------------------------------------------------------------------------
 SET IDENTITY_INSERT ODM2.ODM2Core.Organizations ON; 
-INSERT INTO ODM2.ODM2Core.Organizations (OrganizationID, OrganizationUniqueID, OrganizationUniqueIDTypeCV, OrganizationCode, 
-	OrganizationName, OrganizationDescription, OrganizationTypeCV, OrganizationLink, ParentOrganizationID)
-SELECT SourceID AS OrganizationID, NULL AS OrganizationUniqueID, NULL AS OrganizationUniqueIDTypeCV, SourceID AS OrganizationCode, 
-	Organization AS OrganizationName, CAST(SourceDescription AS VARCHAR(500)) AS OrganizationDescription, 'Research Institute' AS OrganizationTypeCV, 
+INSERT INTO ODM2.ODM2Core.Organizations (OrganizationID, OrganizationTypeCV, OrganizationCode, 
+	OrganizationName, OrganizationDescription, OrganizationLink, ParentOrganizationID)
+SELECT SourceID AS OrganizationID, 'Research Institute' AS OrganizationTypeCV, SourceID AS OrganizationCode, 
+	Organization AS OrganizationName, CAST(SourceDescription AS VARCHAR(500)) AS OrganizationDescription,  
 	SourceLink AS OrganizationLink, NULL AS ParentOrganizationID 
 FROM LittleBearRiverODM.dbo.Sources 
 ORDER BY OrganizationID;
@@ -171,10 +169,9 @@ SELECT @MaxMethodID = MAX(MethodID) FROM ODM2.ODM2Core.Methods;
 DECLARE @MaxOrganizationID AS int;
 SELECT @MaxOrganizationID = MAX(OrganizationID) FROM ODM2.ODM2Core.Organizations;
 --Add the analytical labs to the organizations table 
-INSERT INTO ODM2.ODM2Core.Organizations (OrganizationUniqueID, OrganizationUniqueIDTypeCV, OrganizationCode, OrganizationName, 
-	OrganizationDescription, OrganizationTypeCV, OrganizationLink, ParentOrganizationID)
-SELECT DISTINCT NULL AS OrganizationUniqueID, NULL AS OrganizationUniqueIDTypeCV, LabName AS OrganizationCode, LabName AS OrganizationName, 
-	LabOrganization AS OrganizationDescription, 'Analytical Laboratory' AS OrganizationTypeCV, NULL AS OrganizationLink, NULL AS ParentOrganizationID 
+INSERT INTO ODM2.ODM2Core.Organizations (OrganizationTypeCV, OrganizationCode, OrganizationName, OrganizationDescription, OrganizationLink, ParentOrganizationID)
+SELECT DISTINCT 'Analytical Laboratory' AS OrganizationTypeCV, LabName AS OrganizationCode, LabName AS OrganizationName, 
+	LabOrganization AS OrganizationDescription, NULL AS OrganizationLink, NULL AS ParentOrganizationID 
 FROM LittleBearRiverODM.dbo.LabMethods;
 --Create a temporary table that will make this easier
 SELECT DISTINCT lm.LabMethodID + @MaxMethodID + 1 AS MethodID, NULL AS MethodUniqueID, NULL AS MethodUniqueIDTypeCV, lm.LabMethodID + @MaxMethodID + 1 AS MethodCode, 
@@ -185,8 +182,8 @@ FROM LittleBearRiverODM.dbo.LabMethods lm, ODM2.ODM2Core.Organizations org
 WHERE lm.LabName = org.OrganizationName AND org.OrganizationID > @MaxOrganizationID;
 --Add the LabMethods from ODM 1.1 to the ODM2 Methods table
 SET IDENTITY_INSERT ODM2.ODM2Core.Methods ON; 
-INSERT INTO ODM2.ODM2Core.Methods (MethodID, MethodUniqueID, MethodUniqueIDTypeCV, MethodCode, MethodName, MethodDescription, MethodTypeCV, OrganizationID, MethodLink)
-SELECT MethodID, MethodUniqueID, MethodUniqueIDTypeCV, MethodCode, MethodName, MethodDescription, MethodTypeCV,	OrganizationID, MethodLink 
+INSERT INTO ODM2.ODM2Core.Methods (MethodID, MethodTypeCV, MethodCode, MethodName, MethodDescription, MethodLink, OrganizationID)
+SELECT MethodID, MethodTypeCV, MethodCode, MethodName, MethodDescription, MethodLink, OrganizationID  
 FROM #TempLabMethodInfo 
 ORDER BY MethodID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Methods OFF;

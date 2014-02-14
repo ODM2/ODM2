@@ -706,6 +706,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
       </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureNote" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text notes describing the sampling feature</Cm>
+      </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
@@ -2348,9 +2352,6 @@ metadata for one or more
 DataValues that are stored in
 Results tables specific to
 the ResultsSetType</Note>
-      <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
-i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
-containing many values in a series).</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="621" nm="Observations" w="286" x="534" y="164"/>
@@ -2871,7 +2872,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="334">
+  <RnmMgr NxRnmId="338">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3684,6 +3685,5 @@ then  additional field are added
     <TreePath>/Schemas (11)/ODM2Core</TreePath>
     <TreePath>/Schemas (11)/ODM2Core/Tables (16)</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
-    <TreePath>/Diagrams (11)/ODM2Sensors</TreePath>
   </TreePaths>
 </Db>

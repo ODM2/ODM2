@@ -1,4 +1,4 @@
-/* 1/3-5/2014. odm2_0.81_pgsql_emilio_changes.sql
+/*2/9/2014. odm2_0.81_pgsql_emilio_changes.sql
    Emilio Mayorga
    My changes to ODM2 0.81, for my PRISM-XAN data use case in PostgreSQL
 
@@ -28,6 +28,7 @@ Set up featuregeometry as a heterogeneous, 2D epsg:4326 Postgis geom field.
 as possible on ogc/epsg urn's, and a similar loose coupling system for locally defined spatial refs
 See as example (and look for the equivalent ogc "REST" url):
 http://www.epsg-registry.org/indicio/query?request=GetRepositoryItem&id=urn:ogc:def:crs:EPSG::4326
+http://www.opengis.net/def/crs/EPSG/0/4326
 >> We shouldn't get in the business of fully defining widely used spatial references
    (one of the roles for ODM2SamplingFeatures.SpatialReferences), 
    when there are widely used standards available for that.
