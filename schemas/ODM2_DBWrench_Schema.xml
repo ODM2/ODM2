@@ -725,17 +725,17 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled Vocabulary for the type of taxonomy</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonName" nu="0">
+      <Cl au="0" df="" nm="TaxonomicClassifierName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Taxonomic classification</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonCommonName" nu="0">
+      <Cl au="0" df="" nm="TaxonomicClassifierCommonName" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Taxonomic classification using a common name</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonNotes" nu="1">
+      <Cl au="0" df="" nm="TaxonomicClassifierNotes" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Description or remarks about taxon or taxon name</Cm>
+        <Cm>Description or remarks about Taxonomic Classifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ParentTaxonomicClassifierID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2729,6 +2729,19 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="26" y="157">Complex Result? (Array Object)?
+Shown in O&amp;M.  Arrays are allowed
+in PostGreSQL, but not consistently in 
+all RDBMSs.
+
+Can an array (such as a spectrum) be
+accomodated by a coverage?
+</Note>
+      <Note bkCl="ffe3e4e0" x="654" y="109">O&amp;M ResultTime meaning: "the time when the result
+became available".  It's useful to conceptualize Results 
+as a catalog of values. So, having an XYZT bounding box
+may be useful, though that's available
+from Actions and SamplingFeatures.</Note>
       <Note bkCl="ffe3e4e0" x="983" y="299">* ResultTypeCV:
 Measurements
 CategoryObservations
@@ -2761,19 +2774,6 @@ common ones.</Note>
       <Note bkCl="ffe3e4e0" x="315" y="266">Values table may represent a
 Coverage or a "constant value"
 (which may be complex type)</Note>
-      <Note bkCl="ffffffe6" x="26" y="157">Complex Result? (Array Object)?
-Shown in O&amp;M.  Arrays are allowed
-in PostGreSQL, but not consistently in 
-all RDBMSs.
-
-Can an array (such as a spectrum) be
-accomodated by a coverage?
-</Note>
-      <Note bkCl="ffe3e4e0" x="654" y="109">O&amp;M ResultTime meaning: "the time when the result
-became available".  It's useful to conceptualize Results 
-as a catalog of values. So, having an XYZT bounding box
-may be useful, though that's available
-from Actions and SamplingFeatures.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2942,7 +2942,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="341">
+  <RnmMgr NxRnmId="345">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3725,6 +3725,7 @@ then  additional field are added
       <Rnm id="336" nNm="TaxonomicClassifierID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="343" nNm="TaxonomicClassifierCommonName" oNm="TaxonCommonName"/>
       <Rnm id="337" nNm="TaxonCommonName" oNm="TaxonomicClassifierCommonName"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifierExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
@@ -3735,6 +3736,13 @@ then  additional field are added
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="340" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="342" nNm="TaxonomicClassifierName" oNm="TaxonomicClassiferName"/>
+      <Rnm id="341" nNm="TaxonomicClassiferName" oNm="TaxonName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="344" nNm="TaxonomicClassifierNotes" oNm="TaxonNotes"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -3753,10 +3761,12 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
