@@ -33,16 +33,13 @@
 <td class="PkCol">
 <p class="boolImg">
 <img src="../images/pkb16.gif"></p>
-</td><td class="PkCol"><a href="../columns/ODM2SamplingFeatures_Sites_SiteID.html">SiteID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol">Unique identifier</td><td class="PkCol"> </td>
-</tr>
-<tr class="altRow">
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_Sites_SamplingFeatureID.html">SamplingFeatureID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the Sampling Feature that is the Site</td><td class="FkCol">
+</td><td class="PkCol"><a href="../columns/ODM2SamplingFeatures_Sites_SamplingFeatureID.html">SamplingFeatureID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol">Foreign key identifier of the Sampling Feature that is the Site</td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2SamplingFeatures_Sites_SiteTypeCV.html">SiteTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A CV term describing the site type</td><td> </td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2SamplingFeatures_Sites_SiteCode.html">SiteCode</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>A text code that identifies the site (e.g., a USGS Gage number)</td><td> </td>
@@ -57,7 +54,10 @@
 <td> </td><td><a href="../columns/ODM2SamplingFeatures_Sites_Longitude.html">Longitude</a></td><td>Float</td><td> </td><td> </td><td> </td><td>Longitude of the site</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_Sites_LatLongDatumID.html">LatLongDatumID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_Sites_LatLonDatumID.html">LatLonDatumID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr class="altRow">
 <td> </td><td><a href="../columns/ODM2SamplingFeatures_Sites_Elevation_m.html">Elevation_m</a></td><td>Float</td><td>
@@ -71,15 +71,6 @@
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>A CV term describing the vertical datum to which the site elevation is referenced</td><td> </td>
 </tr>
-<tr class="altRow">
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_Sites_SiteTypeCV.html">SiteTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A CV term describing the site type</td><td> </td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
-</tr>
 </table>
 <br>
 <table class="flat">
@@ -88,6 +79,9 @@
 </tr>
 <tr>
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Sites_fk_SiteDatum_SRSID.html">fk_SiteDatum_SRSID</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_Sites.html">ODM2SamplingFeatures.Sites</a></td><td>SpatialReferenceID</td><td>LatLonDatumID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2SamplingFeatures_Sites_fk_Sites_SamplingFeatures.html">fk_Sites_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_Sites.html">ODM2SamplingFeatures.Sites</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>

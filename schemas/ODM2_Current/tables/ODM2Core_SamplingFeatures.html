@@ -38,8 +38,20 @@
 <img src="../images/ok12d.gif"></p>
 </td><td class="PkCol"> </td><td class="PkCol">Primary key.</td><td class="PkCol"> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureTypeCV.html">SamplingFeatureTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term descripting the type of sampling feature.</td><td> </td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureName.html">SamplingFeatureName</a></td><td>VarChar(255)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>Sampling Feature name (free text).</td><td> </td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureGeotypeCV.html">SamplingFeatureGeotypeCV</a></td><td>VarChar(255)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>Dimensionality of SamplingFeature; point2d, line2d, etc.</td><td> </td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_SamplingFeatures_SpatialReferenceID.html">SpatialReferenceID</a></td><td class="FkCol">Integer</td><td class="FkCol">
@@ -50,23 +62,17 @@
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
-<tr>
-<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_FeatureGeometry.html">FeatureGeometry</a></td><td>BLOB</td><td>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_FeatureGeometry.html">FeatureGeometry</a></td><td>Geometry</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Actual geometry of the feature. Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</td><td> </td>
+</td><td> </td><td> </td><td>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</td><td> </td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureNote.html">SamplingFeatureNote</a></td><td>VarChar(500)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Text notes describing the sampling feature</td><td> </td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</td><td> </td><td> </td><td>Description and notes for sampling feature (for sites, etc)</td><td> </td>
 </tr>
 </table>
 <br>
