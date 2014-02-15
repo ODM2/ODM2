@@ -30,8 +30,8 @@ The following are entities in the [ODM2 Core schema](http://uchic.github.io/ODM2
 ### ODM2 Extensions ###
 The following are extensions to the ODM2 Core:
 
-* [Annotations](ext_annotation.md)([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Annotations.html)) - Data qualifying comments and annotations on other entities.
-* Equipment ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Equipment.html)) - Information for managing sampling or laboratory equipment.
+* [Annotations](ext_annotations.md) ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Annotations.html)) - Data qualifying comments and annotations on other entities.
+* [Equipment](ext_equipment.md) ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Equipment.html)) - Information for managing sampling or laboratory equipment.
 * Controlled Vocabulary ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2CV.html)) - Entities for enforcing CVs.
 * Extension ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Extension.html)) - A general extensibility mechanism for ODM2 (adding new attributes).
 * External Identifiers ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2ExternalIdentifers.html)) - Linking entities in ODM2 to external repositories.
