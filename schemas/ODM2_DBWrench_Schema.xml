@@ -3,7 +3,7 @@
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>\home\mayorga\Desktop\RIGHT NOW\2011_NSF_GeoInfoS2I2\ProjectWork\ODM2schema\DBdocDW</DocFolder>
+  <DocFolder>/Users/anthony/Git/ODM2/schemas/ODM2_Current</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
@@ -2463,21 +2463,13 @@ single foreign key column.</Note>
 to allow for Catalog implementations.
 Also, DataValues are stored in 
 different tables according to the ResultsSetType</Note>
-      <Note bkCl="ffffffe6" x="574" y="66">An ObservationAct is 
-the only ActionType that 
-can produce a ResultSet.</Note>
-      <Note bkCl="ffffffe6" x="994" y="51">A ResultsSet describes
-metadata for one or more
-DataValues that are stored in
-Results tables specific to
-the ResultsSetType</Note>
       <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
 i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
 containing many values in a series).</Note>
       <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
 i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
 containing many values in a series).</Note>
-      <Note bkCl="ffe3e4e0" x="1206" y="62">Maybe Datasets should be
+      <Note bkCl="ffe3e4e0" x="1376" y="154">Maybe Datasets should be
 linked to Actions rather
 than Results?
 Actions already group Results.</Note>
@@ -2487,20 +2479,32 @@ on a SamplingFeature
 by at least one Person
 using a Method
 producing at least one ResultsSet.</Note>
-      <Note bkCl="ffffffe6" x="750" y="55">Reasons for separating
+      <Note bkCl="ffffffe6" x="754" y="48">Reasons for separating
 ObservationActs from ResultsSets:
 1. Allows Results for many Variables
     from each ObservationAct 
 2. Allows for other ActionTypes</Note>
-      <Note bkCl="ffffffe6" x="283" y="782">A person does not need to be 
+      <Note bkCl="ffffffe6" x="23" y="570">A person does not need to be 
 associated with an Organization,
 but, an Affiliation record must
 be created for each person because
 that is how people get linked to 
 actions.</Note>
-      <Note bkCl="ffffffe6" x="92" y="815">Secondary contact info 
-can be added as an 
-Extension property</Note>
+      <Note bkCl="ffffffe6" x="575" y="47">An ObservationAct is 
+the only ActionType that 
+can produce a ResultSet.
+
+ActionTypeCV draft at
+http://goo.gl/bRi2p1</Note>
+      <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
+metadata for one or more
+DataValues that are stored 
+in ResultValues tables.
+Results is provides a 
+catalog for ResultValues.</Note>
+      <Note bkCl="ffffffe6" x="21" y="681">Secondary contact info can be added 
+as an Extension property to Affiliations.
+See ODM2Extensions schema.</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="164"/>
@@ -2928,12 +2932,12 @@ accomodated by a coverage?
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="345" y="79"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="395" y="233"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="113" y="298"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="641" y="96"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="0" y="101"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="968" y="96"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="255" y="96"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="312" y="262"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="26" y="258"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="551" y="113"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="585" y="336"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="878" y="113"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
@@ -2942,39 +2946,35 @@ accomodated by a coverage?
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="675" y="357">OGC O&amp;M documentation
-Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
-Sampling Model:
-https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
-      <Note bkCl="ffe3e4e0" x="341" y="12">SamplingFeatureTypeCV:
-SamplingPoints, SamplingCurves,
-SamplingSurfaces, SamplingSolids</Note>
-      <Note bkCl="ffffffe6" x="117" y="387">Recommendation for ODM2 regarding
+      <Note bkCl="ffffffe6" x="23" y="362">Recommendation for ODM2 regarding
 Specimens: A specimen will not have 
 location information. That information
 will be associated from its parent 
 SamplingFeature, via FeatureParents</Note>
-      <Note bkCl="ffe3e4e0" x="640" y="12">FeatureParents table enables parent-child
+      <Note bkCl="ffffffe6" x="565" y="200">FeatureParents table enables parent-child
 relationships between any SamplingFeatures,
 including between Specimens and allowing
 composites (i.e. multiple parents).</Note>
-      <Note bkCl="ffffffe6" x="676" y="268">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
+      <Note bkCl="ffffffe6" x="15" y="1">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
 SpatialSamplingFeatures, in which "the value of a property varies 
 within the scope of the feature."  Therefore these SamplingFeatures 
 can be used to record Coverage results.</Note>
-      <Note bkCl="ffffffe6" x="16" y="9">See OGC O&amp;M documentation 
-for examples of different types of 
-SamplingPoints, SamplingCurves &amp;
-SamplingSurfaces and their respectively
-required attributes/metadata.</Note>
-      <Note bkCl="ffffffe6" x="1" y="206">[From Emilio] I reccommend removing
+      <Note bkCl="ffffffe6" x="604" y="426">[From Emilio] I reccommend removing
 SpatialReferences table. For discussion see: 
 https://github.com/UCHIC/ODM2/issues/12</Note>
-      <Note bkCl="ffe3e4e0" x="394" y="385">Sites are a special, widely used
+      <Note bkCl="ffffffe6" x="279" y="417">Sites are a special, widely used
 SamplingFeature type with a Point (XY) 
 Geometry. But named, polygon (XY) 
 spatial units (watersheds, admin units) 
 should also be accounted for.</Note>
+      <Note bkCl="ffffffe6" x="467" y="0">See OGC O&amp;M documentation on examples of different types of SamplingPoints, 
+SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
+Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
+Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
+      <Note bkCl="ffffffe6" x="890" y="260">SpatialOffsetTypeCV:
+- Draft at http://goo.gl/uOgK8U</Note>
+      <Note bkCl="ffffffe6" x="17" y="95">SamplingFeatureTypeCV:
+- Draft at http://goo.gl/DBvZko</Note>
     </Notes>
     <Zones/>
   </Dgm>
