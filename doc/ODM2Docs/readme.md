@@ -23,13 +23,14 @@ The following are entities in the [ODM2 Core schema](http://uchic.github.io/ODM2
 * [Results](core_results.md) - The result of an action.
 * [Roles](core_roles.md) - Capacities in which people act.
 * [Sampling Features](core_samplingfeatures.md) - Where or on what an action was performed.
+* [Taxonomic Classifiers](core_taxonomicclassifiers.md) - Terms for classifying results.
 * [Units](core_units.md) - Units of measure.
 * [Variables](core_variables.md) - What was observed.
 
 ### ODM2 Extensions ###
 The following are extensions to the ODM2 Core:
 
-* Annotations ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Annotations.html)) - Data qualifying comments and annotations on other entities.
+* [Annotations](ext_annotation.md)([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Annotations.html)) - Data qualifying comments and annotations on other entities.
 * Equipment ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Equipment.html)) - Information for managing sampling or laboratory equipment.
 * Controlled Vocabulary ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2CV.html)) - Entities for enforcing CVs.
 * Extension ([Schema Diagram](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2Extension.html)) - A general extensibility mechanism for ODM2 (adding new attributes).
