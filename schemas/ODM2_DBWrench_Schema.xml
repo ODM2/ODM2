@@ -2843,12 +2843,12 @@ accomodated by a coverage?
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
         <Fg ky="Comment" vl="0"/>
-        <Fg ky="Data Type" vl="1"/>
+        <Fg ky="Data Type" vl="0"/>
         <Fg ky="Default" vl="0"/>
         <Fg ky="ENUM Values" vl="0"/>
         <Fg ky="Length" vl="0"/>
@@ -2864,11 +2864,11 @@ accomodated by a coverage?
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="345" y="79"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="398" y="226"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="106" y="289"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="686" y="99"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="395" y="233"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="113" y="298"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="641" y="96"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="0" y="101"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="1003" y="57"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="968" y="96"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
@@ -2884,12 +2884,12 @@ https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_mo
       <Note bkCl="ffe3e4e0" x="341" y="12">SamplingFeatureTypeCV:
 SamplingPoints, SamplingCurves,
 SamplingSurfaces, SamplingSolids</Note>
-      <Note bkCl="ffffffe6" x="112" y="381">Recommendation for ODM2 regarding
+      <Note bkCl="ffffffe6" x="117" y="387">Recommendation for ODM2 regarding
 Specimens: A specimen will not have 
 location information. That information
 will be associated from its parent 
 SamplingFeature, via FeatureParents</Note>
-      <Note bkCl="ffe3e4e0" x="668" y="11">FeatureParents table enables parent-child
+      <Note bkCl="ffe3e4e0" x="640" y="12">FeatureParents table enables parent-child
 relationships between any SamplingFeatures,
 including between Specimens and allowing
 composites (i.e. multiple parents).</Note>
@@ -2905,7 +2905,7 @@ required attributes/metadata.</Note>
       <Note bkCl="ffffffe6" x="1" y="206">[From Emilio] I reccommend removing
 SpatialReferences table. For discussion see: 
 https://github.com/UCHIC/ODM2/issues/12</Note>
-      <Note bkCl="ffe3e4e0" x="394" y="381">Sites are a special, widely used
+      <Note bkCl="ffe3e4e0" x="394" y="385">Sites are a special, widely used
 SamplingFeature type with a Point (XY) 
 Geometry. But named, polygon (XY) 
 spatial units (watersheds, admin units) 
@@ -3793,9 +3793,9 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
