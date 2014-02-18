@@ -1,6 +1,6 @@
 <HTML>
 <Header>
-<Title>ResultsExtensionPropertyValues - Table</Title>
+<Title>MethodExtensionPropertyValues - Table</Title>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 <Link href="../css/doc.css" rel="stylesheet" type="text/css">
 </Header>
@@ -17,8 +17,8 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
-<td class="title_nm">ResultsExtensionPropertyValues</td><td class="watermark_right">(Table)</td>
+<tr>
+<td class="title_nm">MethodExtensionPropertyValues</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
 <br>
@@ -30,19 +30,19 @@
 <td class="Header">PK</td><td class="Header">Name</td><td class="Header">Data Type</td><td class="Header">NULLs</td><td class="Header">A/N</td><td class="Header">Default</td><td class="Header">Comment</td><td class="Header">FK</td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Extensions_ResultsExtensionPropertyValues_ResultID.html">ResultID</a></td><td class="FkCol">BigInt</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the result to which the extension property applies</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2ExtensionProperties_MethodExtensionPropertyValues_MethodID.html">MethodID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the Method</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Extensions_ResultsExtensionPropertyValues_PropertyID.html">PropertyID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the extension propery</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2ExtensionProperties_MethodExtensionPropertyValues_PropertyID.html">PropertyID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the extension property</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Extensions_ResultsExtensionPropertyValues_PropertyValue.html">PropertyValue</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text or numeric value of the extension property</td><td> </td>
+<td> </td><td><a href="../columns/ODM2ExtensionProperties_MethodExtensionPropertyValues_PropertyValue.html">PropertyValue</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text or numeric value of the extension property</td><td> </td>
 </tr>
 </table>
 <br>
@@ -54,10 +54,10 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Extensions_ResultsExtensionPropertyValues_fk_ResultsSetsExtensionPropertyValues_ExtensionProperties.html">fk_ResultsSetsExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2Extensions_ExtensionProperties.html">ODM2Extensions.ExtensionProperties</a></td><td><a href="../tables/ODM2Extensions_ResultsExtensionPropertyValues.html">ODM2Extensions.ResultsExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_MethodExtensionPropertyValues_fk_MethodExtensionPropertyValues_ExtensionProperties.html">fk_MethodExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_MethodExtensionPropertyValues.html">ODM2ExtensionProperties.MethodExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Extensions_ResultsExtensionPropertyValues_fk_ResultsSetsExtensionPropertyValues_Results.html">fk_ResultsSetsExtensionPropertyValues_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Extensions_ResultsExtensionPropertyValues.html">ODM2Extensions.ResultsExtensionPropertyValues</a></td><td>ResultID</td><td>ResultID</td>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_MethodExtensionPropertyValues_fk_MethodExtensionPropertyValues_Methods.html">fk_MethodExtensionPropertyValues_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2ExtensionProperties_MethodExtensionPropertyValues.html">ODM2ExtensionProperties.MethodExtensionPropertyValues</a></td><td>MethodID</td><td>MethodID</td>
 </tr>
 </table>
 <br>
@@ -75,7 +75,7 @@
 <td class="Header">Diagram Name</td>
 </tr>
 <tr>
-<td><a href="../diagrams/ODM2Extensions.html">ODM2Extensions</a></td>
+<td><a href="../diagrams/ODM2ExtensionProperties.html">ODM2ExtensionProperties</a></td>
 </tr>
 </table>
 </Body>

@@ -1310,8 +1310,8 @@
     </Tbl>
     <CustomTypes/>
   </Sch>
-  <Sch Cm="A general extensibility mechanism for any entity/object/table in ODM2." nm="ODM2Extensions">
-    <Tbl UsSo="1" nm="ActionsExtensionPropertyValues">
+  <Sch Cm="A general extensibility mechanism for any entity/object/table in ODM2." nm="ODM2ExtensionProperties">
+    <Tbl UsSo="1" nm="ActionExtensionPropertyValues">
       <TblOpts/>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -1327,12 +1327,12 @@
       </Cl>
       <Fk deAc="3" nm="fk_ActionExtentionProperites_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ActionsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <CdTb mn="1" nm="ActionExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ActionExtentionProperites_ExtentionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
-        <CdTb mn="1" nm="ActionsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2ExtensionProperties" zr="0"/>
+        <CdTb mn="1" nm="ActionExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1364,7 +1364,7 @@
       </Cl>
       <Fk deAc="3" nm="fk_ExtensionProperties_Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2Extensions" zr="1"/>
+        <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyUnitsID" prCl="UnitsID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1386,19 +1386,19 @@
         <Cm>Text or numeric value of the extension property</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_MethodExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
-        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2ExtensionProperties" zr="0"/>
+        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_MethodExtensionPropertyValues_Methods" prLkCl="MethodID" upAc="3">
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <CdTb mn="1" nm="MethodExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="MethodID" prCl="MethodID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="ResultsExtensionPropertyValues">
+    <Tbl UsSo="1" nm="ResultExtensionPropertyValues">
       <Cm>Links extension properties to a Result</Cm>
       <TblOpts/>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -1414,13 +1414,13 @@
         <Cm>Text or numeric value of the extension property</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultsSetsExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
-        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2ExtensionProperties" zr="0"/>
+        <CdTb mn="1" nm="ResultExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ResultsSetsExtensionPropertyValues_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultsExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <CdTb mn="1" nm="ResultExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1441,13 +1441,13 @@
         <Cm>Value of the property being added to the sampling feature</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ExtensionProperties_SFExtentionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
-        <CdTb mn="1" nm="SamplingFeatureExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2ExtensionProperties" zr="0"/>
+        <CdTb mn="1" nm="SamplingFeatureExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SamplingFeatures_SFExtentionProperties" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SamplingFeatureExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <CdTb mn="1" nm="SamplingFeatureExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
@@ -1468,13 +1468,13 @@
         <Cm>Text or numeric value of the extension property for the variable</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_VariableExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
-        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2Extensions" zr="0"/>
-        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2ExtensionProperties" zr="0"/>
+        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <Fk deAc="3" nm="fk_VariableExtensionPropertyValues_Variables" prLkCl="VariableID" upAc="3">
         <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2Extensions" zr="1"/>
+        <CdTb mn="1" nm="VariableExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="VariableID" prCl="VariableID"/>
       </Fk>
       <UniqueConstraints/>
@@ -2463,21 +2463,16 @@ single foreign key column.</Note>
 to allow for Catalog implementations.
 Also, DataValues are stored in 
 different tables according to the ResultsSetType</Note>
-      <Note bkCl="ffffffe6" x="574" y="66">An ObservationAct is 
-the only ActionType that 
-can produce a ResultSet.</Note>
-      <Note bkCl="ffffffe6" x="994" y="51">A ResultsSet describes
-metadata for one or more
-DataValues that are stored in
-Results tables specific to
-the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="21" y="681">Secondary contact info can be added 
+as an Extension property to Affiliations.
+See ODM2Extensions schema.</Note>
       <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
 i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
 containing many values in a series).</Note>
       <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
 i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
 containing many values in a series).</Note>
-      <Note bkCl="ffe3e4e0" x="1206" y="62">Maybe Datasets should be
+      <Note bkCl="ffe3e4e0" x="1376" y="154">Maybe Datasets should be
 linked to Actions rather
 than Results?
 Actions already group Results.</Note>
@@ -2487,20 +2482,29 @@ on a SamplingFeature
 by at least one Person
 using a Method
 producing at least one ResultsSet.</Note>
-      <Note bkCl="ffffffe6" x="750" y="55">Reasons for separating
+      <Note bkCl="ffffffe6" x="754" y="48">Reasons for separating
 ObservationActs from ResultsSets:
 1. Allows Results for many Variables
     from each ObservationAct 
 2. Allows for other ActionTypes</Note>
-      <Note bkCl="ffffffe6" x="283" y="782">A person does not need to be 
+      <Note bkCl="ffffffe6" x="23" y="570">A person does not need to be 
 associated with an Organization,
 but, an Affiliation record must
 be created for each person because
 that is how people get linked to 
 actions.</Note>
-      <Note bkCl="ffffffe6" x="92" y="815">Secondary contact info 
-can be added as an 
-Extension property</Note>
+      <Note bkCl="ffffffe6" x="575" y="47">An ObservationAct is 
+the only ActionType that 
+can produce a ResultSet.
+
+ActionTypeCV draft at
+http://goo.gl/bRi2p1</Note>
+      <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
+metadata for one or more
+DataValues that are stored 
+in ResultValues tables.
+Results is provides a 
+catalog for ResultValues.</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="164"/>
@@ -2638,7 +2642,7 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     </Notes>
     <Zones/>
   </Dgm>
-  <Dgm nm="ODM2Extensions">
+  <Dgm nm="ODM2ExtensionProperties">
     <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
@@ -2659,32 +2663,32 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ExtensionProperties" x="319" y="537"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="MethodExtensionPropertyValues" x="448" y="265"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="574" y="126"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="790" y="23"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ResultsExtensionPropertyValues" x="612" y="361"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="VariableExtensionPropertyValues" x="930" y="279"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ExtensionProperties" x="345" y="536"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="MethodExtensionPropertyValues" x="485" y="271"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="574" y="129"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="785" y="25"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ResultExtensionPropertyValues" x="666" y="358"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="VariableExtensionPropertyValues" x="924" y="271"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="22" y="28"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="312" y="26"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="SamplingFeatureExtensionPropertyValues" x="5" y="265"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2Extensions" tbl="ActionsExtensionPropertyValues" x="242" y="358"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="SamplingFeatureExtensionPropertyValues" x="0" y="273"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="223" y="360"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1078" y="25"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.ActionsExtensionPropertyValues.fk_ActionExtentionProperites_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.ActionsExtensionPropertyValues.fk_ActionExtentionProperites_ExtentionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.ResultsExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.SamplingFeatureExtensionPropertyValues.fk_ExtensionProperties_SFExtentionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.SamplingFeatureExtensionPropertyValues.fk_SamplingFeatures_SFExtentionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
-    <FkGl bkCl="ff000000" nm="ODM2Extensions.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_Variables"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtentionProperites_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtentionProperites_ExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ResultExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ResultExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.SamplingFeatureExtensionPropertyValues.fk_ExtensionProperties_SFExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.SamplingFeatureExtensionPropertyValues.fk_SamplingFeatures_SFExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_Variables"/>
     <Notes>
       <Note bkCl="ffffffe6" x="34" y="465">ExtensionProperties are implemented in a way
 similar to ExternalIdentifiers.</Note>
@@ -2928,12 +2932,12 @@ accomodated by a coverage?
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="345" y="79"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="395" y="233"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="113" y="298"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="641" y="96"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="0" y="101"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="968" y="96"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="255" y="96"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="312" y="262"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="26" y="258"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="551" y="113"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="585" y="336"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="878" y="113"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
@@ -2942,39 +2946,35 @@ accomodated by a coverage?
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="675" y="357">OGC O&amp;M documentation
-Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
-Sampling Model:
-https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
-      <Note bkCl="ffe3e4e0" x="341" y="12">SamplingFeatureTypeCV:
-SamplingPoints, SamplingCurves,
-SamplingSurfaces, SamplingSolids</Note>
-      <Note bkCl="ffffffe6" x="117" y="387">Recommendation for ODM2 regarding
+      <Note bkCl="ffffffe6" x="23" y="362">Recommendation for ODM2 regarding
 Specimens: A specimen will not have 
 location information. That information
 will be associated from its parent 
 SamplingFeature, via FeatureParents</Note>
-      <Note bkCl="ffe3e4e0" x="640" y="12">FeatureParents table enables parent-child
+      <Note bkCl="ffffffe6" x="565" y="200">FeatureParents table enables parent-child
 relationships between any SamplingFeatures,
 including between Specimens and allowing
 composites (i.e. multiple parents).</Note>
-      <Note bkCl="ffffffe6" x="676" y="268">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
+      <Note bkCl="ffffffe6" x="15" y="1">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
 SpatialSamplingFeatures, in which "the value of a property varies 
 within the scope of the feature."  Therefore these SamplingFeatures 
 can be used to record Coverage results.</Note>
-      <Note bkCl="ffffffe6" x="16" y="9">See OGC O&amp;M documentation 
-for examples of different types of 
-SamplingPoints, SamplingCurves &amp;
-SamplingSurfaces and their respectively
-required attributes/metadata.</Note>
-      <Note bkCl="ffffffe6" x="1" y="206">[From Emilio] I reccommend removing
+      <Note bkCl="ffffffe6" x="604" y="426">[From Emilio] I reccommend removing
 SpatialReferences table. For discussion see: 
 https://github.com/UCHIC/ODM2/issues/12</Note>
-      <Note bkCl="ffe3e4e0" x="394" y="385">Sites are a special, widely used
+      <Note bkCl="ffffffe6" x="279" y="417">Sites are a special, widely used
 SamplingFeature type with a Point (XY) 
 Geometry. But named, polygon (XY) 
 spatial units (watersheds, admin units) 
 should also be accounted for.</Note>
+      <Note bkCl="ffffffe6" x="467" y="0">See OGC O&amp;M documentation on examples of different types of SamplingPoints, 
+SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
+Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
+Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
+      <Note bkCl="ffffffe6" x="890" y="260">SpatialOffsetTypeCV:
+- Draft at http://goo.gl/uOgK8U</Note>
+      <Note bkCl="ffffffe6" x="17" y="95">SamplingFeatureTypeCV:
+- Draft at http://goo.gl/DBvZko</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -3030,7 +3030,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="343">
+  <RnmMgr NxRnmId="348">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3277,7 +3277,7 @@ then  additional field are added
       <Rnm id="195" nNm="ODM2Results" oNm="ODM2ResultsSets"/>
       <Rnm id="91" nNm="ODM2ResultsSets" oNm="ODM2Observations"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultsExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
       <Rnm id="252" nNm="ResultID" oNm="ResultsSetID"/>
       <Rnm id="92" nNm="ResultsSetID" oNm="ResultsSetsID"/>
     </RnmCh>
@@ -3737,7 +3737,8 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ObservationExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
       <Rnm id="292" nNm="ResultID" oNm="ObservationID"/>
     </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Extensions" SupCls="" SupNme="">
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2ExtensionProperties" SupCls="" SupNme="">
+      <Rnm id="347" nNm="ResultExtensionPropertyValues" oNm="ResultsExtensionPropertyValues"/>
       <Rnm id="293" nNm="ResultsExtensionPropertyValues" oNm="ResultsSetsExtensionPropertyValues"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
@@ -3801,12 +3802,13 @@ then  additional field are added
       <Rnm id="332" nNm="ActionID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
+      <Rnm id="343" nNm="ODM2ExtensionProperties" oNm="ODM2Extensions"/>
       <Rnm id="333" nNm="ODM2Extensions" oNm="ODM2Extension"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatureExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
       <Rnm id="334" nNm="SamplingFeatureID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionsExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
       <Rnm id="335" nNm="ActionID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
@@ -3847,6 +3849,11 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="WorkflowMethodSequences" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="342" nNm="WorkflowID" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2ExtensionProperties" SupCls="" SupNme="">
+      <Rnm id="346" nNm="ActionExtensionPropertyValues" oNm="ActionsExtensionPropertyValues"/>
+      <Rnm id="345" nNm="ActionsExtensionPropertyValues" oNm="ActionExtensionPropertyValues"/>
+      <Rnm id="344" nNm="ActionExtensionPropertyValues" oNm="ActionsExtensionPropertyValues"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3864,12 +3871,12 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Extensions" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
