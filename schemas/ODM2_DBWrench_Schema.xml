@@ -723,7 +723,7 @@
         <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureNote" nu="1">
+      <Cl au="0" df="" nm="SamplingFeatureNotes" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
       </Cl>
@@ -778,10 +778,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="UnitsName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text name for the unit</Cm>
-      </Cl>
       <Cl au="0" df="" nm="UnitsTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term that defines the unit type</Cm>
@@ -789,6 +785,10 @@
       <Cl au="0" df="" nm="UnitsAbbreviation" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>Text abbreviation for the unit</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="UnitsName" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text name for the unit</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1659,10 +1659,10 @@
       <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierExternalItentifier" nu="0">
+      <Cl au="0" df="" nm="TaxonomicClassifierExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierExternalItentifierURI" nu="1">
+      <Cl au="0" df="" nm="TaxonomicClassifierExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_ExternalIdentifierSystems_TaxonIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
@@ -3030,7 +3030,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="348">
+  <RnmMgr NxRnmId="351">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3854,6 +3854,15 @@ then  additional field are added
       <Rnm id="345" nNm="ActionsExtensionPropertyValues" oNm="ActionExtensionPropertyValues"/>
       <Rnm id="344" nNm="ActionExtensionPropertyValues" oNm="ActionsExtensionPropertyValues"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifierExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="348" nNm="TaxonomicClassifierExternalIdentifier" oNm="TaxonomicClassifierExternalItentifier"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifierExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="349" nNm="TaxonomicClassifierExternalIdentifierURI" oNm="TaxonomicClassifierExternalItentifierURI"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="350" nNm="SamplingFeatureNotes" oNm="SamplingFeatureNote"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3871,12 +3880,12 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
