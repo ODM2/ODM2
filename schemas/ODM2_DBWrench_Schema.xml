@@ -173,6 +173,12 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ActionAnnotations_id_seq"/>
+    <Seq incr="1" nm="Annotations_id_seq"/>
+    <Seq incr="1" nm="MethodAnnotations_id_seq"/>
+    <Seq incr="1" nm="ResultAnnotations_id_seq"/>
+    <Seq incr="1" nm="ResultValueAnnotations_id_seq"/>
+    <Seq incr="1" nm="SamplingFeatureAnnotations_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="The core of ODM2.  Every ODM2 instance will implement the Core." nm="ODM2Core">
@@ -882,6 +888,24 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ActionPeople_id_seq"/>
+    <Seq incr="1" nm="Actions_id_seq"/>
+    <Seq incr="1" nm="Affiliations_id_seq"/>
+    <Seq incr="1" nm="DataSets_id_seq"/>
+    <Seq incr="1" nm="DataSetsResults_id_seq"/>
+    <Seq incr="1" nm="Directives_id_seq"/>
+    <Seq incr="1" nm="Methods_id_seq"/>
+    <Seq incr="1" nm="Organizations_id_seq"/>
+    <Seq incr="1" nm="People_id_seq"/>
+    <Seq incr="1" nm="QualityControlLevels_id_seq"/>
+    <Seq incr="1" nm="RelatedResults_id_seq"/>
+    <Seq incr="1" nm="Results_id_seq"/>
+    <Seq incr="1" nm="Roles_id_seq"/>
+    <Seq incr="1" nm="TaxonomicClassifiers_id_seq"/>
+    <Seq incr="1" nm="Units_id_seq"/>
+    <Seq incr="1" nm="Variables_id_seq"/>
+    <Seq incr="1" nm="WorkflowMethodSequences_id_seq"/>
+    <Seq incr="1" nm="Workflows_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Controlled vocabularies for ODM2." nm="ODM2CV">
@@ -912,6 +936,7 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="cvterms_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes of equipment used to make observations (e.g., sensors and instruments)." nm="ODM2Equipment">
@@ -1308,6 +1333,16 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="CalibrationAction_Standards_id_seq"/>
+    <Seq incr="1" nm="CalibrationActions_id_seq"/>
+    <Seq incr="1" nm="CalibrationEquations_id_seq"/>
+    <Seq incr="1" nm="CalibrationStandards_id_seq"/>
+    <Seq incr="1" nm="CalibrationStandardValues_id_seq"/>
+    <Seq incr="1" nm="ConfigurationActions_id_seq"/>
+    <Seq incr="1" nm="Equipment_id_seq"/>
+    <Seq incr="1" nm="EquipmentModels_id_seq"/>
+    <Seq incr="1" nm="InstrumentOutputVariables_id_seq"/>
+    <Seq incr="1" nm="MaintenenceActions_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="A general extensibility mechanism for any entity/object/table in ODM2." nm="ODM2ExtensionProperties">
@@ -1480,6 +1515,12 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ActionExtensionPropertyValues_id_seq"/>
+    <Seq incr="1" nm="ExtensionProperties_id_seq"/>
+    <Seq incr="1" nm="MethodExtensionPropertyValues_id_seq"/>
+    <Seq incr="1" nm="ResultExtensionPropertyValues_id_seq"/>
+    <Seq incr="1" nm="SamplingFeatureExtensionPropertyValues_id_seq"/>
+    <Seq incr="1" nm="VariableExtensionPropertyValues_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="" nm="ODM2ExternalIdentifiers">
@@ -1711,6 +1752,13 @@
         <StPr stA="ODM2Core" stB="VariableExternalIdentifiers"/>
       </SchTrHis>
     </Tbl>
+    <Seq incr="1" nm="DataSetExternalIdentifers_id_seq"/>
+    <Seq incr="1" nm="ExternalIdentifierSystems_id_seq"/>
+    <Seq incr="1" nm="MethodExternalIdentifiers_id_seq"/>
+    <Seq incr="1" nm="PersonExternalIdentifiers_id_seq"/>
+    <Seq incr="1" nm="SamplingFeatureExternalIdentifiers_id_seq"/>
+    <Seq incr="1" nm="TaxonomicClassifierExternalIdentifiers_id_seq"/>
+    <Seq incr="1" nm="VariableExternalIdentifiers_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes for creating and storing provenance information and versions of observations in ODM2." nm="ODM2Provenance">
@@ -1820,6 +1868,9 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="InputResults_id_seq"/>
+    <Seq incr="1" nm="ResultProvenance_id_seq"/>
+    <Seq incr="1" nm="ResultVersions_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="The resulting values of observations in ODM2." nm="ODM2Results">
@@ -1916,6 +1967,8 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="OffsetOrigins_id_seq"/>
+    <Seq incr="1" nm="ResultValues_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about samples and laboratory analyses for ex situ data." nm="ODM2Samples">
@@ -2008,6 +2061,9 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="AnalysisBatchActions_id_seq"/>
+    <Seq incr="1" nm="BatchSampleLines_id_seq"/>
+    <Seq incr="1" nm="SamplePreparationAction_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about sampling features, including sites and specimens." nm="ODM2SamplingFeatures">
@@ -2193,6 +2249,9 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="FeatureParents_id_seq"/>
+    <Seq incr="1" nm="SpatialOffsets_id_seq"/>
+    <Seq incr="1" nm="SpatialReferences_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about sensor deployment and management for in situ data." nm="ODM2Sensors">
@@ -2336,6 +2395,10 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="DataLoggerFiles_id_seq"/>
+    <Seq incr="1" nm="DeploymentActions_id_seq"/>
+    <Seq incr="1" nm="Photos_id_seq"/>
+    <Seq incr="1" nm="SiteVisitActions_id_seq"/>
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
@@ -2463,6 +2526,12 @@ single foreign key column.</Note>
 to allow for Catalog implementations.
 Also, DataValues are stored in 
 different tables according to the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
+metadata for one or more
+DataValues that are stored 
+in ResultValues tables.
+Results is provides a 
+catalog for ResultValues.</Note>
       <Note bkCl="ffffffe6" x="21" y="681">Secondary contact info can be added 
 as an Extension property to Affiliations.
 See ODM2Extensions schema.</Note>
@@ -2499,12 +2568,6 @@ can produce a ResultSet.
 
 ActionTypeCV draft at
 http://goo.gl/bRi2p1</Note>
-      <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
-metadata for one or more
-DataValues that are stored 
-in ResultValues tables.
-Results is provides a 
-catalog for ResultValues.</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="164"/>
@@ -2946,6 +3009,19 @@ accomodated by a coverage?
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="279" y="417">Sites are a special, widely used
+SamplingFeature type with a Point (XY) 
+Geometry. But named, polygon (XY) 
+spatial units (watersheds, admin units) 
+should also be accounted for.</Note>
+      <Note bkCl="ffffffe6" x="467" y="0">See OGC O&amp;M documentation on examples of different types of SamplingPoints, 
+SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
+Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
+Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
+      <Note bkCl="ffffffe6" x="890" y="260">SpatialOffsetTypeCV:
+- Draft at http://goo.gl/uOgK8U</Note>
+      <Note bkCl="ffffffe6" x="17" y="95">SamplingFeatureTypeCV:
+- Draft at http://goo.gl/DBvZko</Note>
       <Note bkCl="ffffffe6" x="23" y="362">Recommendation for ODM2 regarding
 Specimens: A specimen will not have 
 location information. That information
@@ -2962,19 +3038,6 @@ can be used to record Coverage results.</Note>
       <Note bkCl="ffffffe6" x="604" y="426">[From Emilio] I reccommend removing
 SpatialReferences table. For discussion see: 
 https://github.com/UCHIC/ODM2/issues/12</Note>
-      <Note bkCl="ffffffe6" x="279" y="417">Sites are a special, widely used
-SamplingFeature type with a Point (XY) 
-Geometry. But named, polygon (XY) 
-spatial units (watersheds, admin units) 
-should also be accounted for.</Note>
-      <Note bkCl="ffffffe6" x="467" y="0">See OGC O&amp;M documentation on examples of different types of SamplingPoints, 
-SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
-Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
-Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
-      <Note bkCl="ffffffe6" x="890" y="260">SpatialOffsetTypeCV:
-- Draft at http://goo.gl/uOgK8U</Note>
-      <Note bkCl="ffffffe6" x="17" y="95">SamplingFeatureTypeCV:
-- Draft at http://goo.gl/DBvZko</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -3880,18 +3943,17 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
-    <TreePath>/Schemas (11)/ODM2SamplingFeatures</TreePath>
-    <TreePath>/Schemas (11)/ODM2SamplingFeatures/Tables (5)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Annotations</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
   </TreePaths>
 </Db>
