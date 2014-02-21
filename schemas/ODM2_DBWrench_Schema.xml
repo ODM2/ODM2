@@ -3009,6 +3009,19 @@ accomodated by a coverage?
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
+      <Note bkCl="ffffffe6" x="279" y="417">Sites are a special, widely used
+SamplingFeature type with a Point (XY) 
+Geometry. But named, polygon (XY) 
+spatial units (watersheds, admin units) 
+should also be accounted for.</Note>
+      <Note bkCl="ffffffe6" x="467" y="0">See OGC O&amp;M documentation on examples of different types of SamplingPoints, 
+SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
+Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
+Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
+      <Note bkCl="ffffffe6" x="890" y="260">SpatialOffsetTypeCV:
+- Draft at http://goo.gl/uOgK8U</Note>
+      <Note bkCl="ffffffe6" x="17" y="95">SamplingFeatureTypeCV:
+- Draft at http://goo.gl/DBvZko</Note>
       <Note bkCl="ffffffe6" x="23" y="362">Recommendation for ODM2 regarding
 Specimens: A specimen will not have 
 location information. That information
@@ -3025,19 +3038,6 @@ can be used to record Coverage results.</Note>
       <Note bkCl="ffffffe6" x="604" y="426">[From Emilio] I reccommend removing
 SpatialReferences table. For discussion see: 
 https://github.com/UCHIC/ODM2/issues/12</Note>
-      <Note bkCl="ffffffe6" x="279" y="417">Sites are a special, widely used
-SamplingFeature type with a Point (XY) 
-Geometry. But named, polygon (XY) 
-spatial units (watersheds, admin units) 
-should also be accounted for.</Note>
-      <Note bkCl="ffffffe6" x="467" y="0">See OGC O&amp;M documentation on examples of different types of SamplingPoints, 
-SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
-Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
-Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
-      <Note bkCl="ffffffe6" x="890" y="260">SpatialOffsetTypeCV:
-- Draft at http://goo.gl/uOgK8U</Note>
-      <Note bkCl="ffffffe6" x="17" y="95">SamplingFeatureTypeCV:
-- Draft at http://goo.gl/DBvZko</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -3943,10 +3943,17 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Samples" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
+    <TreePath>/Schemas (11)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Annotations</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
   </TreePaths>
 </Db>
