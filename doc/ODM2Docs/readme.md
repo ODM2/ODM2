@@ -19,6 +19,7 @@ The following are entities in the [ODM2 Core schema](http://uchic.github.io/ODM2
 * [Organizations](core_organizations.md) - A group of people.
 * [People](core_people.md) - Individuals that perform actions.
 * [Quality Control Levels](core_qualitycontrollevels.md) - Levels to which data have been quality controlled.
+* [Related Actions](core_relatedactions.md) - Enables specifying relationships among Actions (e.g., workflows, etc.)
 * [Related Results](core_relatedresults.md) - Enables specifying relationships among results.
 * [Results](core_results.md) - The result of an action.
 * [Roles](core_roles.md) - Capacities in which people act.
