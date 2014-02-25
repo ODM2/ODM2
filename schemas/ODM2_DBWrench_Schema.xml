@@ -826,43 +826,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="WorkflowMethodSequences">
-      <Cm>Specifies the sequence of Methods in a Workflow.</Cm>
-      <TblOpts/>
-      <Cl au="0" df="" nm="WorkflowID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign Key to Workflows</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="MethodID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign Key to Methods</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="MethodSequenceNumber" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Number position of the method within the Workflow sequence</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="Workflows">
-      <Cm>A Workflow is often repeated sequence of Methods that together are required to fully interpret Results.  Workflows can also substantially assist with data entry, by providing templates for forms, etc.</Cm>
-      <TblOpts/>
-      <Pk ClNs="WorkflowID" nm="pkWorkflows"/>
-      <Cl au="0" df="" nm="WorkflowID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary Key for Workflows</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="WorkflowDescription" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Brief description of purpose of workflow.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="WorkflowCitation" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Citation to a publication that decribes the workflow in detail.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Controlled vocabularies for ODM2." nm="ODM2CV">
@@ -2439,6 +2402,12 @@ single foreign key column.</Note>
 to allow for Catalog implementations.
 Also, DataValues are stored in 
 different tables according to the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
+metadata for one or more
+DataValues that are stored 
+in ResultValues tables.
+Results is provides a 
+catalog for ResultValues.</Note>
       <Note bkCl="ffffffe6" x="21" y="681">Secondary contact info can be added 
 as an Extension property to Affiliations.
 See ODM2Extensions schema.</Note>
@@ -2475,15 +2444,9 @@ can produce a ResultSet.
 
 ActionTypeCV draft at
 http://goo.gl/bRi2p1</Note>
-      <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
-metadata for one or more
-DataValues that are stored 
-in ResultValues tables.
-Results is provides a 
-catalog for ResultValues.</Note>
     </Notes>
     <Zones>
-      <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="606" y="200"/>
+      <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="173"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
@@ -3938,14 +3901,7 @@ then  additional field are added
       <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
     </BasicOptionMgr>
   </DbDocOptionMgr>
-  <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-  </OpenEditors>
+  <OpenEditors/>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
