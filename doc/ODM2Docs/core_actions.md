@@ -10,7 +10,7 @@ In ODM2, the "Actions" entity is used to encode information about activities or 
 * Instrument deployment
 * Etc.
 
-Each Action is associated with a "Sampling Feature" at which or on which it is performed.  Actions have beginning and ending dates and are perfomed using a Method.  Actions may be performed under a Directive, which specifies the reason that the Action was performed.
+Each Action is associated with a "Sampling Feature" at which or on which it is performed.  Actions have beginning and ending dates and are perfomed using a Method; an Action represents a specific instance of a Method.  Actions may be performed under a Directive, which specifies the reason that the Action was performed.
 
 Actions are performed by one or more People, each of which may be affiliated with an Organization. Each of the People who participate in an Action may have a Role. For example, the "Observation act" is performed by a Person whose role is "Observer."
 
