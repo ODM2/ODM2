@@ -225,9 +225,9 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the type of action (e.g., observation, sample collection, sample analysis)</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
+      <Cl au="0" df="" nm="SamplingFeatureID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the SamplingFeature on which or at which the action was completed</Cm>
+        <Cm>Foreign key identifier for the SamplingFeature on which or at which the action was completed.  Only nullable for Equipment.MaintenanceActions.</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -586,6 +586,9 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text description of the relationship shared by two results</Cm>
       </Cl>
+      <Cl au="0" df="" nm="RelatedResultSequenceNumber" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Fk deAc="3" nm="fk_RelatedResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="RelatedResults" oe="0" sch="ODM2Core" zr="1"/>
@@ -628,9 +631,9 @@
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="QualityControlLevelID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the QualityControlLevel of the result</Cm>
+      <Cl au="0" df="" nm="SampledMediumCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term defining the environmental medium that the result represents (e.g., air, soil, water)</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultDateTime" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
@@ -640,34 +643,33 @@
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>UTDCOffset of ResultDateTime</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ValidDateTime" nu="1">
-        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Date and time for which the result is valid (e.g., for a forecast result).  Should probably be expressed as a duration</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ValidDateTimeUTCOffset" nu="1">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>UTCOffset of ValidDateTime</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="StatusCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Status of the result (e.g., finished, ongoing, etc.)</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SampledMediumCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term defining the environmental medium that the result represents (e.g., air, soil, water)</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ValueCount" nu="0">
+      <Cl au="0" df="" nm="QualityControlLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Number of data values contained within the result</Cm>
+        <Cm>Foreign key identifier for the QualityControlLevel of the result</Cm>
       </Cl>
-      <Cl au="0" df="" nm="IntendedObservationSpacing" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Intended temporal spacing of the observations in the result</Cm>
+      <Cl au="0" df="" nm="DataQualityID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DerivationEquationID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="IsReferenceMaterial" nu="1">
+        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_Results_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Results_DataQuality" prLkCl="DataQualityID" upAc="3">
+        <PrTb mn="0" nm="DataQuality" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="DataQualityID" prCl="DataQualityID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Results_DerivationEquations" prLkCl="DerivationEquationID" upAc="3">
+        <PrTb mn="0" nm="DerivationEquations" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="DerivationEquationID" prCl="DerivationEquationID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="QualityControlLevelID" upAc="3">
         <PrTb mn="0" nm="QualityControlLevels" oe="1" sch="ODM2Core" zr="0"/>
@@ -880,161 +882,46 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes of equipment used to make observations (e.g., sensors and instruments)." nm="ODM2Equipment">
-    <Tbl UsSo="1" nm="CalibrationAction_Standards">
-      <Cm>Links calibration standards to instrument calibration actions</Cm>
+    <Tbl UsSo="1" nm="DataQuality">
+      <Cm>Agregates all data quality information, including precision, flags, QualityControlLevels as metadata for Results, ResultValues, Methods</Cm>
       <TblOpts/>
-      <Cl au="0" df="" nm="CalibrationActionID" nu="0">
+      <Pk ClNs="DataQualityID" nm="pkDataQuality"/>
+      <Cl au="0" df="" nm="DataQualityID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_CalibrationAction_Standards_CalibrationActions" prLkCl="CalibrationActionID" upAc="3">
-        <PrTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="CalibrationAction_Standards" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="CalibrationActionID" prCl="CalibrationActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_CalibrationAction_Standards_CalibrationStandards" prLkCl="CalibrationStandardID" upAc="3">
-        <PrTb mn="0" nm="CalibrationStandards" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="CalibrationAction_Standards" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="CalibrationStandardID" prCl="CalibrationStandardID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CalibrationActions">
-      <Cm>Describes equipment calibration actions</Cm>
-      <TblOpts/>
-      <Pk ClNs="CalibrationActionID" nm="pkCalibrationActions"/>
-      <Cl au="1" df="" nm="CalibrationActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="0" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ConfigurationActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationFilePath" nu="1">
+      <Cl au="0" df="" nm="CensorCodeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="UncertaintyTypeCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="UncertaintyValue" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="UncertaintyUnitID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityCodeCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityNotes" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+      </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="CalibrationEquations">
+    <Tbl UsSo="1" nm="DerivationEquations">
       <Cm>Describes equations used to calibrate pieces of equipment</Cm>
       <TblOpts/>
-      <Pk ClNs="CalibrationEquationID" nm="pkCalibrationEquations"/>
-      <Cl au="0" df="" nm="CalibrationEquationID" nu="0">
+      <Pk ClNs="DerivationEquationID" nm="pkDerivationEquations"/>
+      <Cl au="0" df="" nm="DerivationEquationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>DerivationEquations include calibration equations, normalizations, etc. on one or more RelatedResults to produce a DerivedResult</Cm>
       </Cl>
-      <Cl au="0" df="" nm="CalibrationActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="InstrumentOutputVariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="OutputVariableEquation" nu="0">
+      <Cl au="0" df="" nm="DerivationEquation" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>where y is the DerivedResult and x1, x2... are the RelatedResults specified in order by RelatedResultSequenceID</Cm>
       </Cl>
-      <Cl au="0" df="" nm="OutputVariableCoefficient1" nu="0">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="OutputVariableCoefficient2" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="OutputVariableCoefficient3" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="OutputVariableUncertainty" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_CalibrationEquations_CalibrationActions" prLkCl="CalibrationActionID" upAc="3">
-        <PrTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="CalibrationEquations" oe="1" sch="ODM2Equipment" zr="0"/>
-        <ClPr cdCl="CalibrationActionID" prCl="CalibrationActionID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CalibrationStandards">
-      <Cm>Describes calibration standards</Cm>
-      <TblOpts/>
-      <Pk ClNs="CalibrationStandardID" nm="pkCalibrationStandards"/>
-      <Cl au="1" df="" nm="CalibrationStandardID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="SpecimenID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardVendorID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardLotCode" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardPurchaseDate" nu="1">
-        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardExpirationDate" nu="1">
-        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardCertificateLink" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_CalibrationStandards_Organizations" prLkCl="OrganizationID" upAc="3">
-        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="CalibrationStandardVendorID" prCl="OrganizationID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_CalibrationStandards_Specimen" prLkCl="SamplingFeatureID" upAc="3">
-        <PrTb mn="0" nm="Specimens" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
-        <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="SpecimenID" prCl="SamplingFeatureID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CalibrationStandardValues">
-      <Cm>Describes calibration standard values</Cm>
-      <TblOpts/>
-      <Pk ClNs="CalibrationStandardValueID" nm="pkCalibrationStandardValues"/>
-      <Cl au="1" df="" nm="CalibrationStandardValueID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifer for the Calibration Standard for which the Calibration Standard Value applies</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the Variable that describes the Calibration Standard Value</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationStandardValue" nu="0">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Numeric value of the calibration standard</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="UnitsID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier fro the Units of the calibration standard</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Source" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_CalibrationStandardValues_CalibrationStandards" prLkCl="CalibrationStandardID" upAc="3">
-        <PrTb mn="0" nm="CalibrationStandards" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="CalibrationStandardValues" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="CalibrationStandardID" prCl="CalibrationStandardID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_CalibrationStandardValues_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="CalibrationStandardValues" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="UnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -1172,9 +1059,13 @@
     <Tbl UsSo="1" nm="MaintenenceActions">
       <Cm>Describes equipment maintenance actions</Cm>
       <TblOpts/>
+      <Pk ClNs="ActionID" nm="pkMaintenenceActions"/>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Action that is the Maintenance Action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="MaintenanceFilePath" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="IsFactoryService" nu="0">
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
@@ -1188,6 +1079,44 @@
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="0" nm="MaintenenceActions" oe="1" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="ReferenceMaterials">
+      <Cm>Describes calibration standards</Cm>
+      <TblOpts/>
+      <Pk ClNs="SamplingFeatureID" nm="pkReferenceMaterials"/>
+      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialOrganizationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialLotCode" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialPurchaseDate" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialExpirationDate" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialCertificateLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_CalibrationStandards_Organizations" prLkCl="OrganizationID" upAc="3">
+        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ReferenceMaterials" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ReferenceMaterialOrganizationID" prCl="OrganizationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_CalibrationStandards_Specimen" prLkCl="SamplingFeatureID" upAc="3">
+        <PrTb mn="0" nm="Specimens" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="ReferenceMaterials" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1771,22 +1700,22 @@
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Z coordinate of the value offset with respect to the offset origin</Cm>
       </Cl>
-      <Cl au="0" df="" nm="CensorCodeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term specifying whether the result is censored or not (e.g., below a detection limit)</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="QualityCodeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term specifying the quality of the result value</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="AggregationDuration" nu="0">
+      <Cl au="0" df="" nm="AggregationDuration" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Description of the time support of the result value</Cm>
       </Cl>
-      <Cl au="0" df="" nm="InterpolationTypeCV" nu="0">
+      <Cl au="0" df="" nm="DataQualityID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="InterpolationTypeCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the type of aggregation or interpolation that does done over the AggregationDuration</Cm>
       </Cl>
+      <Fk deAc="3" nm="fk_ResultValues_DataQuality" prLkCl="DataQualityID" upAc="3">
+        <PrTb mn="0" nm="DataQuality" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="ResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="DataQualityID" prCl="DataQualityID"/>
+      </Fk>
       <Fk deAc="3" nm="fk_ResultValues_OffsetOrigins" prLkCl="OffsetOriginID" upAc="3">
         <PrTb mn="0" nm="OffsetOrigins" oe="1" sch="ODM2Results" zr="0"/>
         <CdTb mn="1" nm="ResultValues" oe="0" sch="ODM2Results" zr="1"/>
@@ -1829,11 +1758,6 @@
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="0" nm="AnalysisBatchActions" oe="1" sch="ODM2Samples" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_AnalysisBatchEvents_CalibrationEvents" prLkCl="CalibrationActionID" upAc="3">
-        <PrTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="AnalysisBatchActions" oe="0" sch="ODM2Samples" zr="1"/>
-        <ClPr cdCl="CalibrationActionID" prCl="CalibrationActionID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -2145,11 +2069,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File path of of a file containing a schematic of the deployment.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_DeploymentEvents_CalibrationEvents" prLkCl="CalibrationActionID" upAc="3">
-        <PrTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="DeploymentActions" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="CalibrationActionID" prCl="CalibrationActionID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_DeploymentEvents_Events" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="0" nm="DeploymentActions" oe="1" sch="ODM2Sensors" zr="1"/>
@@ -2460,51 +2379,55 @@ DataSetTopicCategoryCV</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationActions" x="337" y="639"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationStandards" x="20" y="720"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="ReferenceMaterials" x="20" y="720"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="315" y="169"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="20" y="170"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="20" y="112"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="361" y="417"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationStandardValues" x="713" y="766"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="800" y="408"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationEquations" x="1109" y="740"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationAction_Standards" x="89" y="995"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenenceActions" x="650" y="654"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="716" y="406"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="DerivationEquations" x="1024" y="527"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenenceActions" x="361" y="634"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="639" y="174"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="538" y="22"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="31" y="422"/>
     <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="Specimens" x="20" y="585"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1021" y="438"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="DataQuality" x="1013" y="261"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationStandards"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_CalibrationActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandards.fk_CalibrationStandards_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandards.fk_CalibrationStandards_Specimen"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandardValues.fk_CalibrationStandardValues_CalibrationStandards"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_DataQuality"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_DerivationEquations"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentModels.fk_EquipmentModels_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.MaintenenceActions.fk_MaintenenceActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.ReferenceMaterials.fk_CalibrationStandards_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.ReferenceMaterials.fk_CalibrationStandards_Specimen"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="915" y="324">Look at SensorML
+      <Note bkCl="ffffffe6" x="81" y="36">Look at SensorML
 Make sure this fits!</Note>
-      <Note bkCl="ffffffe6" x="727" y="891">CalibrationStandards can be considered a Specimen Type
-with specified source metadata and 
-with known Values for one or more Variables</Note>
-      <Note bkCl="ffffffe6" x="451" y="964">ConfigurationActions, CalibrationActions 
-and MaintainenenceActions are all 
-Types (or subclasses) of Actions that can be 
+      <Note bkCl="ffffffe6" x="20" y="868">[Standard] ReferenceMaterials (SRMs or 
+CalibrationStandards) can be considered 
+* a sub-class of Specimen indicated by SpecimenType, which is 
+* a sub-class of SamplingFeature indicated by SamplingFeatureType
+* with specified source metadata and 
+* with known ResultValues for one or more Variables</Note>
+      <Note bkCl="ffffffe6" x="347" y="724">MaintainenanceActions (including CalibrationActions)
+are all Types (or subclasses) of Actions that can be 
 performed on equipment, sensors or instruments.  
-Note that each of these Action Types is 
-represented in a new table with 
-a 1 to 1 or 1 to 0 relationship with Actions.</Note>
+* Note that each of these Action Types is 
+  represented in a new table with 
+  a 1 to 1 or 1 to 0 relationship with Actions.
+* MaintenaceActions do not need to have an associated SamplingFeature.
+* CalibrationActions are both ObservationActions and MaintenanceActions, 
+  because they produces Results.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2674,15 +2597,18 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="380" y="31"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="431" y="342"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="708" y="33"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="735" y="354"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="741" y="398"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="DataQuality" x="755" y="178"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_DataQuality"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_DataQuality"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
-      <Note bkCl="ffe3e4e0" x="782" y="279">A coverage can also have value types of
+      <Note bkCl="ffe3e4e0" x="732" y="337">A coverage can also have value types of
 CategoryObs, CountObs, TruthObs, etc</Note>
-      <Note bkCl="ffe3e4e0" x="560" y="267">Values table may represent a
+      <Note bkCl="ffe3e4e0" x="539" y="261">Values table may represent a
 Coverage or a "constant value"
 (which may be complex type)</Note>
       <Note bkCl="ffe3e4e0" x="654" y="109">It's useful to conceptualize Results as a catalog of values. 
@@ -2701,7 +2627,7 @@ regarding each of these ResultsTypes.
 - TimeSeriesCoverages
 - ProfileCoverages
    etc</Note>
-      <Note bkCl="ffe3e4e0" x="690" y="428">OffsetOrigins allows for multiple coordinate systems
+      <Note bkCl="ffe3e4e0" x="690" y="474">OffsetOrigins allows for multiple coordinate systems
 (local reference frames),
 including within a microscope slide!</Note>
       <Note bkCl="ffe3e4e0" x="18" y="232">For now, the "ResultsValues" entitiy/table
@@ -2888,7 +2814,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="355">
+  <RnmMgr NxRnmId="373">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3291,7 +3217,8 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ConfigurationActions" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="150" nNm="ActionID" oNm="EventID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationStandards" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="359" nNm="ReferenceMaterialTypeCV" oNm="CalibrationStandardTypeCV"/>
       <Rnm id="151" nNm="CalibrationStandardTypeCV" oNm="CalibrationStandardType"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
@@ -3733,6 +3660,51 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedActions" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="354" nNm="RelationshipTypeCV" oNm="RelationshipType"/>
     </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
+      <Rnm id="355" nNm="ReferenceMaterials" oNm="CalibrationStandards"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="357" nNm="SamplingFeature2ID" oNm="SamplingFeatureID"/>
+      <Rnm id="356" nNm="SamplingFeatureID" oNm="CalibrationStandardID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="358" nNm="SamplingFeatureID" oNm="SpecimenID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="365" nNm="ReferenceMaterialOrganizationID" oNm="ReferenceMaterialVendorID"/>
+      <Rnm id="360" nNm="ReferenceMaterialVendorID" oNm="CalibrationStandardVendorID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="361" nNm="ReferenceMaterialLotCode" oNm="CalibrationStandardLotCode"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="362" nNm="ReferenceMaterialPurchaseDate" oNm="CalibrationStandardPurchaseDate"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="363" nNm="ReferenceMaterialExpirationDate" oNm="CalibrationStandardExpirationDate"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="364" nNm="ReferenceMaterialCertificateLink" oNm="CalibrationStandardCertificateLink"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DerivationEquations" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="366" nNm="DerivationEquationID" oNm="CalibrationEquationID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
+      <Rnm id="367" nNm="DerivationEquations" oNm="CalibrationEquations"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DerivationEquations" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="368" nNm="DerivationEquation" oNm="OutputVariableEquation"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="369" nNm="DataQualityID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="370" nNm="CensorCodeCV" oNm="CensorCode"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="372" nNm="DataQualityCodeCV" oNm="QualityCodeCV"/>
+      <Rnm id="371" nNm="QualityCodeCV" oNm="QualityCode"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3750,19 +3722,21 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Samples" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Samples" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core/Tables (18)</TreePath>
     <TreePath>/Schemas (11)/ODM2Equipment</TreePath>
-    <TreePath>/Schemas (11)/ODM2Equipment/Tables (8)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Equipment/Tables (6)</TreePath>
     <TreePath>/Schemas (11)/ODM2SamplingFeatures</TreePath>
     <TreePath>/Schemas (11)/ODM2SamplingFeatures/Tables (5)</TreePath>
     <TreePath>/Diagrams (11)</TreePath>
