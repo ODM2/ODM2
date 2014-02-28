@@ -257,7 +257,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the directive under which the action was completed</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ActionNotes" nu="1">
+      <Cl au="0" df="" nm="ActionDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text notes that accompany the action</Cm>
       </Cl>
@@ -915,7 +915,7 @@
       <Cl au="0" df="" nm="ConfigurationActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="CalibrationFilePath" nu="1">
+      <Cl au="0" df="" nm="CalibrationFileLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_CalibrationActions_Actions" prLkCl="ActionID" upAc="3">
@@ -1065,7 +1065,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Action that is the configuration action</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ConfigurationFilePath" nu="1">
+      <Cl au="0" df="" nm="ConfigurationFileLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File path to a file containing information about the configuration</Cm>
       </Cl>
@@ -1125,7 +1125,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>A text string identifying the purchase order used to purchase the piece of equipment</Cm>
       </Cl>
-      <Cl au="0" df="" nm="EquipmentPhotoFileName" nu="1">
+      <Cl au="0" df="" nm="EquipmentPhotoFileLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A file name, path, or URL to a photo of the specific piece of equipment</Cm>
       </Cl>
@@ -1184,7 +1184,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the equipment model</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ModelSpecificationsFile" nu="1">
+      <Cl au="0" df="" nm="ModelSpecificationsFileLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File name, path, or URL to a specifications file for the equipment</Cm>
       </Cl>
@@ -1896,10 +1896,10 @@
       <Cl au="0" df="" nm="CalibrationActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="InstrumentOutputFilePath" nu="1">
+      <Cl au="0" df="" nm="InstrumentOutputFileLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="AnalysisBatchEventNotes" nu="0">
+      <Cl au="0" df="" nm="AnalysisBatchEventDescription" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_AnalysisBatchActions_Actions" prLkCl="ActionID" upAc="3">
@@ -2119,7 +2119,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text name of the spatial reference system</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SRSNotes" nu="1">
+      <Cl au="0" df="" nm="SRSDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text notes describing the spatial reference system</Cm>
       </Cl>
@@ -2169,7 +2169,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the deployment action that created the datalogger file</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DataLoggerOutputFilePath" nu="0">
+      <Cl au="0" df="" nm="DataLoggerOutputFileLink" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File path to the datalogger file</Cm>
       </Cl>
@@ -2219,7 +2219,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key idenfier for the SpatialOffset of the deployment</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DeploymentSchematic" nu="1">
+      <Cl au="0" df="" nm="DeploymentSchematicLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File path of of a file containing a schematic of the deployment.</Cm>
       </Cl>
@@ -2254,7 +2254,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Action with which the photo is associated</Cm>
       </Cl>
-      <Cl au="0" df="" nm="PhotoFilePath" nu="0">
+      <Cl au="0" df="" nm="PhotoFileLink" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File name, path, or URL of the photo file</Cm>
       </Cl>
@@ -3061,7 +3061,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="358">
+  <RnmMgr NxRnmId="369">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3174,6 +3174,7 @@ then  additional field are added
       <Rnm id="42" nNm="ODM2Equipment" oNm="ODM2Sensors"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="367" nNm="ActionDescription" oNm="ActionNotes"/>
       <Rnm id="115" nNm="ActionNotes" oNm="EventNotes"/>
       <Rnm id="43" nNm="EventNotes" oNm="Notes"/>
     </RnmCh>
@@ -3251,6 +3252,7 @@ then  additional field are added
       <Rnm id="71" nNm="AnalysisEventID" oNm="AnalysisID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
+      <Rnm id="362" nNm="InstrumentOutputFileLink" oNm="InstrumentOutputFilePath"/>
       <Rnm id="75" nNm="InstrumentOutputFilePath" oNm="OutputFilePath"/>
       <Rnm id="72" nNm="OutputFilePath" oNm="AnalyticalMethodID"/>
     </RnmCh>
@@ -3258,6 +3260,7 @@ then  additional field are added
       <Rnm id="73" nNm="DataLoggerOutputFileDescription" oNm="DataLoggerFileDescription"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataLoggerFiles" SupCls="Schema" SupNme="ODM2Sensors">
+      <Rnm id="364" nNm="DataLoggerOutputFileLink" oNm="DataLoggerOutputFilePath"/>
       <Rnm id="74" nNm="DataLoggerOutputFilePath" oNm="DataLoggerFilePath"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Sensors" SupCls="" SupNme="">
@@ -3481,6 +3484,7 @@ then  additional field are added
       <Rnm id="158" nNm="ConfigurationMethodID" oNm="ConfigurationMethodDescription"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ConfigurationActions" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="358" nNm="ConfigurationFileLink" oNm="ConfigurationFilePath"/>
       <Rnm id="160" nNm="ConfigurationFilePath" oNm="ConfigurationMethodFilePath"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
@@ -3873,6 +3877,7 @@ then  additional field are added
       <Rnm id="339" nNm="LatLonDatumID" oNm="LatLongDatumID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpatialReferences" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="368" nNm="SRSDescription" oNm="SRSNotes"/>
       <Rnm id="340" nNm="SRSNotes" oNm="Notes"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Workflows" SupCls="Schema" SupNme="ODM2Core">
@@ -3911,6 +3916,24 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="357" nNm="EquipmentDescription" oNm="EquipmentNotes"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationActions" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="359" nNm="CalibrationFileLink" oNm="CalibrationFilePath"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="360" nNm="EquipmentPhotoFileLink" oNm="EquipmentPhotoFileName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="EquipmentModels" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="361" nNm="ModelSpecificationsFileLink" oNm="ModelSpecificationsFile"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
+      <Rnm id="363" nNm="AnalysisBatchEventDescription" oNm="AnalysisBatchEventNotes"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DeploymentActions" SupCls="Schema" SupNme="ODM2Sensors">
+      <Rnm id="365" nNm="DeploymentSchematicLink" oNm="DeploymentSchematic"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Photos" SupCls="Schema" SupNme="ODM2Sensors">
+      <Rnm id="366" nNm="PhotoFileLink" oNm="PhotoFilePath"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3927,7 +3950,10 @@ then  additional field are added
       <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
     </BasicOptionMgr>
   </DbDocOptionMgr>
-  <OpenEditors/>
+  <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+  </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
