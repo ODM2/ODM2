@@ -5,9 +5,13 @@ The next version of the Observations Data Model.
 
 For more information about the project, visit the [wiki](https://github.com/UCHIC/ODM2/wiki). 
 
-### View HTML based documentation of the ODM2 schema ###
+### View Documentation of ODM2 Concepts ###
 
-Documentation and schema diagrams for the current version of the ODM2 schema is at:
+For more information on ODM2 concepts, examples, best practices, etc., visit the [Documentation](https://github.com/UCHIC/ODM2/wiki/documentation) page on the wiki.
+
+### View Diagrams and Documentation of the ODM2 Schema ###
+
+Schema diagrams for the current version of the ODM2 schema are at:
 
 * [Current Version](http://uchic.github.io/ODM2/schemas/ODM2_Current/)
 
