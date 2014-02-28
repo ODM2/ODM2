@@ -735,7 +735,7 @@
         <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureNotes" nu="1">
+      <Cl au="0" df="" nm="SamplingFeatureDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
       </Cl>
@@ -766,7 +766,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Taxonomic classification using a common name</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierNotes" nu="1">
+      <Cl au="0" df="" nm="TaxonomicClassifierDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Description or remarks about Taxonomic Classifier</Cm>
       </Cl>
@@ -1129,8 +1129,8 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A file name, path, or URL to a photo of the specific piece of equipment</Cm>
       </Cl>
-      <Cl au="0" df="" nm="EquipmentNotes" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      <Cl au="0" df="" nm="EquipmentDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text notes about the specific piece of equipment</Cm>
       </Cl>
       <Cl au="0" df="" nm="ParentEquipmentID" nu="1">
@@ -1183,10 +1183,6 @@
       <Cl au="0" df="" nm="ModelDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the equipment model</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ModelNotes" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text notes that go with the equipment model</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelSpecificationsFile" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1499,7 +1495,7 @@
         <Cm>Foreign Key identifer for the organization overseeing or affiliated with the identifier system</Cm>
       </Cl>
       <Cl au="0" df="" nm="ExternalIdentifierSystemDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Description of identifier system.</Cm>
       </Cl>
       <Cl au="0" df="" nm="ExternalIdentifierSystemURL" nu="1">
@@ -2223,10 +2219,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key idenfier for the SpatialOffset of the deployment</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DeploymentNotes" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text notes describing the deployment</Cm>
-      </Cl>
       <Cl au="0" df="" nm="DeploymentSchematic" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File path of of a file containing a schematic of the deployment.</Cm>
@@ -2424,6 +2416,12 @@ single foreign key column.</Note>
 to allow for Catalog implementations.
 Also, DataValues are stored in 
 different tables according to the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="23" y="570">A person does not need to be 
+associated with an Organization,
+but, an Affiliation record must
+be created for each person because
+that is how people get linked to 
+actions.</Note>
       <Note bkCl="ffffffe6" x="575" y="47">An ObservationAct is 
 the only ActionType that 
 can produce a ResultSet.
@@ -2460,12 +2458,6 @@ ObservationActs from ResultsSets:
 1. Allows Results for many Variables
     from each ObservationAct 
 2. Allows for other ActionTypes</Note>
-      <Note bkCl="ffffffe6" x="23" y="570">A person does not need to be 
-associated with an Organization,
-but, an Affiliation record must
-be created for each person because
-that is how people get linked to 
-actions.</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="173"/>
@@ -3069,7 +3061,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="355">
+  <RnmMgr NxRnmId="358">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3871,6 +3863,7 @@ then  additional field are added
       <Rnm id="341" nNm="TaxonomicClassiferName" oNm="TaxonName"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="356" nNm="TaxonomicClassifierDescription" oNm="TaxonomicClassifierNotes"/>
       <Rnm id="344" nNm="TaxonomicClassifierNotes" oNm="TaxonNotes"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
@@ -3900,6 +3893,7 @@ then  additional field are added
       <Rnm id="349" nNm="TaxonomicClassifierExternalIdentifierURI" oNm="TaxonomicClassifierExternalItentifierURI"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="355" nNm="SamplingFeatureDescription" oNm="SamplingFeatureNotes"/>
       <Rnm id="350" nNm="SamplingFeatureNotes" oNm="SamplingFeatureNote"/>
     </RnmCh>
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
@@ -3913,6 +3907,9 @@ then  additional field are added
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedResults" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="354" nNm="RelationshipTypeCV" oNm="RelationshipRole"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="357" nNm="EquipmentDescription" oNm="EquipmentNotes"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -3930,9 +3927,7 @@ then  additional field are added
       <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
     </BasicOptionMgr>
   </DbDocOptionMgr>
-  <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
-  </OpenEditors>
+  <OpenEditors/>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
