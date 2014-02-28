@@ -400,7 +400,7 @@
       <Cm>Describes the directive or purpose under which actions are made.  Directives can be projects, intended analyses for a specimen, etc.</Cm>
       <TblOpts/>
       <Pk ClNs="DirectiveID" nm="pkDirectives"/>
-      <Cl au="1" df="" nm="DirectiveID" nu="0">
+      <Cl au="1" df="" nm="DirectiveID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier.</Cm>
       </Cl>
@@ -700,7 +700,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key</Cm>
       </Cl>
-      <Cl au="0" df="" nm="RoleDescription" nu="0">
+      <Cl au="0" df="" nm="RoleDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the role played by an affiliated person</Cm>
       </Cl>
@@ -2424,12 +2424,6 @@ single foreign key column.</Note>
 to allow for Catalog implementations.
 Also, DataValues are stored in 
 different tables according to the ResultsSetType</Note>
-      <Note bkCl="ffffffe6" x="575" y="47">An ObservationAct is 
-the only ActionType that 
-can produce a ResultSet.
-
-ActionTypeCV draft at
-http://goo.gl/bRi2p1</Note>
       <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
 metadata for one or more
 DataValues that are stored 
@@ -2466,9 +2460,15 @@ but, an Affiliation record must
 be created for each person because
 that is how people get linked to 
 actions.</Note>
+      <Note bkCl="ffffffe6" x="575" y="47">An ObservationAct is 
+the only ActionType that 
+can produce a ResultSet.
+
+ActionTypeCV draft at
+http://goo.gl/bRi2p1</Note>
     </Notes>
     <Zones>
-      <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="164"/>
+      <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="173"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
