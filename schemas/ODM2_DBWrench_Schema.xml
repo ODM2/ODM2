@@ -551,7 +551,7 @@
       <Cl au="0" df="" nm="RelatedActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="RelationshipType" nu="0">
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text description of the relationship between two Actions</Cm>
       </Cl>
@@ -582,7 +582,7 @@
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key idntifier for a Result that is related to the Result given in ResultID</Cm>
       </Cl>
-      <Cl au="0" df="" nm="RelationshipRole" nu="0">
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text description of the relationship shared by two results</Cm>
       </Cl>
@@ -2424,6 +2424,12 @@ single foreign key column.</Note>
 to allow for Catalog implementations.
 Also, DataValues are stored in 
 different tables according to the ResultsSetType</Note>
+      <Note bkCl="ffffffe6" x="575" y="47">An ObservationAct is 
+the only ActionType that 
+can produce a ResultSet.
+
+ActionTypeCV draft at
+http://goo.gl/bRi2p1</Note>
       <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
 metadata for one or more
 DataValues that are stored 
@@ -2460,12 +2466,6 @@ but, an Affiliation record must
 be created for each person because
 that is how people get linked to 
 actions.</Note>
-      <Note bkCl="ffffffe6" x="575" y="47">An ObservationAct is 
-the only ActionType that 
-can produce a ResultSet.
-
-ActionTypeCV draft at
-http://goo.gl/bRi2p1</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="173"/>
@@ -3069,7 +3069,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="353">
+  <RnmMgr NxRnmId="355">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3908,6 +3908,12 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedActions" SupCls="Schema" SupNme="ODM2RelatedActions">
       <Rnm id="352" nNm="RelationshipType" oNm="RelationshipRole"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedActions" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="353" nNm="RelationshipTypeCV" oNm="RelationshipType"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedResults" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="354" nNm="RelationshipTypeCV" oNm="RelationshipRole"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3924,7 +3930,9 @@ then  additional field are added
       <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
     </BasicOptionMgr>
   </DbDocOptionMgr>
-  <OpenEditors/>
+  <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+  </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
