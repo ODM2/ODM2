@@ -255,7 +255,11 @@
       </Cl>
       <Cl au="0" df="" nm="ActionDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text notes that accompany the action</Cm>
+        <Cm>Text that describes the action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ActionFileLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A URL or path to a file created by or used by the Action, such as instrument output or configuration.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Actions_Directives" prLkCl="DirectiveID" upAc="3">
         <PrTb mn="0" nm="Directives" oe="1" sch="ODM2Core" zr="0"/>
@@ -723,7 +727,7 @@
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
+        <Cm>Text describing the sampling feature.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
@@ -2389,7 +2393,7 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1290" y="548"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="1088" y="549"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="383" y="649"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="290"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="286"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="317" y="483"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="97" y="296"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="22" y="398"/>
@@ -2470,7 +2474,7 @@ ObservationActs from ResultsSets:
       <Note bkCl="ffffffe6" x="658" y="158">In OGC O&amp;M, Actions and Results are functionally concatenated into "Observations".</Note>
     </Notes>
     <Zones>
-      <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="173"/>
+      <Zone bkCl="ffece9d8" h="608" nm="Observations" w="301" x="547" y="173"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
@@ -2709,7 +2713,7 @@ similar to ExternalIdentifiers.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Overview">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2734,7 +2738,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1049" y="670"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="945" y="759"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="629"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="623" y="315"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="623" y="306"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="353" y="720"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="67" y="577"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="67" y="681"/>
@@ -2752,7 +2756,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="40" y="191"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1389" y="546"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1392" y="769"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Triple" x="628" y="218"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Triple" x="625" y="214"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
@@ -3074,7 +3078,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="370">
+  <RnmMgr NxRnmId="371">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3950,6 +3954,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Triple" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="369" nNm="SamplingFeatureID" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="370" nNm="ActionFileLink" oNm="ActionLink"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3967,8 +3974,8 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
