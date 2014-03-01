@@ -355,7 +355,7 @@
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Numeric value of the DataQuality</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DataQualityValueUnitID" nu="1">
+      <Cl au="0" df="" nm="DataQualityValueUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Units for the DataQualityValue</Cm>
       </Cl>
@@ -370,7 +370,7 @@
       <Fk deAc="3" nm="fk_DataQuality_Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="DataQuality" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DataQualityValueUnitID" prCl="UnitsID"/>
+        <ClPr cdCl="DataQualityValueUnitsID" prCl="UnitsID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1016,10 +1016,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialLotCode" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialPurchaseDate" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
@@ -1033,14 +1033,14 @@
       <Cl au="0" df="" nm="SamplingFeatureID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_CalibrationStandards_Organizations" prLkCl="OrganizationID" upAc="3">
+      <Fk deAc="3" nm="fk_ReferenceMaterials_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="ReferenceMaterials" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="ReferenceMaterialOrganizationID" prCl="OrganizationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_CalibrationStandards_Specimen" prLkCl="SamplingFeatureID" upAc="3">
+      <Fk deAc="3" nm="fk_ReferenceMaterials_Specimens" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="Specimens" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
-        <CdTb mn="1" nm="ReferenceMaterials" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <CdTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
@@ -2751,7 +2751,7 @@ DataSetTopicCategoryCV</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.NormalizationReferenceMaterialValues.fk_NormalizationReferenceMaterialValues_ReferenceMaterials"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_CalibrationStandards_Specimen"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_Specimens"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
       <Note bkCl="ffffffe6" x="297" y="400">A standad ReferenceMaterial (SRM) can be used in 2 ways.
@@ -3313,7 +3313,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="373">
+  <RnmMgr NxRnmId="374">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4198,6 +4198,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterialExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="372" nNm="ReferenceMaterialID" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="373" nNm="DataQualityValueUnitsID" oNm="DataQualityValueUnitID"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4215,9 +4218,8 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
