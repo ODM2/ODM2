@@ -245,10 +245,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the method used to complete the action</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the SamplingFeature on which or at which the action was completed</Cm>
-      </Cl>
       <Cl au="0" df="" nm="EquipmentID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a piece of equipment that was used to complete the action</Cm>
@@ -259,7 +255,11 @@
       </Cl>
       <Cl au="0" df="" nm="ActionDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text notes that accompany the action</Cm>
+        <Cm>Text that describes the action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ActionFileLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A URL or path to a file created by or used by the Action, such as instrument output or configuration.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Actions_Directives" prLkCl="DirectiveID" upAc="3">
         <PrTb mn="0" nm="Directives" oe="1" sch="ODM2Core" zr="0"/>
@@ -275,11 +275,6 @@
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Actions" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="MethodID" prCl="MethodID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Actions_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
-        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="Actions" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -412,6 +407,35 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text description of the directive or purpose under which the action was taken.</Cm>
       </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="FeatureActionResult">
+      <TblOpts/>
+      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ResultID" nu="1">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_FeatureActionResult_Actions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="FeatureActionResult" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_FeatureActionResult_Results" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="0" nm="FeatureActionResult" oe="1" sch="ODM2Core" zr="0"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_FeatureActionResult_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
+        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="FeatureActionResult" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
+      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -613,10 +637,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the result type (e.g., time series, measurement, etc.)</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the observation action that created the result</Cm>
-      </Cl>
       <Cl au="0" df="" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Variable of the result</Cm>
@@ -664,11 +684,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Intended temporal spacing of the observations in the result</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Results_Actions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="QualityControlLevelID" upAc="3">
         <PrTb mn="0" nm="QualityControlLevels" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
@@ -737,7 +752,7 @@
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Description and notes for sampling feature (for sites, etc)</Cm>
+        <Cm>Text describing the sampling feature.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
@@ -2338,8 +2353,6 @@
     <FkGl bkCl="ff000000" nm="ODM2Annotations.SamplingFeatureAnnotations.fk_SamplingFeatureAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.SamplingFeatureAnnotations.fk_SamplingFeatureAnnotations_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
       <Note bkCl="ffffff00" x="37" y="429">We could have a single cross-reference table.
@@ -2351,7 +2364,7 @@ single foreign key column.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2376,7 +2389,7 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1290" y="548"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="1088" y="549"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="383" y="649"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="571" y="220"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="286"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="317" y="483"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="97" y="296"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="22" y="398"/>
@@ -2389,23 +2402,25 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="869" y="484"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1015" y="651"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="584" y="526"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="569" y="197"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedActions.fk_RelatedActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedActions.fk_RelatedActions_Actions_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
@@ -2437,12 +2452,6 @@ catalog for ResultValues.</Note>
       <Note bkCl="ffffffe6" x="21" y="681">Secondary contact info can be added 
 as an Extension property to Affiliations.
 See ODM2Extensions schema.</Note>
-      <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
-i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
-containing many values in a series).</Note>
-      <Note bkCl="ffffffe6" x="663" y="148">In OGC O&amp;M, these two tables are functionally concatenated into "Observations".
-i.e. each ObservationAct produces exactly 1 Result (which could include a coverage
-containing many values in a series).</Note>
       <Note bkCl="ffe3e4e0" x="1376" y="154">Maybe Datasets should be
 linked to Actions rather
 than Results?
@@ -2458,9 +2467,10 @@ ObservationActs from ResultsSets:
 1. Allows Results for many Variables
     from each ObservationAct 
 2. Allows for other ActionTypes</Note>
+      <Note bkCl="ffffffe6" x="658" y="158">In OGC O&amp;M, Actions and Results are functionally concatenated into "Observations".</Note>
     </Notes>
     <Zones>
-      <Zone bkCl="ffece9d8" h="608" nm="Observations" w="296" x="547" y="173"/>
+      <Zone bkCl="ffece9d8" h="608" nm="Observations" w="301" x="547" y="173"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
@@ -2555,8 +2565,10 @@ DataSetTopicCategoryCV</Note>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationEquations" x="388" y="745"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationAction_Standards" x="37" y="892"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenenceActions" x="649" y="639"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="644" y="305"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationAction_Standards.fk_CalibrationAction_Standards_CalibrationStandards"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationActions.fk_CalibrationActions_Actions"/>
@@ -2627,8 +2639,6 @@ a 1 to 1 or 1 to 0 relationship with Actions.</Note>
     <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="223" y="360"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1078" y="25"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtentionProperites_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtentionProperites_ExtentionProperties"/>
@@ -2699,7 +2709,7 @@ similar to ExternalIdentifiers.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Overview">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2724,7 +2734,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1049" y="670"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="945" y="759"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="629"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="632" y="285"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="623" y="306"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="353" y="720"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="67" y="577"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="67" y="681"/>
@@ -2742,21 +2752,23 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="40" y="191"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1389" y="546"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1392" y="769"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="625" y="214"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
@@ -2773,7 +2785,7 @@ similar to ExternalIdentifiers.</Note>
     <Notes/>
     <Zones>
       <Zone bkCl="ffffcccc" h="761" nm="Observation Metadata" w="341" x="606" y="506"/>
-      <Zone bkCl="ffece9d8" h="575" nm="Observations" w="265" x="606" y="231"/>
+      <Zone bkCl="ffece9d8" h="575" nm="Observations" w="332" x="606" y="164"/>
       <Zone bkCl="ffffcccc" h="538" nm="People &amp; Organizations" w="309" x="56" y="538"/>
       <Zone bkCl="ffffcccc" h="234" nm="Related Results &amp; Datasets" w="284" x="1192" y="212"/>
       <Zone bkCl="ffccccff" h="256" nm="Result Values" w="340" x="1377" y="507"/>
@@ -2921,24 +2933,23 @@ accomodated by a coverage?
     </DiaProps>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Samples" tbl="AnalysisBatchActions" x="634" y="569"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="225" y="333"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="182" y="456"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="896" y="333"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="498" y="85"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="48" y="169"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="161" y="70"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="604" y="333"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="818" y="134"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="979" y="322"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="183" y="71"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="30" y="485"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="535" y="179"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Samples" tbl="BatchSampleLines" x="937" y="569"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2Samples" tbl="SamplePreparationAction" x="285" y="629"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="740" y="374"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Samples.AnalysisBatchActions.fk_AnalysisBatchActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Samples.BatchSampleLines.fk_BatchSampleLines_AnalysisBatchActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Samples.SamplePreparationAction.fk_SamplePreparationEvent_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes/>
     <Zones/>
@@ -3031,17 +3042,19 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DataLoggerFiles" x="922" y="487"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DeploymentActions" x="572" y="487"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="355" y="258"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="947" y="198"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="341" y="19"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="663" y="14"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="ConfigurationActions" x="634" y="238"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="SiteVisitActions" x="158" y="484"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="Photos" x="370" y="614"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DataLoggerFiles" x="923" y="418"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DeploymentActions" x="573" y="418"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="356" y="189"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="948" y="129"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="36" y="54"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="17" y="532"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="ConfigurationActions" x="43" y="327"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="SiteVisitActions" x="142" y="446"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="Photos" x="371" y="545"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="667" y="275"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Equipment"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.ConfigurationActions.fk_ConfigurationActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_ConfigurationActions"/>
@@ -3051,7 +3064,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <FkGl bkCl="ff000000" nm="ODM2Sensors.Photos.fk_Photos_Events"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.SiteVisitActions.fk_SiteVisitEvents_Events"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="601" y="359">Can SensorDeployment be an ObservationAct,
+      <Note bkCl="ffffffe6" x="604" y="571">Can SensorDeployment be an ObservationAct,
 in which the Results table gets new rows 
 (one for each variable) but for which there are 
 not yet any data values?
@@ -3061,7 +3074,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="369">
+  <RnmMgr NxRnmId="372">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3934,6 +3947,15 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Photos" SupCls="Schema" SupNme="ODM2Sensors">
       <Rnm id="366" nNm="PhotoFileLink" oNm="PhotoFilePath"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureActionResult" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="369" nNm="SamplingFeatureID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="370" nNm="ActionFileLink" oNm="ActionLink"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
+      <Rnm id="371" nNm="FeatureActionResult" oNm="Triple"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -3951,12 +3973,13 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (11)</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core</TreePath>
+    <TreePath>/Schemas (11)/ODM2Core/Tables (19)</TreePath>
     <TreePath>/Diagrams (12)</TreePath>
   </TreePaths>
 </Db>
