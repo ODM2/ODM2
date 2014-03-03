@@ -336,45 +336,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="DataQuality">
-      <TblOpts/>
-      <Pk ClNs="DataQualityID" nm="pkDataQuality"/>
-      <Cl au="0" df="" nm="DataQualityID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary Key for DataQuality entity</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataQualityTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>	i.e. Precision_2sigma, MethodDetectionLimit, ReportingLevel, 95%ConfidenceNoFalsePositives.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataQualityCodeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Code for DataQualityType</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataQualityValue" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Numeric value of the DataQuality</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataQualityValueUnitsID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Units for the DataQualityValue</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataQualityDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text description of the DataQuality metadata</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataQualityLink" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>URL or path to a file or other resource supporting the DataQuality metadata</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_DataQuality_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataQuality" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DataQualityValueUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="DataSets">
       <Cm>Describes groupings of observation results that can be considered "datasets"</Cm>
       <TblOpts/>
@@ -723,14 +684,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Intended temporal spacing of the observations in the result</Cm>
       </Cl>
-      <Cl au="0" df="" nm="NormalizationReferenceMaterialValueID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_Results_NormalizationReferenceMaterialValues" prLkCl="NormalizationReferenceMaterialValueID" upAc="3">
-        <PrTb mn="0" nm="NormalizationReferenceMaterialValues" oe="1" sch="ODM2DataQuality" zr="0"/>
-        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="NormalizationReferenceMaterialValueID" prCl="NormalizationReferenceMaterialValueID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="QualityControlLevelID" upAc="3">
         <PrTb mn="0" nm="QualityControlLevels" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
@@ -750,27 +703,6 @@
         <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="VariableID" prCl="VariableID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="ResultsDataQuality">
-      <TblOpts/>
-      <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="DataQualityID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_ResultsDataQuality_DataQuality" prLkCl="DataQualityID" upAc="3">
-        <PrTb mn="0" nm="DataQuality" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultsDataQuality" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DataQualityID" prCl="DataQualityID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ResultsDataQuality_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultsDataQuality" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -963,6 +895,47 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="" nm="ODM2DataQuality">
+    <Tbl UsSo="1" nm="DataQuality">
+      <TblOpts/>
+      <Pk ClNs="DataQualityID" nm="pkDataQuality"/>
+      <Cl au="0" df="" nm="DataQualityID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary Key for DataQuality entity</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>	i.e. Precision_2sigma, MethodDetectionLimit, ReportingLevel, 95%ConfidenceNoFalsePositives.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityCode" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Code for DataQualityType</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityValue" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Numeric value of the DataQuality</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityValueUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Units for the DataQualityValue</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the DataQuality metadata</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>URL or path to a file or other resource supporting the DataQuality metadata</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_DataQuality_Units" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataQuality" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="DataQualityValueUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="DataQuality"/>
+      </SchTrHis>
+    </Tbl>
     <Tbl UsSo="1" nm="NormalizationReferenceMaterialValues">
       <TblOpts/>
       <Pk ClNs="NormalizationReferenceMaterialValueID" nm="pkNormalizationReferenceMaterialValues"/>
@@ -1038,15 +1011,61 @@
         <CdTb mn="1" nm="ReferenceMaterials" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="ReferenceMaterialOrganizationID" prCl="OrganizationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_ReferenceMaterials_Specimens" prLkCl="SamplingFeatureID" upAc="3">
-        <PrTb mn="0" nm="Specimens" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
-        <CdTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="1"/>
+      <Fk deAc="3" nm="fk_ReferenceMaterials_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
+        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ReferenceMaterials" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis>
         <StPr stA="ODM2Equipment" stB="ReferenceMaterials"/>
       </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="ResultsDataQuality">
+      <TblOpts/>
+      <Cl au="0" df="" nm="ResultID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DataQualityID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ResultsDataQuality_DataQuality" prLkCl="DataQualityID" upAc="3">
+        <PrTb mn="0" nm="DataQuality" oe="1" sch="ODM2DataQuality" zr="0"/>
+        <CdTb mn="1" nm="ResultsDataQuality" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="DataQualityID" prCl="DataQualityID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ResultsDataQuality_Results" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ResultsDataQuality" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="ResultsDataQuality"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="ResultsNormalizationValues">
+      <Cm>Extends the Results table with a foreign key to NormalizationReferenceMaterialValues when the optional DataQuality schema is implemented.  In a database implementation, we would not implement this as a separate table from Results.</Cm>
+      <TblOpts/>
+      <Cl au="0" df="" nm="ResultID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Unique identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="NormalizationReferenceMaterialValueID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ResultsNormalizationValues_NormalizationReferenceMaterialValues" prLkCl="NormalizationReferenceMaterialValueID" upAc="3">
+        <PrTb mn="0" nm="NormalizationReferenceMaterialValues" oe="1" sch="ODM2DataQuality" zr="0"/>
+        <CdTb mn="1" nm="ResultsNormalizationValues" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="NormalizationReferenceMaterialValueID" prCl="NormalizationReferenceMaterialValueID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ResultsNormalizationValues_Results" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="0" nm="ResultsNormalizationValues" oe="1" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
     </Tbl>
     <CustomTypes/>
   </Sch>
@@ -2579,15 +2598,13 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionPeople" x="315" y="376"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Directives" x="610" y="725"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Roles" x="321" y="298"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1176" y="92"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1176" y="227"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1177" y="291"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1176" y="154"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1176" y="289"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1177" y="353"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="808" y="494"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1044" y="579"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="584" y="526"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="569" y="197"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataQuality" x="1437" y="368"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ResultsDataQuality" x="1178" y="367"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
@@ -2595,7 +2612,6 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataQuality.fk_DataQuality_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
@@ -2611,8 +2627,6 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <Notes>
       <Note bkCl="ffffffe6" x="23" y="570">A person does not need to be 
@@ -2735,26 +2749,28 @@ DataSetTopicCategoryCV</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="NormalizationReferenceMaterialValues" x="617" y="502"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="297" y="500"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="563" y="165"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="NormalizationReferenceMaterialValues" x="605" y="555"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="281" y="510"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="564" y="178"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="297" y="320"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="301" y="114"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="15" y="308"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="8" y="501"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ResultsDataQuality" x="784" y="416"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataQuality" x="899" y="269"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="12" y="477"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="784" y="414"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="841" y="268"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsNormalizationValues" x="708" y="479"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_NormalizationReferenceMaterialValues"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.NormalizationReferenceMaterialValues.fk_NormalizationReferenceMaterialValues_ReferenceMaterials"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_Specimens"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsNormalizationValues.fk_ResultsNormalizationValues_NormalizationReferenceMaterialValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsNormalizationValues.fk_ResultsNormalizationValues_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="297" y="400">A standad ReferenceMaterial (SRM) can be used in 2 ways.
+      <Note bkCl="ffffffe6" x="299" y="394">A standad ReferenceMaterial (SRM) can be used in 2 ways.
 1. It and an accepted value for it provide important DataQuality 
     metadata for a Result
 2. It can be analyzed (ObservationAction) as an unknown 
@@ -2925,6 +2941,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ReferenceMaterialExternalIdentifiers" x="1309" y="418"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSets_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_ExternalIdentifierSystems_DataSetIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers"/>
@@ -2987,8 +3004,8 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1397" y="547"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1398" y="769"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="625" y="214"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataQuality" x="1482" y="301"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ResultsDataQuality" x="1481" y="444"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="1484" y="271"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="1495" y="435"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
@@ -2996,7 +3013,6 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataQuality.fk_DataQuality_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
@@ -3010,9 +3026,10 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.DataQuality.fk_DataQuality_Units"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.OffsetOrigins.fk_OffsetOrigins_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
@@ -3023,6 +3040,7 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes/>
     <Zones>
+      <Zone bkCl="ff99ffff" h="298" nm="DataQuality" w="328" x="1476" y="169"/>
       <Zone bkCl="ffffcccc" h="761" nm="Observation Metadata" w="341" x="606" y="506"/>
       <Zone bkCl="ffece9d8" h="614" nm="Observations" w="330" x="606" y="166"/>
       <Zone bkCl="ffffcccc" h="538" nm="People &amp; Organizations" w="309" x="56" y="538"/>
@@ -3313,7 +3331,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="374">
+  <RnmMgr NxRnmId="376">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4201,6 +4219,12 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="373" nNm="DataQualityValueUnitsID" oNm="DataQualityValueUnitID"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultsNormalizationValues" SupCls="Schema" SupNme="ODM2DataQuality">
+      <Rnm id="374" nNm="ResultsID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2DataQuality">
+      <Rnm id="375" nNm="DataQualityCode" oNm="DataQualityCodeCV"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4218,16 +4242,18 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
     <TreePath>/Schemas (12)/ODM2Core</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (21)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (19)</TreePath>
     <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality/Tables (2)</TreePath>
+    <TreePath>/Schemas (12)/ODM2DataQuality/Tables (5)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
