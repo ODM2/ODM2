@@ -16,11 +16,12 @@ Most analytical instrumentation requires a specimen with known properties for ac
 
 Information about reference materials in ODM2 is encoded in the **ReferenceMaterials** entity. ReferenceMaterials serve as a special type of SamplingFeature. They are essentially Specimens having known composition or properties, but are not included in the Specimens entity because they are manufactured and have attributes in addition to those included for Specimens **[EMILIO: Looks like not all Specimen attributes would be relevant or meaningful, so the distinction is not exactly about having additional attributes?]**.  One of the most important attributes of ReferenceMaterials are their "accepted" **ReferenceMaterialValues**, which can be certified by an agency or vendor, established in the literature by the research community, or developed for "in house" use only by a laboratory. Each ReferenceMaterial may have values for one or more variables.  Furthermore, it is common for ReferenceMaterialValues to be updated to "new" values by the agency or research community due to improvements in analytical approaches.  Therefore, ReferenceMaterials has a one-to-many relationship with ReferenceMaterialValues.
 
-The ReferenceMaterials entity has three uses in ODM2:
+The ReferenceMaterials entity **[EMILIO: Together with the associated _NormalizationReferenceMaterialValues_ entity, right?]** has three uses in ODM2:
 
 1. Providing the ReferenceMaterial name and its established property values as metadata for a Result that was normalized to those values. 
   * This data quality metadata is commonly reported in the literature and considered "best practice" for Certified Reference Materials whose values have been revised over time. Thus, this metadata allows one to go back and renormalize older literature data to the new accepted value, which is required for data synthesis.
   * There are many normalization approaches/equations, and those methods are usually also described in publications.
+  * **[EMILIO: The values are actually stored in _NormalizationReferenceMaterialValues.ReferenceMaterialValues_, not the _ReferenceMaterial_ entity per se]**
 2. Tracking the analysis of a ReferenceMaterial as if it were an unknown Specimen alongside other unknown Specimens. 
   * This tracking is what a lab must do to assess the accuracy of analytical methods and apply corrections to *normalize* property values for unknown specimens to be directly comparable to the established ReferenceMaterialValue. 
   * This is considered best practice for most labs, and many publications actually report the values they get for the SRM (and thus indirectly supply the constants for their normalization equation).
