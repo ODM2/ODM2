@@ -1,0 +1,6 @@
+tocTab[tocTab.length] = new Array("0.4:1", "", "ODM2SamplingFeatures", "EARoot/EA4/EA69.htm", "175.png", "4039", "0", "", "Logical diagram0","{02A18A99-B9A5-4db3-8D7A-1AF564DA12F0}");
+tocTab[tocTab.length] = new Array("0.4:2", "", "«FeatureType» FeatureParent", "EARoot/EA4/EA76.htm", "5.png", "E8618", "0", "", "Class0","{64053464-26F3-4155-B88D-AA10F2D4644A}");
+tocTab[tocTab.length] = new Array("0.4:3", "", "«FeatureType» Site", "EARoot/EA4/EA77.htm", "5.png", "E8617", "0", "", "Class0","{5240F8F1-E346-45cb-89E4-2C2F503BD315}");
+tocTab[tocTab.length] = new Array("0.4:4", "", "«DataType» SpatialOffset", "EARoot/EA4/EA78.htm", "5.png", "E8625", "0", "", "Class0","{182A4942-B26C-4a41-AA20-87CA4E7B2D48}");
+tocTab[tocTab.length] = new Array("0.4:5", "", "«type» SpatialReference", "EARoot/EA4/EA79.htm", "5.png", "E8624", "0", "", "Class0","{B0AF6A0D-EC62-4d1a-B63D-0CCAFC387B2B}");
+tocTab[tocTab.length] = new Array("0.4:6", "", "«FeatureType» Specimen", "EARoot/EA4/EA80.htm", "5.png", "E8621", "0", "", "Class0","{1AC5475B-B2C2-4eb6-B25B-FDF81CBE5BAF}");

@@ -1,0 +1,7 @@
+tocTab[tocTab.length] = new Array("0.6:1", "", "ODM2Annotations", "EARoot/EA6/EA87.htm", "175.png", "4030", "0", "", "Logical diagram0","{AC92156F-15AE-46d8-A615-DC65D6D1F743}");
+tocTab[tocTab.length] = new Array("0.6:2", "", "«DataType» Annotation", "EARoot/EA6/EA91.htm", "5.png", "E8561", "0", "", "Class0","{C782A7D4-585E-4168-B6B5-F856E50F04E9}");
+tocTab[tocTab.length] = new Array("0.6:3", "", "«CodeList» AnnotationCvTerm", "EARoot/EA6/EA92.htm", "5.png", "E8562", "0", "", "Class0","{91F2C2C0-0DFC-45bf-B75D-E1EA6C09DF89}");
+tocTab[tocTab.length] = new Array("0.6:4", "", "«DataType» MethodAnnotation", "EARoot/EA6/EA93.htm", "5.png", "E8566", "0", "", "Class0","{27BCD7FA-68F3-4f2c-8400-7B753352F915}");
+tocTab[tocTab.length] = new Array("0.6:5", "", "«DataType» ResultAnnotation", "EARoot/EA6/EA94.htm", "5.png", "E8567", "0", "", "Class0","{165D6028-B6C2-4ca3-88A2-F3FB086A424D}");
+tocTab[tocTab.length] = new Array("0.6:6", "", "«DataType» ResultValueAnnotation", "EARoot/EA6/EA95.htm", "5.png", "E8563", "0", "", "Class0","{76160D0D-87CB-4927-9A7D-1FFAD2ECE17E}");
+tocTab[tocTab.length] = new Array("0.6:7", "", "«DataType» VariableAnnotation", "EARoot/EA6/EA96.htm", "5.png", "E8564", "0", "", "Class0","{9B322283-36D7-4bbe-BA50-53FD12443154}");

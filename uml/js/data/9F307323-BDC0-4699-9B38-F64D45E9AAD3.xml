@@ -1,0 +1,5 @@
+tocTab[tocTab.length] = new Array("0.12:1", "", "ODM2Extension", "EARoot/EA12/EA134.htm", "175.png", "4034", "0", "", "Logical diagram0","{D4AA80E8-DD2E-44a8-951B-5120CA66B7FE}");
+tocTab[tocTab.length] = new Array("0.12:2", "", "«DataType» ExtensionProperty", "EARoot/EA12/EA136.htm", "5.png", "E8600", "0", "", "Class0","{89248983-B431-4b78-8FE0-29CDEF1120E1}");
+tocTab[tocTab.length] = new Array("0.12:3", "", "«DataType» MethodExtensionPropertyValue", "EARoot/EA12/EA137.htm", "5.png", "E8599", "0", "", "Class0","{6AC9A2E9-B16F-4c48-A9D2-F2C0B5657C00}");
+tocTab[tocTab.length] = new Array("0.12:4", "", "«DataType» ResultsExtensionPropertyValue", "EARoot/EA12/EA138.htm", "5.png", "E8601", "0", "", "Class0","{691879C0-D825-4e58-8849-17933541ECD9}");
+tocTab[tocTab.length] = new Array("0.12:5", "", "«DataType» VariableExtensionPropertyValue", "EARoot/EA12/EA139.htm", "5.png", "E8598", "0", "", "Class0","{F2306620-6402-41ad-8844-F9BD168B6218}");

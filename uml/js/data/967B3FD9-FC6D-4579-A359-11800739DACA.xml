@@ -1,0 +1,3 @@
+tocTab[tocTab.length] = new Array("0.3:1", "", "ODM2Results", "EARoot/EA3/EA64.htm", "175.png", "4037", "0", "", "Logical diagram0","{D2927957-C771-42e7-94DF-7477F35D753F}");
+tocTab[tocTab.length] = new Array("0.3:2", "", "«DataType» OffsetOrigin", "EARoot/EA3/EA67.htm", "5.png", "E8612", "0", "", "Class0","{03B969CA-5C79-487a-B2B6-D5808AF00D75}");
+tocTab[tocTab.length] = new Array("0.3:3", "", "«DataType» ResultValue", "EARoot/EA3/EA68.htm", "5.png", "E8611", "0", "", "Class0","{DEF4553C-AC7D-49e7-B3EC-08C966DC36E8}");
