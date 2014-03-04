@@ -936,75 +936,45 @@
         <StPr stA="ODM2Core" stB="DataQuality"/>
       </SchTrHis>
     </Tbl>
-    <Tbl UsSo="1" nm="NormalizationReferenceMaterialValues">
-      <TblOpts/>
-      <Pk ClNs="NormalizationReferenceMaterialValueID" nm="pkNormalizationReferenceMaterialValues"/>
-      <Cl au="0" df="" nm="NormalizationReferenceMaterialValueID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ReferenceMaterialID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ReferenceMaterialValue" nu="0">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="VariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="UnitsID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CitationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_NormalizationReferenceMaterialValues_ReferenceMaterials" prLkCl="ReferenceMaterialID" upAc="3">
-        <PrTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="0"/>
-        <CdTb mn="1" nm="NormalizationReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="ReferenceMaterialID" prCl="ReferenceMaterialID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_NormalizationReferenceMaterialValues_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="NormalizationReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="UnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_NormalizationReferenceMaterialValues_Variables" prLkCl="VariableID" upAc="3">
-        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="NormalizationReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="VariableID" prCl="VariableID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="ReferenceMaterials">
-      <Cm>Describes calibration standards</Cm>
+      <Cm>Describes materials that are used for the calibration of an instrument, the assessment of a measurement method, or for assigning values to unknown specimens.</Cm>
       <TblOpts/>
       <Pk ClNs="ReferenceMaterialID" nm="pkReferenceMaterials"/>
       <Cl au="0" df="" nm="ReferenceMaterialID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The primary key to the Reference Material used to calibrate an instrument, assess a measurement method, or assign values to unknown specimens</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Medium? Property group?</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialOrganizationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A foreign key to the Organization that manufactured and established property values for the ReferenceMaterial</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>A code or short name used to identify the reference material.</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialLotCode" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The lot, or manufactured batch, of the reference material, that is often associated with a certified set of property values</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialPurchaseDate" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The purchase date of a reference material, when applicable</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialExpirationDate" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The expiration date of a reference material, when applicable</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialCertificateLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A URL or file path to the Certificate that provides established property values for the given lot number.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A foreign key to SamplingFeatures.  Only required when the ReferenceMaterial is Analyzed as if it were an unknown specimen.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ReferenceMaterials_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
@@ -1020,6 +990,79 @@
       <SchTrHis>
         <StPr stA="ODM2Equipment" stB="ReferenceMaterials"/>
       </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="ReferenceMaterialValues">
+      <Cm>"Accepted" property values for a Reference Material, which can be certified by an agency or vendor, established in the literature by the research community, or developed for "in house" use only by a laboratory.</Cm>
+      <TblOpts/>
+      <Pk ClNs="ReferenceMaterialValueID" nm="pkReferenceMaterialValues"/>
+      <Cl au="0" df="" nm="ReferenceMaterialValueID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The primary key for ReferenceMaterialValues</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A foreign key to ReferenceMaterials</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialValue" nu="0">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The established property value for the ReferenceMaterial.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialAccuracy" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The established accuracy of the property value for the ReferenceMaterial, in the same units as the value.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VariableID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The property that is quantified by the ReferenceMaterialValue</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="UnitsID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The units for the ReferenceMaterialValue and ReferenceMaterialAccuracy</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The attribution for source that established the ReferenceMaterialValue and ReferenceMaterialAccuracy</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_NormalizationReferenceMaterialValues_ReferenceMaterials" prLkCl="ReferenceMaterialID" upAc="3">
+        <PrTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="0"/>
+        <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="ReferenceMaterialID" prCl="ReferenceMaterialID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_NormalizationReferenceMaterialValues_Units" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="UnitsID" prCl="UnitsID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_NormalizationReferenceMaterialValues_Variables" prLkCl="VariableID" upAc="3">
+        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="VariableID" prCl="VariableID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="ResultNormalizationValues">
+      <Cm>Extends the Results table with a foreign key to NormalizationReferenceMaterialValues when the optional DataQuality schema is implemented.  In a database implementation, we would not implement this as a separate table from Results.</Cm>
+      <TblOpts/>
+      <Cl au="0" df="" nm="ResultID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Unique identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="NormalizedByReferenceMaterialValueID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ResultsNormalizationValues_NormalizationReferenceMaterialValues" prLkCl="ReferenceMaterialValueID" upAc="3">
+        <PrTb mn="0" nm="ReferenceMaterialValues" oe="1" sch="ODM2DataQuality" zr="0"/>
+        <CdTb mn="1" nm="ResultNormalizationValues" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="NormalizedByReferenceMaterialValueID" prCl="ReferenceMaterialValueID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ResultsNormalizationValues_Results" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="0" nm="ResultNormalizationValues" oe="1" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ResultsDataQuality">
       <TblOpts/>
@@ -1043,29 +1086,6 @@
       <SchTrHis>
         <StPr stA="ODM2Core" stB="ResultsDataQuality"/>
       </SchTrHis>
-    </Tbl>
-    <Tbl UsSo="1" nm="ResultsNormalizationValues">
-      <Cm>Extends the Results table with a foreign key to NormalizationReferenceMaterialValues when the optional DataQuality schema is implemented.  In a database implementation, we would not implement this as a separate table from Results.</Cm>
-      <TblOpts/>
-      <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="NormalizationReferenceMaterialValueID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_ResultsNormalizationValues_NormalizationReferenceMaterialValues" prLkCl="NormalizationReferenceMaterialValueID" upAc="3">
-        <PrTb mn="0" nm="NormalizationReferenceMaterialValues" oe="1" sch="ODM2DataQuality" zr="0"/>
-        <CdTb mn="1" nm="ResultsNormalizationValues" oe="0" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="NormalizationReferenceMaterialValueID" prCl="NormalizationReferenceMaterialValueID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ResultsNormalizationValues_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="ResultsNormalizationValues" oe="1" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
     </Tbl>
     <CustomTypes/>
   </Sch>
@@ -2353,15 +2373,15 @@
       </Cl>
       <Cl au="0" df="" nm="SpecimenTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A CV term defining the type of speciment (e.g., aquatic sample, core, etc.)</Cm>
+        <Cm>A CV term defining the type of specimen (e.g., aquatic sample, core, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpecimenMediumCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A CV term defining the medium of the specimen</Cm>
+        <Cm>A CV term defining the medium of the specimen (i.e. water, sediment, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="IsFieldSpecimen" nu="0">
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>A boolean indicating whether the speciment was collected in the field</Cm>
+        <Cm>A boolean indicating whether the specimen was collected in the field</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Samples_Features" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -2749,7 +2769,7 @@ DataSetTopicCategoryCV</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="NormalizationReferenceMaterialValues" x="605" y="555"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="605" y="555"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="281" y="510"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="564" y="178"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="297" y="320"/>
@@ -2758,16 +2778,16 @@ DataSetTopicCategoryCV</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="12" y="477"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="784" y="414"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="841" y="268"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsNormalizationValues" x="708" y="479"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultNormalizationValues" x="708" y="479"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.NormalizationReferenceMaterialValues.fk_NormalizationReferenceMaterialValues_ReferenceMaterials"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_NormalizationReferenceMaterialValues_ReferenceMaterials"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultNormalizationValues.fk_ResultsNormalizationValues_NormalizationReferenceMaterialValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultNormalizationValues.fk_ResultsNormalizationValues_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsNormalizationValues.fk_ResultsNormalizationValues_NormalizationReferenceMaterialValues"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsNormalizationValues.fk_ResultsNormalizationValues_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes>
       <Note bkCl="ffffffe6" x="299" y="394">A standad ReferenceMaterial (SRM) can be used in 2 ways.
@@ -3331,7 +3351,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="376">
+  <RnmMgr NxRnmId="381">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4219,11 +4239,23 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="373" nNm="DataQualityValueUnitsID" oNm="DataQualityValueUnitID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultsNormalizationValues" SupCls="Schema" SupNme="ODM2DataQuality">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultNormalizationValues" SupCls="Schema" SupNme="ODM2DataQuality">
       <Rnm id="374" nNm="ResultsID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2DataQuality">
       <Rnm id="375" nNm="DataQualityCode" oNm="DataQualityCodeCV"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2DataQuality" SupCls="" SupNme="">
+      <Rnm id="376" nNm="ReferenceMaterialValues" oNm="NormalizationReferenceMaterialValues"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterialValues" SupCls="Schema" SupNme="ODM2DataQuality">
+      <Rnm id="378" nNm="ReferenceMaterialValueID" oNm="NormalizationReferenceMaterialValueID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultNormalizationValues" SupCls="Schema" SupNme="ODM2DataQuality">
+      <Rnm id="379" nNm="NormalizedByReferenceMaterialValueID" oNm="NormalizationReferenceMaterialValueID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2DataQuality" SupCls="" SupNme="">
+      <Rnm id="380" nNm="ResultNormalizationValues" oNm="ResultsNormalizationValues"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
