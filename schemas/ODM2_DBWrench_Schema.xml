@@ -944,9 +944,9 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The primary key to the Reference Material used to calibrate an instrument, assess a measurement method, or assign values to unknown specimens</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ReferenceMaterialTypeCV" nu="0">
+      <Cl au="0" df="" nm="ReferenceMaterialMediumCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Medium? Property group?</Cm>
+        <Cm>The medium of a Reference Material, from the same CV as SpecimenMediumCV. Examples include: water, sediment, air, tissue, etc.</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialOrganizationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -3351,7 +3351,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="381">
+  <RnmMgr NxRnmId="382">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4257,6 +4257,9 @@ then  additional field are added
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2DataQuality" SupCls="" SupNme="">
       <Rnm id="380" nNm="ResultNormalizationValues" oNm="ResultsNormalizationValues"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2DataQuality">
+      <Rnm id="381" nNm="ReferenceMaterialMediumCV" oNm="ReferenceMaterialTypeCV"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4274,10 +4277,10 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
