@@ -176,7 +176,7 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="The core of ODM2.  Every ODM2 instance will implement the Core." nm="ODM2Core">
-    <Tbl UsSo="1" nm="ActionPeople">
+    <Tbl UsSo="1" nm="ActionBy">
       <Cm>Affiliates people with actions and describes thier role in the action.</Cm>
       <TblOpts/>
       <Cl au="0" df="" nm="ActionID" nu="0">
@@ -191,24 +191,19 @@
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Indicator of whether the affiliated person was the lead for the action</Cm>
       </Cl>
-      <Cl au="0" df="" nm="RoleID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      <Cl au="0" df="" nm="RoleDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a role played by a person in performing an action</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ActionPeople_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ActionPeople" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ActionBy" oe="1" sch="ODM2Core" zr="0"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ActionPeople_Affiliations" prLkCl="AffiliationID" upAc="3">
         <PrTb mn="0" nm="Affiliations" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ActionPeople" oe="0" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="ActionBy" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="AffiliationID" prCl="AffiliationID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ActionPeople_Roles" prLkCl="RoleID" upAc="3">
-        <PrTb mn="0" nm="Roles" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ActionPeople" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="RoleID" prCl="RoleID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -704,21 +699,6 @@
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="VariableID" prCl="VariableID"/>
       </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="Roles">
-      <Cm>Describes roles that can be taken by people in performing actions (e.g, the person who created the observation).</Cm>
-      <TblOpts/>
-      <Pk ClNs="RoleID" nm="pkRoles"/>
-      <Cl au="1" df="" nm="RoleID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="RoleDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text description of the role played by an affiliated person</Cm>
-      </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -2615,9 +2595,8 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="317" y="483"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="97" y="296"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="22" y="398"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionPeople" x="315" y="376"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Directives" x="610" y="725"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Roles" x="321" y="298"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="330" y="364"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Directives" x="670" y="681"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1176" y="154"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1176" y="289"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1177" y="353"/>
@@ -2625,9 +2604,8 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1044" y="579"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="584" y="526"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="569" y="197"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
@@ -3003,9 +2981,8 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="353" y="720"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="67" y="577"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="67" y="681"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionPeople" x="389" y="627"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="389" y="627"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Directives" x="742" y="534"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Roles" x="331" y="548"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1251" y="190"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1250" y="318"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1251" y="378"/>
@@ -3020,9 +2997,8 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="625" y="214"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="1484" y="271"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="1495" y="435"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Affiliations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionPeople.fk_ActionPeople_Roles"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
@@ -3345,7 +3321,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="382">
+  <RnmMgr NxRnmId="384">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3645,13 +3621,14 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="111" nNm="ActionID" oNm="EventID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionPeople" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionBy" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="112" nNm="ActionID" oNm="EventID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="113" nNm="ActionTypeCV" oNm="EventTypeCV"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionPeople" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionBy" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="382" nNm="RoleDescription" oNm="RoleID"/>
       <Rnm id="167" nNm="RoleID" oNm="PersonRoleCV"/>
       <Rnm id="114" nNm="PersonRoleCV" oNm="RoleCV"/>
     </RnmCh>
@@ -3787,6 +3764,7 @@ then  additional field are added
       <Rnm id="165" nNm="SamplingFeatureID" oNm="FeatureID"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
+      <Rnm id="383" nNm="ActionBy" oNm="ActionPeople"/>
       <Rnm id="166" nNm="ActionPeople" oNm="PersonRoles"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Affiliations" SupCls="Schema" SupNme="ODM2Core">
@@ -4026,7 +4004,7 @@ then  additional field are added
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
       <Rnm id="279" nNm="Affiliations" oNm="OrganizationPeople"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionPeople" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionBy" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="280" nNm="AffiliationID" oNm="PersonID"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Samples" SupCls="" SupNme="">
@@ -4271,16 +4249,11 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (19)</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality/Tables (5)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
