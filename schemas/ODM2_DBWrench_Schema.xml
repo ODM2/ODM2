@@ -331,6 +331,27 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="Citations">
+      <TblOpts/>
+      <Pk ClNs="CitationID" nm="pkCitations"/>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="Authors" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="CitationText" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="CitationLink" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="Etc." nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="DataSets">
       <Cm>Describes groupings of observation results that can be considered "datasets"</Cm>
       <TblOpts/>
@@ -355,10 +376,15 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>A text abstract describing the dataset</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DataSetCitation" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      <Cl au="0" df="" nm="DataSetCitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Text citation for Dataset itself</Cm>
       </Cl>
+      <Fk deAc="3" nm="fk_DataSet_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataSets" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="DataSetCitationID" prCl="CitationID"/>
+      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -1017,6 +1043,11 @@
         <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="VariableID" prCl="VariableID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ReferenceMaterialValues_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -2371,6 +2402,39 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="SpecimenTaxonomicClassifiers">
+      <Cm>This cross-reference table allows Taxonomic Classification of Specimens as an annotation, rather than as a Result.</Cm>
+      <TblOpts/>
+      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key to SamplingFeatures.Specimens.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="TaxonomicClassifierID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key to TaxonomicClassifiers.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key to the attribution, or Citation, for the classification.</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_SpecimenTaxonomicClassifiers_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="SpecimenTaxonomicClassifiers" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SpecimenTaxonomicClassifiers_Specimens" prLkCl="SamplingFeatureID" upAc="3">
+        <PrTb mn="0" nm="Specimens" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="SpecimenTaxonomicClassifiers" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
+        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="SpecimenTaxonomicClassifiers" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about sensor deployment and management for in situ data." nm="ODM2Sensors">
@@ -2604,12 +2668,14 @@ single foreign key column.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1044" y="579"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="584" y="526"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="569" y="197"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1404" y="157"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
@@ -2662,6 +2728,10 @@ ObservationActs from ResultsSets:
       <Note bkCl="ffffffe6" x="658" y="158">In OGC O&amp;M, Actions and Results are functionally concatenated into "Observations".</Note>
       <Note bkCl="ffffffe6" x="1166" y="429">DataValues are not included in the Core
 to allow for Catalog implementations.</Note>
+      <Note bkCl="ffffffe6" x="1410" y="273">The Citations table is a placeholder for a near-future revision 
+to implement Citations (or Attributions) in a manner similar to 
+IEDA's draft  "data_source" and "author_list" tables 
+in "PetDBSchema-Redesign-26.png"</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ffece9d8" h="612" nm="Observations" w="301" x="547" y="173"/>
@@ -3202,7 +3272,7 @@ accomodated by a coverage?
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -3228,15 +3298,20 @@ accomodated by a coverage?
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="551" y="113"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="585" y="336"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="878" y="113"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="16" y="420"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="36" y="518"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_SpatialOffsets"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_SiteDatum_SRSID"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.SpecimenTaxonomicClassifiers.fk_SpecimenTaxonomicClassifiers_Specimens"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.SpecimenTaxonomicClassifiers.fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="23" y="362">Recommendation for ODM2 regarding
+      <Note bkCl="ffffffe6" x="6" y="155">Recommendation for ODM2 regarding
 Specimens: A specimen will not have 
 location information. That information
 will be associated from its parent 
@@ -3249,10 +3324,7 @@ composites (i.e. multiple parents).</Note>
 SpatialSamplingFeatures, in which "the value of a property varies 
 within the scope of the feature."  Therefore these SamplingFeatures 
 can be used to record Coverage results.</Note>
-      <Note bkCl="ffffffe6" x="604" y="426">[From Emilio] I reccommend removing
-SpatialReferences table. For discussion see: 
-https://github.com/UCHIC/ODM2/issues/12</Note>
-      <Note bkCl="ffffffe6" x="279" y="417">Sites are a special, widely used
+      <Note bkCl="ffffffe6" x="422" y="422">Sites are a special, widely used
 SamplingFeature type with a Point (XY) 
 Geometry. But named, polygon (XY) 
 spatial units (watersheds, admin units) 
@@ -3321,7 +3393,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="384">
+  <RnmMgr NxRnmId="387">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3818,6 +3890,7 @@ then  additional field are added
       <Rnm id="187" nNm="OrganizationUniqueID" oNm="OrganizationUniqueIdentifier"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="386" nNm="DataSetCitationID" oNm="DataSetCitation"/>
       <Rnm id="189" nNm="DataSetCitation" oNm="Citation"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SiteVisitActions" SupCls="Schema" SupNme="ODM2Sensors">
@@ -4232,6 +4305,12 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2DataQuality">
       <Rnm id="381" nNm="ReferenceMaterialMediumCV" oNm="ReferenceMaterialTypeCV"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenTaxonomicClassifiers" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="384" nNm="SamplingFeatureID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="385" nNm="CitationID" oNm="Id"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4249,11 +4328,15 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (19)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
