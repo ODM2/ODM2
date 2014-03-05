@@ -13,7 +13,8 @@ For more information on ODM2 concepts, examples, best practices, etc., visit the
 
 Schema diagrams for the current version of the ODM2 schema are at:
 
-* [Current Version](http://uchic.github.io/ODM2/schemas/ODM2_Current/)
+* [ERD](http://uchic.github.io/ODM2/schemas/ODM2_Current/)
+* [UML (probably not yet fully in sync with ERD)](http://uchic.github.io/ODM2/uml/index.htm?goto=2:25)
 
 The following are older versions included here for completeness:
 * [Development Version 0.81](http://uchic.github.io/ODM2/schemas/ODM2_v0.81/)
