@@ -1696,40 +1696,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="DataSetExternalIdentifers">
-      <TblOpts/>
-      <Cl au="0" df="" nm="DataSetID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign Key to DataSets</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ExternalIdentiferSystemID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign Key to ExternalIdentifierSystems</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataSetExternalIdentifer" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID, such as an DOI; could be a Uniform Resource Name (URN).</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataSetExternalIdentiferURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_DataSets_ExternalIdentifiers" prLkCl="DataSetID" upAc="3">
-        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataSetExternalIdentifers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
-        <ClPr cdCl="DataSetID" prCl="DataSetID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ExternalIdentifierSystems_DataSetIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
-        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
-        <CdTb mn="1" nm="DataSetExternalIdentifers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
-        <ClPr cdCl="ExternalIdentiferSystemID" prCl="ExternalIdentifierSystemID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis>
-        <StPr stA="ODM2Core" stB="DataSetExternalIdentifers"/>
-        <StPr stA="ODM2Annotations" stB="DataSetExternalIdentifers"/>
-      </SchTrHis>
-    </Tbl>
     <Tbl UsSo="1" nm="ExternalIdentifierSystems">
       <Cm>A single table for connecting various primary keys with points to outside systems.</Cm>
       <TblOpts/>
@@ -3020,32 +2986,27 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="DataSetExternalIdentifers" x="931" y="420"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="475" y="625"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="MethodExternalIdentifiers" x="440" y="315"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="VariableExternalIdentifiers" x="546" y="420"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SamplingFeatureExternalIdentifiers" x="4" y="315"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="PersonExternalIdentifiers" x="164" y="421"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="197" y="22"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="474" y="22"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="923" y="148"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="342" y="164"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="711" y="146"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="703" y="25"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="TaxonomicClassifierExternalIdentifiers" x="824" y="315"/>
-    <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="4" y="165"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="1318" y="153"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ReferenceMaterialExternalIdentifiers" x="1309" y="418"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1162" y="41"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1274" y="315"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="845" y="648"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="MethodExternalIdentifiers" x="812" y="326"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="VariableExternalIdentifiers" x="965" y="449"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SamplingFeatureExternalIdentifiers" x="271" y="322"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="PersonExternalIdentifiers" x="534" y="444"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="567" y="45"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="844" y="45"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="712" y="187"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1088" y="73"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1325" y="46"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="TaxonomicClassifierExternalIdentifiers" x="1214" y="328"/>
+    <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="200" y="38"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="0" y="152"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ReferenceMaterialExternalIdentifiers" x="67" y="441"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1635" y="176"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1402" y="443"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.CitationExternalIdentifiers.fk_CitationExternalIdentifiers_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.CitationExternalIdentifiers.fk_CitationExternalIdentifiers_ExternalIdentifierSystems"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSets_ExternalIdentifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_ExternalIdentifierSystems_DataSetIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_Methods_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_ExternalIdentifierSystems_PersonIdentifiers"/>
@@ -4371,16 +4332,11 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (19)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
