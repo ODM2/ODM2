@@ -2363,7 +2363,7 @@ single foreign key column.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2385,23 +2385,23 @@ single foreign key column.</Note>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="252" y="163"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="219"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1117" y="488"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="921" y="717"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="383" y="649"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1126" y="447"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="938" y="646"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="380" y="598"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="286"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="317" y="483"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="313" y="440"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="97" y="296"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="22" y="398"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="330" y="364"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Directives" x="670" y="681"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1176" y="154"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1176" y="289"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1177" y="353"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="332" y="297"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Directives" x="648" y="648"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1150" y="154"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1150" y="289"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1151" y="353"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="808" y="494"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1044" y="579"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="584" y="526"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1031" y="533"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="586" y="514"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="569" y="197"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1404" y="157"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1164" y="32"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
@@ -2432,13 +2432,13 @@ but, an Affiliation record must
 be created for each person because
 that is how people get linked to 
 actions.</Note>
-      <Note bkCl="ffffffe6" x="575" y="47">An ObservationAct is 
+      <Note bkCl="ffffffe6" x="548" y="47">An ObservationAct is 
 the only ActionType that 
 can produce a ResultSet.
 
 ActionTypeCV draft at
 http://goo.gl/bRi2p1</Note>
-      <Note bkCl="ffffffe6" x="996" y="49">A "Result" describes
+      <Note bkCl="ffffffe6" x="969" y="49">A "Result" describes
 metadata for one or more
 DataValues that are stored 
 in ResultValues tables.
@@ -2447,27 +2447,27 @@ catalog for ResultValues.</Note>
       <Note bkCl="ffffffe6" x="21" y="681">Secondary contact info can be added 
 as an Extension property to Affiliations.
 See ODM2Extensions schema.</Note>
-      <Note bkCl="ffffffe6" x="342" y="46">In the barebones implementation:
+      <Note bkCl="ffffffe6" x="315" y="46">In the barebones implementation:
 Actions are all ObservationActs
 on a SamplingFeature
 by at least one Person
 using a Method
 producing at least one ResultsSet.</Note>
-      <Note bkCl="ffffffe6" x="754" y="48">Reasons for separating
+      <Note bkCl="ffffffe6" x="727" y="48">Reasons for separating
 ObservationActs from ResultsSets:
 1. Allows Results for many Variables
     from each ObservationAct 
 2. Allows for other ActionTypes</Note>
-      <Note bkCl="ffffffe6" x="658" y="158">In OGC O&amp;M, Actions and Results are functionally concatenated into "Observations".</Note>
-      <Note bkCl="ffffffe6" x="1166" y="429">DataValues are not included in the Core
+      <Note bkCl="ffffffe6" x="1366" y="373">DataValues are not included in the Core
 to allow for Catalog implementations.</Note>
-      <Note bkCl="ffffffe6" x="1410" y="273">The Citations table is a placeholder for a near-future revision 
+      <Note bkCl="ffffffe6" x="1338" y="54">The Citations table is a placeholder for a near-future revision 
 to implement Citations (or Attributions) in a manner similar to 
 IEDA's draft  "data_source" and "author_list" tables 
 in "PetDBSchema-Redesign-26.png"</Note>
+      <Note bkCl="ffffffe6" x="651" y="158">In OGC O&amp;M, Actions &amp; Results are functionally concatenated into "Observations".</Note>
     </Notes>
     <Zones>
-      <Zone bkCl="ffece9d8" h="612" nm="Observations" w="301" x="547" y="173"/>
+      <Zone bkCl="ffece9d8" h="568" nm="Observations" w="294" x="547" y="173"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
@@ -2616,15 +2616,18 @@ DataSetTopicCategoryCV</Note>
     <Notes>
       <Note bkCl="ffffffe6" x="30" y="332">Look at SensorML
 Make sure this fits!</Note>
-      <Note bkCl="ffffffe6" x="9" y="438">If EquipmentType is Instrument or Sensor
-(i.e. if it can produce Results),
-then a ConfigurationAction is required
-to specify output Variables that can be
-observed during an ObservationAct.
+      <Note bkCl="ffffffe6" x="249" y="476">Equipment are often specified by ObservationActions to 
+make measurements (i.e Results).
 
-A ConfigurationAction can also be used to
-record metadata regarding the creation of a 
-ParentEquipment from other Equipment.</Note>
+An EquipmentMaintenanceAction is an ActionType that 
+does not act on SamplingFeatures or produce Results.  
+Methods distinguish Equipment Configuration, Repair, 
+Cleaning and other EquipmentMaintenanceActions.
+
+An Instrument Calibration Action could either be:
+- an ObservationAction (if it produces a Result from 
+    a ReferenceMaterial Specimen), or
+- an EquipmentMaintenanceAction (if it does not).</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2765,11 +2768,11 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="353" y="720"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="67" y="577"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="67" y="681"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="389" y="627"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="392" y="582"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Directives" x="742" y="534"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1251" y="190"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1250" y="318"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1251" y="378"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1196" y="188"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1195" y="316"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1196" y="376"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="835" y="607"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1068" y="534"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="366" y="375"/>
@@ -2779,8 +2782,8 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1397" y="547"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1398" y="769"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="625" y="214"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="1484" y="271"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="1495" y="435"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="1429" y="269"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="1443" y="440"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
@@ -2814,11 +2817,11 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
     <Notes/>
     <Zones>
-      <Zone bkCl="ff99ffff" h="298" nm="DataQuality" w="328" x="1476" y="169"/>
+      <Zone bkCl="ff99ffff" h="298" nm="DataQuality" w="331" x="1421" y="167"/>
       <Zone bkCl="ffffcccc" h="761" nm="Observation Metadata" w="341" x="606" y="506"/>
-      <Zone bkCl="ffece9d8" h="614" nm="Observations" w="330" x="606" y="166"/>
+      <Zone bkCl="ffece9d8" h="557" nm="Observations" w="330" x="606" y="166"/>
       <Zone bkCl="ffffcccc" h="538" nm="People &amp; Organizations" w="309" x="56" y="538"/>
-      <Zone bkCl="ffffcccc" h="234" nm="Related Results &amp; Datasets" w="284" x="1231" y="167"/>
+      <Zone bkCl="ffffcccc" h="234" nm="Related Results &amp; Datasets" w="284" x="1176" y="165"/>
       <Zone bkCl="ffccccff" h="269" nm="Result Values" w="340" x="1377" y="507"/>
       <Zone bkCl="ffccffcc" h="580" nm="SamplingFeatures" w="365" x="19" y="164"/>
     </Zones>
@@ -4041,8 +4044,9 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
