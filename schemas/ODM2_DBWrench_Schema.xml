@@ -332,6 +332,7 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="Citations">
+      <Cm>The Citations table is a placeholder for a near-future revision  to implement Citations (or Attributions) in a manner similar to  IEDA's draft  "data_source" and "author_list" tables  in "PetDBSchema-Redesign-26.png"</Cm>
       <TblOpts/>
       <Pk ClNs="CitationID" nm="pkCitations"/>
       <Cl au="0" df="" nm="CitationID" nu="0">
@@ -1665,6 +1666,36 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="" nm="ODM2ExternalIdentifiers">
+    <Tbl UsSo="1" nm="CitationExternalIdentifiers">
+      <TblOpts/>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign Key to ExternalIdentifierSystems</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CitationExternalIdentifer" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A resolvable, globally unique ID, such as a DOI; could be a Uniform Resource Name (URN).</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CitationExternalIdentiferURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_CitationExternalIdentifiers_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="CitationExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_CitationExternalIdentifiers_ExternalIdentifierSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
+        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
+        <CdTb mn="1" nm="CitationExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="DataSetExternalIdentifers">
       <TblOpts/>
       <Cl au="0" df="" nm="DataSetID" nu="0">
@@ -1864,15 +1895,19 @@
       <TblOpts/>
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign Key to TaxonomicClassifiers</Cm>
       </Cl>
       <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign Key to ExternalIdentifierSystems</Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A resolvable, globally unique ID, such as a GBIF ID; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ExternalIdentifierSystems_TaxonIdentifiers" prLkCl="ExternalIdentifierSystemID" upAc="3">
         <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
@@ -3001,9 +3036,14 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="4" y="165"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="1318" y="153"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ReferenceMaterialExternalIdentifiers" x="1309" y="418"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1162" y="41"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1274" y="315"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.CitationExternalIdentifiers.fk_CitationExternalIdentifiers_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.CitationExternalIdentifiers.fk_CitationExternalIdentifiers_ExternalIdentifierSystems"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_DataSets_ExternalIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.DataSetExternalIdentifers.fk_ExternalIdentifierSystems_DataSetIdentifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_ExternalIdentifierSystems_MethodIdentifiers"/>
@@ -3393,7 +3433,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="387">
+  <RnmMgr NxRnmId="388">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4311,6 +4351,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="385" nNm="CitationID" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="387" nNm="CitationID" oNm="Id"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4330,7 +4373,8 @@ then  additional field are added
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
