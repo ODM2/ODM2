@@ -1706,7 +1706,7 @@
       </Cl>
       <Fk deAc="3" nm="fk_ActionDirectives_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ActionDirectives" oe="0" sch="ODM2LabAnalyses" zr="1"/>
+        <CdTb mn="0" nm="ActionDirectives" oe="1" sch="ODM2LabAnalyses" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ActionDirectives_Directives" prLkCl="DirectiveID" upAc="3">
@@ -1716,68 +1716,6 @@
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="AnalysisBatchActions">
-      <Cm>Describes sample analysis batch events</Cm>
-      <TblOpts/>
-      <Pk ClNs="AnalysisBacthActionID" nm="pkAnalysisBatchActions"/>
-      <Cl au="1" df="" nm="AnalysisBacthActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ConfigurationActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="InstrumentOutputFileLink" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="AnalysisBatchEventDescription" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_AnalysisBatchActions_Actions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="AnalysisBatchActions" oe="1" sch="ODM2LabAnalyses" zr="1"/>
-        <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="BatchSampleLines">
-      <Cm>Describes sample analysis batch sample lines</Cm>
-      <TblOpts/>
-      <Pk ClNs="BatchSampleLineID" nm="pkBatchSampleLines"/>
-      <Cl au="1" df="" nm="BatchSampleLineID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="AnalysisBacthActionID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="SampleID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="AnalysisBatchActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="BatchLineNumber" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="BatchLineLabel" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_BatchSampleLines_AnalysisBatchActions" prLkCl="AnalysisBacthActionID" upAc="3">
-        <PrTb mn="0" nm="AnalysisBatchActions" oe="1" sch="ODM2LabAnalyses" zr="0"/>
-        <CdTb mn="1" nm="BatchSampleLines" oe="0" sch="ODM2LabAnalyses" zr="1"/>
-        <ClPr cdCl="AnalysisBacthActionID" prCl="AnalysisBacthActionID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis>
-        <StPr stA="ODM2Sensors" stB="BatchSampleLines"/>
-      </SchTrHis>
     </Tbl>
     <Tbl UsSo="1" nm="Directives">
       <Cm>Describes the directive or purpose under which actions are made.  Directives can be projects, intended analyses for a specimen, etc.</Cm>
@@ -1799,6 +1737,20 @@
       <SchTrHis>
         <StPr stA="ODM2Core" stB="Directives"/>
       </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="SpecimenBatchLines">
+      <TblOpts/>
+      <Cl au="0" df="" nm="FeatureActionIndexID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpecimenBatchPostionNumber" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpecimenBatchPositionLabel" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
     </Tbl>
     <CustomTypes/>
   </Sch>
@@ -2811,18 +2763,17 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="AnalysisBatchActions" x="725" y="410"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="167" y="520"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="544" y="83"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="455" y="633"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="228" y="23"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="160" y="673"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="552" y="236"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="BatchSampleLines" x="903" y="573"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="464" y="520"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="278" y="324"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="236" y="258"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="335" y="420"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchLines" x="747" y="518"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
@@ -2832,10 +2783,25 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Directives"/>
-    <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.AnalysisBatchActions.fk_AnalysisBatchActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.BatchSampleLines.fk_BatchSampleLines_AnalysisBatchActions"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
-    <Notes/>
+    <Notes>
+      <Note bkCl="ffffffe6" x="747" y="604">If an Index or Key were made from concatenating 
+SamplingFeatureID &amp; ActionID from the FeatureActionResult table,
+then it would be possible to track the position of a
+Specimen within an AnalysisBatch as it progresses from
+a SpecimenPreparationAction to an 
+InstrumentAnalysis[=MethodType] ObservationAction.
+This info is tracked in nearly every lab.
+
+For a SpecimenPreparationAction, where there are no Results 
+and ResultID is null, such a FeatureActionIndexID would be 
+the same as a primary key for the FeatureActionResult table 
+(i.e. a FeatureActionResultID).
+
+For a InstrumentAnalysis[=MethodType] ObservationAction,
+however, using a FeatureActionResultID will not work, because 
+there can by many results for each unique Specimen-Action combo.</Note>
+    </Notes>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Overview">
@@ -3158,7 +3124,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="390">
+  <RnmMgr NxRnmId="392">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4085,6 +4051,12 @@ then  additional field are added
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="389" nNm="ODM2LabAnalyses" oNm="ODM2Samples"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenBatchLines" SupCls="Schema" SupNme="ODM2LabAnalyses">
+      <Rnm id="390" nNm="FeatureActionIndexID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
+      <Rnm id="391" nNm="SpecimenBatchLines" oNm="BatchSpecimenLines"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4102,9 +4074,9 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
   </OpenEditors>
   <TreePaths>
@@ -4113,7 +4085,7 @@ then  additional field are added
     <TreePath>/Schemas (12)/ODM2Equipment</TreePath>
     <TreePath>/Schemas (12)/ODM2Equipment/Tables (4)</TreePath>
     <TreePath>/Schemas (12)/ODM2LabAnalyses</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (4)</TreePath>
+    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (3)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
