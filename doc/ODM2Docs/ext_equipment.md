@@ -9,21 +9,23 @@ The Equipment extension plays a vital role in linking observations to the equipm
 ### Actions and Equipment ###
 In general, there are two ActionTypes that are associated with Equipment:
 
-* **ObservationActions** are Actions on a SamplingFeature that produce Results, often using one or more pieces of equipment. The Methods and MethodTypes associated with the ObservationAction distinguish the different uses of this ActionType:
+* **ObservationActions** are Actions on a SamplingFeature that produce Results, often using one or more pieces of Equipment. The Methods and MethodTypes associated with the Observation Action distinguish the different uses of this ActionType:
   * Instrument Analysis
   * Sensor Deployment, which initiates the logging of Results
-  * Instrument Calibration, which is an ObservationAction if it produces a Result from 
-    a ReferenceMaterial Specimen
+  * Instrument Calibration, which is an Observation Action if it produces a Result from a ReferenceMaterial Specimen
   * and others
 
-* **EquipmentMaintenanceActions** are Actions that are performed on a piece of equipment and do not act on a SamplingFeature or produce Results.  The Methods and MethodTypes associated with the EquipmentMaintenanceAction distinguish the different uses of this ActionType:
+* **EquipmentMaintenanceActions** are Actions that are performed on a piece of Equipment and do not act on a SamplingFeature or produce Results.  The Methods and MethodTypes associated with the Equipment maintenance action distinguish the different uses of this ActionType:
   * Equipment Configuration
   * Equipment Repair
   * Equipment Cleaning
-  * Sensor Calibration, which is an EquipmentMaintenanceAction if it does not produce a Result (but it can specify the use of a ReferenceMaterial Specimen)
+  * Sensor Calibration, which is an Equipment maintenance action if it does not produce a Result (but it can specify the use of a ReferenceMaterial Specimen)
   * and others
 
-Additional Action types related to equipment are found in both the Sensors and LabAnalyses extensions. 
+Additional Action types related to Equipment are found in both the Sensors and LabAnalyses extensions. 
 
 ### Equipment Models ###
-Equipment models are described by their manufacturer information, part number, name, description, and optional elements with notes, specifications, and a link to a website describing the model. Individual peices of equipment have a model and are described by additional metadata specific to the piece of equipment - e.g., name, serial number, owner, vendor, purchase date, etc.
+EquipmentModels are described by their manufacturer information, part number, name, description, and optional elements with description, link to specifications, and a link to a website describing the model. Individual peices of Equipment have a model and are described by additional metadata specific to the piece of Equipment - e.g., name, serial number, owner, vendor, purchase date, etc.
+
+### InstrumentOutputVariables
+For EquipmentModels that are instruments (i.e., that can make measurements), the InstrumentOuputVariables entity records information about which Variables can be measured using that instrument model. Each InstrumentOutputVariable is linked directly to its EquipmentModel, the Variable it measures, the Method it uses to measure that Variable, the manufacturer's reported resolution and accuracy for the instrument (if applicable), and the Units of the raw output from the instrument. When an instrument is deployed to make measurements, a subset of the InstrumentOutputVariables that the instrument is capable of measuring may be measured by the deployment. For more information about sensor deployments, see the documentation for the [ODM2 Sensors extension](ext_Sensors.md).

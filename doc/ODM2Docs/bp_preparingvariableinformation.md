@@ -5,17 +5,15 @@ ODM2 Best Practices: Preparing Variable Information
 A VariableCode is a short, unique text identifier for a Variable, where a Variable is defined as a single record within the Variables table. Both its uniqueness and its conciseness lend it towards performing queries on the data, as opposed to using the long name for the Variable.
 
 Example:
-```
-I have a variable named “Carbon dioxide, transducer signal”. I have assigned it a VariableCode of “CO2sig”.
-```
+
+>I have a variable named “Carbon dioxide, transducer signal”. I have assigned it a VariableCode of “CO2sig”.
 
 ### Make VariableCodes Unique within an ODM Database ###
 Each variable is assigned a VariableCode that must be unique within your instance of ODM2. VariableCodes are used by various tools to locate a specific Variable within ODM2, so that’s why they must be unique. You must create a new VariableCode to identify any new record that is added to the Variables table.
 
 Example:
-```
-My sensor reports minimum and maximum temperature for each reading. I have two variables named “Temperature” in my database, where one variable has a DataType of “Maximum” and the other has a DataType of “Minimum”. Because VariableCode is the field that is searched on by various tools, I must assign a code that also differentiates these two variables. I assign one variable a code of “TempMax”, and the other “TempMin”.
-```
+
+>My sensor reports minimum and maximum temperature for each reading. I have two variables named “Temperature” in my database, where one variable has a DataType of “Maximum” and the other has a DataType of “Minimum”. Because VariableCode is the field that is searched on by various tools, I must assign a code that also differentiates these two variables. I assign one variable a code of “TempMax”, and the other “TempMin”.
 
 It’s ok for variables in different ODM2 databases to have the same VariableCode. This will not break any tools that operate on ODM2 databases. Just make sure that within a given ODM2 database, the VariableCode is unique for each record in the Variables table.
 
