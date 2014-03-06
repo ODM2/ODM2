@@ -2139,7 +2139,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key to TaxonomicClassifiers.</Cm>
       </Cl>
-      <Cl au="0" df="" nm="CitationID" nu="0">
+      <Cl au="0" df="" nm="CitationID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key to the attribution, or Citation, for the classification.</Cm>
       </Cl>
@@ -4060,17 +4060,10 @@ then  additional field are added
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Equipment</TreePath>
-    <TreePath>/Schemas (12)/ODM2Equipment/Tables (4)</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (2)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
