@@ -54,16 +54,10 @@
 </td><td> </td><td> </td><td>A text description of the deployment</td><td> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Sensors_DeploymentActions_ConfigurationActionID.html">ConfigurationActionID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the configuration action associated with the deployment</td><td class="FkCol">
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td>
+<td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_ConfigurationActionID.html">ConfigurationActionID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign key identifier for the configuration action associated with the deployment</td><td> </td>
 </tr>
 <tr class="altRow">
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Sensors_DeploymentActions_CalibrationActionID.html">CalibrationActionID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the calibration action associated with the deployment</td><td class="FkCol">
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td>
+<td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_CalibrationActionID.html">CalibrationActionID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign key identifier for the calibration action associated with the deployment</td><td> </td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_SpatialOffsetID.html">SpatialOffsetID</a></td><td>Integer</td><td>
@@ -76,36 +70,6 @@
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>File path of of a file containing a schematic of the deployment.</td><td> </td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="5">Foreign Keys</td>
-</tr>
-<tr>
-<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Sensors_DeploymentActions_fk_DeploymentEvents_CalibrationEvents.html">fk_DeploymentEvents_CalibrationEvents</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td>CalibrationActionID</td><td>CalibrationActionID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Sensors_DeploymentActions_fk_DeploymentEvents_ConfigurationEvents.html">fk_DeploymentEvents_ConfigurationEvents</a></td><td><a href="../tables/ODM2Equipment_ConfigurationActions.html">ODM2Equipment.ConfigurationActions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td>ConfigurationActionID</td><td>ConfigurationActionID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Sensors_DeploymentActions_fk_DeploymentEvents_Events.html">fk_DeploymentEvents_Events</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td>ActionID</td><td>ActionID</td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="5">Parent Relations</td>
-</tr>
-<tr>
-<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Sensors_DataLoggerFiles_fk_DataLoggerFiles_DeploymentEvents.html">fk_DataLoggerFiles_DeploymentEvents</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td><a href="../tables/ODM2Sensors_DataLoggerFiles.html">ODM2Sensors.DataLoggerFiles</a></td><td>DeploymentActionID</td><td>DeploymentActionID</td>
 </tr>
 </table>
 <br>

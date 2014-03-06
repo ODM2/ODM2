@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">ResultProvenance</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -58,33 +58,6 @@
 </tr>
 <tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Provenance_ResultProvenance_ProcessedByID.html">ProcessedByID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign key identifier for the person that created the derived dataset</td><td> </td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="5">Foreign Keys</td>
-</tr>
-<tr>
-<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Provenance_ResultProvenance_fk_ResultProvenance_Methods.html">fk_ResultProvenance_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Provenance_ResultProvenance.html">ODM2Provenance.ResultProvenance</a></td><td>MethodID</td><td>ProcessMethodID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Provenance_ResultProvenance_fk_ResultProvenance_Results.html">fk_ResultProvenance_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultProvenance.html">ODM2Provenance.ResultProvenance</a></td><td>ResultID</td><td>ResultID</td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="5">Parent Relations</td>
-</tr>
-<tr>
-<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Provenance_InputResults_fk_InputResults_ResultProvenance.html">fk_InputResults_ResultProvenance</a></td><td><a href="../tables/ODM2Provenance_ResultProvenance.html">ODM2Provenance.ResultProvenance</a></td><td><a href="../tables/ODM2Provenance_InputResults.html">ODM2Provenance.InputResults</a></td><td>ResultProvenanceID</td><td>ResultProvenanceID</td>
 </tr>
 </table>
 <br>

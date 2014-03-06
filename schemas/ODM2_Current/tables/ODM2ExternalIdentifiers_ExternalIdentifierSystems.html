@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">ExternalIdentifierSystems</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -55,48 +55,6 @@
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Universal Resource Locator (URL) for resolution/translation of an identifier system's URNs (i.e. http://dx.doi.org/ is the resolver URL for doi:10.1002/2013GL057450)</td><td> </td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="5">Foreign Keys</td>
-</tr>
-<tr>
-<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_ExternalIdentifierSystems_fk_ExternalIdentifierSystems_Organizations.html">fk_ExternalIdentifierSystems_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td>OrganizationID</td><td>IdentifierSystemOrganizationID</td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="5">Parent Relations</td>
-</tr>
-<tr>
-<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_CitationExternalIdentifiers_fk_CitationExternalIdentifiers_ExternalIdentifierSystems.html">fk_CitationExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_CitationExternalIdentifiers.html">ODM2ExternalIdentifiers.CitationExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
-</tr>
-<tr class="altRow">
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_MethodExternalIdentifiers_fk_ExternalIdentifierSystems_MethodIdentifiers.html">fk_ExternalIdentifierSystems_MethodIdentifiers</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_MethodExternalIdentifiers.html">ODM2ExternalIdentifiers.MethodExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_PersonExternalIdentifiers_fk_ExternalIdentifierSystems_PersonIdentifiers.html">fk_ExternalIdentifierSystems_PersonIdentifiers</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_PersonExternalIdentifiers.html">ODM2ExternalIdentifiers.PersonExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
-</tr>
-<tr class="altRow">
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_ReferenceMaterialExternalIdentifiers_fk_ReferenceMaterialExternalIdentifiers_ExternalIdentifierSystems.html">fk_ReferenceMaterialExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ReferenceMaterialExternalIdentifiers.html">ODM2ExternalIdentifiers.ReferenceMaterialExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_SamplingFeatureExternalIdentifiers_fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers.html">fk_ExternalIdentifierSystems_SamplingFeatureIdentifiers</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_SamplingFeatureExternalIdentifiers.html">ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
-</tr>
-<tr class="altRow">
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers_fk_ExternalIdentifierSystems_TaxonIdentifiers.html">fk_ExternalIdentifierSystems_TaxonIdentifiers</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers.html">ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_VariableExternalIdentifiers_fk_ExternalIdentifierSystems_VariableIdentifiers.html">fk_ExternalIdentifierSystems_VariableIdentifiers</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_VariableExternalIdentifiers.html">ODM2ExternalIdentifiers.VariableExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
 </tr>
 </table>
 <br>
