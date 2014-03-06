@@ -1,19 +1,29 @@
 ODM2 Extensions: Equipment
 ==========================
 
-The ODM2 Equipment extension provides functionality for managing information related to the equipment used to make observations, including sensors, dataloggers, laboratory instruments, etc.  The Equipment extension is optional for ODM2, but must be used when either the Sensors or the Samples extensions are implemented. 
+The ODM2 Equipment extension provides functionality for managing information related to the equipment used to make observations, including sensors, dataloggers, laboratory instruments, etc.  The Equipment extension is optional for ODM2, but must be used when either the Sensors or the LabAnalyses extensions are implemented. 
 
 ### Why Track Equipment in ODM2? ###
-The Equipment extension plays a vital role in linking observations to the equipment that was used to create them. Which sensor was used to measure temperature at a site? Which datalogger was used to record the data? These details are usually kept in field or laboratory notebooks and, in most cases, separate from the observation values themselves. This makes it difficult to link an observation to the particular pieces of equipment used in the measurement. The Equipment extension, along with the Samples or Sensors extensions (depending on the type of data being collected), make it possible to explicity link observation values with the peices of equipment used to record them.
+The Equipment extension plays a vital role in linking observations to the equipment that was used to create them. Which sensor was used to measure temperature at a site? Which datalogger was used to record the data? What was the model number of the mass spectrometer that made that measurement, and whose lab was it in? These details are usually kept in field or laboratory notebooks and, in most cases, separate from the observation values themselves. This makes it difficult to link an observation to the particular pieces of equipment used in the measurement. The Equipment extension, along with the DataQuality, Sensors and/or LabAnalyses extensions (depending on the type of data being collected), make it possible to explicity link observation values with the pieces of equipment used to record them.
 
 ### Actions and Equipment ###
-In general, each Action can be perfomed either using one or more pieces of equipment or, in some cases, Actions are performed on a piece of equipment (e.g., in the case of a calibration action or a deployment action). There are multiple types of actions that can be performed on equipment, including:
+In general, there are two ActionTypes that are associated with Equipment:
 
-* Configuration actions
-* Calibration actions
-* Maintenance actions
+* **ObservationActions** are Actions on a SamplingFeature that produce Results, often using one or more pieces of equipment. The Methods and MethodTypes associated with the ObservationAction distinguish the different uses of this ActionType:
+  * Instrument Analysis
+  * Sensor Deployment, which initiates the logging of Results
+  * Instrument Calibration, which is an ObservationAction if it produces a Result from 
+    a ReferenceMaterial Specimen
+  * and others
 
-Additional Action types related to equipment are found in both the Samples and Sensors extensions. 
+* **EquipmentMaintenanceActions** are Actions that are performed on a piece of equipment and do not act on a SamplingFeature or produce Results.  The Methods and MethodTypes associated with the EquipmentMaintenanceAction distinguish the different uses of this ActionType:
+  * Equipment Configuration
+  * Equipment Repair
+  * Equipment Cleaning
+  * Sensor Calibration, which is an EquipmentMaintenanceAction if it does not produce a Result (but it can specify the use of a ReferenceMaterial Specimen)
+  * and others
+
+Additional Action types related to equipment are found in both the Sensors and LabAnalyses extensions. 
 
 ### Equipment Models ###
 Equipment models are described by their manufacturer information, part number, name, description, and optional elements with notes, specifications, and a link to a website describing the model. Individual peices of equipment have a model and are described by additional metadata specific to the piece of equipment - e.g., name, serial number, owner, vendor, purchase date, etc.
