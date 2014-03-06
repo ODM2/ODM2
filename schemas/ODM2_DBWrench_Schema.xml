@@ -240,10 +240,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The UTCOffset of for the EndDateTime</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DirectiveID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the directive under which the action was completed</Cm>
-      </Cl>
       <Cl au="0" df="" nm="ActionDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text that describes the action</Cm>
@@ -252,11 +248,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A URL or path to a file created by or used by the Action, such as instrument output or configuration.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Actions_Directives" prLkCl="DirectiveID" upAc="3">
-        <PrTb mn="0" nm="Directives" oe="1" sch="ODM2LabAnalyses" zr="0"/>
-        <CdTb mn="1" nm="Actions" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DirectiveID" prCl="DirectiveID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_Actions_Methods" prLkCl="MethodID" upAc="3">
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Actions" oe="0" sch="ODM2Core" zr="1"/>
@@ -1705,6 +1696,27 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about samples and laboratory analyses for ex-situ data." nm="ODM2LabAnalyses">
+    <Tbl UsSo="1" nm="ActionDirectives">
+      <TblOpts/>
+      <Cl au="0" df="" nm="ActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DirectiveID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ActionDirectives_Actions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ActionDirectives" oe="0" sch="ODM2LabAnalyses" zr="1"/>
+        <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ActionDirectives_Directives" prLkCl="DirectiveID" upAc="3">
+        <PrTb mn="0" nm="Directives" oe="1" sch="ODM2LabAnalyses" zr="0"/>
+        <CdTb mn="1" nm="ActionDirectives" oe="0" sch="ODM2LabAnalyses" zr="1"/>
+        <ClPr cdCl="DirectiveID" prCl="DirectiveID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="AnalysisBatchActions">
       <Cm>Describes sample analysis batch events</Cm>
       <TblOpts/>
@@ -2799,22 +2811,27 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="AnalysisBatchActions" x="875" y="355"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="225" y="333"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="818" y="134"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="531" y="489"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="1038" y="74"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="30" y="485"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="535" y="179"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="BatchSampleLines" x="886" y="516"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="540" y="376"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="241" y="193"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="AnalysisBatchActions" x="725" y="410"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="167" y="520"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="544" y="83"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="455" y="633"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="228" y="23"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="160" y="673"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="552" y="236"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="BatchSampleLines" x="903" y="573"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="464" y="520"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="278" y="324"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="236" y="258"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="335" y="420"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
+    <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.AnalysisBatchActions.fk_AnalysisBatchActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.BatchSampleLines.fk_BatchSampleLines_AnalysisBatchActions"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
@@ -4085,17 +4102,18 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (18)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Equipment</TreePath>
+    <TreePath>/Schemas (12)/ODM2Equipment/Tables (4)</TreePath>
     <TreePath>/Schemas (12)/ODM2LabAnalyses</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (3)</TreePath>
+    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (4)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
