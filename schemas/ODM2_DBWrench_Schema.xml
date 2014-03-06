@@ -1738,20 +1738,6 @@
         <StPr stA="ODM2Core" stB="Directives"/>
       </SchTrHis>
     </Tbl>
-    <Tbl UsSo="1" nm="SpecimenBatchLines">
-      <TblOpts/>
-      <Cl au="0" df="" nm="FeatureActionIndexID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="SpecimenBatchPostionNumber" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="SpecimenBatchPositionLabel" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes for creating and storing provenance information and versions of observations in ODM2." nm="ODM2Provenance">
@@ -2773,7 +2759,6 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="278" y="324"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="236" y="258"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="335" y="420"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchLines" x="747" y="518"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
@@ -4074,10 +4059,10 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
@@ -4085,7 +4070,7 @@ then  additional field are added
     <TreePath>/Schemas (12)/ODM2Equipment</TreePath>
     <TreePath>/Schemas (12)/ODM2Equipment/Tables (4)</TreePath>
     <TreePath>/Schemas (12)/ODM2LabAnalyses</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (3)</TreePath>
+    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (2)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
