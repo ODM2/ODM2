@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr>
+<tr class="altRow">
 <td class="title_nm">TaxonomicClassifiers</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -48,7 +48,7 @@
 </td><td> </td><td> </td><td>Taxonomic classification using a common name</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Core_TaxonomicClassifiers_TaxonomicClassifierNotes.html">TaxonomicClassifierNotes</a></td><td>VarChar(500)</td><td>
+<td> </td><td><a href="../columns/ODM2Core_TaxonomicClassifiers_TaxonomicClassifierDescription.html">TaxonomicClassifierDescription</a></td><td>VarChar(500)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Description or remarks about Taxonomic Classifier</td><td> </td>
@@ -68,7 +68,7 @@
 <tr>
 <td class="banner" colspan="5">Foreign Keys</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
@@ -92,6 +92,9 @@
 <tr>
 <td><a href="../foreignKeys/ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers_fk_Taxon_ExternalIdentifers.html">fk_Taxon_ExternalIdentifers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers.html">ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers</a></td><td>TaxonomicClassifierID</td><td>TaxonomicClassifierID</td>
 </tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers_fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers.html">fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers.html">ODM2SamplingFeatures.SpecimenTaxonomicClassifiers</a></td><td>TaxonomicClassifierID</td><td>TaxonomicClassifierID</td>
+</tr>
 </table>
 <br>
 <table class="flat">
@@ -106,6 +109,12 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2ExternalIdentifers.html">ODM2ExternalIdentifers</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Overview.html">ODM2Overview</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2SamplingFeatures.html">ODM2SamplingFeatures</a></td>
 </tr>
 </table>
 </Body>

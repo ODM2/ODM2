@@ -42,24 +42,18 @@
 <td> </td><td><a href="../columns/ODM2Core_Results_ResultTypeCV.html">ResultTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the result type (e.g., time series, measurement, etc.)</td><td> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_ActionID.html">ActionID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the observation action that created the result</td><td class="FkCol">
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td>
-</tr>
-<tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_VariableID.html">VariableID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the Variable of the result</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_UnitsID.html">UnitsID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the Units of the result</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_TaxonomicClassifierID.html">TaxonomicClassifierID</a></td><td class="FkCol">Integer</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
@@ -68,49 +62,49 @@
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_QualityControlLevelID.html">QualityControlLevelID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the QualityControlLevel of the result</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td> </td><td><a href="../columns/ODM2Core_Results_ResultDateTime.html">ResultDateTime</a></td><td>DateTime</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Date and time at which the result became available (could be used as analysis time for samples)</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_Results_ResultDateTimeUTCOffset.html">ResultDateTimeUTCOffset</a></td><td>BigInt</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>UTDCOffset of ResultDateTime</td><td> </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td> </td><td><a href="../columns/ODM2Core_Results_ValidDateTime.html">ValidDateTime</a></td><td>DateTime</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Date and time for which the result is valid (e.g., for a forecast result).  Should probably be expressed as a duration</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_Results_ValidDateTimeUTCOffset.html">ValidDateTimeUTCOffset</a></td><td>BigInt</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>UTCOffset of ValidDateTime</td><td> </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td> </td><td><a href="../columns/ODM2Core_Results_StatusCV.html">StatusCV</a></td><td>VarChar(255)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Status of the result (e.g., finished, ongoing, etc.)</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_Results_SampledMediumCV.html">SampledMediumCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term defining the environmental medium that the result represents (e.g., air, soil, water)</td><td> </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td> </td><td><a href="../columns/ODM2Core_Results_ValueCount.html">ValueCount</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Number of data values contained within the result</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_Results_IntendedObservationSpacing.html">IntendedObservationSpacing</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Intended temporal spacing of the observations in the result</td><td> </td>
 </tr>
 </table>
@@ -121,9 +115,6 @@
 </tr>
 <tr>
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_Actions.html">fk_Results_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>ActionID</td><td>ActionID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_QualityControlLevels.html">fk_Results_QualityControlLevels</a></td><td><a href="../tables/ODM2Core_QualityControlLevels.html">ODM2Core.QualityControlLevels</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>QualityControlLevelID</td><td>QualityControlLevelID</td>
@@ -153,27 +144,36 @@
 <td><a href="../foreignKeys/ODM2Core_DataSetsResults_fk_DataSetsResults_Results.html">fk_DataSetsResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_DataSetsResults.html">ODM2Core.DataSetsResults</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
 <tr>
+<td><a href="../foreignKeys/ODM2Core_FeatureActionResult_fk_FeatureActionResult_Results.html">fk_FeatureActionResult_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_FeatureActionResult.html">ODM2Core.FeatureActionResult</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Core_RelatedResults_fk_RelatedResults_Results.html">fk_RelatedResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_RelatedResults.html">ODM2Core.RelatedResults</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="../foreignKeys/ODM2Core_RelatedResults_fk_RelatedResults_Results_AreRelated.html">fk_RelatedResults_Results_AreRelated</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_RelatedResults.html">ODM2Core.RelatedResults</a></td><td>ResultID</td><td>RelatedResultID</td>
 </tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_ResultNormalizationValues_fk_ResultsNormalizationValues_Results.html">fk_ResultsNormalizationValues_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2DataQuality_ResultNormalizationValues.html">ODM2DataQuality.ResultNormalizationValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
 <tr>
+<td><a href="../foreignKeys/ODM2DataQuality_ResultsDataQuality_fk_ResultsDataQuality_Results.html">fk_ResultsDataQuality_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2DataQuality_ResultsDataQuality.html">ODM2DataQuality.ResultsDataQuality</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2ExtensionProperties_ResultExtensionPropertyValues_fk_ResultsSetsExtensionPropertyValues_Results.html">fk_ResultsSetsExtensionPropertyValues_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2ExtensionProperties_ResultExtensionPropertyValues.html">ODM2ExtensionProperties.ResultExtensionPropertyValues</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="../foreignKeys/ODM2Provenance_InputResults_fk_InputResults_Results.html">fk_InputResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_InputResults.html">ODM2Provenance.InputResults</a></td><td>ResultID</td><td>InputResultID</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Provenance_ResultProvenance_fk_ResultProvenance_Results.html">fk_ResultProvenance_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultProvenance.html">ODM2Provenance.ResultProvenance</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="../foreignKeys/ODM2Provenance_ResultVersions_fk_ObservationVersions_Observations_VersionOf.html">fk_ObservationVersions_Observations_VersionOf</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultVersions.html">ODM2Provenance.ResultVersions</a></td><td>ResultID</td><td>VersionOfResultsSetID</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Provenance_ResultVersions_fk_ResultVersions_Results.html">fk_ResultVersions_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultVersions.html">ODM2Provenance.ResultVersions</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="../foreignKeys/ODM2Results_ResultValues_fk_ResultValues_Results.html">fk_ResultValues_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_ResultValues.html">ODM2Results.ResultValues</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
 </table>
@@ -192,10 +192,16 @@
 <td><a href="../diagrams/ODM2Core.html">ODM2Core</a></td>
 </tr>
 <tr>
+<td><a href="../diagrams/ODM2DataQuality.html">ODM2DataQuality</a></td>
+</tr>
+<tr>
 <td><a href="../diagrams/ODM2Equipment.html">ODM2Equipment</a></td>
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2ExtensionProperties.html">ODM2ExtensionProperties</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Overview.html">ODM2Overview</a></td>
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Provenance.html">ODM2Provenance</a></td>

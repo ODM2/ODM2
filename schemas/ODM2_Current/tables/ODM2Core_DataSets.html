@@ -48,13 +48,22 @@
 <td> </td><td><a href="../columns/ODM2Core_DataSets_DataSetAbstract.html">DataSetAbstract</a></td><td>VarChar(500)</td><td> </td><td> </td><td> </td><td>A text abstract describing the dataset</td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_DataSets_DataSetCitation.html">DataSetCitation</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text citation for Dataset itself</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_DataSets_DataSetCitationID.html">DataSetCitationID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Text citation for Dataset itself</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 </table>
 <br>
 <table class="flat">
 <tr>
-<td class="banner" colspan="1">Foreign Keys<span class="plain"> (none)</span></td>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_DataSets_fk_DataSet_Citations.html">fk_DataSet_Citations</a></td><td><a href="../tables/ODM2Core_Citations.html">ODM2Core.Citations</a></td><td><a href="../tables/ODM2Core_DataSets.html">ODM2Core.DataSets</a></td><td>CitationID</td><td>DataSetCitationID</td>
 </tr>
 </table>
 <br>
@@ -67,9 +76,6 @@
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Core_DataSetsResults_fk_DataSetsResults_DataSets.html">fk_DataSetsResults_DataSets</a></td><td><a href="../tables/ODM2Core_DataSets.html">ODM2Core.DataSets</a></td><td><a href="../tables/ODM2Core_DataSetsResults.html">ODM2Core.DataSetsResults</a></td><td>DataSetID</td><td>DataSetID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2ExternalIdentifiers_DataSetExternalIdentifers_fk_DataSets_ExternalIdentifiers.html">fk_DataSets_ExternalIdentifiers</a></td><td><a href="../tables/ODM2Core_DataSets.html">ODM2Core.DataSets</a></td><td><a href="../tables/ODM2ExternalIdentifiers_DataSetExternalIdentifers.html">ODM2ExternalIdentifiers.DataSetExternalIdentifers</a></td><td>DataSetID</td><td>DataSetID</td>
 </tr>
 </table>
 <br>
@@ -84,7 +90,7 @@
 <td><a href="../diagrams/ODM2Core.html">ODM2Core</a></td>
 </tr>
 <tr>
-<td><a href="../diagrams/ODM2ExternalIdentifers.html">ODM2ExternalIdentifers</a></td>
+<td><a href="../diagrams/ODM2Overview.html">ODM2Overview</a></td>
 </tr>
 </table>
 </Body>

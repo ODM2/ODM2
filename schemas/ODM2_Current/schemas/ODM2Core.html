@@ -18,7 +18,7 @@
 <hr>
 <table class="flat"></table>
 <table class="pageTitle">
-<tr>
+<tr class="altRow">
 <td class="title_nm">ODM2Core</td><td class="watermark_right">(Schema)</td>
 </tr>
 </table>
@@ -31,7 +31,7 @@
 <td class="header">Table Name</td><td class="header">Comment</td>
 </tr>
 <tr>
-<td><a href="../tables/ODM2Core_ActionPeople.html">ActionPeople</a></td><td>Affiliates people with actions and describes thier role in the action.</td>
+<td><a href="../tables/ODM2Core_ActionBy.html">ActionBy</a></td><td>Affiliates people with actions and describes thier role in the action.</td>
 </tr>
 <tr class="altRow">
 <td><a href="../tables/ODM2Core_Actions.html">Actions</a></td><td>Describes actions (e.g., observation, sample collection, sample analysis, field visits, field activities, etc.)</td>
@@ -40,13 +40,19 @@
 <td><a href="../tables/ODM2Core_Affiliations.html">Affiliations</a></td><td>Describes affiliations of people with organizations.</td>
 </tr>
 <tr class="altRow">
-<td><a href="../tables/ODM2Core_DataSets.html">DataSets</a></td><td>Describes groupings of observation results that can be considered "datasets"</td>
+<td><a href="../tables/ODM2Core_Citations.html">Citations</a></td><td>The Citations table is a placeholder for a near-future revision  to implement Citations (or Attributions) in a manner similar to  IEDA's draft  "data_source" and "author_list" tables  in "PetDBSchema-Redesign-26.png"</td>
 </tr>
 <tr>
-<td><a href="../tables/ODM2Core_DataSetsResults.html">DataSetsResults</a></td><td>Lists the Results that are grouped into a DataSet</td>
+<td><a href="../tables/ODM2Core_DataSets.html">DataSets</a></td><td>Describes groupings of observation results that can be considered "datasets"</td>
 </tr>
 <tr class="altRow">
+<td><a href="../tables/ODM2Core_DataSetsResults.html">DataSetsResults</a></td><td>Lists the Results that are grouped into a DataSet</td>
+</tr>
+<tr>
 <td><a href="../tables/ODM2Core_Directives.html">Directives</a></td><td>Describes the directive or purpose under which actions are made.  Directives can be projects, intended analyses for a specimen, etc.</td>
+</tr>
+<tr class="altRow">
+<td><a href="../tables/ODM2Core_FeatureActionResult.html">FeatureActionResult</a></td><td> </td>
 </tr>
 <tr>
 <td><a href="../tables/ODM2Core_Methods.html">Methods</a></td><td>Describes methods used to perform actions recorded in ODM (e.g., observation methods, sample analysis methods, sample preparation methods, etc.)</td>
@@ -61,13 +67,13 @@
 <td><a href="../tables/ODM2Core_QualityControlLevels.html">QualityControlLevels</a></td><td>Describes the quality control level of Results</td>
 </tr>
 <tr>
-<td><a href="../tables/ODM2Core_RelatedResults.html">RelatedResults</a></td><td>Describes Results that are related to one another</td>
+<td><a href="../tables/ODM2Core_RelatedActions.html">RelatedActions</a></td><td>Describes Actions that are related to one another.</td>
 </tr>
 <tr class="altRow">
-<td><a href="../tables/ODM2Core_Results.html">Results</a></td><td>Describes the results of observation actions (e.g., groups of one or more numeric data values that result from an observation action)</td>
+<td><a href="../tables/ODM2Core_RelatedResults.html">RelatedResults</a></td><td>Describes Results that are related to one another</td>
 </tr>
 <tr>
-<td><a href="../tables/ODM2Core_Roles.html">Roles</a></td><td>Describes roles that can be taken by people in performing actions (e.g, the person who created the observation).</td>
+<td><a href="../tables/ODM2Core_Results.html">Results</a></td><td>Describes the results of observation actions (e.g., groups of one or more numeric data values that result from an observation action)</td>
 </tr>
 <tr class="altRow">
 <td><a href="../tables/ODM2Core_SamplingFeatures.html">SamplingFeatures</a></td><td>Describes the sampling features on which observations are made.</td>
@@ -81,23 +87,11 @@
 <tr>
 <td><a href="../tables/ODM2Core_Variables.html">Variables</a></td><td>Stores information about measured properties.</td>
 </tr>
-<tr class="altRow">
-<td><a href="../tables/ODM2Core_WorkflowMethodSequences.html">WorkflowMethodSequences</a></td><td>Specifies the sequence of Methods in a Workflow.</td>
-</tr>
-<tr>
-<td><a href="../tables/ODM2Core_Workflows.html">Workflows</a></td><td>A Workflow is often repeated sequence of Methods that together are required to fully interpret Results.  Workflows can also substantially assist with data entry, by providing templates for forms, etc.</td>
-</tr>
 </table>
 <br>
 <table class="flat">
 <tr>
 <td class="banner" colspan="1">Views<span class="plain"> (none)</span></td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
-<td class="banner" colspan="1">Sequences<span class="plain"> (none)</span></td>
 </tr>
 </table>
 </Body>

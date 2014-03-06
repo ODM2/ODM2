@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">Specimens</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -39,13 +39,13 @@
 </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_Specimens_IsFieldSpecimen.html">IsFieldSpecimen</a></td><td>Boolean</td><td> </td><td> </td><td> </td><td>A boolean indicating whether the speciment was collected in the field</td><td> </td>
+<td> </td><td><a href="../columns/ODM2SamplingFeatures_Specimens_SpecimenTypeCV.html">SpecimenTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A CV term defining the type of specimen (e.g., aquatic sample, core, etc.)</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_Specimens_SpecimenTypeCV.html">SpecimenTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A CV term defining the type of speciment (e.g., aquatic sample, core, etc.)</td><td> </td>
+<td> </td><td><a href="../columns/ODM2SamplingFeatures_Specimens_SpecimenMediumCV.html">SpecimenMediumCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A CV term defining the medium of the specimen (i.e. water, sediment, etc.)</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_Specimens_SpecimenMediumCV.html">SpecimenMediumCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A CV term defining the medium of the specimen</td><td> </td>
+<td> </td><td><a href="../columns/ODM2SamplingFeatures_Specimens_IsFieldSpecimen.html">IsFieldSpecimen</a></td><td>Boolean</td><td> </td><td> </td><td> </td><td>A boolean indicating whether the specimen was collected in the field</td><td> </td>
 </tr>
 </table>
 <br>
@@ -71,6 +71,9 @@
 <tr>
 <td><a href="../foreignKeys/ODM2Equipment_CalibrationStandards_fk_CalibrationStandards_Specimen.html">fk_CalibrationStandards_Specimen</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandards.html">ODM2Equipment.CalibrationStandards</a></td><td>SamplingFeatureID</td><td>SpecimenID</td>
 </tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers_fk_SpecimenTaxonomicClassifiers_Specimens.html">fk_SpecimenTaxonomicClassifiers_Specimens</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td><a href="../tables/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers.html">ODM2SamplingFeatures.SpecimenTaxonomicClassifiers</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
 </table>
 <br>
 <table class="flat">
@@ -79,6 +82,12 @@
 </tr>
 <tr>
 <td class="Header">Diagram Name</td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2DataQuality.html">ODM2DataQuality</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Overview.html">ODM2Overview</a></td>
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Samples.html">ODM2Samples</a></td>
