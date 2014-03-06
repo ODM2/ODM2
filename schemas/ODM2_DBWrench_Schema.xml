@@ -803,7 +803,7 @@
       <Cm>Stores information about measured properties.</Cm>
       <TblOpts/>
       <Pk ClNs="VariableID" nm="pkVariables"/>
-      <Cl au="1" df="" nm="VariableID" nu="0">
+      <Cl au="1" df="" nm="VariableID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key</Cm>
       </Cl>
@@ -1220,6 +1220,54 @@
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="EquipmentModels" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ModelManufacturerID" prCl="OrganizationID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="InstrumentOutputVariables">
+      <Cm>Information about the Variables that an instrument is capable of measuring</Cm>
+      <TblOpts/>
+      <Pk ClNs="InstrumentOutputVariableID" nm="pkInstrumentOutputVariables"/>
+      <Cl au="1" df="" nm="InstrumentOutputVariableID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ModelID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="VariableID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="InstrumentMethodID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="InstrumentResolution" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="InstrumentAccuracy" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="InstrumentRawOutputUnitsID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_InstrumentOutputVariables_EquipmentModels" prLkCl="ModelID" upAc="3">
+        <PrTb mn="0" nm="EquipmentModels" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ModelID" prCl="ModelID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_InstrumentOutputVariables_Methods" prLkCl="MethodID" upAc="3">
+        <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="InstrumentMethodID" prCl="MethodID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_InstrumentOutputVariables_Units" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="InstrumentRawOutputUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_InstrumentOutputVariables_Variables" prLkCl="VariableID" upAc="3">
+        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="VariableID" prCl="VariableID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -2577,29 +2625,38 @@ DataSetTopicCategoryCV</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="315" y="169"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="24" y="110"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="633" y="356"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="633" y="542"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="317" y="410"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="494" y="10"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="704" y="169"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="901" y="398"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="454" y="209"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="163" y="150"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="772" y="396"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="772" y="582"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="456" y="450"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="633" y="50"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="843" y="209"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="748" y="678"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="73" y="385"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="158" y="648"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="23" y="827"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentModels.fk_EquipmentModels_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_EquipmentModels"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Units"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Variables"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="30" y="332">Look at SensorML
+      <Note bkCl="ffffffe6" x="29" y="72">Look at SensorML
 Make sure this fits!</Note>
-      <Note bkCl="ffffffe6" x="249" y="476">Equipment are often specified by ObservationActions to 
+      <Note bkCl="ffffffe6" x="369" y="526">Equipment are often specified by ObservationActions to 
 make measurements (i.e Results).
 
 An EquipmentMaintenanceAction is an ActionType that 
@@ -2742,15 +2799,15 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="AnalysisBatchActions" x="634" y="569"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="AnalysisBatchActions" x="875" y="355"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="225" y="333"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="818" y="134"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="979" y="322"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="531" y="489"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="1038" y="74"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="30" y="485"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="535" y="179"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="BatchSampleLines" x="975" y="570"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="579" y="381"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="BatchSampleLines" x="886" y="516"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="540" y="376"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="241" y="193"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
@@ -4028,15 +4085,15 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
     <TreePath>/Schemas (12)/ODM2Core</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (18)</TreePath>
     <TreePath>/Schemas (12)/ODM2LabAnalyses</TreePath>
     <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (3)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
