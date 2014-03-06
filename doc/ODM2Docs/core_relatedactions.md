@@ -1,25 +1,25 @@
 ODM2 Core: Related Actions
 ==========================
 
-In many cases, observations result from several related Actions. These Actions may occur in a linear sequence (e.g., a workflow). In other cases, Actions may occur that are outside of a linear workflow sequence, but that are related to the Action that creates a Result. In some cases, the interpretation of a Result requires knowing the entire sequence of Actions that led to the Result and the Methods used to perform those Actions.  For example, two separate laboratory analyses could be performed on a single sample using the exact same analytical method. These separate analysis Actions may produce very different Results if a different sample preparation or extraction Action was performed on the sample before each analysis was run. 
+In many cases, observations result from several related **Actions**. These Actions may occur in a linear sequence (e.g., a workflow). In other cases, Actions may occur that are outside of a linear workflow sequence, but that are related to the Action that creates a **Result**. In some cases, the interpretation of a Result requires knowing the entire sequence of Actions that led to the Result and the **Methods** used to perform those Actions.  For example, two separate laboratory analyses could be performed on a single Specimen using the exact same analytical Method. These separate analysis Actions may produce very different Results if a different sample preparation or extraction Action was performed on the Specimen before each analysis was run. 
 
-ODM2 users have two options for describing what could be considered to be "composite" methods - that is, procedures that are made up of multiple Actions.
+ODM2 users have two options for describing what could be considered to be "composite" Methods - that is, procedures that are made up of multiple Actions.
 
-1. Create a single, "composite" Method that is a narrative of all of the Actions performed. This single Method would then be used with a single "Observation Action" that is linked to the Result.
-2. Create a series of Actions that are recorded separately, each with thier own granular Method description. The relationships among the actions are then recorded in the RelatedActions entity.
+1. Create a single, "composite" **Method** that is a narrative of all of the Actions performed. This single Method would then be used with a single "Observation Action" that is linked to the **Result**.
+2. Create a series of **Actions** that are recorded separately, each with thier own granular **Method** description. The relationships among the Actions would then be recorded in the **RelatedActions** entity.
 
-Sequencing of and relationships between Actions can be specified in the RelatedActions entity, and the order of Actions can then be traversed by following the sequence of Actions. Examples of of how to use the RelatedActions entity follow.
+Sequencing of and relationships between Actions can be specified in the **RelatedActions** entity, and the order of Actions can then be traversed by following the sequence of Actions. Examples of of how to use the RelatedActions entity follow.
 
 ### Simple Sample Example
 
 1. A site visit is conducted (ActionID = 1)
 2. A sample is collected in the field as part of the site visit (ActionID = 2)
 3. The sample is prepared for analysis in the laboratory (ActionID = 3)
-4. The sample is analyzed in the laboratory to obtain a result (ActionID = 4)
+4. The sample is analyzed in the laboratory to obtain a Result (ActionID = 4)
 
 ![Simple Sample Workflow](images/simplesampleexample.png)
 
-In this linear workflow, the Result can be linked all the way back to the site visit Action during which the sample was collected. Each Action is linked to its parent through a RelatedActionID. The nature of the relationships among the Actions would be recorded in the RelationshipType field in the RelatedActions entity. In this example, the RelationshipType for all of the relationships is expressed as "Parent," indicating that in each case the related Action is the immediate parent of the current Action.
+In this linear workflow, the Result can be linked all the way back to the site visit Action during which the sample was collected. Each Action is linked to its parent through a RelatedActionID. The nature of the relationships among the Actions would be recorded in the **RelationshipTypeCV** field in the RelatedActions entity. In this example, the RelationshipType for all of the relationships is expressed as "Parent," indicating that in each case the related Action is the immediate parent of the current Action.
 
 ### Complex Sample Example
 
@@ -28,11 +28,11 @@ In this linear workflow, the Result can be linked all the way back to the site v
 3. One of the samples is preserved in the field (ActionID = 12). The others are not.
 4. One of the samples is split in the laboratory (ActionID = 16)
 5. Each of the samples/subsamples is subjected to a preparation procedure (ActionID = 13, 17, and 19)
-6. Each of the samples/subsamples is analyzed using a laboratory analytical method (ActionID = 14, 18, 20) producing a result
+6. Each of the samples/subsamples is analyzed using a laboratory analytical method (ActionID = 14, 18, 20) producing a Result
 
 ![Complex Sample Workflow](images/complexsampleexample.png)
 
-This example involves a hierarchy of Actions that all originate from a single visit to a monitoring site.  There are actually multiple linear workflows within this example, where a workflow is a path from the first Action (the site visit) to an independent Result. There is also a partial workflow where a sample was collected but then no further Actions were taken.
+This example involves a hierarchy of Actions that all originate from a single visit to a monitoring Site.  There are actually multiple linear workflows within this example, where a workflow is a path from the first Action (the site visit) to an independent Result. There is also a partial workflow where a sample was collected, but then no further Actions were taken.
 
 In this example, even though each of the samples may have been collected at the same location and time, each of the Results may be very different because the sample preservation and preparation Actions are different. However, as in the previous example, each of the Results can be traced all the way back to the site visit during which the samples were collected by tracing up the heirarchy using each Action's immediate parent. 
 
@@ -60,4 +60,4 @@ More often, deployment of in situ sensors involves ongoing data collection, and 
 
 ![Complex Sensor Workflow](images/complexsensorexample.png)
 
-This example demonstrates that not all relationships among Actions will be simple parent/child relationships that result in linear workflows. Instead, multiple types of relationships are required, which is why the RelatedActions entity contains the RelationshipType attribute. A user wishing to retrieve all activities related to the sensor deployment that created a time series Result would not only get the relationship with the site visit during which the original deployment was created, but also all subsequent Actions that have been related (e.g., sensor cleaning and calibration activites or any other activies for which a formal relationship has been created). For display purposes, these Actions could be 
+This example demonstrates that not all relationships among Actions will be simple parent/child relationships that result in linear workflows. Instead, multiple types of relationships are required, which is why the RelatedActions entity contains the RelationshipTypeCV attribute. A user wishing to retrieve all activities related to the sensor deployment that created a time series Result would not only get the relationship with the site visit during which the original deployment was created, but also all subsequent Actions that have been related (e.g., sensor cleaning and calibration activites or any other activies for which a formal relationship has been created). 

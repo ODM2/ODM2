@@ -1,7 +1,7 @@
 ODM2 Core: Quality Control Levels
 =================================
 
-Each Result recorded in ODM2 has a QualityControlLevel, which specifies the level of quality control processing that the Result has been subjected to. QualityControlLevels are not specified using a controlled vocabulary, but every Result must have a designated QualityControlLevel. QualityControlLevels are specified by a code, a definition, and an explanation. The following is a default QualityControlLevel system that can be adopted by users of ODM2:
+Each **Result** recorded in ODM2 has a **QualityControlLevel**, which specifies the level of quality control processing that the Result has been subjected to. QualityControlLevels are not specified using a controlled vocabulary, but every Result must have a designated QualityControlLevel. QualityControlLevels are specified by a code, a definition, and an explanation. The following is a default QualityControlLevel system that can be adopted by users of ODM2.
 
 * **QualityControlLevelCode = “0” - Raw Data:**  Raw data is defined as unprocessed data and data products that have not undergone quality control. Depending on the data type and data transmission system, raw data may be available within seconds or minutes after real-time. Examples include real time precipitation, streamflow and water quality measurements
 * **QualityControlLevelCode = “1” – Quality Controlled Data:** Quality controlled data have passed quality assurance procedures such as routine estimation of timing and sensor calibration or visual inspection and removal of obvious errors. An example is USGS published streamflow records following parsing through USGS quality control procedures.
