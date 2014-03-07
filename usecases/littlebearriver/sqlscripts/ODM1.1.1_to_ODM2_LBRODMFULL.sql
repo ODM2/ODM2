@@ -55,9 +55,9 @@ ORDER BY SiteID;
 DECLARE @MaxSamplingFeatureID AS int;
 SELECT @MaxSamplingFeatureID = MAX(SamplingFeatureID) FROM ODM2.ODM2Core.SamplingFeatures;
 --Create a teporary table with the information that is needed.
-SELECT DISTINCT smp.SampleID AS SpecimenID, smp.SampleID + @MaxSamplingFeatureID AS SamplingFeatureID, 'Specimen' AS SamplingFeatureTypeCV, 
-	NULL AS SpatialReferenceID, NULL AS FeatureGeometry, smp.LabSampleCode AS SpecimenUniqueID, 'Lab Sample Code' AS SpecimenUniqueIDTypeCV, 
-	1 AS IsFieldSpecimen, smp.SampleType AS SpecimenTypeCV, vr.SampleMedium AS SpecimenMediumCV, st.SiteID
+SELECT DISTINCT smp.SampleID + @MaxSamplingFeatureID AS SamplingFeatureID, 'Specimen' AS SamplingFeatureTypeCV, smp.LabSampleCode AS SamplingFeatureName,
+	NULL AS SamplingFeatureGeoTypeCV, NULL AS SpatialReferenceID, NULL AS FeatureGeometry, 'Water Quality Sample' AS SamplingFeatureDescription, 
+	smp.SampleType AS SpecimenTypeCV, smp.LabSampleCode AS SpecimenCode, vr.SampleMedium AS SpecimenMediumCV, 1 AS IsFieldSpecimen, st.SiteID
 INTO #TempSpecimenInfo
 FROM LittleBearRiverODM.dbo.Samples smp, LittleBearRiverODM.dbo.DataValues dv, LittleBearRiverODM.dbo.Variables vr, LittleBearRiverODM.dbo.Sites st
 WHERE smp.SampleID = dv.SampleID AND dv.VariableID = vr.VariableID AND dv.SiteID = st.SiteID
