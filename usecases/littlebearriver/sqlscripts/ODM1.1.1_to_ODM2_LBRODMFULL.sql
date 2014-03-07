@@ -12,40 +12,41 @@
 --Populate the SamplingFeature tables
 --NOTES:
 --1.  Uses the SiteIDs from the existing ODM database to populate SamplingFeatureID  
---2.  This requires the ODM2 database to be empty to begin with.
---3.  Currently uses the LatLongDatumID as SpatialReferenceID
+--2.  Currently uses the LatLongDatumID as SpatialReferenceID
 --------------------------------------------------------------------------------------
 
---Populate the ODM2SamplingFeatures.SpatialReferences table
+--Populate the ODM2SamplingFeatures.SpatialReferences table (DONE)
 SET IDENTITY_INSERT ODM2.ODM2SamplingFeatures.SpatialReferences ON;
-INSERT INTO ODM2.ODM2SamplingFeatures.SpatialReferences (SpatialReferenceID, SRSID, SRSName, Notes)
-SELECT SpatialReferenceID, SRSID, SRSName, CAST(Notes AS VARCHAR(500))
+INSERT INTO ODM2.ODM2SamplingFeatures.SpatialReferences (SpatialReferenceID, SRSID, SRSName, SRSDescription)
+SELECT SpatialReferenceID, SRSID, SRSName, CAST(Notes AS VARCHAR(500)) AS SRSDescription
 FROM LittleBearRiverODM.dbo.SpatialReferences
 ORDER BY SpatialReferenceID;
 SET IDENTITY_INSERT ODM2.ODM2SamplingFeatures.SpatialReferences OFF;
 
---Populate the ODM2Core.SamplingFeatures table with records for the sites
---First, make sure the data type of the FeatureGeometry field is correct - for now using Geography type in SQL Server
+--Populate the ODM2Core.SamplingFeatures table with records for the Sites
+--First, make sure the data type of the FeatureGeometry field is correct 
+--For now using geometry type in SQL Server
+
+--Added the following 3 lines because DBWrench didn't have geometry data type, but it seems to support it now (DONE)
 ALTER TABLE ODM2.ODM2Core.SamplingFeatures DROP COLUMN FeatureGeometry;
 ALTER TABLE ODM2.ODM2Core.SamplingFeatures ADD FeatureGeometry geometry NULL;
 GO
---Now add the sites 
+
+--Now add the Site SamplingFeatures to the SamplingFeatures table (DONE)
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures ON; 
-INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SpatialReferenceID, FeatureGeometry, SamplingFeatureNote)
-SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.LatLongDatumID AS SpatialReferenceID, 
-	geometry::Point(s.Longitude, s.Latitude, sr.SRSID) AS FeatureGeometry, s.Comments AS SamplingFeatureNote
+INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureName, SamplingFeatureGeoTypeCV, SpatialReferenceID, FeatureGeometry, SamplingFeatureDescription)
+SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.SiteName AS SamplingFeatureName, 'Point' AS SamplingFeatureGeoTypeCV,
+	s.LatLongDatumID AS SpatialReferenceID, geometry::Point(s.Longitude, s.Latitude, sr.SRSID) AS FeatureGeometry, s.Comments AS SamplingFeatureDescription
 FROM LittleBearRiverODM.dbo.Sites s, LittleBearRiverODM.dbo.SpatialReferences sr
 WHERE s.LatLongDatumID = sr.SpatialReferenceID
 ORDER BY SamplingFeatureID;
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures OFF;
 
---Populate the ODM2SamplingFeatures.Sites table
-SET IDENTITY_INSERT ODM2.ODM2SamplingFeatures.Sites ON;
-INSERT INTO ODM2.ODM2SamplingFeatures.Sites (SiteID, SamplingFeatureID, SiteCode, SiteName, Latitude, Longitude, LatLongDatumID, Elevation_m, VerticalDatumCV, SiteTypeCV)
-SELECT SiteID, SiteID AS SamplingFeatureID, SiteCode, SiteName, Latitude, Longitude, LatLongDatumID, Elevation_m, VerticalDatum AS VerticalDatumCV, SiteType AS SiteTypeCV
+--Populate the ODM2SamplingFeatures.Sites table (DONE)
+INSERT INTO ODM2.ODM2SamplingFeatures.Sites (SamplingFeatureID, SiteTypeCV, SiteCode, SiteName, Latitude, Longitude, LatLonDatumID, Elevation_m, VerticalDatumCV)
+SELECT SiteID AS SamplingFeatureID, SiteType AS SiteTypeCV, SiteCode, SiteName, Latitude, Longitude, LatLongDatumID, Elevation_m, VerticalDatum AS VerticalDatumCV
 FROM LittleBearRiverODM.dbo.Sites 
 ORDER BY SiteID;
-SET IDENTITY_INSERT ODM2.ODM2SamplingFeatures.Sites OFF;
 
 --Populate the ODM2Core.SamplingFeatures, ODM2SamplingFeatures.Specimens, and ODM2SamplingFeatures.FeatureParents tables with records for the samples
 --NOTES:

@@ -2109,6 +2109,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A CV term defining the type of specimen (e.g., aquatic sample, core, etc.)</Cm>
       </Cl>
+      <Cl au="0" df="" nm="SpecimenCode" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A unique text code that identifies the specimen.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="SpecimenMediumCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A CV term defining the medium of the specimen (i.e. water, sediment, etc.)</Cm>
@@ -4057,7 +4061,7 @@ then  additional field are added
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
