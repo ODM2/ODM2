@@ -791,7 +791,7 @@
       <Cm>Stores information about measured properties.</Cm>
       <TblOpts/>
       <Pk ClNs="VariableID" nm="pkVariables"/>
-      <Cl au="1" df="" nm="VariableID" nu="1">
+      <Cl au="1" df="" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key</Cm>
       </Cl>
@@ -1039,7 +1039,7 @@
     <Tbl UsSo="1" nm="ResultsDataQuality">
       <TblOpts/>
       <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="DataQualityID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -4056,7 +4056,8 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
