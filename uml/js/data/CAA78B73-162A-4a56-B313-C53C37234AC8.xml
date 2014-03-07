@@ -1,4 +1,4 @@
-tocTab[tocTab.length] = new Array("0.5:1", "", "ODM2Samples", "EARoot/EA5/EA81.htm", "175.png", "4038", "0", "", "Logical diagram0","{E55F83E9-9873-4e62-84E4-12EC7A8C55AB}");
-tocTab[tocTab.length] = new Array("0.5:2", "", "«FeatureType» AnalysisBatchAction", "EARoot/EA5/EA84.htm", "5.png", "E8615", "0", "", "Class0","{1D5DD714-5799-425d-91A6-350B94F25296}");
-tocTab[tocTab.length] = new Array("0.5:3", "", "«FeatureType» BatchSampleLine", "EARoot/EA5/EA85.htm", "5.png", "E8613", "0", "", "Class0","{B67E60C0-F49C-412b-8FC5-A4B765DF5A04}");
-tocTab[tocTab.length] = new Array("0.5:4", "", "«FeatureType» SamplePreparationAction", "EARoot/EA5/EA86.htm", "5.png", "E8616", "0", "", "Class0","{3B159140-938A-4ee0-AED9-0E5156872B9A}");
+tocTab[tocTab.length] = new Array("0.5:1", "", "ODM2Samples", "EARoot/EA5/EA108.htm", "175.png", "4038", "0", "", "Logical diagram0","{E55F83E9-9873-4e62-84E4-12EC7A8C55AB}");
+tocTab[tocTab.length] = new Array("0.5:2", "", "«FeatureType» AnalysisBatchAction", "EARoot/EA5/EA111.htm", "5.png", "E8615", "0", "", "Class0","{1D5DD714-5799-425d-91A6-350B94F25296}");
+tocTab[tocTab.length] = new Array("0.5:3", "", "«FeatureType» BatchSampleLine", "EARoot/EA5/EA112.htm", "5.png", "E8613", "0", "", "Class0","{B67E60C0-F49C-412b-8FC5-A4B765DF5A04}");
+tocTab[tocTab.length] = new Array("0.5:4", "", "«FeatureType» SamplePreparationAction", "EARoot/EA5/EA113.htm", "5.png", "E8616", "0", "", "Class0","{3B159140-938A-4ee0-AED9-0E5156872B9A}");
