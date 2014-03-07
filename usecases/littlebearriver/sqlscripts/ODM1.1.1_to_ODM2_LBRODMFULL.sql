@@ -1,7 +1,17 @@
 --------------------------------------------------------------------------------------
+--Created by:  Jeff Horsburgh
+--This script copies an ODM 1.1.1 Database to a blank ODM2 database
+--Requirements:
+--1.  The ODM2 Database must already exist and it must have all of the ODM2 objects in it
+--2.  The ODM2 databae must be empty
+--3.  Right now it is hard-coded to an ODM 1.1.1 database called "LittleBearRiverODM" and
+--an ODM2 database called "ODM2"
+--------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------
 --Populate the SamplingFeature tables
 --NOTES:
---1.  Uses the SiteIDs from the existing ODM database to populate SamplingFeatureID and SiteID.  
+--1.  Uses the SiteIDs from the existing ODM database to populate SamplingFeatureID  
 --2.  This requires the ODM2 database to be empty to begin with.
 --3.  Currently uses the LatLongDatumID as SpatialReferenceID
 --------------------------------------------------------------------------------------
