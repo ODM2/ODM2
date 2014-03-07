@@ -360,10 +360,21 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Text citation for Dataset itself</Cm>
       </Cl>
+      <Cl au="0" df="" nm="VersionCode" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="VersionOfDataSetID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Fk deAc="3" nm="fk_DataSet_Citations" prLkCl="CitationID" upAc="3">
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="DataSets" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="DataSetCitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_DataSet_VersionOf" prLkCl="DataSetID" upAc="3">
+        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataSets" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="VersionOfDataSetID" prCl="DataSetID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1818,42 +1829,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="ResultVersions">
-      <Cm>Describes versions of results</Cm>
-      <TblOpts/>
-      <Pk ClNs="ResultVersionID" nm="pkResultVersions"/>
-      <Cl au="1" df="" nm="ResultVersionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the result version</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VersionOfResultsSetID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the Result that the current Result is a version of</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VersionCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text code identifying the version</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VersionDefinition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text definition of the version</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VersionExplanation" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>A text explanation of the version</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_ResultVersions_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultVersions" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <CustomTypes/>
   </Sch>
   <Sch Cm="The resulting values of observations in ODM2." nm="ODM2Results">
@@ -2401,6 +2376,7 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_VersionOf"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
@@ -2850,6 +2826,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_VersionOf"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
@@ -2907,12 +2884,11 @@ there can by many results for each unique Specimen-Action combo.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultVersions" x="934" y="432"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="335" y="277"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="52" y="93"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="632" y="369"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="629" y="298"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="635" y="162"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="630" y="143"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="862" y="115"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="51" y="246"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="52" y="421"/>
@@ -2920,6 +2896,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquation" x="486" y="572"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_VersionOf"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
@@ -2928,7 +2905,6 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquation.fk_ResultDerivationEquation_DerivationEquations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquation.fk_ResultDerivationEquation_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultVersions.fk_ResultVersions_Results"/>
     <Notes>
       <Note bkCl="ffffffe6" x="935" y="337">RelationshipTypeCV:
 * DerivedFrom
@@ -3138,7 +3114,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="397">
+  <RnmMgr NxRnmId="398">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4079,6 +4055,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultDerivationEquation" SupCls="Schema" SupNme="ODM2Provenance">
       <Rnm id="394" nNm="ResultID" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="397" nNm="VersionCode" oNm="DataSetVersionCode"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4109,7 +4088,7 @@ then  additional field are added
     <TreePath>/Schemas (12)/ODM2Core</TreePath>
     <TreePath>/Schemas (12)/ODM2Core/Tables (18)</TreePath>
     <TreePath>/Schemas (12)/ODM2Provenance</TreePath>
-    <TreePath>/Schemas (12)/ODM2Provenance/Tables (5)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Provenance/Tables (4)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
