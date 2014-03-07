@@ -1738,6 +1738,20 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes for creating and storing provenance information and versions of observations in ODM2." nm="ODM2Provenance">
+    <Tbl UsSo="1" nm="DerivationEquations">
+      <TblOpts/>
+      <Pk ClNs="DerivationEquationID" nm="pkDerivationEquations"/>
+      <Cl au="0" df="" nm="DerivationEquationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>DerivationEquations include calibration equations, normalizations, etc. on one or more RelatedResults to produce a DerivedResult.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DerivationEquation" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Where y is the DerivedResult and x1, x2... are the RelatedResults specified in order by RelatedResultSequenceID</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="InputResults">
       <Cm>Defines the input results that were used to create a derived result</Cm>
       <TblOpts/>
@@ -1749,15 +1763,26 @@
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key indentifier for the input result from which the derived result was created</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_InputResults_ResultProvenance" prLkCl="ResultProvenanceID" upAc="3">
-        <PrTb mn="0" nm="ResultProvenance" oe="1" sch="ODM2Provenance" zr="0"/>
-        <CdTb mn="1" nm="InputResults" oe="1" sch="ODM2Provenance" zr="0"/>
-        <ClPr cdCl="ResultProvenanceID" prCl="ResultProvenanceID"/>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="ResultDerivationEquation">
+      <TblOpts/>
+      <Cl au="0" df="" nm="ResultID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DerivationEquationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ResultDerivationEquation_DerivationEquations" prLkCl="DerivationEquationID" upAc="3">
+        <PrTb mn="0" nm="DerivationEquations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="0" nm="ResultDerivationEquation" oe="1" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="DerivationEquationID" prCl="DerivationEquationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_InputResults_Results" prLkCl="ResultID" upAc="3">
+      <Fk deAc="3" nm="fk_ResultDerivationEquation_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="InputResults" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="InputResultID" prCl="ResultID"/>
+        <CdTb mn="0" nm="ResultDerivationEquation" oe="1" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1790,16 +1815,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the person that created the derived dataset</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_ResultProvenance_Methods" prLkCl="MethodID" upAc="3">
-        <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultProvenance" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="ProcessMethodID" prCl="MethodID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ResultProvenance_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultProvenance" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -1831,11 +1846,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>A text explanation of the version</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_ObservationVersions_Observations_VersionOf" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="ResultVersions" oe="1" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="VersionOfResultsSetID" prCl="ResultID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_ResultVersions_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="ResultVersions" oe="0" sch="ODM2Provenance" zr="1"/>
@@ -2877,7 +2887,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2Provenance">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2897,17 +2907,17 @@ there can by many results for each unique Specimen-Action combo.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultProvenance" x="233" y="500"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="InputResults" x="536" y="505"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultVersions" x="839" y="416"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="404" y="260"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="91" y="652"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="722" y="334"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="719" y="251"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="606" y="113"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultVersions" x="934" y="432"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="335" y="277"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="52" y="93"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="632" y="369"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="629" y="298"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="635" y="162"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="862" y="115"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="29" y="326"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="27" y="233"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="51" y="246"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="52" y="421"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DerivationEquations" x="624" y="485"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquation" x="486" y="572"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
@@ -2916,22 +2926,19 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.InputResults.fk_InputResults_ResultProvenance"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.InputResults.fk_InputResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultProvenance.fk_ResultProvenance_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultProvenance.fk_ResultProvenance_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultVersions.fk_ObservationVersions_Observations_VersionOf"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquation.fk_ResultDerivationEquation_DerivationEquations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquation.fk_ResultDerivationEquation_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultVersions.fk_ResultVersions_Results"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="301" y="623">Can the ResultProvenance table be subsumed into
-Actions and be considered an ObservationAct 
-where the associated MethodType = Derive Results?
+      <Note bkCl="ffffffe6" x="935" y="337">RelationshipTypeCV:
+* DerivedFrom
+* VersionOf</Note>
+      <Note bkCl="ffffffe6" x="32" y="528">An ObservationAction with MethodType=ResultDerivation
+can specify which RelatedResults the new Result was 
+"DerivedFrom" [=RelationshipType].
 
-The Results connected to that ObservationAct
-would be "derived Results", and the RelatedResults
-would indicate those that they "DerivedFrom" [=RelationshipType].
-InputResults are redundant with RelatedResults, 
-which is more general.</Note>
+The exact DerivationEquation can be specified in the 
+table of that name, if the RelatedResultSequenceNumber is specified.</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -3131,7 +3138,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="392">
+  <RnmMgr NxRnmId="397">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4038,6 +4045,8 @@ then  additional field are added
       <Rnm id="379" nNm="NormalizedByReferenceMaterialValueID" oNm="NormalizationReferenceMaterialValueID"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2DataQuality" SupCls="" SupNme="">
+      <Rnm id="396" nNm="ResultNormalizationValues" oNm="ResultNormalizationValue"/>
+      <Rnm id="393" nNm="ResultNormalizationValue" oNm="ResultNormalizationValues"/>
       <Rnm id="380" nNm="ResultNormalizationValues" oNm="ResultsNormalizationValues"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2DataQuality">
@@ -4064,6 +4073,12 @@ then  additional field are added
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
       <Rnm id="391" nNm="SpecimenBatchLines" oNm="BatchSpecimenLines"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DerivationEquations" SupCls="Schema" SupNme="ODM2Provenance">
+      <Rnm id="392" nNm="DerivationEquationID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultDerivationEquation" SupCls="Schema" SupNme="ODM2Provenance">
+      <Rnm id="394" nNm="ResultID" oNm="Id"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4081,15 +4096,20 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
     <TreePath>/Schemas (12)/ODM2Core</TreePath>
     <TreePath>/Schemas (12)/ODM2Core/Tables (18)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Provenance</TreePath>
+    <TreePath>/Schemas (12)/ODM2Provenance/Tables (5)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
