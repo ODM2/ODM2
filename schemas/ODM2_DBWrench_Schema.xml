@@ -320,8 +320,11 @@
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Title" nu="0">
+      <Cl au="0" df="" nm="CitationTitle" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="CitationYear" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="CitationText" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -3157,7 +3160,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="400">
+  <RnmMgr NxRnmId="402">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4105,7 +4108,11 @@ then  additional field are added
       <Rnm id="398" nNm="CitationID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="401" nNm="CitationTitle" oNm="Title"/>
       <Rnm id="399" nNm="Title" oNm="Authors"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="400" nNm="CitationYear" oNm="Year"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
