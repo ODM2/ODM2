@@ -8,4 +8,4 @@ The [**FeatureActionResult** entity](http://uchic.github.io/ODM2/schemas/ODM2_Cu
 * _Actions_ on one SamplingFeature but generating no Results. Collecting one sample in the field is an example of such an Action.
 * _Actions_ that produce no Results and involve no SamplingFeatures. An important maintenance operation on a lab instrument is an example of such an Action.
 
-The primary key of FeatureActionResult is defined as the combination of its three fields. Therefore, such "triplet" must be unique, even if ResultID is Null.
+The primary key of FeatureActionResult is defined as the combination of the entity's three fields. Therefore, such "triplet" must be unique, even if ResultID is Null.
