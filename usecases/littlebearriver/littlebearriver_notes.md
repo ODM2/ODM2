@@ -22,45 +22,81 @@ Eventually I could add the ODM2Equipment, ODM2Sensors, and ODM2DataQuality schem
 #### SpatialReferences
 SpatialReferences in ODM2 are the same as in ODM1.  Basically copied them straight across.
 
+1. Set ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID = ODM1.SpatialReferences.SpatialReferenceID
+2. Set ODM2SamplingFeatures.SpatialReferences.SRSID = ODM1.SpatialReferences.SRSID
+3. Set ODM2SamplingFeatures.SpatialReferences.SRSName = ODM1.SpatialReferences.SRSName
+4. Set ODM2SamplingFeatures.SpatialReferences.SRSDescription = ODM1.SpatialReferences.Notes - had to cast this to VARCHAR(500) to be consistent with ODM2, which might truncate some information
+
 **(338 Records added to ODM2SamplingFeatures.SpatialReferences)**
 
 #### SamplingFeatures and Sites
-Sites in ODM2 are essentially the same as in ODM1 except that both Sites and SamplingFeatures have to be populated.
+Sites in ODM2 are essentially the same as in ODM1 except that both Sites and SamplingFeatures tables have to be populated. Before populating the SamplingFeatures I drop the FeatureGeometry field and re-add it with the 'geometry' data type. I had to do this until Emilio set the 'geometry' data type for this field, but I don't know how he did that in DBWrench because it isn't an option for me.
 
-1. Used the existing SiteIDs from ODM1 as the SamplingFeatureIDs for Sites in ODM2.
-2. Used the SiteName from ODM1 as the SamplingFeatureName in ODM2.
-3. Used ODM1.Sites.Comments as the SamplingFeatureDescription in ODM2.
-4. Copied all of the SpatialReferences records from ODM1 to ODM2 - these are pretty much the same. 
-5. Used the LatLongDatumID from ODM1.Sites as the SpatialReferenceID in ODM2.SamplingFeatures.
-6. Some of the ODM1 Site attributes don't get copied across because they are no longer part of the Core (e.g., LocalX, LocalY, LocalProjectionID, PosAccuracy_m, State, County, Comments)
+Adding records to **ODM2Core.SamplingFeatures**:
+
+1. Set ODM2Core.SamplingFeatures.SamplingFeatureID = ODM1.Sites.SiteID
+2. Set ODM2Core.SamplingFeatures.SamplingFeatureTypeCV = 'Site'
+3. Set ODM2Core.SamplingFeatures.SamplingFeatureName = ODM1.Sites.SiteName
+4. Set ODM2Core.SamplingFeatures.SamplingFeatureGeoTypeCV = 'Point'
+5. Set ODM2Core.SamplingFeatures.SpatialReferenceID = ODM1.Sites.LatLongDatumID
+6. Set ODM2Core.SamplingFeatures.FeatureGeometry = geometry::Point(ODM1.Sites.Longitude, ODM1.Sites.Latitude, ODM1.SpatialReferences.SRSID) 
+7. Set ODM2Core.SamplingFeatures.SamplingFeatureDescription =  ODM1.Sites.Comments 
 
 **(16 Records added to ODM2Core.SamplingFeatures)**
+
+Adding records to **OD2SamplingFeatures.Sites**: Some of the ODM1 Site attributes don't get copied across because they are no longer part of the Core (e.g., LocalX, LocalY, LocalProjectionID, PosAccuracy_m, State, County, Comments)
+
+1. Set ODM2SamplingFeatures.Sites.SiteID = ODM1.Sites.SiteID
+2. Set ODM2SamplingFeatures.Sites.SiteTypeCV = ODM1.Sites.SiteType
+3. Set ODM2SamplingFeatures.Sites.SiteCode = ODM1.Sites.SiteCode
+4. Set ODM2SamplingFeatures.Sites.SiteName = ODM1.Sites.SiteName
+5. Set ODM2SamplingFeatures.Sites.Latitude = ODM1.Sites.Latitude
+6. Set ODM2SamplingFeatures.Sites.Longitude = ODM1.Sites.Longitude
+7. Set ODM2SamplingFeatures.Sites.LatLongDatumID = ODM1.Sites.LatLongDatumeID - I can do this because I moved all of the SpatialReferences from ODM1 and preserved the SpatialReferenceIDs
+8. Set ODM2SamplingFeatures.Sites.Elevation_m = ODM1.Sites.Elevation_m
+9. Set ODM2SamplingFeatures.Sites.VerticalDatumCV = ODM1.Sites.VerticalDatumCV
+
 **(16 Records added to ODM2SamplingFeatures.Sites)**
 
 #### Units
 Units are the same in ODM1 an ODM2.  The only change is the order in which the attributes appear in the table and ODM1.Units.UnitsType = ODM2.Units.UnitsTypeCV.  Copied Units straight across from ODM1, preserving the UnitsIDs.
+
+1. Set ODM2Core.Units.UnitsID = ODM1.Units.UnitsID
+2. Set ODM2Core.Units.UnitsTypeCV = ODM1.Units.UnitsTypeCV
+3. Set ODM2Core.Units.UnitsAbbreviation = ODM1.Units.UnitsAbbreviation
+4. Set ODM2Core.Units.UnitsName = ODM1.Units.UnitsName
 
 **(355 Records added to ODM2Core.Units)**
 
 #### QualityControlLevels
 QualityControlLevels are the same in ODM1 and ODM2. Copied QualityControlLevels straight across from ODM1, preserving the QualityControlLevelIDs.
 
+1. Set ODM2Core.QualityControlLevels.QualityControlLevelID = ODM1.QualityControlLevels.QualityControlLevelID
+2. Set ODM2Core.QualityControlLevels.QualityControlLevelCode = ODM1.QualityControlLevels.QualityControlLevelCode
+3. Set ODM2Core.QualityControlLevels.Definition = ODM1.QualityControlLevels.Definition
+4. Set ODM2Core.QualityControlLevels.Explanation = ODM1.QualityControlLevels.Explanation
+
 **(6 Records added to ODM2Core.QualityControlLevels)**
 
 #### Variables
 Variables in ODM2 have fewer attributes because some of the information has been moved to the Result (e.g., Units). Additionaly, the CV fields in ODM2.Variables are named with a "CV" at the end.
 
-1. Copied Variables from ODM1 preserving VariableIDs
-2. Set ODM2.Variables.VariableTypeCV to 'Unknown' - It's required, but I don't know what to do with this field yet
-3. Set ODM2.Variables.VariableDefinition = "NULL" - not sure what to do here
-4. All of the other ODM2 fields are the same as they are in ODM1
+1. Set ODM2Core.Variables.VariableID = ODM1.Variables.VariableID 
+2. Set ODM2Core.Variables.VariableTypeCV = 'Unknown' - It's required, but don't know what to do with this
+3. Set ODM2Core.Variables.VariableCode = ODM1.Variables.VariableCode
+4. Set ODM2Core.Variables.VaribleNameCV = ODM1.Variables.VariableName
+5. Set ODM2Core.Variables.VariableDefinition = "NULL" - not sure what to do here
+6. Set ODM2Core.Variables.SpeciationCV = ODM1.Variables.Speciation
+7. Set ODM2Core.Variables.ValueTypeCV = ODM1.Variables.ValueTypeCV
+8. Set ODM2Core.Variables.DataTypeCv = ODM1.Variables.DataTypeCV
+9. Set ODM2Core.Varaibles.NoDataValue = ODM1.Variables.NoDataValue
 
 **(63 Records added to ODM2Core.Variables)**
 
 #### Methods
 Methods in ODM2 have more attributes than Methods in ODM1. But, Methods can essentially be copied straight across using the same IDs.
 
-1. Copied Methods from ODM1, preserving MethodIDs
+1. Set ODM2Core.Methods.MethodID = ODM1.Methods.MethodID 
 2. Set ODM2.Methods.MethodTypeCV = 'Unknown' - this is required, but I have no way of getting this from ODM1 because there is no MethodType in ODM1.  So, I set this to 'Unknown' since it has to have a value
 3. Set ODM2.Methods.MethodCode = ODM1.Methods.MethodID - the code is required, but doesn't exist in ODM1, so I used the MethodID
 4. Set ODM2.Methods.MethodName = ODM1.Methods.MethodDescription - there is no MethodName in ODM1, so I just used the MethodDescription
@@ -71,20 +107,19 @@ Methods in ODM2 have more attributes than Methods in ODM1. But, Methods can esse
 **(59 Records added to ODM2Core.Methods)**
 
 #### Organizations
-Organizations in ODM2 roughly map to Sources in ODM1. However, the attributes aren't quite the same.
+Organizations in ODM2 roughly map to Sources in ODM1. However, the attributes aren't quite the same. Created an Organization in ODM2 for each record in the ODM1.Sources table.
 
-1. Created an Organization in ODM2 for each record in the ODM1.Sources table
-2. Set ODM2.Organizations.OrganizationID = ODM1.Sources.SourceID 
-3. Set ODM2.Organizations.OrganizationTypeCV = 'Research Institute' - *this may not be quite right, and may even be wrong for many types of Sources that people have used in ODM1 databases*.
-4. Set ODM2.Organizations.OrganizationCode = ODM1.Sources.SourceID - there is no OrganizationCode in ODM1, so I just used the ID as the code.
-5. Set ODM2.Organization.OrganizationName = ODM1.Sources.Organization
-6. Set ODM2.Organization.OrganizationDescription = ODM1.Sources.SourceDescription
-7. Set ODM2.Organization.OrganizationLink = ODM1.Sources.SourceLink
-8. Set ODM2.Organization.ParentOrganization = NULL - this concept doesn't exist in ODM1 and so there's nothing for me to move across
+1. Set ODM2Core.Organizations.OrganizationID = ODM1.Sources.SourceID 
+2. Set ODM2Core.Organizations.OrganizationTypeCV = 'Research Institute' - *this may not be quite right, and may even be wrong for many types of Sources that people have used in ODM1 databases*.
+3. Set ODM2Core.Organizations.OrganizationCode = ODM1.Sources.SourceID - there is no OrganizationCode in ODM1, so I just used the ID as the code.
+4. Set ODM2Core.Organization.OrganizationName = ODM1.Sources.Organization
+5. Set ODM2Core.Organization.OrganizationDescription = ODM1.Sources.SourceDescription
+6. Set ODM2Core.Organization.OrganizationLink = ODM1.Sources.SourceLink
+7. Set ODM2Core.Organization.ParentOrganization = NULL - this concept doesn't exist in ODM1 and so there's nothing for me to move across
 
 **(7 Records added to ODM2Core.Organizations)**
 
-In ODM1, there was also a LabMethods table that was linked to Samples. This is where laboratory analytical methods used to analyze samples were stored. In ODM2 we have generalized Methods and so I need to add the LabMethods from ODM1 to the Methods table in ODM2.  Additionally, LabMethods in ODM1 do have Organization information associated with them and so I need to create appropriate Organization records in ODM2 and associate them with the ODM1.LabMethods that I add to the ODM2.Methods table.
+Adding records to the **Organizations** table for ODM1 analytical labs: In ODM1, there is also a LabMethods table that is linked to Samples. This is where laboratory analytical methods used to analyze samples are stored. In ODM2 we have generalized Methods and so I need to add the LabMethods from ODM1 to the Methods table in ODM2.  Additionally, LabMethods in ODM1 do have Organization information associated with them and so I need to create appropriate Organization records in ODM2 and associate them with the ODM1.LabMethods that I add to the ODM2.Methods table.
 
 First, I created the ODM2 Organizations for the ODM1 analytical labs:
 
@@ -110,24 +145,24 @@ Then, I added the ODM1 LabMethods to the ODM2 Methods table:
 **(10 Records added to ODM2Core.Methods)**
 
 #### People
-There is no separate People table in ODM1. However, there is a contact person for each organization in the ODM1.Sources table.
+There is no separate People table in ODM1. However, there is a contact person for each organization in the ODM1.Sources table. So, I created a record in the ODM2.People table for each person in the ODM1.Sources table. *I used a substring function that splits the person's name into first and last.  this may not work for all names - especially in cases where someone has input a middle name or initial*.  The mapping may be imperfect for some ODM1 databases.
 
-1. Created a record in the ODM2.People table for each person in the ODM1.Sources table.
-2. *I used a substring function that splits the person's name into first and last.  this may not work for all names - especially in cases where someone has input a middle name or initial*.  The mapping may be imperfect for some ODM1 databases.
+1. Set ODM2Core.People.PersonFirstName = CAST(SUBSTRING(ODM1.Sources.ContactName, 1, CHARINDEX(' ', ODM1.Sources.ContactName) - 1) AS VARCHAR(255))
+2. Set ODM2Core.People.PersonLastName = CAST(SUBSTRING(ODM1.Sources.ContactName, CHARINDEX(' ', ODM1.Sources.ContactName) + 1, 8000) AS VARCHAR(255))
 
 **(4 Records added to ODM2Core.People)**
 
 #### Affiliations
 There is no Affiliations entity in ODM1. So, I just mapped the PersonIDs to the Organizations from which they came in the ODM1 database.
 
-1. Get ODM2.Affiliations.PersonID from the People tabl
-2. Set ODM2.Affiliations.OrganizationID = ODM1.Sources.SourceID
-3. Set ODM2.Affiliations.IsPrimaryOrganizationContact = 1 - this is essentially what inclusion of this person in the the ODM1 Sources table meant.
-4. Set ODM2.Affiliations.AffiliationStartDate = the current system date. *This is a total punt, but didn't know what else to do since it is required and ODM1 does not have this information.* 
-5. Set ODM2.Affiliations.AffiliationEndDate = NULL - *ODM1 does not have thing information, but it's nullable*
-6. Set ODM2.Affiliations.PrimaryPhone = ODM1.Sources.Phone
-7. Set ODM2.Affiliations.PrimaryEmail = ODM1.Sources.Email
-8. Set ODM2.Affiliations.PrimaryAddress = ODM1.Sources.Address + ODM1.Sources.City + ODM1.Sources.State + ODM1.Sources.State + ODM1.Sources.Zipcode
+1. Set ODM2Core.Affiliations.PersonID = ODM2Core.People.PersonID 
+2. Set ODM2Core.Affiliations.OrganizationID = ODM1.Sources.SourceID
+3. Set ODM2Core.Affiliations.IsPrimaryOrganizationContact = 1 - this is essentially what inclusion of this person in the the ODM1 Sources table meant.
+4. Set ODM2Core.Affiliations.AffiliationStartDate = the current system date. *This is a total punt, but didn't know what else to do since it is required and ODM1 does not have this information.* 
+5. Set ODM2Core.Affiliations.AffiliationEndDate = NULL - *ODM1 does not have thing information, but it's nullable*
+6. Set ODM2Core.Affiliations.PrimaryPhone = ODM1.Sources.Phone
+7. Set ODM2Core.Affiliations.PrimaryEmail = ODM1.Sources.Email
+8. Set ODM2Core.Affiliations.PrimaryAddress = ODM1.Sources.Address + ODM1.Sources.City + ODM1.Sources.State + ODM1.Sources.State + ODM1.Sources.Zipcode
 
 **(7 Records added to ODM2Core.Affiliations)**
 
@@ -371,10 +406,26 @@ Add the DataValues from the Sample-based data in ODM1 to ODM2 as ResultValues.
 #### Annotations ####
 I need to add the DataValue Qualifiers from ODM1 to ODM2. DataValue Qualifiers were really the only types of Annotations supported by ODM1.
 
-TODO:  Finish documenting Annotations
+Adding records to the **ODM2Annotations.Annotations** table:
+
+1. Set ODM2Annotations.Annotations.AnnotatioID = ODM1.Qualifiers.QualifierID - I can do this because DataValue Qualifiers are the only Annotations in ODM1
+2. Set ODM2Annotations.Annotations.AnnotationTypeCV = 'Data Value Qualifier' - this needs to eventually conform to a CV
+3. Set ODM2Annotations.Annotations.AnnotationCode = ODM1.Qualifiers.QualifierCode
+4. Set ODM2Annotations.Annotations.AnnotationText = ODM1.Qualifiers.QualifierDescription - had to truncate this to 500 characters to match ODM2 schema. ODM1 allowed more characters.
+5. Set ODM2Annotations.Annotations.AnnotationDateTime = NULL - I really don't know anything about when these annotations were applied
+6. Set ODM2Annotations.Annotations.AnnotationUTCOffset = NULL
+7. Set ODM2Annotations.Annotations.AnnotatorID = NULL
+
+Adding records to the **ODM2Annotations.ResultValueAnnotations** table:
+
+1. Set ODM2Annotations.ResultValueAnnotations.ValueID = ODM1.DataValues.ValueID - I can do this because I preserved the ValueIDs when I moved the data across
+2. Set ODM2Annotations.ResultValueAnnotations.AnnotationID = ODM1.DataValues.QualifierID - I can do this because I used the QualifierIDs from ODM1 as the AnnotationIDs in ODM2
 
 **(10 Records added to ODM2Annotations.Annotations)**
 **(68,643 Records added to ODM2Annotations.ResultValueAnnotations)**
+
+## TODO: ##
+1.  Modify some fields that should conform to CVs to use accepted CV values.
 
 
 

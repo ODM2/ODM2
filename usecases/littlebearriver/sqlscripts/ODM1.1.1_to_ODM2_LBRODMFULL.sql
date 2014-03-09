@@ -450,7 +450,7 @@ DROP TABLE #TempSpecimenInfo;
 SET IDENTITY_INSERT ODM2.ODM2Annotations.Annotations ON;
 INSERT INTO ODM2.ODM2Annotations.Annotations (AnnotationID, AnnotationTypeCV, AnnotationCode, AnnotationText, AnnotationDateTime, AnnotationUTCOffset, AnnotatorID)
 SELECT QualifierID AS AnnotationID, 'Data Value Qualifier' AS AnnotationTypeCV, QualifierCode AS AnnotationCode, 
-	CAST(QualifierDescription AS NVARCHAR(255)) AS AnnotationText, NULL AS AnnotationDateTime, NULL AS AnnotationUTCOffset,
+	CAST(QualifierDescription AS NVARCHAR(500)) AS AnnotationText, NULL AS AnnotationDateTime, NULL AS AnnotationUTCOffset,
 	NULL AS AnnotatorID
 FROM LittleBearRiverODM.dbo.Qualifiers
 ORDER BY AnnotationID;
