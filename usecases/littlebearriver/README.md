@@ -10,9 +10,9 @@ The LBR data consist of time series of hydrologic observations collected at aqua
 
 #### Data Source Information ####
 
-Contact:  Jeff Horsburgh
-Email:  jeff.horsburgh@usu.edu
-Organization:  Utah Water Research Loboratory, Utah State University
+**Contact**:  Jeff Horsburgh  
+**Email**:  jeff.horsburgh@usu.edu  
+**Organization**:  Utah Water Research Loboratory, Utah State University
 
 #### Temporal Information ####
 
