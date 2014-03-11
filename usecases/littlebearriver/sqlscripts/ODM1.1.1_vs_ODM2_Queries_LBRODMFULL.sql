@@ -2,54 +2,45 @@
 --1.  Give me all of the Observations for a particular Variable measured at a specific Site using a particular Method and having a specific QualityControlLevel.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 SET STATISTICS TIME ON
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT * 
 FROM DataValues 
 WHERE SiteID = 1 AND VariableID = 36 AND MethodID = 18 AND QualityControlLevelID = 0
 ORDER BY LocalDateTime;
 
-
+--ODM2
 USE ODM2;
-SELECT *
-FROM ODM2Results.ResultValues rv
-JOIN ODM2Core.Results r
-	ON rv.ResultID = r.ResultID
-JOIN ODM2Core.FeatureActionResult far
-	ON r.ResultID = far.ResultID
-JOIN ODM2Core.Actions a
-	ON far.ActionID = a.ActionID
-JOIN ODM2SamplingFeatures.Sites s
-	ON far.SamplingFeatureID = s.SamplingFeatureID
-WHERE s.SamplingFeatureID = 1 AND r.VariableID = 36 AND r.QualityControlLevelID = 0 AND a.MethodID = 18
+SELECT rv.ValueID, rv.ResultID, rv.DataValue, rv.ValueDateTime, rv.ValueDateTimeUTCOffset, rv.OffsetOriginID, rv.ValueXLocation, rv.ValueYLocation, rv.ValueZLocation,
+	rv.CensorCodeCV, rv.QualityCodeCV, rv.AggregationDuration, rv.InterpolationTypeCV
+FROM ODM2Results.ResultValues rv, ODM2Core.Results r, ODM2Core.FeatureActionResult far, ODM2Core.Actions a, ODM2SamplingFeatures.Sites s
+WHERE s.SamplingFeatureID = 1 AND r.VariableID = 36 AND r.QualityControlLevelID = 0 AND a.MethodID = 18 AND rv.ResultID = r.ResultID 
+	AND r.ResultID = far.ResultID AND far.ActionID = a.ActionID AND far.SamplingFeatureID = s.SamplingFeatureID
 ORDER BY ValueDateTime;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --2.  Same as 1, but subset the Observations and return only those Observations between a BeginDateTime and EndDateTime.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT * 
 FROM DataValues 
 WHERE SiteID = 1 AND VariableID = 36 AND MethodID = 18 AND QualityControlLevelID = 0 AND LocalDateTime >= '9/1/2007' AND LocalDateTime < '9/2/2007'
 ORDER BY LocalDateTime;
 
-
+--ODM2
 USE ODM2;
-SELECT *
-FROM ODM2Results.ResultValues rv
-JOIN ODM2Core.Results r
-	ON rv.ResultID = r.ResultID
-JOIN ODM2Core.FeatureActionResult far
-	ON r.ResultID = far.ResultID
-JOIN ODM2Core.Actions a
-	ON far.ActionID = a.ActionID
-JOIN ODM2SamplingFeatures.Sites s
-	ON far.SamplingFeatureID = s.SamplingFeatureID
+SELECT rv.ValueID, rv.ResultID, rv.DataValue, rv.ValueDateTime, rv.ValueDateTimeUTCOffset, rv.OffsetOriginID, rv.ValueXLocation, rv.ValueYLocation, rv.ValueZLocation,
+	rv.CensorCodeCV, rv.QualityCodeCV, rv.AggregationDuration, rv.InterpolationTypeCV
+FROM ODM2Results.ResultValues rv, ODM2Core.Results r, ODM2Core.FeatureActionResult far, ODM2Core.Actions a, ODM2SamplingFeatures.Sites s
 WHERE s.SamplingFeatureID = 1 AND r.VariableID = 36 AND r.QualityControlLevelID = 0 AND a.MethodID = 18 AND ValueDateTime >= '9/1/2007' AND ValueDateTime < '9/2/2007'
+	AND rv.ResultID = r.ResultID AND r.ResultID = far.ResultID AND far.ActionID = a.ActionID AND far.SamplingFeatureID = s.SamplingFeatureID
 ORDER BY ValueDateTime;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --3.  Give me a list of Sites where a particular Variable has been measured.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT DISTINCT SiteCode, SiteName 
 FROM Sites s
@@ -59,8 +50,7 @@ JOIN Variables v
 	ON dv.VariableID = v.VariableID 
 WHERE v.VariableID = 65;
 
-
---For ODM2, I have to check both the Site SamplingFeature AND any children SamplingFeatures
+--ODM2 - For ODM2, I have to check both the Site SamplingFeature AND any children SamplingFeatures
 --To test this for sample based data, use VariableID = 65
 USE ODM2;
 SELECT SiteCode, SiteName
@@ -82,7 +72,7 @@ WHERE s.SamplingFeatureID IN (
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --4.  Give me a list of TimeSeries for a particular Variable.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---For ODM 1.1.1, this query would return "time series" from both sensors and samples.
+--ODM 1.1.1 - For ODM 1.1.1, this query would return "time series" from both sensors and samples.
 USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
 	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
@@ -91,8 +81,7 @@ FROM Sites s, Variables v, Methods m, Units u, (SELECT DISTINCT SiteID, Variable
 WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.VariableID AND v.VariableUnitsID = u.UnitsID AND qc.QualityControlLevelID = sq.QualityControlLevelID
 	AND src.SourceID = sq.SourceID;
 
-
---For ODM2, this returns only Results with type "Time Series Coverage" that are associated directly with a sampling feature that is a site.
+--ODM2 - For ODM2, this returns only Results with type "Time Series Coverage" that are associated directly with a sampling feature that is a site.
 USE ODM2;
 SELECT r.ResultID, far.SamplingFeatureID, s.SiteCode, s.SiteName, s.SiteTypeCV, r.VariableID, v.VariableCode, v.VariableNameCV, v.SpeciationCV, r.UnitsID, 
 	u.UnitsName, r.SampledMediumCV, v.ValueTypeCV, v.DataTypeCV, a.MethodID, m.MethodName, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition
@@ -113,6 +102,7 @@ WHERE r.VariableID = 6 AND r.ResultTypeCV = 'Time Series Coverage' AND v.Variabl
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --5.  Give me a list of Sites for which there are data.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT DISTINCT SiteCode, SiteName
 FROM Sites s
@@ -120,7 +110,7 @@ JOIN DataValues dv
 	ON dv.SiteID = s.SiteID;
 
 
---For ODM2, must check SamplingFeatures that are Sites but also add Sites that have Specimens that were collected at the Site
+--ODM2 - For ODM2, must check SamplingFeatures that are Sites but also add Sites that have Specimens that were collected at the Site
 USE ODM2;
 SELECT SiteCode, SiteName
 FROM ODM2SamplingFeatures.Sites s
@@ -141,6 +131,7 @@ WHERE s.SamplingFeatureID IN (
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --6.  Give me a list of Variables for which there are data.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT DISTINCT v.VariableCode, v.VariableName
 FROM Variables v
@@ -148,7 +139,7 @@ JOIN DataValues dv
 	ON dv.VariableID = v.VariableID
 ORDER BY v.VariableName;
 
-
+--ODM2
 USE ODM2;
 SELECT DISTINCT VariableCode, VariableNameCV 
 FROM ODM2Core.Variables v
@@ -159,6 +150,7 @@ ORDER BY VariableNameCV;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --7.  Give me a list of Methods for which there are data.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT DISTINCT m.MethodID, m.MethodDescription, m.MethodLink
 FROM Methods m
@@ -167,7 +159,7 @@ JOIN DataValues dv
 ORDER BY m.MethodID;
 
 
---For ODM2, this includes both Methods and LabMethods, whereas for ODM 1.1.1 it includes only Methods
+--ODM2 - For ODM2, this includes both Methods and LabMethods, whereas for ODM 1.1.1 it includes only Methods
 USE ODM2;
 SELECT DISTINCT m.MethodID, m.MethodCode, m.MethodName
 FROM ODM2Core.Methods m
@@ -181,21 +173,22 @@ ORDER BY MethodID;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --8.  Give me a list of Variables that have been measured at a particular Site.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1 - this is super slow!
 USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, v.VariableID, v.VariableCode, v.VariableName
 FROM Sites s, Variables v, DataValues dv
 WHERE s.SiteID = dv.SiteID AND dv.VariableID = v.VariableID AND s.SiteID = 1
 ORDER BY VariableID;
 
---A little differnt way, but same result
+--ODM 1.1.1 - A little different way, but much faster!
 USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, v.VariableID, v.VariableCode, v.VariableName
-FROM Sites s, Variables v, (SELECT * FROM DataValues WHERE SiteID = 1) dv
-WHERE dv.VariableID = v.VariableID AND s.SiteID = dv.SiteID
+FROM Sites s, Variables v, (SELECT DISTINCT SiteID, VariableID FROM DataValues) dv
+WHERE s.SiteID = 1 AND dv.VariableID = v.VariableID AND s.SiteID = dv.SiteID
 ORDER BY VariableID;
 
 
---For ODM2 I have to include Results occurring at the Site + Results occurring on Specimens collected at the Site
+--ODM2 - For ODM2 I have to include Results occurring at the Site + Results occurring on Specimens collected at the Site
 --First I have to get the set of SamplingFeatures associated with the Site (including the Site and any child SamplingFeatures and then do the query)
 --This is tricky, and I kind of fudged it using SQL Variables
 USE ODM2;
@@ -218,7 +211,7 @@ ORDER BY VariableID;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --9.  Give me a list of "TimeSeries" that have been measured for a particular Variable at a particular Site.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---For ODM 1.1.1, this query would return "time series" from both sensors and samples.
+--ODM 1.1.1 - For ODM 1.1.1, this query would return "time series" from both sensors and samples.
 USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
 	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
@@ -228,7 +221,7 @@ WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.Va
 	AND src.SourceID = sq.SourceID;
 
 
---For ODM2 this returns Results with type "Time Series Coverage" that are associated directly with a SamplingFeature that is a Site or any SamplingFeatures
+--ODM2 - For ODM2 this returns Results with type "Time Series Coverage" that are associated directly with a SamplingFeature that is a Site or any SamplingFeatures
 --that are children of the Site
 USE ODM2;
 DECLARE @SamplingFeatureID AS int;
@@ -250,15 +243,16 @@ WHERE v.VariableID = @VariableID AND r.ResultTypeCV = 'Time Series Coverage' AND
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --10.  Give me a list of Methods that have been used to measure or create results for a particular Variable.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 DECLARE @VariableID AS int;
 SELECT @VariableID = 36
 SELECT DISTINCT m.MethodID, m.MethodDescription 
-FROM Methods m, (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID FROM DataValues WHERE VariableID = @VariableID) AS sq 
+FROM Methods m, (SELECT DISTINCT VariableID, MethodID FROM DataValues WHERE VariableID = @VariableID) AS sq 
 WHERE m.MethodID = sq.MethodID
 ORDER BY MethodID;
 
-
+--ODM2
 USE ODM2;
 DECLARE @VariableID AS int;
 SELECT @VariableID = 36
@@ -273,6 +267,7 @@ ORDER BY MethodID;
 --For ODM2 this is only going to include "Time Series Coverage" results associated directly with a 
 --sampling feature that is a site and not "Measurement" Results
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
 	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
@@ -282,7 +277,7 @@ WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.Va
 	AND src.SourceID = sq.SourceID AND src.ContactName = 'Jeff Horsburgh'
 ORDER BY SiteCode, VariableID;
 
-
+--ODM2
 USE ODM2;
 SELECT r.ResultID, s.SamplingFeatureID, s.SiteCode, s.SiteName, s.SiteTypeCV, r.VariableID, v.VariableCode, v.VariableNameCV, v.SpeciationCV, r.UnitsID, 
 	u.UnitsName, r.SampledMediumCV,	v.ValueTypeCV, r.IntendedObservationSpacing, v.DataTypeCV, a.MethodID, m.MethodDescription, o.OrganizationCode, 
@@ -303,6 +298,7 @@ ORDER BY SiteCode, VariableID;
 --For ODM2 this is only going to include "Time Series Coverage" results associated directly with a 
 --sampling feature that is a site and not "Measurement" Results
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
 	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
@@ -311,7 +307,7 @@ FROM Sites s, Variables v, Methods m, Units u, (SELECT DISTINCT SiteID, Variable
 WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.VariableID AND v.VariableUnitsID = u.UnitsID AND qc.QualityControlLevelID = sq.QualityControlLevelID
 	AND src.SourceID = sq.SourceID AND src.SourceID = 1;
 
-
+--ODM2
 USE ODM2;
 SELECT r.ResultID, s.SamplingFeatureID, s.SiteCode, s.SiteName, s.SiteTypeCV, r.VariableID, v.VariableCode, v.VariableNameCV, v.SpeciationCV, r.UnitsID, 
 	u.UnitsName, r.SampledMediumCV,	v.ValueTypeCV, r.IntendedObservationSpacing, v.DataTypeCV, a.MethodID, m.MethodDescription, o.OrganizationCode, 
@@ -328,6 +324,7 @@ WHERE r.ResultID = far.ResultID AND a.ActionID = far.ActionID AND r.UnitsID = u.
 --NOTES:
 --For ODM2 this is only going to include "Time Series Coverage" results and not "Measurement" Results
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName, s.SiteType, v.VariableID, v.VariableCode, v.VariableName, v.Speciation, u.UnitsID, u.UnitsName,
 	v.SampleMedium, v.ValueType, v.DataType, m.MethodID, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition, src.SourceID, src.SourceDescription 
@@ -337,7 +334,7 @@ WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.Va
 	AND src.SourceID = sq.SourceID;
 
 
---This query will only return the QualityControlLevelID = 1 Results having ResultType = 'Time Series Coverage' and collected at the selected site or any
+--ODM2 - This query will only return the QualityControlLevelID = 1 Results having ResultType = 'Time Series Coverage' and collected at the selected site or any
 --of the Site's child SamplingFeatures
 USE ODM2;
 DECLARE @SamplingFeatureID AS int;
@@ -365,6 +362,7 @@ WHERE r.QualityControlLevelID = @QualityControlLevelID AND r.ResultTypeCV = 'Tim
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --14.  Give me a list of Sites where Observations have been made for a particular Variable within a given SampleMedium.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+--ODM 1.1.1
 USE LittleBearRiverODM;
 SELECT DISTINCT s.SiteID, s.SiteCode, s.SiteName
 FROM Sites s, (SELECT DISTINCT SiteID, VariableID FROM DataValues) AS sq, Variables v
@@ -372,7 +370,7 @@ WHERE s.SiteID = sq.SiteID AND v.VariableID = sq.VariableID AND v.VariableID = 6
 ORDER BY SiteID;
 
 
---For ODM2, I have to check both the Site SamplingFeature AND any children SamplingFeatures
+--ODM2 - For ODM2, I have to check both the Site SamplingFeature AND any children SamplingFeatures
 --Do this for a variable measured on specimens - e.g., VariableID = 65 and with a SampledMedium = "Surface Water"
 USE ODM2;
 DECLARE @VariableID AS int;
