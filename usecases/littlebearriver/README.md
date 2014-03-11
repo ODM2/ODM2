@@ -3,7 +3,7 @@ Little Bear River Watershed Observatory Data Use Case
 
 #### ODM2 Data Use Case Implementation ####
 
-The LBR data have been transferred from an ODM 1.1.1 database to ODM2 using a [SQL script](https://github.com/UCHIC/ODM2/blob/master/usecases/littlebearriver/sqlscripts/ODM1.1.1_to_ODM2_LBRODMFULL.sql). Extensive notes describing the [mapping of the LBR ODM 1.1.1 database to ODM2]((https://github.com/UCHIC/ODM2/blob/master/usecases/littlebearriver/littlebearriver_notes.md)) are available.  Additionally, many use case [SQL queries](https://github.com/UCHIC/ODM2/blob/master/usecases/littlebearriver/sqlscripts/ODM1.1.1_vs_ODM2_Queries_LBRODMFULL.sql) have been written with demonstrations of how the same query can be done in ODM 1.1.1 and in ODM2.
+The LBR data have been transferred from an ODM 1.1.1 database to ODM2 using a [SQL script](https://github.com/UCHIC/ODM2/blob/master/usecases/littlebearriver/sqlscripts/ODM1.1.1_to_ODM2_LBRODMFULL.sql). Extensive notes describing the [mapping of the LBR ODM 1.1.1 database to ODM2](https://github.com/UCHIC/ODM2/blob/master/usecases/littlebearriver/littlebearriver_notes.md) are available.  Additionally, many use case [SQL queries](https://github.com/UCHIC/ODM2/blob/master/usecases/littlebearriver/sqlscripts/ODM1.1.1_vs_ODM2_Queries_LBRODMFULL.sql) have been written with demonstrations of how the same query can be done in ODM 1.1.1 and in ODM2.
 
 #### Dataset Description ####
 The LBR data consist of time series of hydrologic observations collected at aquatic and weather monitoring sites in the Little Bear River of Northern Utah, USA. Also included are water quality samples collected in the Little Bear River and analyzed for constutents such as sediment and nutrient concentrations. The Little Bear River data are currently stored in a CUAHSI Hydrologic Information System (HIS) ODM Version 1.1.1 database in Microsoft SQL Server.  
@@ -26,7 +26,7 @@ In situ sensor, laboratory sample analysis, field observations, derived data
 
 Alkalinity; Barometric Pressure; Battery Voltage; Dicharge; Distance; Electrical Conductivity; Gage Height; Imaginary dielectric constant; Nitrogen, total; Nitrogen, total dissolved; Oxygen, dissolved; Oxygen, dissolved percent of saturation; pH; Phosphorus, particulate; Phosphorus, total; Phosphorus, total dissolved; Preciptiation; Radiation, incoming shortwave; Real dialectric constant; Relative Humidity; Snow Depth; Solids, Total Suspended; Specific Conductance; Temperature; Turbidity; Volumetric Water Content; Wind Direction; Wind Speed
 
-#### Other Links ####  
+#### Other Links ####
 
 Documentation for [ODM 1.1.1](http://hydroserver.codeplex.com/wikipage?title=Observations%20Data%20Model&referringTitle=Documentation) is available online. 
 
