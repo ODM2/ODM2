@@ -320,14 +320,14 @@
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="CitationTitle" nu="0">
+      <Cl au="0" df="" nm="Title" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="CitationYear" nu="0">
+      <Cl au="0" df="" nm="Publisher" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PublicationYear" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CitationText" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="CitationLink" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -339,6 +339,30 @@
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Citations" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ParentCitationID" prCl="CitationID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="DataSetCitations">
+      <TblOpts/>
+      <Cl au="0" df="" nm="DataSetID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_DataSetCitations_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataSetCitations" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_DataSetCitations_DataSets" prLkCl="DataSetID" upAc="3">
+        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataSetCitations" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="DataSetID" prCl="DataSetID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -377,11 +401,6 @@
       <Cl au="0" df="" nm="VersionOfDataSetID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_DataSet_Citations" prLkCl="CitationID" upAc="3">
-        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataSets" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DataSetCitationID" prCl="CitationID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_DataSet_VersionOf" prLkCl="DataSetID" upAc="3">
         <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="DataSets" oe="0" sch="ODM2Core" zr="1"/>
@@ -1277,6 +1296,30 @@
       <Fk deAc="3" nm="fk_ActionExtentionProperites_ExtentionProperties" prLkCl="PropertyID" upAc="3">
         <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2ExtensionProperties" zr="0"/>
         <CdTb mn="1" nm="ActionExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
+        <ClPr cdCl="PropertyID" prCl="PropertyID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CitationExtensionPropertyValues">
+      <TblOpts/>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyValue" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_CitationExtensionPropertyValues_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="CitationExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_CitationExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2ExtensionProperties" zr="0"/>
+        <CdTb mn="1" nm="CitationExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyID" prCl="PropertyID"/>
       </Fk>
       <UniqueConstraints/>
@@ -2415,7 +2458,6 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Citations.fk_Citation_ParentCitation"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_VersionOf"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
@@ -2649,7 +2691,7 @@ An Instrument Calibration Action could either be:
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2ExtensionProperties">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2680,10 +2722,15 @@ An Instrument Calibration Action could either be:
     <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="SamplingFeatureExtensionPropertyValues" x="0" y="273"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="223" y="360"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1078" y="25"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1302" y="23"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="CitationExtensionPropertyValues" x="1092" y="359"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Citations.fk_Citation_ParentCitation"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtentionProperites_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtentionProperites_ExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.CitationExtensionPropertyValues.fk_CitationExtensionPropertyValues_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.CitationExtensionPropertyValues.fk_CitationExtensionPropertyValues_ExtensionProperties"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ResultExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
@@ -2905,7 +2952,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2Provenance">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.5">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2930,16 +2977,18 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedResults" x="632" y="369"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="629" y="298"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="630" y="143"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="862" y="115"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="924" y="232"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="51" y="246"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="52" y="421"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DerivationEquations" x="624" y="485"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquation" x="486" y="572"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="1068" y="117"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorList" x="868" y="236"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="1123" y="236"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorList" x="925" y="365"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetCitations" x="868" y="136"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Citations.fk_Citation_ParentCitation"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetCitations.fk_DataSetCitations_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetCitations.fk_DataSetCitations_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_VersionOf"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
@@ -2952,7 +3001,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquation.fk_ResultDerivationEquation_DerivationEquations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquation.fk_ResultDerivationEquation_Results"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="922" y="386">RelationshipTypeCV:
+      <Note bkCl="ffffffe6" x="921" y="450">RelationshipTypeCV:
 * DerivedFrom
 * VersionOf</Note>
       <Note bkCl="ffffffe6" x="32" y="528">An ObservationAction with MethodType=ResultDerivation
@@ -3045,7 +3094,7 @@ accomodated by a coverage?
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -3160,7 +3209,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="402">
+  <RnmMgr NxRnmId="407">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4108,11 +4157,22 @@ then  additional field are added
       <Rnm id="398" nNm="CitationID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="405" nNm="Title" oNm="CitationTitle"/>
       <Rnm id="401" nNm="CitationTitle" oNm="Title"/>
       <Rnm id="399" nNm="Title" oNm="Authors"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="404" nNm="PublicationYear" oNm="CitationYear"/>
       <Rnm id="400" nNm="CitationYear" oNm="Year"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetCitations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="402" nNm="DataSetID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="403" nNm="Publisher" oNm="CitationText"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExtensionPropertyValues" SupCls="Schema" SupNme="ODM2ExtensionProperties">
+      <Rnm id="406" nNm="CitationID" oNm="Id"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -4131,19 +4191,21 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
     <TreePath>/Schemas (12)/ODM2Core</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (17)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (18)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (18)/Citations</TreePath>
     <TreePath>/Schemas (12)/ODM2Provenance</TreePath>
     <TreePath>/Schemas (12)/ODM2Provenance/Tables (6)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
