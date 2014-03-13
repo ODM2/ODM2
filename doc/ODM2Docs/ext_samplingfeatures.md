@@ -19,6 +19,14 @@ ODM2 adopts the ODM 1.1.1 representation of point monitoring locations as [Sites
 The SiteType field should be populated using terms from the ODM2 SiteType controlled vocabulary. The SiteType CV currently includes terms from the USGS Site Type Codes (USGS SiteTypes). Although a good place to start, the USGS site types include a few terms that could be considered “Features of Interest” and not “Sampling Features” (e.g., "stream", "ocean", "canal", "ditch", "spring", "glacier", "atmosphere", etc."). Some moderation is needed to ensure that ODM2 SiteTypes are consistently “Sampling Features” and not “Features of Interest.”  
 
 ### Sampling Features that are Specimens ###
-Specimens can have 
+**Specimens** are equivalent to "samples" and may take many forms. Specimens can have a SpecimenType chosen from a controlled vocabulary. They can also be qualified by a SpecimenMedium, which is the environmental medium of the sample - e.g., rock, water, sediment, tissue, etc. 
 
-### Relationships Among Sampling Features ###
+Specimens are typically collected at a **Site**.  For example, a researcher might collect many water quality Specimens at a fixed aquatic monitoring Site in a stream. Or, a researcher may collect many soil Specimens at a single Site. In these cases, a **Geometry** can be applied to the Site SamplingFeature to indicate the geospatial location of the Site. The Specimens themselves would not have a Geometry, but the relationship between Specimens and the Site at which they were collected would then be stored in the **FeatureParents** entity. 
+
+However, there are also instances when a researcher may collect many Specimens over a spatial domain, but where there is no intention to ever return to any of the exact locations at which the Specimens were collected. In this case, the researcher may choose not to create a formal Site for each spatial location at which a Specimen was collected, but it is still important to record the exact location at which each Specimen was collected. In these cases, ODM2 allows users to apply a Geometry directly to the Specimen. Where a Specimen has a Geometry, it would be interpreted as the location at which the Specimen was collected and would most likey a point specified by point coordinates.
+
+### Relationships Among SamplingFeatures ###
+As described above, SamplingFeatures may be related. A Specimen SamplingFeature may be collected at a Site SamplingFeature. A Profile SamplingFeature may be located at a Site SamplingFeature. Other relationships are also possible. In all cases, these relationships are encoded in the **FeatureParents** entity. Each Samplingfeature may be associated with a SamplingFeature that is its parent. Additionally, a more specific RelationshipType can be chosen from a controlled vocabulary. Finally, if the relationship involves a spatial offset between the parent and child features, the spatial offset can be specified in the **SpatialOffsets** entity.
+
+### Spatial Offsets for SamplingFeatures ###
+TODO:  Anthony!
