@@ -9,9 +9,11 @@ xenolith samples from the Earth's mantle and lower crust.
 
 #### Data Source Information ####
 
-Contact: Kerstin Lehnert
-Email: info@earthchem.org
-Organization: Lamont-Doherty Earth Observatory, Columbia University
+**Contact:** Kerstin Lehnert
+
+**Email:** info@earthchem.org
+
+**Organization:** Lamont-Doherty Earth Observatory, Columbia University
 
 #### Temporal Information ####
 
