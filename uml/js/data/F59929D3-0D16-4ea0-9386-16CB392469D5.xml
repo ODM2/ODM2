@@ -1,4 +1,4 @@
-tocTab[tocTab.length] = new Array("0.1:1", "", "Collection", "EARoot/EA1/EA30.htm", "175.png", "4055", "0", "", "Logical diagram0","{6905D906-4694-423f-B300-32B6EB864B24}");
-tocTab[tocTab.length] = new Array("0.1:2", "", "QueryParameters", "EARoot/EA1/EA32.htm", "230.png", "E8640", "0", "", "DataType0","{D4150944-7ACF-4ec3-A2C4-4CD295421680}");
-tocTab[tocTab.length] = new Array("0.1:3", "", "«FeatureType» ActionCollection", "EARoot/EA1/EA33.htm", "5.png", "E8556", "0", "", "Class0","{FEAE5CC6-3C9C-4f32-9A26-A33560D5E987}");
-tocTab[tocTab.length] = new Array("0.1:4", "", "«DataType» DocumentMetadata", "EARoot/EA1/EA34.htm", "5.png", "E8555", "0", "", "Class0","{2690E3A3-EBA5-4551-B4E8-D14C90758435}");
+tocTab[tocTab.length] = new Array("0.1:1", "", "Collection", "EARoot/EA1/EA47.htm", "175.png", "4055", "0", "", "Logical diagram0","{6905D906-4694-423f-B300-32B6EB864B24}");
+tocTab[tocTab.length] = new Array("0.1:2", "", "QueryParameters", "EARoot/EA1/EA49.htm", "230.png", "E8640", "0", "", "DataType0","{D4150944-7ACF-4ec3-A2C4-4CD295421680}");
+tocTab[tocTab.length] = new Array("0.1:3", "", "«FeatureType» ActionCollection", "EARoot/EA1/EA50.htm", "5.png", "E8556", "0", "", "Class0","{FEAE5CC6-3C9C-4f32-9A26-A33560D5E987}");
+tocTab[tocTab.length] = new Array("0.1:4", "", "«DataType» DocumentMetadata", "EARoot/EA1/EA51.htm", "5.png", "E8555", "0", "", "Class0","{2690E3A3-EBA5-4551-B4E8-D14C90758435}");

@@ -1,0 +1,8 @@
+tocTab[tocTab.length] = new Array("0.5:1", "", "ODM2DataQuality", "EARoot/EA5/EA125.htm", "175.png", "4492", "0", "", "Logical diagram0","{1E47139E-BE20-4c68-9859-9071FE1675E5}");
+tocTab[tocTab.length] = new Array("0.5:2", "", "ReferenceMaterial", "EARoot/EA5/EA127.htm", "175.png", "4490", "0", "", "Logical diagram0","{5DEC5D49-48CE-42b5-8CAB-2E2C0E50AD0D}");
+tocTab[tocTab.length] = new Array("0.5:3", "", "ResultQuality", "EARoot/EA5/EA129.htm", "175.png", "4491", "0", "", "Logical diagram0","{1C1D8DC4-ED2C-457e-8120-EBAFFA2C0BAD}");
+tocTab[tocTab.length] = new Array("0.5:4", "", "«Type» DataQuality", "EARoot/EA5/EA131.htm", "5.png", "E11179", "0", "", "Class0","{598046A6-5B53-4aa1-BB15-6135932143AA}");
+tocTab[tocTab.length] = new Array("0.5:5", "", "«Type» ReferenceMaterial", "EARoot/EA5/EA132.htm", "5.png", "E11175", "0", "", "Class0","{6B71729D-9D2A-49a9-8198-31C149783BC4}");
+tocTab[tocTab.length] = new Array("0.5:6", "", "«Type» ReferenceMaterialValue", "EARoot/EA5/EA133.htm", "5.png", "E11176", "0", "", "Class0","{4C56236C-A6D9-47e9-BFA4-44B6A91AA65C}");
+tocTab[tocTab.length] = new Array("0.5:7", "", "«Type» ResultDataQuality", "EARoot/EA5/EA134.htm", "5.png", "E11178", "0", "", "Class0","{41EB4811-DA11-4c1b-8618-8696767B006A}");
+tocTab[tocTab.length] = new Array("0.5:8", "", "«Type» ResultNormalizationValue", "EARoot/EA5/EA135.htm", "5.png", "E11177", "0", "", "Class0","{B8385892-4684-4423-8681-333A07AD357F}");
