@@ -1,5 +1,5 @@
-tocTab[tocTab.length] = new Array("0.10:1", "", "ODM2Sensors", "EARoot/EA10/EA142.htm", "175.png", "4040", "0", "", "Logical diagram0","{58FF3A3F-870A-472f-8C41-73A41B3D5460}");
-tocTab[tocTab.length] = new Array("0.10:2", "", "«type» DataLoggerFile", "EARoot/EA10/EA146.htm", "5.png", "E8628", "0", "", "Class0","{04B69D90-921D-44e7-AA96-F9EC957BD896}");
-tocTab[tocTab.length] = new Array("0.10:3", "", "«FeatureType» DeploymentAction", "EARoot/EA10/EA147.htm", "5.png", "E8630", "0", "", "Class0","{9BAA87F7-0F62-4b63-A603-6FD7DBE999C9}");
-tocTab[tocTab.length] = new Array("0.10:4", "", "«DataType» Photo", "EARoot/EA10/EA148.htm", "5.png", "E8626", "0", "", "Class0","{35866E7E-B306-4137-9C93-587A542C92A3}");
-tocTab[tocTab.length] = new Array("0.10:5", "", "«FeatureType» SiteVisitAction", "EARoot/EA10/EA149.htm", "5.png", "E8627", "0", "", "Class0","{8E02E3B0-E6AF-4bc2-AF03-75DF3AF60F36}");
+tocTab[tocTab.length] = new Array("0.11:1", "", "ODM2Sensors", "EARoot/EA11/EA170.htm", "175.png", "4040", "0", "", "Logical diagram0","{58FF3A3F-870A-472f-8C41-73A41B3D5460}");
+tocTab[tocTab.length] = new Array("0.11:2", "", "«type» DataLoggerFile", "EARoot/EA11/EA174.htm", "5.png", "E8628", "0", "", "Class0","{04B69D90-921D-44e7-AA96-F9EC957BD896}");
+tocTab[tocTab.length] = new Array("0.11:3", "", "«type» DeploymentAction", "EARoot/EA11/EA175.htm", "5.png", "E8630", "0", "", "Class0","{9BAA87F7-0F62-4b63-A603-6FD7DBE999C9}");
+tocTab[tocTab.length] = new Array("0.11:4", "", "«DataType» Photo", "EARoot/EA11/EA176.htm", "5.png", "E8626", "0", "", "Class0","{35866E7E-B306-4137-9C93-587A542C92A3}");
+tocTab[tocTab.length] = new Array("0.11:5", "", "«type» SiteVisitAction", "EARoot/EA11/EA177.htm", "5.png", "E8627", "0", "", "Class0","{8E02E3B0-E6AF-4bc2-AF03-75DF3AF60F36}");
