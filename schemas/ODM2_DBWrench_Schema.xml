@@ -1020,6 +1020,7 @@
     <Tbl UsSo="1" nm="ResultNormalizationValues">
       <Cm>Extends the Results table with a foreign key to NormalizationReferenceMaterialValues when the optional DataQuality schema is implemented.  In a database implementation, we would not implement this as a separate table from Results.</Cm>
       <TblOpts/>
+      <Pk ClNs="ResultID" nm="pkResultNormalizationValues"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
@@ -1739,6 +1740,30 @@
         <StPr stA="ODM2Core" stB="Directives"/>
       </SchTrHis>
     </Tbl>
+    <Tbl UsSo="1" nm="SpecimenBatchPostions">
+      <Cm>Extends the FeatureActions table with a foreign key when the optional LabAnalyses schema is implemented.  In a database implementation, we would not implement this as a separate table from FeatureActions, but rather just add the additional field(s).</Cm>
+      <TblOpts/>
+      <Pk ClNs="FeatureActionID" nm="pkSpecimenBatchPostions"/>
+      <Cl au="0" df="" nm="FeatureActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foriegn key identifer for the Specimen Preparation or Analysis Batch</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="BatchPositionNumber" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The position or line number of a specimen within a PreparationBatchAction or an InstrumentAnalysisAction.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="BatchPositionLabel" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The label text for a specimen within a PreparationBatchAction or an InstrumentAnalysisAction.</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_FeatureActionID_FeatureActions" prLkCl="FeatureActionID" upAc="3">
+        <PrTb mn="0" nm="FeatureActions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="SpecimenBatchPostions" oe="0" sch="ODM2LabAnalyses" zr="1"/>
+        <ClPr cdCl="FeatureActionID" prCl="FeatureActionID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes for creating and storing provenance information and versions of observations in ODM2." nm="ODM2Provenance">
@@ -2331,7 +2356,7 @@ single foreign key column.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2736,44 +2761,31 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="201" y="544"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="578" y="107"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="489" y="657"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="133" y="546"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="576" y="122"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="792" y="544"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="262" y="47"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="194" y="697"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="586" y="260"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="49" y="764"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="582" y="273"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="498" y="544"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="312" y="348"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="270" y="282"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="369" y="444"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchPostions" x="440" y="674"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="322" y="763"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Directives"/>
+    <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.SpecimenBatchPostions.fk_FeatureActionID_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
-    <Notes>
-      <Note bkCl="ffffffe6" x="781" y="628">If an Index or Key were made from concatenating 
-SamplingFeatureID &amp; ActionID from the FeatureActionResult table,
-then it would be possible to track the position of a
-Specimen within an AnalysisBatch as it progresses from
-a SpecimenPreparationAction to an 
-InstrumentAnalysis[=MethodType] ObservationAction.
-This info is tracked in nearly every lab.
-
-For a SpecimenPreparationAction, where there are no Results 
-and ResultID is null, such a FeatureActionIndexID would be 
-the same as a primary key for the FeatureActionResult table 
-(i.e. a FeatureActionResultID).
-
-For a InstrumentAnalysis[=MethodType] ObservationAction,
-however, using a FeatureActionResultID will not work, because 
-there can by many results for each unique Specimen-Action combo.</Note>
-    </Notes>
+    <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Overview">
@@ -2981,7 +2993,7 @@ accomodated by a coverage?
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -3090,7 +3102,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="393">
+  <RnmMgr NxRnmId="397">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4024,6 +4036,14 @@ then  additional field are added
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
       <Rnm id="391" nNm="SpecimenBatchLines" oNm="BatchSpecimenLines"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenBatchPostions" SupCls="Schema" SupNme="ODM2LabAnalyses">
+      <Rnm id="393" nNm="FeatureActionID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
+      <Rnm id="396" nNm="SpecimenBatchPostions" oNm="FeatureActionBatches"/>
+      <Rnm id="395" nNm="FeatureActionBatches" oNm="FeatureActionSequences"/>
+      <Rnm id="394" nNm="FeatureActionSequences" oNm="FeatureActionID"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4041,13 +4061,16 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
+    <TreePath>/Schemas (12)/ODM2DataQuality/Tables (5)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
