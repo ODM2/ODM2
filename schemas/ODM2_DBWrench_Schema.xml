@@ -1882,70 +1882,83 @@
       <Pk ClNs="CoverageOriginID" nm="pkCoverageOrigins"/>
       <Cl au="1" df="" nm="CoverageOriginID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
+        <Cm>Primary key to the CoverageOrigin information.</Cm>
       </Cl>
       <Cl au="0" df="" nm="CoverageOriginDescription" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Description of the origin of the coordinate system for the X, Y, and Z coordinates that specify the offset from the sampilng feature.</Cm>
+        <Cm>Defines local coordinate system, its orientation and its origin (zero value point).</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="CoverageTypeCV">
       <TblOpts/>
-      <Cl au="0" df="" nm="CoverageTypeID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
       <Cl au="0" df="" nm="CoverageTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The type of Coverage, such as DepthProfile, Grid, Section, Trajectory, etc. </Cm>
       </Cl>
       <Cl au="0" df="" nm="CoverageTypeDefinition" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>A definition of the Coverage Type, ideally conforming to definitions used by the UniData Common Data Model (CDM).</Cm>
       </Cl>
       <Cl au="0" df="" nm="XDimension" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A text description of the X dimension.  Typically a horizontal length (including Longitude), but could also be a non-spatial dimension such as frequency or wavelength. </Cm>
       </Cl>
       <Cl au="0" df="" nm="YDimension" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A text description of the Y dimension.  Typically a horizontal length (including Latitude), but could also be a non-spatial dimension such as frequency or wavelength. </Cm>
       </Cl>
       <Cl au="0" df="" nm="ZDimension" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A text description of the Z dimension.  Typically a vertical length (such as depth), but could also be a non-spatial dimension such as frequency or wavelength. </Cm>
       </Cl>
       <Cl au="0" df="" nm="XUnitID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key to the units of the X dimension.</Cm>
       </Cl>
       <Cl au="0" df="" nm="YUnitID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key to the units of the Y dimension.</Cm>
       </Cl>
       <Cl au="0" df="" nm="ZUnitID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key to the units of the Z dimension.</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ResultValueCoverages">
+      <Cm>Describes the variations over additional dimensions when ResultType is one or more Coverage types.  As subclass of ResultValues, this table shares the same primary key and can ony have a 1-to-1 (or 0) relationship to ResultValues.</Cm>
       <TblOpts/>
       <Pk ClNs="ValueID" nm="pkResultValueCoverages"/>
       <Cl au="0" df="" nm="ValueID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key and also foreign key to the ResultValues table.</Cm>
       </Cl>
       <Cl au="0" df="" nm="CoverageTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="2555" sc="null" sg="1" un="0"/>
+        <Cm>The type of Coverage, such as DepthProfile, Grid, Section, Trajectory, etc. </Cm>
       </Cl>
       <Cl au="0" df="" nm="CoverageOriginID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key to CoverageOrigins table, which defines local coordinate system, its orientation and its origin (zero value point).</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueX" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Value along the X dimension, as defined by the CoverageType</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueY" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Value along the Y dimension, as defined by the CoverageType</Cm>
       </Cl>
       <Cl au="0" df="" nm="ValueZ" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Value along the Z dimension, as defined by the CoverageType</Cm>
       </Cl>
       <Cl au="0" df="" nm="CoverageLabel" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A text label for the coverage postion, such as "Spot 1", "Spot 2", etc.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultValueCoverages_CoverageOrigins" prLkCl="CoverageOriginID" upAc="3">
         <PrTb mn="0" nm="CoverageOrigins" oe="1" sch="ODM2Results" zr="0"/>
@@ -2950,7 +2963,7 @@ similar to ExternalIdentifiers.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -3039,7 +3052,7 @@ X or Z for instance.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.5">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4152,8 +4165,8 @@ then  additional field are added
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality/Tables (5)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results/Tables (4)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
