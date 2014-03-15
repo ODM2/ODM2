@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">Organizations</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -67,6 +67,54 @@
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Organizations_fk_Organizations_Organizations.html">fk_Organizations_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td>OrganizationID</td><td>ParentOrganizationID</td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Parent Relations</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Affiliations_fk_Affiliations_Organizations.html">fk_Affiliations_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td>OrganizationID</td><td>OrganizationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Methods_fk_Methods_Organizations.html">fk_Methods_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td>OrganizationID</td><td>OrganizationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Organizations_fk_Organizations_Organizations.html">fk_Organizations_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td>OrganizationID</td><td>ParentOrganizationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterials_fk_ReferenceMaterials_Organizations.html">fk_ReferenceMaterials_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td>OrganizationID</td><td>ReferenceMaterialOrganizationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_Organizations.html">fk_Equipment_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>OrganizationID</td><td>EquipmentVendorID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_EquipmentModels_fk_EquipmentModels_Organizations.html">fk_EquipmentModels_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td>OrganizationID</td><td>ModelManufacturerID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_ExternalIdentifierSystems_fk_ExternalIdentifierSystems_Organizations.html">fk_ExternalIdentifierSystems_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td>OrganizationID</td><td>IdentifierSystemOrganizationID</td>
 </tr>
 </table>
 <br>

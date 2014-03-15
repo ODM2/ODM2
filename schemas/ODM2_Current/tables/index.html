@@ -87,7 +87,7 @@
 <td><a href="ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ExternalIdentifierSystems</a></td><td>A single table for connecting various primary keys with points to outside systems.</td><td>ODM2ExternalIdentifiers</td>
 </tr>
 <tr class="altRow">
-<td><a href="ODM2Core_FeatureActionResult.html">FeatureActionResult</a></td><td> </td><td>ODM2Core</td>
+<td><a href="ODM2Core_FeatureActions.html">FeatureActions</a></td><td> </td><td>ODM2Core</td>
 </tr>
 <tr>
 <td><a href="ODM2SamplingFeatures_FeatureParents.html">FeatureParents</a></td><td>Describes parrent/child relationships among Sampling Features</td><td>ODM2SamplingFeatures</td>
@@ -195,27 +195,30 @@
 <td><a href="ODM2SamplingFeatures_SpatialReferences.html">SpatialReferences</a></td><td>Describes spatial reference systems used to reference the coordinates for sites</td><td>ODM2SamplingFeatures</td>
 </tr>
 <tr class="altRow">
+<td><a href="ODM2LabAnalyses_SpecimenBatchPostions.html">SpecimenBatchPostions</a></td><td>Extends the FeatureActions table with a foreign key when the optional LabAnalyses schema is implemented.  In a database implementation, we would not implement this as a separate table from FeatureActions, but rather just add the additional field(s).</td><td>ODM2LabAnalyses</td>
+</tr>
+<tr>
 <td><a href="ODM2SamplingFeatures_SpecimenTaxonomicClassifiers.html">SpecimenTaxonomicClassifiers</a></td><td>This cross-reference table allows Taxonomic Classification of Specimens as an annotation, rather than as a Result.</td><td>ODM2SamplingFeatures</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="ODM2SamplingFeatures_Specimens.html">Specimens</a></td><td>Equivalent to O&amp;M Sampling Feature Type "Specimen".  Describes physical samples or specimens.</td><td>ODM2SamplingFeatures</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers.html">TaxonomicClassifierExternalIdentifiers</a></td><td> </td><td>ODM2ExternalIdentifiers</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="ODM2Core_TaxonomicClassifiers.html">TaxonomicClassifiers</a></td><td> </td><td>ODM2Core</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="ODM2Core_Units.html">Units</a></td><td>Describes units of measure for varibles and time</td><td>ODM2Core</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="ODM2ExtensionProperties_VariableExtensionPropertyValues.html">VariableExtensionPropertyValues</a></td><td> </td><td>ODM2ExtensionProperties</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="ODM2ExternalIdentifiers_VariableExternalIdentifiers.html">VariableExternalIdentifiers</a></td><td> </td><td>ODM2ExternalIdentifiers</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="ODM2Core_Variables.html">Variables</a></td><td>Stores information about measured properties.</td><td>ODM2Core</td>
 </tr>
 </table>

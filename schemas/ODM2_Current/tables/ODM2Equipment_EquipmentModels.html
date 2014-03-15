@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">EquipmentModels</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -73,6 +73,39 @@
 </tr>
 <tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Equipment_EquipmentModels_IsInstrument.html">IsInstrument</a></td><td>Boolean</td><td> </td><td> </td><td> </td><td>A boolean indication of whether the equipment is a sensor/instrument used to make observations</td><td> </td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_EquipmentModels_fk_EquipmentModels_Organizations.html">fk_EquipmentModels_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td>OrganizationID</td><td>ModelManufacturerID</td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Parent Relations</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_EquipmentModels.html">fk_Equipment_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>ModelID</td><td>ModelID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_EquipmentModels.html">fk_InstrumentOutputVariables_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>ModelID</td><td>ModelID</td>
 </tr>
 </table>
 <br>
