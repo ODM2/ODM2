@@ -661,9 +661,13 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Number of data values contained within the result</Cm>
       </Cl>
-      <Cl au="0" df="" nm="IntendedObservationSpacing" nu="0">
+      <Cl au="0" df="" nm="IntendedObservationSpacing" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Intended temporal spacing of the observations in the result</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="isExperimental" nu="0">
+        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Designates whether the Result for a natural phenomena or one induced by an experiment.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Results_FeatureActions" prLkCl="FeatureActionID" upAc="3">
         <PrTb mn="0" nm="FeatureActions" oe="1" sch="ODM2Core" zr="0"/>
@@ -4157,10 +4161,10 @@ then  additional field are added
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
