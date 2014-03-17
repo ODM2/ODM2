@@ -2095,8 +2095,8 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SRSID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      <Cl au="0" df="" nm="SRSCode" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>SRS code for the spatial reference system</Cm>
       </Cl>
       <Cl au="0" df="" nm="SRSName" nu="0">
@@ -3102,7 +3102,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="397">
+  <RnmMgr NxRnmId="398">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4044,6 +4044,9 @@ then  additional field are added
       <Rnm id="395" nNm="FeatureActionBatches" oNm="FeatureActionSequences"/>
       <Rnm id="394" nNm="FeatureActionSequences" oNm="FeatureActionID"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpatialReferences" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="397" nNm="SRSCode" oNm="SRSID"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4061,16 +4064,14 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality/Tables (5)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
