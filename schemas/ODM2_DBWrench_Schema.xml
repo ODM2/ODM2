@@ -1723,12 +1723,15 @@
       <TblOpts/>
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifer of the Citation</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Person that is an author of the Citation</Cm>
       </Cl>
       <Cl au="0" df="" nm="AuthorOrder" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Integer order of the author of the Citation starting with 1 for first author</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_AuthorList_Citations" prLkCl="CitationID" upAc="3">
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
@@ -1749,21 +1752,27 @@
       <Pk ClNs="CitationID" nm="pkCitations"/>
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primay key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="Title" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text title of the citation</Cm>
       </Cl>
       <Cl au="0" df="" nm="Publisher" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text publisher of the citation</Cm>
       </Cl>
       <Cl au="0" df="" nm="PublicationYear" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>4 digit publication year of the citation</Cm>
       </Cl>
       <Cl au="0" df="" nm="CitationLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Full URL link to the citation</Cm>
       </Cl>
       <Cl au="0" df="" nm="ParentCitationID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifer for a citation that is the parent of the current citation</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Citation_ParentCitation" prLkCl="CitationID" upAc="3">
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
@@ -1779,12 +1788,15 @@
       <TblOpts/>
       <Cl au="0" df="" nm="DataSetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the DataSet</Cm>
       </Cl>
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the Citation</Cm>
       </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term describing the relationship between the DataSet and the Citation (e.g., "cites" or "isCitedBy")</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_DataSetCitations_Citations" prLkCl="CitationID" upAc="3">
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
@@ -1874,7 +1886,7 @@
       </Cl>
       <Cl au="0" df="" nm="DerivationEquationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key to the optional DerivationEquations table.  If that table were implemented, then this foreign key could be added directly to the Results table.</Cm>
+        <Cm>Foreign key idenifier for the DerivationEquation used to calculate the Result indicated by ResultID</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultDerivationEquation_DerivationEquations" prLkCl="DerivationEquationID" upAc="3">
         <PrTb mn="0" nm="DerivationEquations" oe="1" sch="ODM2Provenance" zr="0"/>
@@ -4208,12 +4220,12 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
