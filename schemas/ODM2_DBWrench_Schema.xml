@@ -1849,13 +1849,11 @@
         <StPr stA="ODM2Core" stB="RelatedResults"/>
       </SchTrHis>
     </Tbl>
-    <Tbl UsSo="1" nm="ResultDerivationEquations">
+    <Tbl UsSo="1" nm="ResultDerivationEquation">
       <Cm>DerivationEquations include calibration equations, normalizations, etc. on one or more RelatedResults to produce a DerivedResult.</Cm>
       <TblOpts/>
-      <Pk ClNs="ResultID" nm="pkResultDerivationEquations"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key, and also foreign key to Results.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DerivationEquation" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1863,7 +1861,7 @@
       </Cl>
       <Fk deAc="3" nm="fk_ResultDerivationEquation_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="ResultDerivationEquations" oe="1" sch="ODM2Provenance" zr="1"/>
+        <CdTb mn="0" nm="ResultDerivationEquation" oe="1" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints/>
@@ -2969,7 +2967,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="891" y="234"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="51" y="246"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="52" y="421"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquations" x="546" y="522"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquation" x="546" y="522"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="1123" y="236"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorLists" x="925" y="369"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DataSetCitations" x="868" y="141"/>
@@ -2986,7 +2984,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquations.fk_ResultDerivationEquation_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquation.fk_ResultDerivationEquation_Results"/>
     <Notes>
       <Note bkCl="ffffffe6" x="32" y="528">An ObservationAction with MethodType=ResultDerivation
 can specify which RelatedResults the new Result was 
@@ -3198,7 +3196,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="409">
+  <RnmMgr NxRnmId="408">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4136,7 +4134,7 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DerivationEquations" SupCls="Schema" SupNme="ODM2Provenance">
       <Rnm id="392" nNm="DerivationEquationID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultDerivationEquations" SupCls="Schema" SupNme="ODM2Provenance">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultDerivationEquation" SupCls="Schema" SupNme="ODM2Provenance">
       <Rnm id="394" nNm="ResultID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
@@ -4165,9 +4163,6 @@ then  additional field are added
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
       <Rnm id="407" nNm="AuthorLists" oNm="AuthorList"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
-      <Rnm id="408" nNm="ResultDerivationEquations" oNm="ResultDerivationEquation"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
