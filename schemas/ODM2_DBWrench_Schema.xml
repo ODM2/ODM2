@@ -523,25 +523,25 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="QualityControlLevels">
-      <Cm>Describes the quality control level of Results</Cm>
+    <Tbl UsSo="1" nm="ProcessingLevels">
+      <Cm>Describes the processing level of Results</Cm>
       <TblOpts/>
-      <Pk ClNs="QualityControlLevelID" nm="pkQualityControlLevels"/>
-      <Cl au="1" df="" nm="QualityControlLevelID" nu="0">
+      <Pk ClNs="ProcessingLevelID" nm="pkProcessingLevels"/>
+      <Cl au="1" df="" nm="ProcessingLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="QualityControlLevelCode" nu="0">
+      <Cl au="0" df="" nm="ProcessingLevelCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text code identifying the quality control level</Cm>
+        <Cm>Text code identifying the level of processing the Result has been subject to</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text defintion of the quality control level</Cm>
+        <Cm>Text defintion of the processing level</Cm>
       </Cl>
       <Cl au="0" df="" nm="Explanation" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text explanation of the quality control level</Cm>
+        <Cm>Text explanation of the processing level</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -616,9 +616,11 @@
       </Cl>
       <Cl au="0" df="" nm="ResultUUID" nu="0">
         <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Universally unique identifier for the Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="FeatureActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the combinaton of SamplingFeature and Action that created the Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -635,9 +637,9 @@
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="QualityControlLevelID" nu="0">
+      <Cl au="0" df="" nm="ProcessingLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the QualityControlLevel of the result</Cm>
+        <Cm>Foreign key identifier for the ProcessingLevel of the result</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultDateTime" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
@@ -676,10 +678,10 @@
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="FeatureActionID" prCl="FeatureActionID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="QualityControlLevelID" upAc="3">
-        <PrTb mn="0" nm="QualityControlLevels" oe="1" sch="ODM2Core" zr="0"/>
+      <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="ProcessingLevelID" upAc="3">
+        <PrTb mn="0" nm="ProcessingLevels" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="QualityControlLevelID" prCl="QualityControlLevelID"/>
+        <ClPr cdCl="ProcessingLevelID" prCl="ProcessingLevelID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_Taxon" prLkCl="TaxonomicClassifierID" upAc="3">
         <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
@@ -2376,7 +2378,7 @@ single foreign key column.</Note>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="252" y="163"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="211"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1126" y="447"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1130" y="443"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="938" y="646"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="380" y="598"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="302"/>
@@ -2807,7 +2809,7 @@ similar to ExternalIdentifiers.</Note>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="331" y="230"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="887" y="255"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1049" y="670"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1049" y="670"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="945" y="759"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="629"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="623" y="306"/>
@@ -3098,7 +3100,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="398">
+  <RnmMgr NxRnmId="402">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4042,6 +4044,18 @@ then  additional field are added
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpatialReferences" SupCls="Schema" SupNme="ODM2SamplingFeatures">
       <Rnm id="397" nNm="SRSCode" oNm="SRSID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
+      <Rnm id="398" nNm="ProcessingLevels" oNm="QualityControlLevels"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProcessingLevels" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="399" nNm="ProcessingLevelID" oNm="QualityControlLevelID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProcessingLevels" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="400" nNm="ProcessingLevelCode" oNm="QualityControlLevelCode"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="401" nNm="ProcessingLevelID" oNm="QualityControlLevelID"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
