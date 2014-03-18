@@ -825,10 +825,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Speciation for the variable (e.g., expressed as P or as PO4)</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DataTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary for DataType</Cm>
-      </Cl>
       <Cl au="0" df="" nm="NoDataValue" nu="0">
         <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -2493,7 +2489,6 @@ CalibrationStandardTypeCV
 CensorCodeCV
 DataQualityTypeCV
 DatasetTypeCV
-DataTypeCV
 DeploymentTypeCV
 DirectiveTypeCV
 EquipmentTypeCV
