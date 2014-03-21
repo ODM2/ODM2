@@ -179,7 +179,7 @@
     <Tbl UsSo="1" nm="ActionBy">
       <Cm>Affiliates people with actions and describes thier role in the action.</Cm>
       <TblOpts/>
-      <Cl au="0" df="" nm="ActionID" nu="1">
+      <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of an action.</Cm>
       </Cl>
@@ -321,6 +321,9 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
+      <Cl au="0" df="" nm="DataSetUUID" nu="0">
+        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="DataSetTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term(s) describing the Topic Category</Cm>
@@ -368,30 +371,26 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="FeatureActionResult">
+    <Tbl UsSo="1" nm="FeatureActions">
       <TblOpts/>
+      <Pk ClNs="FeatureActionID" nm="pkFeatureActions"/>
+      <Cl au="1" df="" nm="FeatureActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="ResultID" nu="1">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
       <Fk deAc="3" nm="fk_FeatureActionResult_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="FeatureActionResult" oe="0" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="FeatureActions" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_FeatureActionResult_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="FeatureActionResult" oe="1" sch="ODM2Core" zr="0"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_FeatureActionResult_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="FeatureActionResult" oe="0" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="FeatureActions" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
@@ -500,25 +499,25 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="QualityControlLevels">
-      <Cm>Describes the quality control level of Results</Cm>
+    <Tbl UsSo="1" nm="ProcessingLevels">
+      <Cm>Describes the processing level of Results</Cm>
       <TblOpts/>
-      <Pk ClNs="QualityControlLevelID" nm="pkQualityControlLevels"/>
-      <Cl au="1" df="" nm="QualityControlLevelID" nu="0">
+      <Pk ClNs="ProcessingLevelID" nm="pkProcessingLevels"/>
+      <Cl au="1" df="" nm="ProcessingLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="QualityControlLevelCode" nu="0">
+      <Cl au="0" df="" nm="ProcessingLevelCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text code identifying the quality control level</Cm>
+        <Cm>Text code identifying the level of processing the Result has been subject to</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text defintion of the quality control level</Cm>
+        <Cm>Text defintion of the processing level</Cm>
       </Cl>
       <Cl au="0" df="" nm="Explanation" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text explanation of the quality control level</Cm>
+        <Cm>Text explanation of the processing level</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -561,6 +560,14 @@
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
+      <Cl au="0" df="" nm="ResultUUID" nu="0">
+        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Universally unique identifier for the Result</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="FeatureActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the combinaton of SamplingFeature and Action that created the Result</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ResultTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the result type (e.g., time series, measurement, etc.)</Cm>
@@ -576,9 +583,9 @@
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="QualityControlLevelID" nu="0">
+      <Cl au="0" df="" nm="ProcessingLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the QualityControlLevel of the result</Cm>
+        <Cm>Foreign key identifier for the ProcessingLevel of the result</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultDateTime" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
@@ -608,14 +615,19 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Number of data values contained within the result</Cm>
       </Cl>
-      <Cl au="0" df="" nm="IntendedObservationSpacing" nu="0">
+      <Cl au="0" df="" nm="IntendedObservationSpacing" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Intended temporal spacing of the observations in the result</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="QualityControlLevelID" upAc="3">
-        <PrTb mn="0" nm="QualityControlLevels" oe="1" sch="ODM2Core" zr="0"/>
+      <Fk deAc="3" nm="fk_Results_FeatureActions" prLkCl="FeatureActionID" upAc="3">
+        <PrTb mn="0" nm="FeatureActions" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="QualityControlLevelID" prCl="QualityControlLevelID"/>
+        <ClPr cdCl="FeatureActionID" prCl="FeatureActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="ProcessingLevelID" upAc="3">
+        <PrTb mn="0" nm="ProcessingLevels" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="ProcessingLevelID" prCl="ProcessingLevelID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_Taxon" prLkCl="TaxonomicClassifierID" upAc="3">
         <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
@@ -647,31 +659,31 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term descripting the type of sampling feature.</Cm>
       </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureCode" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureName" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Sampling Feature name (free text).</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureGeotypeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Dimensionality of SamplingFeature; point2d, line2d, etc.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the Spatial Reference System for the feature geometry.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="FeatureGeometry" nu="1">
-        <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text describing the sampling feature.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
-        <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
-      </Fk>
+      <Cl au="0" df="" nm="SamplingFeatureGeotypeCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Dimensionality of SamplingFeature; point2d, line2d, etc.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="FeatureGeometry" nu="1">
+        <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Elevation_m" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ElevationDatumcCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -761,14 +773,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Speciation for the variable (e.g., expressed as P or as PO4)</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ValueTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary for ValueType</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary for DataType</Cm>
-      </Cl>
       <Cl au="0" df="" nm="NoDataValue" nu="0">
         <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -817,7 +821,7 @@
       </Cl>
       <Cl au="0" df="" nm="DataQualityTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>	i.e. Precision_2sigma, MethodDetectionLimit, ReportingLevel, 95%ConfidenceNoFalsePositives.</Cm>
+        <Cm>  i.e. Precision_2sigma, MethodDetectionLimit, ReportingLevel, 95%ConfidenceNoFalsePositives.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataQualityCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -962,6 +966,7 @@
     <Tbl UsSo="1" nm="ResultNormalizationValues">
       <Cm>Extends the Results table with a foreign key to NormalizationReferenceMaterialValues when the optional DataQuality schema is implemented.  In a database implementation, we would not implement this as a separate table from Results.</Cm>
       <TblOpts/>
+      <Pk ClNs="ResultID" nm="pkResultNormalizationValues"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
@@ -1705,6 +1710,30 @@
         <StPr stA="ODM2Core" stB="Directives"/>
       </SchTrHis>
     </Tbl>
+    <Tbl UsSo="1" nm="SpecimenBatchPostions">
+      <Cm>Extends the FeatureActions table with a foreign key when the optional LabAnalyses schema is implemented.  In a database implementation, we would not implement this as a separate table from FeatureActions, but rather just add the additional field(s).</Cm>
+      <TblOpts/>
+      <Pk ClNs="FeatureActionID" nm="pkSpecimenBatchPostions"/>
+      <Cl au="0" df="" nm="FeatureActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foriegn key identifer for the Specimen Preparation or Analysis Batch</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="BatchPositionNumber" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The position or line number of a specimen within a PreparationBatchAction or an InstrumentAnalysisAction.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="BatchPositionLabel" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The label text for a specimen within a PreparationBatchAction or an InstrumentAnalysisAction.</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_FeatureActionID_FeatureActions" prLkCl="FeatureActionID" upAc="3">
+        <PrTb mn="0" nm="FeatureActions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="0" nm="SpecimenBatchPostions" oe="1" sch="ODM2LabAnalyses" zr="1"/>
+        <ClPr cdCl="FeatureActionID" prCl="FeatureActionID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes for creating and storing provenance information and versions of observations in ODM2." nm="ODM2Provenance">
@@ -2126,14 +2155,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A CV term describing the site type</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SiteCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>A text code that identifies the site (e.g., a USGS Gage number)</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SiteName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A text name for the site</Cm>
-      </Cl>
       <Cl au="0" df="" nm="Latitude" nu="0">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Latitude of the site</Cm>
@@ -2145,14 +2166,6 @@
       <Cl au="0" df="" nm="LatLonDatumID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Elevation_m" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>The elevation of the site in meters above some vertical datum</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VerticalDatumCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A CV term describing the vertical datum to which the site elevation is referenced</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SiteDatum_SRSID" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
@@ -2214,8 +2227,8 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SRSID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      <Cl au="0" df="" nm="SRSCode" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>SRS code for the spatial reference system</Cm>
       </Cl>
       <Cl au="0" df="" nm="SRSName" nu="0">
@@ -2240,10 +2253,6 @@
       <Cl au="0" df="" nm="SpecimenTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A CV term defining the type of specimen (e.g., aquatic sample, core, etc.)</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SpecimenCode" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>A unique text code that identifies the specimen.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpecimenMediumCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -2446,17 +2455,17 @@
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="335" y="523"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="675" y="357"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="839" y="21"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="622" y="127"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="486" y="292"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1133" y="59"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="908" y="290"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="72" y="22"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="353" y="22"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="53" y="286"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="294" y="356"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="398" y="549"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="901" y="377"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="902" y="47"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="685" y="72"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="687" y="305"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1196" y="85"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="1198" y="414"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="135" y="48"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="416" y="48"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="54" y="291"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="403" y="367"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations"/>
@@ -2470,7 +2479,7 @@
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
-      <Note bkCl="ffffff00" x="37" y="429">We could have a single cross-reference table.
+      <Note bkCl="ffffff00" x="32" y="442">We could have a single cross-reference table.
 But, we would lose referential integrity
 with the tables that reference it as there would
 be no way for all of the table to share a
@@ -2479,7 +2488,7 @@ single foreign key column.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2500,22 +2509,22 @@ single foreign key column.</Note>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="252" y="163"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="219"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1126" y="447"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="211"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1130" y="443"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="938" y="646"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="380" y="598"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="286"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="302"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="313" y="440"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="97" y="296"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="20" y="246"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="22" y="398"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="332" y="297"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="331" y="327"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1150" y="154"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1150" y="289"/>
     <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="RelatedResults" x="1151" y="353"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="808" y="494"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1031" y="533"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="586" y="514"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="569" y="197"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="566" y="208"/>
     <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="Citations" x="1164" y="32"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
@@ -2524,9 +2533,8 @@ single foreign key column.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedActions.fk_RelatedActions_Actions"/>
@@ -2607,38 +2615,39 @@ in "PetDBSchema-Redesign-26.png"</Note>
     <TbGl bkCl="ffccccff" sch="ODM2CV" tbl="CVTerms" x="40" y="35"/>
     <Notes>
       <Note bkCl="ffffffe6" x="283" y="54">The following is the list of CVs in ODM2:
-Units
-SpatialReferences
-DataTypeCV
-UnitsTypeCV
-DatasetUniqueIDTypeCV
+ActionTypeCV
 AnnotationTypeCV
-CensorCodeCV
-InterpolationTypeCV
-QualityCodeCV
-EquipmentTypeCV
 CalibrationStandardTypeCV
+CensorCodeCV
+DataQualityTypeCV
+DatasetTypeCV
+DeploymentTypeCV
+DirectiveTypeCV
+EquipmentTypeCV
+InterpolationTypeCV
+MethodTypeCV
+OrganizationTypeCV
 PropertyDataTypeCV
+QualityCodeCV
+ReferenceMaterialMediumCV
 RelationshipTypeCV
-SpecimentTypeCV
-SpecimenMediumCV
-VerticalDatumDCV
+ResultTypeCV
+SampledMediumCV
+SamplingFeatureGeoTypeCV
+SamplingFeatureTypeCV
 SiteTypeCV
 SpatialOffsetTypeCV
-SamplingFeatureTypeCV
-PersonUniqueIDTypeCV
-OrganizationUniqueIDTypeCV
-MethodUniqueIDTypeCV
-ActionTypeCV
-ResultTypeCV
+SpatialReferences
+SpeciationCV
+SpecimenMediumCV
+SpecimenTypeCV
 StatusCV
-SampledMediumCV
+TaxonomicClassifierTypeCV
+Units
+UnitsTypeCV
 VariableNameCV
 VariableTypeCV
-ValueTypeCV
-DeploymentTypeCV
-SpeciationCV
-DataSetTopicCategoryCV</Note>
+VerticalDatumCV</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2666,16 +2675,16 @@ DataSetTopicCategoryCV</Note>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="647" y="566"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="307" y="472"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="564" y="178"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="297" y="320"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="297" y="320"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="301" y="114"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="15" y="308"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="12" y="477"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="871" y="336"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="892" y="167"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultNormalizationValues" x="629" y="479"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_NormalizationReferenceMaterialValues_ReferenceMaterials"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultNormalizationValues.fk_ResultsNormalizationValues_NormalizationReferenceMaterialValues"/>
@@ -2710,7 +2719,7 @@ DataSetTopicCategoryCV</Note>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="454" y="209"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="163" y="150"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="772" y="396"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="772" y="582"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="772" y="582"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="456" y="450"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="633" y="50"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="843" y="209"/>
@@ -2719,10 +2728,10 @@ DataSetTopicCategoryCV</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="158" y="648"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="23" y="827"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels"/>
@@ -2774,17 +2783,17 @@ An Instrument Calibration Action could either be:
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ExtensionProperties" x="345" y="536"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="MethodExtensionPropertyValues" x="485" y="271"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="574" y="129"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="785" y="25"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ResultExtensionPropertyValues" x="666" y="358"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="VariableExtensionPropertyValues" x="924" y="271"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="22" y="28"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="312" y="26"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="SamplingFeatureExtensionPropertyValues" x="0" y="273"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="223" y="360"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1078" y="25"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ExtensionProperties" x="444" y="555"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="MethodExtensionPropertyValues" x="584" y="290"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="673" y="148"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="884" y="44"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ResultExtensionPropertyValues" x="765" y="377"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="VariableExtensionPropertyValues" x="937" y="484"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="121" y="47"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="411" y="45"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="SamplingFeatureExtensionPropertyValues" x="33" y="270"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="322" y="379"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1177" y="44"/>
     <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="Citations" x="1302" y="23"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="CitationExtensionPropertyValues" x="1092" y="359"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
@@ -2840,11 +2849,10 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1325" y="46"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="TaxonomicClassifierExternalIdentifiers" x="1214" y="328"/>
     <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="200" y="38"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="0" y="152"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="34" y="152"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ReferenceMaterialExternalIdentifiers" x="67" y="441"/>
     <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="Citations" x="1635" y="176"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1402" y="443"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.CitationExternalIdentifiers.fk_CitationExternalIdentifiers_Citations"/>
@@ -2885,44 +2893,31 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="167" y="520"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="544" y="83"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="455" y="633"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="228" y="23"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="160" y="673"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="552" y="236"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="464" y="520"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="278" y="324"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="236" y="258"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="335" y="420"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="133" y="546"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="576" y="122"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="792" y="544"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="262" y="47"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="49" y="764"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="582" y="273"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="498" y="544"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="312" y="348"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="270" y="282"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="369" y="444"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchPostions" x="440" y="674"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="322" y="763"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Directives"/>
+    <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.SpecimenBatchPostions.fk_FeatureActionID_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
-    <Notes>
-      <Note bkCl="ffffffe6" x="747" y="604">If an Index or Key were made from concatenating 
-SamplingFeatureID &amp; ActionID from the FeatureActionResult table,
-then it would be possible to track the position of a
-Specimen within an AnalysisBatch as it progresses from
-a SpecimenPreparationAction to an 
-InstrumentAnalysis[=MethodType] ObservationAction.
-This info is tracked in nearly every lab.
-
-For a SpecimenPreparationAction, where there are no Results 
-and ResultID is null, such a FeatureActionIndexID would be 
-the same as a primary key for the FeatureActionResult table 
-(i.e. a FeatureActionResultID).
-
-For a InstrumentAnalysis[=MethodType] ObservationAction,
-however, using a FeatureActionResultID will not work, because 
-there can by many results for each unique Specimen-Action combo.</Note>
-    </Notes>
+    <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Overview">
@@ -2948,7 +2943,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="331" y="230"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="887" y="255"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1049" y="670"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1049" y="670"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="945" y="759"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="629"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="623" y="306"/>
@@ -2967,7 +2962,7 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="40" y="191"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1397" y="547"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1398" y="769"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="625" y="214"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="625" y="214"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="1429" y="269"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="1443" y="440"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
@@ -2977,11 +2972,11 @@ there can by many results for each unique Specimen-Action combo.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
@@ -3160,7 +3155,7 @@ accomodated by a coverage?
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -3180,15 +3175,14 @@ accomodated by a coverage?
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="255" y="96"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="312" y="262"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="26" y="258"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="551" y="113"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="585" y="336"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="878" y="113"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="98" y="116"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="311" y="309"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="27" y="317"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="394" y="133"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="565" y="333"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="721" y="133"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="16" y="420"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="36" y="518"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
@@ -3199,12 +3193,7 @@ accomodated by a coverage?
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.SpecimenTaxonomicClassifiers.fk_SpecimenTaxonomicClassifiers_Specimens"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.SpecimenTaxonomicClassifiers.fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="6" y="155">Recommendation for ODM2 regarding
-Specimens: A specimen will not have 
-location information. That information
-will be associated from its parent 
-SamplingFeature, via FeatureParents</Note>
-      <Note bkCl="ffffffe6" x="565" y="200">FeatureParents table enables parent-child
+      <Note bkCl="ffffffe6" x="408" y="220">FeatureParents table enables parent-child
 relationships between any SamplingFeatures,
 including between Specimens and allowing
 composites (i.e. multiple parents).</Note>
@@ -3221,9 +3210,9 @@ should also be accounted for.</Note>
 SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
 Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
 Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
-      <Note bkCl="ffffffe6" x="890" y="260">SpatialOffsetTypeCV:
+      <Note bkCl="ffffffe6" x="722" y="272">SpatialOffsetTypeCV:
 - Draft at http://goo.gl/uOgK8U</Note>
-      <Note bkCl="ffffffe6" x="17" y="95">SamplingFeatureTypeCV:
+      <Note bkCl="ffffffe6" x="269" y="62">SamplingFeatureTypeCV:
 - Draft at http://goo.gl/DBvZko</Note>
     </Notes>
     <Zones/>
@@ -3256,9 +3245,9 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="36" y="54"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="SiteVisitActions" x="142" y="446"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="Photos" x="371" y="545"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="667" y="275"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="667" y="275"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DataLoggerFiles.fk_DataLoggerFiles_DeploymentEvents"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentActions.fk_DeploymentEvents_Events"/>
@@ -3275,978 +3264,6 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="409">
-    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
-      <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
-      <Rnm id="25" nNm="Measurements" oNm="MeasurementObservations"/>
-      <Rnm id="24" nNm="MeasurementObservations" oNm="Measurements"/>
-      <Rnm id="23" nNm="Measurements" oNm="MeasurementValues"/>
-      <Rnm id="4" nNm="MeasurementValues" oNm="Measurements1"/>
-      <Rnm id="2" nNm="Measurements1" oNm="Measurements"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
-      <Rnm id="3" nNm="Measurements" oNm="MeasurementValues"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalyticalInstruments" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="5" nNm="InstrumentID" oNm="AnalyticalInstrumentID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalyticalInstruments" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="6" nNm="InstrumentCode" oNm="AnalyticalInstrumentCode"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalyticalInstruments" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="7" nNm="InstrumentSerialNumber" oNm="AnalyticalInstrumentSerialNumber"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="8" nNm="InstrumentID" oNm="AnalyticalInstrumentID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
-      <Rnm id="9" nNm="TimeSeriesSensorDeployments" oNm="TImeSeriesSensorDeployments"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TimeSeriesCoverages" SupCls="Schema" SupNme="ODM2Observations">
-      <Rnm id="10" nNm="IntendedObservationSpacing" oNm="IntendedSpacingValue"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
-      <Rnm id="11" nNm="Coverages" oNm="Coverage"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
-      <Rnm id="12" nNm="PointCoverages" oNm="PointCoverage"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
-      <Rnm id="14" nNm="TimeSeriesCoverages" oNm="TimeSeriesCoverage"/>
-      <Rnm id="13" nNm="TimeSeriesCoverage" oNm="TimeSeries"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
-      <Rnm id="15" nNm="ProfileCoverages" oNm="Profiles"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TimeSeriesCoverages" SupCls="Schema" SupNme="ODM2Observations">
-      <Rnm id="28" nNm="ObservationSetID" oNm="ObservationID"/>
-      <Rnm id="16" nNm="ObservationID" oNm="CoverageID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="PointCoverages" SupCls="Schema" SupNme="ODM2Observations">
-      <Rnm id="29" nNm="ObservationSetID" oNm="ObservationID"/>
-      <Rnm id="17" nNm="ObservationID" oNm="CoverageID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProfileCoverages" SupCls="Schema" SupNme="ODM2Observations">
-      <Rnm id="20" nNm="ProfileID" oNm="ObservationID"/>
-      <Rnm id="18" nNm="ObservationID" oNm="CoverageID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProfileCoverages" SupCls="Schema" SupNme="ODM2Observations">
-      <Rnm id="19" nNm="gID" oNm="ProfileID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedResults" SupCls="Schema" SupNme="ODM2Observations">
-      <Rnm id="21" nNm="RelationshipRole" oNm="Role"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Measurements" SupCls="Schema" SupNme="ODM2Observations">
-      <Rnm id="22" nNm="ObservationID" oNm="MeasurementValueID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="192" nNm="Results" oNm="ResultsSets"/>
-      <Rnm id="35" nNm="ResultsSets" oNm="ObservationsSets"/>
-      <Rnm id="26" nNm="ObservationsSets" oNm="Observations"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="193" nNm="ResultID" oNm="ResultsSetID"/>
-      <Rnm id="36" nNm="ResultsSetID" oNm="ObservationSetID"/>
-      <Rnm id="27" nNm="ObservationSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProfileCoverages" SupCls="Schema" SupNme="ODM2Observations">
-      <Rnm id="30" nNm="ObservationSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="119" nNm="Actions" oNm="ObservationActs"/>
-      <Rnm id="103" nNm="ObservationActs" oNm="Events"/>
-      <Rnm id="31" nNm="Events" oNm="ODM2Events"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="32" nNm="BeginDateTime" oNm="DateTime"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="33" nNm="ParentFeatureID" oNm="ParentFeature"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Methods" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="34" nNm="MethodTypeCV" oNm="MethodType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="194" nNm="ResultTypeCV" oNm="ResultsSetTypeCV"/>
-      <Rnm id="122" nNm="ResultsSetTypeCV" oNm="ResultsSetType"/>
-      <Rnm id="37" nNm="ResultsSetType" oNm="ObservationType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="38" nNm="ParentResultsSetID" oNm="ParentObservationSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Specimens" SupCls="Schema" SupNme="ODM2Features">
-      <Rnm id="39" nNm="SampleID" oNm="Sample"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="130" nNm="SamplingFeatureTypeCV" oNm="SamplingFeatureType"/>
-      <Rnm id="102" nNm="SamplingFeatureType" oNm="FeatureType"/>
-      <Rnm id="40" nNm="FeatureType" oNm="FeatureGeometryType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
-      <Rnm id="42" nNm="ODM2Equipment" oNm="ODM2Sensors"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="367" nNm="ActionDescription" oNm="ActionNotes"/>
-      <Rnm id="115" nNm="ActionNotes" oNm="EventNotes"/>
-      <Rnm id="43" nNm="EventNotes" oNm="Notes"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="44" nNm="ModelID" oNm="EquipmentModelID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
-      <Rnm id="56" nNm="InstrumentOutputVariables" oNm="SensorOutputVariables"/>
-      <Rnm id="51" nNm="SensorOutputVariables" oNm="InstrumentOutputVariables"/>
-      <Rnm id="45" nNm="InstrumentOutputVariables" oNm="SensorOutputVariables"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="149" nNm="ActionID" oNm="EventID"/>
-      <Rnm id="53" nNm="EventID" oNm="CalibrationEventID"/>
-      <Rnm id="46" nNm="CalibrationEventID" oNm="FieldActivityID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationStandardValues" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="49" nNm="CalibrationStandardValueID" oNm="CalibrationStandardValuesID"/>
-      <Rnm id="48" nNm="CalibrationStandardValuesID" oNm="CalibrationStandardVariableValueID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="132" nNm="VariableTypeCV" oNm="VariableType"/>
-      <Rnm id="50" nNm="VariableType" oNm="GeneralCategory"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
-      <Rnm id="154" nNm="CalibrationActions" oNm="CalibrationEvents"/>
-      <Rnm id="52" nNm="CalibrationEvents" oNm="Calibrations"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="153" nNm="CalibrationActionID" oNm="CalibrationEventID"/>
-      <Rnm id="54" nNm="CalibrationEventID" oNm="CalibrationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationStandardValues" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="152" nNm="CalibrationActionID" oNm="CalibrationEventID"/>
-      <Rnm id="55" nNm="CalibrationEventID" oNm="CalibrationStandardID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="57" nNm="InstrumentOutputVariableID" oNm="SensorOutputVariableID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="64" nNm="Resolution" oNm="InstrumentResolution"/>
-      <Rnm id="58" nNm="InstrumentResolution" oNm="SensorResolution"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="65" nNm="Accuracy" oNm="InstrumentAccuracy"/>
-      <Rnm id="59" nNm="InstrumentAccuracy" oNm="SensorAccuracy"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="66" nNm="UnitsID" oNm="OutputUnitsID"/>
-      <Rnm id="63" nNm="OutputUnitsID" oNm="InstrumentOutputUnitsID"/>
-      <Rnm id="60" nNm="InstrumentOutputUnitsID" oNm="SensorRawOutputUnitsID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="61" nNm="InstrumentID" oNm="ModelID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Sensors" SupCls="" SupNme="">
-      <Rnm id="269" nNm="DeploymentActions" oNm="DeploymentEvents"/>
-      <Rnm id="67" nNm="DeploymentEvents" oNm="Deployments"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DeploymentActions" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="268" nNm="DeploymentActionID" oNm="DeploymentEventID"/>
-      <Rnm id="68" nNm="DeploymentEventID" oNm="DeploymentID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Sensors" SupCls="" SupNme="">
-      <Rnm id="69" nNm="Photos" oNm="SiteVisitPhotos"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
-      <Rnm id="282" nNm="AnalysisBatchActions" oNm="AnalysisBatchEvents"/>
-      <Rnm id="76" nNm="AnalysisBatchEvents" oNm="AnalysisEvents"/>
-      <Rnm id="70" nNm="AnalysisEvents" oNm="Analyses"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="285" nNm="AnalysisBacthActionID" oNm="AnalysisBacthEventID"/>
-      <Rnm id="77" nNm="AnalysisBacthEventID" oNm="AnalysisEventID"/>
-      <Rnm id="71" nNm="AnalysisEventID" oNm="AnalysisID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="362" nNm="InstrumentOutputFileLink" oNm="InstrumentOutputFilePath"/>
-      <Rnm id="75" nNm="InstrumentOutputFilePath" oNm="OutputFilePath"/>
-      <Rnm id="72" nNm="OutputFilePath" oNm="AnalyticalMethodID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataLoggerFiles" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="73" nNm="DataLoggerOutputFileDescription" oNm="DataLoggerFileDescription"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataLoggerFiles" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="364" nNm="DataLoggerOutputFileLink" oNm="DataLoggerOutputFilePath"/>
-      <Rnm id="74" nNm="DataLoggerOutputFilePath" oNm="DataLoggerFilePath"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Sensors" SupCls="" SupNme="">
-      <Rnm id="78" nNm="BatchSampleLines" oNm="BatchSampleSequence"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultProvenance" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="254" nNm="ResultProvenanceID" oNm="ResultsSetProvenanceID"/>
-      <Rnm id="79" nNm="ResultsSetProvenanceID" oNm="ObservationProvenanceID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultProvenance" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="255" nNm="ResultID" oNm="ResultsSetID"/>
-      <Rnm id="80" nNm="ResultsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultVersions" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="262" nNm="ResultVersionID" oNm="ResultsSetVersionID"/>
-      <Rnm id="81" nNm="ResultsSetVersionID" oNm="ObservationVersionID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultVersions" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="263" nNm="ResultID" oNm="ResultsSetID"/>
-      <Rnm id="82" nNm="ResultsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultVersions" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="83" nNm="VersionOfResultsSetID" oNm="VersionOfObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InputResults" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="256" nNm="ResultProvenanceID" oNm="ResultsSetProvenanceID"/>
-      <Rnm id="84" nNm="ResultsSetProvenanceID" oNm="ObservationProvenanceID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InputResults" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="257" nNm="InputResultID" oNm="InputResultsSetID"/>
-      <Rnm id="85" nNm="InputResultsSetID" oNm="InputObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
-      <Rnm id="253" nNm="ResultProvenance" oNm="ResultsSetProvenance"/>
-      <Rnm id="88" nNm="ResultsSetProvenance" oNm="ObservationProvenance"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
-      <Rnm id="259" nNm="InputResults" oNm="InputResult"/>
-      <Rnm id="258" nNm="InputResult" oNm="InputResultsSet"/>
-      <Rnm id="89" nNm="InputResultsSet" oNm="InputObservation"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
-      <Rnm id="261" nNm="ResultVersions" oNm="ObservationResultVersions"/>
-      <Rnm id="260" nNm="ObservationResultVersions" oNm="ObservationResultsSet"/>
-      <Rnm id="90" nNm="ObservationResultsSet" oNm="ObservationVersions"/>
-    </RnmCh>
-    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
-      <Rnm id="195" nNm="ODM2Results" oNm="ODM2ResultsSets"/>
-      <Rnm id="91" nNm="ODM2ResultsSets" oNm="ODM2Observations"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
-      <Rnm id="252" nNm="ResultID" oNm="ResultsSetID"/>
-      <Rnm id="92" nNm="ResultsSetID" oNm="ResultsSetsID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureParents" SupCls="Schema" SupNme="ODM2Features">
-      <Rnm id="93" nNm="RelationshipTypeCV" oNm="RelationshipType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="94" nNm="SamplingFeatures" oNm="Features"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
-      <Rnm id="182" nNm="Specimens" oNm="Specimen"/>
-      <Rnm id="95" nNm="Specimen" oNm="Samples"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Specimens" SupCls="Schema" SupNme="ODM2Features">
-      <Rnm id="96" nNm="SpecimenID" oNm="SampleID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="97" nNm="SamplingFeatureID" oNm="FeatureID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Specimens" SupCls="Schema" SupNme="ODM2Features">
-      <Rnm id="98" nNm="SamplingFeatureID" oNm="FeatureID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingPoints" SupCls="Schema" SupNme="ODM2Features">
-      <Rnm id="99" nNm="SamplingFeatureID" oNm="FeatureID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingCurves" SupCls="Schema" SupNme="ODM2Features">
-      <Rnm id="100" nNm="SamplingFeatureID" oNm="FeatureID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingSurfaces" SupCls="Schema" SupNme="ODM2Features">
-      <Rnm id="101" nNm="SamplingFeatureID" oNm="FeatureID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
-      <Rnm id="104" nNm="ODM2SamplingFeatures" oNm="ODM2Features"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
-      <Rnm id="105" nNm="SamplingPoints" oNm="FeaturePoints"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
-      <Rnm id="110" nNm="SamplingCurves" oNm="SamplingLines"/>
-      <Rnm id="106" nNm="SamplingLines" oNm="FeatureLines"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
-      <Rnm id="109" nNm="SamplingSurfaces" oNm="SamplingSurface"/>
-      <Rnm id="108" nNm="SamplingSurface" oNm="SamplingPolygons"/>
-      <Rnm id="107" nNm="SamplingPolygons" oNm="FeaturePolygons"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="111" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionBy" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="112" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="113" nNm="ActionTypeCV" oNm="EventTypeCV"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionBy" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="382" nNm="RoleDescription" oNm="RoleID"/>
-      <Rnm id="167" nNm="RoleID" oNm="PersonRoleCV"/>
-      <Rnm id="114" nNm="PersonRoleCV" oNm="RoleCV"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="116" nNm="ParentActionID" oNm="ParentEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="117" nNm="OwnerPersonID" oNm="OrganizationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="118" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="120" nNm="CreationDateTime" oNm="ResultDateTime"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="121" nNm="CreationDateTimeUTCOffset" oNm="ResultDateTimeUTCOffset"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="172" nNm="UnitsTypeCV" oNm="UnitTypeCV"/>
-      <Rnm id="128" nNm="UnitTypeCV" oNm="UnitsTypeCV"/>
-      <Rnm id="123" nNm="UnitsTypeCV" oNm="UnitsType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="124" nNm="UnitTypeCV" oNm="RequiredUnitTypeCV"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="171" nNm="UnitsID" oNm="UnitID"/>
-      <Rnm id="125" nNm="UnitID" oNm="UnitsID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="176" nNm="UnitsID" oNm="UnitID"/>
-      <Rnm id="126" nNm="UnitID" oNm="UnitsID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="174" nNm="UnitsName" oNm="UnitName"/>
-      <Rnm id="127" nNm="UnitName" oNm="UnitsName"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="173" nNm="UnitsAbbreviation" oNm="UnitAbbreviation"/>
-      <Rnm id="129" nNm="UnitAbbreviation" oNm="UnitsAbbreviation"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Organizations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="131" nNm="OrganizationTypeCV" oNm="OrganizationType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="133" nNm="ValueTypeCV" oNm="ValueType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="134" nNm="DataTypeCV" oNm="DataType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureParents" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="136" nNm="SpatialOffsetID" oNm="LocationOffsetID"/>
-      <Rnm id="135" nNm="LocationOffsetID" oNm="LocationOffsetType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Specimens" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="213" nNm="SpecimenTypeCV" oNm="SampleTypeCV"/>
-      <Rnm id="137" nNm="SampleTypeCV" oNm="SampleType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
-      <Rnm id="220" nNm="AlternateIDs" oNm="AlternativeIDs"/>
-      <Rnm id="216" nNm="AlternativeIDs" oNm="LabCodes"/>
-      <Rnm id="138" nNm="LabCodes" oNm="SamplingFeatureCodesID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AlternateIDs" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="221" nNm="AlternateID" oNm="AlternativeID"/>
-      <Rnm id="217" nNm="AlternativeID" oNm="LabCodeID"/>
-      <Rnm id="139" nNm="LabCodeID" oNm="SamplingFeatureCodeID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CategoryObservations" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="140" nNm="ResultsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CountObservations" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="141" nNm="ResultsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TruthObservations" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="142" nNm="ResultsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TemporalObservations" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="143" nNm="ResultsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="GeometryObservation" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="144" nNm="ResultsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TimeSeriesCoverages" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="145" nNm="ResultsSetID" oNm="ObservationSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="PointCoverages" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="146" nNm="ResultsSetID" oNm="ObservationSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProfileCoverages" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="147" nNm="ResultsSetID" oNm="ObservationSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="148" nNm="SamplingFeatureID" oNm="FeatureID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ConfigurationActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="150" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationStandards" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="151" nNm="CalibrationStandardTypeCV" oNm="CalibrationStandardType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
-      <Rnm id="155" nNm="ConfigurationActions" oNm="ConfigurationEvents"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ConfigurationActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="156" nNm="ConfigurationActionID" oNm="ConfigurationEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="157" nNm="ConfigurationActionID" oNm="ConfigurationEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ConfigurationActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="159" nNm="ConfigurationNotes" oNm="ConfigurationMethodID"/>
-      <Rnm id="158" nNm="ConfigurationMethodID" oNm="ConfigurationMethodDescription"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ConfigurationActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="358" nNm="ConfigurationFileLink" oNm="ConfigurationFilePath"/>
-      <Rnm id="160" nNm="ConfigurationFilePath" oNm="ConfigurationMethodFilePath"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
-      <Rnm id="161" nNm="CalibrationAction_Standards" oNm="CalibrationAction_Standard"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MaintenenceActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="162" nNm="FactoryServiceCode" oNm="MaintenanceReason"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DeploymentActions" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="163" nNm="SpatialOffsetID" oNm="DeploymentVerticalOffsetUnisID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
-      <Rnm id="164" nNm="SpatialOffsets" oNm="SpatialOffsetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureParents" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="165" nNm="SamplingFeatureID" oNm="FeatureID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="383" nNm="ActionBy" oNm="ActionPeople"/>
-      <Rnm id="166" nNm="ActionPeople" oNm="PersonRoles"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Affiliations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="168" nNm="PrimaryPhone" oNm="PersonPhone"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Affiliations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="169" nNm="PrimaryEmail" oNm="PersonEmail"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Affiliations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="170" nNm="PrimaryAddress" oNm="PersonAddress"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="175" nNm="ResultSetUniqueIdentifier" oNm="DatasetDOI"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
-      <Rnm id="177" nNm="RelatedResultsSets" oNm="RelatedObservations"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedResults" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="178" nNm="ResulsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedResults" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="203" nNm="RelatedResultID" oNm="RelatedResultsSetID"/>
-      <Rnm id="179" nNm="RelatedResultsSetID" oNm="RelatedObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Measurements" SupCls="Schema" SupNme="ODM2ResultsSets">
-      <Rnm id="180" nNm="ResultsSetID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedResults" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="202" nNm="ResultID" oNm="ResultsSetID"/>
-      <Rnm id="181" nNm="ResultsSetID" oNm="ResulsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="People" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="299" nNm="PersonUniqueID" oNm="PersonIdentifierID"/>
-      <Rnm id="295" nNm="PersonIdentifierID" oNm="PersonUniqueID"/>
-      <Rnm id="183" nNm="PersonUniqueID" oNm="PersonUniqueIdentifier"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Methods" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="296" nNm="MethodIdentifierID" oNm="MethodUniqueID"/>
-      <Rnm id="184" nNm="MethodUniqueID" oNm="MethodUniqueIdentifier"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="298" nNm="DataSetIdentifierID" oNm="DataSetUniqueID"/>
-      <Rnm id="185" nNm="DataSetUniqueID" oNm="DataSetUniqueIdentifier"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="188" nNm="DataSetUniqueIDTypeCV" oNm="DatasetUniqueIDTypeCV"/>
-      <Rnm id="186" nNm="DatasetUniqueIDTypeCV" oNm="DatasetUniqueIdentifierTypeCV"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Organizations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="294" nNm="OrganizationIdentifierID" oNm="OrganizationUniqueID"/>
-      <Rnm id="187" nNm="OrganizationUniqueID" oNm="OrganizationUniqueIdentifier"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="386" nNm="DataSetCitationID" oNm="DataSetCitation"/>
-      <Rnm id="189" nNm="DataSetCitation" oNm="Citation"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SiteVisitActions" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="190" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationStandardValues" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="191" nNm="UnitsID" oNm="UnitID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Measurements" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="196" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CategoryObservations" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="197" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CountObservations" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="198" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TruthObservations" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="199" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TemporalObservations" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="200" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="201" nNm="RelatedResults" oNm="RelatedResultsSets"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TimeSeriesCoverages" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="204" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="PointCoverages" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="205" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProfileCoverages" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="206" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TemporalObservations" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="207" nNm="TimeValueObject" oNm="TimeValue"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="GeometryObservation" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="208" nNm="GeometricObject" oNm="GeometryObject"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="GeometryObservation" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="209" nNm="ResultID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingCurves" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="210" nNm="CurveID" oNm="LineID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingSurfaces" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="211" nNm="SurfaceID" oNm="PolygonID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Specimens" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="212" nNm="IsFieldSpecimen" oNm="IsFieldSample"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Specimens" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="214" nNm="SpecimenMediumCV" oNm="SampleMediumCV"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AlternateIDs" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="222" nNm="AlternateCode" oNm="AlternativeCode"/>
-      <Rnm id="218" nNm="AlternativeCode" oNm="LabCode"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AlternateIDs" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="223" nNm="AlternateCodeDescription" oNm="AlternativeCodeDescription"/>
-      <Rnm id="219" nNm="AlternativeCodeDescription" oNm="LabCodeDescription"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetsResults" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="226" nNm="ResultID" oNm="ResultsID"/>
-      <Rnm id="224" nNm="ResultsID" oNm="ResultsSetID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="225" nNm="DataSetsResults" oNm="DataSetsResultsSets"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
-      <Rnm id="274" nNm="ResultValues" oNm="Values"/>
-      <Rnm id="227" nNm="Values" oNm="ProfileValues"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="228" nNm="ResultID" oNm="ProfileID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="229" nNm="ValueID" oNm="ProfileValueID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="233" nNm="ValueDateTime" oNm="ObservationResult"/>
-      <Rnm id="230" nNm="ObservationResult" oNm="DataValue"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Sites" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="231" nNm="SamplingFeatureID" oNm="PointID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="234" nNm="ObservationResult" oNm="ObservationResultX"/>
-      <Rnm id="232" nNm="ObservationResultX" oNm="Value"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="235" nNm="SpatialReferenceID" oNm="CRS"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="236" nNm="VariableNameCV" oNm="VariableName"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Annotations" SupCls="Schema" SupNme="ODM2Annotations">
-      <Rnm id="237" nNm="AnnotationTypeCV" oNm="AnnotationType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="238" nNm="CensorCodeCV" oNm="CensorCode"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="240" nNm="QualityCodeCV" oNm="QualityCodeVCV"/>
-      <Rnm id="239" nNm="QualityCodeVCV" oNm="QualityCode"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="241" nNm="InterpolationTypeCV" oNm="InterpolationType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="242" nNm="EquipmentTypeCV" oNm="EquipmentType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExtensionProperties" SupCls="Schema" SupNme="ODM2Extension">
-      <Rnm id="243" nNm="PropertyDataTypeCV" oNm="PropertyDataType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Sites" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="244" nNm="VerticalDatumCV" oNm="VerticalDatum"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Sites" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="245" nNm="SiteTypeCV" oNm="SiteType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DeploymentActions" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="246" nNm="DeploymentTypeCV" oNm="DeploymentType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CVTerms" SupCls="Schema" SupNme="ODM2CV">
-      <Rnm id="247" nNm="SourceVocabulary" oNm="Source"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CVTerms" SupCls="Schema" SupNme="ODM2CV">
-      <Rnm id="248" nNm="ODMVocabulary" oNm="Vocabulary"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="320" nNm="SamplingFeatureExternalIdentiferID" oNm="SamplingFeatureIdentiferID"/>
-      <Rnm id="297" nNm="SamplingFeatureIdentiferID" oNm="SamplingFeatureUniqueID"/>
-      <Rnm id="249" nNm="SamplingFeatureUniqueID" oNm="UniversalSamplingFeatureID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="250" nNm="SpeciationCV" oNm="Speciation"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="326" nNm="DataSetTypeCV" oNm="DataSetTopicCategoryCV"/>
-      <Rnm id="251" nNm="DataSetTopicCategoryCV" oNm="DataSetTopicCategory"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Specimens" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="264" nNm="SpecimenUniqueID" oNm="IGSN"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DeploymentActions" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="265" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Photos" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="266" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DeploymentActions" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="267" nNm="ConfigurationActionID" oNm="ConfigurationEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Sensors" SupCls="" SupNme="">
-      <Rnm id="270" nNm="SiteVisitActions" oNm="SiteVisitEvents"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DeploymentActions" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="271" nNm="CalibrationActionID" oNm="CalibrationEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataLoggerFiles" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="272" nNm="DeploymentActionID" oNm="DeploymentEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="273" nNm="AggregationDuration" oNm="AggregationBin"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="312" nNm="ExternalIdentifierSystems" oNm="ExternalIDSystems"/>
-      <Rnm id="311" nNm="ExternalIDSystems" oNm="IdentifierSystems"/>
-      <Rnm id="306" nNm="IdentifierSystems" oNm="Identifiers"/>
-      <Rnm id="275" nNm="Identifiers" oNm="UniqueIdentifiers"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="OffsetOrigins" SupCls="Schema" SupNme="ODM2Results">
-      <Rnm id="276" nNm="OffsetCoordinateUnitsID" oNm="CoordinateUnitsID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultAnnotations" SupCls="Schema" SupNme="ODM2Annotations">
-      <Rnm id="277" nNm="ResultID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Annotations" SupCls="" SupNme="">
-      <Rnm id="278" nNm="ResultAnnotations" oNm="ObservationAnnotations"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="279" nNm="Affiliations" oNm="OrganizationPeople"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionBy" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="280" nNm="AffiliationID" oNm="PersonID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
-      <Rnm id="281" nNm="SamplePreparationAction" oNm="SamplePreparationEvent"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplePreparationAction" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="283" nNm="SamplePreparationActionID" oNm="SamplePreparationEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplePreparationAction" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="284" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="286" nNm="ActionID" oNm="EventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="287" nNm="ConfigurationActionID" oNm="ConfigurationEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="288" nNm="CalibrationActionID" oNm="CalibrationEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="BatchSampleLines" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="289" nNm="AnalysisBacthActionID" oNm="AnalysisBacthEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="BatchSampleLines" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="290" nNm="AnalysisBatchActionID" oNm="AnalysisBatchEventID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ObservationExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extension">
-      <Rnm id="292" nNm="ResultID" oNm="ObservationID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2ExtensionProperties" SupCls="" SupNme="">
-      <Rnm id="347" nNm="ResultExtensionPropertyValues" oNm="ResultsExtensionPropertyValues"/>
-      <Rnm id="293" nNm="ResultsExtensionPropertyValues" oNm="ResultsSetsExtensionPropertyValues"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="315" nNm="ExternalIdentifierSystemID" oNm="IdentifierSystemID"/>
-      <Rnm id="305" nNm="IdentifierSystemID" oNm="IdentifierID"/>
-      <Rnm id="302" nNm="IdentifierID" oNm="UniqueIdentifierID"/>
-      <Rnm id="300" nNm="UniqueIdentifierID" oNm="PersonID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="301" nNm="PersonID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="319" nNm="PersonExternalIdentifiers" oNm="PersonUniqueIDs"/>
-      <Rnm id="304" nNm="PersonUniqueIDs" oNm="PersonUniqueIdentifiers"/>
-      <Rnm id="303" nNm="PersonUniqueIdentifiers" oNm="PersonID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="313" nNm="PersonExternalIdentifier" oNm="PersonExternalID"/>
-      <Rnm id="310" nNm="PersonExternalID" oNm="PersonExternalIdentifier"/>
-      <Rnm id="308" nNm="PersonExternalIdentifier" oNm="PersonIdentifier"/>
-      <Rnm id="307" nNm="PersonIdentifier" oNm="PersonIdentifierCode"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="314" nNm="PersonExternalIdenifierURN" oNm="PersonExternaIDURN"/>
-      <Rnm id="309" nNm="PersonExternaIDURN" oNm="PersonIdentiferURN"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExternalIdentifierSystems" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="318" nNm="ExternalIdentifierSystemID" oNm="ExternalIdentifierID"/>
-      <Rnm id="316" nNm="ExternalIdentifierID" oNm="IdentifierID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExternalIdentifierSystems" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="317" nNm="ExternalIdentifierSystemName" oNm="IdentifierSystem"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatureExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="321" nNm="SamplingFeatureID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="322" nNm="MethodID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="VariableExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="323" nNm="VariableID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetExternalIdentifers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="325" nNm="DataSetID" oNm="DataSet"/>
-      <Rnm id="324" nNm="DataSet" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExternalIdentifierSystems" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="331" nNm="ExternalIdentifierSystemURL" oNm="ExternalIdentifierSystemURNResolverURL"/>
-      <Rnm id="327" nNm="ExternalIdentifierSystemURNResolverURL" oNm="ExternalIdentifierSystemURNresolverURL"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatureExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="328" nNm="SamplingFeatureExternalIdentiferURI" oNm="SamplingFeatureExternalIdentiferURN"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="329" nNm="PersonExternalIdenifierURI" oNm="PersonExternalIdenifierURN"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="VariableExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="330" nNm="VariableExternalIdentifierURI" oNm="VariableExternalIdentifierURN"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionAnnotations" SupCls="Schema" SupNme="ODM2Annotations">
-      <Rnm id="332" nNm="ActionID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
-      <Rnm id="343" nNm="ODM2ExtensionProperties" oNm="ODM2Extensions"/>
-      <Rnm id="333" nNm="ODM2Extensions" oNm="ODM2Extension"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatureExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
-      <Rnm id="334" nNm="SamplingFeatureID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
-      <Rnm id="335" nNm="ActionID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="336" nNm="TaxonomicClassifierID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="343" nNm="TaxonomicClassifierCommonName" oNm="TaxonCommonName"/>
-      <Rnm id="337" nNm="TaxonCommonName" oNm="TaxonomicClassifierCommonName"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifierExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="338" nNm="TaxonomicClassifierID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetExternalIdentifers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="339" nNm="DataSetExternalIdentiferURI" oNm="DataSetExternalIdentiferURN"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="340" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="342" nNm="TaxonomicClassifierName" oNm="TaxonomicClassiferName"/>
-      <Rnm id="341" nNm="TaxonomicClassiferName" oNm="TaxonName"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="356" nNm="TaxonomicClassifierDescription" oNm="TaxonomicClassifierNotes"/>
-      <Rnm id="344" nNm="TaxonomicClassifierNotes" oNm="TaxonNotes"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="338" nNm="SamplingFeatureGeotypeCV" oNm="SamplingFeatureGeotype"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Sites" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="339" nNm="LatLonDatumID" oNm="LatLongDatumID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpatialReferences" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="368" nNm="SRSDescription" oNm="SRSNotes"/>
-      <Rnm id="340" nNm="SRSNotes" oNm="Notes"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Workflows" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="341" nNm="WorkflowID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="WorkflowMethodSequences" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="342" nNm="WorkflowID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2ExtensionProperties" SupCls="" SupNme="">
-      <Rnm id="346" nNm="ActionExtensionPropertyValues" oNm="ActionsExtensionPropertyValues"/>
-      <Rnm id="345" nNm="ActionsExtensionPropertyValues" oNm="ActionExtensionPropertyValues"/>
-      <Rnm id="344" nNm="ActionExtensionPropertyValues" oNm="ActionsExtensionPropertyValues"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifierExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="348" nNm="TaxonomicClassifierExternalIdentifier" oNm="TaxonomicClassifierExternalItentifier"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifierExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="349" nNm="TaxonomicClassifierExternalIdentifierURI" oNm="TaxonomicClassifierExternalItentifierURI"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="355" nNm="SamplingFeatureDescription" oNm="SamplingFeatureNotes"/>
-      <Rnm id="350" nNm="SamplingFeatureNotes" oNm="SamplingFeatureNote"/>
-    </RnmCh>
-    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
-      <Rnm id="351" nNm="ODM2RelatedActions" oNm="RelatedActions"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedActions" SupCls="Schema" SupNme="ODM2RelatedActions">
-      <Rnm id="352" nNm="RelationshipType" oNm="RelationshipRole"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedActions" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="353" nNm="RelationshipTypeCV" oNm="RelationshipType"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedResults" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="354" nNm="RelationshipTypeCV" oNm="RelationshipRole"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="357" nNm="EquipmentDescription" oNm="EquipmentNotes"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CalibrationActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="359" nNm="CalibrationFileLink" oNm="CalibrationFilePath"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="360" nNm="EquipmentPhotoFileLink" oNm="EquipmentPhotoFileName"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="EquipmentModels" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="361" nNm="ModelSpecificationsFileLink" oNm="ModelSpecificationsFile"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AnalysisBatchActions" SupCls="Schema" SupNme="ODM2Samples">
-      <Rnm id="363" nNm="AnalysisBatchEventDescription" oNm="AnalysisBatchEventNotes"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DeploymentActions" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="365" nNm="DeploymentSchematicLink" oNm="DeploymentSchematic"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Photos" SupCls="Schema" SupNme="ODM2Sensors">
-      <Rnm id="366" nNm="PhotoFileLink" oNm="PhotoFilePath"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureActionResult" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="369" nNm="SamplingFeatureID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="370" nNm="ActionFileLink" oNm="ActionLink"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="371" nNm="FeatureActionResult" oNm="Triple"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterialExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="372" nNm="ReferenceMaterialID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="373" nNm="DataQualityValueUnitsID" oNm="DataQualityValueUnitID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultNormalizationValues" SupCls="Schema" SupNme="ODM2DataQuality">
-      <Rnm id="374" nNm="ResultsID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataQuality" SupCls="Schema" SupNme="ODM2DataQuality">
-      <Rnm id="375" nNm="DataQualityCode" oNm="DataQualityCodeCV"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2DataQuality" SupCls="" SupNme="">
-      <Rnm id="376" nNm="ReferenceMaterialValues" oNm="NormalizationReferenceMaterialValues"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterialValues" SupCls="Schema" SupNme="ODM2DataQuality">
-      <Rnm id="378" nNm="ReferenceMaterialValueID" oNm="NormalizationReferenceMaterialValueID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultNormalizationValues" SupCls="Schema" SupNme="ODM2DataQuality">
-      <Rnm id="379" nNm="NormalizedByReferenceMaterialValueID" oNm="NormalizationReferenceMaterialValueID"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2DataQuality" SupCls="" SupNme="">
-      <Rnm id="396" nNm="ResultNormalizationValues" oNm="ResultNormalizationValue"/>
-      <Rnm id="393" nNm="ResultNormalizationValue" oNm="ResultNormalizationValues"/>
-      <Rnm id="380" nNm="ResultNormalizationValues" oNm="ResultsNormalizationValues"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2DataQuality">
-      <Rnm id="381" nNm="ReferenceMaterialMediumCV" oNm="ReferenceMaterialTypeCV"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenTaxonomicClassifiers" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="384" nNm="SamplingFeatureID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="385" nNm="CitationID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="387" nNm="CitationID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="EquipmentActions" SupCls="Schema" SupNme="ODM2Equipment">
-      <Rnm id="388" nNm="EquipentID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
-      <Rnm id="389" nNm="ODM2LabAnalyses" oNm="ODM2Samples"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenBatchLines" SupCls="Schema" SupNme="ODM2LabAnalyses">
-      <Rnm id="390" nNm="FeatureActionIndexID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
-      <Rnm id="391" nNm="SpecimenBatchLines" oNm="BatchSpecimenLines"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DerivationEquations" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="392" nNm="DerivationEquationID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultDerivationEquations" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="394" nNm="ResultID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="397" nNm="VersionCode" oNm="DataSetVersionCode"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AuthorLists" SupCls="Schema" SupNme="ODM2Provenance">
-      <Rnm id="398" nNm="CitationID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="405" nNm="Title" oNm="CitationTitle"/>
-      <Rnm id="401" nNm="CitationTitle" oNm="Title"/>
-      <Rnm id="399" nNm="Title" oNm="Authors"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="404" nNm="PublicationYear" oNm="CitationYear"/>
-      <Rnm id="400" nNm="CitationYear" oNm="Year"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetCitations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="402" nNm="DataSetID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="403" nNm="Publisher" oNm="CitationText"/>
-    </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExtensionPropertyValues" SupCls="Schema" SupNme="ODM2ExtensionProperties">
-      <Rnm id="406" nNm="CitationID" oNm="Id"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
-      <Rnm id="407" nNm="AuthorLists" oNm="AuthorList"/>
-    </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
-      <Rnm id="408" nNm="ResultDerivationEquations" oNm="ResultDerivationEquation"/>
-    </RnmCh>
-  </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
       <Name>db.doc.option.mgr</Name>
@@ -4263,20 +3280,11 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (16)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Provenance</TreePath>
-    <TreePath>/Schemas (12)/ODM2Provenance/Tables (10)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
