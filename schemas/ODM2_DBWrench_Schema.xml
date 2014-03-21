@@ -2001,7 +2001,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>UTC offset of the date/time associated with the Result value</Cm>
       </Cl>
-      <Cl au="0" df="" nm="CensorCodeCV" nu="0">
+      <Cl au="1" df="" nm="CensorCodeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term specifying whether the result is censored or not (e.g., below a detection limit)</Cm>
       </Cl>
@@ -2009,11 +2009,14 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term specifying the quality of the result value</Cm>
       </Cl>
-      <Cl au="0" df="" nm="AggregationDuration" nu="0">
+      <Cl au="0" df="" nm="AggregationInterval" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Description of the time support of the result value</Cm>
       </Cl>
-      <Cl au="0" df="" nm="InterpolationTypeCV" nu="0">
+      <Cl au="0" df="" nm="AggregationIntervalUnitID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AggregationStatisticCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the type of aggregation or interpolation that does done over the AggregationDuration</Cm>
       </Cl>
@@ -3165,7 +3168,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="409">
+  <RnmMgr NxRnmId="411">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3772,6 +3775,7 @@ then  additional field are added
       <Rnm id="239" nNm="QualityCodeVCV" oNm="QualityCode"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="410" nNm="AggregationStatisticCV" oNm="InterpolationTypeCV"/>
       <Rnm id="241" nNm="InterpolationTypeCV" oNm="InterpolationType"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
@@ -3829,6 +3833,7 @@ then  additional field are added
       <Rnm id="272" nNm="DeploymentActionID" oNm="DeploymentEventID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="409" nNm="AggregationInterval" oNm="AggregationDuration"/>
       <Rnm id="273" nNm="AggregationDuration" oNm="AggregationBin"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
@@ -4161,10 +4166,10 @@ then  additional field are added
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
