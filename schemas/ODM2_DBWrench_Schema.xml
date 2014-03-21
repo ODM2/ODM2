@@ -521,12 +521,18 @@
     <Tbl UsSo="1" nm="RelatedActions">
       <Cm>Describes Actions that are related to one another.</Cm>
       <TblOpts/>
+      <Pk ClNs="RelationID" nm="pkRelatedActions"/>
+      <Cl au="1" df="" nm="RelationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Action</Cm>
       </Cl>
       <Cl au="0" df="" nm="RelatedActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a Action related to the Action identified by ActionID</Cm>
       </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1841,6 +1847,11 @@
     <Tbl UsSo="1" nm="RelatedCitations">
       <Cm>Information about relationships among citations</Cm>
       <TblOpts/>
+      <Pk ClNs="RelationID" nm="pkRelatedCitations"/>
+      <Cl au="1" df="" nm="RelationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
+      </Cl>
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a Citation</Cm>
@@ -1864,6 +1875,11 @@
     <Tbl UsSo="1" nm="RelatedDatasets">
       <Cm>Information about relationships among DataSets</Cm>
       <TblOpts/>
+      <Pk ClNs="RelationID" nm="pkRelatedDatasets"/>
+      <Cl au="1" df="" nm="RelationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
+      </Cl>
       <Cl au="0" df="" nm="DataSetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a DataSet</Cm>
@@ -1896,6 +1912,11 @@
     <Tbl UsSo="1" nm="RelatedResults">
       <Cm>Information about relationships among Results</Cm>
       <TblOpts/>
+      <Pk ClNs="RelationID" nm="pkRelatedResults"/>
+      <Cl au="1" df="" nm="RelationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a Result</Cm>
@@ -2053,9 +2074,14 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about sampling features, including sites and specimens." nm="ODM2SamplingFeatures">
-    <Tbl UsSo="1" nm="FeatureParents">
+    <Tbl UsSo="1" nm="RelatedFeatures">
       <Cm>Describes parrent/child relationships among Sampling Features</Cm>
       <TblOpts/>
+      <Pk ClNs="RelationID" nm="pkRelatedFeatures"/>
+      <Cl au="1" df="" nm="RelationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
+      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foregn key identifier of a Sampling Feature</Cm>
@@ -2066,7 +2092,7 @@
       </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A text description of the type of relationship among the Sampling Features</Cm>
+        <Cm>CV term describing the relationship between SamplingFeatures (e.g., "IsChildOf", "IsFractionOf" or "IsCompositeOf").</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpatialOffsetID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2074,17 +2100,17 @@
       </Cl>
       <Fk deAc="3" nm="fk_FeatureParents_FeaturesParent" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="FeatureParents" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <CdTb mn="1" nm="RelatedFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="ParentFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <Fk deAc="3" nm="fk_FeatureParents_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="FeatureParents" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <CdTb mn="1" nm="RelatedFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <Fk deAc="3" nm="fk_FeatureParents_SpatialOffsets" prLkCl="SpatialOffsetID" upAc="3">
         <PrTb mn="0" nm="SpatialOffsets" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
-        <CdTb mn="1" nm="FeatureParents" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <CdTb mn="1" nm="RelatedFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SpatialOffsetID" prCl="SpatialOffsetID"/>
       </Fk>
       <UniqueConstraints/>
@@ -2426,7 +2452,7 @@
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2886,7 +2912,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1068" y="534"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="366" y="375"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="97" y="437"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="27" y="349"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="27" y="349"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="30" y="190"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1397" y="547"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1398" y="769"/>
@@ -2916,9 +2942,9 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Results.OffsetOrigins.fk_OffsetOrigins_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_SpatialOffsets"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures"/>
     <Notes/>
@@ -3100,15 +3126,15 @@ accomodated by a coverage?
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="98" y="116"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="311" y="309"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="27" y="317"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="394" y="133"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="394" y="122"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="565" y="333"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="721" y="133"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="16" y="420"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="36" y="518"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_SpatialOffsets"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures"/>
@@ -3186,7 +3212,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="402">
+  <RnmMgr NxRnmId="403">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3440,7 +3466,7 @@ then  additional field are added
       <Rnm id="252" nNm="ResultID" oNm="ResultsSetID"/>
       <Rnm id="92" nNm="ResultsSetID" oNm="ResultsSetsID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureParents" SupCls="Schema" SupNme="ODM2Features">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedFeatures" SupCls="Schema" SupNme="ODM2Features">
       <Rnm id="93" nNm="RelationshipTypeCV" oNm="RelationshipType"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
@@ -3545,7 +3571,7 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="134" nNm="DataTypeCV" oNm="DataType"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureParents" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedFeatures" SupCls="Schema" SupNme="ODM2SamplingFeatures">
       <Rnm id="136" nNm="SpatialOffsetID" oNm="LocationOffsetID"/>
       <Rnm id="135" nNm="LocationOffsetID" oNm="LocationOffsetType"/>
     </RnmCh>
@@ -3625,7 +3651,7 @@ then  additional field are added
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
       <Rnm id="164" nNm="SpatialOffsets" oNm="SpatialOffsetID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureParents" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedFeatures" SupCls="Schema" SupNme="ODM2SamplingFeatures">
       <Rnm id="165" nNm="SamplingFeatureID" oNm="FeatureID"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
@@ -4143,6 +4169,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="401" nNm="ProcessingLevelID" oNm="QualityControlLevelID"/>
     </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
+      <Rnm id="402" nNm="RelatedFeatures" oNm="FeatureParents"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4160,8 +4189,10 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
