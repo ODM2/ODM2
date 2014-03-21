@@ -8,6 +8,10 @@
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkActionAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the Action being annotated.</Cm>
@@ -72,6 +76,11 @@
     <Tbl UsSo="1" nm="MethodAnnotations">
       <Cm>Notes for or groups of one or more Methods.</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkMethodAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="MethodID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the method being annotated</Cm>
@@ -96,6 +105,11 @@
     <Tbl UsSo="1" nm="ResultAnnotations">
       <Cm>Notes for or groups of one or more Results [sets].</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkResultAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the result being annotated</Cm>
@@ -128,6 +142,11 @@
     <Tbl UsSo="1" nm="ResultValueAnnotations">
       <Cm>Notes for or groups of one or more ResultValues.</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the result value being annotated</Cm>
@@ -152,6 +171,11 @@
     <Tbl UsSo="1" nm="SamplingFeatureAnnotations">
       <Cm>Notes for or groups of one or more Sampling Features.</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkSamplingFeatureAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the SamplingFeature being annotated.</Cm>
@@ -179,6 +203,11 @@
     <Tbl UsSo="1" nm="ActionBy">
       <Cm>Affiliates people with actions and describes thier role in the action.</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkActionBy"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of an action.</Cm>
@@ -346,6 +375,11 @@
     <Tbl UsSo="1" nm="DataSetsResults">
       <Cm>Lists the Results that are grouped into a DataSet</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkDataSetsResults"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="DataSetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the DataSet</Cm>
@@ -991,11 +1025,18 @@
     </Tbl>
     <Tbl UsSo="1" nm="ResultsDataQuality">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkResultsDataQuality"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataQualityID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the DataQuality entity.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultsDataQuality_DataQuality" prLkCl="DataQualityID" upAc="3">
         <PrTb mn="0" nm="DataQuality" oe="1" sch="ODM2DataQuality" zr="0"/>
@@ -1100,13 +1141,18 @@
     </Tbl>
     <Tbl UsSo="1" nm="EquipmentActions">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkEquipmentActions"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="EquipmentID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Foreign key identifier of the Equipment entity</Cm>
       </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Foreign key identifier of the Action</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_EquipmentActions_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -1218,6 +1264,11 @@
   <Sch Cm="A general extensibility mechanism for any entity/object/table in ODM2." nm="ODM2ExtensionProperties">
     <Tbl UsSo="1" nm="ActionExtensionPropertyValues">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkActionExtensionPropertyValues"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the Action</Cm>
@@ -1246,6 +1297,11 @@
     <Tbl UsSo="1" nm="CitationExtensionPropertyValues">
       <Cm>Values for Citation Extension Properties</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkCitationExtensionPropertyValues"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Citation being extended</Cm>
@@ -1308,6 +1364,11 @@
     <Tbl UsSo="1" nm="MethodExtensionPropertyValues">
       <Cm>Links extnsion properties to a Method</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkMethodExtensionPropertyValues"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="MethodID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Method</Cm>
@@ -1336,6 +1397,11 @@
     <Tbl UsSo="1" nm="ResultExtensionPropertyValues">
       <Cm>Links extension properties to a Result</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkResultExtensionPropertyValues"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the result to which the extension property applies</Cm>
@@ -1363,6 +1429,11 @@
     </Tbl>
     <Tbl UsSo="1" nm="SamplingFeatureExtensionPropertyValues">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkSamplingFeatureExtensionPropertyValues"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the SamplingFeature being extended</Cm>
@@ -1390,6 +1461,11 @@
     </Tbl>
     <Tbl UsSo="1" nm="VariableExtensionPropertyValues">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkVariableExtensionPropertyValues"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the variable being extended</Cm>
@@ -1420,6 +1496,10 @@
   <Sch Cm="" nm="ODM2ExternalIdentifiers">
     <Tbl UsSo="1" nm="CitationExternalIdentifiers">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkCitationExternalIdentifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Forign key of the Citation linked to the external identifer</Cm>
@@ -1485,6 +1565,11 @@
     </Tbl>
     <Tbl UsSo="1" nm="MethodExternalIdentifiers">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkMethodExternalIdentifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="MethodID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to SamplingFeatures</Cm>
@@ -1519,6 +1604,11 @@
     <Tbl UsSo="1" nm="PersonExternalIdentifiers">
       <Cm>Cross reference "linking" table to allow many to many </Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkPersonExternalIdentifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="PersonID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to People table</Cm>
@@ -1552,17 +1642,26 @@
     </Tbl>
     <Tbl UsSo="1" nm="ReferenceMaterialExternalIdentifiers">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkReferenceMaterialExternalIdentifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign Key to ReferenceMaterials</Cm>
       </Cl>
       <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign Key to ExternalIdentifierSystems</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A resolvable, globally unique ID, such as NBS-19; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ReferenceMaterialExternalIdentifiers_ExternalIdentifierSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
         <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
@@ -1579,6 +1678,11 @@
     </Tbl>
     <Tbl UsSo="1" nm="SamplingFeatureExternalIdentifiers">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkSamplingFeatureExternalIdentifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to SamplingFeatures</Cm>
@@ -1610,8 +1714,45 @@
         <StPr stA="ODM2Core" stB="SamplingFeatureExternalIdentifiers"/>
       </SchTrHis>
     </Tbl>
+    <Tbl UsSo="1" nm="SpatialReferenceExternalIdentifiers">
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkSpatialReferenceExternalIdentifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceExternalIdentifier" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceExternalIdentifierURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_SpatialReferenceExternalIdentifiers_ExternalIdentifierSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
+        <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
+        <CdTb mn="1" nm="SpatialReferenceExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SpatialReferenceExternalIdentifiers_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="SpatialReferenceExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="TaxonomicClassifierExternalIdentifiers">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkTaxonomicClassifierExternalIdentifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to TaxonomicClassifiers</Cm>
@@ -1643,6 +1784,11 @@
     </Tbl>
     <Tbl UsSo="1" nm="VariableExternalIdentifiers">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkVariableExternalIdentifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to Variables</Cm>
@@ -1679,11 +1825,18 @@
   <Sch Cm="Information about samples and laboratory analyses for ex-situ data." nm="ODM2LabAnalyses">
     <Tbl UsSo="1" nm="ActionDirectives">
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkActionDirectives"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Action</Cm>
       </Cl>
       <Cl au="0" df="" nm="DirectiveID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Directive</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ActionDirectives_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -1749,6 +1902,11 @@
     <Tbl UsSo="1" nm="AuthorLists">
       <Cm>Relationship between Citations and their Authors</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkAuthorLists"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a Citation</Cm>
@@ -1804,6 +1962,10 @@
     <Tbl UsSo="1" nm="DataSetCitations">
       <Cm>Relationship between DataSets and Citations</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkDataSetCitations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="DataSetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a DataSet</Cm>
@@ -2248,6 +2410,11 @@
     <Tbl UsSo="1" nm="SpecimenTaxonomicClassifiers">
       <Cm>This cross-reference table allows Taxonomic Classification of Specimens as an annotation, rather than as a Result.</Cm>
       <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkSpecimenTaxonomicClassifiers"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key to SamplingFeatures.Specimens.</Cm>
@@ -2355,6 +2522,7 @@
     <Tbl UsSo="1" nm="Photos">
       <Cm>Describes photographs that were collected as part of an action (e.g., a site visit)</Cm>
       <TblOpts/>
+      <Pk ClNs="PhotoID" nm="pkPhotos"/>
       <Cl au="0" df="" nm="PhotoID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier for the photograph</Cm>
@@ -2382,13 +2550,14 @@
     <Tbl UsSo="1" nm="SiteVisitActions">
       <Cm>Describes site visit event activities</Cm>
       <TblOpts/>
-      <Cl au="0" df="" nm="SiteVisitID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
+      <Pk ClNs="ActionID" nm="pkSiteVisitActions"/>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Action that is the Site Visit</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SiteVisitID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="SiteVisitEnvironmentalObservations" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
@@ -2405,7 +2574,7 @@
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2426,16 +2595,16 @@
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="398" y="549"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="849" y="399"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="829" y="374"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="902" y="47"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="685" y="72"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="687" y="305"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="690" y="293"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1196" y="85"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="1198" y="414"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="1144" y="413"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="135" y="48"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="416" y="48"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="54" y="291"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="403" y="367"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="25" y="291"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="397" y="292"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations"/>
@@ -2475,7 +2644,7 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="252" y="163"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="211"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1136" y="397"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="883" y="641"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="884" y="632"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="380" y="598"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="302"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="313" y="440"/>
@@ -2651,7 +2820,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Equipment">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2742,15 +2911,15 @@ An Instrument Calibration Action could either be:
     <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="MethodExtensionPropertyValues" x="584" y="290"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="673" y="148"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="884" y="44"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ResultExtensionPropertyValues" x="765" y="377"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="VariableExtensionPropertyValues" x="866" y="477"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ResultExtensionPropertyValues" x="764" y="399"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="VariableExtensionPropertyValues" x="1074" y="296"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="121" y="47"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="411" y="45"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="SamplingFeatureExtensionPropertyValues" x="33" y="270"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="322" y="379"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="SamplingFeatureExtensionPropertyValues" x="33" y="283"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="323" y="399"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1177" y="44"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1316" y="308"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="CitationExtensionPropertyValues" x="1212" y="585"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1426" y="170"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="CitationExtensionPropertyValues" x="1240" y="398"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtensionPropertyValues_Actions"/>
@@ -2794,20 +2963,21 @@ similar to ExternalIdentifiers.</Note>
     </DiaProps>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ExternalIdentifierSystems" x="845" y="648"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="MethodExternalIdentifiers" x="812" y="326"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="VariableExternalIdentifiers" x="965" y="449"/>
-    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SamplingFeatureExternalIdentifiers" x="271" y="322"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="VariableExternalIdentifiers" x="969" y="444"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SamplingFeatureExternalIdentifiers" x="271" y="330"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="PersonExternalIdentifiers" x="534" y="444"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="567" y="45"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="844" y="45"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="712" y="187"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1088" y="73"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="245" y="6"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="858" y="119"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="762" y="0"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1088" y="116"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1325" y="46"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="TaxonomicClassifierExternalIdentifiers" x="1214" y="328"/>
-    <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="200" y="38"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="34" y="152"/>
+    <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="515" y="99"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="43" y="172"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ReferenceMaterialExternalIdentifiers" x="67" y="441"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1402" y="443"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1608" y="173"/>
+    <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SpatialReferenceExternalIdentifiers" x="393" y="207"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.CitationExternalIdentifiers.fk_CitationExternalIdentifiers_Citations"/>
@@ -2820,6 +2990,8 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.ReferenceMaterialExternalIdentifiers.fk_ReferenceMaterialExternalIdentifiers_ReferenceMaterials"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SamplingFeatureExternalIdentifiers_ExternalIdentifierSystems"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SamplingFeatureExternalIdentifiers_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SpatialReferenceExternalIdentifiers.fk_SpatialReferenceExternalIdentifiers_ExternalIdentifierSystems"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SpatialReferenceExternalIdentifiers.fk_SpatialReferenceExternalIdentifiers_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers.fk_TaxonomicClassifierExternalIdentifiers_ExternalIdentifierSystems"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers.fk_TaxonomicClassifierExternalIdentifiers_TaxonomicClassifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_VariableExternalIdentifiers_ExternalIdentifierSystems"/>
@@ -2828,7 +3000,7 @@ similar to ExternalIdentifiers.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2LabAnalyses">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2851,13 +3023,13 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="133" y="546"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="576" y="122"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="792" y="544"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="262" y="47"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="264" y="31"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="49" y="764"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="582" y="273"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="498" y="544"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="312" y="348"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="270" y="282"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="369" y="444"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="312" y="353"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="276" y="271"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="371" y="443"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchPostions" x="440" y="674"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="322" y="763"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
@@ -2900,19 +3072,19 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="874" y="211"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1049" y="670"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="945" y="759"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="629"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="621" y="617"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="623" y="306"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="353" y="720"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="67" y="577"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="67" y="681"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="64" y="680"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="392" y="582"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1192" y="209"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1185" y="349"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="835" y="607"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="834" y="617"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1068" y="534"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="366" y="375"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="97" y="437"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="27" y="349"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="368" y="431"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="100" y="443"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="40" y="343"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="30" y="190"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1397" y="547"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1398" y="769"/>
@@ -3129,8 +3301,8 @@ accomodated by a coverage?
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="394" y="122"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="565" y="333"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="721" y="133"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="16" y="420"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="36" y="518"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="16" y="425"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="36" y="533"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SamplingFeatures"/>
@@ -3212,7 +3384,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="403">
+  <RnmMgr NxRnmId="404">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4172,6 +4344,9 @@ then  additional field are added
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
       <Rnm id="402" nNm="RelatedFeatures" oNm="FeatureParents"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpatialReferenceExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="403" nNm="BridgeID" oNm="Id"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4189,10 +4364,7 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
