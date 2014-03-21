@@ -39,7 +39,7 @@
 </td><td class="PkCol"> </td><td class="PkCol">Unique identifier</td><td class="PkCol"> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialReferences_SRSID.html">SRSID</a></td><td>Integer</td><td>
+<td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialReferences_SRSCode.html">SRSCode</a></td><td>VarChar(50)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>SRS code for the spatial reference system</td><td> </td>
@@ -57,12 +57,6 @@
 <br>
 <table class="flat">
 <tr>
-<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
-</tr>
-</table>
-<br>
-<table class="flat">
-<tr>
 <td class="banner" colspan="1">Foreign Keys<span class="plain"> (none)</span></td>
 </tr>
 </table>
@@ -75,7 +69,7 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2SamplingFeatures_Sites_fk_SiteDatum_SRSID.html">fk_SiteDatum_SRSID</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_Sites.html">ODM2SamplingFeatures.Sites</a></td><td>SpatialReferenceID</td><td>LatLonDatumID</td>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Sites_fk_Sites_SpatialReferences.html">fk_Sites_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_Sites.html">ODM2SamplingFeatures.Sites</a></td><td>SpatialReferenceID</td><td>LatLonDatumID</td>
 </tr>
 </table>
 <br>
