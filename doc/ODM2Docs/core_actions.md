@@ -1,22 +1,20 @@
 ODM2 Core: Actions
 ==================
 
-In ODM2, the **Actions** entity is used to encode information about activities or actions that are performed in the process of making observations.  The fundamental Action type associated with an observation is an "Observation act."  Observation **Results** can only be created by an **Action** of type "Observation act." Every **Result** must be associated with a single **Action** of type "Observation act."  However, Actions can be of many different types, and not every **Action** produces a **Result**. The full list of ActionTypes is a controlled vocabulary. The following is a list of some other types of Actions that can be encoded using ODM2.  
+In ODM2, the **Actions** entity is used to encode information about activities or actions that are performed in the process of making observations.  The fundamental Action type associated with an observation is an "Observation act."  Observation **Results** can only be created by an **Action** of type "Observation act." Every **Result** must be associated with a single **Action** of type "Observation act."  However, Actions can be of many different types. The full list of Action types is a controlled vocabulary. The following is a list of some other types of Actions that can be encoded using ODM2.  
 
 * Sample collection
 * Sample preparation
-* Sample analysis (produces a Result)
+* Sample analysis
 * Site visit
-* Instrument deployment (Produces a Result)
-* Instrument maintenance
-* Instruent calibration
+* Instrument deployment
 * Etc.
 
-Each Action that produces a Result is associated with a **Sampling Feature** at which or on which it is performed. Actions have beginning and ending dates and are perfomed using a **Method**. An Action represents a specific instance of a Method. Actions are performed by one or more **People**, each of which may be affiliated with an **Organization**. Each of the People who participate in an Action may have a role. For example, the "Observation act" is performed by a Person whose role is "Observer."
+Each Action is associated with a **Sampling Feature** at which or on which it is performed.  Actions have beginning and ending dates and are perfomed using a **Method**; an Action represents a specific instance of a Method. Actions are performed by one or more **People**, each of which may be affiliated with an **Organization**. Each of the People who participate in an Action may have a role. For example, the "Observation act" is performed by a Person whose role is "Observer."
 
-Actions are modeled generically so that many different types of Actions can be recorded and associated indirectly with an observation.  Each observation **Result** must have only one Action direclty associated with it (i.e., the "Observation act"), but a single Action may have multiple Results. Relationships among an Action, the SamplingFeature(s) on which or at which it was performed, and its observation Results (if any exist) are encoded in the  **FeatureActionResult** entity.  Refer to the documentation for [FeatureActionResult](core_featureactionresult.md) for more information.
+Actions are modeled generically so that many different types of Actions can be recorded and associated indirectly with an observation.  Each observation **Result** must have only one Action direclty associated with it (i.e., the "Observation act"), but an Action may result in multiple Results. Relationships among an Action, the SamplingFeature on which or at which it was performed, and its observation Result (if one exists) are encoded in the **FeatureActionResult*** entity.
 
-Actions that are observations may have many other Actions associated with them. For example, a "Sample analysis" Action that generates a Result may have a related "Sample collection" Action and a related "Sample preparation" Action. Relationships among Actions (e.g., in the case of a workflow of many Actions that culminates in an "Observation act") can be encoded using parent/child relationships among Actions in the **RelatedActions** entity (see the [RelatedActions](core_relatedactions.md) article for more details).
+Actions that are observations may have many other Actions associated with them. For example, a "sample analysis" Action that generates a Result may have a related "sample collection" Action and a related "sample preparation" Action. Relationships among Actions (e.g., in the case of a workflow of many Actions that culminates in an "Observation act") can be encoded using parent/child relationships among Actions in the **RelatedActions** entity (see the [RelatedActions](core_relatedactions.md) article for more details).
 
 The following are two examples of how Actions can be used to describe the workflow of generating *ex situ* versus *in situ* observations.
 

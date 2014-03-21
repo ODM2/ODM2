@@ -179,7 +179,7 @@
     <Tbl UsSo="1" nm="ActionBy">
       <Cm>Affiliates people with actions and describes thier role in the action.</Cm>
       <TblOpts/>
-      <Cl au="0" df="" nm="ActionID" nu="0">
+      <Cl au="0" df="" nm="ActionID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of an action.</Cm>
       </Cl>
@@ -313,25 +313,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="Citations">
-      <Cm>The Citations table is a placeholder for a near-future revision  to implement Citations (or Attributions) in a manner similar to  IEDA's draft  "data_source" and "author_list" tables  in "PetDBSchema-Redesign-26.png"</Cm>
-      <TblOpts/>
-      <Pk ClNs="CitationID" nm="pkCitations"/>
-      <Cl au="0" df="" nm="CitationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="Authors" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CitationText" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="CitationLink" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="DataSets">
       <Cm>Describes groupings of observation results that can be considered "datasets"</Cm>
       <TblOpts/>
@@ -339,9 +320,6 @@
       <Cl au="0" df="" nm="DataSetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataSetUUID" nu="0">
-        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="DataSetTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -363,11 +341,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Text citation for Dataset itself</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_DataSet_Citations" prLkCl="CitationID" upAc="3">
-        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataSets" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DataSetCitationID" prCl="CitationID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -395,26 +368,30 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="FeatureActions">
+    <Tbl UsSo="1" nm="FeatureActionResult">
       <TblOpts/>
-      <Pk ClNs="FeatureActionID" nm="pkFeatureActions"/>
-      <Cl au="1" df="" nm="FeatureActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="ResultID" nu="1">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Fk deAc="3" nm="fk_FeatureActionResult_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="FeatureActions" oe="0" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="FeatureActionResult" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_FeatureActionResult_Results" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="0" nm="FeatureActionResult" oe="1" sch="ODM2Core" zr="0"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_FeatureActionResult_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="FeatureActions" oe="0" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="FeatureActionResult" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <UniqueConstraints/>
@@ -523,25 +500,25 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="ProcessingLevels">
-      <Cm>Describes the processing level of Results</Cm>
+    <Tbl UsSo="1" nm="QualityControlLevels">
+      <Cm>Describes the quality control level of Results</Cm>
       <TblOpts/>
-      <Pk ClNs="ProcessingLevelID" nm="pkProcessingLevels"/>
-      <Cl au="1" df="" nm="ProcessingLevelID" nu="0">
+      <Pk ClNs="QualityControlLevelID" nm="pkQualityControlLevels"/>
+      <Cl au="1" df="" nm="QualityControlLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
+        <Cm>Unique identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ProcessingLevelCode" nu="0">
+      <Cl au="0" df="" nm="QualityControlLevelCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text code identifying the level of processing the Result has been subject to</Cm>
+        <Cm>Text code identifying the quality control level</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text defintion of the processing level</Cm>
+        <Cm>Text defintion of the quality control level</Cm>
       </Cl>
       <Cl au="0" df="" nm="Explanation" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text explanation of the processing level</Cm>
+        <Cm>Text explanation of the quality control level</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -576,36 +553,6 @@
         <StPr stA="ODM2RelatedActions" stB="RelatedActions"/>
       </SchTrHis>
     </Tbl>
-    <Tbl UsSo="1" nm="RelatedResults">
-      <Cm>Describes Results that are related to one another</Cm>
-      <TblOpts/>
-      <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of a Result</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="RelatedResultID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key idntifier for a Result that is related to the Result given in ResultID</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text description of the relationship shared by two results</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_RelatedResults_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="RelatedResults" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_RelatedResults_Results_AreRelated" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="RelatedResults" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="RelatedResultID" prCl="ResultID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis>
-        <StPr stA="ODM2ResultsSets" stB="RelatedResultsSets"/>
-      </SchTrHis>
-    </Tbl>
     <Tbl UsSo="1" nm="Results">
       <Cm>Describes the results of observation actions (e.g., groups of one or more numeric data values that result from an observation action)</Cm>
       <TblOpts/>
@@ -613,14 +560,6 @@
       <Cl au="1" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ResultUUID" nu="0">
-        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Universally unique identifier for the Result</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="FeatureActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the combinaton of SamplingFeature and Action that created the Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -637,9 +576,9 @@
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="ProcessingLevelID" nu="0">
+      <Cl au="0" df="" nm="QualityControlLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the ProcessingLevel of the result</Cm>
+        <Cm>Foreign key identifier for the QualityControlLevel of the result</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultDateTime" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
@@ -669,19 +608,14 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Number of data values contained within the result</Cm>
       </Cl>
-      <Cl au="0" df="" nm="IntendedObservationSpacing" nu="1">
+      <Cl au="0" df="" nm="IntendedObservationSpacing" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Intended temporal spacing of the observations in the result</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Results_FeatureActions" prLkCl="FeatureActionID" upAc="3">
-        <PrTb mn="0" nm="FeatureActions" oe="1" sch="ODM2Core" zr="0"/>
+      <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="QualityControlLevelID" upAc="3">
+        <PrTb mn="0" nm="QualityControlLevels" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="FeatureActionID" prCl="FeatureActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Results_QualityControlLevels" prLkCl="ProcessingLevelID" upAc="3">
-        <PrTb mn="0" nm="ProcessingLevels" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ProcessingLevelID" prCl="ProcessingLevelID"/>
+        <ClPr cdCl="QualityControlLevelID" prCl="QualityControlLevelID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_Taxon" prLkCl="TaxonomicClassifierID" upAc="3">
         <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
@@ -713,31 +647,31 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term descripting the type of sampling feature.</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-      </Cl>
       <Cl au="0" df="" nm="SamplingFeatureName" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Sampling Feature name (free text).</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text describing the sampling feature.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureGeotypeCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Dimensionality of SamplingFeature; point2d, line2d, etc.</Cm>
       </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Spatial Reference System for the feature geometry.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="FeatureGeometry" nu="1">
         <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
       </Cl>
-      <Cl au="0" df="" nm="Elevation_m" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      <Cl au="0" df="" nm="SamplingFeatureDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text describing the sampling feature.</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ElevationDatumcCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
+      <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
+      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -826,6 +760,14 @@
       <Cl au="0" df="" nm="SpeciationCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Speciation for the variable (e.g., expressed as P or as PO4)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ValueTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary for ValueType</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary for DataType</Cm>
       </Cl>
       <Cl au="0" df="" nm="NoDataValue" nu="0">
         <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
@@ -1010,7 +952,7 @@
         <ClPr cdCl="VariableID" prCl="VariableID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ReferenceMaterialValues_Citations" prLkCl="CitationID" upAc="3">
-        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
         <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
@@ -1020,7 +962,6 @@
     <Tbl UsSo="1" nm="ResultNormalizationValues">
       <Cm>Extends the Results table with a foreign key to NormalizationReferenceMaterialValues when the optional DataQuality schema is implemented.  In a database implementation, we would not implement this as a separate table from Results.</Cm>
       <TblOpts/>
-      <Pk ClNs="ResultID" nm="pkResultNormalizationValues"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
@@ -1295,6 +1236,30 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="CitationExtensionPropertyValues">
+      <TblOpts/>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="PropertyValue" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_CitationExtensionPropertyValues_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="CitationExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_CitationExtensionPropertyValues_ExtensionProperties" prLkCl="PropertyID" upAc="3">
+        <PrTb mn="0" nm="ExtensionProperties" oe="1" sch="ODM2ExtensionProperties" zr="0"/>
+        <CdTb mn="1" nm="CitationExtensionPropertyValues" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
+        <ClPr cdCl="PropertyID" prCl="PropertyID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="ExtensionProperties">
       <Cm>Describes extension properties added to objects in an ODM database</Cm>
       <TblOpts/>
@@ -1458,7 +1423,7 @@
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_CitationExternalIdentifiers_Citations" prLkCl="CitationID" upAc="3">
-        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
         <CdTb mn="1" nm="CitationExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
@@ -1740,33 +1705,109 @@
         <StPr stA="ODM2Core" stB="Directives"/>
       </SchTrHis>
     </Tbl>
-    <Tbl UsSo="1" nm="SpecimenBatchPostions">
-      <Cm>Extends the FeatureActions table with a foreign key when the optional LabAnalyses schema is implemented.  In a database implementation, we would not implement this as a separate table from FeatureActions, but rather just add the additional field(s).</Cm>
+    <CustomTypes/>
+  </Sch>
+  <Sch Cm="Entities and attributes for creating and storing provenance information and versions of observations in ODM2." nm="ODM2Provenance">
+    <Tbl UsSo="1" nm="AuthorLists">
       <TblOpts/>
-      <Pk ClNs="FeatureActionID" nm="pkSpecimenBatchPostions"/>
-      <Cl au="0" df="" nm="FeatureActionID" nu="0">
+      <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foriegn key identifer for the Specimen Preparation or Analysis Batch</Cm>
+        <Cm>Foreign key identifer of the Citation</Cm>
       </Cl>
-      <Cl au="0" df="" nm="BatchPositionNumber" nu="0">
+      <Cl au="0" df="" nm="PersonID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>The position or line number of a specimen within a PreparationBatchAction or an InstrumentAnalysisAction.</Cm>
+        <Cm>Foreign key identifier of the Person that is an author of the Citation</Cm>
       </Cl>
-      <Cl au="0" df="" nm="BatchPositionLabel" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The label text for a specimen within a PreparationBatchAction or an InstrumentAnalysisAction.</Cm>
+      <Cl au="0" df="" nm="AuthorOrder" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Integer order of the author of the Citation starting with 1 for first author</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_FeatureActionID_FeatureActions" prLkCl="FeatureActionID" upAc="3">
-        <PrTb mn="0" nm="FeatureActions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="SpecimenBatchPostions" oe="1" sch="ODM2LabAnalyses" zr="1"/>
-        <ClPr cdCl="FeatureActionID" prCl="FeatureActionID"/>
+      <Fk deAc="3" nm="fk_AuthorList_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="AuthorLists" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_AuthorList_People" prLkCl="PersonID" upAc="3">
+        <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="AuthorLists" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="PersonID" prCl="PersonID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <CustomTypes/>
-  </Sch>
-  <Sch Cm="Entities and attributes for creating and storing provenance information and versions of observations in ODM2." nm="ODM2Provenance">
+    <Tbl UsSo="1" nm="Citations">
+      <Cm>The Citations table is a placeholder for a near-future revision  to implement Citations (or Attributions) in a manner similar to  IEDA's draft  "data_source" and "author_list" tables  in "PetDBSchema-Redesign-26.png"</Cm>
+      <TblOpts/>
+      <Pk ClNs="CitationID" nm="pkCitations"/>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primay key identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Title" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text title of the citation</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Publisher" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text publisher of the citation</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="PublicationYear" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>4 digit publication year of the citation</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CitationLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Full URL link to the citation</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="Citations"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="DataSetCitations">
+      <TblOpts/>
+      <Cl au="0" df="" nm="DataSetID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the DataSet</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the Citation</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term describing the relationship between the DataSet and the Citation (e.g., "cites" or "isCitedBy")</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_DataSetCitations_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="DataSetCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_DataSetCitations_DataSets" prLkCl="DataSetID" upAc="3">
+        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataSetCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="DataSetID" prCl="DataSetID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Core" stB="DataSetCitations"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="DerivationEquations">
+      <Cm>DerivationEquations include calibration equations, normalizations, etc. on one or more RelatedResults to produce a DerivedResult.</Cm>
+      <TblOpts/>
+      <Pk ClNs="DerivationEquationID" nm="pkDerivationEquations"/>
+      <Cl au="0" df="" nm="DerivationEquationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>DerivationEquations include calibration equations, normalizations, etc. on one or more RelatedResults to produce a DerivedResult.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DerivationEquation" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Where y is the DerivedResult and x1, x2... are the RelatedResults specified in order by RelatedResultSequenceID</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="InputResults">
       <Cm>Defines the input results that were used to create a derived result</Cm>
       <TblOpts/>
@@ -1778,15 +1819,128 @@
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key indentifier for the input result from which the derived result was created</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_InputResults_ResultProvenance" prLkCl="ResultProvenanceID" upAc="3">
-        <PrTb mn="0" nm="ResultProvenance" oe="1" sch="ODM2Provenance" zr="0"/>
-        <CdTb mn="1" nm="InputResults" oe="1" sch="ODM2Provenance" zr="0"/>
-        <ClPr cdCl="ResultProvenanceID" prCl="ResultProvenanceID"/>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="RelatedCitations">
+      <Cm>Information about relationships among Citations</Cm>
+      <TblOpts/>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of a Citation</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedCitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of a Citation related to the Citation specified by CitationID</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_RelatedCitations_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="RelatedCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_InputResults_Results" prLkCl="ResultID" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedCitations_Citations_AreRelated" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="RelatedCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="RelatedCitationID" prCl="CitationID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="RelatedDatasets">
+      <Cm>Information about relationships among DataSets</Cm>
+      <TblOpts/>
+      <Cl au="0" df="" nm="DataSetID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a DataSet</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedDatasetID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a DataSet that is related to the Dataset specified by DataSetID</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text relationship type chosen from a controlled vocabulary (e.g., "isNewVersionOf")</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VersionCode" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>A text code indicating a version number/code if the DataSet is an explicit version of another DataSet (must correspond with a RelationshipType of "isNewVersionOf")</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_RelatedDatasets_DataSets" prLkCl="DataSetID" upAc="3">
+        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="RelatedDatasets" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="DataSetID" prCl="DataSetID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_RelatedDatasets_DataSets_AreRelated" prLkCl="DataSetID" upAc="3">
+        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="RelatedDatasets" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="RelatedDatasetID" prCl="DataSetID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="RelatedResults">
+      <Cm>Describes Results that are related to one another</Cm>
+      <TblOpts/>
+      <Cl au="0" df="" nm="ResultID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of a Result</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedResultID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key idntifier for a Result that is related to the Result given in ResultID</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the relationship shared by two results</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VersionCode" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>A text code indicating a version number/code if the Result is an explicit version of another Result (must correspond with a RelationshipType of "isNewVersionOf")</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedResultSequenceNumber" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>An integer number indicating the order in which the related result appears in a derivation equation (vaules are only specified when RelationshipType = "isDerivedFrom")</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_RelatedResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="InputResults" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="InputResultID" prCl="ResultID"/>
+        <CdTb mn="1" nm="RelatedResults" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_RelatedResults_Results_AreRelated" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="RelatedResults" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="RelatedResultID" prCl="ResultID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2ResultsSets" stB="RelatedResultsSets"/>
+        <StPr stA="ODM2Core" stB="RelatedResults"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="ResultDerivationEquations">
+      <Cm>An optional subclass of Results where ProcessingLevel (formerly QualityControlLevel) indicates that the Result is derived from other Results.  If the optional DerivationEquations table were implemented, then DerivationEquationID could be directly added to the Results table.</Cm>
+      <TblOpts/>
+      <Pk ClNs="ResultID" nm="pkResultDerivationEquations"/>
+      <Cl au="0" df="" nm="ResultID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key, and foreign key to the Results table.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DerivationEquationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key idenifier for the DerivationEquation used to calculate the Result indicated by ResultID</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_ResultDerivationEquation_DerivationEquations" prLkCl="DerivationEquationID" upAc="3">
+        <PrTb mn="0" nm="DerivationEquations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="ResultDerivationEquations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="DerivationEquationID" prCl="DerivationEquationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ResultDerivationEquation_Results" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="0" nm="ResultDerivationEquations" oe="1" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1819,57 +1973,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the person that created the derived dataset</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_ResultProvenance_Methods" prLkCl="MethodID" upAc="3">
-        <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultProvenance" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="ProcessMethodID" prCl="MethodID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ResultProvenance_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultProvenance" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="ResultVersions">
-      <Cm>Describes versions of results</Cm>
-      <TblOpts/>
-      <Pk ClNs="ResultVersionID" nm="pkResultVersions"/>
-      <Cl au="1" df="" nm="ResultVersionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the result version</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VersionOfResultsSetID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the Result that the current Result is a version of</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VersionCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text code identifying the version</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VersionDefinition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text definition of the version</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VersionExplanation" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>A text explanation of the version</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_ObservationVersions_Observations_VersionOf" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="ResultVersions" oe="1" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="VersionOfResultsSetID" prCl="ResultID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ResultVersions_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ResultVersions" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -2023,6 +2126,14 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A CV term describing the site type</Cm>
       </Cl>
+      <Cl au="0" df="" nm="SiteCode" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>A text code that identifies the site (e.g., a USGS Gage number)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SiteName" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A text name for the site</Cm>
+      </Cl>
       <Cl au="0" df="" nm="Latitude" nu="0">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Latitude of the site</Cm>
@@ -2034,6 +2145,14 @@
       <Cl au="0" df="" nm="LatLonDatumID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Elevation_m" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The elevation of the site in meters above some vertical datum</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VerticalDatumCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A CV term describing the vertical datum to which the site elevation is referenced</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SiteDatum_SRSID" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
@@ -2095,8 +2214,8 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SRSCode" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      <Cl au="0" df="" nm="SRSID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>SRS code for the spatial reference system</Cm>
       </Cl>
       <Cl au="0" df="" nm="SRSName" nu="0">
@@ -2121,6 +2240,10 @@
       <Cl au="0" df="" nm="SpecimenTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A CV term defining the type of specimen (e.g., aquatic sample, core, etc.)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SpecimenCode" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>A unique text code that identifies the specimen.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpecimenMediumCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -2154,7 +2277,7 @@
         <Cm>Foreign key to the attribution, or Citation, for the classification.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SpecimenTaxonomicClassifiers_Citations" prLkCl="CitationID" upAc="3">
-        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
         <CdTb mn="1" nm="SpecimenTaxonomicClassifiers" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
@@ -2323,17 +2446,17 @@
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="398" y="549"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="901" y="377"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="902" y="47"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="685" y="72"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="687" y="305"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1196" y="85"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="1198" y="414"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="135" y="48"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="416" y="48"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="54" y="291"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="403" y="367"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="335" y="523"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="675" y="357"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="839" y="21"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="622" y="127"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="486" y="292"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1133" y="59"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="908" y="290"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="72" y="22"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="353" y="22"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="53" y="286"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="294" y="356"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations"/>
@@ -2347,7 +2470,7 @@
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
-      <Note bkCl="ffffff00" x="32" y="442">We could have a single cross-reference table.
+      <Note bkCl="ffffff00" x="37" y="429">We could have a single cross-reference table.
 But, we would lose referential integrity
 with the tables that reference it as there would
 be no way for all of the table to share a
@@ -2356,7 +2479,7 @@ single foreign key column.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2377,45 +2500,44 @@ single foreign key column.</Note>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="252" y="163"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="211"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1130" y="443"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="219"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1126" y="447"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="938" y="646"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="380" y="598"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="302"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="286"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="313" y="440"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="20" y="246"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="97" y="296"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="22" y="398"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="331" y="327"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="332" y="297"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1150" y="154"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1150" y="289"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1151" y="353"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="RelatedResults" x="1151" y="353"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="808" y="494"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1031" y="533"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="586" y="514"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="566" y="208"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1164" y="32"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="569" y="197"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="Citations" x="1164" y="32"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSets.fk_DataSet_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedActions.fk_RelatedActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedActions.fk_RelatedActions_Actions_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
     <Notes>
       <Note bkCl="ffffffe6" x="23" y="570">A person does not need to be 
 associated with an Organization,
@@ -2485,39 +2607,38 @@ in "PetDBSchema-Redesign-26.png"</Note>
     <TbGl bkCl="ffccccff" sch="ODM2CV" tbl="CVTerms" x="40" y="35"/>
     <Notes>
       <Note bkCl="ffffffe6" x="283" y="54">The following is the list of CVs in ODM2:
-ActionTypeCV
+Units
+SpatialReferences
+DataTypeCV
+UnitsTypeCV
+DatasetUniqueIDTypeCV
 AnnotationTypeCV
-CalibrationStandardTypeCV
 CensorCodeCV
-DataQualityTypeCV
-DatasetTypeCV
-DeploymentTypeCV
-DirectiveTypeCV
-EquipmentTypeCV
 InterpolationTypeCV
-MethodTypeCV
-OrganizationTypeCV
-PropertyDataTypeCV
 QualityCodeCV
-ReferenceMaterialMediumCV
+EquipmentTypeCV
+CalibrationStandardTypeCV
+PropertyDataTypeCV
 RelationshipTypeCV
-ResultTypeCV
-SampledMediumCV
-SamplingFeatureGeoTypeCV
-SamplingFeatureTypeCV
+SpecimentTypeCV
+SpecimenMediumCV
+VerticalDatumDCV
 SiteTypeCV
 SpatialOffsetTypeCV
-SpatialReferences
-SpeciationCV
-SpecimenMediumCV
-SpecimenTypeCV
+SamplingFeatureTypeCV
+PersonUniqueIDTypeCV
+OrganizationUniqueIDTypeCV
+MethodUniqueIDTypeCV
+ActionTypeCV
+ResultTypeCV
 StatusCV
-TaxonomicClassifierTypeCV
-Units
-UnitsTypeCV
+SampledMediumCV
 VariableNameCV
 VariableTypeCV
-VerticalDatumCV</Note>
+ValueTypeCV
+DeploymentTypeCV
+SpeciationCV
+DataSetTopicCategoryCV</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2545,16 +2666,16 @@ VerticalDatumCV</Note>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="647" y="566"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="307" y="472"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="564" y="178"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="297" y="320"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="297" y="320"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="301" y="114"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="15" y="308"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="12" y="477"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="871" y="336"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="892" y="167"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultNormalizationValues" x="629" y="479"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_NormalizationReferenceMaterialValues_ReferenceMaterials"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultNormalizationValues.fk_ResultsNormalizationValues_NormalizationReferenceMaterialValues"/>
@@ -2589,7 +2710,7 @@ VerticalDatumCV</Note>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="454" y="209"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="163" y="150"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="772" y="396"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="772" y="582"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="772" y="582"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="456" y="450"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="633" y="50"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="843" y="209"/>
@@ -2598,10 +2719,10 @@ VerticalDatumCV</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="158" y="648"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="23" y="827"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels"/>
@@ -2653,21 +2774,25 @@ An Instrument Calibration Action could either be:
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ExtensionProperties" x="444" y="555"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="MethodExtensionPropertyValues" x="584" y="290"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="673" y="148"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="884" y="44"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ResultExtensionPropertyValues" x="765" y="377"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="VariableExtensionPropertyValues" x="937" y="484"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="121" y="47"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="411" y="45"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="SamplingFeatureExtensionPropertyValues" x="33" y="270"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="322" y="379"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1177" y="44"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ExtensionProperties" x="345" y="536"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="MethodExtensionPropertyValues" x="485" y="271"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="574" y="129"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="785" y="25"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ResultExtensionPropertyValues" x="666" y="358"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="VariableExtensionPropertyValues" x="924" y="271"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="22" y="28"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="312" y="26"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="SamplingFeatureExtensionPropertyValues" x="0" y="273"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="ActionExtensionPropertyValues" x="223" y="360"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1078" y="25"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="Citations" x="1302" y="23"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2ExtensionProperties" tbl="CitationExtensionPropertyValues" x="1092" y="359"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtentionProperites_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ActionExtensionPropertyValues.fk_ActionExtentionProperites_ExtentionProperties"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.CitationExtensionPropertyValues.fk_CitationExtensionPropertyValues_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.CitationExtensionPropertyValues.fk_CitationExtensionPropertyValues_ExtensionProperties"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_ExtensionProperties"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.MethodExtensionPropertyValues.fk_MethodExtensionPropertyValues_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.ResultExtensionPropertyValues.fk_ResultsSetsExtensionPropertyValues_ExtensionProperties"/>
@@ -2677,7 +2802,7 @@ An Instrument Calibration Action could either be:
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_Variables"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="133" y="484">ExtensionProperties are implemented in a way
+      <Note bkCl="ffffffe6" x="34" y="465">ExtensionProperties are implemented in a way
 similar to ExternalIdentifiers.</Note>
     </Notes>
     <Zones/>
@@ -2715,10 +2840,11 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1325" y="46"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="TaxonomicClassifierExternalIdentifiers" x="1214" y="328"/>
     <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="200" y="38"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="34" y="152"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="0" y="152"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ReferenceMaterialExternalIdentifiers" x="67" y="441"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Citations" x="1635" y="176"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="Citations" x="1635" y="176"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1402" y="443"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.CitationExternalIdentifiers.fk_CitationExternalIdentifiers_Citations"/>
@@ -2759,31 +2885,44 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="133" y="546"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="576" y="122"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="792" y="544"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="262" y="47"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="49" y="764"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="582" y="273"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="498" y="544"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="312" y="348"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="270" y="282"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="369" y="444"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchPostions" x="440" y="674"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="322" y="763"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="167" y="520"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="544" y="83"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="455" y="633"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="228" y="23"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="160" y="673"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="552" y="236"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="464" y="520"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="278" y="324"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="236" y="258"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="335" y="420"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Directives"/>
-    <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.SpecimenBatchPostions.fk_FeatureActionID_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Samples_Features"/>
-    <Notes/>
+    <Notes>
+      <Note bkCl="ffffffe6" x="747" y="604">If an Index or Key were made from concatenating 
+SamplingFeatureID &amp; ActionID from the FeatureActionResult table,
+then it would be possible to track the position of a
+Specimen within an AnalysisBatch as it progresses from
+a SpecimenPreparationAction to an 
+InstrumentAnalysis[=MethodType] ObservationAction.
+This info is tracked in nearly every lab.
+
+For a SpecimenPreparationAction, where there are no Results 
+and ResultID is null, such a FeatureActionIndexID would be 
+the same as a primary key for the FeatureActionResult table 
+(i.e. a FeatureActionResultID).
+
+For a InstrumentAnalysis[=MethodType] ObservationAction,
+however, using a FeatureActionResultID will not work, because 
+there can by many results for each unique Specimen-Action combo.</Note>
+    </Notes>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Overview">
@@ -2809,7 +2948,7 @@ similar to ExternalIdentifiers.</Note>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="331" y="230"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="887" y="255"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1049" y="670"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="QualityControlLevels" x="1049" y="670"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="945" y="759"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="618" y="629"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="623" y="306"/>
@@ -2819,7 +2958,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="392" y="582"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1196" y="188"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1195" y="316"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="1196" y="376"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="RelatedResults" x="1196" y="376"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="835" y="607"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1068" y="534"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="366" y="375"/>
@@ -2828,7 +2967,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="40" y="191"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1397" y="547"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1398" y="769"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="625" y="214"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="625" y="214"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="1429" y="269"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="1443" y="440"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
@@ -2838,13 +2977,11 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_QualityControlLevels"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
@@ -2853,6 +2990,8 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.DataQuality.fk_DataQuality_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.OffsetOrigins.fk_OffsetOrigins_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
@@ -2873,7 +3012,7 @@ similar to ExternalIdentifiers.</Note>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2Provenance">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -2893,20 +3032,50 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultProvenance" x="282" y="114"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="InputResults" x="600" y="303"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultVersions" x="595" y="381"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="288" y="265"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="12" y="190"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.InputResults.fk_InputResults_ResultProvenance"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.InputResults.fk_InputResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultProvenance.fk_ResultProvenance_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultProvenance.fk_ResultProvenance_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultVersions.fk_ObservationVersions_Observations_VersionOf"/>
-    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultVersions.fk_ResultVersions_Results"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="335" y="277"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="52" y="93"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedResults" x="632" y="369"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="629" y="298"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="630" y="143"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="909" y="241"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="51" y="246"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="52" y="421"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DerivationEquations" x="624" y="485"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquations" x="486" y="572"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="1200" y="362"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorLists" x="925" y="369"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DataSetCitations" x="868" y="141"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedCitations" x="1176" y="254"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="335" y="155"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.AuthorLists.fk_AuthorList_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.AuthorLists.fk_AuthorList_People"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_DataSets"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedCitations.fk_RelatedCitations_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedCitations.fk_RelatedCitations_Citations_AreRelated"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets_AreRelated"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquations.fk_ResultDerivationEquation_DerivationEquations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquations.fk_ResultDerivationEquation_Results"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="183" y="60">Can "ResultProvenance" table be subsumed into "Actions/Events" as a subclass or ActionType?</Note>
-      <Note bkCl="ffffffe6" x="618" y="191">Where do we add publications?</Note>
+      <Note bkCl="ffffffe6" x="32" y="528">An ObservationAction with MethodType=ResultDerivation
+can specify which RelatedResults the new Result was 
+"DerivedFrom" [=RelationshipType].
+
+The exact DerivationEquation can be specified in the 
+table of that name, if the RelatedResultSequenceNumber is specified.</Note>
+      <Note bkCl="ffffffe6" x="921" y="450">RelationshipTypeCV:
+* isDerivedFrom
+* isNewVersionOf
+See full list used by DataCite.org at
+http://dlib.org/dlib/january11/starr/01starr.html</Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -2933,10 +3102,10 @@ similar to ExternalIdentifiers.</Note>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="380" y="31"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="431" y="342"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="708" y="33"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Provenance" tbl="RelatedResults" x="708" y="33"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="735" y="354"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
@@ -2991,7 +3160,7 @@ accomodated by a coverage?
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -3011,14 +3180,15 @@ accomodated by a coverage?
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="98" y="116"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="311" y="309"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="27" y="317"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="394" y="133"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="565" y="333"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="721" y="133"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="255" y="96"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="312" y="262"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="26" y="258"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeatureParents" x="551" y="113"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="585" y="336"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="878" y="113"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="16" y="420"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="36" y="518"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_Features"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.FeatureParents.fk_FeatureParents_FeaturesParent"/>
@@ -3029,7 +3199,12 @@ accomodated by a coverage?
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.SpecimenTaxonomicClassifiers.fk_SpecimenTaxonomicClassifiers_Specimens"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.SpecimenTaxonomicClassifiers.fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="408" y="220">FeatureParents table enables parent-child
+      <Note bkCl="ffffffe6" x="6" y="155">Recommendation for ODM2 regarding
+Specimens: A specimen will not have 
+location information. That information
+will be associated from its parent 
+SamplingFeature, via FeatureParents</Note>
+      <Note bkCl="ffffffe6" x="565" y="200">FeatureParents table enables parent-child
 relationships between any SamplingFeatures,
 including between Specimens and allowing
 composites (i.e. multiple parents).</Note>
@@ -3046,9 +3221,9 @@ should also be accounted for.</Note>
 SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
 Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
 Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
-      <Note bkCl="ffffffe6" x="722" y="272">SpatialOffsetTypeCV:
+      <Note bkCl="ffffffe6" x="890" y="260">SpatialOffsetTypeCV:
 - Draft at http://goo.gl/uOgK8U</Note>
-      <Note bkCl="ffffffe6" x="269" y="62">SamplingFeatureTypeCV:
+      <Note bkCl="ffffffe6" x="17" y="95">SamplingFeatureTypeCV:
 - Draft at http://goo.gl/DBvZko</Note>
     </Notes>
     <Zones/>
@@ -3081,9 +3256,9 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="36" y="54"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="SiteVisitActions" x="142" y="446"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="Photos" x="371" y="545"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="667" y="275"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActionResult_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActionResult" x="667" y="275"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActionResult.fk_FeatureActionResult_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_ParentChild"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DataLoggerFiles.fk_DataLoggerFiles_DeploymentEvents"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentActions.fk_DeploymentEvents_Events"/>
@@ -3100,7 +3275,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="402">
+  <RnmMgr NxRnmId="409">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -3976,14 +4151,13 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Photos" SupCls="Schema" SupNme="ODM2Sensors">
       <Rnm id="366" nNm="PhotoFileLink" oNm="PhotoFilePath"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureActions" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureActionResult" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="369" nNm="SamplingFeatureID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Actions" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="370" nNm="ActionFileLink" oNm="ActionLink"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="392" nNm="FeatureActions" oNm="FeatureActionResult"/>
       <Rnm id="371" nNm="FeatureActionResult" oNm="Triple"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterialExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
@@ -4008,6 +4182,8 @@ then  additional field are added
       <Rnm id="379" nNm="NormalizedByReferenceMaterialValueID" oNm="NormalizationReferenceMaterialValueID"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2DataQuality" SupCls="" SupNme="">
+      <Rnm id="396" nNm="ResultNormalizationValues" oNm="ResultNormalizationValue"/>
+      <Rnm id="393" nNm="ResultNormalizationValue" oNm="ResultNormalizationValues"/>
       <Rnm id="380" nNm="ResultNormalizationValues" oNm="ResultsNormalizationValues"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ReferenceMaterials" SupCls="Schema" SupNme="ODM2DataQuality">
@@ -4034,28 +4210,41 @@ then  additional field are added
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
       <Rnm id="391" nNm="SpecimenBatchLines" oNm="BatchSpecimenLines"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenBatchPostions" SupCls="Schema" SupNme="ODM2LabAnalyses">
-      <Rnm id="393" nNm="FeatureActionID" oNm="Id"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DerivationEquations" SupCls="Schema" SupNme="ODM2Provenance">
+      <Rnm id="392" nNm="DerivationEquationID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
-      <Rnm id="396" nNm="SpecimenBatchPostions" oNm="FeatureActionBatches"/>
-      <Rnm id="395" nNm="FeatureActionBatches" oNm="FeatureActionSequences"/>
-      <Rnm id="394" nNm="FeatureActionSequences" oNm="FeatureActionID"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultDerivationEquations" SupCls="Schema" SupNme="ODM2Provenance">
+      <Rnm id="394" nNm="ResultID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpatialReferences" SupCls="Schema" SupNme="ODM2SamplingFeatures">
-      <Rnm id="397" nNm="SRSCode" oNm="SRSID"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="397" nNm="VersionCode" oNm="DataSetVersionCode"/>
     </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
-      <Rnm id="398" nNm="ProcessingLevels" oNm="QualityControlLevels"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="AuthorLists" SupCls="Schema" SupNme="ODM2Provenance">
+      <Rnm id="398" nNm="CitationID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProcessingLevels" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="399" nNm="ProcessingLevelID" oNm="QualityControlLevelID"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="405" nNm="Title" oNm="CitationTitle"/>
+      <Rnm id="401" nNm="CitationTitle" oNm="Title"/>
+      <Rnm id="399" nNm="Title" oNm="Authors"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ProcessingLevels" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="400" nNm="ProcessingLevelCode" oNm="QualityControlLevelCode"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="404" nNm="PublicationYear" oNm="CitationYear"/>
+      <Rnm id="400" nNm="CitationYear" oNm="Year"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="401" nNm="ProcessingLevelID" oNm="QualityControlLevelID"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetCitations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="402" nNm="DataSetID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Citations" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="403" nNm="Publisher" oNm="CitationText"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExtensionPropertyValues" SupCls="Schema" SupNme="ODM2ExtensionProperties">
+      <Rnm id="406" nNm="CitationID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
+      <Rnm id="407" nNm="AuthorLists" oNm="AuthorList"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
+      <Rnm id="408" nNm="ResultDerivationEquations" oNm="ResultDerivationEquation"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -4074,11 +4263,20 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (16)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Provenance</TreePath>
+    <TreePath>/Schemas (12)/ODM2Provenance/Tables (10)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
