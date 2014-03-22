@@ -36,10 +36,10 @@
 </td><td class="PkCol"><a href="../columns/ODM2Provenance_DerivationEquations_DerivationEquationID.html">DerivationEquationID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol">Primary key identifier</td><td class="PkCol"> </td>
+</td><td class="PkCol"> </td><td class="PkCol">Primary key for DerivationEquations, which include calibration equations, normalizations, etc. on one or more RelatedResults to produce a DerivedResult.</td><td class="PkCol"> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Provenance_DerivationEquations_DerivationEquation.html">DerivationEquation</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text of the equation used to derive one or more Results</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Provenance_DerivationEquations_DerivationEquation.html">DerivationEquation</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text of the equation used to derive a Result from one or more RelatedResults, where y is the DerivedResult and x1, x2, ..., xn are the RelatedResults specified in order by RelatedResultSequenceID.</td><td> </td>
 </tr>
 </table>
 <br>

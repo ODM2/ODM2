@@ -30,6 +30,15 @@
 <td class="Header">PK</td><td class="Header">Name</td><td class="Header">Data Type</td><td class="Header">NULLs</td><td class="Header">A/N</td><td class="Header">Default</td><td class="Header">Comment</td><td class="Header">FK</td>
 </tr>
 <tr>
+<td class="PkCol">
+<p class="boolImg">
+<img src="../images/pkb16.gif"></p>
+</td><td class="PkCol"><a href="../columns/ODM2Provenance_RelatedDatasets_RelationID.html">RelationID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="PkCol"> </td><td class="PkCol">Primary key for a relationship table (i.e. named "Related...").</td><td class="PkCol"> </td>
+</tr>
+<tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Provenance_RelatedDatasets_DataSetID.html">DataSetID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for a DataSet</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
@@ -42,13 +51,13 @@
 </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Provenance_RelatedDatasets_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text description of the type of relationship from a controlled vocabulary</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Provenance_RelatedDatasets_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the relationship between DataSets (e.g., "IsNewVersionOf" or "Continues"), largely conforming to CV used by DataCite.org.</td><td> </td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2Provenance_RelatedDatasets_VersionCode.html">VersionCode</a></td><td>VarChar(50)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Text version number/code if the DataSet is a version of another dataset</td><td> </td>
+</td><td> </td><td> </td><td>Text version number/code that can be specified if the DataSet is an explicit version of another DataSet and where the RelationshipTypeCV = "isNewVersionOf".</td><td> </td>
 </tr>
 </table>
 <br>
