@@ -3232,22 +3232,26 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="328" y="384"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="37" y="187"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="23" y="363"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="31" y="558"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="649" y="401"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="668" y="263"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="898" y="279"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedResults" x="901" y="496"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DerivationEquations" x="894" y="634"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquations" x="493" y="652"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DataSetCitations" x="563" y="153"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="520" y="6"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorLists" x="261" y="5"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="25" y="4"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedCitations" x="889" y="16"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="MethodCitations" x="282" y="155"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="320" y="422"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="50" y="285"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="32" y="443"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="40" y="621"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="653" y="533"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="650" y="401"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="891" y="406"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedResults" x="347" y="692"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DerivationEquations" x="1031" y="617"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquations" x="660" y="620"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DataSetCitations" x="592" y="295"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="614" y="166"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorLists" x="291" y="175"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="36" y="168"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedCitations" x="900" y="180"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="MethodCitations" x="292" y="290"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedAnnotations" x="598" y="41"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="318" y="8"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.Annotations.fk_Annotations_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.Annotations.fk_Annotations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
@@ -3259,6 +3263,8 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.MethodCitations.fk_MethodCitations_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.MethodCitations.fk_MethodCitations_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedCitations.fk_RelatedCitations_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedCitations.fk_RelatedCitations_Citations_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets"/>
@@ -3268,12 +3274,12 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquations.fk_ResultDerivationEquations_DerivationEquations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquations.fk_ResultDerivationEquations_Results"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="324" y="277">RelationshipTypeCV:
+      <Note bkCl="ffffffe6" x="24" y="720">RelationshipTypeCV:
 * isDerivedFrom
 * isNewVersionOf
 See full list used by DataCite.org at
 http://dlib.org/dlib/january11/starr/01starr.html</Note>
-      <Note bkCl="ffffffe6" x="28" y="743">An ObservationAction with MethodType=ResultDerivation
+      <Note bkCl="ffffffe6" x="746" y="687">An ObservationAction with MethodType=ResultDerivation
 can specify which RelatedResults the new Result was
 "DerivedFrom" [=RelationshipType].
 
@@ -4455,9 +4461,7 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
