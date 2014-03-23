@@ -1,6 +1,6 @@
 <HTML>
 <Header>
-<Title>RelatedActions - Table</Title>
+<Title>RelatedAnnotations - Table</Title>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 <Link href="../css/doc.css" rel="stylesheet" type="text/css">
 </Header>
@@ -18,7 +18,7 @@
 <hr>
 <table class="pageTitle">
 <tr class="altRow">
-<td class="title_nm">RelatedActions</td><td class="watermark_right">(Table)</td>
+<td class="title_nm">RelatedAnnotations</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
 <br>
@@ -33,22 +33,22 @@
 <td class="PkCol">
 <p class="boolImg">
 <img src="../images/pkb16.gif"></p>
-</td><td class="PkCol"><a href="../columns/ODM2Core_RelatedActions_RelationID.html">RelationID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+</td><td class="PkCol"><a href="../columns/ODM2Provenance_RelatedAnnotations_RelationID.html">RelationID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol">Primary key for a relationship table (i.e. named "Related...").</td><td class="PkCol"> </td>
+</td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_RelatedActions_ActionID.html">ActionID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the Action</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Provenance_RelatedAnnotations_AnnotationID.html">AnnotationID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Core_RelatedActions_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text description of the relationship between two Actions</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Provenance_RelatedAnnotations_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td> </td><td> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_RelatedActions_RelatedActionID.html">RelatedActionID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for a Action related to the Action identified by ActionID</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Provenance_RelatedAnnotations_RelatedAnnotationID.html">RelatedAnnotationID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
@@ -63,10 +63,10 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_RelatedActions_fk_RelatedActions_Actions.html">fk_RelatedActions_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_RelatedActions.html">ODM2Core.RelatedActions</a></td><td>ActionID</td><td>ActionID</td>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedAnnotations_fk_RelatedAnnotations_Annotations.html">fk_RelatedAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Provenance_RelatedAnnotations.html">ODM2Provenance.RelatedAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_RelatedActions_fk_RelatedActions_Actions_AreRelated.html">fk_RelatedActions_Actions_AreRelated</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_RelatedActions.html">ODM2Core.RelatedActions</a></td><td>ActionID</td><td>RelatedActionID</td>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedAnnotations_fk_RelatedAnnotations_Annotations_AreRelated.html">fk_RelatedAnnotations_Annotations_AreRelated</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Provenance_RelatedAnnotations.html">ODM2Provenance.RelatedAnnotations</a></td><td>AnnotationID</td><td>RelatedAnnotationID</td>
 </tr>
 </table>
 <br>
@@ -84,7 +84,10 @@
 <td class="Header">Diagram Name</td>
 </tr>
 <tr>
-<td><a href="../diagrams/ODM2Core.html">ODM2Core</a></td>
+<td><a href="../diagrams/ODM2Annotations.html">ODM2Annotations</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Provenance.html">ODM2Provenance</a></td>
 </tr>
 </table>
 </Body>

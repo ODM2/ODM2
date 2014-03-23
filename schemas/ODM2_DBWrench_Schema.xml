@@ -61,10 +61,21 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>UTCOffset for the annotation creation date/time.</Cm>
       </Cl>
+      <Cl au="0" df="" nm="AnnotationLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="AnnotatorID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foregn key identifier for the person that created the annotation</Cm>
       </Cl>
+      <Cl au="0" df="" nm="CitationID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_Annotations_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
       <Fk deAc="3" nm="fk_Annotations_People" prLkCl="PersonID" upAc="3">
         <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
@@ -564,13 +575,13 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Action</Cm>
       </Cl>
-      <Cl au="0" df="" nm="RelatedActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for a Action related to the Action identified by ActionID</Cm>
-      </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text description of the relationship between two Actions</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a Action related to the Action identified by ActionID</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_RelatedActions_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -1965,18 +1976,19 @@
       <Pk ClNs="BridgeID" nm="pkDataSetCitations"/>
       <Cl au="1" df="" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a DataSet</Cm>
       </Cl>
-      <Cl au="0" df="" nm="CitationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for a Citation that is associated with the DataSet identified by DataSetID</Cm>
-      </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the relationship between the DataSet and the Citation (e.g., "cites" or "isCitedBy"), largely conforming to CV used by DataCite.org.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a Citation that is associated with the DataSet identified by DataSetID</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_DataSetCitations_Citations" prLkCl="CitationID" upAc="3">
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
@@ -2006,6 +2018,67 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="MethodCitations">
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkMethodCitations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="MethodID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a Method</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term describing the relationship between the Methods and the Citation (e.g., "References" or "isDocumentedBy"), largely conforming to CV used by DataCite.org.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a Citation that is associated with the Method identified by MethodID</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_MethodCitations_Citations" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="MethodCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_MethodCitations_Methods" prLkCl="MethodID" upAc="3">
+        <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="MethodCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="MethodID" prCl="MethodID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="RelatedAnnotations">
+      <Cm>Stores information about relationships among Annotations</Cm>
+      <TblOpts/>
+      <Pk ClNs="RelationID" nm="pkRelatedAnnotations"/>
+      <Cl au="1" df="" nm="RelationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedAnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_RelatedAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="RelatedAnnotations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_RelatedAnnotations_Annotations_AreRelated" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="RelatedAnnotations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="RelatedAnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="RelatedCitations">
       <Cm>Information about relationships among citations</Cm>
       <TblOpts/>
@@ -2018,18 +2091,23 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a Citation</Cm>
       </Cl>
-      <Cl au="0" df="" nm="RelatedCitationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for a Citation that is related to the Citation identified by CitationID</Cm>
-      </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the relationship between Citations (e.g., "IsSupplementTo" or "IsPartOf"), largely conforming to CV used by DataCite.org.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedCitationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a Citation that is related to the Citation identified by CitationID</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_RelatedCitations_Citations" prLkCl="CitationID" upAc="3">
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
         <CdTb mn="1" nm="RelatedCitations" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_RelatedCitations_Citations_AreRelated" prLkCl="CitationID" upAc="3">
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <CdTb mn="1" nm="RelatedCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="RelatedCitationID" prCl="CitationID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -2046,13 +2124,13 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a DataSet</Cm>
       </Cl>
-      <Cl au="0" df="" nm="RelatedDatasetID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for a DataSet related to the DataSet identified by DataSetID</Cm>
-      </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the relationship between DataSets (e.g., "IsNewVersionOf" or "Continues"), largely conforming to CV used by DataCite.org.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedDatasetID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a DataSet related to the DataSet identified by DataSetID</Cm>
       </Cl>
       <Cl au="0" df="" nm="VersionCode" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
@@ -2083,13 +2161,13 @@
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a Result</Cm>
       </Cl>
-      <Cl au="0" df="" nm="RelatedResultID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for a Result that is related to the Result identified by ResultID</Cm>
-      </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text description of the relationship between the Results from a controlled vocabulary (e.g., "isDerivedFrom")</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedResultID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for a Result that is related to the Result identified by ResultID</Cm>
       </Cl>
       <Cl au="0" df="" nm="VersionCode" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
@@ -2248,13 +2326,13 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foregn key identifier of a Sampling Feature</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ParentFeatureID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of a Sampling Feature that is the parent of the current Sampling Feature</Cm>
-      </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the relationship between SamplingFeatures (e.g., "IsChildOf", "IsFractionOf" or "IsCompositeOf").</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedFeatureID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of a Sampling Feature that is the parent of the current Sampling Feature</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpatialOffsetID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2263,7 +2341,7 @@
       <Fk deAc="3" nm="fk_FeatureParents_FeaturesParent" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="RelatedFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="ParentFeatureID" prCl="SamplingFeatureID"/>
+        <ClPr cdCl="RelatedFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <Fk deAc="3" nm="fk_FeatureParents_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -2605,6 +2683,7 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="416" y="48"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="25" y="291"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="397" y="292"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedAnnotations" x="68" y="586"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations"/>
@@ -2616,6 +2695,8 @@
     <FkGl bkCl="ff000000" nm="ODM2Annotations.SamplingFeatureAnnotations.fk_SamplingFeatureAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.SamplingFeatureAnnotations.fk_SamplingFeatureAnnotations_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes/>
     <Zones/>
@@ -3151,21 +3232,26 @@ similar to ExternalIdentifiers.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="318" y="306"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="27" y="109"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="13" y="285"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="21" y="480"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="639" y="302"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="658" y="149"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="350" y="154"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedResults" x="632" y="413"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DerivationEquations" x="669" y="590"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquations" x="289" y="595"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DataSetCitations" x="916" y="187"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="934" y="303"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorLists" x="957" y="445"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="1224" y="440"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedCitations" x="1197" y="313"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="320" y="422"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="50" y="285"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="32" y="443"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="40" y="621"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="653" y="533"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="650" y="401"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="891" y="406"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedResults" x="347" y="692"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DerivationEquations" x="1031" y="617"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquations" x="660" y="620"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DataSetCitations" x="592" y="295"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="614" y="166"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorLists" x="291" y="175"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="36" y="168"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedCitations" x="900" y="180"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="MethodCitations" x="292" y="290"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedAnnotations" x="598" y="41"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="318" y="8"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.Annotations.fk_Annotations_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.Annotations.fk_Annotations_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
@@ -3175,7 +3261,12 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.AuthorLists.fk_AuthorLists_People"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_Citations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_DataSets"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.MethodCitations.fk_MethodCitations_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.MethodCitations.fk_MethodCitations_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedCitations.fk_RelatedCitations_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedCitations.fk_RelatedCitations_Citations_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedResults.fk_RelatedResults_Results"/>
@@ -3183,12 +3274,12 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquations.fk_ResultDerivationEquations_DerivationEquations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.ResultDerivationEquations.fk_ResultDerivationEquations_Results"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="1004" y="553">RelationshipTypeCV:
+      <Note bkCl="ffffffe6" x="24" y="720">RelationshipTypeCV:
 * isDerivedFrom
 * isNewVersionOf
 See full list used by DataCite.org at
 http://dlib.org/dlib/january11/starr/01starr.html</Note>
-      <Note bkCl="ffffffe6" x="18" y="665">An ObservationAction with MethodType=ResultDerivation
+      <Note bkCl="ffffffe6" x="746" y="687">An ObservationAction with MethodType=ResultDerivation
 can specify which RelatedResults the new Result was
 "DerivedFrom" [=RelationshipType].
 
@@ -3275,7 +3366,7 @@ accomodated by a coverage?
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -3384,7 +3475,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="404">
+  <RnmMgr NxRnmId="406">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4347,6 +4438,12 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpatialReferenceExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="403" nNm="BridgeID" oNm="Id"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodCitations" SupCls="Schema" SupNme="ODM2Provenance">
+      <Rnm id="404" nNm="BridgeID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedFeatures" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="405" nNm="RelatedFeatureID" oNm="ParentFeatureID"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -4364,7 +4461,7 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Overview" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>

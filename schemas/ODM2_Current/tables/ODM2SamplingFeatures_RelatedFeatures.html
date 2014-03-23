@@ -45,13 +45,13 @@
 </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_RelatedFeatures_ParentFeatureID.html">ParentFeatureID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of a Sampling Feature that is the parent of the current Sampling Feature</td><td class="FkCol">
+<td> </td><td><a href="../columns/ODM2SamplingFeatures_RelatedFeatures_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the relationship between SamplingFeatures (e.g., "IsChildOf", "IsFractionOf" or "IsCompositeOf").</td><td> </td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_RelatedFeatures_RelatedFeatureID.html">RelatedFeatureID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of a Sampling Feature that is the parent of the current Sampling Feature</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
-</tr>
-<tr>
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_RelatedFeatures_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the relationship between SamplingFeatures (e.g., "IsChildOf", "IsFractionOf" or "IsCompositeOf").</td><td> </td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_RelatedFeatures_SpatialOffsetID.html">SpatialOffsetID</a></td><td class="FkCol">Integer</td><td class="FkCol">
@@ -72,7 +72,7 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2SamplingFeatures_RelatedFeatures_fk_FeatureParents_FeaturesParent.html">fk_FeatureParents_FeaturesParent</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_RelatedFeatures.html">ODM2SamplingFeatures.RelatedFeatures</a></td><td>SamplingFeatureID</td><td>ParentFeatureID</td>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_RelatedFeatures_fk_FeatureParents_FeaturesParent.html">fk_FeatureParents_FeaturesParent</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_RelatedFeatures.html">ODM2SamplingFeatures.RelatedFeatures</a></td><td>SamplingFeatureID</td><td>RelatedFeatureID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2SamplingFeatures_RelatedFeatures_fk_FeatureParents_SamplingFeatures.html">fk_FeatureParents_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_RelatedFeatures.html">ODM2SamplingFeatures.RelatedFeatures</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>

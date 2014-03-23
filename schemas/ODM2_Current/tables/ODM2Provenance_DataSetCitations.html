@@ -36,7 +36,7 @@
 </td><td class="PkCol"><a href="../columns/ODM2Provenance_DataSetCitations_BridgeID.html">BridgeID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td>
+</td><td class="PkCol"> </td><td class="PkCol">Primary key for a bridge table, enabling many-to-many joins.</td><td class="PkCol"> </td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Provenance_DataSetCitations_DataSetID.html">DataSetID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for a DataSet</td><td class="FkCol">
@@ -45,13 +45,13 @@
 </td>
 </tr>
 <tr>
+<td> </td><td><a href="../columns/ODM2Provenance_DataSetCitations_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the relationship between the DataSet and the Citation (e.g., "cites" or "isCitedBy"), largely conforming to CV used by DataCite.org.</td><td> </td>
+</tr>
+<tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Provenance_DataSetCitations_CitationID.html">CitationID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for a Citation that is associated with the DataSet identified by DataSetID</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
-</tr>
-<tr>
-<td> </td><td><a href="../columns/ODM2Provenance_DataSetCitations_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the relationship between the DataSet and the Citation (e.g., "cites" or "isCitedBy"), largely conforming to CV used by DataCite.org.</td><td> </td>
 </tr>
 </table>
 <br>
@@ -59,7 +59,7 @@
 <tr>
 <td class="banner" colspan="5">Foreign Keys</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>

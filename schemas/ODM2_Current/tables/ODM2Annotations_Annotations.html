@@ -63,10 +63,25 @@
 </td><td> </td><td> </td><td>UTCOffset for the annotation creation date/time.</td><td> </td>
 </tr>
 <tr>
+<td> </td><td><a href="../columns/ODM2Annotations_Annotations_AnnotationLink.html">AnnotationLink</a></td><td>VarChar(255)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td> </td><td> </td>
+</tr>
+<tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Annotations_Annotations_AnnotatorID.html">AnnotatorID</a></td><td class="FkCol">Integer</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foregn key identifier for the person that created the annotation</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Annotations_Annotations_CitationID.html">CitationID</a></td><td class="FkCol">Integer</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
@@ -79,6 +94,9 @@
 </tr>
 <tr>
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_Annotations_fk_Annotations_Citations.html">fk_Annotations_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td>CitationID</td><td>CitationID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Annotations_Annotations_fk_Annotations_People.html">fk_Annotations_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td>PersonID</td><td>AnnotatorID</td>
@@ -95,17 +113,23 @@
 <tr>
 <td><a href="../foreignKeys/ODM2Annotations_ActionAnnotations_fk_ActionAnnotations_Annotations.html">fk_ActionAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_ActionAnnotations.html">ODM2Annotations.ActionAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Annotations_MethodAnnotations_fk_MethodAnnotations_Annotations.html">fk_MethodAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_MethodAnnotations.html">ODM2Annotations.MethodAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Annotations_ResultAnnotations_fk_ResultAnnotations_Annotations.html">fk_ResultAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_ResultAnnotations.html">ODM2Annotations.ResultAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Annotations_ResultValueAnnotations_fk_ResultValueAnnotations_Annotations.html">fk_ResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_ResultValueAnnotations.html">ODM2Annotations.ResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Annotations_SamplingFeatureAnnotations_fk_SamplingFeatureAnnotations_Annotations.html">fk_SamplingFeatureAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_SamplingFeatureAnnotations.html">ODM2Annotations.SamplingFeatureAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_RelatedAnnotations_fk_RelatedAnnotations_Annotations.html">fk_RelatedAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Provenance_RelatedAnnotations.html">ODM2Provenance.RelatedAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedAnnotations_fk_RelatedAnnotations_Annotations_AreRelated.html">fk_RelatedAnnotations_Annotations_AreRelated</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Provenance_RelatedAnnotations.html">ODM2Provenance.RelatedAnnotations</a></td><td>AnnotationID</td><td>RelatedAnnotationID</td>
 </tr>
 </table>
 <br>
@@ -118,6 +142,9 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Annotations.html">ODM2Annotations</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Provenance.html">ODM2Provenance</a></td>
 </tr>
 </table>
 </Body>

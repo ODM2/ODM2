@@ -45,10 +45,13 @@
 </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Provenance_RelatedCitations_RelatedCitationID.html">RelatedCitationID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign key identifier for a Citation that is related to the Citation identified by CitationID</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Provenance_RelatedCitations_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>CV term describing the relationship between Citations (e.g., "IsSupplementTo" or "IsPartOf"), largely conforming to CV used by DataCite.org.</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Provenance_RelatedCitations_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>CV term describing the relationship between Citations (e.g., "IsSupplementTo" or "IsPartOf"), largely conforming to CV used by DataCite.org.</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Provenance_RelatedCitations_RelatedCitationID.html">RelatedCitationID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for a Citation that is related to the Citation identified by CitationID</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 </table>
 <br>
@@ -61,6 +64,9 @@
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Provenance_RelatedCitations_fk_RelatedCitations_Citations.html">fk_RelatedCitations_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Provenance_RelatedCitations.html">ODM2Provenance.RelatedCitations</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedCitations_fk_RelatedCitations_Citations_AreRelated.html">fk_RelatedCitations_Citations_AreRelated</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Provenance_RelatedCitations.html">ODM2Provenance.RelatedCitations</a></td><td>CitationID</td><td>RelatedCitationID</td>
 </tr>
 </table>
 <br>
