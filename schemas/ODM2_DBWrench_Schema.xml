@@ -61,6 +61,9 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>UTCOffset for the annotation creation date/time.</Cm>
       </Cl>
+      <Cl au="0" df="" nm="AnnotationLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="AnnotatorID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foregn key identifier for the person that created the annotation</Cm>
@@ -68,14 +71,6 @@
       <Cl au="0" df="" nm="CitationID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="ParentAnnotationID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Fk deAc="3" nm="fk_Annotations_Annotations" prLkCl="AnnotationID" upAc="3">
-        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
-        <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
-        <ClPr cdCl="ParentAnnotationID" prCl="AnnotationID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_Annotations_Citations" prLkCl="CitationID" upAc="3">
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
         <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
@@ -2055,6 +2050,35 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="RelatedAnnotations">
+      <Cm>Stores information about relationships among Annotations</Cm>
+      <TblOpts/>
+      <Pk ClNs="RelationID" nm="pkRelatedAnnotations"/>
+      <Cl au="1" df="" nm="RelationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="RelatedAnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_RelatedAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="RelatedAnnotations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_RelatedAnnotations_Annotations_AreRelated" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="RelatedAnnotations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <ClPr cdCl="RelatedAnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="RelatedCitations">
       <Cm>Information about relationships among citations</Cm>
       <TblOpts/>
@@ -2659,9 +2683,9 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="416" y="48"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="25" y="291"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="397" y="292"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedAnnotations" x="68" y="586"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Annotations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.Annotations.fk_Annotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ResultAnnotations.fk_ResultAnnotations_Annotations"/>
@@ -2671,6 +2695,8 @@
     <FkGl bkCl="ff000000" nm="ODM2Annotations.SamplingFeatureAnnotations.fk_SamplingFeatureAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.SamplingFeatureAnnotations.fk_SamplingFeatureAnnotations_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes/>
     <Zones/>
@@ -4429,11 +4455,9 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
