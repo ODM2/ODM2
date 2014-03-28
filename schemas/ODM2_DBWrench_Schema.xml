@@ -708,6 +708,7 @@
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>A short but meaningful text identifier for the sampling feature.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureName" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -723,13 +724,15 @@
       </Cl>
       <Cl au="0" df="" nm="FeatureGeometry" nu="1">
         <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Actual geometry of the feature. (In Emilio's use case, limited to 2D geometries in epsg:4326). Can be Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc), Solid</Cm>
+        <Cm>The location geometry of the sampling feature on the Earth. Can be a Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc) or Solid/Volume (although often limited to 2D geometries). </Cm>
       </Cl>
       <Cl au="0" df="" nm="Elevation_m" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The elevation of the sampling feature in meters, or in the case of Specimen, the elevation from where the SamplingFeature.Specimen was collected</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ElevationDatumcCV" nu="1">
+      <Cl au="0" df="" nm="ElevationDatumCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The code for the vertical geodetic datum that specifies the zero point for the Sampling Feature Elevation.</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -3475,7 +3478,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="406">
+  <RnmMgr NxRnmId="407">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4443,6 +4446,9 @@ then  additional field are added
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="RelatedFeatures" SupCls="Schema" SupNme="ODM2SamplingFeatures">
       <Rnm id="405" nNm="RelatedFeatureID" oNm="ParentFeatureID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="406" nNm="ElevationDatumCV" oNm="ElevationDatumcCV"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
