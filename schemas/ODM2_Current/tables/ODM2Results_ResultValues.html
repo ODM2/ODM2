@@ -90,10 +90,22 @@
 </td><td> </td><td> </td><td>CV term specifying the quality of the result value</td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Results_ResultValues_AggregationDuration.html">AggregationDuration</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Description of the time support of the result value</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Results_ResultValues_AggregationStatisticCV.html">AggregationStatisticCV</a></td><td>VarChar(255)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>CV term describing the type of aggregation done over the AggregationInterval, such as average, cumulative sum, maximum, etc.  This is equivalent to CUAHSI's DataTypeCV and WaterML2's InterpolationTypeCV.</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Results_ResultValues_InterpolationTypeCV.html">InterpolationTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the type of aggregation or interpolation that does done over the AggregationDuration</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Results_ResultValues_AggregationInterval.html">AggregationInterval</a></td><td>Float</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>The value of the length of the interval over which a DataValue is aggregated, such as time support interval over which a sensor averages individual measurements.  AggregationInterval can also be either temporal or spatial.</td><td> </td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Results_ResultValues_AggregationIntervalUnitID.html">AggregationIntervalUnitID</a></td><td>Integer</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>A foreign key to the Units of the AggregationInterval value.</td><td> </td>
 </tr>
 </table>
 <br>
