@@ -2293,13 +2293,17 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term specifying the quality of the result value</Cm>
       </Cl>
-      <Cl au="0" df="" nm="AggregationDuration" nu="0">
+      <Cl au="0" df="" nm="AggregationStatisticCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Description of the time support of the result value</Cm>
+        <Cm>CV term describing the type of aggregation done over the AggregationInterval, such as average, cumulative sum, maximum, etc.  This is equivalent to CUAHSI's DataTypeCV and WaterML2's InterpolationTypeCV.</Cm>
       </Cl>
-      <Cl au="0" df="" nm="InterpolationTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term describing the type of aggregation or interpolation that does done over the AggregationDuration</Cm>
+      <Cl au="0" df="" nm="AggregationInterval" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The value of the length of the interval over which a DataValue is aggregated, such as time support interval over which a sensor averages individual measurements.  AggregationInterval can also be either temporal or spatial.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="AggregationIntervalUnitID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A foreign key to the Units of the AggregationInterval value.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ResultValues_OffsetOrigins" prLkCl="OffsetOriginID" upAc="3">
         <PrTb mn="0" nm="OffsetOrigins" oe="1" sch="ODM2Results" zr="0"/>
@@ -3318,14 +3322,6 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_OffsetOrigins"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes>
-      <Note bkCl="ffe3e4e0" x="782" y="279">A coverage can also have value types of
-CategoryObs, CountObs, TruthObs, etc</Note>
-      <Note bkCl="ffe3e4e0" x="560" y="267">Values table may represent a
-Coverage or a "constant value"
-(which may be complex type)</Note>
-      <Note bkCl="ffe3e4e0" x="654" y="109">It's useful to conceptualize Results as a catalog of values. 
-The XYZT bounding box is available from Actions and SamplingFeatures.
-O&amp;M ResultTime meaning: "the time when the result became available".  </Note>
       <Note bkCl="ffffffe6" x="22" y="21">See OGC O&amp;M documentation for 
 definitions and specifications 
 regarding each of these ResultsTypes.
@@ -3365,6 +3361,14 @@ but not consistently in all RDBMSs.
 Can an array (such as a spectrum) be
 accomodated by a coverage?
 </Note>
+      <Note bkCl="ffe3e4e0" x="782" y="279">A coverage can also have value types of
+CategoryObs, CountObs, TruthObs, etc</Note>
+      <Note bkCl="ffe3e4e0" x="560" y="267">Values table may represent a
+Coverage or a "constant value"
+(which may be complex type)</Note>
+      <Note bkCl="ffe3e4e0" x="654" y="109">It's useful to conceptualize Results as a catalog of values. 
+The XYZT bounding box is available from Actions and SamplingFeatures.
+O&amp;M ResultTime meaning: "the time when the result became available".  </Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -3478,7 +3482,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="407">
+  <RnmMgr NxRnmId="409">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -4085,6 +4089,7 @@ then  additional field are added
       <Rnm id="239" nNm="QualityCodeVCV" oNm="QualityCode"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="408" nNm="AggregationStatisticCV" oNm="InterpolationTypeCV"/>
       <Rnm id="241" nNm="InterpolationTypeCV" oNm="InterpolationType"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Equipment" SupCls="Schema" SupNme="ODM2Equipment">
@@ -4142,6 +4147,7 @@ then  additional field are added
       <Rnm id="272" nNm="DeploymentActionID" oNm="DeploymentEventID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="407" nNm="AggregationInterval" oNm="AggregationDuration"/>
       <Rnm id="273" nNm="AggregationDuration" oNm="AggregationBin"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
@@ -4467,7 +4473,8 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
