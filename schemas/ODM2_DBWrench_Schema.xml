@@ -2943,10 +2943,10 @@ similar to ExternalIdentifiers.</Note>
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="380" y="31"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="568" y="299"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="708" y="33"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValueCoverages" x="572" y="483"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="882" y="445"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="673" y="121"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedResults" x="674" y="33"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValueCoverages" x="670" y="309"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="980" y="271"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.RelatedResults.fk_RelatedResults_Results_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ResultValueCoverages.fk_ResultValueCoverages_ResultValues"/>
@@ -2966,7 +2966,7 @@ regarding each of these ResultsTypes.
 - TimeSeriesCoverages
 - ProfileCoverages
    etc</Note>
-      <Note bkCl="ffffffe6" x="18" y="232">For now, the "ResultsValues" entitiy/table
+      <Note bkCl="ffffffe6" x="0" y="218">For now, the "ResultsValues" entitiy/table
 is a place is a simplification that might be 
 able to accomodate all the different ResultTypes
 defined by OGC O&amp;M.  For example:
@@ -2981,7 +2981,7 @@ defined by OGC O&amp;M.  For example:
 
 This issue is being discussed within:
 https://github.com/UCHIC/ODM2/issues/7</Note>
-      <Note bkCl="ffffffe6" x="248" y="472">TimeSeries and Coverages can include:
+      <Note bkCl="ffffffe6" x="381" y="330">TimeSeries and Coverages can include:
 - CountObservations: DataValue can be a float 
     if Results.Variable = "Count of..."
 - TruthObservation: DataValue constrained 
@@ -2990,23 +2990,26 @@ https://github.com/UCHIC/ODM2/issues/7</Note>
 But presently there can only be 
 one CategoricalObservation per Result.
 </Note>
-      <Note bkCl="ffffffe6" x="879" y="560">X, Y &amp; Z values, units and 
+      <Note bkCl="ffffffe6" x="977" y="428">X, Y &amp; Z values, units and 
 dimension descriptions are 
 all Nullable, but at least one 
 dimension needs to be used.
 but we can't proscribe if it is 
 X or Z for instance.</Note>
-      <Note bkCl="ffffffe6" x="846" y="362">The SpatialReference of a Coverage allows for 
+      <Note bkCl="ffffffe6" x="950" y="356">The SpatialReference of a Coverage allows for 
 multiple coordinate systems (i.e global or local 
 reference frames), including within a microscope slide!</Note>
-      <Note bkCl="ffffffe6" x="533" y="615">A Coverage can also accomdate a Complex Result
+      <Note bkCl="ffffffe6" x="648" y="441">A Coverage can also accomdate a Complex Result
 (i.e. Array Object) if we allow ResultTypeCV 
 to include coverages where X, Y or Z are 
 non-spatial dimensions, such as 
 frequency, wavelength, etc. </Note>
-      <Note bkCl="ffe3e4e0" x="654" y="109">It's useful to conceptualize Results as a catalog of values. 
-The XYZt bounding box is available from Actions and SamplingFeatures.
-O&amp;M ResultTime meaning: "the time when the result became available".  </Note>
+      <Note bkCl="ffffffe6" x="930" y="124">It's useful to conceptualize Results as a catalog of values. 
+The XYZt bounding box is available from Actions and 
+SamplingFeatures. 
+
+O&amp;M ResultTime meaning: 
+"the time when the result became available".  </Note>
     </Notes>
     <Zones/>
   </Dgm>
@@ -4118,11 +4121,11 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
