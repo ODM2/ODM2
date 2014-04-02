@@ -27,9 +27,7 @@ The following are attributes of each individual ResultValue, regardless of the t
 * **AggregationDuration**: A text string that indicates the time support for the recorded ResultValue expressed as a time duration.
 * **InterpolationTypeCV**: A text string that specifies the statistic that was recorded (e.g., "Minimum", "Maximum", "Average") over the AggregationDuration. Values for this attribute are selected from a controlled vocabulary.
 
-
-
-## Spatial Offsets of Result Values (NEEDS REVISION) ##
+### Spatial Offsets of Result Values (NEEDS REVISION) ###
 Each individual ResultValue can have a spatial offset associated with it. Spatial offsets for ResultValues are used where an offset from a SamplingFeature location is used, but where that offset does not constitute creation of a new SamplingFeature. An example is a weather station Site where sensors are located a fixed distance above the ground or below the soil surface. Another example is a water quality depth profile.
 
 ResultValue spatial offsets are specified using the **ValueXLocation**, **ValueYLocation**, and **ValueZLocation** attributes in the **ResultValues** entity. Numeric values can be specified for all three dimensions, with the origin of the three-dimensional coordinate system given in the **OffsetOrigins** entity. For example the spatial offset of the values resulting from a soil moisture sensor installed 5 cm below the surface of the soil could use the following: 
