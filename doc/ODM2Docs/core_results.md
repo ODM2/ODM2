@@ -39,7 +39,7 @@ The ResultUUID is a globally unique identifier for the Result. It is included to
 ### TaxonomicClassifiers ###
 Including an optional TaxonomicClassifier in the Results entity adds an additional dimension to the Result and the ability to accommodate additional types of data that require specification of taxonomic names. See the [Taxonomic Classifiers](core_taxonomicclassifiers.md) article for additional details. 
 
-#### SampledMedium ####
+### SampledMedium ###
 The SampledMediumCV field is intended to capture the physical medium that is sampled. For example, if a physical sample (e.g., bottle) of stream water is collected, the SampledMedium would be “Surface water.” If a physical sample of water from a groundwater well is collected, the SampledMedium would be “Groundwater.” For *in-situ* sensors, the SampledMedium is generally the medium in which the sensor is installed (e.g., “Surface water” for a temperature sensor in a stream) or the medium that the sensor actually measured (e.g., “Precipitation” for a tipping bucket rain gage).
 
 It is possible for there to be multiple sampled media at a single given Site. For example, at a Site having SiteType = “Stream,” one might install a temperature sensor in the water column (SampledMedium = “Surface water”), collect bottles of water for nutrient concentration measurements (SampledMedium = “Surface water”), collect sediment samples for measurement of trace metal concentrations (SampledMedium = “Sediment”), and collect fish Specimens for analysis of toxic chemical concentrations (SampledMedium = “Tissue”). The SampledMedium field should be populated using terms from the SampledMedium controlled vocabulary.
