@@ -10,7 +10,7 @@ In ODM2, an observation is made up of two elements - an **Action** that is of ty
 **A Result consists of one or more data values that are a consequence of an observation act.** The data values themselves are not encoded in the Results entity. Only metadata describing the resulting data values are encoded in the Results entity. This is done to enable catalog implementations of ODM2 that would enable data discovery over the metadata, but would not contain the data values themselves. 
 
 ### Result Types ###
-Similar to OGC's Observations & Measurements (O&M), Results can be of many different types. Result types are chosen from a controlled vocabulary. The following are examples of Result types.  A full list of and[detailed documentation for ResultTypes](ext_results.md) is available.
+Similar to OGC's Observations & Measurements (O&M), Results can be of many different types. Result types are chosen from a controlled vocabulary. The following are examples of Result types.  A full list of and [detailed documentation for ResultTypes](ext_results.md) is available.
 
 * **Time series coverage:** A time sequenced set of individual data values (e.g., the time series of dissolved oxygen from an in situ stream sensor deployment).
 * **Measurement:** A single data value resulting from a sample analysis.
