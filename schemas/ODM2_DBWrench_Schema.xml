@@ -172,7 +172,7 @@
         <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ResultValueAnnotations_ResultValues" prLkCl="ValueID" upAc="3">
-        <PrTb mn="0" nm="NumericResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <PrTb mn="0" nm="ResultValues" oe="1" sch="ODM2Results" zr="0"/>
         <CdTb mn="1" nm="ResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
         <ClPr cdCl="ValueID" prCl="ValueID"/>
       </Fk>
@@ -675,6 +675,11 @@
         <PrTb mn="0" nm="ProcessingLevels" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ProcessingLevelID" prCl="ProcessingLevelID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Results_ResultTypeCV" prLkCl="ResultTypeCV" upAc="3">
+        <PrTb mn="0" nm="ResultTypeCV" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="ResultTypeCV" prCl="ResultTypeCV"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
         <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
@@ -2245,6 +2250,9 @@
       <Cl au="0" df="" nm="ZLocationUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="QualityCodeCV" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -2252,6 +2260,11 @@
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="CategoricalResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_CategoricalResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="CategoricalResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -2276,8 +2289,42 @@
       </Cl>
       <Fk deAc="3" nm="fk_CategoricalResultValues_CategoricalResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="CategoricalResults" oe="1" sch="ODM2Results" zr="0"/>
-        <CdTb mn="1" nm="CategoricalResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <CdTb mn="0" nm="CategoricalResultValues" oe="1" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="Dimensions">
+      <TblOpts/>
+      <Pk ClNs="DimensionID" nm="pkDimensions"/>
+      <Cl au="1" df="" nm="DimensionID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionValue" nu="0">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionUnitsID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionDescription" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_Dimensions_ResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="ResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="Dimensions" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Dimensions_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="Dimensions" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -2306,6 +2353,9 @@
       <Cl au="0" df="" nm="ZLocationUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="CensorCodeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
@@ -2328,8 +2378,13 @@
       </Fk>
       <Fk deAc="3" nm="fk_MeasurementResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
+        <CdTb mn="0" nm="MeasurementResults" oe="1" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_MeasurementResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_MeasurementResults_XUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -2369,110 +2424,8 @@
       </Cl>
       <Fk deAc="3" nm="fk_MeasurementResultValues_MeasurementResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="MeasurementResults" oe="1" sch="ODM2Results" zr="0"/>
-        <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <CdTb mn="0" nm="MeasurementResultValues" oe="1" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="NumericResultValues">
-      <Cm>Describes individual data values within a Result</Cm>
-      <TblOpts/>
-      <Pk ClNs="ValueID" nm="pkNumericResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ResultID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the Result containing the data value</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataValue" nu="0">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Numeric data value of the result</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ValueDateTime" nu="0">
-        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Date/time associated with the Result value</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ValueDateTimeUTCOffset" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>UTC offset of the date/time associated with the Result value</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="OffsetOriginID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key of the offset origin</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ValueXLocation" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>X coordinate of the value offset with respect to the offset origin</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ValueYLocation" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Y coordinate of the value offset with respect to the offset origin</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ValueZLocation" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Z coordinate of the value offset with respect to the offset origin</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="CensorCodeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term specifying whether the result is censored or not (e.g., below a detection limit)</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="QualityCodeCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term specifying the quality of the result value</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="AggregationStatisticCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term describing the type of aggregation done over the AggregationInterval, such as average, cumulative sum, maximum, etc.  This is equivalent to CUAHSI's DataTypeCV and WaterML2's InterpolationTypeCV.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="AggregationInterval" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>The value of the length of the interval over which a DataValue is aggregated, such as time support interval over which a sensor averages individual measurements.  AggregationInterval can also be either temporal or spatial.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="AggregationIntervalUnitsID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>A foreign key to the Units of the AggregationInterval value.</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_ResultValues_OffsetOrigins" prLkCl="OffsetOriginID" upAc="3">
-        <PrTb mn="0" nm="OffsetOrigins" oe="1" sch="ODM2Results" zr="0"/>
-        <CdTb mn="1" nm="NumericResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="OffsetOriginID" prCl="OffsetOriginID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ResultValues_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="NumericResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ResultValues_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="NumericResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="OffsetOrigins">
-      <Cm>OffsetOrigins allows for for multiple coordinate systems (local reference frames), including within a microscope slide!</Cm>
-      <TblOpts/>
-      <Pk ClNs="OffsetOriginID" nm="pkOffsetOrigins"/>
-      <Cl au="1" df="" nm="OffsetOriginID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="OffsetOriginDescription" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Description of the origin of the coordinate system for the X, Y, and Z coordinates that specify the offset from the sampilng feature.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="OffsetCoordinateUnitsID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Units of X, Y, and Z coordinates</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_OffsetOrigins_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="OffsetOrigins" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="OffsetCoordinateUnitsID" prCl="UnitsID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -2487,6 +2440,9 @@
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ZLocationUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="IntendedXSpacing" nu="1">
@@ -2505,6 +2461,11 @@
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_PointCoverageResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_PointCoverageResults_XUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -2611,6 +2572,9 @@
       <Cl au="0" df="" nm="YLocationUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="IntendedZSpacing" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -2632,6 +2596,11 @@
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ProfileResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResults_TUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -2709,6 +2678,176 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="ResultTypeCV">
+      <TblOpts/>
+      <Cl au="0" df="" nm="ResultTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ResultTypeCategory" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DataType" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ResultTypeDefinition" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="FixedDimensions" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="VaryingDimensions" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpaceMeasurementFramework" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="TimeMeasurementFramework" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="VariableMeasurementFramework" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AdditionalDimensions" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="ResultValueDimensions">
+      <Cm>OffsetOrigins allows for for multiple coordinate systems (local reference frames), including within a microscope slide!</Cm>
+      <TblOpts/>
+      <Pk ClNs="ValueID" nm="pkResultValueDimensions"/>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="XDimensionValue" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="XlocationUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="YDimensionValue" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="YLocationUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ZDimensionValue" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ZLocationUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DistanceValue" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="DistanceUnitsID" nu="1">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="Wavelength" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="WavelengthUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Units of X, Y, and Z coordinates</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_OffsetOrigins_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="ResultValueDimensions" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_OffsetOrigins_XUnits" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ResultValueDimensions" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="XlocationUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_OffsetOrigins_YUnits" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ResultValueDimensions" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_OffsetOrigins_ZUnits" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ResultValueDimensions" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ResultValueDimensions_WUnits" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ResultValueDimensions" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="WavelengthUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ResultValueOffsets_ResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="ResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="0" nm="ResultValueDimensions" oe="1" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="ResultValues">
+      <Cm>Describes individual data values within a Result</Cm>
+      <TblOpts/>
+      <Pk ClNs="ValueID" nm="pkResultValues"/>
+      <Cl au="1" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Unique identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ResultID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Result containing the data value</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataValue" nu="0">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Numeric data value of the result</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ValueDateTime" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Date/time associated with the Result value</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ValueDateTimeUTCOffset" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>UTC offset of the date/time associated with the Result value</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CensorCodeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term specifying whether the result is censored or not (e.g., below a detection limit)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="QualityCodeCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term specifying the quality of the result value</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="AggregationStatisticCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term describing the type of aggregation done over the AggregationInterval, such as average, cumulative sum, maximum, etc.  This is equivalent to CUAHSI's DataTypeCV and WaterML2's InterpolationTypeCV.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="AggregationInterval" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The value of the length of the interval over which a DataValue is aggregated, such as time support interval over which a sensor averages individual measurements.  AggregationInterval can also be either temporal or spatial.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="AggregationIntervalUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A foreign key to the Units of the AggregationInterval value.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="HasDimensions" nu="0">
+        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ResultValues_Results" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ResultValues_Units" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="ResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="AggregationIntervalUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="SectionResults">
       <TblOpts/>
       <Pk ClNs="ResultID" nm="pkSectionResults"/>
@@ -2719,6 +2858,9 @@
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="YLocationUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="IntendedXSpacing" nu="1">
@@ -2743,6 +2885,11 @@
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SectionResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SectionResults_TMUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -2859,6 +3006,9 @@
       <Cl au="0" df="" nm="ZLocationUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="IntendedWavelengthSpacing" nu="1">
         <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -2869,6 +3019,11 @@
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SpectraResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpectraResults_Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -2974,6 +3129,9 @@
       <Cl au="0" df="" nm="ZLocationUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="IntendedTimeSpacing" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -2984,6 +3142,11 @@
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_TimeSeriesResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResults_TUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -3060,6 +3223,9 @@
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="IntendedTrajectorySpacing" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -3076,6 +3242,11 @@
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_TrajectoryResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TrajectoryResults_TSUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -3187,6 +3358,9 @@
       <Cl au="0" df="" nm="ZLocationUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="IntendedTransectSpacing" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -3203,6 +3377,11 @@
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_TransectResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TransectResults_TMUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -3647,7 +3826,7 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="902" y="47"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="685" y="72"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="690" y="293"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="NumericResultValues" x="1196" y="85"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1196" y="85"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="1144" y="413"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="135" y="48"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="416" y="48"/>
@@ -3667,7 +3846,7 @@
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.NumericResultValues.fk_ResultValues_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <Notes/>
     <Zones/>
   </Dgm>
@@ -4137,8 +4316,8 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="100" y="443"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="40" y="343"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="30" y="190"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="NumericResultValues" x="1397" y="547"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="1398" y="769"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1397" y="547"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValueDimensions" x="1398" y="769"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="625" y="214"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="1452" y="208"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="1436" y="407"/>
@@ -4162,10 +4341,13 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.DataQuality.fk_DataQuality_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.NumericResultValues.fk_ResultValues_OffsetOrigins"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.NumericResultValues.fk_ResultValues_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.NumericResultValues.fk_ResultValues_Units"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.OffsetOrigins.fk_OffsetOrigins_Units"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValueDimensions.fk_OffsetOrigins_XUnits"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValueDimensions.fk_OffsetOrigins_YUnits"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValueDimensions.fk_OffsetOrigins_ZUnits"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValueDimensions.fk_ResultValueDimensions_WUnits"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValueDimensions.fk_ResultValueOffsets_ResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets"/>
@@ -4280,37 +4462,41 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="317" y="625"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="NumericResultValues" x="249" y="306"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="OffsetOrigins" x="261" y="152"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResults" x="758" y="646"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1468" y="609"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="754" y="459"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="1140" y="452"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResults" x="743" y="30"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="1172" y="71"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResults" x="751" y="276"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResultValues" x="1176" y="267"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResults" x="766" y="818"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResultValues" x="1144" y="777"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResults" x="759" y="1000"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResultValues" x="1498" y="875"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResults" x="789" y="1381"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResultValues" x="1168" y="1377"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResults" x="770" y="1200"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResultValues" x="1147" y="1076"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResults" x="777" y="1610"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResultValues" x="1171" y="1632"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="913" y="196"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValues" x="1276" y="164"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultValueDimensions" x="1742" y="201"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResults" x="1047" y="569"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1056" y="844"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="746" y="569"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="734" y="848"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResults" x="131" y="566"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResults" x="449" y="567"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResultValues" x="430" y="854"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResults" x="1345" y="570"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResultValues" x="1338" y="843"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResults" x="1946" y="568"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResultValues" x="1977" y="847"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResults" x="1657" y="569"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResultValues" x="1679" y="845"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResults" x="2254" y="566"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResultValues" x="2269" y="847"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResults" x="2593" y="567"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResultValues" x="2626" y="839"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultTypeCV" x="539" y="158"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="Dimensions" x="1742" y="62"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="105" y="854"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_ResultTypeCV"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.CategoricalResults.fk_CategoricalResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.CategoricalResultValues.fk_CategoricalResultValues_CategoricalResults"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.Dimensions.fk_Dimensions_ResultValues"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.MeasurementResults.fk_MeasurementResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.MeasurementResultValues.fk_MeasurementResultValues_MeasurementResults"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.NumericResultValues.fk_ResultValues_OffsetOrigins"/>
-    <FkGl bkCl="ff000000" nm="ODM2Results.NumericResultValues.fk_ResultValues_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.PointCoverageResults.fk_PointCoverageResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.PointCoverageResultValues.fk_PointCoverageResultValues_PointCoverageResults"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ProfileResults.fk_ProfileResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.ProfileResultValues.fk_ProfileResultValues_ProfileResults"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValueDimensions.fk_ResultValueOffsets_ResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Results.ResultValues.fk_ResultValues_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.SectionResults.fk_SectionResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.SectionResultValues.fk_SectionResultValues_SectionResults"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.SpectraResults.fk_SpectraResults_Results"/>
@@ -4322,7 +4508,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Results.TransectResults.fk_TransectResults_Results"/>
     <FkGl bkCl="ff000000" nm="ODM2Results.TransectResultValues.fk_TransectResultValues_TransectResults"/>
     <Notes>
-      <Note bkCl="ffffffe6" x="22" y="542">See OGC O&amp;M documentation for 
+      <Note bkCl="ffffffe6" x="214" y="96">See OGC O&amp;M documentation for 
 definitions and specifications 
 regarding each of these ResultsTypes.
 - Measurements
@@ -4335,19 +4521,38 @@ regarding each of these ResultsTypes.
 - TimeSeriesCoverages
 - ProfileCoverages
    etc</Note>
-      <Note bkCl="ffe3e4e0" x="292" y="37">OffsetOrigins allows for multiple coordinate systems
-(local reference frames),
-including within a microscope slide!</Note>
-      <Note bkCl="ffffffe6" x="19" y="926">To Fix:
-String Values for coverage types
-Collapse similar Result types
-Multiple coordinate systems for result value coordinates
-Handling additinal attributes specific to ResultType (IntendedSpacing)
-Aggregation in space and time
-
-</Note>
+      <Note bkCl="ffffffe6" x="1278" y="87">This table does not support string
+values unless the DataValue field is
+implemented as a string.</Note>
+      <Note bkCl="ffffffe6" x="1978" y="64">Basically an Entity, Attribute, Value (EAV)
+approach. Flexible, but super difficult
+to add any sort of constraints (including
+simple cardinality and participation) and more 
+difficult to query. No definition of what dimensions
+are available and *can* or *should* be used. Could
+support multiple coordinate systems.</Note>
+      <Note bkCl="ffffffe6" x="2046" y="200">Easier to add constratiants, but still 
+difficult to enforce business rules (e.g.,
+all Profile Rresult values MUST have a 
+Z dimension). Sparsely populated for many
+Result values for many ResultTypes. 
+Cannot be extended beyond the listed 
+dimensions. Implies a cartesian coordinate
+system, but one could define X, Y, Z using
+an alternative SpatialReference.</Note>
+      <Note bkCl="ffffffe6" x="88" y="410">Below are each of the ResultTypes
+mapped out completely, with 
+attributes separated as either "Fixed" 
+or "Variable/Measured". Each set of 
+entities completely defines a 
+ResultType in a way in which 
+business rules could be enforced.</Note>
     </Notes>
-    <Zones/>
+    <Zones>
+      <Zone bkCl="ffece9d8" h="2842" nm="Attributes that are Fixed" w="264" x="92" y="532"/>
+      <Zone bkCl="ffccffcc" h="2843" nm="Attributes that are Variable or Measured" w="315" x="90" y="809"/>
+      <Zone bkCl="ffccffff" h="413" nm="OR (Pick one or the Other)" w="391" x="1681" y="19"/>
+    </Zones>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
     <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
@@ -4459,7 +4664,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="430">
+  <RnmMgr NxRnmId="443">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -5029,24 +5234,25 @@ then  additional field are added
       <Rnm id="225" nNm="DataSetsResults" oNm="DataSetsResultsSets"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
+      <Rnm id="430" nNm="ResultValues" oNm="NumericResultValues"/>
       <Rnm id="412" nNm="NumericResultValues" oNm="ResultValues"/>
       <Rnm id="274" nNm="ResultValues" oNm="Values"/>
       <Rnm id="227" nNm="Values" oNm="ProfileValues"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="228" nNm="ResultID" oNm="ProfileID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="229" nNm="ValueID" oNm="ProfileValueID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="233" nNm="ValueDateTime" oNm="ObservationResult"/>
       <Rnm id="230" nNm="ObservationResult" oNm="DataValue"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Sites" SupCls="Schema" SupNme="ODM2SamplingFeatures">
       <Rnm id="231" nNm="SamplingFeatureID" oNm="PointID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="234" nNm="ObservationResult" oNm="ObservationResultX"/>
       <Rnm id="232" nNm="ObservationResultX" oNm="Value"/>
     </RnmCh>
@@ -5059,14 +5265,14 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Annotations" SupCls="Schema" SupNme="ODM2Annotations">
       <Rnm id="237" nNm="AnnotationTypeCV" oNm="AnnotationType"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="238" nNm="CensorCodeCV" oNm="CensorCode"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="240" nNm="QualityCodeCV" oNm="QualityCodeVCV"/>
       <Rnm id="239" nNm="QualityCodeVCV" oNm="QualityCode"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="408" nNm="AggregationStatisticCV" oNm="InterpolationTypeCV"/>
       <Rnm id="241" nNm="InterpolationTypeCV" oNm="InterpolationType"/>
     </RnmCh>
@@ -5124,7 +5330,7 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataLoggerFiles" SupCls="Schema" SupNme="ODM2Sensors">
       <Rnm id="272" nNm="DeploymentActionID" oNm="DeploymentEventID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="407" nNm="AggregationInterval" oNm="AggregationDuration"/>
       <Rnm id="273" nNm="AggregationDuration" oNm="AggregationBin"/>
     </RnmCh>
@@ -5134,7 +5340,8 @@ then  additional field are added
       <Rnm id="306" nNm="IdentifierSystems" oNm="Identifiers"/>
       <Rnm id="275" nNm="Identifiers" oNm="UniqueIdentifiers"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="OffsetOrigins" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValueDimensions" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="432" nNm="SpatialReferenceID" oNm="OffsetCoordinateUnitsID"/>
       <Rnm id="276" nNm="OffsetCoordinateUnitsID" oNm="CoordinateUnitsID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultAnnotations" SupCls="Schema" SupNme="ODM2Annotations">
@@ -5434,13 +5641,13 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="406" nNm="ElevationDatumCV" oNm="ElevationDatumcCV"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="409" nNm="AggregationIntervalUnitsID" oNm="AggregationIntervalUnitID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TextResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="410" nNm="AggregationIntervalUnitsID" oNm="AggregationIntervalUnitID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="NumericResultValues" SupCls="Schema" SupNme="ODM2Results">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="418" nNm="DataValue" oNm="NumericDataValue"/>
       <Rnm id="411" nNm="NumericDataValue" oNm="DataValue"/>
     </RnmCh>
@@ -5492,6 +5699,33 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="MeasurementResults" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="429" nNm="AggregationStatisticCV" oNm="AggregationStatisticsCV"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValueDimensions" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="431" nNm="ValueID" oNm="OffsetOriginID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
+      <Rnm id="436" nNm="ResultValueDimensions" oNm="ResultValueOffsets"/>
+      <Rnm id="433" nNm="ResultValueOffsets" oNm="OffsetOrigins"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="434" nNm="ValueOffsetsUsed" oNm="ValueOffsets"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultTypeCV" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="435" nNm="ZDimensionDescription" oNm="ZDimnesionDescription"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValueDimensions" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="439" nNm="XDimensionValue" oNm="XLocation"/>
+      <Rnm id="438" nNm="XLocation" oNm="XDimensionDescription"/>
+      <Rnm id="437" nNm="XDimensionDescription" oNm="XLocation"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValueDimensions" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="440" nNm="YDimensionValue" oNm="YLocation"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValueDimensions" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="441" nNm="ZDimensionValue" oNm="ZLocation"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="ResultValueDimensions" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="442" nNm="DistanceValue" oNm="Distance"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -5509,14 +5743,14 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core</TreePath>
     <TreePath>/Schemas (12)/ODM2Results</TreePath>
-    <TreePath>/Schemas (12)/ODM2Results/Tables (20)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results/Tables (22)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
