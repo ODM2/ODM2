@@ -10,7 +10,7 @@ ODM2 currently supports a number of ResultTypes (listed below). Entities and att
 The articles at the following links describe each of the ResultTypes supported by ODM2. The [measurement framework](ext_results_measurementframeworks.md) for each ResultType is described, as are the attributes required to record an observation of each ResultType.
 
 * [Measurement Result](ext_results_measurement.md)
-* Categorical Result
+* [Categorical Result](ext_results_categorical.md)
 * [Time Series Coverage Result](ext_results_timeseries.md)
 * [Depth Profile Coverage Result](ext_results_profile.md)
 * Point Coverage Result

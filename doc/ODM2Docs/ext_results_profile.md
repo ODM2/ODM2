@@ -1,7 +1,7 @@
 ODM2 Extensions: Results - Depth Profile Coverage Result Type
 ===========================================================
 
-An **Depth Profile Coverage** Result consists of a series of ResultValues for a single Variable, at a single location, measured using a single Method, with specific Units, having a specific ProcessingLevel, but measured over multiple depths. In many cases, a **Depth Profile** will Result from deployment of one or more sensors, but it may also result from a series of Specimens taken at multiple depths and later analyzed in a laboratory. The following are the details of the measurement framework for a Time Series Coverage Result.
+An **Depth Profile Coverage** Result consists of a series of ResultValues for a single Variable, at a single location, measured using a single Method, with specific Units, having a specific ProcessingLevel, but measured over multiple depths. In many cases, a **Depth Profile** will Result from deployment of one or more sensors, but it may also result from a series of Specimens taken at multiple depths and later analyzed in a laboratory. The following are the details of the measurement framework for a Depth Profile Coverage Result.
 
 **Table 1**. Depth Profile Coverage Result measurement framework.
 
@@ -13,7 +13,7 @@ An **Depth Profile Coverage** Result consists of a series of ResultValues for a 
 
 Each ResultValue within a Depth Profile Coverage is a floating point number. The following is an example of a Depth Profile Coverage Result:
 
-A Depth Profile Coverage observation of "Oxygen, dissolved" (Variable) at "Puget Sound Site 1" (SamplingFeature) measured "using a YSI 6000 Series Sonde" (Method) on "2014-03-31" (ValueDateTime) had ResultValues and Units:
+A Depth Profile Coverage observation of "Oxygen, dissolved" (Variable) at "Puget Sound Site 1" (SamplingFeature) measured using a "YSI 6000 Series Sonde" (Method) on "2014-03-31" (ValueDateTime) had ResultValues and Units:
 
 | **Depth Z (m)** | **ResultValue (mg/L)** |
 | :-------------- | ---------------------: |
