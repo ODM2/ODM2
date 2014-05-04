@@ -6,17 +6,17 @@ A **Point Coverage** Result consists of a series of ResultValues for a single Va
 **Table 1**. Point Coverage Result measurement framework.
 
 | **Component** | **Role** | **Description** |
-| ------------- | -------- | --------------- |
+| :------------ | :------- | :-------------- |
 | Space         | Controlled | A Point Coverage Result covers a SamplingFeature that is a line or Polygon. Z is fixed for each ResultValue, but X and Y may vary. The X and Y spacing may be consistent or variable. |
 |Time           |Fixed | Point Coverage Results represent an instant in time.  |
 |Variable       |Measured   | ResultValues represent measurements of a single Variable at each X, Y location within the Point Coverage. ProcessingLevel, Units, Status, and SampledMedium are the same for every ResultValue in the Point Coverage Result. |
 
-Each ResultValue within a Point Coverage is a floating point number. The following is an example of a Point Coverage Result:
+Each ResultValue within a Point Coverage Result is a floating point number. The following is an example of a Point Coverage Result:
 
 A Point Coverage observation of "Snow water equivalent" (Variable) over the "Logan River Watershed" (SamplingFeature) created by the "Utah Energy Balance Model" (Method) on "2014-03-31 12:00 PM" (ValueDateTime) had ResultValues and Units:
 
 | **X (Decimal Degrees)** | **Y (Decimal Degrees)** | **ResultValue (in)** |
-| :-------------- | ---------------------: | -------------------: |
+| :---------------------: | :---------------------: | :------------------: |
 | -111.673090 | 41.870724 | 40 |
 | -111.672919 | 41.842340 | 37.5 |
 | -111.631377 | 41.899607 | 45 |

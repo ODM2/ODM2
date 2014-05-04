@@ -6,7 +6,7 @@ A **Categorical** Result consists of a single ResultValue for a single Variable,
 **Table 1**. Categorical Result measurement framework.
 
 | **Component** | **Role** | **Description** |
-| ------------- | -------- | --------------- |
+| :------------ | :------- | :-------------- |
 | Space         |Fixed     |Space is fixed and usually described by a SamplingFeature that is a Site (X, Y, and Z are fixed). The location at which the observation was made may be offset from the Site location (e.g., below the water surface in a lake or below the soil surface.) |
 |Time           |Fixed | Categorical Results are fixed in time, with the ValueDateTime being associated with the instant at which the observation was made.  |
 |Variable       |Measured   | The ResultValue represents a measurement/observation of a Variable. ProcessingLevel, Units, Status, and SampledMedium describe the ResultValue. |

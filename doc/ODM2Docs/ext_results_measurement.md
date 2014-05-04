@@ -6,7 +6,7 @@ A **Measurement** Result consists of a single ResultValue for a single Variable,
 **Table 1**. Measurement Result measurement framework.
 
 | **Component** | **Role** | **Description** |
-| ------------- | -------- | --------------- |
+| :------------ | :------- | :-------------- |
 | Space         |Fixed     |Space is fixed and usually described by a SamplingFeature that is a Site (X, Y, and Z are fixed). Measurement Results are typically for Specimens collected at a Site. The location at which a Specimen was collected may be offset from the Site location (e.g., below the water surface in a lake or below the soil surface.) |
 |Time           |Fixed | Measurement Results are fixed in time, with the ValueDateTime being associated with the instant at which the Specimen was collected, or, in the case where the measurement was made in the field and does not involve a Specimen, the instant at which the Measurement was made.  |
 |Variable       |Measured   | The ResultValue represents a measurement of a Variable. ProcessingLevel, Units, Status, and SampledMedium describe the ResultValue. |

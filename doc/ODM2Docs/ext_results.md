@@ -13,8 +13,8 @@ The articles at the following links describe each of the ResultTypes supported b
 * [Categorical Result](ext_results_categorical.md)
 * [Time Series Coverage Result](ext_results_timeseries.md)
 * [Depth Profile Coverage Result](ext_results_profile.md)
-* Point Coverage Result
-* Section Coverage Result
+* [Point Coverage Result](ext_results_pointcoverage.md)
+* [Section Coverage Result](ext_results_section.md)
 * Transect Coverage Result
 * Trajectory Coverage Result
 * Spectra Coverage Result

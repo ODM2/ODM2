@@ -6,7 +6,7 @@ A **Time Series Coverage** Result consists of a series of ResultValues for a sin
 **Table 1**. Time Series Coverage Result measurement framework.
 
 | **Component** | **Role** | **Description** |
-| ------------- | -------- | --------------- |
+| :------------ | :------- | :-------------- |
 | Space         |Fixed     |Space is fixed and usually described by a SamplingFeature that is a Site (X, Y, and Z are fixed). Location of the sensor or measurement device may be offset from the Site location (e.g., installed below the soil surface or mounted a distance above the ground.) |
 |Time           |Controlled | Time Series Coverages have an IntendedObservationSpacing that indicates the intended temporal spacing with which the ResultValues will be recorded. Actual temporal spacing is inherent in the ValueDateTime recorded with each ResultValue. Spacing and time support are controlled by the sensor or logger that records the measurement. |
 |Variable       |Measured   | ResultValues represent measurements of a Variable. ProcessingLevel, Units, Status, and SampledMedium are the same for every ResultValue in a Time Series Coverage Result. |
