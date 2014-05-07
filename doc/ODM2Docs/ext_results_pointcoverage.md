@@ -1,7 +1,7 @@
 ODM2 Extensions: Results - Point Coverage Result Type
 ===========================================================
 
-A **Point Coverage** Result consists of a series of ResultValues for a single Variable, measured on or at a single SamplingFeature, using a single Method, with specific Units, having a specific ProcessingLevel, with a fixed ValueDateTime, but measured over varying X, Y locations (where X and Y are horizontal coordinates. In the case of a Point Coverage Result, the associated SamplingFeature is most likely a line or polygon within or on which the X, Y locations at which the measurements were made fall. In many cases, a Point Coverage will result from deployment of one or more sensors, each of which are collecting data at synchronized times. The following are the details of the measurement framework for a Point Coverage Result.
+A **Point Coverage** Result consists of a series of ResultValues for a single Variable, measured on or at a single SamplingFeature (i.e., a polygon within which the individual points lie), using a single Method, with specific Units, having a specific ProcessingLevel, with a fixed ValueDateTime, but measured over varying X, Y locations (where X and Y are horizontal coordinates. In the case of a Point Coverage Result, the associated SamplingFeature is most likely a line or polygon within or on which the X, Y locations at which the measurements were made fall. In many cases, a Point Coverage will result from deployment of one or more sensors, each of which are collecting data at synchronized times. The following are the details of the measurement framework for a Point Coverage Result.
 
 **Table 1**. Point Coverage Result measurement framework.
 

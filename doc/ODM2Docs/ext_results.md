@@ -15,9 +15,12 @@ The articles at the following links describe each of the ResultTypes supported b
 * [Depth Profile Coverage Result](ext_results_profile.md)
 * [Point Coverage Result](ext_results_pointcoverage.md)
 * [Section Coverage Result](ext_results_section.md)
-* Transect Coverage Result
-* Trajectory Coverage Result
-* Spectra Coverage Result
+* [Transect Coverage Result](ext_results_transect.md)
+* [Trajectory Coverage Result](ext_results_trajectory.md)
+* [Spectra Coverage Result](ext_results_spectra.md)
+
+### General Pattern for Representing Result DataValues in ODM2 ###
+The DataValues and Result-specific attributes for each ResultType are represented in two entities per ResultType. The first entity stores the attributes of the result that are fixed (i.e., attributes that are the same for every DataValue within the Result). Example entities include  MeasurementResults, CategoricalResults, TimeSeriesResults, etc. The second entity stores the actual DataValues and attributes of the Result that vary or are measured with each individual DataValue (e.g., ValueDateTime). Each ResultType is fully specified by its two entities and their constraints (e.g., a DataValue within a TimeSeriesResult must have a ValueDateTime, but X, Y, and ZLocation attributes are optional). Additional ResultTypes can be defined by designing a similar, two-entity construct.
 
 ### Attributes Common to ResultValues of all ResultTypes ###
 The following are attributes of each individual ResultValue, regardless of the type of Result the ResultValue belongs to:

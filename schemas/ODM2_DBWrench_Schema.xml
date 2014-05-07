@@ -2902,10 +2902,10 @@
       <Cl au="0" df="" nm="ValueDateTimeUTCOffset" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Wavelength" nu="0">
+      <Cl au="0" df="" nm="ExcitationWavelength" nu="0">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="WavelengthAggregationInterval" nu="0">
+      <Cl au="0" df="" nm="EmissionWavelength" nu="0">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="WavelengthUnitsID" nu="0">
@@ -4275,7 +4275,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4458,7 +4458,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="459">
+  <RnmMgr NxRnmId="460">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -5568,6 +5568,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpectraResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="458" nNm="TimeAggregationIntervalUnitsID" oNm="AggregationIntervalUnitsID"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpectraResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="459" nNm="ExcitationWavelength" oNm="Wavelength"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -5585,7 +5588,6 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
   </OpenEditors>
   <TreePaths>
