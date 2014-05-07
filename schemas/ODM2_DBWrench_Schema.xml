@@ -357,7 +357,7 @@
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetUUID" nu="0">
-        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="DataSetTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -603,7 +603,7 @@
         <Cm>Unique identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultUUID" nu="0">
-        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Universally unique identifier for the Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="FeatureActionID" nu="0">
@@ -2639,6 +2639,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="ResultTypeCV">
       <TblOpts/>
+      <Pk ClNs="ResultTypeCV" nm="pkResultTypeCV"/>
       <Cl au="0" df="" nm="ResultTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
@@ -5589,6 +5590,8 @@ then  additional field are added
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
