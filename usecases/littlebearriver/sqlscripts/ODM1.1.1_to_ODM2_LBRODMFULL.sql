@@ -16,41 +16,46 @@
 --2.  Currently uses the LatLongDatumID as SpatialReferenceID
 --------------------------------------------------------------------------------------
 
---Populate the ODM2SamplingFeatures.SpatialReferences table (DONE)
+--Populate the ODM2SamplingFeatures.SpatialReferences table
 SET IDENTITY_INSERT ODM2.ODM2SamplingFeatures.SpatialReferences ON;
-INSERT INTO ODM2.ODM2SamplingFeatures.SpatialReferences (SpatialReferenceID, SRSID, SRSName, SRSDescription)
-SELECT SpatialReferenceID, SRSID, SRSName, CAST(Notes AS VARCHAR(500)) AS SRSDescription
+INSERT INTO ODM2.ODM2SamplingFeatures.SpatialReferences (SpatialReferenceID, SRSCode, SRSName, SRSDescription)
+SELECT SpatialReferenceID, CAST(SRSID AS VARCHAR(50)) AS SRSCode, SRSName, CAST(Notes AS VARCHAR(500)) AS SRSDescription
 FROM LittleBearRiverODM.dbo.SpatialReferences
 ORDER BY SpatialReferenceID;
 SET IDENTITY_INSERT ODM2.ODM2SamplingFeatures.SpatialReferences OFF;
+
+--Add Records to teh ODM2SamplingFeatures.SpatialReference table for the OffsetTypes used in ODM1
+INSERT INTO ODM2.ODM2SamplingFeatures.SpatialReferences (SRSName)
+SELECT OffsetDescription
+FROM LittleBearRiverODM.dbo.OffsetTypes;
 
 --Populate the ODM2Core.SamplingFeatures table with records for the Sites
 --First, make sure the data type of the FeatureGeometry field is correct 
 --For now using geometry type in SQL Server
 
---Added the following 3 lines because DBWrench didn't have geometry data type, but it seems to support it now (DONE)
-ALTER TABLE ODM2.ODM2Core.SamplingFeatures DROP COLUMN FeatureGeometry;
-ALTER TABLE ODM2.ODM2Core.SamplingFeatures ADD FeatureGeometry geometry NULL;
-GO
+--Added the following 3 lines because DBWrench didn't have geometry data type, but it seems to support it now
+--ALTER TABLE ODM2.ODM2Core.SamplingFeatures DROP COLUMN FeatureGeometry;
+--ALTER TABLE ODM2.ODM2Core.SamplingFeatures ADD FeatureGeometry geometry NULL;
+--GO
 
---Now add the Site SamplingFeatures to the SamplingFeatures table (DONE)
+--Now add the Site SamplingFeatures to the SamplingFeatures table 
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures ON; 
-INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureName, SamplingFeatureGeoTypeCV, SpatialReferenceID, FeatureGeometry, SamplingFeatureDescription)
-SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.SiteName AS SamplingFeatureName, 'Point' AS SamplingFeatureGeoTypeCV,
-	s.LatLongDatumID AS SpatialReferenceID, geometry::Point(s.Longitude, s.Latitude, sr.SRSID) AS FeatureGeometry, s.Comments AS SamplingFeatureDescription
+INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureCode, SamplingFeatureName, SamplingFeatureDescription, SamplingFeatureGeoTypeCV, FeatureGeometry, Elevation_m, ElevationDatumCV)
+SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.SiteCode AS SamplingFeatureCode, s.SiteName AS SamplingFeatureName, s.Comments AS SamplingFeatureDescription, '2D-Point' AS SamplingFeatureGeoTypeCV,
+	geometry::Point(s.Longitude, s.Latitude, sr.SRSID) AS FeatureGeometry, s.Elevation_m, VerticalDatum AS ElevationDatumCV
 FROM LittleBearRiverODM.dbo.Sites s, LittleBearRiverODM.dbo.SpatialReferences sr
 WHERE s.LatLongDatumID = sr.SpatialReferenceID
 ORDER BY SamplingFeatureID;
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures OFF;
 
---Populate the ODM2SamplingFeatures.Sites table (DONE)
-INSERT INTO ODM2.ODM2SamplingFeatures.Sites (SamplingFeatureID, SiteTypeCV, SiteCode, SiteName, Latitude, Longitude, LatLonDatumID, Elevation_m, VerticalDatumCV)
-SELECT SiteID AS SamplingFeatureID, SiteType AS SiteTypeCV, SiteCode, SiteName, Latitude, Longitude, LatLongDatumID, Elevation_m, VerticalDatum AS VerticalDatumCV
+--Populate the ODM2SamplingFeatures.Sites table
+INSERT INTO ODM2.ODM2SamplingFeatures.Sites (SamplingFeatureID, SiteTypeCV, Latitude, Longitude, LatLonDatumID)
+SELECT SiteID AS SamplingFeatureID, SiteType AS SiteTypeCV, Latitude, Longitude, LatLongDatumID
 FROM LittleBearRiverODM.dbo.Sites 
 ORDER BY SiteID;
 
 --------------------------------------------------------------------------------------
---Populate the ODM2Core.Units table (DONE)
+--Populate the ODM2Core.Units table
 --------------------------------------------------------------------------------------
 --Load the Units from ODM 1.1 - can just move these straight across and use the same IDs
 SET IDENTITY_INSERT ODM2.ODM2Core.Units ON; 
@@ -60,32 +65,30 @@ FROM LittleBearRiverODM.dbo.Units
 ORDER BY UnitsID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Units OFF;
 
---------------------------------------------------------------------------------------
---Populate the ODM2Core.QualityControlLevels table (DONE)
---------------------------------------------------------------------------------------
---Load the Methods from ODM 1.1 - can just move these straight across and use the same IDs
-SET IDENTITY_INSERT ODM2.ODM2Core.QualityControlLevels ON; 
-INSERT INTO ODM2.ODM2Core.QualityControlLevels (QualityControlLevelID, QualityControlLevelCode, Definition, Explanation)
-SELECT QualityControlLevelID, QualityControlLevelCode, Definition, Explanation 
+------------------------------------------------------------------------------------------------
+--Populate the ODM2Core.ProcessingLevels table (Equivalent to QualityControlLevels in ODM 1.1)
+------------------------------------------------------------------------------------------------
+--Load the QualityControlLevels from ODM 1.1 - can just move these straight across and use the same IDs
+SET IDENTITY_INSERT ODM2.ODM2Core.ProcessingLevels ON; 
+INSERT INTO ODM2.ODM2Core.ProcessingLevels (ProcessingLevelID, ProcessingLevelCode, Definition, Explanation)
+SELECT QualityControlLevelID AS ProcessingLevelID, QualityControlLevelCode AS ProcessingLevelCode, Definition, Explanation 
 FROM LittleBearRiverODM.dbo.QualityControlLevels 
-ORDER BY QualityControlLevelID;
-SET IDENTITY_INSERT ODM2.ODM2Core.QualityControlLevels OFF;
+ORDER BY ProcessingLevelID;
+SET IDENTITY_INSERT ODM2.ODM2Core.ProcessingLevels OFF;
 
 --------------------------------------------------------------------------------------
---Populate the ODM2Core.Variables table (DONE)
+--Populate the ODM2Core.Variables table
 --------------------------------------------------------------------------------------
 --Load the Variables from ODM 1.1 - can just move these straight across and use the same IDs
 SET IDENTITY_INSERT ODM2.ODM2Core.Variables ON; 
-INSERT INTO ODM2.ODM2Core.Variables (VariableID, VariableTypeCV, VariableCode, VariableNameCV, VariableDefinition, SpeciationCV, 
-	ValueTypeCV, DataTypeCV, NoDataValue)
-SELECT VariableID, 'Unknown' AS VariableTypeCV, VariableCode, VariableName AS VariableNameCV, NULL AS VariableDefinition, Speciation AS SpeciationCV, 
-	ValueType AS ValueTypeCV, DataType as DataTypeCV, NoDataValue 
+INSERT INTO ODM2.ODM2Core.Variables (VariableID, VariableTypeCV, VariableCode, VariableNameCV, VariableDefinition, SpeciationCV, NoDataValue)
+SELECT VariableID, 'Unknown' AS VariableTypeCV, VariableCode, VariableName AS VariableNameCV, NULL AS VariableDefinition, Speciation AS SpeciationCV, NoDataValue 
 FROM LittleBearRiverODM.dbo.Variables 
 ORDER BY VariableID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Variables OFF;
 
 --------------------------------------------------------------------------------------
---Populate the ODM2Core.Methods table (DONE)
+--Populate the ODM2Core.Methods table
 --------------------------------------------------------------------------------------
 --Load the Methods from ODM 1.1 - can just move these straight across and use the same IDs
 SET IDENTITY_INSERT ODM2.ODM2Core.Methods ON; 
@@ -97,7 +100,7 @@ ORDER BY MethodID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Methods OFF;
 
 --------------------------------------------------------------------------------------
---Populate the ODM2Core.Organizations table (DONE)
+--Populate the ODM2Core.Organizations table
 --NOTES:
 --1.  This uses the SourceIDs from the ODM 1.1 database as the OrganizationID
 --2.  This uses "Research Institute" as the OrganizationTypeCV for now - this won't be true for all organizations stored in ODM 1.1 databases
@@ -113,7 +116,7 @@ ORDER BY OrganizationID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Organizations OFF;
 
 --------------------------------------------------------------------------------------
---Populate the ODM2Core.People table (DONE)
+--Populate the ODM2Core.People table
 --NOTES: 
 --1.  This function may not work for all names - especially those with middle names or initials
 --------------------------------------------------------------------------------------
@@ -125,7 +128,7 @@ FROM LittleBearRiverODM.dbo.Sources
 ORDER BY PersonLastName;
 
 --------------------------------------------------------------------------------------
---Populate the ODM2Core.Affiliations table (DONE)
+--Populate the ODM2Core.Affiliations table
 --------------------------------------------------------------------------------------
 INSERT INTO ODM2.ODM2Core.Affiliations (PersonID, OrganizationID, IsPrimaryOrganizationContact, AffiliationStartDate, 
 	AffiliationEndDate, PrimaryPhone, PrimaryEmail, PrimaryAddress, PersonLink)
@@ -137,7 +140,7 @@ WHERE p.PersonFirstName + ' ' + p.PersonLastName = s.ContactName
 ORDER BY OrganizationID, PersonID;
 
 -------------------------------------------------------------------------------------
---Add the LabMethods from ODM 1.1 to the ODM2Core.Methods table (DONE)
+--Add the LabMethods from ODM 1.1 to the ODM2Core.Methods table
 --NOTES:
 --1.  Can't use the IDs from ODM 1.1 because they were not in the same table as methods
 -------------------------------------------------------------------------------------
@@ -169,31 +172,18 @@ SET IDENTITY_INSERT ODM2.ODM2Core.Methods OFF;
 --Drop the temp table
 DROP TABLE #TempLabMethodInfo;
 
---------------------------------------------------------------------------------------
---Populate the ODM2Results.OffsetOrigins table (DONE)
---NOTES:  
---1.  This table is the same across all types of Actions and Results
---2.  This table takes the place of OffsetTypes in ODM 1.1.1
---------------------------------------------------------------------------------------
-SET IDENTITY_INSERT ODM2.ODM2Results.OffsetOrigins ON;
-INSERT INTO ODM2.ODM2Results.OffsetOrigins (OffsetOriginID, OffsetOriginDescription, OffsetCoordinateUnitsID)
-SELECT OffsetTypeID AS OffsetOriginID, OffsetDescription AS OffsetOriginDescription, OffsetUnitsID AS OffsetCoordinateUnitsID
-FROM LittleBearRiverODM.dbo.OffsetTypes
-ORDER BY OffsetOriginID;
-SET IDENTITY_INSERT ODM2.ODM2Results.OffsetOrigins OFF;
-
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --Populate the ODM2Core.Actions, ODM2Core.Results, and ODM2Results.ResultValues tables for sensor-based time series data
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ------------------------------------------------------------------------------------------------------------------------
---Add records to the ODM2Core.Actions table for "Observation Act" Actions associated with sensor-based time series data (DONE)
+--Add records to the ODM2Core.Actions table for "Observation Actions" associated with sensor-based time series data
 --NOTES:  
 --1.  This uses the SeriesIDs from the ODM 1.1.1 SeriesCatalog table as the ActionID
 ------------------------------------------------------------------------------------------------------------------------
 SET IDENTITY_INSERT ODM2.ODM2Core.Actions ON; 
 INSERT INTO ODM2.ODM2Core.Actions (ActionID, ActionTypeCV, MethodID, BeginDateTime, BeginDateTimeUTCOffset, EndDateTime, EndDateTimeUTCOffset, ActionDescription, ActionFileLink)
-SELECT DISTINCT sc.SeriesID AS ActionID, 'Observation Act' AS ActionTypeCV, sc.MethodID, sc.BeginDateTime, 
+SELECT DISTINCT sc.SeriesID AS ActionID, 'Observation Action' AS ActionTypeCV, sc.MethodID, sc.BeginDateTime, 
 	CONVERT(integer, 24.0*CONVERT(decimal(10,5), sc.BeginDateTime - sc.BeginDateTimeUTC)) AS BeginDateTimeUTCOffset, 
 	sc.EndDateTime, CONVERT(integer, 24.0*CONVERT(decimal(10,5), sc.EndDateTime - sc.EndDateTimeUTC)) AS EndDateTimeUTCOffset, 
 	'Sensor deployment and observation' AS ActionDescription, NULL AS ActionFileLink
@@ -203,57 +193,121 @@ ORDER BY ActionID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Actions OFF;
 
 ---------------------------------------------------------------------------------------------------------
---Populate the ODM2Core.ActionBy table to caputure the "Observer" for sensor-based time series data (DONE)
+--Populate the ODM2Core.ActionBy table to caputure the "Observer" for sensor-based time series data
 --NOTES:
 --1.  This uses the contact person from the Sources table in ODM 1.1 associated with the time series
---2.  It is assumed that the contact person from the ODM 1.1 Sources table is the ActionLead
+--2.  It is assumed that the contact person from the ODM 1.1 Sources table is the ActionLead and Observer
+--3.  Uses the SeriesID from the ODM 1.1 database as the ActionID
 ---------------------------------------------------------------------------------------------------------
---Create the records in the ODM2Core.ActionPeople table for the time series
---Uses the SeriesID from the ODM 1.1 database as the ActionID
---Uses the contact person from the ODM 1.1 database as the "Observer"
 INSERT INTO ODM2.ODM2Core.ActionBy (ActionID, AffiliationID, IsActionLead, RoleDescription)
 SELECT act.ActionID, aff.AffiliationID, 1 AS IsActionLead, 'Observer' AS RoleDescription
 FROM ODM2.ODM2Core.Actions act, LittleBearRiverODM.dbo.SeriesCatalog sc, ODM2.ODM2Core.Affiliations aff
 WHERE act.ActionID = sc.SeriesID AND sc.SourceID = aff.OrganizationID
 
+---------------------------------------------------------------------------------------------------------
+--Populate the ODM2Core.FeatureAction table
+--NOTES:
+--1.  This uses the SiteID from ODM 1.1 as the FeatureID
+--2.  Uses the SeriesID from the ODM 1.1 database as the ActionID
+---------------------------------------------------------------------------------------------------------
+INSERT INTO ODM2.ODM2Core.FeatureActions (SamplingFeatureID, ActionID)
+SELECT DISTINCT sc.SiteID AS SamplingFeatureID, sc.SeriesID AS ActionID
+FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv
+WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID AND sc.QualityControlLevelID = dv.QualityControlLevelID AND dv.SampleID IS NULL 
+ORDER BY SamplingFeatureID, ActionID;
+
 --------------------------------------------------------------------------------------
---Populate the ODM2Core.Results table for sensor-based time series data (DONE)
+--Populate the ODM2Core.Results table for sensor-based time series data
 --NOTES:  
---1.  This uses the SeriesIDs from the ODM 1.1.1 SeriesCatalog table the ResultID
+--1.  This uses the SeriesIDs from the ODM 1.1 SeriesCatalog table as the ResultID
 --2.  The ResultDateTime is set to the current system date (e.g., the time that the result was added to the database)
 --3.  ValidDateTime is set to NULL as it is not relevant for any of the results
---4.  Status is set to 'Unknown' - this may not be correct for all time series
+--4.  Status is set to 'Unknown' - this may not be correct for all time series, but isn't present in ODM 1.1
 --5.  IntendedObservationSpacing is set to 'Unknown'
 --------------------------------------------------------------------------------------
+--Enter a record into the ResultTypeCV table for a Time Series Result
+INSERT INTO ODM2.ODM2Results.ResultTypeCV (ResultTypeCV, ResultTypeCategory, DataType, ResultTypeDefinition, FixedDimensions, VaryingDimensions, SpaceMeasurementFramework, TimeMeasurementFramework,
+	VariableMeasurementFramework)
+Values('Time Series Coverage', 'Coverage', 'Float', 'A series of ResultValues for a single Variable, measured on or at a single SamplingFeature of fixed location, using a single Method, with specific Units, having a specific ProcessingLevel, but measured over time.',
+	'X, Y, Z', 't', 'Fixed', 'Controlled', 'Measured')	
+--Set the default value of the ResultUUID attribute to NEWSQUENTIALID() so the GUID is automatically generated
+ALTER TABLE ODM2.ODM2Core.Results ADD CONSTRAINT DF_ResultUUID DEFAULT NEWSEQUENTIALID() FOR ResultUUID;
+--Now add the records to the Result table
 SET IDENTITY_INSERT ODM2.ODM2Core.Results ON; 
-INSERT INTO ODM2.ODM2Core.Results (ResultID, ResultTypeCV, VariableID, UnitsID, TaxonomicClassifierID, QualityControlLevelID, ResultDateTime, 
+INSERT INTO ODM2.ODM2Core.Results (ResultID, FeatureActionID, ResultTypeCV, VariableID, UnitsID, TaxonomicClassifierID, ProcessingLevelID, ResultDateTime, 
 	ResultDateTimeUTCOffset, ValidDateTime, ValidDateTimeUTCOffset, StatusCV, SampledMediumCV, ValueCount, IntendedObservationSpacing)
-SELECT DISTINCT sc.SeriesID AS ResultID, 'Time Series Coverage' AS ResultTypeCV, sc.VariableID, sc.VariableUnitsID AS UnitsID, NULL AS TaxonomicClassifierID, sc.QualityControlLevelID, 
-	GETDATE() AS ResultDateTime, CONVERT(integer, 24.0*CONVERT(decimal(10,5), GETDATE() - GETUTCDATE())) AS ResultDateTimeUTCOffset, NULL AS ValidDateTime, 
-	NULL AS ValidDateTimeUTCOffset, 'Unknown' AS StatusCV, sc.SampleMedium AS SampledMediumCV, sc.ValueCount, 'Unknown' AS IntendedObservationSpacing
-FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv 
-WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID AND sc.QualityControlLevelID = dv.QualityControlLevelID AND dv.SampleID IS NULL
+SELECT DISTINCT sc.SeriesID AS ResultID, fa.FeatureActionID, 'Time Series Coverage' AS ResultTypeCV, sc.VariableID, sc.VariableUnitsID AS UnitsID, 
+	NULL AS TaxonomicClassifierID, sc.QualityControlLevelID AS ProcessingLevelID, GETDATE() AS ResultDateTime, CONVERT(integer, 24.0*CONVERT(decimal(10,5), GETDATE() - GETUTCDATE())) AS ResultDateTimeUTCOffset, 
+	NULL AS ValidDateTime, NULL AS ValidDateTimeUTCOffset, 'Unknown' AS StatusCV, sc.SampleMedium AS SampledMediumCV, sc.ValueCount, 'Unknown' AS IntendedObservationSpacing
+FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv, ODM2.ODM2Core.FeatureActions fa
+WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID AND sc.QualityControlLevelID = dv.QualityControlLevelID 
+	AND fa.SamplingFeatureID = sc.SiteID AND fa.ActionID = sc.SeriesID AND dv.SampleID IS NULL
 ORDER BY ResultID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Results OFF;
 
-------------------------------------------------------------------------------------------------------
---Populate the ODMCore.FeatureActionResult table for sensor based time series data (DONE)
---NOTES:
---1.  This uses the SiteIDs from the ODM 1.1.1 SeriesCatalogTable for SamplingFeatureIDs
---2.  This uses SeriesIDs from the ODM 1.1.1 SeriesCatalogTable for both the ActionIDs and ResultIDs
-------------------------------------------------------------------------------------------------------
-INSERT INTO ODM2.ODM2Core.FeatureActionResult (SamplingFeatureID, ActionID, ResultID)
-SELECT DISTINCT sc.SiteID AS SamplingFeatureID, sc.SeriesID AS ActionID, sc.SeriesID AS ResultID
-FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv
-WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID 
-	AND sc.SourceID = dv.SourceID AND sc.QualityControlLevelID = dv.QualityControlLevelID 
-	AND dv.SampleID IS NULL
-ORDER BY SamplingFeatureiD, ActionID, ResultID
+
+
+
+
+
+
+--NOT FINISHED
+---------------------------------------------------------------------------------------------------------------------------------
+--Populate the ODM2Results.TimeSeriesResults table for sensor-based time series data
+--NOTES:  
+--1.  This uses the SeriesIDs from the ODM 1.1 SeriesCatalog as the ResultID
+--2.  This adds everything from the ODM database into the TimeSeriesResults table except those DataValues that have SampleIDs
+--3.  This assumes that values in the ODM database only have Z offsets, which could be wrong for many series
+---------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO ODM2.ODM2Results.TimeSeriesResults (ResultID, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID,
+	SpatialReferenceID, IntendedTimeSpacing, IntendedTimeSpacingUnitsID, AggregationStatisticCV)
+SELECT DISTINCT sc.SeriesID AS ResultID, NULL AS XLocation, NULL AS XLocationUnitsID, NULL AS YLocation, NULL AS YLocationUnitsID, dv.OffsetValue AS ZLocation,
+	sr.SpatialReferenceID, NULL AS IntendedTimeSpacing, NULL AS IntendedTimeSpacingUnitsID, sc.DataType AS InterpolationTypeCV
+FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv, ODM2.ODM2SamplingFeatures.SpatialReferences sr, LittleBearRiverODM.dbo.OffsetTypes ot
+WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID 
+	AND sc.QualityControlLevelID = dv.QualityControlLevelID AND dv.SampleID IS NULL AND dv.OffsetTypeID = ot.OffsetTypeID AND sr.SRSName = ot.OffsetDescription
+ORDER BY ResultID;
+
+
+
+SELECT DISTINCT sc.SeriesID AS ResultID, NULL AS XLocation, NULL AS XLocationUnitsID, NULL AS YLocation, NULL AS YLocationUnitsID, dv1.OffsetValue AS ZLocation,
+	sr.SpatialReferenceID, NULL AS IntendedTimeSpacing, NULL AS IntendedTimeSpacingUnitsID, sc.DataType AS InterpolationTypeCV
+FROM LittleBearRiverODM.dbo.SeriesCatalog sc 
+INNER JOIN LittleBearRiverODM.dbo.DataValues dv1 ON sc.SiteID = dv1.SiteID
+INNER JOIN LittleBearRiverODM.dbo.DataValues dv2 ON sc.VariableID = dv2.VariableID
+INNER JOIN LittleBearRiverODM.dbo.DataValues dv3 ON sc.MethodID = dv3.MethodID
+INNER JOIN LittleBearRiverODM.dbo.DataValues dv4 ON sc.QualityControlLevelID = dv4.QualityControlLevelID
+INNER JOIN LittleBearRiverODM.dbo.DataValues dv5 ON sc.SourceID = dv5.SourceID
+LEFT JOIN LittleBearRiverODM.dbo.OffsetTypes ot ON dv1.OffsetTypeID = ot.OffsetTypeID
+INNER JOIN ODM2.ODM2SamplingFeatures.SpatialReferences sr ON ot.OffsetDescription = sr.SRSName 
+WHERE dv1.SampleID IS NULL  
+ORDER BY ResultID;
+
+
+SELECT DISTINCT sc.SeriesID AS ResultID, NULL AS XLocation, NULL AS XLocationUnitsID, NULL AS YLocation, NULL AS YLocationUnitsID, dv.OffsetValue AS ZLocation,
+	sr.SpatialReferenceID, NULL AS IntendedTimeSpacing, NULL AS IntendedTimeSpacingUnitsID, sc.DataType AS InterpolationTypeCV
+FROM (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID, OffsetValue, OffsetTypeID
+	FROM LittleBearRiverODM.dbo.DataValues WHERE SampleID IS NULL) dv, 
+INNER JOIN LittleBearRiverODM.dbo.SeriesCatalog sc ON
+INNER JOINODM2.ODM2SamplingFeatures.SpatialReferences sr, LittleBearRiverODM.dbo.OffsetTypes ot
+WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID 
+	AND sc.QualityControlLevelID = dv.QualityControlLevelID AND dv.OffsetTypeID = ot.OffsetTypeID AND sr.SRSName = ot.OffsetDescription
+ORDER BY ResultID;
+
+
+
+SELECT isNull(l1.LocationName,'') AS LocationFrom, isNull(l2.LocationName,'') AS LocationTo, c.Duration 
+FROM Connection c 
+left outer JOIN Location l1 ON l1.LocationID= c.LocationIDFrom
+left outer JOIN Location l2 ON l2.LocationID= c.LocationIDTo
+
+
+
 
 ---------------------------------------------------------------------------------------------------------------------------------
---Populate the ODM2Results.ResultValues table for sensor-based time series data (DONE)
+--Populate the ODM2Results.TimeSeriesResultValues table for sensor-based time series data
 --NOTES:  
---1.  This uses the SeriesIDs from the ODM 1.1.1 SeriesCatalog as the ResultID
+--1.  This uses the SeriesIDs from the ODM 1.1 SeriesCatalog as the ResultID
 --2.  This adds everything from the ODM database into the TimeSeriesValues table except those DataValues that have SampleIDs
 --3.  This assumes that values in the ODM database only have Z offsets, which could be wrong for many series
 --4.  I am preserving ValueIDs from the ODM 1.1 database so I can go back later and add annotations for Qualifiers
@@ -277,7 +331,7 @@ SET IDENTITY_INSERT ODM2.ODM2Results.ResultValues OFF;
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
---Populate the ODM2Core.SamplingFeatures, ODM2SamplingFeatures.Specimens, and ODM2SamplingFeatures.FeatureParents tables with records for the samples (DONE)
+--Populate the ODM2Core.SamplingFeatures, ODM2SamplingFeatures.Specimens, and ODM2SamplingFeatures.FeatureParents tables with records for the samples
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 --First, get the maximum SamplingFeatureID, ActionID, and ResultID in the ODM2 database.  I will use these to derive new SamplingFeatureIDs, ActionIDs, and 
 --ResultIDs for the Sample-based data
