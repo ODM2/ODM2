@@ -243,29 +243,26 @@ Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Resu
 
 **(473 Records added to ODM2Results.TimeSeriesResults)**
 
-
-
-
-
-
 #### TimeSeriesResultValues for Sensor-Based Data
 Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Result for each sensor-based time series, I can use the SeriesIDs to identify the DataValues coming out of my ODM1 database. This operation has to filter out any DataValues that have a sample associated with them (I only want sensor-based data).  But, *while sufficient for my data, this simple filter may not be sufficient for all ODM1 databases*. For now, I am assuming that DataValues only have Z offsets.  Again, *while sufficient for my data, this simple filter may not be sufficient for all ODM1 databases that may have different types of offsets*.  Finally, I am preserving ValueIDs from the ODM1 database so I can go back later and add ODM2 Annotations for ODM1 Qualifiers
 
-1. Set ODM2.ResultValues.ValueID = ODM1.DataValues.ValueID
-2. Set ODM2.ResultValues.ResultID = ODM1.SeriesCatalog.SeriesID
-3. Set ODM2.ResultValues.DataValue = ODM1.DataValues.DataValue
-4. Set ODM2.ResultValues.ValueDateTime = ODM1.DataValues.LocalDateTime
-5. Set ODM2.ResultValues.ValueDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-6. Set ODM2.ResultValues.OffsetOriginID = ODM1.DataValues.OffsetTypeID
-7. Set ODM2.ResultValues.ValueXLocation = NULL - doesn't exist in ODM1
-8. Set ODM2.ResultValues.ValueYLocation = NULL - doesn't exist in ODM1
-9. Set ODM2.ResultValues.ValueZLocation = ODM1.DataValues.OffsetValue
-10. Set ODM2.ResultValues.CensorCodeCV = ODM1.DataValues.CensorCode
-11. Set ODM2.ResultValues.QualityCodeCV = NULL - doesn't exist in ODM1
-12. Set ODM2.ResultValues.AggregationDuration = ODM1.SeriesCatalog.TimeSupport + ODM1.SeriesCatalog.TimeUnitsName - this field doesn't exits in ODM1, so I concatentated the time support and units to construct this field.  There's probably a better way to do it and this should either be broken up into two fields or should be expressed as a time interval according to a standard encoding
-13. Set ODM2.ResultValues.InterpolationTypeCV = ODM1.SeriesCatalog.DataType
+1. Set ODM2Results.TimeSeriesResultValues.ValueID = ODM1.DataValues.ValueID
+2. Set ODM2Results.TimeSeriesResultValues.ResultID = ODM1.SeriesCatalog.SeriesID
+3. Set ODM2Results.TimeSeriesResultValues.DataValue = ODM1.DataValues.DataValue
+4. Set ODM2Results.TimeSeriesResultValues.ValueDateTime = ODM1.DataValues.LocalDateTime
+5. Set ODM2Results.TimeSeriesResultValues.ValueDateTimeUTCOffset = ODM1.DataValues.UTCOffset
+6. Set ODM2Results.TimeSeriesResultValues.CensorCodeCV = ODM1.DataValues.CensorCode
+7. Set ODM2Results.TimeSeriesResultValues.QualityCodeCV = Unknown - doesn't exist in ODM1 but is required
+12. Set ODM2Results.TimeSeriesResultValues.TimeAggregationInterval = ODM1.SeriesCatalog.TimeSupport
+13. Set ODM2Results.TimeSeriesResultValues.TimeAggregationIntervalUnitsID = ODM1.SeriesCatalog.TimeUnitsName
 
-**(24,356,085 Records added to ODM2Results.ResultValues - will change every day since I am continuously adding new data)**
+**(25,021,849 Records added to ODM2Results.TimeSeriesResultValues - will change every day since I am continuously adding new data)**
+
+
+
+
+
+
 
 ## Implementation Notes for Sample-Based Data ##
 

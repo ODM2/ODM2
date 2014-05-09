@@ -245,13 +245,6 @@ WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = 
 ORDER BY ResultID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Results OFF;
 
-
-
-
-
-
-
---NOT FINISHED
 ---------------------------------------------------------------------------------------------------------------------------------
 --Populate the ODM2Results.TimeSeriesResults table for sensor-based time series data
 --NOTES:  
@@ -272,13 +265,6 @@ LEFT JOIN LittleBearRiverODM.dbo.OffsetTypes ot ON sq.OffsetTypeID = ot.OffsetTy
 LEFT JOIN ODM2.ODM2SamplingFeatures.SpatialReferences sr ON ot.OffsetDescription = sr.SRSName
 ORDER BY ResultID;		
 
-
-
-
-	
-			 
-
-
 ---------------------------------------------------------------------------------------------------------------------------------
 --Populate the ODM2Results.TimeSeriesResultValues table for sensor-based time series data
 --NOTES:  
@@ -287,18 +273,22 @@ ORDER BY ResultID;
 --3.  This assumes that values in the ODM database only have Z offsets, which could be wrong for many series
 --4.  I am preserving ValueIDs from the ODM 1.1 database so I can go back later and add annotations for Qualifiers
 ---------------------------------------------------------------------------------------------------------------------------------
-SET IDENTITY_INSERT ODM2.ODM2Results.ResultValues ON;
-INSERT INTO ODM2.ODM2Results.ResultValues (ValueID, ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, OffsetOriginID, ValueXLocation, 
-	ValueYLocation, ValueZLocation, CensorCodeCV, QualityCodeCV, AggregationDuration, InterpolationTypeCV)
+SET IDENTITY_INSERT ODM2.ODM2Results.TimeSeriesResultValues ON;
+INSERT INTO ODM2.ODM2Results.TimeSeriesResultValues (ValueID, ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, CensorCodeCV, 
+	QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 SELECT dv.ValueID, sc.SeriesID AS ResultID, dv.DataValue, dv.LocalDateTime AS ValueDateTime, dv.UTCOffset AS ValueDateTimeUTCOffset, 
-	dv.OffsetTypeID AS OffsetOriginID, NULL AS ValueXLocation, NULL AS ValueYLocation, dv.OffsetValue AS ValueZLocation, 
-	dv.CensorCode AS CensorCodeCV, NULL AS QualityCodeCV, CAST(sc.TimeSupport AS VARCHAR(5)) + ' ' + sc.TimeUnitsName AS AggregationDuration, 
-	sc.DataType AS InterpolationTypeCV 
+	dv.CensorCode AS CensorCodeCV, 'Unknown' AS QualityCodeCV, sc.TimeSupport AS TimeAggregationInterval, sc.TimeUnitsID AS TimeAggregationIntervalUnitsID
 FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv
 WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID 
 	AND sc.QualityControlLevelID = dv.QualityControlLevelID AND dv.SampleID IS NULL
 ORDER BY ResultID, ValueDateTime;
-SET IDENTITY_INSERT ODM2.ODM2Results.ResultValues OFF;
+SET IDENTITY_INSERT ODM2.ODM2Results.TimeSeriesResultValues OFF;
+
+
+
+
+
+
 
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --Populate the ODMCore.SamplingFeatures, ODM2SamplinFeatures.Specimens, ODM2SamplingFeatures.FeatureParents, 
