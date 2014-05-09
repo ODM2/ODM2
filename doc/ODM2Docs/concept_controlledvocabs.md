@@ -15,3 +15,8 @@ Options for external hosting of web-accessible vocabularies are being explored. 
   * Programmatically accessible responses are available by adding an extension to the user-friendly term URL:
     * RDF:  http://mmisw.org/ont/odm2test/actiontype/ObservationAct.rdf
     * JSON: http://mmisw.org/ont/odm2test/actiontype/ObservationAct.json
+
+### MMI ###
+
+* [MMI Ontology Registry and Repository User Manual](https://marinemetadata.org/mmiorrusrman/)
+* 
