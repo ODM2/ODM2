@@ -18,20 +18,27 @@ The ODM2 team has explored options for external hosting of web-accessible vocabu
 
 ### MMI ORR ###
 
-* The MMI system we're using is the [MMI ORR (MMI Ontology Registry and Repository)](http://mmisw.org/). Note that an "ontology" can be iether a _vocabulary_ (a list of terms) or a _mapping_ (a mapping of terms across vocabularies). MMI ORR can store both and provides similar capabilities for accessing and managing both.
-* MMI has a lof of useful and detailed stand-alone documentation. But beware that most of it may be somewhat out of date. Most of it was last updated in 2009. I suspect that most of the incremental enhancements applied to the MMI ORR software since are not reflected in those documents.
+#### General resources and guidelines ####
+
+The MMI system we're using is the [MMI ORR (MMI Ontology Registry and Repository)](http://mmisw.org/). Note that an "ontology" can be iether a _vocabulary_ (a list of terms) or a _mapping_ (a mapping of terms across vocabularies). MMI ORR can store both and provides similar capabilities for accessing and managing both. MMI has a lof of useful and detailed stand-alone documentation. But beware that most of it may be somewhat out of date. Most of it was last updated in 2009. I suspect that most of the incremental enhancements applied to the MMI ORR software since are not reflected in those documents.
 * Some useful MMI ORR documents (but note the caveat above about documents possibly not being up-to-date):
   * [MMI Ontology Registry and Repository User Manual](https://marinemetadata.org/mmiorrusrman/)
   * [Registering Your Existing Ontology](https://marinemetadata.org/mmiorrusrman/registerexisting)
   * [Working with Mappings](https://marinemetadata.org/mmiorrusrman/mmiorrmapps)
   * [The Best Parameter Vocabulary (blog post from John Graybeal)](https://marinemetadata.org/blogs/graybeal/the-best-parameter-vocabulary)
 * [MMI ORR ontology browser](http://mmisw.org/orr/#b). Provides browsing by ontology type (vocabulary vs mapping) or by authority. However, beware that there's some ambiguity about how/when an ontology is formally defined as a mapping ontology, such that some ontologies listed as vocabulary are actually mapping!
-* Creating new vocabularies on MMI. _These guidelines correspond to the general workflow we've defined for ODM2, which involves an initial "manual" creation of terms and their definitions on simple spreadsheets (say, on Google Docs)._ 
-  1. __Create the new vocabulary.__ Before loading terms and their attributes, the "empty" vocabulary should be created. That means creating all the vocabulary-level metadata (authority, vocabulary name, etc), including defining the set of attributes available for each term (eg, term, name, definition).
-  2. __Load the "csv" table of terms and their attributes.__ Note that how to do this is __NOT__ at all obvious or intuitive! But once you know how, it's very easy.
-     a. Once you're signed in, go to the vocabulary page
-     b. Click on Edit New Version
-     c. In the pop-up that comes up, click "Ok" (ie, "Do you want to do in-place editing of the contents of the ontology?"). _This statement is counter-intuitive and misleading_, I think, but so be it. Now you're in Edit mode for in-place editing.
-     d. Go to the bottom, under the "Contents" listing that shows the table of terms. Click on the down-arrow icon on the first column (to the left) of the first header row, and select the "Import" option.
-     e. What to do from there should be self-explanatory.
-     f. To do batch updates (edits, deletes, inserts) to terms in an existing vocabulary, here's the workflow I've found easiest and least error prone: first "Export" the existing terms to csv (delimited ascii text); Follow the steps above to "d", but select "Export" instead of "Import". Then copy the "csv" term listing that is presented in the pop up, and paste it on your local computer (to a file, to an open text editor session, whatever). Do all the edits locally on your computer. Then follow the csv import instructions listed above, and do a copy-paste from your new, local version.
+* The MMI ORR software is apparently available on github at https://github.com/mmisw/orr-ont
+
+
+#### Creating new vocabularies or updating existing ones ####
+
+_These guidelines correspond to the general workflow we've defined for ODM2, which involves an initial "manual" creation of terms and their definitions on simple spreadsheets (say, on Google Docs)._ 
+
+1. __Create the new vocabulary.__ Before loading terms and their attributes, the "empty" vocabulary should be created. That means creating all the vocabulary-level metadata (authority, vocabulary name, etc), including defining the set of attributes available for each term (eg, term, name, definition).
+2. __Load the "csv" table of terms and their attributes.__ Note that how to do this is __NOT__ at all obvious or intuitive! But once you know how, it's very easy.
+ 1. Once you're signed in, go to the vocabulary page
+ 2. Click on Edit New Version
+ 3. In the pop-up that comes up, click "Ok" (ie, "Do you want to do in-place editing of the contents of the ontology?"). _This statement is counter-intuitive and misleading_, I think, but so be it. Now you're in Edit mode for in-place editing.
+ 4. Go to the bottom, under the "Contents" listing that shows the table of terms. Click on the down-arrow icon on the first column (to the left) of the first header row, and select the "Import" option.
+ 5. What to do from there should be self-explanatory.
+ 6. To do batch updates (edits, deletes, inserts) to terms in an existing vocabulary, here's the workflow I've found easiest and least error prone: first "Export" the existing terms to csv (delimited ascii text); Follow the steps above to "d", but select "Export" instead of "Import". Then copy the "csv" term listing that is presented in the pop up, and paste it on your local computer (to a file, to an open text editor session, whatever). Do all the edits locally on your computer. Then follow the csv import instructions listed above, and do a copy-paste from your new, local version.
