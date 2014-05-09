@@ -27,6 +27,7 @@ The MMI system we're using is the [MMI ORR (MMI Ontology Registry and Repository
   * [Working with Mappings](https://marinemetadata.org/mmiorrusrman/mmiorrmapps)
   * [The Best Parameter Vocabulary (blog post from John Graybeal)](https://marinemetadata.org/blogs/graybeal/the-best-parameter-vocabulary)
 * [MMI ORR ontology browser](http://mmisw.org/orr/#b). Provides browsing by ontology type (vocabulary vs mapping) or by authority. However, beware that there's some ambiguity about how/when an ontology is formally defined as a mapping ontology, such that some ontologies listed as vocabulary are actually mapping!
+* Here's a helpful recommendation about _authority names_, from the MMI ORR User Manual: "The authority abbreviation should be short but descriptive; it is possible for one organization to have multiple authority names (e.g., mmi, mmitest, mmidev), but a profusion of authority names is discouraged (familiarity is more important than uniqueness). Organizations that will be submitting a lot of overlapping ontologies should consider using authority names to provide namespace separation."
 * The MMI ORR software is apparently available on github at https://github.com/mmisw/orr-ont
 
 
