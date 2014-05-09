@@ -4273,7 +4273,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5587,7 +5587,10 @@ then  additional field are added
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>

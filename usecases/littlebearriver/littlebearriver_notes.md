@@ -236,11 +236,12 @@ Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Resu
 5.  Set ODM2Results.TimeSeriesResults.YLocationUnitsID = NULL - doesn't exist in ODM1
 6.  Set ODM2Results.TimeSeriesResults.ZLocation = ODM1.DataValues.OffsetValue
 7.  Set ODM2Results.TimeSeriesResults.ZLocationUnitsID = ODM1.OffsetTypes.OffsetUnitsID
-8.  Set ODM2Results.TimeSeriesResults.IntendedTimeSpacing = NULL - doesn't exist in ODM1
-9.  Set ODM2Results.TimeSeriesResults.IntendedTimeSpacingUnitsID = NULL - doesn't exist in ODM1
-10. Set ODM2Results.TimeSeriesResults.AggregationStatisticCV = ODM1.SeriesCatalog.DataType
+8.  Set ODM2Results.TimeSeriesResults.SpatialReferenceID = ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID - Here I have to get the SpatialReferenceID for the ODM1 OffsetTypes that I added to ODM2 as SpatialReferences
+9.  Set ODM2Results.TimeSeriesResults.IntendedTimeSpacing = NULL - doesn't exist in ODM1
+10.  Set ODM2Results.TimeSeriesResults.IntendedTimeSpacingUnitsID = NULL - doesn't exist in ODM1
+11. Set ODM2Results.TimeSeriesResults.AggregationStatisticCV = ODM1.SeriesCatalog.DataType
 
-
+**(473 Records added to ODM2Results.TimeSeriesResults)**
 
 
 

@@ -261,47 +261,22 @@ SET IDENTITY_INSERT ODM2.ODM2Core.Results OFF;
 ---------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO ODM2.ODM2Results.TimeSeriesResults (ResultID, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID,
 	SpatialReferenceID, IntendedTimeSpacing, IntendedTimeSpacingUnitsID, AggregationStatisticCV)
-SELECT DISTINCT sc.SeriesID AS ResultID, NULL AS XLocation, NULL AS XLocationUnitsID, NULL AS YLocation, NULL AS YLocationUnitsID, dv.OffsetValue AS ZLocation,
-	sr.SpatialReferenceID, NULL AS IntendedTimeSpacing, NULL AS IntendedTimeSpacingUnitsID, sc.DataType AS InterpolationTypeCV
-FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv, ODM2.ODM2SamplingFeatures.SpatialReferences sr, LittleBearRiverODM.dbo.OffsetTypes ot
-WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID 
-	AND sc.QualityControlLevelID = dv.QualityControlLevelID AND dv.SampleID IS NULL AND dv.OffsetTypeID = ot.OffsetTypeID AND sr.SRSName = ot.OffsetDescription
-ORDER BY ResultID;
+SELECT sq.SeriesID AS ResultID, NULL AS XLocation, NULL AS XLocationUnitsID, NULL AS YLocation, NULL AS YLocationUnitsID, sq.OffsetValue AS ZLocation, 
+	ot.OffsetUnitsID AS ZLocationUnitsID, sr.SpatialReferenceID AS SpatialReferenceID, NULL AS IntendedTimeSpacing, NULL AS IntendedTimeSpacingUnitsID,
+	sq.DataType AS AggregationStatisticCV 
+FROM (SELECT DISTINCT sc.SeriesID, sc.DataType, dv.OffsetValue, dv.OffsetTypeID 
+		FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv
+		WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID 
+			AND sc.QualityControlLevelID = dv.QualityControlLevelID AND dv.SampleID IS NULL) AS sq
+LEFT JOIN LittleBearRiverODM.dbo.OffsetTypes ot ON sq.OffsetTypeID = ot.OffsetTypeID
+LEFT JOIN ODM2.ODM2SamplingFeatures.SpatialReferences sr ON ot.OffsetDescription = sr.SRSName
+ORDER BY ResultID;		
 
 
 
-SELECT DISTINCT sc.SeriesID AS ResultID, NULL AS XLocation, NULL AS XLocationUnitsID, NULL AS YLocation, NULL AS YLocationUnitsID, dv1.OffsetValue AS ZLocation,
-	sr.SpatialReferenceID, NULL AS IntendedTimeSpacing, NULL AS IntendedTimeSpacingUnitsID, sc.DataType AS InterpolationTypeCV
-FROM LittleBearRiverODM.dbo.SeriesCatalog sc 
-INNER JOIN LittleBearRiverODM.dbo.DataValues dv1 ON sc.SiteID = dv1.SiteID
-INNER JOIN LittleBearRiverODM.dbo.DataValues dv2 ON sc.VariableID = dv2.VariableID
-INNER JOIN LittleBearRiverODM.dbo.DataValues dv3 ON sc.MethodID = dv3.MethodID
-INNER JOIN LittleBearRiverODM.dbo.DataValues dv4 ON sc.QualityControlLevelID = dv4.QualityControlLevelID
-INNER JOIN LittleBearRiverODM.dbo.DataValues dv5 ON sc.SourceID = dv5.SourceID
-LEFT JOIN LittleBearRiverODM.dbo.OffsetTypes ot ON dv1.OffsetTypeID = ot.OffsetTypeID
-INNER JOIN ODM2.ODM2SamplingFeatures.SpatialReferences sr ON ot.OffsetDescription = sr.SRSName 
-WHERE dv1.SampleID IS NULL  
-ORDER BY ResultID;
 
-
-SELECT DISTINCT sc.SeriesID AS ResultID, NULL AS XLocation, NULL AS XLocationUnitsID, NULL AS YLocation, NULL AS YLocationUnitsID, dv.OffsetValue AS ZLocation,
-	sr.SpatialReferenceID, NULL AS IntendedTimeSpacing, NULL AS IntendedTimeSpacingUnitsID, sc.DataType AS InterpolationTypeCV
-FROM (SELECT DISTINCT SiteID, VariableID, MethodID, SourceID, QualityControlLevelID, OffsetValue, OffsetTypeID
-	FROM LittleBearRiverODM.dbo.DataValues WHERE SampleID IS NULL) dv, 
-INNER JOIN LittleBearRiverODM.dbo.SeriesCatalog sc ON
-INNER JOINODM2.ODM2SamplingFeatures.SpatialReferences sr, LittleBearRiverODM.dbo.OffsetTypes ot
-WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID 
-	AND sc.QualityControlLevelID = dv.QualityControlLevelID AND dv.OffsetTypeID = ot.OffsetTypeID AND sr.SRSName = ot.OffsetDescription
-ORDER BY ResultID;
-
-
-
-SELECT isNull(l1.LocationName,'') AS LocationFrom, isNull(l2.LocationName,'') AS LocationTo, c.Duration 
-FROM Connection c 
-left outer JOIN Location l1 ON l1.LocationID= c.LocationIDFrom
-left outer JOIN Location l2 ON l2.LocationID= c.LocationIDTo
-
-
+	
+			 
 
 
 ---------------------------------------------------------------------------------------------------------------------------------
