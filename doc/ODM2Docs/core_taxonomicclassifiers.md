@@ -6,10 +6,10 @@ ODM2 Core: Taxonomic Classifiers
 **TaxonomicClassifiers** provide a way to classify Results according to terms from a formal taxonomy. It provides an additional dimension to Results, enabling users to assign both a name for the Variable that was measured and a taxonomic term that qualifies the Variable name. Examples include:
 
 * Specification of the taxonomic name of a species for which a presence/absence or count observation has been made.
-* Specification of the taxonomic name of a mineral for which a percent coposition observation has been made on a sample. 
+* Specification of the taxonomic name of a mineral for which a percent composition observation has been made on a sample. 
 * Specification of the taxonomic name for a soil type on which an observation has been made. 
 
-The use of TaxonomicClassifiers avoids the repetition and complexity of overloading Variable names with with taxonomic terms. For example, if an investigator was observing the number of fish for multiple species within a given stretch of river, a lengthy list of Variable names would be needed (especially if the same observation were made over many stretches of river in different parts of the world). A Variable name would be required for each fish species that might be observed:
+The use of TaxonomicClassifiers avoids the repetition and complexity of overloading Variable names with taxonomic terms. For example, if an investigator was observing the number of fish for multiple species within a given stretch of river, a lengthy list of VariableNames would be needed (especially if the same observation were made over many stretches of river in different parts of the world). A VariableName would be required for each fish species that might be observed. For example:
 
 * Count of Oncorhynchus mykiss
 * Count of Salmo trutta
@@ -21,7 +21,7 @@ ODM2 enables specification of a single Variable with a name of "Count". The enti
 
 ### Using Taxonomic Classifiers with Specimens ###
 
-In the ODM2SamplingFeatures schema, TaxonomicClassifers are also connected to Specimens. This is so that Specimens can be assigned classifications according to formal taxonomies (e.g., specifying the mineral composition of a Specimen using terms from a taxonomy of mineral names). In some cases, multiple researchers have classified individual samples differently. In these cases, a Specimen may be linked to multiple classifications, whith each qualified by a Citation from which the classification was derived (e.g., the research paper in which an author reported a classification of a Specimen). This is primarily useful for solid earth samples.
+In the ODM2SamplingFeatures schema, TaxonomicClassifers are also connected to Specimens. This is so that Specimens can be assigned classifications according to formal taxonomies (e.g., specifying the mineral composition of a Specimen using terms from a taxonomy of mineral names). In some cases, multiple researchers have classified individual samples differently. In these cases, a Specimen may be linked to multiple classifications, with each qualified by a Citation from which the classification was derived (e.g., the research paper in which an author reported a classification of a Specimen). This is primarily useful for solid earth samples.
 
 ### External Identifiers for Taxonomic Classifiers ###
 

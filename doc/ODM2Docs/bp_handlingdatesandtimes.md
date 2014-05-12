@@ -11,7 +11,7 @@ Even though it may be known that a particular sensor network switches from dayli
 
 To avoid these problems, we recommend that all data loggers be set to local standard time and record in that time even during periods of daylight saving time. It's much easier to adopt this convention at the source, rather than try to compute the correct UTCOffset afterward.
 
-### Beginning of Interval Reporting Time for Interval Data Values ###
-Some data types used in ODM2 apply to data values that occur over an interval of time. The date and time reported and encoded in ODM2 associated with each data value should be the beginning time of the observation interval. This default convention was adopted to be consistent with the way dates and times are represented in most common database management systems. 
+### Beginning or End of Interval Reporting Time for Interval Data Values ###
+Some ResultTypes used in ODM2 apply to data values that occur over an interval of time. The date and time reported and encoded in ODM2 associated with each data value should be the beginning time of the observation interval. This default convention was adopted to be consistent with the way dates and times are represented in most common database management systems. 
 
 It should be noted that using the beginning of the interval is not consistent with the time a datalogger would log an observation value. Care should be exercised in adding data to the ODM to ensure that the beginning of interval convention is followed. If this convention is not followed, notes should be provided in the Method description indicating that values are recorded at the end of the interval.

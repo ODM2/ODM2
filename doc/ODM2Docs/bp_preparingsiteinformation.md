@@ -13,7 +13,7 @@ Each site (e.g., a stream gage) is assigned a SiteCode that must be unique withi
 
 Example:
 
->I operate a water quality observations network, that I’ll call UTdata. Within this network, I have two sensors on the Colorado River at different locations.I would NOT give both of these sites a SiteCode of “UTSite”. Instead, I might call one “UTSite1” and the other “UTSite2”.
+>I operate a water quality observations network, that I’ll call UTdata. Within this network, I have two sensors on the Colorado River at different locations. I would NOT give both of these sites a SiteCode of “UTSite”. Instead, I might call one “UTSite1” and the other “UTSite2”.
 
 >Typically, each instance of an ODM2 database represents a single observation network. It’s OK for sites in different ODM2 databases to have the same SiteCode. These sites are differentiated by the observations network to which they belong.
 
