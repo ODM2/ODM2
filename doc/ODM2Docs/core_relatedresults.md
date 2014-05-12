@@ -9,4 +9,4 @@ ODM2 allows users to create relationships among observation Results. Essentially
 * Relating Results collected within a particular watershed
 * Etc.
 
-Grouping of Results could also be done using [DataSets](datasets.md), which group Results but require additional descriptive information.
+Grouping of Results could also be done using [DataSets](core_datasets.md), which group Results but require additional descriptive information.
