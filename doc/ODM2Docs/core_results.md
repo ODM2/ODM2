@@ -1,16 +1,16 @@
 ODM2 Core: Results
 ==================
 
-In ODM2, an observation is made up of two elements - an **Action** that is of type "Observation act" and a **Result** that is the outcome of that Action. This is a critical distinction for ODM2 as the separation of Actions and their Results enables:
+In ODM2, an observation is made up of two elements - an **Action** that is of a type that can have an Observation Result and a **Result** that is the outcome of that Action. This is a critical distinction for ODM2 as the separation of Actions and their Results enables:
 
 1. A single Action may have many Results (e.g., a sample analysis that results in concentration values for many different variables). 
-2. Actions may be of many different types (e.g., site visit act, calibration event, sensor deployment, specimen collection, specimen preparation, etc.). Many Action types do not have data value Results.
+2. Actions may be of many different types (e.g., "Site visit" Action, "Calibration" Action, "Sensor deployment" Action, "Specimen collection" Action, "Specimen preparation" Action, etc.). Many ActionTypes do not have data value Results.
 3. Results may be of many different types (e.g., individual measurement, time series, depth profile, etc.).
 
-**A Result consists of metadata for one or more data values that are a consequence of an observation act.** The data values themselves are not encoded in the Results entity/table found in the ODM2 Core schema, but rather in a set of linked ResultValues tables. The Results entity only encodes metadata describing the data values. This is done to enable catalog implementations of ODM2 that would enable data discovery over the metadata, but would not contain the data values themselves. 
+**A Result consists of metadata for one or more data values that are a consequence of an observation action.** The data values themselves are not encoded in the Results entity found in the ODM2 Core schema, but rather in a set of linked ResultValues entities. The Results entity only encodes metadata describing the data values. This is done to enable catalog implementations of ODM2 that would enable data discovery using the metadata, but would not contain the data values themselves. 
 
 ### ResultTypes ###
-Similar to OGC's Observations & Measurements (O&M), Results can be of many different types to allow for different DataTypes (i.e. integer, float, string, boolean) and for DataValues that vary over additional dimensions (i.e. temporal:TimeSeries, spatial:DepthProfile, other:Spectra). ResultTypes are chosen from a controlled vocabulary. The following are examples of ResultTypes.  A full list of and [detailed documentation for ResultTypes](ext_results.md) is available.
+Similar to OGC's Observations & Measurements (O&M), Results can be of many different types to allow for different DataTypes (i.e., integer, float, string, boolean) and for DataValues that vary over additional dimensions (i.e., temporal:TimeSeries, spatial:DepthProfile, other:Spectra). ResultTypes are chosen from a controlled vocabulary. The following are examples of ResultTypes.  A full list of and [detailed documentation for ResultTypes](ext_results.md) is available.
 
 * [**Time series coverage:**](ext_results_timeseries.md) A time sequenced set of individual data values (e.g., the time series of dissolved oxygen from an in situ stream sensor deployment).
 * [**Measurement:**](ext_results_measurement.md) A single data value resulting from a sample analysis.
@@ -24,14 +24,13 @@ Each Result is described by the following metadata:
 * ResultType (from a controlled vocabulary)
 * The Variable that is represented (via VariableID)
 * The Units of measure for the Result (via UnitsID)
-* A TaxonomicClassifier that indicates a taxonomic classification for the result (via TaxonomicClassifierID) (e.g., a count Result is of fish species X, where X is the TaxonomicClassifer)
+* An optional TaxonomicClassifier that indicates a taxonomic classification for the result (via TaxonomicClassifierID) (e.g., a count Result is of fish species X, where X is the TaxonomicClassifer)
 * The ProcessingLevel, which describes the level of processing that has been completed on the Result (via ProcessingLevelID)
 * The ResultDateTime, which is the time at which the Result became available.
 * A ValidDateTime, which is a time for which the Result is valid (e.g., in the case of a forecast)
 * A Status that describes the state of the Result (from a controlled vocabulary)
 * A SampledMedium that described the environmental media (e.g., soil, water, air, etc.) from which the Result was derived (from a controlled vocabulary)
 * A ValueCount that specifies the number of ResultValues in the Result
-* An IntendedObservationSpacing that specifies the intended temporal spacing of the resulting data values (some Results may have data values whose actual temporal spacing varies)
 
 ### ResultUUID ###
 The ResultUUID is a globally unique identifier for the Result. It is included to support unique identification of a Result - especially in the case where a catalog implementation of ODM2 may be storing metadata from many different ODM2 instances. ResultUUIDs will typically be GUIDs generated by the machine that is hosting an ODM2 database. 
