@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr>
+<tr class="altRow">
 <td class="title_nm">Results</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -39,7 +39,7 @@
 </td><td class="PkCol"> </td><td class="PkCol">Unique identifier</td><td class="PkCol"> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_Results_ResultUUID.html">ResultUUID</a></td><td>UUID</td><td> </td><td> </td><td> </td><td>Universally unique identifier for the Result</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Core_Results_ResultUUID.html">ResultUUID</a></td><td>UniqueID</td><td> </td><td> </td><td> </td><td>Universally unique identifier for the Result</td><td> </td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_FeatureActionID.html">FeatureActionID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the combinaton of SamplingFeature and Action that created the Result</td><td class="FkCol">
@@ -48,7 +48,10 @@
 </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_Results_ResultTypeCV.html">ResultTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the result type (e.g., time series, measurement, etc.)</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_ResultTypeCV.html">ResultTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV term describing the result type (e.g., time series, measurement, etc.)</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_VariableID.html">VariableID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the Variable of the result</td><td class="FkCol">
@@ -131,16 +134,19 @@
 <tr>
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_FeatureActions.html">fk_Results_FeatureActions</a></td><td><a href="../tables/ODM2Core_FeatureActions.html">ODM2Core.FeatureActions</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>FeatureActionID</td><td>FeatureActionID</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_ProcessingLevels.html">fk_Results_ProcessingLevels</a></td><td><a href="../tables/ODM2Core_ProcessingLevels.html">ODM2Core.ProcessingLevels</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>ProcessingLevelID</td><td>ProcessingLevelID</td>
 </tr>
 <tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_ResultTypeCV.html">fk_Results_ResultTypeCV</a></td><td><a href="../tables/ODM2Results_ResultTypeCV.html">ODM2Results.ResultTypeCV</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>ResultTypeCV</td><td>ResultTypeCV</td>
+</tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_TaxonomicClassifiers.html">fk_Results_TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>TaxonomicClassifierID</td><td>TaxonomicClassifierID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_Units.html">fk_Results_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>UnitsID</td><td>UnitsID</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_Variables.html">fk_Results_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>VariableID</td><td>VariableID</td>
 </tr>
 </table>
@@ -177,7 +183,31 @@
 <td><a href="../foreignKeys/ODM2Provenance_ResultDerivationEquations_fk_ResultDerivationEquations_Results.html">fk_ResultDerivationEquations_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultDerivationEquations.html">ODM2Provenance.ResultDerivationEquations</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Results_ResultValues_fk_ResultValues_Results.html">fk_ResultValues_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_ResultValues.html">ODM2Results.ResultValues</a></td><td>ResultID</td><td>ResultID</td>
+<td><a href="../foreignKeys/ODM2Results_CategoricalResults_fk_CategoricalResults_Results.html">fk_CategoricalResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_CategoricalResults.html">ODM2Results.CategoricalResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_Results.html">fk_MeasurementResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResults_fk_PointCoverageResults_Results.html">fk_PointCoverageResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_PointCoverageResults.html">ODM2Results.PointCoverageResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_ProfileResults_fk_ProfileResults_Results.html">fk_ProfileResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SectionResults_fk_SectionResults_Results.html">fk_SectionResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_Results.html">fk_SpectraResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResults_fk_TimeSeriesResults_Results.html">fk_TimeSeriesResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResults_fk_TrajectoryResults_Results.html">fk_TrajectoryResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_TrajectoryResults.html">ODM2Results.TrajectoryResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TransectResults_fk_TransectResults_Results.html">fk_TransectResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
 </table>
 <br>

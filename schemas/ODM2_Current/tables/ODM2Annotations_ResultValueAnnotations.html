@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">ResultValueAnnotations</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -39,10 +39,7 @@
 </td><td class="PkCol"> </td><td class="PkCol">Primary key for a bridge table, enabling many-to-many joins.</td><td class="PkCol"> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Annotations_ResultValueAnnotations_ValueID.html">ValueID</a></td><td class="FkCol">BigInt</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key of the result value being annotated</td><td class="FkCol">
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td>
+<td> </td><td><a href="../columns/ODM2Annotations_ResultValueAnnotations_ValueID.html">ValueID</a></td><td>BigInt</td><td> </td><td> </td><td> </td><td>Foreign key of the result value being annotated</td><td> </td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Annotations_ResultValueAnnotations_AnnotationID.html">AnnotationID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key of the annotation applied to the result value</td><td class="FkCol">
@@ -61,9 +58,6 @@
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Annotations_ResultValueAnnotations_fk_ResultValueAnnotations_Annotations.html">fk_ResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_ResultValueAnnotations.html">ODM2Annotations.ResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Annotations_ResultValueAnnotations_fk_ResultValueAnnotations_ResultValues.html">fk_ResultValueAnnotations_ResultValues</a></td><td><a href="../tables/ODM2Results_ResultValues.html">ODM2Results.ResultValues</a></td><td><a href="../tables/ODM2Annotations_ResultValueAnnotations.html">ODM2Annotations.ResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
 </tr>
 </table>
 <br>
