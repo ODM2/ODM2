@@ -1,7 +1,7 @@
 ODM2 Core: Organizations
 ========================
 
-**Organizations** are included in ODM2 so that observations and other **Actions** can be associated with the **Organization** responsible for creating or performing them. **Organizations*** are groups of **People** with a common purpose or goal.  There are many different types of **Organizations**, including government agencies, academic research groups, private corporations, watershed monitoring groups, etc.  ODM2 does not contrain the types of **Organizations** that can be represented, but each **Organization** must have a type that is selected from a controlled vocabulary. The following are examples of Organization types:
+**Organizations** are included in ODM2 so that observations and other **Actions** can be associated with the **Organization** responsible for creating or performing them. **Organizations** are groups of **People** with a common purpose or goal.  There are many different types of **Organizations**, including government agencies, academic research groups, private corporations, watershed monitoring groups, etc.  ODM2 does not contrain the types of **Organizations** that can be represented, but each **Organization** must have an OrganizationType that is selected from a controlled vocabulary. The following are examples of Organization types:
 
 * Federal agency
 * State agency
