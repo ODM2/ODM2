@@ -3,7 +3,7 @@
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>/Users/anthony/Git/ODM2/schemas/ODM2_Current</DocFolder>
+  <DocFolder>/Users/JeffHorsburgh/Desktop/ODM2_Current/ODM2_Current</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
@@ -4273,7 +4273,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5586,11 +5586,7 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
