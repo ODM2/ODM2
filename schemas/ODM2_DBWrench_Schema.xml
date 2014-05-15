@@ -84,6 +84,61 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="CategoricalResultValueAnnotations">
+      <Cm>Annotations for Categorical ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkCategoricalResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_CategoricalResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="CategoricalResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_CategoricalResultValueAnnotations_CategoricalResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="CategoricalResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="CategoricalResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="MeasurementResultValueAnnotations">
+      <Cm>Annotations for Measurement ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkMeasurementResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the result value being annotated</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key of the annotation applied to the result value</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_MeasurementResultValueAnnotations_MeasurementResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="MeasurementResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="MeasurementResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="MeasurementResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="MethodAnnotations">
       <Cm>Notes for or groups of one or more Methods.</Cm>
       <TblOpts/>
@@ -109,6 +164,58 @@
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="MethodAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
         <ClPr cdCl="MethodID" prCl="MethodID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="PointCoverageResultValueAnnotations">
+      <Cm>Annotations for Point Coverage ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkPointCoverageResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_PointCoverageResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="PointCoverageResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_PointCoverageResultValueAnnotations_PointCoverageResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="PointCoverageResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="PointCoverageResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="ProfileResultValueAnnotations">
+      <Cm>Annotations for Profile ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkProfileResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_ProfileResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="ProfileResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_ProfileResultValueAnnotations_ProfileResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="ProfileResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="ProfileResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -150,30 +257,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="ResultValueAnnotations">
-      <Cm>Notes for or groups of one or more ResultValues.</Cm>
-      <TblOpts/>
-      <Pk ClNs="BridgeID" nm="pkResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ValueID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key of the result value being annotated</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="AnnotationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key of the annotation applied to the result value</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_ResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
-        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
-        <CdTb mn="1" nm="ResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
-        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="SamplingFeatureAnnotations">
       <Cm>Notes for or groups of one or more Sampling Features.</Cm>
       <TblOpts/>
@@ -199,6 +282,136 @@
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="SamplingFeatureAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="SectionResultValueAnnotations">
+      <Cm>Annotations for Section ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkSectionResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_SectionResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="SectionResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SectionResultValueAnnotations_SectionResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="SectionResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="SectionResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="SpectraResultValueAnnotations">
+      <Cm>Annotations for Spectra ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkSpectraResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_SpectraResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="SpectraResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SpectraResultValueAnnotations_SpectraResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="SpectraResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="SpectraResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="TimeSeriesResultValueAnnotations">
+      <Cm>Annotations for Time Series ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkTimeSeriesResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_TimeSeriesResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="TimeSeriesResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_TimeSeriesResultValueAnnotations_TimeSeriesResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="TimeSeriesResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="TimeSeriesResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="TrajectoryResultValueAnnotations">
+      <Cm>Annotations for Trajectory ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkTrajectoryResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_TrajectoryResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="TrajectoryResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_TrajectoryResultValueAnnotations_TrajectoryResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="TrajectoryResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="TrajectoryResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="TransectResultValueAnnotations">
+      <Cm>Annotations for Transect ResultValues</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkTransectResultValueAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ValueID" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_TransectResultValueAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="TransectResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_TransectResultValueAnnotations_TransectResultValues" prLkCl="ValueID" upAc="3">
+        <PrTb mn="0" nm="TransectResultValues" oe="1" sch="ODM2Results" zr="0"/>
+        <CdTb mn="1" nm="TransectResultValueAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="ValueID" prCl="ValueID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -3640,7 +3853,7 @@
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -3665,21 +3878,55 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="902" y="47"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="685" y="72"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="690" y="293"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultValueAnnotations" x="1088" y="570"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MeasurementResultValueAnnotations" x="890" y="542"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="135" y="48"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="416" y="48"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SamplingFeatureAnnotations" x="25" y="291"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ActionAnnotations" x="397" y="292"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedAnnotations" x="68" y="586"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="CategoricalResultValueAnnotations" x="894" y="623"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="TimeSeriesResultValueAnnotations" x="898" y="710"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ProfileResultValueAnnotations" x="904" y="793"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="PointCoverageResultValueAnnotations" x="907" y="883"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SectionResultValueAnnotations" x="910" y="972"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="TransectResultValueAnnotations" x="915" y="1059"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="TrajectoryResultValueAnnotations" x="919" y="1147"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SpectraResultValueAnnotations" x="924" y="1242"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResultValues" x="1483" y="544"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="1481" y="419"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResultValues" x="1787" y="792"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1488" y="715"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResultValues" x="1484" y="933"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResultValues" x="972" y="1432"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="1829" y="542"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResultValues" x="1476" y="1250"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResultValues" x="1980" y="1144"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.CategoricalResultValueAnnotations.fk_CategoricalResultValueAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.CategoricalResultValueAnnotations.fk_CategoricalResultValueAnnotations_CategoricalResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.MeasurementResultValueAnnotations.fk_MeasurementResultValueAnnotations_MeasurementResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.MeasurementResultValueAnnotations.fk_ResultValueAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.PointCoverageResultValueAnnotations.fk_PointCoverageResultValueAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.PointCoverageResultValueAnnotations.fk_PointCoverageResultValueAnnotations_PointCoverageResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.ProfileResultValueAnnotations.fk_ProfileResultValueAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.ProfileResultValueAnnotations.fk_ProfileResultValueAnnotations_ProfileResultValues"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ResultAnnotations.fk_ResultAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ResultAnnotations.fk_ResultAnnotations_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Annotations.ResultValueAnnotations.fk_ResultValueAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.SamplingFeatureAnnotations.fk_SamplingFeatureAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.SamplingFeatureAnnotations.fk_SamplingFeatureAnnotations_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.SectionResultValueAnnotations.fk_SectionResultValueAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.SectionResultValueAnnotations.fk_SectionResultValueAnnotations_SectionResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.SpectraResultValueAnnotations.fk_SpectraResultValueAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.SpectraResultValueAnnotations.fk_SpectraResultValueAnnotations_SpectraResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.TimeSeriesResultValueAnnotations.fk_TimeSeriesResultValueAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.TimeSeriesResultValueAnnotations.fk_TimeSeriesResultValueAnnotations_TimeSeriesResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.TrajectoryResultValueAnnotations.fk_TrajectoryResultValueAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.TrajectoryResultValueAnnotations.fk_TrajectoryResultValueAnnotations_TrajectoryResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.TransectResultValueAnnotations.fk_TransectResultValueAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.TransectResultValueAnnotations.fk_TransectResultValueAnnotations_TransectResultValues"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedAnnotations.fk_RelatedAnnotations_Annotations_AreRelated"/>
@@ -4269,7 +4516,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4452,7 +4699,7 @@ then  additional field are added
     </Notes>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="460">
+  <RnmMgr NxRnmId="461">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -5565,6 +5812,9 @@ then  additional field are added
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpectraResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="459" nNm="ExcitationWavelength" oNm="Wavelength"/>
     </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Annotations" SupCls="" SupNme="">
+      <Rnm id="460" nNm="MeasurementResultValueAnnotations" oNm="ResultValueAnnotations"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -5582,12 +5832,15 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results/Tables (19)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
