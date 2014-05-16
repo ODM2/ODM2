@@ -15,6 +15,8 @@ The ODM2 team has explored options for external hosting of web-accessible vocabu
   * Programmatically accessible responses are available by adding an extension to the user-friendly term URL:
     * RDF:  http://mmisw.org/ont/odm2test/actiontype/ObservationAct.rdf
     * JSON: http://mmisw.org/ont/odm2test/actiontype/ObservationAct.json
+* Vocabulary mappings: [IPython notebook illustrating the use of a SPARQL query on MMI to obtain terms from one vocabulary of finely resolved terms (eg, nitrate) by querying another vocabulary of broader terms (eg, nutrients)](http://nbviewer.ipython.org/gist/emiliom/9843a515c7a524931467/SPARQLWrapper_MMI_IOOSParameterVocabTerm.ipynb). See specially the simpler section at the bottom, under the heading "Narrow Match of IOOS Parameter Vocabulary terms from IOOS Core Variable dissolved_nutrients term"
+ 
 
 ### MMI ORR ###
 
