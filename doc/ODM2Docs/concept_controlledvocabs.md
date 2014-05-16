@@ -37,7 +37,7 @@ The MMI system we're using is the [MMI ORR (MMI Ontology Registry and Repository
 
 _These guidelines correspond to the general workflow we've defined for ODM2, which involves an initial "manual" creation of terms and their definitions on simple spreadsheets (say, on Google Docs)._ 
 
-1. __Create the new vocabulary.__ Before loading terms and their attributes, the "empty" vocabulary should be created. That means creating all the vocabulary-level metadata (authority, vocabulary name, etc), including defining the set of attributes available for each term (eg, term, name, definition).
+1. __Create the new vocabulary.__ Before loading terms and their attributes, the "empty" vocabulary should be created. That means creating all the vocabulary-level metadata (authority, vocabulary name, etc), including defining the set of attributes available for each term (eg, term, name, definition). For now we've only talked about creating this metadata manually via the MMI UI form. An alternative is to fill out a template in RDF, then create the vocabulary by loading this template. [See the RDF for the existing test ODM2 vocabulary for an example.](http://mmisw.org/ont?form=rdf&uri=http://mmisw.org/ont/odm2test/actiontype)
 2. __Load the "csv" table of terms and their attributes.__ Note that how to do this is __NOT__ at all obvious or intuitive! But once you know how, it's very easy.
  1. Once you're signed in, go to the vocabulary page
  2. Click on Edit New Version
