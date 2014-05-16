@@ -13,16 +13,20 @@ An **Depth Profile Coverage** Result consists of a series of ResultValues for a 
 
 Each ResultValue within a Depth Profile Coverage is a floating point number. The following is an example of a Depth Profile Coverage Result:
 
-A Depth Profile Coverage observation of "Oxygen, dissolved" (Variable) at "Puget Sound Site 1" (SamplingFeature) measured using a "YSI 6000 Series Sonde" (Method) on "2014-03-31" (ValueDateTime) had ResultValues and Units:
+A Depth Profile Coverage observation of "Temperature" (Variable) at "Puget Sound Site 1" (SamplingFeature) measured using a "YSI 6000 Series Sonde" (Method) on "2014-03-31" (ValueDateTime) had ResultValues and Units:
 
-| **Depth Z (m)** | **ResultValue (mg/L)** |
-| :-------------- | ---------------------: |
+| **Depth Z (m)** | **ResultValue (Deg. C)** |
+| :-------------- | -----------------------: |
 | 0.5 | 10.0 |
 | 1 | 9.8 |
 | 1.5 | 9.7 |
 | 2.0 | 9.6 |
 | 2.5 | 9.5 |
 | ... | ... |
+
+![Profile Result Example](images/profile.jpg)
+
+**Figure 1**.  Depth Profile Result example.
 
 ### Spatial Offset for Depth Profile Results
 In the measurement framework for a depth profile Result, the X and Y locations are fixed, whereas the Z location (i.e., depth) varies. Each ResultValue for a profile result must have a recorded ZLocation and Units. It is possible to have an X and Y spatial offset for a depth profile Result, but the X and Y coordinates, which would be given by XLocationa and YLocation in the ProfileResults entity are fixed for every value in the depth profile.

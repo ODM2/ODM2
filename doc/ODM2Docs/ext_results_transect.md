@@ -13,15 +13,19 @@ A **Transect Coverage** Result consists of a series of ResultValues for a single
 
 Each ResultValue within a Transect Coverage Result is a floating point number. The following is an example of a Transect Coverage Result:
 
-A Transect Coverage observation of "Soil volumetric water content" (Variable) along the "Test Transect 1" (SamplingFeature) measured using a "Hand-held soil moisture sensor" (Method) had ResultValues and Units:
+A Transect Coverage observation of "Dissolved oxygen concentration" (Variable) along the "Test stream transect" (SamplingFeature) measured using a "Hydrolab optical DO sensor" (Method) had ResultValues and Units:
 
 | **ValueDateTime** | **XLocation (m)** | **YLocation (m)** | **TransectDistance (m)** | **ResultValue (%)** |
 | :---------------: | :---------------: | :---------------: |:-----------------------: | :-------------------------: |
-| 2014-03-31 12:30 PM | 100 | 0 | 100 | 20 |
-| 2014-03-31 12:31 PM | 200 | 0 | 200 | 18 |
-| 2014-03-31 12:32 PM | 300 | 0 | 300 | 25 |
-| 2014-03-31 12:33 PM | 400 | 0 | 400 | 27 |
+| 2014-03-31 12:30 PM | 0 | 0 | 0 | 9.8 |
+| 2014-03-31 12:31 PM | 0 | 100 | 200 | 9.75 |
+| 2014-03-31 12:32 PM | 0 | 200 | 300 | 10.1 |
+| 2014-03-31 12:33 PM | 0 | 300 | 400 | 9.6 |
 | ... | ... | ... | ... | ... |
+
+![Transect Result Example](images/transect.jpg)
+
+**Figure 1**.  Transect Result example.
 
 ### Spatial Offset for Transect Coverage Results
 In the measurement framework for Transect Coverage Results, the ZLocation is fixed, but can be specified if needed (e.g., a transect of temperature measurements, where the measurement is made 2 m above the ground at each X, Y location along the transect). The XLocation and YLocation may vary for each individual ResultValue within the Transect Coverage and so each recorded value must have both XLocation and YLocation and their Units. For each measurement within the soil moisture example above, the XLocation would be the distance in the X direction from an origin (specified by a SpatialReference), and the YLocation would be the distance in the Y direction from an origin. In the case where spacing of measurement locations along the transect is regular, an IntendedTransectSpacing and IntendedTransectSpacingUnitsID can be specified in the TransectResults entity.

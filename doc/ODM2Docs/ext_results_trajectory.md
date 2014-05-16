@@ -22,6 +22,10 @@ A Trajectory Coverage observation of "Water temperature" (Variable) for the "Mon
 | 2014-03-31 1:30 PM | -111.0347 | 43.5469 | -30 | 51 | 10 |
 | ... | ... | ... | ... | ... | ... |
 
+![Trajectory Result Example](images/trajectory.jpg)
+
+**Figure 1**.  Trajectory Result example.
+
 ### Spatial Offset for Trajectory Coverage Results
 In the measurement framework for Trajectory Coverage Results, space is either measured or controlled. The XLocation, YLocation, and ZLocation may vary for each individual ResultValue within the Trajectory Coverage and so each recorded value must have XLocation, YLocation, and ZLocation coordinates and their Units. Each measurement point within the Trajectory must also have an attribute that is the distance along the Trajectory path at which the measurement was made. For each measurement within the water temperature example above, the XLocation would be the distance in the X direction from an origin (specified by a SpatialReference), the YLocation would be the distance in the Y direction from an origin, and the ZLocation would be the distance in the Z direction from an origin. In the case where spacing of measurement locations along the Trajectory is regular, an IntendedTrajectorySpacing and IntendedTrajectorySpacingUnitsID can be specified in the TrajectoryResults entity.
 

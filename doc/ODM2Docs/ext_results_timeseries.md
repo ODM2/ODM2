@@ -13,14 +13,18 @@ A **Time Series Coverage** Result consists of a series of ResultValues for a sin
 
 Each ResultValue within a Time Series Coverage is a floating point number. The following is an example of a Time Series Coverage Result:
 
-A Time Series Coverage observation of "Oxygen, dissolved" (Variable) in the "Logan River near Logan, UT" (SamplingFeature) measured using a "Hydrolab Minisonde 5 multiparameter water quality sonde" (Method) had the following ResultValues expressed in "mg/L" (Units):
+A Time Series Coverage observation of "Volumetric water content" (Variable) at the "USU Experimental Farm Weather Station" (SamplingFeature) measured using a "Stevens Hydra II soil moisture sensor" (Method) had the following ResultValues expressed in "%" (Units):
 
-| **ValueDateTime** | **DataValue** |
-| :---------------- | ---------------------: |
+| **ValueDateTime** | **Volumetric Water Content (%)** |
+| :---------------- | -------------------------------: |
 | 2014-03-31 12:00 PM | 9.8 |
 | 2014-03-31 12:15 PM | 10.0 |
 | 2014-03-31 12:30 PM | 10.2 |
 | ... | ... |
+
+![Section Result Example](images/timeseries.jpg)
+
+**Figure 1**.  Time Series Result example.
 
 ### Spatial Offset for Time Series Results
 ResultValue spatial offsets for Time Series Results are specified using the **XLocation**, **YLocation**, **ZLocation**, and **SpatialReferenceID** attributes in the **TimeSeriesResults** entity. Numeric values and Units can be specified for all three dimensions, with the spatial reference of the three-dimensional coordinate system given in the **SpatialReferences** entity. For example the spatial offset of the values resulting from a soil moisture sensor installed 5 cm below the surface of the soil could use the following: 

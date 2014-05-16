@@ -13,7 +13,7 @@ A **Section Coverage** Result consists of a series of ResultValues for a single 
 
 Each ResultValue within a Section Coverage Result is a floating point number. The following is an example of a Section Coverage Result:
 
-A Section Coverage observation of "Velocity" (Variable) in the "Logan River at Mendon Road" (SamplingFeature) measured using a  "Stream velocity meter" (Method) on "2014-03-31 12:00 PM" (ValueDateTime) had ResultValues and Units:
+A Section Coverage observation of "Velocity" (Variable) in the "Logan River at Mendon Road" (SamplingFeature) measured using a  "Stream velocity meter" (Method) had ResultValues and Units:
 
 | **X (ft)** | **Z (ft)** | **ResultValue (ft/s)** |
 | :--------: | :--------: | :--------------------: |
@@ -23,6 +23,10 @@ A Section Coverage observation of "Velocity" (Variable) in the "Logan River at M
 | 15 | -1.0 | 2.63 |
 | 15 | -4.0 | 1.9 |
 | ... | ... | ... |
+
+![Section Result Example](images/section.jpg)
+
+**Figure 1**.  Section Result example.
 
 ### Spatial Offset for Section Coverage Results
 In the measurement framework for Section Coverage Results, the YLocation is fixed, but can be specified if needed (e.g., a stream cross section that is some distance upstream or downstream of a Site SamplingFeature).  The XLocation and ZLocation may vary for each individual ResultValue within the Section Coverage and so each recorded value must have both XLocation and ZLocation and their Units. For the example of a stream cross section, the XLocation would be the distance across the stream from one of the banks, and the ZLocation would be the depth at which the measurement was made. In the case where X and Z spacing is regular, an IntendedXSpacing and IntendedZSpacing attribute and their Units can be specified in the SectionResults entity. 
