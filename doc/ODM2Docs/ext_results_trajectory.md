@@ -17,9 +17,9 @@ A Trajectory Coverage observation of "Water temperature" (Variable) for the "Mon
 
 | **ValueDateTime** | **XLocation (Decimal Degrees)** | **YLocation (Decimal Degrees)** | **ZLocation (m)** | **TrajectoryDistance (km)** | **ResultValue  (Deg. C)** |
 | :---------------: | :---------------: | :---------------: |:----------------: | :----------------------------------------: | :-----------------------: |
-| 2014-03-31 12:30 PM | -111.0345 | 43.5467 | -20 | 50 | 10 |
-| 2014-03-31 1:00 PM | -111.0346 | 43.5468 | -25 | 50.5 | 11 |
-| 2014-03-31 1:30 PM | -111.0347 | 43.5469 | -30 | 51 | 10 |
+| 2014-06-30 12:30 PM | -111.0345 | 43.5467 | -20 | 50 | 10 |
+| 2014-06-30 1:00 PM | -111.0346 | 43.5468 | -25 | 50.5 | 11 |
+| 2014-06-30 1:30 PM | -111.0347 | 43.5469 | -30 | 51 | 10 |
 | ... | ... | ... | ... | ... | ... |
 
 ![Trajectory Result Example](images/trajectory.jpg)

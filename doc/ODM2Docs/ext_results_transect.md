@@ -17,10 +17,11 @@ A Transect Coverage observation of "Dissolved oxygen concentration" (Variable) a
 
 | **ValueDateTime** | **XLocation (m)** | **YLocation (m)** | **TransectDistance (m)** | **ResultValue (%)** |
 | :---------------: | :---------------: | :---------------: |:-----------------------: | :-------------------------: |
-| 2014-03-31 12:30 PM | 0 | 0 | 0 | 9.8 |
-| 2014-03-31 12:31 PM | 0 | 100 | 200 | 9.75 |
-| 2014-03-31 12:32 PM | 0 | 200 | 300 | 10.1 |
-| 2014-03-31 12:33 PM | 0 | 300 | 400 | 9.6 |
+| 2014-06-30 2:25 PM | 0 | 0 | 0 | 9.8 |
+| 2014-06-30 2:30 PM | 0 | 50 | 50 | 9.8 |
+| 2014-06-30 2:35 PM | 0 | 100 | 100 | 9.75 |
+| 2014-06-30 2:40 PM | 0 | 150 | 150 | 10.1 |
+| 2014-06-30 2:45 PM | 0 | 200 | 200 | 10.0 |
 | ... | ... | ... | ... | ... |
 
 ![Transect Result Example](images/transect.jpg)
@@ -28,10 +29,10 @@ A Transect Coverage observation of "Dissolved oxygen concentration" (Variable) a
 **Figure 1**.  Transect Result example.
 
 ### Spatial Offset for Transect Coverage Results
-In the measurement framework for Transect Coverage Results, the ZLocation is fixed, but can be specified if needed (e.g., a transect of temperature measurements, where the measurement is made 2 m above the ground at each X, Y location along the transect). The XLocation and YLocation may vary for each individual ResultValue within the Transect Coverage and so each recorded value must have both XLocation and YLocation and their Units. For each measurement within the soil moisture example above, the XLocation would be the distance in the X direction from an origin (specified by a SpatialReference), and the YLocation would be the distance in the Y direction from an origin. In the case where spacing of measurement locations along the transect is regular, an IntendedTransectSpacing and IntendedTransectSpacingUnitsID can be specified in the TransectResults entity.
+In the measurement framework for Transect Coverage Results, the ZLocation is fixed, but can be specified if needed (e.g., in the example above, the transect consists of water temperature measurements, where the measurement is made at the surface of the water at each X, Y location along the transect). The XLocation and YLocation may vary for each individual ResultValue within the Transect Coverage and so each recorded value must have both XLocation and YLocation and their Units. For each measurement within the water temperature example above, the XLocation would be the distance in the X direction from an origin (specified by a SpatialReference), and the YLocation would be the distance in the Y direction from an origin. In the case where spacing of measurement locations along the transect is regular, an IntendedTransectSpacing and IntendedTransectSpacingUnitsID can be specified in the TransectResults entity.
 
 ### Spatial Aggregation for Transect Coverage Results
-For Transect Results, each ResultValue may represent a measurement at a discrete point along a Transect - in which case there is no spatial aggregation. However, ODM2 does allow for spatial aggregation along the transect line. Where aggregation is used, each ResultValue may have a distance along the transect over which it was aggregated. The interval over which aggregation is performed can be specified by the TransectDistanceAggregationInterval attribute. The aggregation interval is specified in the same Units as the TransectDistance attribute. Using aggregation along the transect line, a transect line can be divided into smaller line segments within which a recorded ResultValue represents an aggregated statistic (e.g., average slope for a stream reach).
+For Transect Results, each ResultValue may represent a measurement at a discrete point along a Transect - in which case there is no spatial aggregation (as in the example above). However, ODM2 does allow for spatial aggregation along the transect line. Where spatial aggregation along the transect line is used, each ResultValue may have a distance along the transect over which it was aggregated. The interval over which aggregation is performed can be specified by the TransectDistanceAggregationInterval attribute. The aggregation interval is specified in the same Units as the TransectDistance attribute. Using aggregation along the transect line, a transect line can be divided into smaller line segments within which a recorded ResultValue represents an aggregated statistic (e.g., average slope for a stream reach).
 
 ### Time Aggregation for Transect Coverage Results
 Each ResultValue within a Transect Coverage Result may have a time interval over which the recorded value represents an aggregation. For example, the recorded value may be an average or sum of multiple instantaneous observations made over a specific period of time, or time support. If the ResultValue represents a time aggregation, this can be specified using the AggregationStatisticCV, TimeAggregationInterval, and TimeAggregationIntevalUnitsID. Additionally, an IntendedTimeSpacing and IntendedTimeSpacingUnits can be specified in the TransectResults entity where it is desired to have a specific time spacing between recorded ResultValues.

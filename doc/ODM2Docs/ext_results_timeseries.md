@@ -22,18 +22,20 @@ A Time Series Coverage observation of "Volumetric water content" (Variable) at t
 | 2014-03-31 12:30 PM | 10.2 |
 | ... | ... |
 
-![Section Result Example](images/timeseries.jpg)
+![Time Series Result Example](images/timeseries.jpg)
 
 **Figure 1**.  Time Series Result example.
 
 ### Spatial Offset for Time Series Results
-ResultValue spatial offsets for Time Series Results are specified using the **XLocation**, **YLocation**, **ZLocation**, and **SpatialReferenceID** attributes in the **TimeSeriesResults** entity. Numeric values and Units can be specified for all three dimensions, with the spatial reference of the three-dimensional coordinate system given in the **SpatialReferences** entity. For example the spatial offset of the values resulting from a soil moisture sensor installed 5 cm below the surface of the soil could use the following: 
+ResultValue spatial offsets for Time Series Results are specified using the **XLocation**, **YLocation**, **ZLocation**, and **SpatialReferenceID** attributes in the **TimeSeriesResults** entity. Numeric values and Units can be specified for all three dimensions, with the spatial reference of the three-dimensional coordinate system given in the **SpatialReferences** entity. For example the spatial offset of the values resulting from a soil moisture sensor installed 5 cm below the surface of the soil (as shown in the figure above) could use the following: 
 
 * XLocation = 0 
 * YLocation = 0 
 * ZLocation = -5
 * ZLocationUnitsID that indicates units of cm
 * SRSDescription = "Distance from the soil surface at the base of the weather station" 
+
+If the distance in the X and Y directions is important in interpreting the measurements, those dimensions can also be specified. In the example above, the XLocation and YLocation are specified as zero, which means that the distance in the X and Y directions from the location of the Site SamplingFeature (e.g., the base of the weather station tripod) to the sensor location is not important.
 
 ### Spatial Aggregation for Time Series Results
 For Time Series Results, the spatial offset (e.g., the location of the sensor with respect to the Site) is fixed in all three dimensions and so no spatial aggregation is specified. 
