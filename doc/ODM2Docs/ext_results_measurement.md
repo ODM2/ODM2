@@ -13,7 +13,11 @@ A **Measurement** Result consists of a single ResultValue for a single Variable,
 
 A Measurement ResultValue is a floating point number. The following is an example of a Measurement Result:
 
-A Measurement of "Total phosphorus concentration" (Variable) of "Specimen 1234567" (SamplingFeature) collected in the "Little Bear River at Mendon Road" (parent SamplingFeature) measured using the "Ascorbic acid method" (Method) had a numeric value of "0.05 mg/L" (ResultValue and Units).
+A Measurement of "Total phosphorus concentration" (Variable) of "Specimen 123" (SamplingFeature) collected at "6/30/2014 2:30 PM" (ValueDateTime) in the "Little Bear River at Mendon Road" (parent SamplingFeature) measured using the "Ascorbic acid method" (Method) had a numeric value of "0.04 mg/L" (ResultValue and Units).
+
+![Measurement Example](/images/measurement.jpg)
+
+**Figure 1**. Example of a Measurement Result.
 
 ### Spatial Offset for Measurement Results
 A Measurement Result may have a spatial offset from a Site SamplingFeature that is specified using the X, Y, and Z coordinates and SpatialReference in the MeasurementResults entity. For example, a Specimen may be collected at a Site, but some distance from the location specified by the Site coordinates recorded in the Sites entity. 
