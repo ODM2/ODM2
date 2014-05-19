@@ -285,11 +285,6 @@ ORDER BY ResultID, ValueDateTime;
 SET IDENTITY_INSERT ODM2.ODM2Results.TimeSeriesResultValues OFF;
 
 
-
-
-
-
-
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --Populate the ODMCore.SamplingFeatures, ODM2SamplinFeatures.Specimens, ODM2SamplingFeatures.FeatureParents, 
 --ODM2Core.Actions, ODM2Core.Results, and ODM2Results.ResultValues tables for sample-based results
@@ -313,9 +308,9 @@ SELECT @MaxResultID = MAX(ResultID) FROM ODM2.ODM2Core.Results;
 --Create a teporary table with the information that is needed to populate tables with information for the water quality samples
 --------------------------------------------------------------------------------------------------------------------------------
 SELECT DISTINCT dv.ValueID, smp.SampleID, smp.SampleID + @MaxSamplingFeatureID AS SamplingFeatureID, smp.SampleID + @MaxActionID AS CollectionActionID, 
-	(smp.SampleID + @MaxSampleID + @MaxActionID) AS AnalysisActionID, @MaxResultID + dv.ValueID AS ResultID, smp.LabMethodID, 'Specimen' AS SamplingFeatureTypeCV, smp.LabSampleCode AS SamplingFeatureName,
+	(smp.SampleID + @MaxSampleID + @MaxActionID) AS AnalysisActionID, @MaxResultID + dv.ValueID AS ResultID, smp.LabMethodID, 'Specimen' AS SamplingFeatureTypeCV, 
 	NULL AS SamplingFeatureGeoTypeCV, NULL AS SpatialReferenceID, NULL AS FeatureGeometry, 'Water Quality Sample' AS SamplingFeatureDescription, 
-	smp.SampleType AS SpecimenTypeCV, smp.LabSampleCode AS SpecimenCode, vr.SampleMedium AS SpecimenMediumCV, 1 AS IsFieldSpecimen, st.SiteID
+	smp.SampleType AS SpecimenTypeCV, smp.LabSampleCode AS SamplingFeatureCode, vr.SampleMedium AS SpecimenMediumCV, 1 AS IsFieldSpecimen, st.SiteID
 INTO #TempSpecimenInfo
 FROM LittleBearRiverODM.dbo.Samples smp, LittleBearRiverODM.dbo.DataValues dv, LittleBearRiverODM.dbo.Variables vr, LittleBearRiverODM.dbo.Sites st
 WHERE smp.SampleID = dv.SampleID AND dv.VariableID = vr.VariableID AND dv.SiteID = st.SiteID
@@ -324,8 +319,8 @@ WHERE smp.SampleID = dv.SampleID AND dv.VariableID = vr.VariableID AND dv.SiteID
 --Insert the records for the Specimens in the ODM2Core.SamplingFeature table 
 -------------------------------------------------------------------------------
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures ON;
-INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureName, SamplingFeatureGeoTypeCV, SpatialReferenceID, FeatureGeometry, SamplingFeatureDescription)
-SELECT SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureName, SamplingFeatureGeoTypeCV, SpatialReferenceID, NULL AS FeatureGeometry, SamplingFeatureDescription
+INSERT INTO ODM2.ODM2Core.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureCode, SamplingFeatureName, SamplingFeatureDescription, SamplingFeatureGeoTypeCV, FeatureGeometry, Elevation_m, ElevationDatumCV)
+SELECT SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureCode, NULL AS SamplingFeatureName, SamplingFeatureDescription, SamplingFeatureGeoTypeCV, NULL AS FeatureGeometry, NULL AS Elevation_m, NULL AS ElevationDatumCV
 FROM #TempSpecimenInfo 
 ORDER BY SamplingFeatureID;
 SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures OFF;
@@ -333,18 +328,18 @@ SET IDENTITY_INSERT ODM2.ODM2Core.SamplingFeatures OFF;
 -------------------------------------------------------------------------------
 --Insert records into the ODM2SamplingFeatures.Specimens table for the samples
 -------------------------------------------------------------------------------
-INSERT INTO ODM2.ODM2SamplingFeatures.Specimens (SamplingFeatureID, SpecimenTypeCV, SpecimenCode, SpecimenMediumCV, IsFieldSpecimen)
-SELECT SamplingFeatureID, SpecimenTypeCV, SpecimenCode, SpecimenMediumCV, IsFieldSpecimen
+INSERT INTO ODM2.ODM2SamplingFeatures.Specimens (SamplingFeatureID, SpecimenTypeCV, SpecimenMediumCV, IsFieldSpecimen)
+SELECT SamplingFeatureID, SpecimenTypeCV, SpecimenMediumCV, IsFieldSpecimen
 FROM #TempSpecimenInfo
 ORDER BY SamplingFeatureID;
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
---Populate the ODM2SamplingFeatures.FeatureParents table to associate the Specimen SamplingFeautres with the Site at which they were collected
+--Populate the ODM2SamplingFeatures.RelatedFeatures table to associate the Specimen SamplingFeatures with the Site at which they were collected
 -----------------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO ODM2.ODM2SamplingFeatures.FeatureParents (SamplingFeatureID, ParentFeatureID, RelationshipTypeCV, SpatialOffsetID)
-SELECT SamplingFeatureID, SiteID AS ParentFeatureID, 'wasCollectedAt' AS RelationshipTypeCV, NULL AS SpatialOffsetID
+INSERT INTO ODM2.ODM2SamplingFeatures.RelatedFeatures (SamplingFeatureID, RelationshipTypeCV, RelatedFeatureID, SpatialOffsetID)
+SELECT SamplingFeatureID, 'wasCollectedAt' AS RelationshipTypeCV, SiteID AS RelatedFeatureID, NULL AS SpatialOffsetID
 FROM #TempSpecimenInfo 
-ORDER BY SamplingFeatureID, ParentFeatureID;
+ORDER BY SamplingFeatureID, RelatedFeatureID;
 
 -------------------------------------------------------------------------------------
 --Add "Sample collection" Actions to the ODM2Core.Actions table for each specimen
@@ -376,10 +371,10 @@ WHERE temp.SampleID = dv.SampleID AND dv.SourceID = aff.OrganizationID
 ORDER BY ActionID, AffiliationID;
 
 ------------------------------------------------------------------------------------------------
---Populate the ODM2Core.FeatureActionResult table for the "Sample collection" actions
+--Populate the ODM2Core.FeatureActions table for the "Sample collection" actions
 ------------------------------------------------------------------------------------------------
-INSERT INTO ODM2.ODM2Core.FeatureActionResult (SamplingFeatureID, ActionID, ResultID)
-SELECT SamplingFeatureID, CollectionActionID AS ActionID, NULL AS ResultID
+INSERT INTO ODM2.ODM2Core.FeatureActions (SamplingFeatureID, ActionID)
+SELECT SamplingFeatureID, CollectionActionID AS ActionID
 FROM #TempSpecimenInfo;
 
 ------------------------------------------------------------------------------------
@@ -407,6 +402,15 @@ SELECT temp.AnalysisActionID AS ActionID, aff.AffiliationID, 1 AS IsActionLead, 
 FROM #TempSpecimenInfo temp, ODM2.ODM2Core.Affiliations aff, LittleBearRiverODM.dbo.DataValues dv  
 WHERE temp.SampleID = dv.SampleID AND dv.SourceID = aff.OrganizationID
 ORDER BY ActionID, AffiliationID;
+
+
+
+
+--Need to Add the Feature actions table for Sample Analysis actions
+
+
+
+
 
 --------------------------------------------------------------------------------------------------
 --Add records to the ODM2Core.Results table for measurements resulting from Specimens  

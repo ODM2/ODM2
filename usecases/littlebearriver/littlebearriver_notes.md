@@ -259,17 +259,12 @@ Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Resu
 **(25,021,849 Records added to ODM2Results.TimeSeriesResultValues - will change every day since I am continuously adding new data)**
 
 
-
-
-
-
-
 ## Implementation Notes for Sample-Based Data ##
 
 #### SamplingFeatures and Specimens
-ODM1 has a Samples table that is used to populate ODM2.Specimens.  However, in ODM1, Samples were linked directly to DataValues.  In ODM2, this is not the case. Linking water quality samples to DataValues in ODM2 requires going from Specimens --> SamplingFeatures --> FeatureActionResult --> Result --> ResultValues.
+ODM1 has a Samples table that is used to populate ODM2.Specimens.  However, in ODM1, Samples were linked directly to DataValues.  In ODM2, this is not the case. Linking water quality samples to DataValues in ODM2 requires going from Specimens --> SamplingFeatures --> FeatureActions --> Result --> MeasurementResults --> MeasurementResultValues.
 
-1. I built a temporary table with a bunch of Specimen metadata so I could get the SamplingFeatureIDs, ActionIDs, and ResultIDs correct
+1. I built a temporary table with a bunch of Specimen metadata so I could get the SamplingFeatureIDs, ActionIDs, FeatureActionIDs, and ResultIDs correct
     * Set SamplingFeatureIDs for the Specimens by adding DISTINCT ODM1.Samples.SampleID to the maximum SamplingFeatureID already in the ODM2.SamplingFeatures table.
     * Set ActionIDs for "Sample collection" Actions by adding DISTINCT ODM1.Samples.SampleID to the maximum ActionID already in ODM2.
     * Assumed only one "Sample analysis" action per Sample. *This is a little ambiguous in ODM1 because both SampleID and LabMethodID are in the Samples table*. Given this, I set ActionIDs for "Sample analysis" Actions by adding DISTINCT ODM1.Samples.SampleID to the maximum SampleID from ODM1 and the maximum ActionID already in ODM2 (with @MaxActionID being calculated before adding the Sample Collection Actions)
@@ -281,32 +276,33 @@ ODM1 has a Samples table that is used to populate ODM2.Specimens.  However, in O
 
 1. Set ODM2Core.SamplingFeatures.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
 2. Set ODM2Core.SamplingFeatures.SamplingFeatureTypeCV = 'Specimen'
-3. Set ODM2Core.SamplingFeatures.SamplingFeatureName = ODM1.Samples.LabSampleCode
-4. Set ODM2Core.SamplingFeatures.SamplingFeatureGeoTypeCV = NULL - not applicable for Specimens
-5. Set ODM2Core.SamplingFeatures.SpatialReferenceID = NULL - not applicable for Specimens
-6. Set ODM2Core.SamplingFeatures.FeatureGeometry = NULL - not applicable for Specimens
-7. Set ODM2Core.SamplingFeatures.SamplingFeatureDescription = 'Water Quality Sample' - *This is appropriate for my database, but is not generic for all ODM1 databases.  Might be better to just set this to something like "ODM1 Sample" or something generic like that*
+3. Set ODM2Core.SamplingFeatures.SamplingFeatureCode = ODM1.Samples.LabSampleCode
+4. Set ODM2Core.SamplingFeatures.SamplingFeatureName = NULL - this doesn't exist in ODM1, so set as NULL
+5. Set ODM2Core.SamplingFeatures.SamplingFeatureDescription = 'Water Quality Sample' - *This is appropriate for my database, but is not generic for all ODM1 databases.  Might be better to just set this to something like "ODM1 Sample" or something generic like that*
+6. Set ODM2Core.SamplingFeatures.SamplingFeatureGeoTypeCV = NULL - not applicable for Specimens
+7. Set ODM2Core.SamplingFeatures.FeatureGeometry = NULL - not applicable for Specimens
+8. Set ODM2Core.SamplingFeatures.Elevation_m = NULL - not applicable for Specimens
+9. Set ODM2Core.SamplingFeatures.ElevationDatumCV = NULL - not applicable for Specimens
 
 **(3,634 Records added to ODM2Core.SamplingFeatures)**
 
 **Specimens in ODM2SamplingFeatures.Specimens**: Next, I need to create records for each water quality sample in the ODM2SamplingFeautures.Specimens table.
 
-1. Set ODM2.Specimens.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
-2. Set ODM2SamplingFeautures.Specimens.SpecimenTypeCV = ODM1.Samples.SampleType
-3. Set ODM2SamplingFeautures.Specimens.SpecimenCode = ODM1.Samples.LabSampleCode
-4. Set ODM2SamplingFeautures.Specimens.SpecimenMediumCV = ODM1.Variables.SampleMedium
-5. Set ODM2SamplingFeautures.Specimens.IsFieldSpecimen = 1
+1. Set ODM2SamplingFeatures.Specimens.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
+2. Set ODM2SamplingFeatures.Specimens.SpecimenTypeCV = ODM1.Samples.SampleType
+3. Set ODM2SamplingFeatures.Specimens.SpecimenMediumCV = ODM1.Variables.SampleMedium
+4. Set ODM2SamplingFeatures.Specimens.IsFieldSpecimen = 1
 
 **(3,634 Records added to ODM2SamplingFeatures.Specimens)**
 
-**Specimens in ODM2SamplingFeatures.FeatureParents**: Once records have been created in both the Specimens and SamplingFeatures tables, I can add records to the ODM2SamplingFeatures.FeatureParents table to record which Site SamplingFeature each Specimen was collected at.
+**Specimens in ODM2SamplingFeatures.RelatedFeatures**: Once records have been created in both the Specimens and SamplingFeatures tables, I can add records to the ODM2SamplingFeatures.RelatedFeatures table to record which Site SamplingFeature each Specimen was collected at.
 
-1. Set ODM2SamplingFeautures.FeatureParents.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
-2. Set ODM2SamplingFeautures.FeatureParents.ParentFeatureID = ODM1.Sites.SiteID - *I can do this because I used the SiteIDs from the ODM1 database as the SamplingFeatureIDs in the ODM2 database*
-3. Set ODM2SamplingFeautures.FeatureParents.RelationshipTypeCV = 'wasCollectedAt' - *this is supposed to be a CV, but I just made this up for now. But, this is essentially a way of saying that the Specimen recorded in SamplingFeatureID **wasCollectedAt** the SamplingFeature recorded in ParentFeatureID*.
-4. Set ODM2SamplingFeautures.FeatureParents.SpatialOffsetID = NULL - don't need this for any of my samples
+1. Set ODM2SamplingFeatures.RelatedFeatures.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
+2. Set ODM2SamplingFeatures.FeatureParents.RelationshipTypeCV = 'wasCollectedAt' - *this is supposed to be a CV, but I just made this up for now. But, this is essentially a way of saying that the Specimen recorded in SamplingFeatureID **wasCollectedAt** the SamplingFeature recorded in ParentFeatureID*.
+3. Set ODM2SamplingFeatures.FeatureParents.RelatedFeatureID = ODM1.Sites.SiteID - *I can do this because I used the SiteIDs from the ODM1 database as the SamplingFeatureIDs in the ODM2 database*
+4. Set ODM2SamplingFeatures.FeatureParents.SpatialOffsetID = NULL - don't need this for any of my samples
 
-**(3,634 Records added to ODM2SamplingFeatures.FeatureParents)**
+**(3,634 Records added to ODM2SamplingFeatures.RelatedFeatures)**
 
 #### Sample Collection Actions
 Since I have a bunch of water quality samples (Specimens) in my ODM1 database, I need to create a "Sample collection" Action for each sample. Make sure to filter out DataValues that do not have a sample (e.g., ODM1.DataValues.SampleID IS NOT NULL).
@@ -332,13 +328,12 @@ Since I have a bunch of water quality samples (Specimens) in my ODM1 database, I
 
 **(3,634 Records added to ODM2Core.ActionBy)**
 
-**Populate ODM2Core.FeatureActionResult for "Sample collection" Actions**: Now I need to add records to the FeatureActionResult table linking the "Sample collection" Actions to the Specimen SamplingFeatures that were collected.
+**Populate ODM2Core.FeatureActions for "Sample collection" Actions**: Now I need to add records to the FeatureActionResult table linking the "Sample collection" Actions to the Specimen SamplingFeatures that were collected.
 
 1. Set ODM2Core.FeatureActionResult.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
 2. Set ODM2Core.FeatureActionResult.ActionID = @MaxActionID + ODM1.DataValues.SampleID
-3. Set ODM2Core.FeatureActionResult.ResultID = NULL - since these are 'Sample collection' Actions, they have no result
 
-**(3,634 Records added to ODM2Core.FeatureActionResult)**
+**(3,634 Records added to ODM2Core.FeatureActions)**
 
 #### Sample Analysis Actions
 The "Sample analysis" Actions on the Specimens I just created for my water quality samples are the Actions that create the measurement Results. So, I need to create a "Sample analysis" Action for each Specimen to link it to its Result. I don't have any information about the dates and times at which the "Sample analysis" Actions occurred and so I am just going to use the dates and times recorded with the DataValues in the ODM1 database.
@@ -363,6 +358,9 @@ The "Sample analysis" Actions on the Specimens I just created for my water quali
 4. Set ODM2Core.ActionBy.RoleDescription = 'Analyst'
 
 **(3,634 Records added to ODM2Core.ActionBy)**
+
+
+
 
 #### Results
 Each Result record will detail a "Measurement" Result that has a single ResultValue.
