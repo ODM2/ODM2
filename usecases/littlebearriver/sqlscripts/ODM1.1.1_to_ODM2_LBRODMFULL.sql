@@ -205,7 +205,7 @@ FROM ODM2.ODM2Core.Actions act, LittleBearRiverODM.dbo.SeriesCatalog sc, ODM2.OD
 WHERE act.ActionID = sc.SeriesID AND sc.SourceID = aff.OrganizationID
 
 ---------------------------------------------------------------------------------------------------------
---Populate the ODM2Core.FeatureAction table
+--Populate the ODM2Core.FeatureActions table
 --NOTES:
 --1.  This uses the SiteID from ODM 1.1 as the FeatureID
 --2.  Uses the SeriesID from the ODM 1.1 database as the ActionID
@@ -235,10 +235,10 @@ ALTER TABLE ODM2.ODM2Core.Results ADD CONSTRAINT DF_ResultUUID DEFAULT NEWSEQUEN
 --Now add the records to the Result table
 SET IDENTITY_INSERT ODM2.ODM2Core.Results ON; 
 INSERT INTO ODM2.ODM2Core.Results (ResultID, FeatureActionID, ResultTypeCV, VariableID, UnitsID, TaxonomicClassifierID, ProcessingLevelID, ResultDateTime, 
-	ResultDateTimeUTCOffset, ValidDateTime, ValidDateTimeUTCOffset, StatusCV, SampledMediumCV, ValueCount, IntendedObservationSpacing)
+	ResultDateTimeUTCOffset, ValidDateTime, ValidDateTimeUTCOffset, StatusCV, SampledMediumCV, ValueCount)
 SELECT DISTINCT sc.SeriesID AS ResultID, fa.FeatureActionID, 'Time Series Coverage' AS ResultTypeCV, sc.VariableID, sc.VariableUnitsID AS UnitsID, 
 	NULL AS TaxonomicClassifierID, sc.QualityControlLevelID AS ProcessingLevelID, GETDATE() AS ResultDateTime, CONVERT(integer, 24.0*CONVERT(decimal(10,5), GETDATE() - GETUTCDATE())) AS ResultDateTimeUTCOffset, 
-	NULL AS ValidDateTime, NULL AS ValidDateTimeUTCOffset, 'Unknown' AS StatusCV, sc.SampleMedium AS SampledMediumCV, sc.ValueCount, 'Unknown' AS IntendedObservationSpacing
+	NULL AS ValidDateTime, NULL AS ValidDateTimeUTCOffset, 'Unknown' AS StatusCV, sc.SampleMedium AS SampledMediumCV, sc.ValueCount
 FROM LittleBearRiverODM.dbo.SeriesCatalog sc, LittleBearRiverODM.dbo.DataValues dv, ODM2.ODM2Core.FeatureActions fa
 WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID AND sc.QualityControlLevelID = dv.QualityControlLevelID 
 	AND fa.SamplingFeatureID = sc.SiteID AND fa.ActionID = sc.SeriesID AND dv.SampleID IS NULL
@@ -305,7 +305,7 @@ DECLARE @MaxResultID AS int;
 SELECT @MaxResultID = MAX(ResultID) FROM ODM2.ODM2Core.Results;
 
 --------------------------------------------------------------------------------------------------------------------------------
---Create a teporary table with the information that is needed to populate tables with information for the water quality samples
+--Create a temporary table with the information that is needed to populate tables with information for the water quality samples
 --------------------------------------------------------------------------------------------------------------------------------
 SELECT DISTINCT dv.ValueID, smp.SampleID, smp.SampleID + @MaxSamplingFeatureID AS SamplingFeatureID, smp.SampleID + @MaxActionID AS CollectionActionID, 
 	(smp.SampleID + @MaxSampleID + @MaxActionID) AS AnalysisActionID, @MaxResultID + dv.ValueID AS ResultID, smp.LabMethodID, 'Specimen' AS SamplingFeatureTypeCV, 
@@ -403,14 +403,17 @@ FROM #TempSpecimenInfo temp, ODM2.ODM2Core.Affiliations aff, LittleBearRiverODM.
 WHERE temp.SampleID = dv.SampleID AND dv.SourceID = aff.OrganizationID
 ORDER BY ActionID, AffiliationID;
 
-
-
-
---Need to Add the Feature actions table for Sample Analysis actions
-
-
-
-
+------------------------------------------------------------------------------------------------
+--Populate the ODM2Core.FeatureActions table for the "Sample analysis" actions
+------------------------------------------------------------------------------------------------
+DECLARE @InsertedFeatureActions TABLE(
+	FeatureActionID int,
+	SamplingFeatureID int,
+	ActionID int);	
+INSERT INTO ODM2.ODM2Core.FeatureActions (SamplingFeatureID, ActionID)
+OUTPUT INSERTED.FeatureActionID, INSERTED.SamplingFeatureID, INSERTED.ActionID INTO @InsertedFeatureActions
+SELECT SamplingFeatureID, AnalysisActionID AS ActionID
+FROM #TempSpecimenInfo;
 
 --------------------------------------------------------------------------------------------------
 --Add records to the ODM2Core.Results table for measurements resulting from Specimens  
@@ -419,49 +422,64 @@ ORDER BY ActionID, AffiliationID;
 --2.  The ResultDateTime will be set to the LocalDateTime in the ODM 1.1 DataValues table.
 --3.  Set Status = "Complete" for now 
 --------------------------------------------------------------------------------------------------
+--Enter a record into the ResultTypeCV table for a Measurement Result
+INSERT INTO ODM2.ODM2Results.ResultTypeCV (ResultTypeCV, ResultTypeCategory, DataType, ResultTypeDefinition, FixedDimensions, VaryingDimensions, SpaceMeasurementFramework, TimeMeasurementFramework,
+	VariableMeasurementFramework)
+Values('Measurement', 'Measurement', 'Float', 'A single ResultValue for a single Variable, measured on or at a SamplingFeature, using a single Method, with specific Units, and having a specific ProcessingLevel.',
+	'X, Y, Z, t', 'None', 'Fixed', 'Fixed', 'Measured')	
 SET IDENTITY_INSERT ODM2.ODM2Core.Results ON;
-INSERT INTO ODM2.ODM2Core.Results (ResultID, ResultTypeCV, VariableID, UnitsID, TaxonomicClassifierID, QualityControlLevelID, ResultDateTime, ResultDateTimeUTCOffset, 
-	ValidDateTime, ValidDateTimeUTCOffset, StatusCV, SampledMediumCV, ValueCount, IntendedObservationSpacing)
-SELECT temp.ResultID, 'Measurement' AS ResultTypeCV, dv.VariableID, vbl.VariableUnitsID AS UnitsID, NULL AS TaxonomicClassifierID, dv.QualityControlLevelID, 
+INSERT INTO ODM2.ODM2Core.Results (ResultID, FeatureActionID, ResultTypeCV, VariableID, UnitsID, TaxonomicClassifierID, ProcessingLevelID, ResultDateTime, ResultDateTimeUTCOffset, 
+	ValidDateTime, ValidDateTimeUTCOffset, StatusCV, SampledMediumCV, ValueCount)
+SELECT temp.ResultID, fas.FeatureActionID, 'Measurement' AS ResultTypeCV, dv.VariableID, vbl.VariableUnitsID AS UnitsID, NULL AS TaxonomicClassifierID, dv.QualityControlLevelID AS ProcessingLevelID, 
 	dv.LocalDateTime AS ResultDateTime, dv.UTCOffset AS ResultDateTimeUTCOffset, NULL AS ValidDateTime, NULL AS ValidDateTimeUTCOffset, 
-	'Complete' AS StatusCV, vbl.SampleMedium AS SampledMediumCV, 1 AS ValueCount, 'Unknown' AS IntendedObservationSpacing
-FROM LittleBearRiverODM.dbo.DataValues dv, LittleBearRiverODM.dbo.Variables vbl, #TempSpecimenInfo AS temp
-WHERE dv.SampleID = temp.SampleID AND dv.VariableID = vbl.VariableID
+	'Complete' AS StatusCV, vbl.SampleMedium AS SampledMediumCV, 1 AS ValueCount
+FROM LittleBearRiverODM.dbo.DataValues dv, LittleBearRiverODM.dbo.Variables vbl, #TempSpecimenInfo AS temp, @InsertedFeatureActions AS fas
+WHERE dv.SampleID = temp.SampleID AND dv.VariableID = vbl.VariableID AND temp.SamplingFeatureID = fas.SamplingFeatureID AND temp.AnalysisActionID = fas.ActionID
 ORDER BY ResultID;
 SET IDENTITY_INSERT ODM2.ODM2Core.Results OFF;
-
-------------------------------------------------------------------------------------------------
---Populate the ODM2Core.FeatureActionResult table for the "Sample analysis" actions
-------------------------------------------------------------------------------------------------
-INSERT INTO ODM2.ODM2Core.FeatureActionResult (SamplingFeatureID, ActionID, ResultID)
-SELECT SamplingFeatureID, AnalysisActionID AS ActionID, ResultID
-FROM #TempSpecimenInfo;
 
 -------------------------------------------------------------------------------------------------------
 --Populate the ODM2Core.RelatedActions table for the "Sample collection" and "Sample analysis" actions
 -------------------------------------------------------------------------------------------------------
-INSERT INTO ODM2.ODM2Core.RelatedActions (ActionID, RelatedActionID, RelationshipTypeCV)
-SELECT CollectionActionID, AnalysisActionID, 'isSampleCollectionFor' AS RelationshipTypeCV
+INSERT INTO ODM2.ODM2Core.RelatedActions (ActionID, RelationshipTypeCV, RelatedActionID)
+SELECT CollectionActionID, 'isSampleCollectionFor' AS RelationshipTypeCV, AnalysisActionID 
 FROM #TempSpecimenInfo
 
 ---------------------------------------------------------------------------------------------------------------------
---Populate the ODM2.ODM2Results.ResultValues table for sample-based data
+--Populate the ODM2.ODM2Results.MeasurementResults table for sample-based data
 --NOTES:  
 --1.  This adds DataValues to the ODM2.ODM2Results.ResultValues table only if they have an associated SampleID
 --2.  This assumes that values in the ODM database only have Z offsets, which could be wrong for many data values
 --3.  I am preserving ValueIDs from the ODM 1.1 database so I can go back later and add annotations for Qualifiers
 ---------------------------------------------------------------------------------------------------------------------
-SET IDENTITY_INSERT ODM2.ODM2Results.ResultValues ON;
-INSERT INTO ODM2.ODM2Results.ResultValues (ValueID, ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, OffsetOriginID, ValueXLocation, 
-	ValueYLocation, ValueZLocation, CensorCodeCV, QualityCodeCV, AggregationDuration, InterpolationTypeCV)
-SELECT dv.ValueID, temp.ResultID, dv.DataValue, dv.LocalDateTime AS ValueDateTime, dv.UTCOffset AS ValueDateTimeUTCOffset, 
-	dv.OffsetTypeID AS OffsetOriginID, NULL AS ValueXLocation, NULL AS ValueYLocation, dv.OffsetValue AS ValueZLocation, 
-	dv.CensorCode AS CensorCodeCV, NULL AS QualityCodeCV, CAST(vbl.TimeSupport AS VARCHAR(5)) + ' ' + unt.UnitsName AS AggregationDuration, 
-	vbl.DataType AS InterpolationTypeCV 
-FROM LittleBearRiverODM.dbo.DataValues dv, LittleBearRiverODM.dbo.Variables vbl, LittleBearRiverODM.dbo.Units unt, #TempSpecimenInfo temp
-WHERE dv.VariableID = vbl.VariableID AND vbl.TimeUnitsID = unt.UnitsID AND dv.ValueID = temp.ValueID 
-ORDER BY ResultID, ValueDateTime;
-SET IDENTITY_INSERT ODM2.ODM2Results.ResultValues OFF;
+INSERT INTO ODM2.ODM2Results.MeasurementResults (ResultID, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID,
+	ZLocation, ZLocationUnitsID, SpatialReferenceID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV,
+	TimeAggregationInterval, TimeAggregationIntervalUnitsID)
+SELECT temp.ResultID, NULL AS XLocation, NULL AS XLocationUnitsID, NULL AS YLocation, NULL AS YLocationUnitsID, 
+	sq.OffsetValue AS ZLocation, ot.OffsetUnitsID AS ZLocationUnitsID, sr.SpatialReferenceID, sq.CensorCode AS CensorCodeCV, 
+	'Unknown' AS QualityCodeCV, sq.DataType AS AggregationStatisticCV, sq.TimeSupport AS TimeAggregationInterval, 
+	sq.TimeUnitsID AS TimeAggregationIntervalUnitsID
+FROM (SELECT dv.ValueID, dv.OffsetValue, dv.OffsetTypeID, dv.CensorCode, vbl.DataType, vbl.TimeSupport, vbl.TimeUnitsID
+		FROM LittleBearRiverODM.dbo.DataValues dv, LittleBearRiverODM.dbo.Variables vbl 
+		WHERE dv.VariableID = vbl.VariableID AND dv.SampleID IS NOT NULL) AS sq
+INNER JOIN #TempSpecimenInfo temp ON sq.ValueID = temp.ValueID
+LEFT JOIN LittleBearRiverODM.dbo.OffsetTypes ot ON sq.OffsetTypeID = ot.OffsetTypeID
+LEFT JOIN ODM2.ODM2SamplingFeatures.SpatialReferences sr ON ot.OffsetDescription = sr.SRSName
+ORDER BY ResultID;
+
+---------------------------------------------------------------------------------------------------------------------
+--Populate the ODM2.ODM2Results.MeasurementResultValues table for sample-based data
+--NOTES:  
+--1.  This adds DataValues to the ODM2.ODM2Results.MeasurementResultValues table only if they have an associated SampleID
+--2.  I am preserving ValueIDs from the ODM 1.1 database so I can go back later and add annotations for Qualifiers
+---------------------------------------------------------------------------------------------------------------------
+SET IDENTITY_INSERT ODM2.ODM2Results.MeasurementResultValues ON;
+INSERT INTO ODM2.ODM2Results.MeasurementResultValues (ValueID, ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset)
+SELECT dv.ValueID, temp.ResultID, dv.DataValue, dv.LocalDateTime AS ValueDateTime, dv.UTCOffset AS ValueDateTimeUTCOffset
+FROM LittleBearRiverODM.dbo.DataValues dv, #TempSpecimenInfo temp
+WHERE dv.ValueID = temp.ValueID  
+ORDER BY ResultID;
+SET IDENTITY_INSERT ODM2.ODM2Results.MeasurementResultValues OFF;
 
 --Drop the temp table that is no longer needed
 DROP TABLE #TempSpecimenInfo;
@@ -471,17 +489,25 @@ DROP TABLE #TempSpecimenInfo;
 ------------------------------------------------------------------------------------------------------------------
 --Add the qulifiers from ODM 1.1 to ODM2.ODM2Annotations.Annotations table
 SET IDENTITY_INSERT ODM2.ODM2Annotations.Annotations ON;
-INSERT INTO ODM2.ODM2Annotations.Annotations (AnnotationID, AnnotationTypeCV, AnnotationCode, AnnotationText, AnnotationDateTime, AnnotationUTCOffset, AnnotatorID)
+INSERT INTO ODM2.ODM2Annotations.Annotations (AnnotationID, AnnotationTypeCV, AnnotationCode, AnnotationText, AnnotationDateTime,
+	AnnotationUTCOffset, AnnotationLink, AnnotatorID, CitationID)
 SELECT QualifierID AS AnnotationID, 'Data Value Qualifier' AS AnnotationTypeCV, QualifierCode AS AnnotationCode, 
 	CAST(QualifierDescription AS NVARCHAR(500)) AS AnnotationText, NULL AS AnnotationDateTime, NULL AS AnnotationUTCOffset,
-	NULL AS AnnotatorID
+	NULL AS AnnotationLink, NULL AS AnnotatorID, NULL AS CitationID
 FROM LittleBearRiverODM.dbo.Qualifiers
 ORDER BY AnnotationID;
 SET IDENTITY_INSERT ODM2.ODM2Annotations.Annotations OFF;
 
---Add the records to the ODM2.ODM2Annotations.ResultValueAnnotations table
-INSERT INTO ODM2.ODM2Annotations.ResultValueAnnotations (ValueID, AnnotationID)
+--Add the records to the ODM2.ODM2Annotations.TimeSeriesResultValueAnnotations table
+INSERT INTO ODM2.ODM2Annotations.TimeSeriesResultValueAnnotations (ValueID, AnnotationID)
 SELECT ValueID, QualifierID AS AnnotationID
 FROM LittleBearRiverODM.dbo.DataValues
-WHERE QualifierID IS NOT NULL
+WHERE QualifierID IS NOT NULL AND SampleID IS NULL
+ORDER BY ValueID;
+
+--Add the records to the ODM2.ODM2Annotations.MeasurementResultValueAnnotations table
+INSERT INTO ODM2.ODM2Annotations.MeasurementResultValueAnnotations (ValueID, AnnotationID)
+SELECT ValueID, QualifierID AS AnnotationID
+FROM LittleBearRiverODM.dbo.DataValues
+WHERE QualifierID IS NOT NULL AND SampleID IS NOT NULL
 ORDER BY ValueID;

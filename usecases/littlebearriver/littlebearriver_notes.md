@@ -359,67 +359,76 @@ The "Sample analysis" Actions on the Specimens I just created for my water quali
 
 **(3,634 Records added to ODM2Core.ActionBy)**
 
+**Populate ODM2Core.FeatureActions for "Sample analysis" Actions**: Now I need to add records to the FeatureActions table linking the "Sample analysis" Actions to the Specimen SamplingFeatures that they were performed on. Here I used a table variable to get back the records inserted into FeatureActions, so then I can easily join them to the temporary speciment information table to create the Results in the next step.
 
-
-
-#### Results
-Each Result record will detail a "Measurement" Result that has a single ResultValue.
-
-1. Set ODM2Core.Results.ResultID = 
-2. Set ODM2Core.Results.ResultTypeCV = 'Measurement'
-3. Set ODM2Core.Results.VariableID = ODM1.DataValues.VariableID - I can do this because I used the ODM1 VariableIDs in ODM2
-4. Set ODM2Core.Results.UnitsID = ODM1.Variables.VariableUnitsID - I can do this because I used the ODM1 UnitsIDs in ODM2
-5. Set ODM2Core.Results.TaxonomicClassifierID = NULL
-6. Set ODM2Core.Results.QualityControlLevelID = 1
-7. Set ODM2Core.Results.ResultDateTime = ODM1.DataValues.LocalDateTime
-8. Set ODM2Core.Results.ResultDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-9. Set ODM2Core.Results.ValidDateTime = NULL
-10. Set ODM2Core.Results.ValidDateTimeUTCOffset = NULL
-11. Set ODM2Core.Results.StatusCV = 'Complete'
-12. Set ODM2Core.Results.SampledMediumCV = ODM1.Variables.SampleMedium
-13. Set ODM2Core.Results.ValueCount = 1
-14. Set ODM2Core.Results.IntendedObservationSpacing = 'Unknown'
-
-**(3,634 Records added to ODM2Core.Results)**
-
-**Populate ODM2Core.FeatureActionResult for "Sample analysis" Actions**: Now I need to add records to the FeatureActionResult table linking the "Sample analysis" Actions to the Specimen SamplingFeatures that they were performed on and their Result. This is a little tricky because a single laboratory analysis on a Sample in ODM1 could potentially result in multiple DataValues. The Results have to exist before I can do this.
-
-1. Set ODM2Core.FeatureActionResult.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
-2. Set ODM2Core.FeatureActionResult.ActionID = ODM1.Samples.SampleID + @MaxActionID + @SampleCount - the "Sample analysis" Action
-3. Set ODM2Core.FeatureActionResult.ResultID = @MaxResultID + ODM1.DataValues.ValueID - I'm using the ValueID from ODM1.DataValues to create the ResultID.
+1. Set ODM2Core.FeatureActions.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
+2. Set ODM2Core.FeatureActions.ActionID = ODM1.Samples.SampleID + @MaxActionID + @SampleCount - the "Sample analysis" Action
 
 **(3,634 Records added to ODM2Core.FeatureActionResults)**
 
+#### Results
+Each Result record will detail a "Measurement" Result that has a single ResultValue.  First I had to insert a record for the Measurement ResultType in the ResultTypesCV table.  I used the temporary specimen info table I created and the table variable I created to get the inserted records back from the FeatureActions table to generate all of the Results information.
+
+1. Set ODM2Core.Results.ResultID = @MaxResultID + ODM1.DataValues.ValueID
+2. Set ODM2Core.Results.FeatureActionID = ODM2.ODM2Core.FeatureActions.FeatureActionID (these are the records I just inserted above)
+3. Set ODM2Core.Results.ResultTypeCV = 'Measurement'
+4. Set ODM2Core.Results.VariableID = ODM1.DataValues.VariableID - I can do this because I used the ODM1 VariableIDs in ODM2
+5. Set ODM2Core.Results.UnitsID = ODM1.Variables.VariableUnitsID - I can do this because I used the ODM1 UnitsIDs in ODM2
+6. Set ODM2Core.Results.TaxonomicClassifierID = NULL
+7. Set ODM2Core.Results.ProcessingLevelID = 1
+8. Set ODM2Core.Results.ResultDateTime = ODM1.DataValues.LocalDateTime
+9. Set ODM2Core.Results.ResultDateTimeUTCOffset = ODM1.DataValues.UTCOffset
+10. Set ODM2Core.Results.ValidDateTime = NULL
+11. Set ODM2Core.Results.ValidDateTimeUTCOffset = NULL
+12. Set ODM2Core.Results.StatusCV = 'Complete'
+13. Set ODM2Core.Results.SampledMediumCV = ODM1.Variables.SampleMedium
+14. Set ODM2Core.Results.ValueCount = 1
+
+**(3,634 Records added to ODM2Core.Results)**
+
 #### Related Actions ####
-The "Sample collection" Activities are related to the "Sample analysis" Actions and I want to store that relationship. So, I need to relate them in the ODM2Core.RelatedActions table. @MaxActionID and @SampleCount have to be calculated before either of the "Sample collection" or "Sample analysis" Actions are created in the database.
+The "Sample collection" Activities are related to the "Sample analysis" Actions and I want to store that relationship. So, I need to relate them in the ODM2Core.RelatedActions table. 
+
+Note:  @MaxActionID and @SampleCount have to be calculated before either of the "Sample collection" or "Sample analysis" Actions are created in the database.
 
 1. Set ODM2Core.RelatedActions.ActionID = ODM1.Samples.SampleID + @MaxActionID - the "Sample collection" Action
-2. Set ODM2Core.RelatedActions.RelatedActionID = ODM1.Samples.SampleID + @MaxActionID + @SampleCount - the "Sample analysis" Action
-3. Set ODM2Core.RelatedActions.RelationshipTypeCV = 'isSampleCollectionFor' - *this is supposed to be a CV, but I just made it up for now. The term I used asserts that the Action recorded by ActionID (the "Sample collection" Action) **isSampleCollectionFor** the Action recorded in RelatedActionID (the "Sample analysis" Action*.
+2. Set ODM2Core.RelatedActions.RelationshipTypeCV = 'isSampleCollectionFor' - *this is supposed to be a CV, but I just made it up for now. The term I used asserts that the Action recorded by ActionID (the "Sample collection" Action) **isSampleCollectionFor** the Action recorded in RelatedActionID (the "Sample analysis" Action).
+3. Set ODM2Core.RelatedActions.RelatedActionID = ODM1.Samples.SampleID + @MaxActionID + @SampleCount - the "Sample analysis" Action
 
 **(3,634 Records added to ODM2Core.RelatedActions)**
 
-#### ResultValues for Sample-based Results ####
+#### MeasurementResults for Sample-based Results
+Add the records for each Measurement Result to the MeasurementResults table.
+
+1. Set ODM2Results.MeasurementResults.ResultID = @MaxResultID + ODM1.DataValues.ValueID
+2. Set ODM2Results.MeasurementResults.XLocation = NULL
+3. Set ODM2Results.MeasurementResults.XLocationUnitsID = NULL
+4. Set ODM2Results.MeasurementResults.YLocation = NULL
+5. Set ODM2Results.MeasurementResults.YLocationUnitsID = NULL
+6. Set ODM2Results.MeasurementResults.ZLocation = ODM1.DataValues.OffsetValue
+7. Set ODM2Results.MeasurementResults.ZLocationUnitsID = ODM1.OffsetTypes.OffsetUnitsID
+8. Set ODM2Results.MeasurementResults.SpatialReferenceID = ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID - Here I have to get the SpatialReferenceID for the ODM1 OffsetTypes that I added to ODM2 as SpatialReferences
+9. Set ODM2Results.MeasurementResults.CensorCodeCV = ODM1.DataValues.CensorCode
+10. Set ODM2Results.MeasurementResults.QualityCodeCV = NULL
+11. Set ODM2Results.MeasurementResults.AggregationStatisticCV = ODM1.Variables.DataType
+12. Set ODM2Results.MeasurementResults.TimeAggregationInterval = ODM1.SeriesCatalog.TimeSupport
+13. Set ODM2Results.MeasurementResults.TimeAggregationIntervalUnitsID = ODM1.SeriesCatalog.TimeUnitsName
+
+**(3,634 Records added to ODM2Results.MeasurementResults)**
+
+#### MeasurementResultValues for Sample-based Results ####
 Add the DataValues from the Sample-based data in ODM1 to ODM2 as ResultValues.
 
-1. Set ODM2Results.ResultValues.ValueID = ODM1.DataValues.ValueID
-2. Set ODM2Results.ResultValues.ResultID = @MaxResultID + ODM1.DataValues.ValueID
+1. Set ODM2Results.MeasurementResultValues.ValueID = ODM1.DataValues.ValueID
+2. Set ODM2Results.MeasurementResultValues.ResultID = @MaxResultID + ODM1.DataValues.ValueID
 3. Set ODM2Results.ResultValues.DataValue = ODM1.DataValues.DataValue
 4. Set ODM2Results.ResultValues.ValueDateTime = ODM1.DataValues.LocalDateTime
 5. Set ODM2Results.ResultValues.ValueDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-6. Set ODM2Results.ResultValues.OffsetOriginID = ODM1.DataValues.OffsetTypeID
-7. Set ODM2Results.ResultValues.ValueXLocation = NULL
-8. Set ODM2Results.ResultValues.ValueYLocation = NULL
-9. Set ODM2Results.ResultValues.ValueZLocation = ODM1.DataValues.OffsetValue
-10. Set ODM2Results.ResultValues.CensorCodeCV = ODM1.DataValues.CensorCode
-11. Set ODM2Results.ResultValues.QualityCodeCV = NULL
-12. Set ODM2Results.ResultValues.AggregationDuration = CAST(ODM1.Variables.TimeSupport AS VARCHAR(5)) + ' ' + ODM1.Units.UnitsName
-13. Set ODM2Results.ResultValues.InterpolationTypeCV = ODM1.Variables.DataType
 
-**(3,634 Records added to ODM2Results.ResultValues)**
+**(3,634 Records added to ODM2Results.MeasurementResultValues)**
 
-#### Annotations ####
-I need to add the DataValue Qualifiers from ODM1 to ODM2. DataValue Qualifiers were really the only types of Annotations supported by ODM1.
+#### Annotations for TimeSeriesResultValues ####
+I need to add the DataValue Qualifiers from ODM1 to ODM2. DataValue Qualifiers were the only types of Annotations supported by ODM1.
 
 Adding records to the **ODM2Annotations.Annotations** table:
 
@@ -431,13 +440,21 @@ Adding records to the **ODM2Annotations.Annotations** table:
 6. Set ODM2Annotations.Annotations.AnnotationUTCOffset = NULL
 7. Set ODM2Annotations.Annotations.AnnotatorID = NULL
 
-Adding records to the **ODM2Annotations.ResultValueAnnotations** table:
-
-1. Set ODM2Annotations.ResultValueAnnotations.ValueID = ODM1.DataValues.ValueID - I can do this because I preserved the ValueIDs when I moved the data across
-2. Set ODM2Annotations.ResultValueAnnotations.AnnotationID = ODM1.DataValues.QualifierID - I can do this because I used the QualifierIDs from ODM1 as the AnnotationIDs in ODM2
-
 **(10 Records added to ODM2Annotations.Annotations)**
-**(68,643 Records added to ODM2Annotations.ResultValueAnnotations)**
+
+Adding records to the **ODM2Annotations.TimeSeriesResultValueAnnotations** table:
+
+1. Set ODM2Annotations.TimeSeriesResultValueAnnotations.ValueID = ODM1.DataValues.ValueID - I can do this because I preserved the ValueIDs when I moved the data across
+2. Set ODM2Annotations.TimeSeriesResultValueAnnotations.AnnotationID = ODM1.DataValues.QualifierID - I can do this because I used the QualifierIDs from ODM1 as the AnnotationIDs in ODM2
+
+**(68,643 Records added to ODM2Annotations.TimeSeriesResultValueAnnotations)**
+
+Adding records to the **ODM2Annotations.MeasurementResultValueAnnotations** table:
+
+1. Set ODM2Annotations.MeasurementResultValueAnnotations.ValueID = ODM1.DataValues.ValueID - I can do this because I preserved the ValueIDs when I moved the data across
+2. Set ODM2Annotations.MeasurementResultValueAnnotations.AnnotationID = ODM1.DataValues.QualifierID - I can do this because I used the QualifierIDs from ODM1 as the AnnotationIDs in ODM2
+
+**(0 Records added to ODM2Annotations.MeasurementResultValueAnnotations)**
 
 ## TODO: ##
 1.  Modify some fields that should conform to CVs to use accepted CV values.
