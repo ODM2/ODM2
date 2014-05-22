@@ -22,7 +22,7 @@ The ODM2 team has explored options for external hosting of web-accessible vocabu
 
 #### General resources and guidelines ####
 
-The MMI system we're using is the [MMI ORR (MMI Ontology Registry and Repository)](http://mmisw.org/). Note that an "ontology" can be iether a _vocabulary_ (a list of terms) or a _mapping_ (a mapping of terms across vocabularies). MMI ORR can store both and provides similar capabilities for accessing and managing both. MMI has a lof of useful and detailed stand-alone documentation. But beware that most of it may be somewhat out of date. Most of it was last updated in 2009. I suspect that most of the incremental enhancements applied to the MMI ORR software since are not reflected in those documents.
+The MMI system we're using is the [MMI ORR (MMI Ontology Registry and Repository)](http://mmisw.org/). Note that an "ontology" can be iether a _vocabulary_ (a list of terms) or a _mapping_ (a mapping of terms across or within vocabularies). MMI ORR can store both and provides similar capabilities for accessing and managing both. MMI has a lof of useful and detailed stand-alone documentation. But beware that most of it may be somewhat out of date. Most of it was last updated in 2009. I suspect that most of the incremental enhancements applied to the MMI ORR software since are not reflected in those documents.
 * Some useful MMI ORR documents (but note the caveat above about documents possibly not being up-to-date):
   * [MMI Ontology Registry and Repository User Manual](https://marinemetadata.org/mmiorrusrman/)
   * [Registering Your Existing Ontology](https://marinemetadata.org/mmiorrusrman/registerexisting)
