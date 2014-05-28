@@ -1,6 +1,6 @@
 ODM2 Concepts: Controlled Vocabularies
 ============================
-We are currently developing approaches and mechanisms regarding the use of controlled vocabularies (CV's) in ODM2. Similar to the approach used in ODM1, the validity of vocabulary terms will be assessed internally within an ODM2 database against a listing found in thetable [ODM2CV.CVTerms](http://uchic.github.io/ODM2/schemas/ODM2_Current/tables/ODM2CV_CVTerms.html), found within the [CV extension](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2CV.html).
+We are currently developing approaches and mechanisms regarding the use of controlled vocabularies (CV's) in ODM2. Similar to the approach used in ODM1, the validity of vocabulary terms will be assessed internally within an ODM2 database against a listing found in thetable [ODM2CV.CVTerms](http://uchic.github.io/ODM2/schemas/ODM2_Current/tables/ODM2CV_CVTerms.html), found within the [CV extension](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2CV.html). For reference, [see this near-final list of the sets of vocabularies that will be used in ODM2.](http://uchic.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2CV.html)
 
 ## Vocabulary web hosting and access on MMI ##
 
