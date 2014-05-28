@@ -3852,6 +3852,83 @@
     </Tbl>
     <CustomTypes/>
   </Sch>
+  <Dgm nm="CZODisplayFile2">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+      <VbCfg>
+        <Fg ky="Auto Number" vl="0"/>
+        <Fg ky="Check" vl="0"/>
+        <Fg ky="Comment" vl="0"/>
+        <Fg ky="Data Type" vl="0"/>
+        <Fg ky="Default" vl="0"/>
+        <Fg ky="ENUM Values" vl="0"/>
+        <Fg ky="Length" vl="0"/>
+        <Fg ky="Name" vl="1"/>
+        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Schema Name" vl="1"/>
+        <Fg ky="Signed" vl="0"/>
+      </VbCfg>
+    </RnCf>
+    <DiaProps>
+      <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
+      <ErNotation>DbwErNotation</ErNotation>
+      <svg path=""/>
+    </DiaProps>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="217" y="22"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="462" y="20"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="398" y="752"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="740" y="671"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="966" y="760"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="738" y="920"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="32" y="830"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="34" y="736"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="739" y="815"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="20" y="143"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="11" y="383"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="507" y="1008"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="156" y="625"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="258" y="166"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="626" y="248"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DataSetCitations" x="722" y="23"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1020" y="26"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorLists" x="1252" y="86"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="726" y="113"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="299" y="352"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="297" y="489"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="898" y="399"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="567" y="403"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="900" y="308"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_ProcessingLevels"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_TaxonomicClassifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.AuthorLists.fk_AuthorLists_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.AuthorLists.fk_AuthorLists_People"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_Citations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_DataSets"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets"/>
+    <FkGl bkCl="ff000000" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets_AreRelated"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SpatialReferences"/>
+    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures"/>
+    <Notes/>
+    <Zones/>
+  </Dgm>
   <Dgm nm="ODM2Annotations">
     <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.5">
       <VbCfg>
@@ -5832,11 +5909,18 @@ then  additional field are added
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.CZODisplayFile2" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Overview" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Diagrams (13)</TreePath>
+    <TreePath>/Schemas (12)/ODM2SamplingFeatures</TreePath>
+    <TreePath>/Schemas (12)/ODM2SamplingFeatures/Tables (6)</TreePath>
+    <TreePath>/Diagrams (14)</TreePath>
   </TreePaths>
 </Db>
