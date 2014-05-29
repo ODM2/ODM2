@@ -1,27 +1,13 @@
 # coding: utf-8
-from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String
-from sqlalchemy.dialects.mssql.base import BIT, UNIQUEIDENTIFIER
+from sqlalchemy import BigInteger, Column, DateTime, Float, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.mssql.base import UNIQUEIDENTIFIER
 from sqlalchemy.types import NullType
 from sqlalchemy.ext.declarative import declarative_base
 
 
 Base = declarative_base()
 metadata = Base.metadata
-
-
-class Actionby(Base):
-    __tablename__ = u'ActionBy'
-    __table_args__ = {u'schema': 'ODM2Core'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
-    AffiliationID = Column(ForeignKey('ODM2Core.Affiliations.AffiliationID'), nullable=False)
-    IsActionLead = Column(BIT, nullable=False)
-    RoleDescription = Column(String(500))
-
-    Action = relationship(u'Action')
-    Affiliation = relationship(u'Affiliation')
 
 
 class Action(Base):
@@ -39,49 +25,6 @@ class Action(Base):
     ActionFileLink = Column(String(255))
 
     Method = relationship(u'Method')
-
-
-class Affiliation(Base):
-    __tablename__ = u'Affiliations'
-    __table_args__ = {u'schema': u'ODM2Core'}
-
-    AffiliationID = Column(Integer, primary_key=True)
-    PersonID = Column(ForeignKey('ODM2Core.People.PersonID'), nullable=False)
-    OrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'))
-    IsPrimaryOrganizationContact = Column(BIT)
-    AffiliationStartDate = Column(Date, nullable=False)
-    AffiliationEndDate = Column(Date)
-    PrimaryPhone = Column(String(50))
-    PrimaryEmail = Column(String(255), nullable=False)
-    PrimaryAddress = Column(String(255))
-    PersonLink = Column(String(255))
-
-    Organization = relationship(u'Organization')
-    Person = relationship(u'Person')
-
-
-class Dataset(Base):
-    __tablename__ = u'DataSets'
-    __table_args__ = {u'schema': 'ODM2Core'}
-
-    DataSetID = Column(Integer, primary_key=True)
-    DataSetUUID = Column(UNIQUEIDENTIFIER, nullable=False)
-    DataSetTypeCV = Column(String(255), nullable=False)
-    DataSetCode = Column(String(50), nullable=False)
-    DataSetTitle = Column(String(255), nullable=False)
-    DataSetAbstract = Column(String(500), nullable=False)
-
-
-class Datasetsresult(Base):
-    __tablename__ = u'DataSetsResults'
-    __table_args__ = {u'schema': 'ODM2Core'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    DataSetID = Column(ForeignKey('ODM2Core.DataSets.DataSetID'), nullable=False)
-    ResultID = Column(ForeignKey('ODM2Core.Results.ResultID'), nullable=False)
-
-    DataSet = relationship(u'Dataset')
-    Result = relationship(u'Result')
 
 
 class Featureaction(Base):
@@ -126,16 +69,6 @@ class Organization(Base):
     parent = relationship(u'Organization', remote_side=[OrganizationID])
 
 
-class Person(Base):
-    __tablename__ = u'People'
-    __table_args__ = {u'schema': u'ODM2Core'}
-
-    PersonID = Column(Integer, primary_key=True)
-    PersonFirstName = Column(String(255), nullable=False)
-    PersonMiddleName = Column(String(255))
-    PersonLastName = Column(String(255), nullable=False)
-
-
 class Processinglevel(Base):
     __tablename__ = u'ProcessingLevels'
     __table_args__ = {u'schema': u'ODM2Core'}
@@ -144,19 +77,6 @@ class Processinglevel(Base):
     ProcessingLevelCode = Column(String(50), nullable=False)
     Definition = Column(String(500))
     Explanation = Column(String(500))
-
-
-class Relatedaction(Base):
-    __tablename__ = u'RelatedActions'
-    __table_args__ = {u'schema': 'ODM2Core'}
-
-    RelationID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
-    RelatedActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
-
-    Action = relationship(u'Action', primaryjoin='Relatedaction.ActionID == Action.ActionID')
-    Action1 = relationship(u'Action', primaryjoin='Relatedaction.RelatedActionID == Action.ActionID')
 
 
 class Result(Base):
@@ -239,8 +159,89 @@ class Variable(Base):
     SpeciationCV = Column(String(255))
     NoDataValue = Column(Float(53), nullable=False)
 
-    def __repr__(self):
-		return "<Variable('%s', '%s', '%s')>" % (self.VariableID, self.VariableCode, self.VariableNameCV)
+
+class Dataquality(Base):
+    __tablename__ = u'DataQuality'
+    __table_args__ = {u'schema': 'ODM2DataQuality'}
+
+    DataQualityID = Column(Integer, primary_key=True)
+    DataQualityTypeCV = Column(String(255), nullable=False)
+    DataQualityCode = Column(String(255), nullable=False)
+    DataQualityValue = Column(Float(53))
+    DataQualityValueUnitsID = Column(ForeignKey('ODM2Core.Units.UnitsID'))
+    DataQualityDescription = Column(String(500))
+    DataQualityLink = Column(String(255))
+
+    Unit = relationship(u'Unit')
+
+
+class Referencematerialvalue(Base):
+    __tablename__ = u'ReferenceMaterialValues'
+    __table_args__ = {u'schema': 'ODM2DataQuality'}
+
+    ReferenceMaterialValueID = Column(Integer, primary_key=True)
+    ReferenceMaterialID = Column(ForeignKey('ODM2DataQuality.ReferenceMaterials.ReferenceMaterialID'), nullable=False)
+    ReferenceMaterialValue = Column(Float(53), nullable=False)
+    ReferenceMaterialAccuracy = Column(Float(53))
+    VariableID = Column(ForeignKey('ODM2Core.Variables.VariableID'), nullable=False)
+    UnitsID = Column(ForeignKey('ODM2Core.Units.UnitsID'), nullable=False)
+    CitationID = Column(ForeignKey('ODM2Provenance.Citations.CitationID'), nullable=False)
+
+    Citation = relationship(u'Citation')
+    ReferenceMaterial = relationship(u'Referencematerial')
+    Unit = relationship(u'Unit')
+    Variable = relationship(u'Variable')
+    Results = relationship(u'Result', secondary=u'ResultNormalizationValues')
+
+
+class Referencematerial(Base):
+    __tablename__ = u'ReferenceMaterials'
+    __table_args__ = {u'schema': 'ODM2DataQuality'}
+
+    ReferenceMaterialID = Column(Integer, primary_key=True)
+    ReferenceMaterialMediumCV = Column(String(255), nullable=False)
+    ReferenceMaterialOrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'), nullable=False)
+    ReferenceMaterialCode = Column(String(50), nullable=False)
+    ReferenceMaterialLotCode = Column(String(255))
+    ReferenceMaterialPurchaseDate = Column(DateTime)
+    ReferenceMaterialExpirationDate = Column(DateTime)
+    ReferenceMaterialCertificateLink = Column(String(255))
+    SamplingFeatureID = Column(ForeignKey('ODM2Core.SamplingFeatures.SamplingFeatureID'))
+
+    Organization = relationship(u'Organization')
+    SamplingFeature = relationship(u'Samplingfeature')
+
+
+t_ResultNormalizationValues = Table(
+    u'ResultNormalizationValues', metadata,
+    Column(u'ResultID', ForeignKey('ODM2Core.Results.ResultID'), primary_key=True),
+    Column(u'NormalizedByReferenceMaterialValueID', ForeignKey('ODM2DataQuality.ReferenceMaterialValues.ReferenceMaterialValueID'), nullable=False),
+    schema='ODM2DataQuality'
+)
+
+
+class Resultsdataquality(Base):
+    __tablename__ = u'ResultsDataQuality'
+    __table_args__ = {u'schema': 'ODM2DataQuality'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    ResultID = Column(ForeignKey('ODM2Core.Results.ResultID'), nullable=False)
+    DataQualityID = Column(ForeignKey('ODM2DataQuality.DataQuality.DataQualityID'), nullable=False)
+
+    DataQuality = relationship(u'Dataquality')
+    Result = relationship(u'Result')
+
+
+class Citation(Base):
+    __tablename__ = u'Citations'
+    __table_args__ = {u'schema': u'ODM2Provenance'}
+
+    CitationID = Column(Integer, primary_key=True)
+    Title = Column(String(255), nullable=False)
+    Publisher = Column(String(255), nullable=False)
+    PublicationYear = Column(Integer, nullable=False)
+    CitationLink = Column(String(255))
+
 
 class Resulttypecv(Base):
     __tablename__ = u'ResultTypeCV'
