@@ -1,4 +1,0 @@
-*.log
-/log/*
-*.pyc
-__pycache__

@@ -8,7 +8,7 @@ directory = os.path.dirname(this_file)
 sys.path.insert(0, directory)
 
 from ODM2.Core.model import Samplingfeature
-from ODM2.Core.services import CoreService
+from ODM2.Core.services import read
 
 
 from ODMconnection import dbconnection
@@ -18,7 +18,7 @@ from ODMconnection import dbconnection
 
 conn = dbconnection.create_connection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
 #conn = sm.build_conn_dict('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
-cs = CoreService(conn)
+cs = read(conn)
 print cs.get_all_variables()
 
 

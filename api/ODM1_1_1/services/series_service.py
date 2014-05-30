@@ -1,4 +1,4 @@
-import logging
+
 
 from sqlalchemy import distinct
 import sqlalchemy.exc
@@ -15,10 +15,7 @@ from ODM1_1_1 import Sample
 from ODM1_1_1 import Method
 from ODM1_1_1 import QualityControlLevel
 from ODM1_1_1 import ODMVersion
-from common.logger import LoggerTool
 
-tool = LoggerTool()
-logger = tool.setupLogger(__name__, __name__ + '.log', 'w', logging.DEBUG)
 
 
 class SeriesService():
@@ -137,23 +134,23 @@ class SeriesService():
                 self._edit_session.add(series)
                 self._edit_session.add_all(data_values)
                 self._edit_session.commit()
-                logger.debug("Existing File was overwritten with new information")
+                print ("Existing File was overwritten with new information")
                 return True
             else:
-                logger.debug("There wasn't an existing file to overwrite, please select 'Save As' first")
+                print("There wasn't an existing file to overwrite, please select 'Save As' first")
                 # there wasn't an existing file to overwrite
                 return False
         # Save As case
         elif not isSave:
             if doesExist:
-                logger.debug(
+                print(
                     "There is already an existing file with this information. Please select 'Save' to overwrite")
                 return False
             else:
                 self._edit_session.add(series)
                 self._edit_session.add_all(data_values)
             self._edit_session.commit()
-            logger.debug("A new series was added to the database")
+            print("A new series was added to the database")
         return True
 
     def series_exists(self, site_id, var_id, method_id, source_id, qcl_id):

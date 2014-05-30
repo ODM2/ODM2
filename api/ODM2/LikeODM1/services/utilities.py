@@ -2,8 +2,8 @@ import sys
 import os
 
 
-def resource_path(APPNAME, relative=None):
-    
+def resource_path(relative=None):
+    APPNAME = "ODMTools"
     if sys.platform.lower() == 'darwin':
         appdata = os.path.expanduser(os.path.join("~", "." + APPNAME))
     elif 'win' in sys.platform:

@@ -5,10 +5,6 @@ from ODM1_1_1 import DataValue
 from series_service import SeriesService
 from ODM1_1_1 import series as series_module
 
-from common.logger import LoggerTool
-import logging
-tool = LoggerTool()
-logger = tool.setupLogger(__name__, __name__ + '.log', 'w', logging.DEBUG)
 
 class EditService():
     # Mutual exclusion: cursor, or connection_string
@@ -28,7 +24,7 @@ class EditService():
             self._series_service = service_manager.get_series_service()
         else:
             # One or the other must be set
-            logger.debug("Must have either a connection string or session factory")
+            print("Must have either a connection string or session factory")
             #
             # TODO throw an exception
 
@@ -232,7 +228,6 @@ class EditService():
         return self._series_service.get_method_by_id(method_id)
 
     def get_variable(self, variable_id):
-        logger.debug(variable_id)
         return self._series_service.get_variable_by_id(variable_id)
 
 
@@ -266,7 +261,6 @@ class EditService():
         self._filter_list = tmp_filter_list
 
     def add_points(self, points):
-        logger.debug(points)
         query = "INSERT INTO DataValues (DataValue, ValueAccuracy, LocalDateTime, UTCOffset, DateTimeUTC, OffsetValue, OffsetTypeID, "
         query += "CensorCode, QualifierID, SampleID, SiteID, VariableID, MethodID, SourceID, QualityControlLevelID) "
         query += "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
@@ -390,11 +384,9 @@ class EditService():
         is_new_series = False
 
         if var is not None:
-            logger.debug(var.id)
             self._cursor.execute("UPDATE DataValues SET VariableID = %s" % (var.id))
             is_new_series = True
         if method is not None:
-            logger.debug(method.id)
             self._cursor.execute("UPDATE DataValues SET MethodID = %s" % (method.id))
             is_new_series = True
         # check that the code is not zero
@@ -454,11 +446,11 @@ class EditService():
             self._series_service.delete_dvs(old_dvs)
 
         series.data_values = dvs
-        logger.debug("series.data_values: %s" % ([x for x in series.data_values]))
+        print("series.data_values: %s" % ([x for x in series.data_values]))
         if self._series_service.save_series(series, dvs, isSave):
-            logger.debug("series saved!")
+            print ("series saved!")
         else:
-            logger.debug("Crap happened")
+            print("Crap happened")
 
     def create_qcl(self, code, definition, explanation):
         return self._series_service.create_qcl(code, definition, explanation)

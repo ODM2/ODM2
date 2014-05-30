@@ -11,24 +11,19 @@ from ODM2 import service_base
 import ODM2.Core.model as m
 from ODMconnection import SessionFactory
 
-
-class CoreService(service_base):
-
-    # Variables methods
-    def get_all_variables(self):
+class read(service_base):
+     # Variables methods
+    def getAllVariables(self):
         return self._session.query(m.Variable).all()
 
-    def get_variable_by_id(self, variable_id):
+    def getVariableById(self, variableId):
         try:
-            return self._session.query(m.Variable).filter_by(VariableID=variable_id).one()
+            return self._session.query(m.Variable).filter_by(VariableID=variableId).one()
         except:
             return None
 
-    def get_variable_by_code(self, variable_code):
+    def getVariableByCode(self, variableCode):
         try:
-            return self._session.query(m.Variable).filter_by(VariableCode=variable_code).one()
+            return self._session.query(m.Variable).filter_by(VariableCode=variableCode).one()
         except:
             return None
-
-
-

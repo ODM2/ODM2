@@ -1,8 +1,8 @@
 from ODMconnection import dbconnection
-from core_service import CoreService
+from read import read
 
 
 __all__ = [
-    'CoreService',
+    'read',
 
 ]
