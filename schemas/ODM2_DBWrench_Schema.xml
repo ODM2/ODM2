@@ -6099,18 +6099,12 @@ rid of DeploymentTypeCV.</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
-    <TreePath>/Schemas (12)/ODM2Equipment</TreePath>
-    <TreePath>/Schemas (12)/ODM2Equipment/Tables (7)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Sensors</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
