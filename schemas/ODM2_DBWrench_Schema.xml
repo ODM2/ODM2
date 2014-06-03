@@ -110,6 +110,32 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="EquipmentAnnotations">
+      <Cm>Bridge table linking Annotations to Equipment</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkEquipmentAnnotations"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="EquipmentID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="AnnotationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_EquipmentAnnotations_Annotations" prLkCl="AnnotationID" upAc="3">
+        <PrTb mn="0" nm="Annotations" oe="1" sch="ODM2Annotations" zr="0"/>
+        <CdTb mn="1" nm="EquipmentAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="AnnotationID" prCl="AnnotationID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_EquipmentAnnotations_Equipment" prLkCl="EquipmentID" upAc="3">
+        <PrTb mn="0" nm="Equipment" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="EquipmentAnnotations" oe="0" sch="ODM2Annotations" zr="1"/>
+        <ClPr cdCl="EquipmentID" prCl="EquipmentID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="MeasurementResultValueAnnotations">
       <Cm>Annotations for Measurement ResultValues</Cm>
       <TblOpts/>
@@ -3959,6 +3985,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term that describes the type of the deployment</Cm>
       </Cl>
+      <Cl au="0" df="" nm="CurrentlyDeployed" nu="0">
+        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A boolean indicating whether a piece of equipment is currently deployed</Cm>
+      </Cl>
       <Fk deAc="3" nm="fk_DeploymentActions_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="0" nm="DeploymentActions" oe="1" sch="ODM2Sensors" zr="1"/>
@@ -4052,7 +4082,7 @@
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.5">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4100,10 +4130,14 @@
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="1829" y="542"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResultValues" x="1476" y="1250"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResultValues" x="1980" y="1144"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="1217" y="119"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="EquipmentAnnotations" x="1153" y="383"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.ActionAnnotations.fk_ActionAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.CategoricalResultValueAnnotations.fk_CategoricalResultValueAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.CategoricalResultValueAnnotations.fk_CategoricalResultValueAnnotations_CategoricalResultValues"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.EquipmentAnnotations.fk_EquipmentAnnotations_Annotations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Annotations.EquipmentAnnotations.fk_EquipmentAnnotations_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MeasurementResultValueAnnotations.fk_MeasurementResultValueAnnotations_MeasurementResultValues"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MeasurementResultValueAnnotations.fk_ResultValueAnnotations_Annotations"/>
     <FkGl bkCl="ff000000" nm="ODM2Annotations.MethodAnnotations.fk_MethodAnnotations_Annotations"/>
@@ -4849,7 +4883,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Sensors">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -6065,7 +6099,8 @@ rid of DeploymentTypeCV.</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
   </OpenEditors>
   <TreePaths>
@@ -6074,6 +6109,7 @@ rid of DeploymentTypeCV.</Note>
     <TreePath>/Schemas (12)/ODM2Core</TreePath>
     <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
     <TreePath>/Schemas (12)/ODM2Equipment</TreePath>
+    <TreePath>/Schemas (12)/ODM2Equipment/Tables (7)</TreePath>
     <TreePath>/Schemas (12)/ODM2Sensors</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
