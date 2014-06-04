@@ -16,7 +16,7 @@ from ODMconnection import SessionFactory
 class create(service_base):
 
 
-    def createVariable(self, code, name, definition, vType, nodv, speciation):
+    def createVariable(self, code, name, definition=None, vType, nodv, speciation=None):
         """
 
         :param code:
