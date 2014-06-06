@@ -4883,7 +4883,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Sensors">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4908,7 +4908,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="354" y="625"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="731" y="691"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="905" y="68"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="407" y="792"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="390" y="805"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DataloggerProgramFiles" x="126" y="72"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DeploymentMeasuredVariables" x="505" y="262"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="910" y="277"/>
@@ -4921,6 +4921,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationEquations" x="1282" y="447"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="RelatedEquipment" x="1284" y="99"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="CalibrationStandards" x="1282" y="555"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenanceActions" x="28" y="656"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
@@ -4933,6 +4934,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_EquipmentModels"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Variables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.MaintenanceActions.fk_MaintenanceActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.RelatedEquipment.fk_RelatedEquipment_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.RelatedEquipment.fk_RelatedEquipment_Equipment_AreRelated"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.CalibratedDeploymentVariables.fk_CalibratedDeploymentVariables_Actions"/>
@@ -6105,6 +6107,8 @@ rid of DeploymentTypeCV.</Note>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Equipment</TreePath>
+    <TreePath>/Schemas (12)/ODM2Equipment/Tables (7)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
