@@ -39,19 +39,25 @@
 </td><td class="PkCol"> </td><td class="PkCol">Unique identifier for the datalogger file</td><td class="PkCol"> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Sensors_DataLoggerFiles_DeploymentActionID.html">DeploymentActionID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the deployment action that created the datalogger file</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Sensors_DataLoggerFiles_ProgramID.html">ProgramID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the datalogger program that created the file</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Sensors_DataLoggerFiles_DataLoggerOutputFileLink.html">DataLoggerOutputFileLink</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>File path to the datalogger file</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Sensors_DataLoggerFiles_DataLoggerFileName.html">DataLoggerFileName</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text name of the datalogger file</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Sensors_DataLoggerFiles_DataLoggerOutputFileDescription.html">DataLoggerOutputFileDescription</a></td><td>VarChar(500)</td><td>
+<td> </td><td><a href="../columns/ODM2Sensors_DataLoggerFiles_DataLoggerFileDescription.html">DataLoggerFileDescription</a></td><td>VarChar(500)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Text description of the datalogger file</td><td> </td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2Sensors_DataLoggerFiles_DataLoggerFileLink.html">DataLoggerFileLink</a></td><td>VarChar(255)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>File path to the datalogger file</td><td> </td>
 </tr>
 </table>
 <br>
@@ -63,13 +69,19 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Sensors_DataLoggerFiles_fk_DataLoggerFiles_DeploymentActions.html">fk_DataLoggerFiles_DeploymentActions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td><a href="../tables/ODM2Sensors_DataLoggerFiles.html">ODM2Sensors.DataLoggerFiles</a></td><td>DeploymentActionID</td><td>DeploymentActionID</td>
+<td><a href="../foreignKeys/ODM2Sensors_DataLoggerFiles_fk_DataLoggerFiles_DataloggerProgramFiles.html">fk_DataLoggerFiles_DataloggerProgramFiles</a></td><td><a href="../tables/ODM2Sensors_DataloggerProgramFiles.html">ODM2Sensors.DataloggerProgramFiles</a></td><td><a href="../tables/ODM2Sensors_DataLoggerFiles.html">ODM2Sensors.DataLoggerFiles</a></td><td>ProgramID</td><td>ProgramID</td>
 </tr>
 </table>
 <br>
 <table class="flat">
 <tr>
-<td class="banner" colspan="1">Parent Relations<span class="plain"> (none)</span></td>
+<td class="banner" colspan="5">Parent Relations</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Sensors_DeploymentMeasuredVariables_fk_DeploymentMeasuredVariables_DataLoggerFiles.html">fk_DeploymentMeasuredVariables_DataLoggerFiles</a></td><td><a href="../tables/ODM2Sensors_DataLoggerFiles.html">ODM2Sensors.DataLoggerFiles</a></td><td><a href="../tables/ODM2Sensors_DeploymentMeasuredVariables.html">ODM2Sensors.DeploymentMeasuredVariables</a></td><td>DataLoggerFileID</td><td>DataloggerFileID</td>
 </tr>
 </table>
 <br>

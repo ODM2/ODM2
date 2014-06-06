@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">DeploymentActions</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -33,13 +33,7 @@
 <td class="PkCol">
 <p class="boolImg">
 <img src="../images/pkb16.gif"></p>
-</td><td class="PkCol"><a href="../columns/ODM2Sensors_DeploymentActions_DeploymentActionID.html">DeploymentActionID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol">Unique identifier for the deployment </td><td class="PkCol"> </td>
-</tr>
-<tr class="altRow">
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Sensors_DeploymentActions_ActionID.html">ActionID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifer for the Action that is the deployment</td><td class="FkCol">
+</td><td class="PkCol"><a href="../columns/ODM2Sensors_DeploymentActions_ActionID.html">ActionID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol">Foreign key identifer for the Action that is the deployment</td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
@@ -47,29 +41,8 @@
 <tr>
 <td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_DeploymentTypeCV.html">DeploymentTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term that describes the type of the deployment</td><td> </td>
 </tr>
-<tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_DeploymentDescription.html">DeploymentDescription</a></td><td>VarChar(500)</td><td>
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>A text description of the deployment</td><td> </td>
-</tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_ConfigurationActionID.html">ConfigurationActionID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign key identifier for the configuration action associated with the deployment</td><td> </td>
-</tr>
-<tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_CalibrationActionID.html">CalibrationActionID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Foreign key identifier for the calibration action associated with the deployment</td><td> </td>
-</tr>
-<tr>
-<td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_SpatialOffsetID.html">SpatialOffsetID</a></td><td>Integer</td><td>
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Foreign key idenfier for the SpatialOffset of the deployment</td><td> </td>
-</tr>
-<tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_DeploymentSchematicLink.html">DeploymentSchematicLink</a></td><td>VarChar(255)</td><td>
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>File path of of a file containing a schematic of the deployment.</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Sensors_DeploymentActions_CurrentlyDeployed.html">CurrentlyDeployed</a></td><td>Boolean</td><td> </td><td> </td><td> </td><td>A boolean indicating whether a piece of equipment is currently deployed</td><td> </td>
 </tr>
 </table>
 <br>
@@ -93,7 +66,7 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Sensors_DataLoggerFiles_fk_DataLoggerFiles_DeploymentActions.html">fk_DataLoggerFiles_DeploymentActions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td><a href="../tables/ODM2Sensors_DataLoggerFiles.html">ODM2Sensors.DataLoggerFiles</a></td><td>DeploymentActionID</td><td>DeploymentActionID</td>
+<td><a href="../foreignKeys/ODM2Sensors_DeploymentMeasuredVariables_fk_DeploymentMeasuredVariables_DeploymentActions.html">fk_DeploymentMeasuredVariables_DeploymentActions</a></td><td><a href="../tables/ODM2Sensors_DeploymentActions.html">ODM2Sensors.DeploymentActions</a></td><td><a href="../tables/ODM2Sensors_DeploymentMeasuredVariables.html">ODM2Sensors.DeploymentMeasuredVariables</a></td><td>ActionID</td><td>ActionID</td>
 </tr>
 </table>
 <br>

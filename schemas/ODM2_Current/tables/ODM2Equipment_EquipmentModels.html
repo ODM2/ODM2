@@ -33,7 +33,7 @@
 <td class="PkCol">
 <p class="boolImg">
 <img src="../images/pkb16.gif"></p>
-</td><td class="PkCol"><a href="../columns/ODM2Equipment_EquipmentModels_ModelID.html">ModelID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+</td><td class="PkCol"><a href="../columns/ODM2Equipment_EquipmentModels_EquipmentModelID.html">EquipmentModelID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td class="PkCol"> </td><td class="PkCol">Unique identifier</td><td class="PkCol"> </td>
@@ -60,19 +60,19 @@
 </td><td> </td><td> </td><td>Text description of the equipment model</td><td> </td>
 </tr>
 <tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Equipment_EquipmentModels_IsInstrument.html">IsInstrument</a></td><td>Boolean</td><td> </td><td> </td><td> </td><td>A boolean indication of whether the equipment is a sensor/instrument used to make observations</td><td> </td>
+</tr>
+<tr>
 <td> </td><td><a href="../columns/ODM2Equipment_EquipmentModels_ModelSpecificationsFileLink.html">ModelSpecificationsFileLink</a></td><td>VarChar(255)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>File name, path, or URL to a specifications file for the equipment</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Equipment_EquipmentModels_ModelLink.html">ModelLink</a></td><td>VarChar(255)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>A URL to a website having a description of the equipment model</td><td> </td>
-</tr>
-<tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Equipment_EquipmentModels_IsInstrument.html">IsInstrument</a></td><td>Boolean</td><td> </td><td> </td><td> </td><td>A boolean indication of whether the equipment is a sensor/instrument used to make observations</td><td> </td>
+</td><td> </td><td> </td><td>A URL to a website or file having a description of the equipment model</td><td> </td>
 </tr>
 </table>
 <br>
@@ -96,10 +96,10 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_EquipmentModels.html">fk_Equipment_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>ModelID</td><td>ModelID</td>
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_EquipmentModels.html">fk_Equipment_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>EquipmentModelID</td><td>EquipmentModelID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_EquipmentModels.html">fk_InstrumentOutputVariables_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>ModelID</td><td>ModelID</td>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_EquipmentModels.html">fk_InstrumentOutputVariables_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>EquipmentModelID</td><td>ModelID</td>
 </tr>
 </table>
 <br>
@@ -112,6 +112,9 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Equipment.html">ODM2Equipment</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Sensors.html">ODM2Sensors</a></td>
 </tr>
 </table>
 </Body>

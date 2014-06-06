@@ -48,7 +48,7 @@
 <td> </td><td><a href="../columns/ODM2Equipment_Equipment_EquipmentTypeCV.html">EquipmentTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the equipment type (e.g., sensor, datalogger, solar panel, etc.)</td><td> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_Equipment_ModelID.html">ModelID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the model of the equipment</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_Equipment_EquipmentModelID.html">EquipmentModelID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the model of the equipment</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
@@ -57,37 +57,25 @@
 <td> </td><td><a href="../columns/ODM2Equipment_Equipment_EquipmentSerialNumber.html">EquipmentSerialNumber</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>Manufacturer's serial number for the specific piece of equipment</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Equipment_Equipment_EquipmentInventoryNumber.html">EquipmentInventoryNumber</a></td><td>VarChar(50)</td><td>
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Owner's inventory number for the specific piece of equipment</td><td> </td>
-</tr>
-<tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_Equipment_EquipmentOwnerID.html">EquipmentOwnerID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifer for the person that owns the piece of equipment</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_Equipment_EquipmentVendorID.html">EquipmentVendorID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for the vendor organization for the piece of equipment</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td> </td><td><a href="../columns/ODM2Equipment_Equipment_EquipmentPurchaseDate.html">EquipmentPurchaseDate</a></td><td>DateTime</td><td> </td><td> </td><td> </td><td>Date that the piece of equipment was purchased</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Equipment_Equipment_EquipmentPurchaseOrderNumber.html">EquipmentPurchaseOrderNumber</a></td><td>VarChar(50)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>A text string identifying the purchase order used to purchase the piece of equipment</td><td> </td>
-</tr>
-<tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Equipment_Equipment_EquipmentPhotoFileLink.html">EquipmentPhotoFileLink</a></td><td>VarChar(255)</td><td>
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>A file name, path, or URL to a photo of the specific piece of equipment</td><td> </td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2Equipment_Equipment_EquipmentDescription.html">EquipmentDescription</a></td><td>VarChar(500)</td><td>
@@ -96,13 +84,10 @@
 </td><td> </td><td> </td><td>Text notes about the specific piece of equipment</td><td> </td>
 </tr>
 <tr class="altRow">
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_Equipment_ParentEquipmentID.html">ParentEquipmentID</a></td><td class="FkCol">Integer</td><td class="FkCol">
+<td> </td><td><a href="../columns/ODM2Equipment_Equipment_EquipmentDocumentationLink.html">EquipmentDocumentationLink</a></td><td>VarChar(255)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Unique identifier for the piece of equipment that is the parent of the current piece of equipment</td><td class="FkCol">
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td>
+</td><td> </td><td> </td><td>A file name, path, or URL to a photo of the specific piece of equipment</td><td> </td>
 </tr>
 </table>
 <br>
@@ -114,13 +99,10 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_EquipmentModels.html">fk_Equipment_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>ModelID</td><td>ModelID</td>
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_EquipmentModels.html">fk_Equipment_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>EquipmentModelID</td><td>EquipmentModelID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_Organizations.html">fk_Equipment_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>OrganizationID</td><td>EquipmentVendorID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_ParentChild.html">fk_Equipment_ParentChild</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>EquipmentID</td><td>ParentEquipmentID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_People.html">fk_Equipment_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>PersonID</td><td>EquipmentOwnerID</td>
@@ -135,10 +117,16 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_ParentChild.html">fk_Equipment_ParentChild</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>EquipmentID</td><td>ParentEquipmentID</td>
+<td><a href="../foreignKeys/ODM2Annotations_EquipmentAnnotations_fk_EquipmentAnnotations_Equipment.html">fk_EquipmentAnnotations_Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Annotations_EquipmentAnnotations.html">ODM2Annotations.EquipmentAnnotations</a></td><td>EquipmentID</td><td>EquipmentID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Equipment_EquipmentActions_fk_EquipmentActions_Equipment.html">fk_EquipmentActions_Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_EquipmentActions.html">ODM2Equipment.EquipmentActions</a></td><td>EquipmentID</td><td>EquipmentID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_RelatedEquipment_fk_RelatedEquipment_Equipment.html">fk_RelatedEquipment_Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_RelatedEquipment.html">ODM2Equipment.RelatedEquipment</a></td><td>EquipmentID</td><td>EquipmentID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_RelatedEquipment_fk_RelatedEquipment_Equipment_AreRelated.html">fk_RelatedEquipment_Equipment_AreRelated</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_RelatedEquipment.html">ODM2Equipment.RelatedEquipment</a></td><td>EquipmentID</td><td>RelatedEquipmentID</td>
 </tr>
 </table>
 <br>
@@ -148,6 +136,9 @@
 </tr>
 <tr>
 <td class="Header">Diagram Name</td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Annotations.html">ODM2Annotations</a></td>
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Equipment.html">ODM2Equipment</a></td>
