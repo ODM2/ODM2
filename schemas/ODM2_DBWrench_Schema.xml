@@ -1310,6 +1310,41 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes of equipment used to make observations (e.g., sensors and instruments)." nm="ODM2Equipment">
+    <Tbl UsSo="1" nm="CalibratedDeploymentVariables">
+      <Cm>Information about which deployment measured variable a calibration Action is associated with</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkCalibratedDeploymentVariables"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the calibration Action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DeploymentMeasuredVariableID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the DeploymentMeasuredVariable to which the calibration was applied</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CalibrationCheckValue" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A numeric value for the DeploymentMeasuredVariable measued using the ReferenceMaterial prior to calibration</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_CalibratedDeploymentVariables_Actions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="CalibratedDeploymentVariables" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables" prLkCl="DeploymentMeasuredVariableID" upAc="3">
+        <PrTb mn="0" nm="DeploymentMeasuredVariables" oe="1" sch="ODM2Sensors" zr="0"/>
+        <CdTb mn="1" nm="CalibratedDeploymentVariables" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="DeploymentMeasuredVariableID" prCl="DeploymentMeasuredVariableID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Sensors" stB="CalibratedDeploymentVariables"/>
+      </SchTrHis>
+    </Tbl>
     <Tbl UsSo="1" nm="CalibrationEquations">
       <Cm>Information about instrument calibration equations</Cm>
       <TblOpts/>
@@ -1342,6 +1377,37 @@
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CalibrationStandards">
+      <Cm>Bridge table linking field calibrations to the reference materials used</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkCalibrationStandards"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the calibration Action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ReferenceMaterialID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the ReferenceMaterial used in the calibration</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_FieldCalibrationStandards_Actions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_FieldCalibrationStandards_ReferenceMaterials" prLkCl="ReferenceMaterialID" upAc="3">
+        <PrTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="0"/>
+        <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ReferenceMaterialID" prCl="ReferenceMaterialID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Sensors" stB="CalibrationStandards"/>
+      </SchTrHis>
     </Tbl>
     <Tbl UsSo="1" nm="Equipment">
       <Cm>Descriptions of specific pieces of equipment.</Cm>
@@ -3841,68 +3907,6 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about sensor deployment and management for in situ data." nm="ODM2Sensors">
-    <Tbl UsSo="1" nm="CalibratedDeploymentVariables">
-      <Cm>Information about which deployment measured variable a calibration Action is associated with</Cm>
-      <TblOpts/>
-      <Pk ClNs="BridgeID" nm="pkCalibratedDeploymentVariables"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the calibration Action</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DeploymentMeasuredVariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the DeploymentMeasuredVariable to which the calibration was applied</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="CalibrationCheckValue" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>A numeric value for the DeploymentMeasuredVariable measued using the ReferenceMaterial prior to calibration</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_CalibratedDeploymentVariables_Actions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="CalibratedDeploymentVariables" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables" prLkCl="DeploymentMeasuredVariableID" upAc="3">
-        <PrTb mn="0" nm="DeploymentMeasuredVariables" oe="1" sch="ODM2Sensors" zr="0"/>
-        <CdTb mn="1" nm="CalibratedDeploymentVariables" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="DeploymentMeasuredVariableID" prCl="DeploymentMeasuredVariableID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CalibrationStandards">
-      <Cm>Bridge table linking field calibrations to the reference materials used</Cm>
-      <TblOpts/>
-      <Pk ClNs="BridgeID" nm="pkCalibrationStandards"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the calibration Action</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ReferenceMaterialID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the ReferenceMaterial used in the calibration</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_FieldCalibrationStandards_Actions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_FieldCalibrationStandards_ReferenceMaterials" prLkCl="ReferenceMaterialID" upAc="3">
-        <PrTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="0"/>
-        <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="ReferenceMaterialID" prCl="ReferenceMaterialID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="DataLoggerFiles">
       <Cm>Destibes datalogger files created by a deployment action</Cm>
       <TblOpts/>
@@ -4669,7 +4673,7 @@ similar to ExternalIdentifiers.</Note>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2Provenance">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.5">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4746,7 +4750,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.5">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4904,7 +4908,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DataLoggerFiles" x="495" y="102"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DeploymentActions" x="489" y="482"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DeploymentActions" x="518" y="498"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="354" y="625"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="731" y="691"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="905" y="68"/>
@@ -4914,21 +4918,25 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="910" y="277"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="1294" y="207"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="56" y="222"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="CalibratedDeploymentVariables" x="830" y="452"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibratedDeploymentVariables" x="838" y="456"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1108" y="678"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="1676" y="470"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="1365" y="675"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationEquations" x="1282" y="447"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="RelatedEquipment" x="1284" y="99"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="CalibrationStandards" x="1282" y="555"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenanceActions" x="28" y="656"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationStandards" x="1282" y="555"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenanceActions" x="20" y="666"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_ReferenceMaterialValues_ReferenceMaterials"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_ReferenceMaterialValues_Variables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibratedDeploymentVariables.fk_CalibratedDeploymentVariables_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibratedDeploymentVariables.fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_InstrumentOutputVariables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandards.fk_FieldCalibrationStandards_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandards.fk_FieldCalibrationStandards_ReferenceMaterials"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
@@ -4937,10 +4945,6 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <FkGl bkCl="ff000000" nm="ODM2Equipment.MaintenanceActions.fk_MaintenanceActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.RelatedEquipment.fk_RelatedEquipment_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.RelatedEquipment.fk_RelatedEquipment_Equipment_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.CalibratedDeploymentVariables.fk_CalibratedDeploymentVariables_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.CalibratedDeploymentVariables.fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.CalibrationStandards.fk_FieldCalibrationStandards_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.CalibrationStandards.fk_FieldCalibrationStandards_ReferenceMaterials"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DataLoggerFiles.fk_DataLoggerFiles_DataloggerProgramFiles"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentActions.fk_DeploymentActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentMeasuredVariables.fk_DeploymentMeasuredVariables_DataLoggerFiles"/>
@@ -6101,14 +6105,11 @@ rid of DeploymentTypeCV.</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Sensors" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Equipment</TreePath>
-    <TreePath>/Schemas (12)/ODM2Equipment/Tables (7)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
