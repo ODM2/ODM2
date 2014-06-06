@@ -171,7 +171,6 @@ class read(service_base):
     DeploymentAction
     """
 
-
     def getAllDeploymentAction(self):
         """Select all on DeploymentAction
 

@@ -25,14 +25,23 @@ class read(service_base):
         :return TimeSeriesResults Objects:
             :type list:
         """
+        return self._session.query(m.Timeseriesresult).all()
 
-    def getTimeSeriesResultsById(self, timeSeriesId):
+    def getTimeSeriesResultsByResultId(self, resultId):
+        """Select by resultID on ResultID
+
+        :param resultId:
+            :type Integer:
+        :return return matching Timeseriesresult Object filtered by resultId
         """
-        """
-        pass
+
+        try:
+            return self._session.query(m.Timeseriesresult).filter_by(ResultID=resultId).one()
+        except:
+            return None
 
     def getTimeSeriesResultsbyCode(self, timeSeriesCode):
-        """
+        """Select by time
         """
         pass
 
@@ -48,16 +57,18 @@ class read(service_base):
         """
         return self._session.query(m.Timeseriesresultvalue).all()
 
-    def getTimeSeriesValuesById(self, timeSeriesId):
-        """Select by timeSeriesId
+    def getTimeSeriesValuesByResultId(self, resultId):
+        """Select by resultId
 
         :param timeSeriesId:
             :type Integer:
-        :return return matching Timeseriesresultvalue Object filtered by timeSeriesId:
+        :return return matching Timeseriesresultvalue Object filtered by resultId:
             :type Timeseriesresultvalue:
         """
         try:
-            return self._session.query(m.Timeseriesresultvalue).filter_by()
+            return self._session.query(m.Timeseriesresultvalue).filter_by(ResultID=resultId).one()
+        except:
+            return None
 
     def getTimeSeriesValuesByCode(self, timeSeriesCode):
         """
