@@ -4594,86 +4594,8 @@ similar to ExternalIdentifiers.</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <Dgm nm="ODM2Overview">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
-      <VbCfg>
-        <Fg ky="Auto Number" vl="0"/>
-        <Fg ky="Check" vl="0"/>
-        <Fg ky="Comment" vl="0"/>
-        <Fg ky="Data Type" vl="0"/>
-        <Fg ky="Default" vl="0"/>
-        <Fg ky="ENUM Values" vl="0"/>
-        <Fg ky="Length" vl="0"/>
-        <Fg ky="Name" vl="1"/>
-        <Fg ky="Nullable" vl="0"/>
-        <Fg ky="Schema Name" vl="1"/>
-        <Fg ky="Signed" vl="0"/>
-      </VbCfg>
-    </RnCf>
-    <DiaProps>
-      <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
-      <ErNotation>DbwErNotation</ErNotation>
-      <svg path="/Users/anthony/Databases/ODM2Overview.svg"/>
-    </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="338" y="190"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="874" y="211"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1049" y="670"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="945" y="759"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="621" y="617"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="623" y="306"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="353" y="720"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="67" y="577"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="64" y="680"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="392" y="582"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1192" y="209"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1185" y="349"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="834" y="617"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1068" y="534"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="368" y="431"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="100" y="443"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="40" y="343"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="30" y="190"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="625" y="214"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="1452" y="208"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="1436" y="407"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Affiliations.fk_Affiliations_People"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_ProcessingLevels"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_TaxonomicClassifiers"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Units"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.DataQuality.fk_DataQuality_Units"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_DataQuality"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ResultsDataQuality.fk_ResultsDataQuality_Results"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures"/>
-    <Notes/>
-    <Zones>
-      <Zone bkCl="ff99ffff" h="298" nm="DataQuality" w="331" x="1421" y="167"/>
-      <Zone bkCl="ffffcccc" h="761" nm="Observation Metadata" w="341" x="606" y="506"/>
-      <Zone bkCl="ffece9d8" h="557" nm="Observations" w="330" x="606" y="166"/>
-      <Zone bkCl="ffffcccc" h="538" nm="People &amp; Organizations" w="309" x="56" y="538"/>
-      <Zone bkCl="ffffcccc" h="234" nm="Related Results &amp; Datasets" w="284" x="1176" y="165"/>
-      <Zone bkCl="ffccccff" h="269" nm="Result Values" w="340" x="1377" y="507"/>
-      <Zone bkCl="ffccffcc" h="580" nm="SamplingFeatures" w="365" x="19" y="164"/>
-    </Zones>
-  </Dgm>
   <Dgm nm="ODM2Provenance">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.5">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4750,7 +4672,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.5">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -6110,6 +6032,6 @@ rid of DeploymentTypeCV.</Note>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Diagrams (13)</TreePath>
+    <TreePath>/Diagrams (12)</TreePath>
   </TreePaths>
 </Db>
