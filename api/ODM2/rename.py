@@ -59,7 +59,7 @@ def file_reader(path):
                     filename = ''.join(directories[0][:-3]) + directories[2]
                     print (os.path.dirname(path)+'\\'+filename + ext)
                     #print(path)
-                    setupfile(path, filename, directories[2])
+                    #setupfile(path, filename, directories[2])
                     os.rename(path, os.path.dirname(path)+'\\'+filename + ext)
             
 
