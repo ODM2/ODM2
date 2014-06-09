@@ -4,7 +4,7 @@ from sqlalchemy.dialects.mssql.base import BIT, UNIQUEIDENTIFIER
 from sqlalchemy.orm import relationship
 from sqlalchemy.types import NullType
 from sqlalchemy.ext.declarative import declarative_base
-
+from ODM2.base import Geometry
 
 Base = declarative_base()
 metadata = Base.metadata
@@ -200,7 +200,7 @@ class Samplingfeature(Base):
     SamplingFeatureGeotypeCV = Column(String(255))
     Elevation_m = Column(Float(53))
     ElevationDatumCV = Column(String(255))
-    FeatureGeometry = Column(NullType)
+    FeatureGeometry = Column(Geometry)
 
 
 class Taxonomicclassifier(Base):

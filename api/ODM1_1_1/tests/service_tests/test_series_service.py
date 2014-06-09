@@ -10,7 +10,7 @@ class TestSeriesService:
 	def setup(self):
 		self.connection_string = "sqlite:///:memory:"
 		self.series_service = SeriesService(self.connection_string, debug=False)
-		self.session = self.series_service._session_factory.get_session()
+		self.session = self.series_service._session_factory.getSession()
 		engine = self.series_service._session_factory.engine
 		test_util.build_db(engine)
 

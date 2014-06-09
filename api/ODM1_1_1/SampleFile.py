@@ -22,6 +22,6 @@ cs = CoreService(conn)
 print cs.get_all_variables()
 
 
-sf = cs._session_factory.get_session()
+sf = cs._session_factory.getSession()
 
 print sf.query(Samplingfeature).all()

@@ -13,10 +13,10 @@ class dbconnection():
         self._connection_format = "%s+%s://%s:%s@%s/%s"
 
     @classmethod
-    def create_connection(self, engine,  address, db, user, password):
-        return dbconnection.build_conn_dict(dbconnection(), engine, address,db,user, password)
+    def createConnection(self, engine,  address, db, user, password):
+        return dbconnection.buildConnDict(dbconnection(), engine, address,db,user, password)
 
-    def build_conn_dict(self, engine,  address, db, user, password):
+    def buildConnDict(self, engine,  address, db, user, password):
         line_dict = {}
         line_dict['engine'] = engine
         line_dict['user'] = user
@@ -25,25 +25,25 @@ class dbconnection():
         line_dict['db'] = db
         self._connections.append(line_dict)
         self._current_connection = self._connections[-1]
-        return self.__build_connection_string(line_dict)
+        return self.__buildConnectionString(line_dict)
 
-    def get_connections(self):
+    def getConnections(self):
         return self._connections
 
-    def get_current_connection(self):
+    def getCurrentConnection(self):
         return self._current_connection
 
-    def add_connection(self, conn_dict):
+    def addConnection(self, conn_dict):
         """conn_dict must be a dictionary with keys: engine, user, password, address, db"""
 
         # remove earlier connections that are identical to this one
-        self.delete_connection(conn_dict)
+        self.deleteConnection(conn_dict)
 
         self._connections.append(conn_dict)
         self._current_connection = self._connections[-1]
 
 
-    def test_connection(self, conn_dict):
+    def testConnection(self, conn_dict):
         try:
             self.version = self.get_db_version(conn_dict)
         except DBAPIError:
@@ -53,7 +53,7 @@ class dbconnection():
             return False
         return True
 
-    def delete_connection(self, conn_dict):
+    def deleteConnection(self, conn_dict):
         self._connections[:] = [x for x in self._connections if x != conn_dict]
 
 
@@ -62,7 +62,7 @@ class dbconnection():
     ## ###################
 
 
-    def __build_connection_string(self, conn_dict):
+    def __buildConnectionString(self, conn_dict):
         driver = ""
         if conn_dict['engine'] == 'mssql':
             driver = "pyodbc"
@@ -89,7 +89,7 @@ class SessionFactory():
         # Create session maker
         self.Session = sessionmaker(bind=self.engine)
 
-    def get_session(self):
+    def getSession(self):
         return self.Session()
 
     def __repr__(self):

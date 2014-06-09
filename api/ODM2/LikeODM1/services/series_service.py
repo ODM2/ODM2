@@ -22,7 +22,7 @@ class SeriesService():
     # Accepts a string for creating a SessionFactory, default uses odmdata/connection.cfg
     def __init__(self, connection_string="", debug=False):
         self._session_factory = SessionFactory(connection_string, debug)
-        self._edit_session = self._session_factory.get_session()
+        self._edit_session = self._session_factory.getSession()
         self._debug = debug
 
     def get_db_version(self):

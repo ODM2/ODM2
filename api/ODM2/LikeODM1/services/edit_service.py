@@ -28,7 +28,7 @@ class EditService():
             #
             # TODO throw an exception
 
-        self._edit_session = self._session_factory.get_session()
+        self._edit_session = self._session_factory.getSession()
 
         if self._connection == None:
             series_service = SeriesService(connection_string, False)

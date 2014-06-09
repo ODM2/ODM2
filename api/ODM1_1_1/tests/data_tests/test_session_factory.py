@@ -11,5 +11,5 @@ class TestSessionFactory:
 		assert self.session_factory.Session != None
 
 	def test_get_session(self):
-		session = self.session_factory.get_session()
+		session = self.session_factory.getSession()
 		assert 'sqlalchemy.orm.session.SessionMaker' in repr(session)

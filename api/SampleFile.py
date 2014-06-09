@@ -8,7 +8,9 @@ directory = os.path.dirname(this_file)
 sys.path.insert(0, directory)
 
 from ODM2.Core.model import Samplingfeature
-from ODM2.Core.services import read
+from ODM2.Core.services import read as CSread
+from ODM2.DataQuality.services import DQread
+from ODM2.DataQuality.model import Dataquality
 
 
 from ODMconnection import dbconnection
@@ -16,12 +18,15 @@ from ODMconnection import dbconnection
 
 
 
-conn = dbconnection.create_connection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
+conn = dbconnection.createConnection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
 #conn = sm.build_conn_dict('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
-cs = read(conn)
-print cs.get_all_variables()
+cs = CSread(conn)
+#print cs.getAllVariables()
+dq = DQread(conn)
+#print dq.getAllDataQuality()
 
 
-sf = cs._session_factory.get_session()
+sf = cs._session_factory.getSession()
+print sf.query(Dataquality).all()
 
 print sf.query(Samplingfeature).all()

@@ -1,5 +1,5 @@
-from base import service_base
+from base import serviceBase
 
 __all__ = [
-    'service_base',
+    'serviceBase',
     ]

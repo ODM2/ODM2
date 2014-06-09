@@ -8,7 +8,7 @@ class TestDataValue:
 		self.connection_string = "sqlite:///:memory:"
 		session_factory = SessionFactory(self.connection_string, echo=False)
 		test_util.build_db(session_factory.engine)
-		self.session = session_factory.get_session()
+		self.session = session_factory.getSession()
 		self.series = test_util.add_series(self.session)
 		self.data_values = self.series.data_values
 
