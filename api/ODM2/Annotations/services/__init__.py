@@ -1,15 +1,16 @@
+__author__ = 'Stephanie'
 from ODMconnection import dbconnection
-from series_service import SeriesService
-from cv_service import CVService
-from edit_service import EditService
-from record_service import RecordService
-from export_service import ExportService
+from readAnnotations import readAnnotations
+from updateAnnotations import updateAnnotations
+from createAnnotations import createAnnotations
+from deleteAnnotations import deleteAnnotations
+
+
 
 __all__ = [
-    'EditService',
-    'CVService',
-    'SeriesService',
-    'RecordService',
-    'ExportService',
-    'dbconnection',
+    'readAnnotations',
+    'updateAnnotations',
+    'createAnnotations',
+    'deleteAnnotations',
+
 ]

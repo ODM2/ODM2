@@ -11,4 +11,4 @@ from ODM2 import serviceBase
 import ODM2.Annotations.model as m
 from ODMconnection import SessionFactory
 
-class delete(serviceBase):
+class deleteAnnotations(serviceBase):

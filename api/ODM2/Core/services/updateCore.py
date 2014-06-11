@@ -14,3 +14,4 @@ from ODMconnection import SessionFactory
 
 
 class updateCore (serviceBase):
+    pass

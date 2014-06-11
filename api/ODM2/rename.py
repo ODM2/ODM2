@@ -4,6 +4,7 @@ import os
 import ntpath
 
 filenames= ['read.py', 'create.py', 'update.py', 'delete.py']
+initfilenames = ["__init__.py",'']
 
 
 #new_file = open('D:DEV\ODM2\api', 'w')
@@ -13,10 +14,30 @@ def path_leaf(path):
     #print ("tail: " + tail)
     return tail or ntpath.basename(head)
 
+def initfile(path, schema):
+    curfile = open(path, 'w')
+    
+    inittext="""__author__ = \'Stephanie\'
+from ODMconnection import dbconnection
+from read{schema} import read{schema}
+from update{schema} import update{schema}
+from create{schema} import create{schema}
+from delete{schema} import delete{schema}
+
+
+
+__all__ = [
+    'read{schema}',
+    'update{schema}',
+    'create{schema}',
+    'delete{schema}',
+
+]""".format(schema = schema)
+    print(inittext)
+    curfile.write(inittext)
+
 def setupfile(path, filename, schema):
-    curfile = open(path, 'w+')
-    print (curfile.name, curfile.mode, curfile.closed)
-    print (curfile.read())
+    curfile = open(path, 'w')
     curfile.write("""__author__ = \'Stephanie\'
 
 import sys
@@ -37,9 +58,31 @@ class """ + filename+" (serviceBase):\n")
 
 
 
-def file_reader(path):
-    print ("call file reader")
-    file_path =[]
+def initfilereader(path):
+    print ("call init file reader")
+    for root, dirs, files in os.walk(path):
+        for f in files:           
+            p=os.path.join(root, f)
+            #print( p)             
+            path = os.path.abspath(p)
+            #print ("path: " + str(path)  )          
+            ext = os.path.splitext(path)[1] 
+            #print("extension: " + str(ext))
+
+            if  ext=='.py': 
+                print (path_leaf(path))
+                print ( path_leaf(path) in initfilenames)
+                if path_leaf(path) in initfilenames:
+                    print (os.path.dirname(path))
+                    if "services" in os.path.dirname(path):
+                        directories = path.rsplit('\\')
+                        directories.reverse()
+                        initfile(path , directories[2])
+                        
+
+
+def crudfilereader(path):
+    print ("call crud file reader")
     for root, dirs, files in os.walk(path):
         for f in files:           
             p=os.path.join(root, f)
@@ -51,7 +94,6 @@ def file_reader(path):
 
             if  ext=='.py': 
                 if path_leaf(path) in filenames:
-                    file_path.append( path)
                 
                     directories = path.rsplit('\\')
                     directories.reverse()
@@ -65,11 +107,9 @@ def file_reader(path):
 
 
 
-    return file_path
+#crudfilereader("D:\DEV\ODM2\\api\ODM2")
+initfilereader("D:\DEV\ODM2\\api\ODM2")
 
-
-
-file_reader("D:\DEV\ODM2\\api\ODM2")
 
 
 """ 

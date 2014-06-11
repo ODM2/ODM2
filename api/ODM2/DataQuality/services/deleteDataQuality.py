@@ -14,3 +14,4 @@ from ODMconnection import SessionFactory
 
 
 class deleteDataQuality (serviceBase):
+    pass
