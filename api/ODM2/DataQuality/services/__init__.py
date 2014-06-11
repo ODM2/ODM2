@@ -1,11 +1,16 @@
-
 __author__ = 'Stephanie'
 from ODMconnection import dbconnection
-from read import read as DQread
+from readDataQuality import readDataQuality
+from updateDataQuality import updateDataQuality
+from createDataQuality import createDataQuality
+from deleteDataQuality import deleteDataQuality
+
 
 
 __all__ = [
-    ''
-    'DQread',
+    'readDataQuality',
+    'updateDataQuality',
+    'createDataQuality',
+    'deleteDataQuality',
 
 ]

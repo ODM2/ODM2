@@ -11,7 +11,7 @@ from ODM2 import serviceBase
 import ODM2.Core.model as m
 
 
-class read(serviceBase):
+class readCore(serviceBase):
     """queries to tables contained in the core schema"""
 
     """

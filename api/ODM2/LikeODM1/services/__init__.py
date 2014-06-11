@@ -1,15 +1,16 @@
-from service_manager import ServiceManager
-from series_service import SeriesService
-from cv_service import CVService
-from edit_service import EditService
-from record_service import RecordService
-from export_service import ExportService
+__author__ = 'Stephanie'
+from ODMconnection import dbconnection
+from readLikeODM1 import readLikeODM1
+from updateLikeODM1 import updateLikeODM1
+from createLikeODM1 import createLikeODM1
+from deleteLikeODM1 import deleteLikeODM1
+
+
 
 __all__ = [
-    'EditService',
-    'CVService',
-    'SeriesService',
-    'RecordService',
-    'ExportService',
-    'ServiceManager',
+    'readLikeODM1',
+    'updateLikeODM1',
+    'createLikeODM1',
+    'deleteLikeODM1',
+
 ]
