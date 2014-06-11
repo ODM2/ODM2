@@ -167,39 +167,6 @@ class readCore(serviceBase):
         except:
             return None
 
-    """
-    DeploymentAction
-    """
-
-    def getAllDeploymentAction(self):
-        """Select all on DeploymentAction
-
-        :return DeploymentAction Objects:
-            :type list:
-        """
-        pass
-
-        #return self._session.query(m.)
-
-    def getDeploymentActionById(self, deploymentId):
-        """Select by deploymentId
-
-        :param deploymentId:
-            :type Integer:
-        :return Return Matching DeploymentAction Object filtered by deploymentId:
-            :type DeploymentAction:
-        """
-        pass
-
-    def getDeploymentActionByCode(self, deploymentCode):
-        """Select by deploymentCode
-
-        :param deploymentCode:
-            :type String:
-        :return Return matching DeploymentAction Object filtered by deploymentCode:
-            :type DeploymentAction:
-        """
-        pass
 
 
 

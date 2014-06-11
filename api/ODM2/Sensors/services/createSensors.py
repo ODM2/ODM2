@@ -14,3 +14,8 @@ from ODMconnection import SessionFactory
 
 
 class createSensors (serviceBase):
+    def createDeploymentAction(self, **kwargs):
+
+        da = m.Deploymentaction()
+        da.DeploymentActionID = kwargs['']
+
