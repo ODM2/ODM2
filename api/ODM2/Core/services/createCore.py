@@ -40,7 +40,7 @@ class createCore(serviceBase):
         self._session.add(var)
         self._session.commit()
 
-    def createMethod(self, code, name, vType, link=None, description=None):
+    def createMethod(self, code, name, vType, orgId=None, link=None, description=None):
         """Create Method table for the database
 
         :param code:
@@ -49,6 +49,8 @@ class createCore(serviceBase):
             :type String(255):
         :param vType:
             :type String(255):
+        :param orgId:
+            :type Integer:
         :param link:
             :type String(255):
         :param description:
@@ -62,7 +64,7 @@ class createCore(serviceBase):
         meth.MethodDescription = description
         meth.MethodTypeCV = vType
         meth.MethodLink = link
-        # # TODO what do I do for foreign keys?
+        meth.OrganizationID = orgId
 
         self._session.add(meth)
         self._session.commit()
@@ -86,8 +88,8 @@ class createCore(serviceBase):
         self._session.add(pl)
         self._session.commit()
 
-    def createSamplingFeature(self, code, vType, name=None, description=None, geoType=None,
-                              evelation=None, evelationDatum=None, featureGeo=None):
+    def createSamplingFeature(self, code, vType, name=None, description=None, geoType=None, evelation=None,
+                              evelationDatum=None, featureGeo=None):
         """Create SamplingFeature table
 
         :param code:
@@ -113,12 +115,82 @@ class createCore(serviceBase):
         sf.SamplingFeatureCode = code
         sf.SamplingFeatureName = name
         sf.SamplingFeatureDescription = description
-        sf.SamplingFeatureGeotTypeCV=geoType
-        sf.Elevation_m=evelation
-        sf.ElevationDatumCV=evelationDatum
+        sf.SamplingFeatureGeoTypeCV = geoType
+        sf.Elevation_m = evelation
+        sf.ElevationDatumCV = evelationDatum
         sf.FeatureGeometry = featureGeo
 
         self._session.add(sf)
         self._session.commit()
 
-    #def createResult(self, uuid, featureActionId, vType, ):
+    def createUnit(self, code, abbrev, name):
+        """Create Unit table
+
+        :param code:
+            :type String(255):
+        :param abbrev:
+            :type String(50):
+        :param name:
+            :type String(255):
+        :return:
+        """
+        unit = m.Unit()
+        unit.UnitsTypeCV = code
+        unit.UnitsAbbreviation = abbrev
+        unit.UnitsName = name
+
+        self._session.add(unit)
+        self._session.commit()
+
+
+    def createOrganization(self, cvType, code, name, desc, link, parentOrgId):
+        """Create Organization table
+
+        :param cvType:
+            :type String(255):
+        :param code:
+            :type String(50):
+        :param name:
+            :type String(255):
+        :param desc:
+            :type String(500):
+        :param link:
+            :type String(255):
+        :param parentOrgId:
+            :type Integer:
+        :return:
+        """
+
+        org = m.Organization()
+        org.OrganizationTypeCV = cvType
+        org.OrganizationCode = code
+        org.OrganizationName = name
+        org.OrganizationDescription = desc
+        org.OrganizationLink = link
+        org.ParentOrganizationID = parentOrgId
+
+        self._session.add(org)
+        self._session.commit()
+
+    def createPerson(self, firstName, lastName, middleName=""):
+        """Create Person Table
+
+        :param firstName:
+            :type String(255):
+        :param lastName:
+            :type String(255):
+        :param middleName:
+            :type String(255):
+        :return:
+        """
+
+        p = m.Person()
+        p.PersonFirstName = firstName
+        p.PersonMiddleName = middleName
+        p.PersonLastNAme = lastName
+
+        self._session.add(p)
+        self._session.commit()
+
+
+        # def createResult(self, uuid, featureActionId, vType, ):

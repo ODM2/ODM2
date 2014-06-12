@@ -167,28 +167,91 @@ class readCore(serviceBase):
         except:
             return None
 
+    """
+    Unit
+    """
+    def getAllUnits(self):
+        """Select all on Unit
+
+        :return Unit Objects:
+            :type list:
+        """
+        return self._session.query(m.Unit).all()
 
 
+    def getUnitById(self, unitId):
+        """Select by samplingId
 
+        :param unitId:
+            :type Integer:
+        :return Return matching Unit Object filtered by UnitId:
+            :type Unit:
+        """
+        try:
+            return self._session.query(m.Unit).filter_by(UnitsID=unitId).one()
+        except:
+            return None
 
     """
-    Results
+    Organization
     """
+    def getAllOrganizations(self):
+        """Select all on Organization
+
+        :return Organization Objects:
+            :type list:
+        """
+        return self._session.query(m.Organization).all()
 
 
-    def getAllResults(self):
-        pass
+    def getOrganizationById(self, orgId):
+        """Select by orgId
+
+        :param orgId:
+            :type Integer:
+        :return Return matching Unit Object filtered by orgId:
+            :type Organization:
+        """
+        try:
+            return self._session.query(m.Organization).filter_by(OrganizationID=orgId).one()
+        except:
+            return None
 
 
-    def getResultsById(self, resultsId):
-        pass
+    def getOrganizationByCode(self, orgCode):
+        """Select by orgCode
+
+        :param orgCode:
+            :type String:
+        :return Return matching Organization Object filtered by orgCode
+            :type Organization:
+        """
+        try:
+            return self._session.query(m.Samplingfeature).filter_by(OrganizationCode=orgCode).one()
+        except:
+            return None
+    """
+    Person
+    """
+    def getAllPerson(self):
+        """Select all on Person
+
+        :return Person Objects:
+            :type list:
+        """
+        return self._session.query(m.Person).all()
 
 
-    def getResultsByCode(self, resultsCode):
-        pass
+    def getPersonById(self, personId):
+        """Select by personId
 
-
-
-
-
+        :param personId:
+            :type Integer:
+        :return Return matching Person Object filtered by personId:
+            :type Person:
+        """
+        try:
+            return self._session.query(m.Organization).filter_by(PersonID=personId).one()
+        except:
+            return None
 

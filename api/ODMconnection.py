@@ -1,8 +1,6 @@
-
 from sqlalchemy.exc import SQLAlchemyError, DBAPIError
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
 
 
 class dbconnection():
@@ -13,10 +11,10 @@ class dbconnection():
         self._connection_format = "%s+%s://%s:%s@%s/%s"
 
     @classmethod
-    def createConnection(self, engine,  address, db, user, password):
-        return dbconnection.buildConnDict(dbconnection(), engine, address,db,user, password)
+    def createConnection(self, engine, address, db, user, password):
+        return dbconnection.buildConnDict(dbconnection(), engine, address, db, user, password)
 
-    def buildConnDict(self, engine,  address, db, user, password):
+    def buildConnDict(self, engine, address, db, user, password):
         line_dict = {}
         line_dict['engine'] = engine
         line_dict['user'] = user
@@ -48,7 +46,7 @@ class dbconnection():
             self.version = self.get_db_version(conn_dict)
         except DBAPIError:
             pass
-            #print e.message
+            # print e.message
         except SQLAlchemyError:
             return False
         return True
@@ -77,13 +75,9 @@ class dbconnection():
         return conn_string
 
 
-
 class SessionFactory():
     def __init__(self, connection_string, echo):
-        self.engine = create_engine(connection_string, encoding='utf-8', echo=echo,
-                                    #pool_size=20,
-                                    pool_recycle=3600,
-                                    pool_timeout=5,
+        self.engine = create_engine(connection_string, encoding='utf-8', echo=echo, pool_recycle=3600, pool_timeout=5,
                                     max_overflow=0)
 
         # Create session maker
