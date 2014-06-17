@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class createExternalIdentifiers (serviceBase):
+   def test(self):
+        return None

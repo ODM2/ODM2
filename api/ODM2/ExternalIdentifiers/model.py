@@ -1,94 +1,23 @@
 # coding: utf-8
 from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-from sqlalchemy.types import NullType
-from sqlalchemy.ext.declarative import declarative_base
+#from ODM2 import modelBase as Base
+from ODM2.Core.model import Organization, Samplingfeature, Method, Person, Taxonomicclassifier, Variable, Base
+from ODM2.Provenance.model import Citation
 
 
-Base = declarative_base()
-metadata = Base.metadata
 
+class Externalidentifiersystem(Base):
+    __tablename__ = u'ExternalIdentifierSystems'
+    __table_args__ = {u'schema': u'ODM2ExternalIdentifiers'}
 
-class Method(Base):
-    __tablename__ = u'Methods'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    ExternalIdentifierSystemID = Column(Integer, primary_key=True)
+    ExternalIdentifierSystemName = Column(String(255), nullable=False)
+    IdentifierSystemOrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'), nullable=False)
+    ExternalIdentifierSystemDescription = Column(String(500))
+    ExternalIdentifierSystemURL = Column(String(255))
 
-    MethodID = Column(Integer, primary_key=True)
-    MethodTypeCV = Column(String(255), nullable=False)
-    MethodCode = Column(String(50), nullable=False)
-    MethodName = Column(String(255), nullable=False)
-    MethodDescription = Column(String(500))
-    MethodLink = Column(String(255))
-    OrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'))
-
-    Organization = relationship(u'Organization')
-
-
-class Organization(Base):
-    __tablename__ = u'Organizations'
-    __table_args__ = {u'schema': u'ODM2Core'}
-
-    OrganizationID = Column(Integer, primary_key=True)
-    OrganizationTypeCV = Column(String(255), nullable=False)
-    OrganizationCode = Column(String(50), nullable=False)
-    OrganizationName = Column(String(255), nullable=False)
-    OrganizationDescription = Column(String(500))
-    OrganizationLink = Column(String(255))
-    ParentOrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'))
-
-    parent = relationship(u'Organization', remote_side=[OrganizationID])
-
-
-class Person(Base):
-    __tablename__ = u'People'
-    __table_args__ = {u'schema': u'ODM2Core'}
-
-    PersonID = Column(Integer, primary_key=True)
-    PersonFirstName = Column(String(255), nullable=False)
-    PersonMiddleName = Column(String(255))
-    PersonLastName = Column(String(255), nullable=False)
-
-
-class Samplingfeature(Base):
-    __tablename__ = u'SamplingFeatures'
-    __table_args__ = {u'schema': u'ODM2Core'}
-
-    SamplingFeatureID = Column(Integer, primary_key=True)
-    SamplingFeatureTypeCV = Column(String(255), nullable=False)
-    SamplingFeatureCode = Column(String(50), nullable=False)
-    SamplingFeatureName = Column(String(255))
-    SamplingFeatureDescription = Column(String(500))
-    SamplingFeatureGeotypeCV = Column(String(255))
-    Elevation_m = Column(Float(53))
-    ElevationDatumCV = Column(String(255))
-    FeatureGeometry = Column(NullType)
-
-
-class Taxonomicclassifier(Base):
-    __tablename__ = u'TaxonomicClassifiers'
-    __table_args__ = {u'schema': u'ODM2Core'}
-
-    TaxonomicClassifierID = Column(Integer, primary_key=True)
-    TaxonomicClassifierTypeCV = Column(String(255), nullable=False)
-    TaxonomicClassifierName = Column(String(255), nullable=False)
-    TaxonomicClassifierCommonName = Column(String(255))
-    TaxonomicClassifierDescription = Column(String(500))
-    ParentTaxonomicClassifierID = Column(ForeignKey('ODM2Core.TaxonomicClassifiers.TaxonomicClassifierID'))
-
-    parent = relationship(u'Taxonomicclassifier', remote_side=[TaxonomicClassifierID])
-
-
-class Variable(Base):
-    __tablename__ = u'Variables'
-    __table_args__ = {u'schema': u'ODM2Core'}
-
-    VariableID = Column(Integer, primary_key=True)
-    VariableTypeCV = Column(String(255), nullable=False)
-    VariableCode = Column(String(50), nullable=False)
-    VariableNameCV = Column(String(255), nullable=False)
-    VariableDefinition = Column(String(500))
-    SpeciationCV = Column(String(255))
-    NoDataValue = Column(Float(53), nullable=False)
+    OrganizationObj = relationship(Organization)
 
 
 class Referencematerial(Base):
@@ -105,8 +34,8 @@ class Referencematerial(Base):
     ReferenceMaterialCertificateLink = Column(String(255))
     SamplingFeatureID = Column(ForeignKey('ODM2Core.SamplingFeatures.SamplingFeatureID'))
 
-    Organization = relationship(u'Organization')
-    SamplingFeature = relationship(u'Samplingfeature')
+    OrganizationObj = relationship(Organization)
+    SamplingFeatureObj = relationship(Samplingfeature)
 
 
 class Citationexternalidentifier(Base):
@@ -119,21 +48,9 @@ class Citationexternalidentifier(Base):
     CitationExternalIdentifer = Column(String(255), nullable=False)
     CitationExternalIdentiferURI = Column(String(255))
 
-    Citation = relationship(u'Citation')
-    ExternalIdentifierSystem = relationship(u'Externalidentifiersystem')
+    CitationObj = relationship(Citation)
+    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
 
-
-class Externalidentifiersystem(Base):
-    __tablename__ = u'ExternalIdentifierSystems'
-    __table_args__ = {u'schema': u'ODM2ExternalIdentifiers'}
-
-    ExternalIdentifierSystemID = Column(Integer, primary_key=True)
-    ExternalIdentifierSystemName = Column(String(255), nullable=False)
-    IdentifierSystemOrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'), nullable=False)
-    ExternalIdentifierSystemDescription = Column(String(500))
-    ExternalIdentifierSystemURL = Column(String(255))
-
-    Organization = relationship(u'Organization')
 
 
 class Methodexternalidentifier(Base):
@@ -146,8 +63,8 @@ class Methodexternalidentifier(Base):
     MethodExternalIdentifier = Column(String(255), nullable=False)
     MethodExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystem = relationship(u'Externalidentifiersystem')
-    Method = relationship(u'Method')
+    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    MethodObj = relationship(Method)
 
 
 class Personexternalidentifier(Base):
@@ -160,8 +77,8 @@ class Personexternalidentifier(Base):
     PersonExternalIdentifier = Column(String(255), nullable=False)
     PersonExternalIdenifierURI = Column(String(255))
 
-    ExternalIdentifierSystem = relationship(u'Externalidentifiersystem')
-    Person = relationship(u'Person')
+    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    PersonObj = relationship(Person)
 
 
 class Referencematerialexternalidentifier(Base):
@@ -174,8 +91,8 @@ class Referencematerialexternalidentifier(Base):
     ReferenceMaterialExternalIdentifier = Column(String(255), nullable=False)
     ReferenceMaterialExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystem = relationship(u'Externalidentifiersystem')
-    ReferenceMaterial = relationship(u'Referencematerial')
+    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    ReferenceMaterialObj = relationship(Referencematerial)
 
 
 class Samplingfeatureexternalidentifier(Base):
@@ -188,8 +105,8 @@ class Samplingfeatureexternalidentifier(Base):
     SamplingFeatureExternalIdentifier = Column(String(255), nullable=False)
     SamplingFeatureExternalIdentiferURI = Column(String(255))
 
-    ExternalIdentifierSystem = relationship(u'Externalidentifiersystem')
-    SamplingFeature = relationship(u'Samplingfeature')
+    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    SamplingFeatureObj = relationship(Samplingfeature)
 
 
 class Spatialreferenceexternalidentifier(Base):
@@ -202,8 +119,8 @@ class Spatialreferenceexternalidentifier(Base):
     SpatialReferenceExternalIdentifier = Column(String(255), nullable=False)
     SpatialReferenceExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystem = relationship(u'Externalidentifiersystem')
-    SpatialReference = relationship(u'Spatialreference')
+    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    SpatialReferenceObj = relationship(Spatialreference)
 
 
 class Taxonomicclassifierexternalidentifier(Base):
@@ -216,8 +133,8 @@ class Taxonomicclassifierexternalidentifier(Base):
     TaxonomicClassifierExternalIdentifier = Column(String(255), nullable=False)
     TaxonomicClassifierExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystem = relationship(u'Externalidentifiersystem')
-    TaxonomicClassifier = relationship(u'Taxonomicclassifier')
+    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    TaxonomicClassifierObj = relationship(Taxonomicclassifier)
 
 
 class Variableexternalidentifier(Base):
@@ -230,19 +147,8 @@ class Variableexternalidentifier(Base):
     VariableExternalIdentifer = Column(String(255), nullable=False)
     VariableExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystem = relationship(u'Externalidentifiersystem')
-    Variable = relationship(u'Variable')
-
-
-class Citation(Base):
-    __tablename__ = u'Citations'
-    __table_args__ = {u'schema': u'ODM2Provenance'}
-
-    CitationID = Column(Integer, primary_key=True)
-    Title = Column(String(255), nullable=False)
-    Publisher = Column(String(255), nullable=False)
-    PublicationYear = Column(Integer, nullable=False)
-    CitationLink = Column(String(255))
+    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    VariableObj = relationship(Variable)
 
 
 class Spatialreference(Base):

@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class updateEquipment (serviceBase):
+   def test(self):
+        return None

@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class readExtensionProperties (serviceBase):
+   def test(self):
+        return None

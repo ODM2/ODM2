@@ -10,7 +10,7 @@ sys.path.insert(0, directory)
 from ODM2 import serviceBase
 import ODM2.SamplingFeatures.model as m
 
-class create(serviceBase):
+class createSamplingFeatures(serviceBase):
     def createSite(self, vType, latitude, longitude):
         """Create Site table
 

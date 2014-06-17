@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class createResults (serviceBase):
+   def test(self):
+        return None

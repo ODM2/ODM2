@@ -139,7 +139,17 @@ class readCore(serviceBase):
         :return SamplingFeature Objects:
             :type list:
         """
-        return self._session.query(m.Samplingfeature).all()
+        return self._session.query(m.Samplingfeature).from_statement("Select SamplingFeatureID\
+                                                                        ,SamplingFeatureTypeCV\
+                                                                        ,SamplingFeatureCode\
+                                                                        ,SamplingFeatureName\
+                                                                        ,SamplingFeatureDescription\
+                                                                        ,SamplingFeatureGeotypeCV\
+                                                                        ,Elevation_m\
+                                                                        ,ElevationDatumCV\
+                                                                        ,FeatureGeometry.STAsText() As FeatureGeometry\
+                                                                     From ODM2Core.SamplingFeatures").all()
+        #return self._session.query(m.Samplingfeature).all()
 
     def getSamplingFeatureById(self, samplingId):
         """Select by samplingId
@@ -150,11 +160,21 @@ class readCore(serviceBase):
             :type SamplingFeature:
         """
         try:
-            return self._session.query(m.Samplingfeature).filter_by(SamplingFeatureID=samplingId).one()
+            return self._session.query(m.Samplingfeature).from_statement("Select SamplingFeatureID\
+                                                                        ,SamplingFeatureTypeCV\
+                                                                        ,SamplingFeatureCode\
+                                                                        ,SamplingFeatureName\
+                                                                        ,SamplingFeatureDescription\
+                                                                        ,SamplingFeatureGeotypeCV\
+                                                                        ,Elevation_m\
+                                                                        ,ElevationDatumCV\
+                                                                        ,FeatureGeometry.STAsText() As FeatureGeometry\
+                                                                     From ODM2Core.SamplingFeatures\
+                                                                     Where SamplingFeatureID=\'%s\'"% samplingId).one()
         except:
             return None
 
-    def getSamplingFeaturebyCode(self, samplingCode):
+    def getSamplingFeatureByCode(self, samplingCode):
         """Select by samplingCode
 
         :param samplingCode:
@@ -163,7 +183,17 @@ class readCore(serviceBase):
             :type SamplingFeature:
         """
         try:
-            return self._session.query(m.Samplingfeature).filter_by(SamplingFeatureCode=samplingCode).one()
+            return self._session.query(m.Samplingfeature).from_statement("Select SamplingFeatureID\
+                                                                        ,SamplingFeatureTypeCV\
+                                                                        ,SamplingFeatureCode\
+                                                                        ,SamplingFeatureName\
+                                                                        ,SamplingFeatureDescription\
+                                                                        ,SamplingFeatureGeotypeCV\
+                                                                        ,Elevation_m\
+                                                                        ,ElevationDatumCV\
+                                                                        ,FeatureGeometry.STAsText() As FeatureGeometry\
+                                                                     From ODM2Core.SamplingFeatures\
+                                                                     Where SamplingFeatureCode=\'%s\'"% samplingCode).one()
         except:
             return None
 

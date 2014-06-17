@@ -13,3 +13,5 @@ from ODMconnection import SessionFactory
 
 
 class createODM2(serviceBase):
+   def test(self):
+        return None

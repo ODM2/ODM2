@@ -12,3 +12,5 @@ import ODM2.Annotations.model as m
 from ODMconnection import SessionFactory
 
 class deleteAnnotations(serviceBase):
+   def test(self):
+        return None

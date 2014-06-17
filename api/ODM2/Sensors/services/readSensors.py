@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class readSensors (serviceBase):
+   def test(self):
+        return None

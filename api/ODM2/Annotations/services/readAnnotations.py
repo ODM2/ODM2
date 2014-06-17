@@ -12,3 +12,5 @@ import ODM2.Annotations.model as m
 from ODMconnection import SessionFactory
 
 class readAnnotations(serviceBase):
+   def test(self):
+        return None

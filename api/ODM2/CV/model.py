@@ -1,10 +1,7 @@
 # coding: utf-8
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-
-
-Base = declarative_base()
-metadata = Base.metadata
+#from ODM2 import modelBase as Base
+from ODM2.Core.model import Base
 
 
 class Cvterm(Base):

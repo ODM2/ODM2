@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class updateCV (serviceBase):
+   def test(self):
+        return None

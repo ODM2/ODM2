@@ -12,17 +12,14 @@ import ODM2.SamplingFeatures.model as m
 import ODM2.Core.model as  m_core
 
 
-class read(serviceBase):
+class readSamplingFeatures(serviceBase):
     """Queries to tables contained in the SamplingFeature """
-
-    def __init__(self):
-        pass
 
     """
     Site
     """
 
-    def getAllSite(self):
+    def getAllSites(self):
         """Select all on Sites
 
         :return Site Objects:
@@ -30,7 +27,7 @@ class read(serviceBase):
         """
         return self._session.query(m.Site).all()
 
-    def getSamplingFeatureById(self, siteId):
+    def getSiteBySFId(self, siteId):
         """Select by siteId
 
         :param siteId:
@@ -44,7 +41,7 @@ class read(serviceBase):
             return None
 
 
-    def getSamplingfeatureByCode(self, siteCode):
+    def getSiteBySFCode(self, siteCode):
         """Select by siteCode
 
         :param siteCode:
@@ -52,4 +49,6 @@ class read(serviceBase):
         :return Return matching Samplingfeature Object filtered by siteCode:
             :type Samplingfeature:
         """
-        return self._session.query(m_core.Samplingfeature).filter_by(SamplingFeatureCode=siteCode).one()
+
+        sf= self._session.query(m_core.Samplingfeature).filter_by(SamplingFeatureCode = siteCode).one()
+        return self._session.query(m.Site).filter_by(SamplingFeatureID = sf.SamplingFeatureID).one()

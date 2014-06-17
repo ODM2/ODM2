@@ -8,9 +8,11 @@ directory = os.path.dirname(this_file)
 sys.path.insert(0, directory)
 
 from ODM2.Core.model import Samplingfeature
-from ODM2.Core.services import read as CSread
-from ODM2.DataQuality.services import DQread
-from ODM2.DataQuality.model import Dataquality
+from ODM2.Core.services import readCore as CSread
+from ODM2.SamplingFeatures.services import readSamplingFeatures as SFread
+from ODM2.DataQuality.services import readDataQuality as DQread
+
+
 
 
 from ODMconnection import dbconnection
@@ -19,14 +21,26 @@ from ODMconnection import dbconnection
 
 
 conn = dbconnection.createConnection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
-#conn = sm.build_conn_dict('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
+#conn = dbconnection.createConnection('postgresql', 'localhost:5432', 'ODM2', 'postgres', 'Vancey5513')
+
+
 cs = CSread(conn)
+dq =DQread(conn)
+dq.getAllDataQuality()
 #print cs.getAllVariables()
-dq = DQread(conn)
-#print dq.getAllDataQuality()
 
 
-sf = cs._session_factory.getSession()
-print sf.query(Dataquality).all()
+#print cs.getAllSamplingFeature()
+print cs.getSamplingFeatureByCode("USU-LBR-Mendon")
 
-print sf.query(Samplingfeature).all()
+
+sf = SFread(conn)
+#print sf.getAllSites()
+print sf.getSiteBySFCode("USU-LBR-Mendon")
+
+
+
+
+
+#factory = cs._session_factory.getSession()
+#print factory.query(Samplingfeature).all()

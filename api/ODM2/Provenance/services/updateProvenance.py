@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class updateProvenance (serviceBase):
+   def test(self):
+        return None

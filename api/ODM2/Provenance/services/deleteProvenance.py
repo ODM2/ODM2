@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class deleteProvenance (serviceBase):
+   def test(self):
+        return None

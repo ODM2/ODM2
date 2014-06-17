@@ -14,3 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class deleteDataQuality (serviceBase):
+   def test(self):
+        return None

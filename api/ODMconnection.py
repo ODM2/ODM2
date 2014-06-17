@@ -68,12 +68,15 @@ class dbconnection():
             driver = "pyodbc"
         elif conn_dict['engine'] == 'mysql':
             driver = "pymysql"
+        elif conn_dict['engine'] == 'postgresql':
+            driver = "psycopg2"
         else:
             driver = "None"
 
         conn_string = self._connection_format % (
             conn_dict['engine'], driver, conn_dict['user'], conn_dict['password'], conn_dict['address'],
             conn_dict['db'])
+        print conn_string
         return conn_string
 
 

@@ -1,4 +1,5 @@
 from ODMconnection import SessionFactory
+from sqlalchemy.ext.declarative import declarative_base
 
 
 class serviceBase():
@@ -9,12 +10,7 @@ class serviceBase():
         self._debug = debug
 
 
-from sqlalchemy import func
-from sqlalchemy.types import UserDefinedType
-class Geometry(UserDefinedType):
-    def get_col_spec(self):
-        return "GEOMETRY"
-    def bind_expression(self, bindvalue):
-        return func.GeomFromText(bindvalue, type_=self)
-    def column_expression(self, col):
-        return func.STAsText(col, type_=self)
+class modelBase():
+
+    Base = declarative_base()
+    metadata = Base.metadata

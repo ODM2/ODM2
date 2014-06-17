@@ -11,3 +11,5 @@ from ODM2 import serviceBase
 from ODMconnection import SessionFactory
 
 class readODM2(serviceBase):
+   def test(self):
+        return None
