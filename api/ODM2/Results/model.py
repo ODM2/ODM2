@@ -3,6 +3,7 @@ from sqlalchemy import BigInteger, Column, DateTime, Float, ForeignKey, Integer,
 from sqlalchemy.orm import relationship
 #from ODM2 import modelBase as Base
 from ODM2.Core.model import Result, Unit, Taxonomicclassifier, Base
+from ODM2.SamplingFeatures.model import Spatialreference
 
 
 
@@ -105,7 +106,7 @@ class Spectraresult(Result):
     AggregationStatisticCV = Column(String(255), nullable=False)
 
     WaveUnitObj = relationship(Unit, primaryjoin='Spectraresult.IntendedWavelengthSpacingUnitsID == Unit.UnitsID')
-    SpatialReferenceObj = relationship(u'Spatialreference')
+    SpatialReferenceObj = relationship(Spatialreference)
     XUnitObj = relationship(Unit, primaryjoin='Spectraresult.XLocationUnitsID == Unit.UnitsID')
     YUnitObj = relationship(Unit, primaryjoin='Spectraresult.YLocationUnitsID == Unit.UnitsID')
     ZUnitObj = relationship(Unit, primaryjoin='Spectraresult.ZLocationUnitsID == Unit.UnitsID')
@@ -390,11 +391,4 @@ class Transectresultvalue(Base):
     TransectResultObj = relationship(Transectresult)
 
 
-class Spatialreference(Base):
-    __tablename__ = u'SpatialReferences'
-    __table_args__ = {u'schema': u'ODM2SamplingFeatures'}
 
-    SpatialReferenceID = Column(Integer, primary_key=True)
-    SRSCode = Column(String(50))
-    SRSName = Column(String(255), nullable=False)
-    SRSDescription = Column(String(500))

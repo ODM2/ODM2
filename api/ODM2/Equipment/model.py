@@ -6,6 +6,20 @@ from sqlalchemy.dialects.mssql.base import BIT
 
 from ODM2.Core.model import Person, Organization, Action, Method, Unit, Variable, Base
 
+class Equipmentmodel(Base):
+    __tablename__ = u'EquipmentModels'
+    __table_args__ = {u'schema': u'ODM2Equipment'}
+
+    ModelID = Column(Integer, primary_key=True)
+    ModelManufacturerID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'), nullable=False)
+    ModelPartNumber = Column(String(50))
+    ModelName = Column(String(255), nullable=False)
+    ModelDescription = Column(String(500))
+    ModelSpecificationsFileLink = Column(String(255))
+    ModelLink = Column(String(255))
+    IsInstrument = Column(BIT, nullable=False)
+
+    OrganizationObj = relationship(Organization)
 
 class Equipment(Base):
     __tablename__ = u'Equipment'
@@ -44,20 +58,7 @@ class Equipmentaction(Base):
     EquipmentObj = relationship(Equipment)
 
 
-class Equipmentmodel(Base):
-    __tablename__ = u'EquipmentModels'
-    __table_args__ = {u'schema': u'ODM2Equipment'}
 
-    ModelID = Column(Integer, primary_key=True)
-    ModelManufacturerID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'), nullable=False)
-    ModelPartNumber = Column(String(50))
-    ModelName = Column(String(255), nullable=False)
-    ModelDescription = Column(String(500))
-    ModelSpecificationsFileLink = Column(String(255))
-    ModelLink = Column(String(255))
-    IsInstrument = Column(BIT, nullable=False)
-
-    OrganizationObj = relationship(Organization)
 
 
 class Instrumentoutputvariable(Base):

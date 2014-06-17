@@ -14,9 +14,5 @@ from ODMconnection import SessionFactory
 
 
 class updateDataQuality (serviceBase):
-<<<<<<< HEAD
-   def test(self):
+    def test(self):
         return None
-=======
-    pass
->>>>>>> 80be1730e4dfe721cdd35bc595533ed62116729f

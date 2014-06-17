@@ -14,12 +14,9 @@ import ODM2.Sensors.model as m
 
 
 class createSensors (serviceBase):
-<<<<<<< HEAD
-   def test(self):
-        return None
-=======
+
     def createDeploymentAction(self, actionId, cvType, desc, configActionId, calibActionId, spatialOffSet,
-                               deploymentSchematicLink):
+                               deploymentSchematicLink, **kwargs):
         """Create DeploymentAction Object
 
         :param **kwargs:
@@ -50,4 +47,4 @@ class createSensors (serviceBase):
 
 
 
->>>>>>> 80be1730e4dfe721cdd35bc595533ed62116729f
+

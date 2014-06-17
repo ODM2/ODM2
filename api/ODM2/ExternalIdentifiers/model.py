@@ -4,6 +4,8 @@ from sqlalchemy.orm import relationship
 #from ODM2 import modelBase as Base
 from ODM2.Core.model import Organization, Samplingfeature, Method, Person, Taxonomicclassifier, Variable, Base
 from ODM2.Provenance.model import Citation
+from ODM2.DataQuality.model import Referencematerial
+from ODM2.SamplingFeatures.model import Spatialreference
 
 
 
@@ -20,24 +22,6 @@ class Externalidentifiersystem(Base):
     OrganizationObj = relationship(Organization)
 
 
-class Referencematerial(Base):
-    __tablename__ = u'ReferenceMaterials'
-    __table_args__ = {u'schema': u'ODM2DataQuality'}
-
-    ReferenceMaterialID = Column(Integer, primary_key=True)
-    ReferenceMaterialMediumCV = Column(String(255), nullable=False)
-    ReferenceMaterialOrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'), nullable=False)
-    ReferenceMaterialCode = Column(String(50), nullable=False)
-    ReferenceMaterialLotCode = Column(String(255))
-    ReferenceMaterialPurchaseDate = Column(DateTime)
-    ReferenceMaterialExpirationDate = Column(DateTime)
-    ReferenceMaterialCertificateLink = Column(String(255))
-    SamplingFeatureID = Column(ForeignKey('ODM2Core.SamplingFeatures.SamplingFeatureID'))
-
-    OrganizationObj = relationship(Organization)
-    SamplingFeatureObj = relationship(Samplingfeature)
-
-
 class Citationexternalidentifier(Base):
     __tablename__ = u'CitationExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2ExternalIdentifiers'}
@@ -50,7 +34,6 @@ class Citationexternalidentifier(Base):
 
     CitationObj = relationship(Citation)
     ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
-
 
 
 class Methodexternalidentifier(Base):
@@ -150,12 +133,3 @@ class Variableexternalidentifier(Base):
     ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
     VariableObj = relationship(Variable)
 
-
-class Spatialreference(Base):
-    __tablename__ = u'SpatialReferences'
-    __table_args__ = {u'schema': u'ODM2SamplingFeatures'}
-
-    SpatialReferenceID = Column(Integer, primary_key=True)
-    SRSCode = Column(String(50))
-    SRSName = Column(String(255), nullable=False)
-    SRSDescription = Column(String(500))

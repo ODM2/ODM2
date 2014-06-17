@@ -8,7 +8,7 @@ directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this
 sys.path.insert(0, directory)
 
 from ODM2 import serviceBase
-from ODM2.Sensors.model as m
+import ODM2.Sensors.model  as m
 
 
 class readSensors(serviceBase):
@@ -16,11 +16,7 @@ class readSensors(serviceBase):
     DeploymentAction
     """
 
-<<<<<<< HEAD
-class readSensors (serviceBase):
-   def test(self):
-        return None
-=======
+
     def getAllDeploymentAction(self):
         """Select all on DeploymentAction
 
@@ -56,4 +52,3 @@ class readSensors (serviceBase):
             return self._session.query(m.Deploymentaction).filter_by(DeploymentActionCode=deploymentCode).one()
         except:
             return None
->>>>>>> 80be1730e4dfe721cdd35bc595533ed62116729f

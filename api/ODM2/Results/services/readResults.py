@@ -13,8 +13,7 @@ __author__ = 'Jacob'
 class readResults(serviceBase):
     """queries to tables contained in Results schema"""
 
-    def __init__(self):
-        pass
+
 
     """
     TimeSeriesResults
