@@ -8,11 +8,52 @@ directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this
 sys.path.insert(0, directory)
 
 from ODM2 import serviceBase
-import ODM2.Sensors.model as m
-from ODMconnection import SessionFactory
+from ODM2.Sensors.model as m
 
 
+class readSensors(serviceBase):
+    """
+    DeploymentAction
+    """
 
+<<<<<<< HEAD
 class readSensors (serviceBase):
    def test(self):
         return None
+=======
+    def getAllDeploymentAction(self):
+        """Select all on DeploymentAction
+
+        :return DeploymentAction Objects:
+            :type list:
+        """
+        return self._session.query(m.Deploymentaction).all()
+
+        # return self._session.query(m.)
+
+    def getDeploymentActionById(self, deploymentId):
+        """Select by deploymentId
+
+        :param deploymentId:
+            :type Integer:
+        :return Return Matching DeploymentAction Object filtered by deploymentId:
+            :type DeploymentAction:
+        """
+        try:
+            return self._session.query(m.Deploymentaction).filter_by(DeploymentActionID=deploymentId).one()
+        except:
+            return None
+
+    def getDeploymentActionByCode(self, deploymentCode):
+        """Select by deploymentCode
+
+        :param deploymentCode:
+            :type String:
+        :return Return matching DeploymentAction Object filtered by deploymentCode:
+            :type DeploymentAction:
+        """
+        try:
+            return self._session.query(m.Deploymentaction).filter_by(DeploymentActionCode=deploymentCode).one()
+        except:
+            return None
+>>>>>>> 80be1730e4dfe721cdd35bc595533ed62116729f

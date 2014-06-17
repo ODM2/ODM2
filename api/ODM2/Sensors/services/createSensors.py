@@ -9,10 +9,45 @@ sys.path.insert(0, directory)
 
 from ODM2 import serviceBase
 import ODM2.Sensors.model as m
-from ODMconnection import SessionFactory
+#from ODM2 import SessionFactory
 
 
 
 class createSensors (serviceBase):
+<<<<<<< HEAD
    def test(self):
         return None
+=======
+    def createDeploymentAction(self, actionId, cvType, desc, configActionId, calibActionId, spatialOffSet,
+                               deploymentSchematicLink):
+        """Create DeploymentAction Object
+
+        :param **kwargs:
+            :param actionId:
+                :type Integer:
+            :param cvType:
+                :type String(255):
+            :param desc:
+                :type String(500):
+            :param configActionId:
+                :type Integer:
+            :param calibActionId:
+                :type Integer:
+            :param spatialOffSet:
+                :type Integer:
+            :param deploymentSchematicLink:
+                :type String(255):
+            :return:
+        """
+
+        da = m.Deploymentaction()
+        da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
+        da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
+        da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
+        da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
+        da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
+        da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
+
+
+
+>>>>>>> 80be1730e4dfe721cdd35bc595533ed62116729f

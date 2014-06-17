@@ -14,6 +14,7 @@ from ODMconnection import SessionFactory
 
 
 class readDataQuality (serviceBase):
+<<<<<<< HEAD
    def getAllDataQuality(self):
         """Select all on Data Quality
 
@@ -21,3 +22,6 @@ class readDataQuality (serviceBase):
             :type list:
         """
         return self._session.query(m.Dataquality).all()
+=======
+    pass
+>>>>>>> 80be1730e4dfe721cdd35bc595533ed62116729f

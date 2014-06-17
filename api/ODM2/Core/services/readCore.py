@@ -198,60 +198,90 @@ class readCore(serviceBase):
             return None
 
     """
-    DeploymentAction
+    Unit
     """
+    def getAllUnits(self):
+        """Select all on Unit
 
-    def getAllDeploymentAction(self):
-        """Select all on DeploymentAction
-
-        :return DeploymentAction Objects:
+        :return Unit Objects:
             :type list:
         """
-        pass
+        return self._session.query(m.Unit).all()
 
-        #return self._session.query(m.)
 
-    def getDeploymentActionById(self, deploymentId):
-        """Select by deploymentId
+    def getUnitById(self, unitId):
+        """Select by samplingId
 
-        :param deploymentId:
+        :param unitId:
             :type Integer:
-        :return Return Matching DeploymentAction Object filtered by deploymentId:
-            :type DeploymentAction:
+        :return Return matching Unit Object filtered by UnitId:
+            :type Unit:
         """
-        pass
+        try:
+            return self._session.query(m.Unit).filter_by(UnitsID=unitId).one()
+        except:
+            return None
 
-    def getDeploymentActionByCode(self, deploymentCode):
-        """Select by deploymentCode
+    """
+    Organization
+    """
+    def getAllOrganizations(self):
+        """Select all on Organization
 
-        :param deploymentCode:
+        :return Organization Objects:
+            :type list:
+        """
+        return self._session.query(m.Organization).all()
+
+
+    def getOrganizationById(self, orgId):
+        """Select by orgId
+
+        :param orgId:
+            :type Integer:
+        :return Return matching Unit Object filtered by orgId:
+            :type Organization:
+        """
+        try:
+            return self._session.query(m.Organization).filter_by(OrganizationID=orgId).one()
+        except:
+            return None
+
+
+    def getOrganizationByCode(self, orgCode):
+        """Select by orgCode
+
+        :param orgCode:
             :type String:
-        :return Return matching DeploymentAction Object filtered by deploymentCode:
-            :type DeploymentAction:
+        :return Return matching Organization Object filtered by orgCode
+            :type Organization:
         """
-        pass
-
-
-
-
+        try:
+            return self._session.query(m.Samplingfeature).filter_by(OrganizationCode=orgCode).one()
+        except:
+            return None
     """
-    Results
+    Person
     """
+    def getAllPerson(self):
+        """Select all on Person
+
+        :return Person Objects:
+            :type list:
+        """
+        return self._session.query(m.Person).all()
 
 
-    def getAllResults(self):
-        pass
+    def getPersonById(self, personId):
+        """Select by personId
 
-
-    def getResultsById(self, resultsId):
-        pass
-
-
-    def getResultsByCode(self, resultsCode):
-        pass
-
-
-
-
-
+        :param personId:
+            :type Integer:
+        :return Return matching Person Object filtered by personId:
+            :type Person:
+        """
+        try:
+            return self._session.query(m.Organization).filter_by(PersonID=personId).one()
+        except:
+            return None
 

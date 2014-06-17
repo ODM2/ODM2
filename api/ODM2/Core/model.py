@@ -1,14 +1,18 @@
 # coding: utf-8
 from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.dialects.mssql.base import BIT, UNIQUEIDENTIFIER
+
 from sqlalchemy.orm import relationship, aliased
 from sqlalchemy.types import NullType as Geometry
+
 
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 
+
 #from ODM2 import modelBase as Base
+
 
 #from geoalchemy2 import Geometry
 
@@ -24,6 +28,7 @@ class Geometry(UserDefinedType):
         return func.STAsText(col, type_=self)
 '''
 
+
 class Person(Base):
     __tablename__ = u'People'
     __table_args__ = {u'schema': u'ODM2Core'}
@@ -32,6 +37,7 @@ class Person(Base):
     PersonFirstName = Column(String(255), nullable=False)
     PersonMiddleName = Column(String(255))
     PersonLastName = Column(String(255), nullable=False)
+
 
 class Organization(Base):
     __tablename__ = u'Organizations'
@@ -48,8 +54,8 @@ class Organization(Base):
     parent = relationship(u'Organization', remote_side=[OrganizationID])
 
 class Affiliation(Base):
-    __tablename__ = u'Affiliations'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __tablename__ = 'Affiliations'
+    __table_args__ = {u'schema': 'ODM2Core'}
 
     AffiliationID = Column(Integer, primary_key=True)
     PersonID = Column(ForeignKey('ODM2Core.People.PersonID'), nullable=False)
@@ -57,27 +63,30 @@ class Affiliation(Base):
     IsPrimaryOrganizationContact = Column(BIT)
     AffiliationStartDate = Column(Date, nullable=False)
     AffiliationEndDate = Column(Date)
-    PrimaryPhone = Column(String(50))
-    PrimaryEmail = Column(String(255), nullable=False)
-    PrimaryAddress = Column(String(255))
-    PersonLink = Column(String(255))
+    PrimaryPhone = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'))
+    PrimaryEmail = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    PrimaryAddress = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    PersonLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+
 
     OrganizationObj = relationship(Organization)
     PersonObj = relationship(Person)
 
+
 class Method(Base):
-    __tablename__ = u'Methods'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __tablename__ = 'Methods'
+    __table_args__ = {u'schema': 'ODM2Core'}
 
     MethodID = Column(Integer, primary_key=True)
-    MethodTypeCV = Column(String(255), nullable=False)
-    MethodCode = Column(String(50), nullable=False)
-    MethodName = Column(String(255), nullable=False)
-    MethodDescription = Column(String(500))
-    MethodLink = Column(String(255))
+    MethodTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    MethodCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    MethodName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    MethodDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    MethodLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
     OrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'))
 
     OrganizationObj = relationship(Organization)
+
 
 class Action(Base):
     __tablename__ = u'Actions'
@@ -92,6 +101,7 @@ class Action(Base):
     EndDateTimeUTCOffset = Column(Integer)
     ActionDescription = Column(String(500))
     ActionFileLink = Column(String(255))
+
 
     MethodObj = relationship(Method)
 
@@ -148,58 +158,59 @@ class Dataset(Base):
     DataSetAbstract = Column(String(500), nullable=False)
 
 class Processinglevel(Base):
-    __tablename__ = u'ProcessingLevels'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __tablename__ = 'ProcessingLevels'
+    __table_args__ = {u'schema': 'ODM2Core'}
 
     ProcessingLevelID = Column(Integer, primary_key=True)
-    ProcessingLevelCode = Column(String(50), nullable=False)
-    Definition = Column(String(500))
-    Explanation = Column(String(500))
+    ProcessingLevelCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    Definition = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    Explanation = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
 
 class Relatedaction(Base):
-    __tablename__ = u'RelatedActions'
+    __tablename__ = 'RelatedActions'
     __table_args__ = {u'schema': 'ODM2Core'}
 
     RelationID = Column(Integer, primary_key=True)
     ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelationshipTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     RelatedActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
 
     ActionObj = relationship(Action, primaryjoin='Relatedaction.ActionID == Action.ActionID')
     RelatedActionObj = relationship( Action, primaryjoin='Relatedaction.RelatedActionID == Action.ActionID')
 
+
 class Taxonomicclassifier(Base):
-    __tablename__ = u'TaxonomicClassifiers'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __tablename__ = 'TaxonomicClassifiers'
+    __table_args__ = {u'schema': 'ODM2Core'}
 
     TaxonomicClassifierID = Column(Integer, primary_key=True)
-    TaxonomicClassifierTypeCV = Column(String(255), nullable=False)
-    TaxonomicClassifierName = Column(String(255), nullable=False)
-    TaxonomicClassifierCommonName = Column(String(255))
-    TaxonomicClassifierDescription = Column(String(500))
+    TaxonomicClassifierTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    TaxonomicClassifierName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    TaxonomicClassifierCommonName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    TaxonomicClassifierDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
     ParentTaxonomicClassifierID = Column(ForeignKey('ODM2Core.TaxonomicClassifiers.TaxonomicClassifierID'))
 
     parent = relationship(u'Taxonomicclassifier', remote_side=[TaxonomicClassifierID])
 
 class Unit(Base):
-    __tablename__ = u'Units'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __tablename__ = 'Units'
+    __table_args__ = {u'schema': 'ODM2Core'}
 
     UnitsID = Column(Integer, primary_key=True)
-    UnitsTypeCV = Column(String(255), nullable=False)
-    UnitsAbbreviation = Column(String(50), nullable=False)
-    UnitsName = Column(String(255), nullable=False)
+    UnitsTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    UnitsAbbreviation = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    UnitsName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
 
 class Variable(Base):
-    __tablename__ = u'Variables'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __tablename__ = 'Variables'
+    __table_args__ = {u'schema': 'ODM2Core'}
 
     VariableID = Column(Integer, primary_key=True)
-    VariableTypeCV = Column(String(255), nullable=False)
-    VariableCode = Column(String(50), nullable=False)
-    VariableNameCV = Column(String(255), nullable=False)
-    VariableDefinition = Column(String(500))
-    SpeciationCV = Column(String(255))
+    VariableTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    VariableCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    VariableNameCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    VariableDefinition = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    SpeciationCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
     NoDataValue = Column(Float(53), nullable=False)
 
     def __repr__(self):
@@ -257,3 +268,4 @@ class Datasetsresult(Base):
 
     DataSetObj = relationship(Dataset)
     ResultObj = relationship(Result)
+

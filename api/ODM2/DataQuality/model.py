@@ -8,36 +8,39 @@ from ODM2.Provenance.model import Citation
 
 
 class Dataquality(Base):
-    __tablename__ = u'DataQuality'
+    __tablename__ = 'DataQuality'
     __table_args__ = {u'schema': 'ODM2DataQuality'}
 
     DataQualityID = Column(Integer, primary_key=True)
-    DataQualityTypeCV = Column(String(255), nullable=False)
-    DataQualityCode = Column(String(255), nullable=False)
+    DataQualityTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    DataQualityCode = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     DataQualityValue = Column(Float(53))
     DataQualityValueUnitsID = Column(ForeignKey('ODM2Core.Units.UnitsID'))
-    DataQualityDescription = Column(String(500))
-    DataQualityLink = Column(String(255))
+    DataQualityDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    DataQualityLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+
 
     UnitObj = relationship(Unit)
 
 
+
 class Referencematerial(Base):
-    __tablename__ = u'ReferenceMaterials'
+    __tablename__ = 'ReferenceMaterials'
     __table_args__ = {u'schema': 'ODM2DataQuality'}
 
     ReferenceMaterialID = Column(Integer, primary_key=True)
-    ReferenceMaterialMediumCV = Column(String(255), nullable=False)
+    ReferenceMaterialMediumCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     ReferenceMaterialOrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'), nullable=False)
-    ReferenceMaterialCode = Column(String(50), nullable=False)
-    ReferenceMaterialLotCode = Column(String(255))
+    ReferenceMaterialCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    ReferenceMaterialLotCode = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
     ReferenceMaterialPurchaseDate = Column(DateTime)
     ReferenceMaterialExpirationDate = Column(DateTime)
-    ReferenceMaterialCertificateLink = Column(String(255))
+    ReferenceMaterialCertificateLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
     SamplingFeatureID = Column(ForeignKey('ODM2Core.SamplingFeatures.SamplingFeatureID'))
 
     OrganizationObj = relationship(Organization)
     SamplingFeature = relationship(Samplingfeature)
+
 
 
 Resultnormalizationvalue = Table(
@@ -68,7 +71,7 @@ class Referencematerialvalue(Base):
 
 
 class Resultsdataquality(Base):
-    __tablename__ = u'ResultsDataQuality'
+    __tablename__ = 'ResultsDataQuality'
     __table_args__ = {u'schema': 'ODM2DataQuality'}
 
     BridgeID = Column(Integer, primary_key=True)
