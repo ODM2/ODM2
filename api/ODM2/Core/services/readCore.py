@@ -252,7 +252,7 @@ class readCore(serviceBase):
             :type Organization:
         """
         try:
-            return self._session.query(Samplingfeature).filter_by(OrganizationCode=orgCode).one()
+            return self._session.query(Organization).filter_by(OrganizationCode=orgCode).one()
         except:
             return None
     """
@@ -276,7 +276,20 @@ class readCore(serviceBase):
             :type Person:
         """
         try:
-            return self._session.query(Organization).filter_by(PersonID=personId).one()
+            return self._session.query(Person).filter_by(PersonID=personId).one()
         except:
             return None
 
+    def getPersonByName(self, personfirst, personlast):
+        """Select by person name, last name combination
+
+        :param personfirst: first name of person
+        :param personlast: last name of person
+        :return Return matching Person Object:
+            :type Person:
+        """
+        try:
+            return self._session.query(Person).filter(Person.PersonFirstName.ilike(personfirst)). \
+                                                 filter(Person.PersonLastName.ilike(personlast)).one()
+        except:
+            return None
