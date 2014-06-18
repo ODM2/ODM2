@@ -1,4 +1,6 @@
-from ODMconnection import SessionFactory
+
+
+from ..ODMconnection import SessionFactory
 from sqlalchemy.ext.declarative import declarative_base
 
 

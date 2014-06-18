@@ -7,8 +7,8 @@ this_file = os.path.realpath(__file__)
 directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
 sys.path.insert(0, directory)
 
-from ODM2 import serviceBase
-import ODM2.Core.model as m
+from ...base import serviceBase
+from ..model import *
 
 
 class createCore(serviceBase):
@@ -29,7 +29,7 @@ class createCore(serviceBase):
             :type String(500):
         :return:
         """
-        var = m.Variable()
+        var = Variable()
         var.VariableCode = code
         var.VariableNameCV = name
         var.VariableDefinition = definition
@@ -39,6 +39,8 @@ class createCore(serviceBase):
 
         self._session.add(var)
         self._session.commit()
+
+        return var
 
     def createMethod(self, code, name, vType, orgId=None, link=None, description=None):
         """Create Method table for the database
@@ -58,7 +60,7 @@ class createCore(serviceBase):
         :return:
         """
 
-        meth = m.Method()
+        meth = Method()
         meth.MethodCode = code
         meth.MethodNameCV = name
         meth.MethodDescription = description
@@ -68,6 +70,8 @@ class createCore(serviceBase):
 
         self._session.add(meth)
         self._session.commit()
+
+        return meth
 
     def createProcessingLevel(self, code, definition=None, explanation=None):
         """Create Processinglevel table for database
@@ -80,13 +84,15 @@ class createCore(serviceBase):
             :type String(500):
         :return:
         """
-        pl = m.Processinglevel()
+        pl = Processinglevel()
         pl.ProcessingLevelCode = code
         pl.Definition = definition
         pl.Explanation = explanation
 
         self._session.add(pl)
         self._session.commit()
+
+        return pl
 
     def createSamplingFeature(self, code, vType, name=None, description=None, geoType=None, evelation=None,
                               evelationDatum=None, featureGeo=None):
@@ -110,7 +116,7 @@ class createCore(serviceBase):
             :type NullType:
         :return:
         """
-        sf = m.Samplingfeature()
+        sf = Samplingfeature()
         sf.SamplingFeatureTypeCV = vType
         sf.SamplingFeatureCode = code
         sf.SamplingFeatureName = name
@@ -123,6 +129,9 @@ class createCore(serviceBase):
         self._session.add(sf)
         self._session.commit()
 
+        return sf
+
+
     def createUnit(self, code, abbrev, name):
         """Create Unit table
 
@@ -134,7 +143,7 @@ class createCore(serviceBase):
             :type String(255):
         :return:
         """
-        unit = m.Unit()
+        unit = Unit()
         unit.UnitsTypeCV = code
         unit.UnitsAbbreviation = abbrev
         unit.UnitsName = name
@@ -142,6 +151,7 @@ class createCore(serviceBase):
         self._session.add(unit)
         self._session.commit()
 
+        return unit
 
     def createOrganization(self, cvType, code, name, desc, link, parentOrgId):
         """Create Organization table
@@ -161,7 +171,7 @@ class createCore(serviceBase):
         :return:
         """
 
-        org = m.Organization()
+        org = Organization()
         org.OrganizationTypeCV = cvType
         org.OrganizationCode = code
         org.OrganizationName = name
@@ -171,6 +181,8 @@ class createCore(serviceBase):
 
         self._session.add(org)
         self._session.commit()
+
+        return org
 
     def createPerson(self, firstName, lastName, middleName=""):
         """Create Person Table
@@ -184,7 +196,7 @@ class createCore(serviceBase):
         :return:
         """
 
-        p = m.Person()
+        p = Person()
         p.PersonFirstName = firstName
         p.PersonMiddleName = middleName
         p.PersonLastNAme = lastName
@@ -192,5 +204,6 @@ class createCore(serviceBase):
         self._session.add(p)
         self._session.commit()
 
+        return p
 
         # def createResult(self, uuid, featureActionId, vType, ):

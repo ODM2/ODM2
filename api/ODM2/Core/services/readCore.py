@@ -1,14 +1,9 @@
 __author__ = 'Stephanie'
 
-import sys
-import os
 
-this_file = os.path.realpath(__file__)
-directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
-sys.path.insert(0, directory)
+from ...base import serviceBase
+from ..model import *
 
-from ODM2 import serviceBase
-import ODM2.Core.model as m
 
 
 class readCore(serviceBase):
@@ -24,7 +19,7 @@ class readCore(serviceBase):
         :return Variable Objects:
             :type list:
         """
-        return self._session.query(m.Variable).all()
+        return self._session.query(Variable).all()
 
     def getVariableById(self, variableId):
         """Select by variableId
@@ -35,7 +30,7 @@ class readCore(serviceBase):
             :type Variable:
         """
         try:
-            return self._session.query(m.Variable).filter_by(VariableID=variableId).one()
+            return self._session.query(Variable).filter_by(VariableID=variableId).one()
         except:
             return None
 
@@ -48,7 +43,7 @@ class readCore(serviceBase):
             :type Variable:
         """
         try:
-            return self._session.query(m.Variable).filter_by(VariableCode=variableCode).one()
+            return self._session.query(Variable).filter_by(VariableCode=variableCode).one()
         except:
             return None
 
@@ -62,7 +57,7 @@ class readCore(serviceBase):
         :return Method Objects:
             :type list:
         """
-        return self._session.query(m.Method).all()
+        return self._session.query(Method).all()
 
     def getMethodById(self, methodId):
         """Select by methodId
@@ -73,7 +68,7 @@ class readCore(serviceBase):
             :type Method:
         """
         try:
-            return self._session.query(m.Method).filter_by(MethodID=methodId).one()
+            return self._session.query(Method).filter_by(MethodID=methodId).one()
         except:
             return None
 
@@ -86,7 +81,7 @@ class readCore(serviceBase):
             :type Method:
         """
         try:
-            return self._session.query(m.Method).filter_by(MethodCode=methodCode).one()
+            return self._session.query(Method).filter_by(MethodCode=methodCode).one()
         except:
             return None
 
@@ -100,7 +95,7 @@ class readCore(serviceBase):
         :return ProcessingLevel Objects:
             :type list:
         """
-        return self._session.query(m.Processinglevel).all()
+        return self._session.query(Processinglevel).all()
 
     def getProcessingLevelById(self, processingId):
         """Select by processingId
@@ -111,7 +106,7 @@ class readCore(serviceBase):
             :type Processinglevel:
         """
         try:
-            return self._session.query(m.Processinglevel).filter_by(ProcessingLevelID=processingId).one()
+            return self._session.query(Processinglevel).filter_by(ProcessingLevelID=processingId).one()
         except:
             return None
 
@@ -125,7 +120,7 @@ class readCore(serviceBase):
             :type Processinglevel:
         """
         try:
-            return self._session.query(m.Processinglevel).filter_by(ProcessingLevelCode=processingCode).one()
+            return self._session.query(Processinglevel).filter_by(ProcessingLevelCode=processingCode).one()
         except:
             return None
 
@@ -139,7 +134,7 @@ class readCore(serviceBase):
         :return SamplingFeature Objects:
             :type list:
         """
-        return self._session.query(m.Samplingfeature).from_statement("Select SamplingFeatureID\
+        return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
                                                                         ,SamplingFeatureName\
@@ -160,7 +155,7 @@ class readCore(serviceBase):
             :type SamplingFeature:
         """
         try:
-            return self._session.query(m.Samplingfeature).from_statement("Select SamplingFeatureID\
+            return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
                                                                         ,SamplingFeatureName\
@@ -183,7 +178,7 @@ class readCore(serviceBase):
             :type SamplingFeature:
         """
         try:
-            return self._session.query(m.Samplingfeature).from_statement("Select SamplingFeatureID\
+            return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
                                                                         ,SamplingFeatureName\
@@ -206,7 +201,7 @@ class readCore(serviceBase):
         :return Unit Objects:
             :type list:
         """
-        return self._session.query(m.Unit).all()
+        return self._session.query(Unit).all()
 
 
     def getUnitById(self, unitId):
@@ -218,7 +213,7 @@ class readCore(serviceBase):
             :type Unit:
         """
         try:
-            return self._session.query(m.Unit).filter_by(UnitsID=unitId).one()
+            return self._session.query(Unit).filter_by(UnitsID=unitId).one()
         except:
             return None
 
@@ -231,7 +226,7 @@ class readCore(serviceBase):
         :return Organization Objects:
             :type list:
         """
-        return self._session.query(m.Organization).all()
+        return self._session.query(Organization).all()
 
 
     def getOrganizationById(self, orgId):
@@ -243,7 +238,7 @@ class readCore(serviceBase):
             :type Organization:
         """
         try:
-            return self._session.query(m.Organization).filter_by(OrganizationID=orgId).one()
+            return self._session.query(Organization).filter_by(OrganizationID=orgId).one()
         except:
             return None
 
@@ -257,7 +252,7 @@ class readCore(serviceBase):
             :type Organization:
         """
         try:
-            return self._session.query(m.Samplingfeature).filter_by(OrganizationCode=orgCode).one()
+            return self._session.query(Samplingfeature).filter_by(OrganizationCode=orgCode).one()
         except:
             return None
     """
@@ -269,7 +264,7 @@ class readCore(serviceBase):
         :return Person Objects:
             :type list:
         """
-        return self._session.query(m.Person).all()
+        return self._session.query(Person).all()
 
 
     def getPersonById(self, personId):
@@ -281,7 +276,7 @@ class readCore(serviceBase):
             :type Person:
         """
         try:
-            return self._session.query(m.Organization).filter_by(PersonID=personId).one()
+            return self._session.query(Organization).filter_by(PersonID=personId).one()
         except:
             return None
 
