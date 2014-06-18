@@ -7,6 +7,7 @@ this_file = os.path.realpath(__file__)
 directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
 sys.path.insert(0, directory)
 
+import datetime as dt
 from ...base import serviceBase
 from ..model import *
 
@@ -207,3 +208,36 @@ class createCore(serviceBase):
         return p
 
         # def createResult(self, uuid, featureActionId, vType, ):
+
+    def createAffiliation(self,personid,organizationid,email,phone=None,address=None, link=None,
+                          iscontact=False, affiliation_start=dt.datetime.today(), affiliation_end=None):
+        """
+
+        :param personid: id of the person record
+        :param organizationid: id of the organization record
+        :param email: primary email address
+        :param phone: primary phone number
+        :param address: primary mailing address
+        :param link: url pointing the web resource such as researchGate profile
+        :param iscontact: indicate if this person is the primary contact for the organization
+        :param affiliation_start: begin date of affiliation with organization
+        :param affiliation_end: end date of affiliation with organization
+        :return: ODM2Core.Affiliation
+        """
+
+        # create affiliation object
+        a = Affiliation()
+        a.PersonID = personid
+        a.OrganizationID = organizationid
+        a.PrimaryEmail = email
+        a.PrimaryPhone = phone
+        a.PrimaryAddress = address
+        a.PersonLink = link
+        a.IsPrimaryOrganizationContact = iscontact
+        a.AffiliationStartDate = affiliation_start
+        a.AffiliationEndDate = affiliation_end
+
+        self._session.add(a)
+        self._session.commit()
+
+        return a
