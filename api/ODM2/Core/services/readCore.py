@@ -293,3 +293,34 @@ class readCore(serviceBase):
                                                  filter(Person.PersonLastName.ilike(personlast)).one()
         except:
             return None
+
+    def getAffiliationByPersonAndOrg(self,personfirst,personlast,orgcode):
+        """
+        Select all affiliation of person
+        :param personfirst: first name of person
+        :param personlast: last name of person
+        :param orgcode: organization code (e.g. uwrl)
+        :return: ODM2Core.Affiliation
+        """
+
+        try:
+            return self._session.query(Affiliation).filter(Organization.OrganizationCode.ilike(orgcode)) \
+                                                    .filter(Person.PersonFirstName.ilike(personfirst)) \
+                                                   .filter(Person.PersonLastName.ilike(personlast)).one()
+        except:
+            return None
+
+    def getAffiliationsByPerson(self,personfirst,personlast):
+        """
+        Select all affiliation of person
+        :param personfirst: first name of person
+        :param personlast: last name of person
+        :return: [ODM2Core.Affiliation]
+        """
+
+        try:
+            return self._session.query(Affiliation).filter(Person.PersonFirstName.ilike(personfirst)) \
+                                                   .filter(Person.PersonLastName.ilike(personlast)).all()
+        except Exception, e:
+            print e
+            return None
