@@ -5,16 +5,16 @@ from sqlalchemy.dialects.mssql.base import BIT, UNIQUEIDENTIFIER
 from sqlalchemy.orm import relationship, aliased
 from sqlalchemy.types import NullType as Geometry
 
-
+#from ODM2 import modelBase as Base
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 
 
-#from ODM2 import modelBase as Base
 
 
-#from geoalchemy2 import Geometry
+
+from geoalchemy2 import Geometry
 
 '''from sqlalchemy import func
 from sqlalchemy.types import UserDefinedType

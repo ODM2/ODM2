@@ -3,12 +3,10 @@ __author__ = 'Stephanie'
 import sys
 import os
 
-this_file = os.path.realpath(__file__)
-directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
-sys.path.insert(0, directory)
 
-from ODM2 import serviceBase
-import ODM2.Sensors.model  as m
+
+from ... import serviceBase
+from ..model import *
 
 
 class readSensors(serviceBase):
@@ -23,9 +21,9 @@ class readSensors(serviceBase):
         :return DeploymentAction Objects:
             :type list:
         """
-        return self._session.query(m.Deploymentaction).all()
+        return self._session.query(Deploymentaction).all()
 
-        # return self._session.query(m.)
+        # return self._session.query)
 
     def getDeploymentActionById(self, deploymentId):
         """Select by deploymentId
@@ -36,7 +34,7 @@ class readSensors(serviceBase):
             :type DeploymentAction:
         """
         try:
-            return self._session.query(m.Deploymentaction).filter_by(DeploymentActionID=deploymentId).one()
+            return self._session.query(Deploymentaction).filter_by(DeploymentActionID=deploymentId).one()
         except:
             return None
 
@@ -49,6 +47,6 @@ class readSensors(serviceBase):
             :type DeploymentAction:
         """
         try:
-            return self._session.query(m.Deploymentaction).filter_by(DeploymentActionCode=deploymentCode).one()
+            return self._session.query(Deploymentaction).filter_by(DeploymentActionCode=deploymentCode).one()
         except:
             return None

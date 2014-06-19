@@ -29,12 +29,14 @@ from ODMconnection import dbconnection
 
 
 
+
 conn = dbconnection.createConnection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
-#conn = dbconnection.createConnection('postgresql', 'localhost:5432', 'ODM2', 'postgres', '')
+#conn = dbconnection.createConnection('postgresql', 'localhost:5432', 'TestODM2', 'postgres', 'odm')
 
 
 
 cs = CSread(conn)
+sf = SFread(conn)
 dq =DQread(conn)
 anno = Annoread(conn)
 eq = EQread(conn)
@@ -45,20 +47,22 @@ la = LAread(conn)
 r = Rread(conn)
 cv = CVread(conn)
 s = Sread(conn)
-
-
-dq.getAllDataQuality()
+print cs.getGeometryTest()
+print eq.getAllEquipment()
+print dq.getAllDataQuality()
 #print cs.getAllVariables()
+print cs.getAllPerson()[0].PersonFirstName
+
+print sf.getAllSites()
+print cs.getAllSamplingFeature()
+#print cs.getSamplingFeatureByCode("USU-LBR-Mendon")
 
 
-#print cs.getAllSamplingFeature()
-print cs.getSamplingFeatureByCode("USU-LBR-Mendon")
 
-
-sf = SFread(conn)
 #print sf.getAllSites()
-print sf.getSiteBySFCode("USU-LBR-Mendon")
+print sf.getAllSites()
 
+print cs.getGeometryTest()
 
 
 
