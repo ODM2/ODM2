@@ -200,7 +200,7 @@ class createCore(serviceBase):
         p = Person()
         p.PersonFirstName = firstName
         p.PersonMiddleName = middleName
-        p.PersonLastNAme = lastName
+        p.PersonLastName = lastName
 
         self._session.add(p)
         self._session.commit()
