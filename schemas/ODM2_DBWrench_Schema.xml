@@ -2071,12 +2071,12 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_ReferenceMaterialExternalIdentifiers_ExternalIdentifierSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
+      <Fk deAc="3" nm="fk_RefMaterialExtIdentifiers_ExtIdentifierSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
         <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
         <CdTb mn="1" nm="ReferenceMaterialExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
         <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_ReferenceMaterialExternalIdentifiers_ReferenceMaterials" prLkCl="ReferenceMaterialID" upAc="3">
+      <Fk deAc="3" nm="fk_RefMaterialExtIdentifiers_RefMaterials" prLkCl="ReferenceMaterialID" upAc="3">
         <PrTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="0"/>
         <CdTb mn="1" nm="ReferenceMaterialExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
         <ClPr cdCl="ReferenceMaterialID" prCl="ReferenceMaterialID"/>
@@ -2177,12 +2177,12 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_TaxonomicClassifierExternalIdentifiers_ExternalIdentifierSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
+      <Fk deAc="3" nm="fk_TaxonomicClassifierExtIDs_ExtIDSystems" prLkCl="ExternalIdentifierSystemID" upAc="3">
         <PrTb mn="0" nm="ExternalIdentifierSystems" oe="1" sch="ODM2ExternalIdentifiers" zr="0"/>
         <CdTb mn="1" nm="TaxonomicClassifierExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
         <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TaxonomicClassifierExternalIdentifiers_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
+      <Fk deAc="3" nm="fk_TaxonomicClassifierExtIDs_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
         <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="TaxonomicClassifierExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
         <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
@@ -4534,14 +4534,14 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.MethodExternalIdentifiers.fk_MethodExternalIdentifiers_Methods"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_PersonExternalIdentifiers_ExternalIdentifierSystems"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.PersonExternalIdentifiers.fk_PersonExternalIdentifiers_People"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.ReferenceMaterialExternalIdentifiers.fk_ReferenceMaterialExternalIdentifiers_ExternalIdentifierSystems"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.ReferenceMaterialExternalIdentifiers.fk_ReferenceMaterialExternalIdentifiers_ReferenceMaterials"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.ReferenceMaterialExternalIdentifiers.fk_RefMaterialExtIdentifiers_ExtIdentifierSystems"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.ReferenceMaterialExternalIdentifiers.fk_RefMaterialExtIdentifiers_RefMaterials"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SamplingFeatureExternalIdentifiers_ExternalIdentifierSystems"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers.fk_SamplingFeatureExternalIdentifiers_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SpatialReferenceExternalIdentifiers.fk_SpatialReferenceExternalIdentifiers_ExternalIdentifierSystems"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.SpatialReferenceExternalIdentifiers.fk_SpatialReferenceExternalIdentifiers_SpatialReferences"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers.fk_TaxonomicClassifierExternalIdentifiers_ExternalIdentifierSystems"/>
-    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers.fk_TaxonomicClassifierExternalIdentifiers_TaxonomicClassifiers"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers.fk_TaxonomicClassifierExtIDs_ExtIDSystems"/>
+    <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers.fk_TaxonomicClassifierExtIDs_TaxonomicClassifiers"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_VariableExternalIdentifiers_ExternalIdentifierSystems"/>
     <FkGl bkCl="ff000000" nm="ODM2ExternalIdentifiers.VariableExternalIdentifiers.fk_VariableExternalIdentifiers_Variables"/>
     <Notes/>
@@ -6027,7 +6027,9 @@ rid of DeploymentTypeCV.</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifers" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
