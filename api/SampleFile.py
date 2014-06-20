@@ -30,8 +30,8 @@ from ODMconnection import dbconnection
 
 
 
-conn = dbconnection.createConnection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
-#conn = dbconnection.createConnection('postgresql', 'localhost:5432', 'TestODM2', 'postgres', 'odm')
+#conn = dbconnection.createConnection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
+conn = dbconnection.createConnection('postgresql', 'localhost:5432', 'TestODM2', 'postgres', 'odm')
 
 
 
@@ -47,22 +47,20 @@ la = LAread(conn)
 r = Rread(conn)
 cv = CVread(conn)
 s = Sread(conn)
-print cs.getGeometryTest()
-print eq.getAllEquipment()
-print dq.getAllDataQuality()
-#print cs.getAllVariables()
-print cs.getAllPerson()[0].PersonFirstName
+print "Get Geometry Test 1: ",cs.getGeometryTest()
+print "Get all equipment: " ,eq.getAllEquipment()
+print "Get all dataquality: " ,dq.getAllDataQuality()
+print "Get all variable: " ,cs.getAllVariables()
+print "Get all People: " ,cs.getAllPerson()#[0].PersonFirstName
 
-print sf.getAllSites()
-print cs.getAllSamplingFeature()
-#print cs.getSamplingFeatureByCode("USU-LBR-Mendon")
+print "Get all sites: " , sf.getAllSites()
+print "Get all SamplingFEatures: ", cs.getAllSamplingFeature()
+#print "Get  SamplingFEatures by code: ",cs.getSamplingFeatureByCode("USU-LBR-Mendon")
 
 
 
-#print sf.getAllSites()
-print sf.getAllSites()
 
-print cs.getGeometryTest()
+print "GeometryTest2: ",cs.getGeometryTest()
 
 
 

@@ -1,13 +1,14 @@
 __author__ = 'Stephanie'
 
+
 import sys
 import os
 from sqlalchemy import func
 
 
 from ... import serviceBase
-#import ODM2.Core.model as m
 from ..model import *
+
 
 
 class readCore(serviceBase):
@@ -138,7 +139,9 @@ class readCore(serviceBase):
         :return SamplingFeature Objects:
             :type list:
         """
+
         """return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
+
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
                                                                         ,SamplingFeatureName\
@@ -162,7 +165,7 @@ class readCore(serviceBase):
     def getGeometryTest(self):
         Geom = self._session.query(Samplingfeature).one()
         GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry.ST_AsText(),Geom.FeatureGeometry.ST_AsText())).one()
-        Geom.FeatureGeometry = GeomText
+        #Geom.FeatureGeometry = GeomText
         print GeomText
 
     def getSamplingFeatureById(self, samplingId):
@@ -271,7 +274,8 @@ class readCore(serviceBase):
             :type Organization:
         """
         try:
-            return self._session.query(Samplingfeature).filter_by(OrganizationCode=orgCode).one()
+            return self._session.query(Organization).filter_by(OrganizationCode=orgCode).one()
+
         except:
             return None
     """
@@ -295,7 +299,52 @@ class readCore(serviceBase):
             :type Person:
         """
         try:
-            return self._session.query(Organization).filter_by(PersonID=personId).one()
+            return self._session.query(Person).filter_by(PersonID=personId).one()
+
         except:
             return None
 
+    def getPersonByName(self, personfirst, personlast):
+        """Select by person name, last name combination
+
+        :param personfirst: first name of person
+        :param personlast: last name of person
+        :return Return matching Person Object:
+            :type Person:
+        """
+        try:
+            return self._session.query(Person).filter(Person.PersonFirstName.ilike(personfirst)). \
+                                                 filter(Person.PersonLastName.ilike(personlast)).one()
+        except:
+            return None
+
+    def getAffiliationByPersonAndOrg(self,personfirst,personlast,orgcode):
+        """
+        Select all affiliation of person
+        :param personfirst: first name of person
+        :param personlast: last name of person
+        :param orgcode: organization code (e.g. uwrl)
+        :return: ODM2Core.Affiliation
+        """
+
+        try:
+            return self._session.query(Affiliation).filter(Organization.OrganizationCode.ilike(orgcode)) \
+                                                    .filter(Person.PersonFirstName.ilike(personfirst)) \
+                                                   .filter(Person.PersonLastName.ilike(personlast)).one()
+        except:
+            return None
+
+    def getAffiliationsByPerson(self,personfirst,personlast):
+        """
+        Select all affiliation of person
+        :param personfirst: first name of person
+        :param personlast: last name of person
+        :return: [ODM2Core.Affiliation]
+        """
+
+        try:
+            return self._session.query(Affiliation).filter(Person.PersonFirstName.ilike(personfirst)) \
+                                                   .filter(Person.PersonLastName.ilike(personlast)).all()
+        except Exception, e:
+            print e
+            return None
