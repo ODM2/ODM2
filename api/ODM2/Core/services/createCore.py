@@ -309,7 +309,7 @@ class createCore(serviceBase):
         featureaction.SamplingFeatureID = samplingfeatureid
         featureaction.ActionID = actionid
 
-        self._session.add(samplingfeatureid)
+        self._session.add(featureaction)
         self._session.commit()
 
         return featureaction

@@ -35,7 +35,7 @@ class readCore(serviceBase):
             :type Variable:
         """
         try:
-            return self._session.query(Variable).filter_by(VariableID=variableId).one()
+            return self._session.query(Variable).filter_by(VariableID=variableId).first()
         except:
             return None
 
@@ -48,7 +48,7 @@ class readCore(serviceBase):
             :type Variable:
         """
         try:
-            return self._session.query(Variable).filter_by(VariableCode=variableCode).one()
+            return self._session.query(Variable).filter_by(VariableCode=variableCode).first()
         except:
             return None
 
@@ -73,7 +73,7 @@ class readCore(serviceBase):
             :type Method:
         """
         try:
-            return self._session.query(Method).filter_by(MethodID=methodId).one()
+            return self._session.query(Method).filter_by(MethodID=methodId).first()
         except:
             return None
 
@@ -86,7 +86,7 @@ class readCore(serviceBase):
             :type Method:
         """
         try:
-            return self._session.query(Method).filter_by(MethodCode=methodCode).one()
+            return self._session.query(Method).filter_by(MethodCode=methodCode).first()
         except:
             return None
 
@@ -111,7 +111,7 @@ class readCore(serviceBase):
             :type Processinglevel:
         """
         try:
-            return self._session.query(Processinglevel).filter_by(ProcessingLevelID=processingId).one()
+            return self._session.query(Processinglevel).filter_by(ProcessingLevelID=processingId).first()
         except:
             return None
 
@@ -165,7 +165,7 @@ class readCore(serviceBase):
 
     def getGeometryTest(self):
         Geom = self._session.query(Samplingfeature).one()
-        GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry.ST_AsText(),Geom.FeatureGeometry.ST_AsText())).one()
+        GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry.ST_AsText(),Geom.FeatureGeometry.ST_AsText())).first()
         #Geom.FeatureGeometry = GeomText
         print GeomText
 
@@ -188,7 +188,7 @@ class readCore(serviceBase):
                                                                         ,ElevationDatumCV\
                                                                         ,FeatureGeometry.STAsText() As FeatureGeometry\
                                                                      From ODM2Core.SamplingFeatures\
-                                                                     Where SamplingFeatureID=\'%s\'"% samplingId).one()
+                                                                     Where SamplingFeatureID=\'%s\'"% samplingId).first()
         except:
             return None
 
@@ -211,7 +211,7 @@ class readCore(serviceBase):
                                                                         ,ElevationDatumCV\
                                                                         ,FeatureGeometry.STAsText() As FeatureGeometry\
                                                                      From ODM2Core.SamplingFeatures\
-                                                                     Where SamplingFeatureCode=\'%s\'"% samplingCode).one()
+                                                                     Where SamplingFeatureCode=\'%s\'"% samplingCode).first()
         except:
             return None
 
@@ -236,7 +236,7 @@ class readCore(serviceBase):
             :type Unit:
         """
         try:
-            return self._session.query(Unit).filter_by(UnitsID=unitId).one()
+            return self._session.query(Unit).filter_by(UnitsID=unitId).first()
         except:
             return None
 
@@ -244,7 +244,7 @@ class readCore(serviceBase):
 
 
         try:
-            return self._session.query(Unit).filter(Unit.UnitsName.ilike(unitName)).one()
+            return self._session.query(Unit).filter(Unit.UnitsName.ilike(unitName)).first()
         except:
             return None
 
@@ -269,7 +269,7 @@ class readCore(serviceBase):
             :type Organization:
         """
         try:
-            return self._session.query(Organization).filter_by(OrganizationID=orgId).one()
+            return self._session.query(Organization).filter_by(OrganizationID=orgId).first()
         except:
             return None
 
@@ -283,7 +283,7 @@ class readCore(serviceBase):
             :type Organization:
         """
         try:
-            return self._session.query(Organization).filter_by(OrganizationCode=orgCode).one()
+            return self._session.query(Organization).filter_by(OrganizationCode=orgCode).first()
 
         except:
             return None
@@ -308,7 +308,7 @@ class readCore(serviceBase):
             :type Person:
         """
         try:
-            return self._session.query(Person).filter_by(PersonID=personId).one()
+            return self._session.query(Person).filter_by(PersonID=personId).first()
 
         except:
             return None
@@ -323,7 +323,7 @@ class readCore(serviceBase):
         """
         try:
             return self._session.query(Person).filter(Person.PersonFirstName.ilike(personfirst)). \
-                                                 filter(Person.PersonLastName.ilike(personlast)).one()
+                                                 filter(Person.PersonLastName.ilike(personlast)).first()
         except:
             return None
 
@@ -339,7 +339,7 @@ class readCore(serviceBase):
         try:
             return self._session.query(Affiliation).filter(Organization.OrganizationCode.ilike(orgcode)) \
                                                     .filter(Person.PersonFirstName.ilike(personfirst)) \
-                                                   .filter(Person.PersonLastName.ilike(personlast)).one()
+                                                   .filter(Person.PersonLastName.ilike(personlast)).first()
         except:
             return None
 
@@ -360,7 +360,7 @@ class readCore(serviceBase):
     def getDataSetByCode(self,dscode):
 
         try:
-            return self._session.query(Dataset).filer(Dataset.DataSetCode.ilike(dscode)).one()
+            return self._session.query(Dataset).filer(Dataset.DataSetCode.ilike(dscode)).first()
         except:
             return None
 
@@ -368,7 +368,7 @@ class readCore(serviceBase):
 
         try:
             #ST_Equals(geometry, geometry)
-            return self._session.query(Samplingfeature).filter(func.ST_AsText(Samplingfeature.FeatureGeometry) == func.ST_AsText(wkt_geometry)).one()
+            return self._session.query(Samplingfeature).filter(func.ST_AsText(Samplingfeature.FeatureGeometry) == func.ST_AsText(wkt_geometry)).first()
         except Exception, e:
             print e
             return None
