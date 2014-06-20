@@ -6,7 +6,6 @@ import os
 
 from ... import serviceBase
 from ..model import *
-import ODM2.Core.model as  m_core
 
 
 from ...base import serviceBase
