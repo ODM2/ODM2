@@ -58,9 +58,6 @@ class Equipmentaction(Base):
     EquipmentObj = relationship(Equipment)
 
 
-
-
-
 class Instrumentoutputvariable(Base):
     __tablename__ = u'InstrumentOutputVariables'
     __table_args__ = {u'schema': 'ODM2Equipment'}

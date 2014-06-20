@@ -1,7 +1,12 @@
 __author__ = 'Stephanie'
 
 
-from ...base import serviceBase
+import sys
+import os
+from sqlalchemy import func
+
+
+from ... import serviceBase
 from ..model import *
 from sqlalchemy import func
 
@@ -135,7 +140,9 @@ class readCore(serviceBase):
         :return SamplingFeature Objects:
             :type list:
         """
-        return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
+
+        """return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
+
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
                                                                         ,SamplingFeatureName\
@@ -144,8 +151,23 @@ class readCore(serviceBase):
                                                                         ,Elevation_m\
                                                                         ,ElevationDatumCV\
                                                                         ,FeatureGeometry.STAsText() As FeatureGeometry\
-                                                                     From ODM2Core.SamplingFeatures").all()
-        #return self._session.query(m.Samplingfeature).all()
+                                                                     From ODM2Core.SamplingFeatures").all()"""
+        #return self._session.query(Samplingfeature).all()
+
+        #return self._session.query(Samplingfeature.Elevation_m, Samplingfeature.FeatureGeometry).all())
+
+        res = self._session.query(Samplingfeature, Samplingfeature.FeatureGeometry.ST_AsText()).all()
+        newlist = []
+        for i in range(len(res)):
+            res[i][0].FeatureGeometry = res[i][1]
+            newlist.append(res[i][0])
+        return newlist
+
+    def getGeometryTest(self):
+        Geom = self._session.query(Samplingfeature).one()
+        GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry.ST_AsText(),Geom.FeatureGeometry.ST_AsText())).one()
+        #Geom.FeatureGeometry = GeomText
+        print GeomText
 
     def getSamplingFeatureById(self, samplingId):
         """Select by samplingId
@@ -262,6 +284,7 @@ class readCore(serviceBase):
         """
         try:
             return self._session.query(Organization).filter_by(OrganizationCode=orgCode).one()
+
         except:
             return None
     """
@@ -286,6 +309,7 @@ class readCore(serviceBase):
         """
         try:
             return self._session.query(Person).filter_by(PersonID=personId).one()
+
         except:
             return None
 

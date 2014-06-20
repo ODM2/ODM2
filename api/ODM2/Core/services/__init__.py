@@ -1,5 +1,5 @@
 __author__ = 'Stephanie'
-from ....ODMconnection import dbconnection
+from ODMconnection import dbconnection
 from readCore import readCore
 from updateCore import updateCore
 from createCore import createCore

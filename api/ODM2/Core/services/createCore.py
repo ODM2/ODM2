@@ -4,13 +4,11 @@ import sys
 import os
 import uuid
 
-this_file = os.path.realpath(__file__)
-directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
-sys.path.insert(0, directory)
 
-import datetime as dt
-from ...base import serviceBase
+
+from ... import serviceBase
 from ..model import *
+import datetime as dt
 
 
 class createCore(serviceBase):
@@ -315,3 +313,4 @@ class createCore(serviceBase):
         self._session.commit()
 
         return featureaction
+

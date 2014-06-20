@@ -3,13 +3,11 @@ __author__ = 'Jacob'
 import sys
 import os
 
-#this_file = os.path.realpath(__file__)
-#directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
-#sys.path.insert(0, directory)
 
-#from ODM2 import serviceBase
-#import ODM2.SamplingFeatures.model as m
-#import ODM2.Core.model as  m_core
+from ... import serviceBase
+from ..model import *
+import ODM2.Core.model as  m_core
+
 
 from ...base import serviceBase
 from ..model import *
@@ -52,6 +50,7 @@ class readSamplingFeatures(serviceBase):
         :return Return matching Samplingfeature Object filtered by siteCode:
             :type Samplingfeature:
         """
+
 
         sf= self._session.query(Samplingfeature).filter_by(SamplingFeatureCode = siteCode).one()
         return self._session.query(Site).filter_by(SamplingFeatureID = sf.SamplingFeatureID).one()
