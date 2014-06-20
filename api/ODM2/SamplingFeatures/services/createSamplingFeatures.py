@@ -30,7 +30,7 @@ class createSamplingFeatures(serviceBase):
         return s
 
 
-    def createSpatialReference(self,srsCode,srsName,srsDescription):
+    def createSpatialReference(self,srsCode,srsName,srsDescription=None):
 
         spatialreference = Spatialreference()
         spatialreference.SRSCode = srsCode

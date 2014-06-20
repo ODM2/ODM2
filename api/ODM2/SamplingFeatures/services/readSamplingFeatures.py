@@ -58,6 +58,6 @@ class readSamplingFeatures(serviceBase):
 
 
         try:
-            return self._session.query(Spatialreference).filter(Spatialreference.SRSCode.ilike(srsCode)).one()
+            return self._session.query(Spatialreference).filter(Spatialreference.SRSCode.ilike(srsCode)).first()
         except:
             return None

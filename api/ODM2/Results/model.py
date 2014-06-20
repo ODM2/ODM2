@@ -2,10 +2,10 @@
 from sqlalchemy import BigInteger, Column, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 #from ODM2 import modelBase as Base
-from ODM2.Core.model import Result, Unit, Taxonomicclassifier, Base
-from ODM2.SamplingFeatures.model import Spatialreference
 
 
+from ..Core.model import Result, Unit, Taxonomicclassifier, Base
+from ..SamplingFeatures.model import Spatialreference
 
 class Pointcoverageresult(Result):
     __tablename__ = u'PointCoverageResults'
@@ -113,6 +113,8 @@ class Spectraresult(Result):
 
 
 class Timeseriesresult(Result):
+
+
     __tablename__ = u'TimeSeriesResults'
     __table_args__ = {u'schema': 'ODM2Results'}
 

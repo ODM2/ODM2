@@ -314,3 +314,28 @@ class createCore(serviceBase):
 
         return featureaction
 
+
+    def createResult(self,featureactionid,variableid,unitid,processinglevelid,valuecount,sampledmedium, resulttypecv,
+                     taxonomicclass=None,resultdatetime=None,resultdatetimeutcoffset=None,
+                     validdatetime=None,validdatetimeutcoffset=None,statuscv=None):
+
+        result = Result()
+        result.ResultUUID = uuid.uuid4().hex
+        result.FeatureActionID = featureactionid
+        result.ResultTypeCV = resulttypecv
+        result.VariableID = variableid
+        result.UnitsID = unitid
+        result.ProcessingLevelID = processinglevelid
+        result.ValueCount = valuecount
+        result.SampledMediumCV = sampledmedium
+        result.TaxonomicClassifierID = taxonomicclass
+        result.ResultDateTime = resultdatetime
+        result.ResultDateTimeUTCOffset = resultdatetimeutcoffset
+        result.ValidDateTime=validdatetime
+        result.ValidDateTimeUTCOffset=validdatetimeutcoffset
+        result.StatusCV = statuscv
+
+        self._session.add(result)
+        self._session.commit()
+
+        return result

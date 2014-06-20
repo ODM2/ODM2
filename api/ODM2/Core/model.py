@@ -259,7 +259,8 @@ class Result(Base):
     StatusCV = Column(String(255))
     SampledMediumCV = Column(String(255), nullable=False)
     ValueCount = Column(Integer, nullable=False)
-    IntendedObservationSpacing = Column(String(255))
+
+    #IntendedObservationSpacing = Column(String(255))
 
     FeatureActionObj = relationship(Featureaction)
     ProcessingLevelObj = relationship(Processinglevel)
