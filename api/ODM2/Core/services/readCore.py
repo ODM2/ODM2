@@ -3,7 +3,7 @@ __author__ = 'Stephanie'
 
 from ...base import serviceBase
 from ..model import *
-
+from sqlalchemy import func
 
 
 class readCore(serviceBase):
@@ -120,8 +120,9 @@ class readCore(serviceBase):
             :type Processinglevel:
         """
         try:
-            return self._session.query(Processinglevel).filter_by(ProcessingLevelCode=processingCode).one()
-        except:
+            return self._session.query(Processinglevel).filter_by(ProcessingLevelCode=str(processingCode)).first()
+        except Exception, e:
+            print e
             return None
 
     """
@@ -214,6 +215,14 @@ class readCore(serviceBase):
         """
         try:
             return self._session.query(Unit).filter_by(UnitsID=unitId).one()
+        except:
+            return None
+
+    def getUnitByName(self, unitName):
+
+
+        try:
+            return self._session.query(Unit).filter(Unit.UnitsName.ilike(unitName)).one()
         except:
             return None
 
@@ -321,6 +330,21 @@ class readCore(serviceBase):
         try:
             return self._session.query(Affiliation).filter(Person.PersonFirstName.ilike(personfirst)) \
                                                    .filter(Person.PersonLastName.ilike(personlast)).all()
+        except:
+            return None
+
+    def getDataSetByCode(self,dscode):
+
+        try:
+            return self._session.query(Dataset).filer(Dataset.DataSetCode.ilike(dscode)).one()
+        except:
+            return None
+
+    def getSamplingFeatureByGeometry(self,wkt_geometry):
+
+        try:
+            #ST_Equals(geometry, geometry)
+            return self._session.query(Samplingfeature).filter(func.ST_AsText(Samplingfeature.FeatureGeometry) == func.ST_AsText(wkt_geometry)).one()
         except Exception, e:
             print e
             return None

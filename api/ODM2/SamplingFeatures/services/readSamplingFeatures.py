@@ -3,14 +3,17 @@ __author__ = 'Jacob'
 import sys
 import os
 
-this_file = os.path.realpath(__file__)
-directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
-sys.path.insert(0, directory)
+#this_file = os.path.realpath(__file__)
+#directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
+#sys.path.insert(0, directory)
 
-from ODM2 import serviceBase
-import ODM2.SamplingFeatures.model as m
-import ODM2.Core.model as  m_core
+#from ODM2 import serviceBase
+#import ODM2.SamplingFeatures.model as m
+#import ODM2.Core.model as  m_core
 
+from ...base import serviceBase
+from ..model import *
+from ...Core.model import *
 
 class readSamplingFeatures(serviceBase):
     """Queries to tables contained in the SamplingFeature """
@@ -25,7 +28,7 @@ class readSamplingFeatures(serviceBase):
         :return Site Objects:
             :type list:
         """
-        return self._session.query(m.Site).all()
+        return self._session.query(Site).all()
 
     def getSiteBySFId(self, siteId):
         """Select by siteId
@@ -36,7 +39,7 @@ class readSamplingFeatures(serviceBase):
             :type Site:
         """
         try:
-            return self._session.query(m.Site).filter_by(SamplingFeatureID=siteId).one()
+            return self._session.query(Site).filter_by(SamplingFeatureID=siteId).one()
         except:
             return None
 
@@ -50,5 +53,13 @@ class readSamplingFeatures(serviceBase):
             :type Samplingfeature:
         """
 
-        sf= self._session.query(m_core.Samplingfeature).filter_by(SamplingFeatureCode = siteCode).one()
-        return self._session.query(m.Site).filter_by(SamplingFeatureID = sf.SamplingFeatureID).one()
+        sf= self._session.query(Samplingfeature).filter_by(SamplingFeatureCode = siteCode).one()
+        return self._session.query(Site).filter_by(SamplingFeatureID = sf.SamplingFeatureID).one()
+
+    def getSpatialReferenceByCode(self,srsCode):
+
+
+        try:
+            return self._session.query(Spatialreference).filter(Spatialreference.SRSCode.ilike(srsCode)).one()
+        except:
+            return None

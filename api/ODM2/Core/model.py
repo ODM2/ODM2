@@ -3,13 +3,14 @@ from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, In
 from sqlalchemy.dialects.mssql.base import BIT, UNIQUEIDENTIFIER
 
 from sqlalchemy.orm import relationship, aliased
-from sqlalchemy.types import NullType as Geometry
-
+#from sqlalchemy.types import NullType as Geometry
+from geoalchemy2.types import Geometry
 
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
-
+from sqlalchemy.dialects.postgresql import UUID
+import uuid
 
 #from ODM2 import modelBase as Base
 
@@ -132,6 +133,7 @@ class Samplingfeature(Base):
     ElevationDatumCV = Column(String(255))
     FeatureGeometry = Column(Geometry)
 
+
     def __repr__(self):
 		return "<SamplingFeature('%s', '%s', '%s', '%s')>" % (self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.FeatureGeometry)
 
@@ -151,7 +153,13 @@ class Dataset(Base):
     __table_args__ = {u'schema': 'ODM2Core'}
 
     DataSetID = Column(Integer, primary_key=True)
-    DataSetUUID = Column(UNIQUEIDENTIFIER, nullable=False)
+
+    # This has been changed to String to support multiple database uuid types
+    # DatasetUUID = Column(UNIQUEIDENTIFIER, nullable=False)
+    # DataSetUUID = Column(UUID, nullable=False)
+    DataSetUUID = Column(String(255),nullable=False)
+    # ds.DataSetUUID = uuid.uuid4().hex
+
     DataSetTypeCV = Column(String(255), nullable=False)
     DataSetCode = Column(String(50), nullable=False)
     DataSetTitle = Column(String(255), nullable=False)
@@ -235,7 +243,11 @@ class Result(Base):
     __table_args__ = {u'schema': u'ODM2Core'}
 
     ResultID = Column(BigInteger, primary_key=True)
-    ResultUUID = Column(UNIQUEIDENTIFIER, nullable=False)
+
+    # This has been changed to String to support multiple database uuid types
+    # ResultUUID = Column(UNIQUEIDENTIFIER, nullable=False)
+    ResultUUID = Column(String(255),nullable=False)
+
     FeatureActionID = Column(ForeignKey('ODM2Core.FeatureActions.FeatureActionID'), nullable=False)
     ResultTypeCV = Column(ForeignKey('ODM2Results.ResultTypeCV.ResultTypeCV'), nullable=False)
     VariableID = Column(ForeignKey('ODM2Core.Variables.VariableID'), nullable=False)

@@ -3,7 +3,9 @@ from sqlalchemy import Column, Float, ForeignKey, Integer, String
 from sqlalchemy.types import NullType
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mssql.base import BIT
-from ODM2.Core.model import Samplingfeature, Taxonomicclassifier, Base
+
+#from ODM2.Core.model import Samplingfeature, Taxonomicclassifier, Base
+from ..Core.model import Samplingfeature, Taxonomicclassifier, Base
 
 
 #from ODM2 import modelBase as Base

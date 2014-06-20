@@ -2,6 +2,7 @@ __author__ = 'Stephanie'
 
 import sys
 import os
+import uuid
 
 this_file = os.path.realpath(__file__)
 directory = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(this_file))))
@@ -63,7 +64,7 @@ class createCore(serviceBase):
 
         meth = Method()
         meth.MethodCode = code
-        meth.MethodNameCV = name
+        meth.MethodName = name
         meth.MethodDescription = description
         meth.MethodTypeCV = vType
         meth.MethodLink = link
@@ -86,7 +87,7 @@ class createCore(serviceBase):
         :return:
         """
         pl = Processinglevel()
-        pl.ProcessingLevelCode = code
+        pl.ProcessingLevelCode = str(code)
         pl.Definition = definition
         pl.Explanation = explanation
 
@@ -95,8 +96,8 @@ class createCore(serviceBase):
 
         return pl
 
-    def createSamplingFeature(self, code, vType, name=None, description=None, geoType=None, evelation=None,
-                              evelationDatum=None, featureGeo=None):
+    def createSamplingFeature(self, code, vType, name=None, description=None, geoType=None, elevation=None,
+                              elevationDatum=None, featureGeo=None):
         """Create SamplingFeature table
 
         :param code:
@@ -123,8 +124,8 @@ class createCore(serviceBase):
         sf.SamplingFeatureName = name
         sf.SamplingFeatureDescription = description
         sf.SamplingFeatureGeoTypeCV = geoType
-        sf.Elevation_m = evelation
-        sf.ElevationDatumCV = evelationDatum
+        sf.Elevation_m = elevation
+        sf.ElevationDatumCV = elevationDatum
         sf.FeatureGeometry = featureGeo
 
         self._session.add(sf)
@@ -133,7 +134,7 @@ class createCore(serviceBase):
         return sf
 
 
-    def createUnit(self, code, abbrev, name):
+    def createUnit(self, type, abbrev, name):
         """Create Unit table
 
         :param code:
@@ -145,7 +146,7 @@ class createCore(serviceBase):
         :return:
         """
         unit = Unit()
-        unit.UnitsTypeCV = code
+        unit.UnitsTypeCV = type
         unit.UnitsAbbreviation = abbrev
         unit.UnitsName = name
 
@@ -238,6 +239,79 @@ class createCore(serviceBase):
         a.AffiliationEndDate = affiliation_end
 
         self._session.add(a)
-        self._session.commit()
+        self._session.flush()
+        #self._session.refresh(a)
+
+        print a.OrganizationID
 
         return a
+
+    def createDataSet(self,dstype,dscode,dstitle,dsabstract):
+
+        ds = Dataset()
+
+        # create the dataset
+        ds.DataSetTypeCV = dstype
+        ds.DataSetCode = dscode
+        ds.DataSetTitle = dstitle
+        ds.DataSetAbstract = dsabstract
+        ds.DataSetUUID = uuid.uuid4().hex
+
+        self._session.add(ds)
+        self._session.commit()
+
+        return ds
+
+    def createDataSetResults(self,dsid,resultid):
+
+        dsr = Datasetsresult()
+
+        # link dataset to results
+        dsr.DataSetID = dsid
+        dsr.ResultID = resultid
+
+        self._session.add(dsr)
+        self._session.commit()
+
+        return dsr
+
+    def createAction(self,type,methodid,begindatetime,begindatetimeoffset,enddatetime=None,enddatetimeoffset=None,description=None,filelink=None):
+
+        action = Action()
+        action.ActionTypeCV = type
+        action.MethodID = methodid
+        action.BeginDateTime = begindatetime
+        action.BeginDateTimeUTCOffset = begindatetimeoffset
+        action.EndDateTime = enddatetime
+        action.EndDateTimeUTCOffset = enddatetimeoffset
+        action.ActionDescription = description
+        action.ActionFileLink = filelink
+
+        self._session.add(action)
+        self._session.commit()
+
+        return action
+
+    def createActionBy(self,actionid,affiliationid,isactionlead=True,roledescription=None):
+
+        actionby = Actionby()
+        actionby.ActionID = actionid
+        actionby.AffiliationID = affiliationid
+        actionby.IsActionLead = isactionlead
+        actionby.RoleDescription = roledescription
+
+        self._session.add(actionby)
+        self._session.commit()
+
+        return actionby
+
+    def createFeatureAction(self,samplingfeatureid,actionid):
+
+        featureaction = Featureaction()
+        featureaction.SamplingFeatureID = samplingfeatureid
+        featureaction.ActionID = actionid
+
+        self._session.add(samplingfeatureid)
+        self._session.commit()
+
+        return featureaction
