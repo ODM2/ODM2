@@ -33,7 +33,7 @@ class createSimulation(serviceBase):
         return related
 
 
-    def Simulation(self,actionid,modelID, simulationName,simulationDescription,simulationStartDateTime, simulationStartOffset,
+    def createSimulation(self,actionid,modelID, simulationName,simulationDescription,simulationStartDateTime, simulationStartOffset,
                    simulationEndDateTime,simulationEndOffset,timeStepValue,timeStepUnitID,inputDatasetID=None):
 
         sim = Simulation()

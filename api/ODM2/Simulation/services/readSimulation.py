@@ -3,6 +3,7 @@ __author__ = 'tonycastronova'
 
 from ... import serviceBase
 from ..model import *
+from ....ODMconnection import SessionFactory
 
 class readSimulation(serviceBase):
 
