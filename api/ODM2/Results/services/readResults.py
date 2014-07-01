@@ -74,3 +74,16 @@ class readResults(serviceBase):
         :return:
         """
         pass
+
+    def getTimeSeriesValuesByTime(self, resultid, starttime, endtime=None):
+
+        # set end = start if it is None
+        endtime = starttime if not endtime else endtime
+
+        try:
+            return self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultid) \
+                                                      .filter(Timeseriesresultvalue.ValueDateTime >= starttime) \
+                                                      .filter(Timeseriesresultvalue.ValueDateTime <= endtime) \
+                                                      .order_by(Timeseriesresultvalue.ValueDateTime).all()
+        except:
+            return None

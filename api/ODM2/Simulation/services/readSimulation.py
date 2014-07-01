@@ -5,6 +5,8 @@ from ... import serviceBase
 from ..model import *
 from ODMconnection import SessionFactory
 
+from ...Core.model import *
+
 class readSimulation(serviceBase):
 
 
@@ -50,5 +52,11 @@ class readSimulation(serviceBase):
         try:
             return self._session.query(Relatedmodel).join(Relatedmodel.ModelID == Model.ModelID) \
                                                     .filter(Model.ModelCode == modelcode)
+        except:
+            return None
+
+    def getResultsBySimulationID(self,simulationID):
+        try:
+            return self._session.query(Result).filter(Simulation.SimulationID == simulationID).all()
         except:
             return None

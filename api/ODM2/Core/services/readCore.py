@@ -380,6 +380,7 @@ class readCore(serviceBase):
             return None
 
 
+
     def getAllResult(self):
 
         try:
@@ -388,4 +389,12 @@ class readCore(serviceBase):
             return None
 
 
+
+
+    def getResultByActionID(self,actionID):
+
+        try:
+            return self._session.query(Result,Samplingfeature.FeatureGeometry.ST_AsText()).join(Featureaction).join(Samplingfeature).join(Action).filter_by(ActionID=actionID).all()
+        except:
+            return None
 

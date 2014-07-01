@@ -137,8 +137,8 @@ class Samplingfeature(Base):
     FeatureGeometry = Column(Geometry)
 
 
-    def __repr__(self):
-		return "<SamplingFeature('%s', '%s', '%s', '%s')>" % (self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.FeatureGeometry)
+    #def __repr__(self):
+	#	return "<SamplingFeature('%s', '%s', '%s', '%s')>" % (self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.FeatureGeometry)
 
 class Featureaction(Base):
     __tablename__ = u'FeatureActions'
