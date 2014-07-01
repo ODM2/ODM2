@@ -1,32 +1,30 @@
 # coding: utf-8
-from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String
-from sqlalchemy.dialects.mssql.base import BIT, UNIQUEIDENTIFIER
+from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String, Boolean
+from sqlalchemy.types import NullType as Geometry
+from geoalchemy2 import Geometry
+#from geoalchemy.geometry import Geometry
 
 from sqlalchemy.orm import relationship, aliased
 
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
-from sqlalchemy.dialects.postgresql import UUID
-import uuid
 
 
 
 
-from geoalchemy2 import Geometry
-
-'''from sqlalchemy import func
+'''
+from sqlalchemy import func
 from sqlalchemy.types import UserDefinedType
 class Geometry(UserDefinedType):
     def get_col_spec(self):
         return "GEOMETRY"
     def bind_expression(self, bindvalue):
-        return func.STGeomFromText(bindvalue, type_=self)
+        return func.ST_GeomFromText(bindvalue, type_=self)
     #STGeomFromText
     def column_expression(self, col):
-        return func.STAsText(col, type_=self)
+        return func.ST_AsText(col, type_=self)
 '''
-
 
 class Person(Base):
     __tablename__ = u'People'
@@ -59,7 +57,7 @@ class Affiliation(Base):
     AffiliationID = Column(Integer, primary_key=True)
     PersonID = Column(ForeignKey('ODM2Core.People.PersonID'), nullable=False)
     OrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'))
-    IsPrimaryOrganizationContact = Column(BIT)
+    IsPrimaryOrganizationContact = Column(Boolean)
     AffiliationStartDate = Column(Date, nullable=False)
     AffiliationEndDate = Column(Date)
     PrimaryPhone = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'))
@@ -104,6 +102,11 @@ class Action(Base):
 
     MethodObj = relationship(Method)
 
+
+    def __repr__(self):
+		return "<Action('%s', '%s', '%s', '%s')>" % (self.ActionID, self.ActionTypeCV, self.BeginDateTime, self.ActionDescription)
+
+
 class Actionby(Base):
     __tablename__ = u'ActionBy'
     __table_args__ = {u'schema': 'ODM2Core'}
@@ -111,11 +114,13 @@ class Actionby(Base):
     BridgeID = Column(Integer, primary_key=True)
     ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
     AffiliationID = Column(ForeignKey('ODM2Core.Affiliations.AffiliationID'), nullable=False)
-    IsActionLead = Column(BIT, nullable=False)
+    IsActionLead = Column(Boolean, nullable=False)
     RoleDescription = Column(String(500))
 
     ActionObj = relationship(Action)
     AffiliationObj = relationship(Affiliation)
+
+
 
 class Samplingfeature(Base):
     __tablename__ = u'SamplingFeatures'
@@ -146,6 +151,12 @@ class Featureaction(Base):
     ActionObj = relationship(Action)
     SamplingFeatureObj = relationship(Samplingfeature)
 
+
+
+    def __repr__(self):
+		return "<FeatureAction('%s', '%s', '%s', )>" % (self.FeatureActionID, self.SamplingFeatureID, self.ActionID)
+
+
 class Dataset(Base):
     __tablename__ = u'DataSets'
     __table_args__ = {u'schema': 'ODM2Core'}
@@ -153,11 +164,8 @@ class Dataset(Base):
     DataSetID = Column(Integer, primary_key=True)
 
     # This has been changed to String to support multiple database uuid types
-    # DatasetUUID = Column(UNIQUEIDENTIFIER, nullable=False)
-    # DataSetUUID = Column(UUID, nullable=False)
-    DataSetUUID = Column(String(255),nullable=False)
-    # ds.DataSetUUID = uuid.uuid4().hex
 
+    DataSetUUID = Column(String(255),nullable=False)
     DataSetTypeCV = Column(String(255), nullable=False)
     DataSetCode = Column(String(50), nullable=False)
     DataSetTitle = Column(String(255), nullable=False)
@@ -268,6 +276,11 @@ class Result(Base):
     TaxonomicClassifierObj = relationship(Taxonomicclassifier)
     UnitObj = relationship(Unit)
     VariableObj = relationship(Variable)
+
+
+    def __repr__(self):
+		return "<Result('%s', '%s', '%s', '%s')>" % (self.ResultID, self.ResultTypeCV, self.ProcessingLevelID, self.ValueCount)
+
 
 class Datasetsresult(Base):
     __tablename__ = u'DataSetsResults'

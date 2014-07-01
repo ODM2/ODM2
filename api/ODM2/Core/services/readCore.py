@@ -156,7 +156,7 @@ class readCore(serviceBase):
 
         #return self._session.query(Samplingfeature.Elevation_m, Samplingfeature.FeatureGeometry).all())
 
-        res = self._session.query(Samplingfeature, Samplingfeature.FeatureGeometry.ST_AsText()).all()
+        res = self._session.query(Samplingfeature, Samplingfeature.FeatureGeometry).all()
         newlist = []
         for i in range(len(res)):
             res[i][0].FeatureGeometry = res[i][1]
@@ -164,9 +164,12 @@ class readCore(serviceBase):
         return newlist
 
     def getGeometryTest(self):
-        Geom = self._session.query(Samplingfeature).one()
-        GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry.ST_AsText(),Geom.FeatureGeometry.ST_AsText())).first()
-        #Geom.FeatureGeometry = GeomText
+        Geom = self._session.query(Samplingfeature).first()
+        print "Queried Geometry: ", self._session.query(Geom.FeatureGeometry.ST_AsText()).first()
+        TestGeom = "POINT (30 10)"
+        print "Static Test Geometry:" , TestGeom
+        GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry,func.ST_GeomFromText(TestGeom)).ST_AsText()).first()
+
         print GeomText
 
     def getSamplingFeatureById(self, samplingId):
@@ -200,7 +203,7 @@ class readCore(serviceBase):
         :return Return matching SamplingFeature Object filtered by samplingId
             :type SamplingFeature:
         """
-        try:
+        '''try:
             return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
@@ -212,6 +215,9 @@ class readCore(serviceBase):
                                                                         ,FeatureGeometry.STAsText() As FeatureGeometry\
                                                                      From ODM2Core.SamplingFeatures\
                                                                      Where SamplingFeatureCode=\'%s\'"% samplingCode).first()
+        '''
+        try:
+            return self._session.query(Samplingfeature).filter_by(Samplingfeature.SamplingFeatureCode == samplingCode).first()
         except:
             return None
 
@@ -372,3 +378,14 @@ class readCore(serviceBase):
         except Exception, e:
             print e
             return None
+
+
+    def getAllResult(self):
+
+        try:
+            return self._session.query(Result).all()
+        except:
+            return None
+
+
+

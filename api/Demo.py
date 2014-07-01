@@ -29,12 +29,11 @@ from ODMconnection import dbconnection
 
 
 
-
-#conn = dbconnection.createConnection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
-conn = dbconnection.createConnection('postgresql', 'localhost:5432', 'TestODM2', 'postgres', 'odm')
+conn = dbconnection.createConnection('postgresql', 'castro-server.bluezone.usu.edu', 'ODM2', 'postgres', 'postgres')
 
 
-
+#create a connection for each of the schemas. Currently the schemas each of a different
+#connection but it will be changed to all the services sharing a connection
 cs = CSread(conn)
 sf = SFread(conn)
 dq =DQread(conn)
@@ -47,23 +46,42 @@ la = LAread(conn)
 r = Rread(conn)
 cv = CVread(conn)
 s = Sread(conn)
-#print "Get Geometry Test 1: ",cs.getGeometryTest()
+
+
+
+
 print "Get all equipment: " ,eq.getAllEquipment()
 print "Get all dataquality: " ,dq.getAllDataQuality()
 print "Get all variable: " ,cs.getAllVariables()
 print "Get all People: " ,cs.getAllPerson()#[0].PersonFirstName
-
 print "Get all sites: " , sf.getAllSites()
-print "Get all SamplingFEatures: ", cs.getAllSamplingFeature()
-print "Get  SamplingFEatures by code: ",cs.getSamplingFeatureByCode("USU-LBR-Mendon")
+print "Get all SamplingFeatures: ", cs.getAllSamplingFeature()
+print "Get  SamplingFeatures by code: ",cs.getSamplingFeatureByCode(u'logan_river_outlet')
 
 
 
+#shows that you can manipulate geometries within the code
+#I can get back a union of two geometries( currently the Same Geometry),
+#and convert from a string to Geometry type if it is in WKT
 
-#print "GeometryTest2: ",cs.getGeometryTest()
+#Code that is being run
+#Geom = self._session.query(Samplingfeature).first()
+#TestGeom = "POINT (30 10)"
+#GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry,func.ST_GeomFromText(TestGeom)).ST_AsText()).first()
 
 
+print "\n\n------------GeometryTest--------- \n",
+print cs.getGeometryTest()
 
 
-#factory = cs._session_factory.getSession()
-#print factory.query(Samplingfeature).all()
+# you can drill down into the code and get object linked by foreign keys
+print "\n\n------------Foreign Key sample--------- \n",
+#
+result = cs.getAllResult()[0]
+print "FeatureAction: ", result.FeatureActionObj
+print "Action: ", result.FeatureActionObj.ActionObj
+print "Action Attribute: ", result.FeatureActionObj.ActionObj.ActionTypeCV
+
+samplingfeature = cs.getAllSamplingFeature()[0]
+#print samplingfeature.
+
