@@ -19,7 +19,7 @@ The following are new features of ODM2 that either didn't exist in ODM 1.1.1 or 
 14. **Not limited to a single spatial offset**: ODM2 supports specification of spatial offsets among sampling features as well as spatial offsets of Results. 
 15. **More specific definition of multiple ResultTypes**: ODM2 defines several new ResultTypes in addition to hydrologic time series (e.g., Measurement, Categorical, Profile, Point Coverage, Section, Transect, Trajectory, and Spectra ResultTypes). ODM2 uses a general pattern for defining ResultTypes (e.g., one entity for attributes that are fixed and another that stores attributes and values that are variable or measured), which means that additional new ResultTypes could be defined without changing the ODM2Core schema. 
 16. **Specify data quality information**: ODM2 enables the specification of specific data quality metadata for observation Results. Additionally, information about ReferenceMaterials used in making or normalizing Results can be described.
-17. **Maintain provenance information**: ODM2 enables the storage of Citations and and additional metadata for maintaining the provenance of observational data.
+17. **Maintain provenance information**: ODM2 enables the storage of Citations and additional metadata for maintaining the provenance of observational data.
 
 
 
