@@ -134,7 +134,7 @@ class readCore(serviceBase):
     Sampling Feature
     """
 
-    def getAllSamplingFeature(self):
+    def getAllSamplingFeatures(self):
         """Select all on SamplingFeatures
 
         :return SamplingFeature Objects:
@@ -163,11 +163,9 @@ class readCore(serviceBase):
             newlist.append(res[i][0])
         return newlist
 
-    def getGeometryTest(self):
+    def getGeometryTest(self, TestGeom):
         Geom = self._session.query(Samplingfeature).first()
         print "Queried Geometry: ", self._session.query(Geom.FeatureGeometry.ST_AsText()).first()
-        TestGeom = "POINT (30 10)"
-        print "Static Test Geometry:" , TestGeom
         GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry,func.ST_GeomFromText(TestGeom)).ST_AsText()).first()
 
         print GeomText
@@ -217,9 +215,11 @@ class readCore(serviceBase):
                                                                      Where SamplingFeatureCode=\'%s\'"% samplingCode).first()
         '''
         try:
-            return self._session.query(Samplingfeature).filter_by(Samplingfeature.SamplingFeatureCode == samplingCode).first()
-        except:
+            return self._session.query(Samplingfeature).filter_by(SamplingFeatureCode=samplingCode).first()
+
+        except Exception as e:
             return None
+
 
     """
     Unit
@@ -296,7 +296,7 @@ class readCore(serviceBase):
     """
     Person
     """
-    def getAllPerson(self):
+    def getAllPersons(self):
         """Select all on Person
 
         :return Person Objects:
@@ -378,7 +378,6 @@ class readCore(serviceBase):
         except Exception, e:
             print e
             return None
-
 
 
     def getAllResult(self):

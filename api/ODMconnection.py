@@ -2,7 +2,19 @@ from sqlalchemy.exc import SQLAlchemyError, DBAPIError
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+class SessionFactory():
+    def __init__(self, connection_string, echo):
+        self.engine = create_engine(connection_string, encoding='utf-8', echo=echo, pool_recycle=3600, pool_timeout=5,
+                                    max_overflow=0)
 
+        # Create session maker
+        self.Session = sessionmaker(bind=self.engine)
+
+    def getSession(self):
+        return self.Session()
+
+    def __repr__(self):
+        return "<SessionFactory('%s')>" % (self.engine)
 class dbconnection():
     def __init__(self, debug=False):
         self.debug = debug
@@ -12,7 +24,10 @@ class dbconnection():
 
     @classmethod
     def createConnection(self, engine, address, db, user, password):
-        return dbconnection.buildConnDict(dbconnection(), engine, address, db, user, password)
+        connection_string= dbconnection.buildConnDict(dbconnection(), engine, address, db, user, password)
+        return SessionFactory(connection_string, echo  = False)
+
+
 
     def buildConnDict(self, engine, address, db, user, password):
         line_dict = {}
@@ -78,16 +93,4 @@ class dbconnection():
         return conn_string
 
 
-class SessionFactory():
-    def __init__(self, connection_string, echo):
-        self.engine = create_engine(connection_string, encoding='utf-8', echo=echo, pool_recycle=3600, pool_timeout=5,
-                                    max_overflow=0)
 
-        # Create session maker
-        self.Session = sessionmaker(bind=self.engine)
-
-    def getSession(self):
-        return self.Session()
-
-    def __repr__(self):
-        return "<SessionFactory('%s')>" % (self.engine)

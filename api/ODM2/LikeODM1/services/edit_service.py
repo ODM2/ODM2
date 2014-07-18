@@ -145,7 +145,7 @@ class EditService():
         for key in tmp.keys():
             self._filter_list[key] = True
 
-    def value_change_threshold(self, value):
+    def value_change_threshold(self, value, operator):
         length = len(self._series_points)
         tmp = {}
         for i in xrange(length):
@@ -156,9 +156,14 @@ class EditService():
             if i + 1 < length:  # make sure we stay in bounds
                 point1 = self._series_points[i]
                 point2 = self._series_points[i + 1]
-                if abs(point1[1] - point2[1]) >= value:
-                    tmp[i] = True
-                    tmp[i + 1] = True
+                if operator == '>':
+                    if abs(point1[1] - point2[1]) >= value:
+                        tmp[i] = True
+                        tmp[i + 1] = True
+                if operator == '<':
+                    if abs(point1[1] - point2[1]) <= value:
+                        tmp[i] = True
+                        tmp[i + 1] = True
 
         self.reset_filter()
         for key in tmp.keys():

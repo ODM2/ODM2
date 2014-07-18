@@ -51,10 +51,10 @@ s = Sread(conn)
 print "Get all equipment: " ,eq.getAllEquipment()
 print "Get all dataquality: " ,dq.getAllDataQuality()
 print "Get all variable: " ,cs.getAllVariables()
-print "Get all People: " ,cs.getAllPerson()#[0].PersonFirstName
+print "Get all People: " ,cs.getAllPersons()#[0].PersonFirstName
 
 print "Get all sites: " , sf.getAllSites()
-print "Get all SamplingFEatures: ", cs.getAllSamplingFeature()
+print "Get all SamplingFEatures: ", cs.getAllSamplingFeatures()
 print "Get  SamplingFEatures by code: ",cs.getSamplingFeatureByCode("USU-LBR-Mendon")
 
 

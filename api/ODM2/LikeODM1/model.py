@@ -60,8 +60,6 @@ class ODMVersion(Base):
     def __repr__(self):
         return "<ODMVersion('%s')>" % (self.version_number)
 
-
-
 class SpatialReference(Base):
     __tablename__ = 'SpatialReferences'
     __table_args__ = {u'schema': 'ODM2Core'}
@@ -175,6 +173,7 @@ class VerticalDatumCV(Base):
         return "<VerticalDatumCV('%s', '%s')>" % (self.term, self.definition)
 
 class Sample(Base):
+    #TODO: Map to ODM2
     __tablename__ = 'Samples'
 
     id = Column('SampleID', Integer, primary_key=True)
@@ -215,6 +214,7 @@ class OffsetType(Base):
         return "<Unit('%s', '%s', '%s')>" % (self.id, self.unit_id, self.description)
 
 class Method(Base):
+    #TODO:
     __tablename__ = u'Methods'
     __table_args__ = {u'schema': u'ODM2Core'}
 
@@ -231,6 +231,7 @@ class QualityControlLevel(Base):
 
     id = Column('ProcessingLevelID', Integer, primary_key=True)
     code = Column('ProcessingLevelCode', String, nullable=False)
+    #TODO: Definition, explanation
     definition = Column('Definition', String, nullable=False)
     explanation = Column('Explanation', String, nullable=False)
 
@@ -347,7 +348,9 @@ def copy_data_value(from_dv):
     new.derived_from_id = from_dv.derived_from_id
     new.quality_control_level_id = from_dv.quality_control_level_id
     return new
+
 class DataValue(Base):
+    #TODO:
     __tablename__ = 'DataValues'
 
     id = Column('ValueID', Integer, primary_key=True)
@@ -421,6 +424,7 @@ def copy_series(from_series):
     new.value_count = from_series.value_count
     return new
 class Series(Base):
+    #TODO
     __tablename__ = 'SeriesCatalog'
 
     id = Column('SeriesID', Integer, primary_key=True)
@@ -479,7 +483,7 @@ class Series(Base):
         return self.__table__.columns.keys()
 
 
-################ODM 2 TAbles###########
+################ODM 2 Tadbles###########
 
 class Action(Base):
     __tablename__ = u'Actions'
@@ -598,11 +602,11 @@ class Timeseriesresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2Core.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    Unit = relationship(u'Unit', primaryjoin='Timeseriesresult.IntendedTimeSpacingUnitsID == Unit.UnitsID')
-    SpatialReference = relationship(u'Spatialreference')
-    Unit1 = relationship(u'Unit', primaryjoin='Timeseriesresult.XLocationUnitsID == Unit.UnitsID')
-    Unit2 = relationship(u'Unit', primaryjoin='Timeseriesresult.YLocationUnitsID == Unit.UnitsID')
-    Unit3 = relationship(u'Unit', primaryjoin='Timeseriesresult.ZLocationUnitsID == Unit.UnitsID')
+    UnitObj = relationship(u'Unit', primaryjoin='Timeseriesresult.IntendedTimeSpacingUnitsID == Unit.UnitsID')
+    SpatialReferenceObj = relationship(u'Spatialreference')
+    Unit1Obj = relationship(u'Unit', primaryjoin='Timeseriesresult.XLocationUnitsID == Unit.UnitsID')
+    Unit2Obj = relationship(u'Unit', primaryjoin='Timeseriesresult.YLocationUnitsID == Unit.UnitsID')
+    Unit3Obj = relationship(u'Unit', primaryjoin='Timeseriesresult.ZLocationUnitsID == Unit.UnitsID')
 
 
 class Site(Samplingfeature):
@@ -615,7 +619,7 @@ class Site(Samplingfeature):
     Longitude = Column(Float(53), nullable=False)
     LatLonDatumID = Column(ForeignKey('ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID'), nullable=False)
 
-    SpatialReference = relationship(u'Spatialreference')
+    SpatialReferenceObj = relationship(u'Spatialreference')
 
 class Variable(Base):
     __tablename__ = u'Variables'

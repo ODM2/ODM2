@@ -36,10 +36,10 @@ class RecordService():
             Publisher.sendMessage("scroll")
 
 
-    def value_change_threshold(self, value):
-        self._edit_service.value_change_threshold(value)
+    def value_change_threshold(self, value, operator):
+        self._edit_service.value_change_threshold(value, operator)
         if self._record:
-            self._script("edit_service.value_change_threshold(%s)\n" % (value), 'black')
+            self._script("edit_service.value_change_threshold(%s,'%s')\n" % (value, operator), 'black')
             Publisher.sendMessage("scroll")
 
 
