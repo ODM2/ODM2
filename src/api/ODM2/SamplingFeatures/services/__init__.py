@@ -1,7 +1,7 @@
 __author__ = 'Stephanie'
 #from ODMconnection import dbconnection
 
-from ....ODMconnection import dbconnection
+from ODMconnection import dbconnection
 from readSamplingFeatures import readSamplingFeatures
 from updateSamplingFeatures import updateSamplingFeatures
 from createSamplingFeatures import createSamplingFeatures
