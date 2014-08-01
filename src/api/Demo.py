@@ -16,7 +16,8 @@ from ODMconnection import dbconnection
 
 
 #create connection to the database
-conn = dbconnection.createConnection('postgresql', 'castro-server.bluezone.usu.edu', 'ODM2', 'postgres', 'postgres')
+conn = dbconnection.createConnection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
+#conn = dbconnection.createConnection('postgresql', 'castro-server.bluezone.usu.edu', 'ODM2', 'postgres', 'postgres')
 
 #create a connection for each of the schemas. Currently the schemas each of a different
 #connection but it will be changed to all the services sharing a connection

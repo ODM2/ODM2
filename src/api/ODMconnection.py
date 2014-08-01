@@ -6,15 +6,25 @@ class SessionFactory():
     def __init__(self, connection_string, echo):
         self.engine = create_engine(connection_string, encoding='utf-8', echo=echo, pool_recycle=3600, pool_timeout=5,
                                     max_overflow=0)
+        self.psql_test_engine = create_engine(connection_string, encoding='utf-8', echo=echo, pool_recycle=3600, pool_timeout=5,
+                                    max_overflow=0,  connect_args={'connect_timeout': 1})
+        self.ms_test_engine = create_engine(connection_string, encoding='utf-8', echo=echo, pool_recycle=3600, pool_timeout=5,
+                                    max_overflow=0,  connect_args={'timeout': 1})
+
 
         # Create session maker
         self.Session = sessionmaker(bind=self.engine)
+        self.psql_test_Session = sessionmaker(bind=self.psql_test_engine)
+        self.ms_test_Session = sessionmaker(bind=self.ms_test_engine)
 
     def getSession(self):
         return self.Session()
 
     def __repr__(self):
         return "<SessionFactory('%s')>" % (self.engine)
+
+
+
 class dbconnection():
     def __init__(self, debug=False):
         self.debug = debug
@@ -25,7 +35,26 @@ class dbconnection():
     @classmethod
     def createConnection(self, engine, address, db, user, password):
         connection_string= dbconnection.buildConnDict(dbconnection(), engine, address, db, user, password)
+        #if self.testConnection(connection_string):
+        if self.testEngine(connection_string):
+            print "sucess"
         return SessionFactory(connection_string, echo  = False)
+       # else:
+            #return None
+
+    @classmethod
+    def testEngine(self, connection_string):
+        s= SessionFactory(connection_string, echo  = False)
+        try:
+            if 'mssql' in connection_string:
+                s.ms_test_Session().execute("Select top 1 VariableNameCV From Variables")
+
+            elif 'postgresql' in connection_string:
+                s.psql_test_Session().execute("Select VariableNameCV From Variables Limit 1")
+        except Exception as e:
+            print "session was crap ", e.message
+            return False
+        return True
 
 
 
