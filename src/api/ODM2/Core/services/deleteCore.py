@@ -8,7 +8,7 @@ import os
 
 from ... import serviceBase
 from ..model import *
-from ODMconnection import SessionFactory
+from ....ODMconnection import SessionFactory
 
 
 
