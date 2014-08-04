@@ -37,10 +37,10 @@ class dbconnection():
         connection_string= dbconnection.buildConnDict(dbconnection(), engine, address, db, user, password)
         #if self.testConnection(connection_string):
         if self.testEngine(connection_string):
-            print "sucess"
-        return SessionFactory(connection_string, echo  = False)
-       # else:
-            #return None
+            #print "sucess"
+            return SessionFactory(connection_string, echo  = False)
+        else:
+            return None
 
     @classmethod
     def testEngine(self, connection_string):
@@ -50,7 +50,7 @@ class dbconnection():
                 s.ms_test_Session().execute("Select top 1 VariableNameCV From Variables")
 
             elif 'postgresql' in connection_string:
-                s.psql_test_Session().execute("Select VariableNameCV From Variables Limit 1")
+                s.psql_test_Session().execute('Select "VariableNameCV" From "ODM2Core"."Variables" Limit 1')
         except Exception as e:
             print "session was crap ", e.message
             return False
