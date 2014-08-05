@@ -380,14 +380,16 @@ class readCore(serviceBase):
             return None
 
 
+    """
+    Results
+    """
+
     def getAllResult(self):
 
         try:
             return self._session.query(Result).all()
         except:
             return None
-
-
 
 
     def getResultByActionID(self,actionID):
@@ -397,3 +399,8 @@ class readCore(serviceBase):
         except:
             return None
 
+    def getResultByID(self,resultID):
+        try:
+            return self._session.query(Result).filter_by(ResultID=resultID).one()
+        except:
+            return None
