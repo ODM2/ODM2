@@ -63,7 +63,7 @@ class readResults(serviceBase):
             :type Timeseriesresultvalue:
         """
         try:
-            return self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId).one()
+            return self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId).all()
         except:
             return None
 
