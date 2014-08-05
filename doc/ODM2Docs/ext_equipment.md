@@ -1,31 +1,58 @@
 ODM2 Extensions: Equipment
 ==========================
 
-The ODM2 Equipment extension provides functionality for managing information related to the equipment used to make observations, including sensors, dataloggers, laboratory instruments, etc.  The Equipment extension is optional for ODM2, but must be used when either the Sensors or the LabAnalyses extensions are implemented. 
+The ODM2 Equipment extension provides functionality for managing information related to the Equipment used to make observations, including sensors, dataloggers, laboratory instruments, etc.  The Equipment extension is optional for ODM2, but must be used when storing information about the sensors or laboratory instruments used for making observations. In addition to linkages to the ODM2 Core schema, the Equipment extension makes use of some components of the ODM2 DataQuality schema.
 
-### Why Track Equipment in ODM2? ###
-The Equipment extension plays a vital role in linking observations to the equipment that was used to create them. Which sensor was used to measure temperature at a site? Which datalogger was used to record the data? What was the model number of the mass spectrometer that made that measurement, and whose lab was it in? These details are usually kept in field or laboratory notebooks and, in most cases, separate from the observation values themselves. This makes it difficult to link an observation to the particular pieces of equipment used in the measurement. The Equipment extension, along with the DataQuality, Sensors and/or LabAnalyses extensions (depending on the type of data being collected), make it possible to explicitly link observation values with the pieces of equipment used to record them.
+## Why Track Equipment in ODM2? ##
+The Equipment extension plays a vital role in linking observations to the equipment that was used to create them. Which sensor was used to measure temperature at a site? Which datalogger was used to record the data? What was the model number of the mass spectrometer that made that measurement, and whose lab was it in? These details are usually kept in field or laboratory notebooks and, in most cases, separate from the observation values themselves. This makes it difficult to link an observation to the particular pieces of equipment used in the measurement. The Equipment extension, along with the DataQuality, and/or LabAnalyses extensions (depending on the type of data being collected), make it possible to explicitly link observation data values with the pieces of equipment used to record them.
 
-### Actions and Equipment ###
-In general, there are two ActionTypes that are associated with Equipment:
+## Actions and Equipment ##
+There are several ActionTypes that are associated with Equipment. The following ActionTypes are the only ones that can generate Results:
 
-* **ObservationActions** are Actions on a SamplingFeature that produce Results, often using one or more pieces of Equipment. The Methods and MethodTypes associated with the Observation Action distinguish the different uses of this ActionType:
-  * Instrument Analysis
-  * Sensor Deployment, which initiates the logging of Results
-  * Instrument Calibration, which is an Observation Action if it produces a Result from a ReferenceMaterial Specimen
-  * and others
+* Observation Action
+* Sample Analysis Action
+* Instrument Deployment Action
 
-* **EquipmentMaintenanceActions** are Actions that are performed on a piece of Equipment and do not act on a SamplingFeature or produce Results.  The Methods and MethodTypes associated with the Equipment maintenance action distinguish the different uses of this ActionType:
-  * Equipment Configuration
-  * Equipment Repair
-  * Equipment Cleaning
-  * Sensor Calibration, which is an Equipment maintenance action if it does not produce a Result (but it can specify the use of a ReferenceMaterial Specimen)
-  * and others
+An "Observation Action" is a generic Action that would be used in cases where little is known about the equipment used to create the Result.  However, "Sample Analysis" and "Instrument Deployment" Actions can be directly connected to the specific pieces of equipment used to generate the Result.
 
-Additional Action types related to Equipment are found in both the Sensors and LabAnalyses extensions. 
+Additional equipment Actions described in the list below (Instrument Calibration Actions, Configuration Actions, Maintenance Actions) do not generate Results. Rather, they can be associated as a RelatedAction with an Action of type "Sample Analysis" or "Instrument Deployment" that does produce a Result. This enables the creation of a single Result from a single Action (e.g., a Time Series Result of dissolved oxygen measurements resulting from deployment of a dissolved oxygen sensor at a stream gage) that may have many related Actions that are "Instrument Calibration Actions", "Instrument Maintenance Actions", etc. 
+
+Actions and equipment are linked via the EquipmentActions entity. This is a bridge entity indicating a many-to-many relationship between Actions and Equipment because an Action may be performed using multiple pieces of Equipment and multiple Actions may be performed on or with a single piece of Equipment. The ODM2 Equipment extension also includes information about Actions that are specific to instruments. Entities are defined for MaintenanceActions and CalibrationActions as these types of Actions require metadata in addition to the attributes in the Actions entity.
+
+**1.  Instrument Deployment and Retrieval Actions:** Instrument Deployment Actions record when a piece of Equipment was deployed to a particular SamplingFeature (e.g., a Site). For sensors, a Deployment Action initiates the logging of data values that become part of a Result. To end a deployment, an Action of type "Retrieval" should be recorded. The retrieval should be associated with the deployment using the RelatedActions entity (i.e., 'isRetrievalof' as RelationshipTypeCV). In order to determine Equipment that are currently deployed at a Site, a query can be performed to find all Equipment for which a deployment does not have an associated retrieval.
+
+**2.  Instrument Calibration Actions:** Calibration Actions are performed on a piece of Equipment that is an instrument capable of making measurements. Calibrations establish a relationship between the value of a calibration standard and the value measured by the instrument. Multiple calibration Methods are possible, including using a reference material or a reference sensor as the calibration standard. The CalibrationActions entity includes the ability to record a check value for the calibration and to define an equation for the calibration. It also identifies the variable output by the instrument for which the calibration is performed with a link to the InstrumentOutputVariables entity. 
+ 
+Calibrations may be performed using reference equipment or calibration standards (ReferenceMaterials). For calibrations performed with reference equipment, a bridge entity (CalibrationReferenceEquipment) links CalibrationActions to Equipment. Similarly, for calibrations performed using calibration standards, a bridge entity (CalibrationStandards) Links CalibrationActions to ReferenceMaterials. ReferenceMaterials is an entity from the ODM2 DataQuality schema that stores information such as the reference material source, lot code, and expiration date. If the reference material is a sampling feature (i.e., a specimen), it is linked to the SamplingFeatures entity. ReferenceMaterials is linked to the ReferenceMaterialValues entity, as each reference material may have multiple values used for different calibrations.
+
+In the case where a single calibration standard is used to calibrate multiple InstrumentOutputVariables (e.g., a multi-calibration solution used to calibrate a multiparameter sonde), a separate CalibrationAction should be recorded for each InstrumentOutputVariable that is calibrated.
+ 
+**3.  Sample Analysis Actions:** Analysis Actions are performed on SamplingFeatures that are Specimens within a laboratory using an analytical instrument and Method. The Method associated with an Analysis Action specifies how a particular Piece of Equipment was used to generate data values that become part of a Result.
+
+**4.  Configuration Actions:** Configuration Actions are performed on a piece of Equipment and do not act on a SamplingFeature or produce Results. They are associated with the configuration of an instrument or piece of Equipment - e.g., it's physical configuration or its electronic configuration or programming. The Methods and MethodTypes associated with the Configuration Action distinguish the different uses of this ActionType.
+
+**5.  Maintenance Actions:** Maintenance Actions are used to describe factory service maintenance for instruments as well as maintenance performed on instruments in the field or the laboratory. Maintenance Actions might include equipment repair, cleaning, and other types of maintenance. The IsFactoryServiceField is used to specify factory service maintenance, and the other fields are related to factory service. The Method associated with the Action distinguishes different types of Maintenance Actions.
+
+**6.  Related Actions:** For Equipment, the RelatedActions entity is important. It may be useful, for example, to relate the deployment Action for of a piece of equipment to the calibration Actions or other field activities performed during that deployment. The RelationshipTypeCV attribute in the RelatedActions entity permits the recording of parent Action, a sibling Action, and potentially other types of relationships between Actions.
+
+## Equipment and Sampling Features ##
+It is also desirable to relate Equipment to SamplingFeatures on or at which it operates - e.g., a Site where a sensor is deployed. This linkage is made via the FeatureActions entity of the ODM2 Core schema to link Actions performed with Equipment (e.g., deployments, retrievals, etc.) to the SamplingFeature at which or on which they were performed.
+
+## Equipment and Results ##
+In the ODM2 Equipment extension, Equipment and Results are not directly related. Rather, they are related through Actions. Some Actions are performed using Equipment. A Result can be linked to the Equipment used to create it by first getting the Action that created the Result and then traversing any Actions that are related to the Action that created the Result. See the discussion above about Actions and Equipment. 
+
+## Additional Entities in the Equipment Extension ##
+
+The central entity for this extension is Equipment. This entity includes attributes to describe each individual piece of Equipment including type, serial number, and purchase information. Owner and Vendor information are linked to Organizations and People. Equipment is linked to the EquipmentModels entity, which is used to describe models of Equipment for which there may be multiple instances (e.g., multiple dataloggers of the same model). When a piece of Equipment is an instrument, it can record output variables, which are described by the InstrumentOutputVariables entity.
 
 ### Equipment Models ###
 EquipmentModels are described by their manufacturer information, part number, name, description, and optional elements with description, link to specifications, and a link to a website describing the model. Individual pieces of Equipment have a model and are described by additional metadata specific to the piece of Equipment - e.g., name, serial number, owner, vendor, purchase date, etc.
 
-### InstrumentOutputVariables
-For EquipmentModels that are instruments (i.e., that can make measurements), the InstrumentOuputVariables entity records information about which Variables can be measured using that instrument model. Each InstrumentOutputVariable is linked directly to its EquipmentModel, the Variable it measures, the Method it uses to measure that Variable, the manufacturer's reported resolution and accuracy for the instrument (if applicable), and the Units of the raw output from the instrument. When an instrument is deployed to make measurements, a subset of the InstrumentOutputVariables that the instrument is capable of measuring may be measured by the deployment. For more information about sensor deployments, see the documentation for the [ODM2 Sensors extension](ext_Sensors.md).
+### InstrumentOutputVariables ###
+For EquipmentModels that are instruments (i.e., that can make measurements), the InstrumentOuputVariables entity records information about which Variables can be measured using that instrument model. Each InstrumentOutputVariable is linked directly to its EquipmentModel, the Variable it measures, the Method it uses to measure that Variable, the manufacturer's reported resolution and accuracy for the instrument (if applicable), and the Units of the raw output from the instrument. When an instrument is deployed to make measurements, a subset of the InstrumentOutputVariables that the instrument is capable of measuring may be measured by the deployment. 
+
+### Related Equipment ###
+Similar to RelatedActions, the Equipment extension includes a RelatedEquipment entity to capture the relationships between various pieces of equipment. For example, a dissolved oxygen sensor may be attached to a multi-parameter sonde instrument. Because these relationships may not be static (e.g., the DO sensor in the previous example may be replaced at some point), the RelatedEquipment entity includes information on the beginning and ending dates/times of the relationship. For example, a sonde may be deployed with several sensors in a parent-child relationship. When a pH sensor fails, the sonde remains deployed, but a new pH sensor is installed. The relationship between the sonde and the previous pH sensor is ended and a relationship between the sonde and the new pH sensor is initialized. The relationships between the sonde and all of the other sensors would be unaffected by this change.
+
+### Datalogger Files/Programs/Columns ###
+The Equipment extension also includes entities to capture the implementation of datalogger programs. These entities would typically be used for cases of field deployments where dataloggers are deployed to record data. The table DataloggerProgramFiles records information pertaining to each datalogger program, including name, description, version, and the person who wrote the program. Each datalogger program can generate multiple datalogger files, which are described by the DataloggerFiles entity. A datalogger file typically consists of multiple columns, one for each Variable. In most cases, a sensor deployment that uses a datalogger and has an associated datalgoger file would generate a Result of type Time Series. Time Series Results can be roughly mapped to a column in a datalogger file; however, depending on how datalogger files are managed, a single Time Series Result may span many datalogger files (e.g., in the case where a new datalogger file is created each time data are downloaded from the datalogger). The DataloggerFileColumns entity is related to Results, and acts as a bridge table relating datalogger files and programs to the Results they generate. It also includes information to describe the scan interval, recording interval, and aggregation statistic of the Variable being measured.
