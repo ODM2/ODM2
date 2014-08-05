@@ -1310,70 +1310,60 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes of equipment used to make observations (e.g., sensors and instruments)." nm="ODM2Equipment">
-    <Tbl UsSo="1" nm="CalibratedDeploymentVariables">
-      <Cm>Information about which deployment measured variable a calibration Action is associated with</Cm>
+    <Tbl UsSo="1" nm="CalibrationActions">
+      <Cm>Information about calibration Actions</Cm>
       <TblOpts/>
-      <Pk ClNs="BridgeID" nm="pkCalibratedDeploymentVariables"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
-      </Cl>
+      <Pk ClNs="ActionID" nm="pkCalibrationActions"/>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the calibration Action</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DeploymentMeasuredVariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the DeploymentMeasuredVariable to which the calibration was applied</Cm>
       </Cl>
       <Cl au="0" df="" nm="CalibrationCheckValue" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>A numeric value for the DeploymentMeasuredVariable measued using the ReferenceMaterial prior to calibration</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_CalibratedDeploymentVariables_Actions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="CalibratedDeploymentVariables" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables" prLkCl="DeploymentMeasuredVariableID" upAc="3">
-        <PrTb mn="0" nm="DeploymentMeasuredVariables" oe="1" sch="ODM2Sensors" zr="0"/>
-        <CdTb mn="1" nm="CalibratedDeploymentVariables" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="DeploymentMeasuredVariableID" prCl="DeploymentMeasuredVariableID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis>
-        <StPr stA="ODM2Sensors" stB="CalibratedDeploymentVariables"/>
-      </SchTrHis>
-    </Tbl>
-    <Tbl UsSo="1" nm="CalibrationEquations">
-      <Cm>Information about instrument calibration equations</Cm>
-      <TblOpts/>
-      <Pk ClNs="CalibrationEquationID" nm="pkCalibrationEquations"/>
-      <Cl au="1" df="" nm="CalibrationEquationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the calibration Action</Cm>
       </Cl>
       <Cl au="0" df="" nm="InstrumentOutputVariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the InstrumentOutputVariableID to which the calibration equation applies</Cm>
       </Cl>
-      <Cl au="0" df="" nm="OutputVariableEquation" nu="0">
+      <Cl au="0" df="" nm="CalibrationEquation" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text string that encodes the calibration equation</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_CalibrationEquations_Actions" prLkCl="ActionID" upAc="3">
+      <Fk deAc="3" nm="fk_CalibrationActions_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="CalibrationEquations" oe="0" sch="ODM2Equipment" zr="1"/>
+        <CdTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_CalibrationEquations_InstrumentOutputVariables" prLkCl="InstrumentOutputVariableID" upAc="3">
+      <Fk deAc="3" nm="fk_CalibrationActions_InstrumentOutputVariables" prLkCl="InstrumentOutputVariableID" upAc="3">
         <PrTb mn="0" nm="InstrumentOutputVariables" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="CalibrationEquations" oe="0" sch="ODM2Equipment" zr="1"/>
+        <CdTb mn="1" nm="CalibrationActions" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="InstrumentOutputVariableID" prCl="InstrumentOutputVariableID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CalibrationReferenceEquipment">
+      <Cm>Information about equipment used as referenece for a calibration</Cm>
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkCalibrationReferenceEquipment"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier </Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Calibration Action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="EquipmentID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Equipment used in the Calibration Action</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_CalibrationReferenceEquipment_CalibrationActions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="CalibrationReferenceEquipment" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_CalibrationReferenceEquipment_Equipment" prLkCl="EquipmentID" upAc="3">
+        <PrTb mn="0" nm="Equipment" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="CalibrationReferenceEquipment" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="EquipmentID" prCl="EquipmentID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1394,8 +1384,8 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the ReferenceMaterial used in the calibration</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_FieldCalibrationStandards_Actions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
+      <Fk deAc="3" nm="fk_CalibrationStandards_CalibrationActions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="0"/>
         <CdTb mn="1" nm="CalibrationStandards" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
       </Fk>
@@ -1409,13 +1399,165 @@
         <StPr stA="ODM2Sensors" stB="CalibrationStandards"/>
       </SchTrHis>
     </Tbl>
+    <Tbl UsSo="1" nm="DataloggerFileColumns">
+      <Cm>Information about columns in datalogger files</Cm>
+      <TblOpts/>
+      <Pk ClNs="DataloggerFileColumnID" nm="pkDataloggerFileColumns"/>
+      <Cl au="1" df="" nm="DataloggerFileColumnID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ResultID" nu="1">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the Result associated with the datalogger file column</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataLoggerFileID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the datalogger file in which the column appears</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="InstrumentOutputVariableID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the instrument output variable recorded in the column</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ColumnLabel" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Text column label</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ColumnDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the contents of the column</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="MeasurementEquation" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text specificaiton of the equation used to calculate the column contents</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ScanInterval" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Scanning time interval used in the datalogger program</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ScanIntervalUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the Units of the scanning time interval</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RecordingInterval" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Recording time interval used in the datalogger program</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RecordingIntervalUnitsID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the Units of the recording time interval</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="AggregationStatisticCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_DataloggerFileColumns_DataLoggerFiles" prLkCl="DataLoggerFileID" upAc="3">
+        <PrTb mn="0" nm="DataLoggerFiles" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="DataLoggerFileID" prCl="DataLoggerFileID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_DataloggerFileColumns_InstrumentOutputVariables" prLkCl="InstrumentOutputVariableID" upAc="3">
+        <PrTb mn="0" nm="InstrumentOutputVariables" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="InstrumentOutputVariableID" prCl="InstrumentOutputVariableID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_DataloggerFileColumns_RecordingUnits" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="RecordingIntervalUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_DataloggerFileColumns_Results" prLkCl="ResultID" upAc="3">
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ResultID" prCl="ResultID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_DataloggerFileColumns_ScanUnits" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ScanIntervalUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="DataLoggerFiles">
+      <Cm>Destibes datalogger files created by a deployment action</Cm>
+      <TblOpts/>
+      <Pk ClNs="DataLoggerFileID" nm="pkDataLoggerFiles"/>
+      <Cl au="1" df="" nm="DataLoggerFileID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ProgramID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the datalogger program that created the file</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataLoggerFileName" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text name of the datalogger file</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataLoggerFileDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the datalogger file</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DataLoggerFileLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>URL or file path to the datalogger file</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_DataLoggerFiles_DataloggerProgramFiles" prLkCl="ProgramID" upAc="3">
+        <PrTb mn="0" nm="DataloggerProgramFiles" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="DataLoggerFiles" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ProgramID" prCl="ProgramID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Equipment" stB="DataLoggerFiles"/>
+        <StPr stA="ODM2Sensors" stB="DataLoggerFiles"/>
+      </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="DataloggerProgramFiles">
+      <Cm>Information about datalogger program files</Cm>
+      <TblOpts/>
+      <Pk ClNs="ProgramID" nm="pkDataloggerProgramFiles"/>
+      <Cl au="1" df="" nm="ProgramID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="AffiliationID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the affiliation for the person that created the program</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ProgramName" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Text name of the datalogger program file</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ProgramDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the datalogger program file</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ProgramVersion" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Text description of the version of the datalogger program file</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ProgramFileLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>URL or file path to the datalogger program file</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_DataloggerProgramFiles_Affiliations" prLkCl="AffiliationID" upAc="3">
+        <PrTb mn="0" nm="Affiliations" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DataloggerProgramFiles" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="AffiliationID" prCl="AffiliationID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis>
+        <StPr stA="ODM2Sensors" stB="DataloggerProgramFiles"/>
+      </SchTrHis>
+    </Tbl>
     <Tbl UsSo="1" nm="Equipment">
       <Cm>Descriptions of specific pieces of equipment.</Cm>
       <TblOpts/>
       <Pk ClNs="EquipmentID" nm="pkEquipment"/>
       <Cl au="1" df="" nm="EquipmentID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="EquipmentCode" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
@@ -1479,41 +1621,13 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="EquipmentActions">
-      <TblOpts/>
-      <Pk ClNs="BridgeID" nm="pkEquipmentActions"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="EquipmentID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the Equipment entity associated with the Action</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the Action</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_EquipmentActions_Actions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="EquipmentActions" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_EquipmentActions_Equipment" prLkCl="EquipmentID" upAc="3">
-        <PrTb mn="0" nm="Equipment" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="EquipmentActions" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="EquipmentID" prCl="EquipmentID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="EquipmentModels">
       <Cm>Describes models of sensors, loggers, and related equipment used in making observations.</Cm>
       <TblOpts/>
       <Pk ClNs="EquipmentModelID" nm="pkEquipmentModels"/>
       <Cl au="1" df="" nm="EquipmentModelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelManufacturerID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -1521,7 +1635,7 @@
       </Cl>
       <Cl au="0" df="" nm="ModelPartNumber" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>A part number for the equipment model</Cm>
+        <Cm>Text string for a part number for the equipment model</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1547,6 +1661,34 @@
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="EquipmentModels" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ModelManufacturerID" prCl="OrganizationID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="EquipmentUsed">
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkEquipmentUsed"/>
+      <Cl au="1" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ActionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Action</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="EquipmentID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the Equipment entity associated with the Action</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_EquipmentActions_Actions" prLkCl="ActionID" upAc="3">
+        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="EquipmentUsed" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="ActionID" prCl="ActionID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_EquipmentActions_Equipment" prLkCl="EquipmentID" upAc="3">
+        <PrTb mn="0" nm="Equipment" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="EquipmentUsed" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="EquipmentID" prCl="EquipmentID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1618,13 +1760,13 @@
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Boolean indicator of whether the Action is a factory service</Cm>
       </Cl>
-      <Cl au="0" df="" nm="FactoryServiceCode" nu="1">
+      <Cl au="0" df="" nm="MaintenanceCode" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text code assigned by the factory to the service performed</Cm>
+        <Cm>Text code assigned to the service performed</Cm>
       </Cl>
-      <Cl au="0" df="" nm="FactoryServiceReason" nu="1">
+      <Cl au="0" df="" nm="MaintenanceReason" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text description of why the factory service Action was required</Cm>
+        <Cm>Text description of why the service Action was required</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_MaintenanceActions_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -1648,11 +1790,27 @@
       </Cl>
       <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text string indicating the type of relationship between two pieces of equipement</Cm>
+        <Cm>Controlled Vocabulary term indicating the type of relationship between two pieces of equipment</Cm>
       </Cl>
       <Cl au="0" df="" nm="RelatedEquipmentID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the related piece of equipment</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipStartDateTime" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Beginning date/time of the relationship between the two pieces of equipment</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipStartDateTimeUTCOffset" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>UTCOffset of the beginning date/time</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipEndDateTime" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Ending date/time of the relationship between two pieces of equipment</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipEndDateTimeUTCOffset" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>UTCOffset of the ending date/time</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_RelatedEquipment_Equipment" prLkCl="EquipmentID" upAc="3">
         <PrTb mn="0" nm="Equipment" oe="1" sch="ODM2Equipment" zr="0"/>
@@ -3906,185 +4064,6 @@
     </Tbl>
     <CustomTypes/>
   </Sch>
-  <Sch Cm="Information about sensor deployment and management for in situ data." nm="ODM2Sensors">
-    <Tbl UsSo="1" nm="DataLoggerFiles">
-      <Cm>Destibes datalogger files created by a deployment action</Cm>
-      <TblOpts/>
-      <Pk ClNs="DataLoggerFileID" nm="pkDataLoggerFiles"/>
-      <Cl au="1" df="" nm="DataLoggerFileID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier for the datalogger file</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ProgramID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the datalogger program that created the file</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataLoggerFileName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text name of the datalogger file</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataLoggerFileDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text description of the datalogger file</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataLoggerFileLink" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>File path to the datalogger file</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_DataLoggerFiles_DataloggerProgramFiles" prLkCl="ProgramID" upAc="3">
-        <PrTb mn="0" nm="DataloggerProgramFiles" oe="1" sch="ODM2Sensors" zr="0"/>
-        <CdTb mn="1" nm="DataLoggerFiles" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="ProgramID" prCl="ProgramID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis>
-        <StPr stA="ODM2Equipment" stB="DataLoggerFiles"/>
-      </SchTrHis>
-    </Tbl>
-    <Tbl UsSo="1" nm="DataloggerProgramFiles">
-      <Cm>Information about datalogger program files</Cm>
-      <TblOpts/>
-      <Pk ClNs="ProgramID" nm="pkDataloggerProgramFiles"/>
-      <Cl au="1" df="" nm="ProgramID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="AffiliationID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the person that created the program</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ProgramName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text name of the datalogger program file</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ProgramDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text description of the datalogger program file</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ProgramVersion" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text description of the version of the datalogger program file</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ProgramFileLink" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>URL or file path to the datalogger program file</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_DataloggerProgramFiles_Affiliations" prLkCl="AffiliationID" upAc="3">
-        <PrTb mn="0" nm="Affiliations" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataloggerProgramFiles" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="AffiliationID" prCl="AffiliationID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="DeploymentActions">
-      <Cm>Describes actions that are deployment events</Cm>
-      <TblOpts/>
-      <Pk ClNs="ActionID" nm="pkDeploymentActions"/>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifer for the Action that is the deployment</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DeploymentTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term that describes the type of the deployment</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="CurrentlyDeployed" nu="0">
-        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>A boolean indicating whether a piece of equipment is currently deployed</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_DeploymentActions_Actions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="DeploymentActions" oe="1" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis>
-        <StPr stA="ODM2Equipment" stB="Deployments"/>
-      </SchTrHis>
-    </Tbl>
-    <Tbl UsSo="1" nm="DeploymentMeasuredVariables">
-      <Cm>Inoformation about the variables measured by a deployment</Cm>
-      <TblOpts/>
-      <Pk ClNs="DeploymentMeasuredVariableID" nm="pkDeploymentMeasuredVariables"/>
-      <Cl au="1" df="" nm="DeploymentMeasuredVariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the Deployment Action associated with the DeploymentMeasuredVariable</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="InstrumentOutputVariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the InstrumentOutputVariable that is the DeploymentMeasuredVariable</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="DataloggerFileID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the DataloggerFile from in which the DeploymentMeasuredVariable is recorded</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ColumnLabel" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text label of the column within the DataloggerFile that is the DeploymentMeasuredVariable</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ColumnDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Text description of hte column within the DataloggerFile that is the DeploymentMeasuredVariable</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="MeasurementEquation" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text string that gives the equation (if any) associated with the DeploymentMeasuredVariable</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ScanInterval" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Numeric value of the scan interval</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ScanIntervalUnitsID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the units of the scan interval</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="RecordingInterval" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Numeric value of the recording interval</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="RecordingIntervalUnitsID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the units for the recording interval</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="AggregationStatisticCV" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text aggregation statistic of the recorded value - chosen from a CV</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_DeploymentMeasuredVariables_DataLoggerFiles" prLkCl="DataLoggerFileID" upAc="3">
-        <PrTb mn="0" nm="DataLoggerFiles" oe="1" sch="ODM2Sensors" zr="0"/>
-        <CdTb mn="1" nm="DeploymentMeasuredVariables" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="DataloggerFileID" prCl="DataLoggerFileID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_DeploymentMeasuredVariables_DeploymentActions" prLkCl="ActionID" upAc="3">
-        <PrTb mn="0" nm="DeploymentActions" oe="1" sch="ODM2Sensors" zr="0"/>
-        <CdTb mn="1" nm="DeploymentMeasuredVariables" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="ActionID" prCl="ActionID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_DeploymentMeasuredVariables_InstrumentOutputVariables" prLkCl="InstrumentOutputVariableID" upAc="3">
-        <PrTb mn="0" nm="InstrumentOutputVariables" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="DeploymentMeasuredVariables" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="InstrumentOutputVariableID" prCl="InstrumentOutputVariableID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_DeploymentMeasuredVariables_RI_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DeploymentMeasuredVariables" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="RecordingIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_DeploymentMeasuredVariables_SI_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DeploymentMeasuredVariables" oe="0" sch="ODM2Sensors" zr="1"/>
-        <ClPr cdCl="ScanIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <CustomTypes/>
-  </Sch>
   <Dgm nm="ODM2Annotations">
     <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
@@ -4390,48 +4369,57 @@ VerticalDatumCV</Note>
       <ErNotation>DbwErNotation</ErNotation>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="590" y="150"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="934" y="220"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="157" y="481"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="126" y="253"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="1098" y="50"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="1130" y="490"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="630" y="411"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="757" y="645"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="543" y="648"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="364" y="297"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="475" y="36"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="592" y="633"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentUsed" x="397" y="520"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="757" y="309"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="828" y="33"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1268" y="45"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenanceActions" x="163" y="656"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="RelatedEquipment" x="581" y="36"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationEquations" x="308" y="359"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="RelatedEquipment" x="28" y="328"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="612" y="820"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="DataLoggerFiles" x="1446" y="542"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="DataloggerProgramFiles" x="1405" y="398"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationReferenceEquipment" x="116" y="181"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationStandards" x="994" y="203"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationActions" x="611" y="200"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="1501" y="209"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="1489" y="53"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="1004" y="354"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="943" y="576"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="1098" y="682"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="DataloggerFileColumns" x="1413" y="708"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Actions.fk_Actions_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Methods.fk_Methods_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Organizations.fk_Organizations_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_InstrumentOutputVariables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedActions.fk_RelatedActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.RelatedActions.fk_RelatedActions_Actions_AreRelated"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_ReferenceMaterialValues_ReferenceMaterials"/>
+    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_ReferenceMaterialValues_Variables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationActions.fk_CalibrationActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationActions.fk_CalibrationActions_InstrumentOutputVariables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationReferenceEquipment.fk_CalibrationReferenceEquipment_CalibrationActions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationReferenceEquipment.fk_CalibrationReferenceEquipment_Equipment"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandards.fk_CalibrationStandards_CalibrationActions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandards.fk_FieldCalibrationStandards_ReferenceMaterials"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.DataloggerFileColumns.fk_DataloggerFileColumns_DataLoggerFiles"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.DataloggerFileColumns.fk_DataloggerFileColumns_InstrumentOutputVariables"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.DataloggerFileColumns.fk_DataloggerFileColumns_Results"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.DataLoggerFiles.fk_DataLoggerFiles_DataloggerProgramFiles"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_Organizations"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentModels.fk_EquipmentModels_Organizations"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentUsed.fk_EquipmentActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentUsed.fk_EquipmentActions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_EquipmentModels"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Methods"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Units"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Variables"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.MaintenanceActions.fk_MaintenanceActions_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.RelatedEquipment.fk_RelatedEquipment_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2Equipment.RelatedEquipment.fk_RelatedEquipment_Equipment_AreRelated"/>
-    <Notes>
-      <Note bkCl="ffffffe6" x="64" y="36">Equipment are often specified by ObservationActions to 
-make measurements (i.e Results).
-
-An Equipment MaintenanceAction is an ActionType that 
-does not act on SamplingFeatures or produce Results.  
-Methods distinguish Equipment Configuration, Repair, 
-Cleaning and other Equipment MaintenanceActions.
-
-An Instrument Calibration Action could produces a 
-Result from a measurement made on a ReferenceMaterial 
-Specimen.</Note>
-    </Notes>
+    <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2ExtensionProperties">
@@ -4482,10 +4470,7 @@ Specimen.</Note>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.SamplingFeatureExtensionPropertyValues.fk_SamplingFeatureExtensionPropertyValues_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_ExtensionProperties"/>
     <FkGl bkCl="ff000000" nm="ODM2ExtensionProperties.VariableExtensionPropertyValues.fk_VariableExtensionPropertyValues_Variables"/>
-    <Notes>
-      <Note bkCl="ffffffe6" x="133" y="484">ExtensionProperties are implemented in a way
-similar to ExternalIdentifiers.</Note>
-    </Notes>
+    <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2ExternalIdentifers">
@@ -4576,7 +4561,7 @@ similar to ExternalIdentifiers.</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="582" y="273"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="498" y="544"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="312" y="353"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="276" y="271"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentUsed" x="276" y="271"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="371" y="443"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchPostions" x="440" y="674"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="322" y="763"/>
@@ -4585,8 +4570,8 @@ similar to ExternalIdentifiers.</Note>
     <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures"/>
     <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
     <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentUsed.fk_EquipmentActions_Actions"/>
+    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentUsed.fk_EquipmentActions_Equipment"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Actions"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Directives"/>
     <FkGl bkCl="ff000000" nm="ODM2LabAnalyses.SpecimenBatchPostions.fk_SpecimenBatchPostions_FeatureActions"/>
@@ -4808,78 +4793,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     </Notes>
     <Zones/>
   </Dgm>
-  <Dgm nm="ODM2Sensors">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
-      <VbCfg>
-        <Fg ky="Auto Number" vl="0"/>
-        <Fg ky="Check" vl="0"/>
-        <Fg ky="Comment" vl="0"/>
-        <Fg ky="Data Type" vl="0"/>
-        <Fg ky="Default" vl="0"/>
-        <Fg ky="ENUM Values" vl="0"/>
-        <Fg ky="Length" vl="0"/>
-        <Fg ky="Name" vl="1"/>
-        <Fg ky="Nullable" vl="0"/>
-        <Fg ky="Schema Name" vl="1"/>
-        <Fg ky="Signed" vl="0"/>
-      </VbCfg>
-    </RnCf>
-    <DiaProps>
-      <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
-      <ErNotation>DbwErNotation</ErNotation>
-      <svg path=""/>
-    </DiaProps>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DataLoggerFiles" x="495" y="102"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DeploymentActions" x="518" y="498"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="354" y="625"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="731" y="691"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="Equipment" x="905" y="68"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="390" y="805"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DataloggerProgramFiles" x="126" y="72"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Sensors" tbl="DeploymentMeasuredVariables" x="505" y="262"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="910" y="277"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="1294" y="207"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentActions" x="56" y="222"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibratedDeploymentVariables" x="838" y="456"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1108" y="678"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="1676" y="470"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="1365" y="675"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationEquations" x="1282" y="447"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="RelatedEquipment" x="1284" y="99"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="CalibrationStandards" x="1282" y="555"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenanceActions" x="20" y="666"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_FeatureActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Core.Results.fk_Results_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_ReferenceMaterialValues_ReferenceMaterials"/>
-    <FkGl bkCl="ff000000" nm="ODM2DataQuality.ReferenceMaterialValues.fk_ReferenceMaterialValues_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibratedDeploymentVariables.fk_CalibratedDeploymentVariables_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibratedDeploymentVariables.fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationEquations.fk_CalibrationEquations_InstrumentOutputVariables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandards.fk_FieldCalibrationStandards_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.CalibrationStandards.fk_FieldCalibrationStandards_ReferenceMaterials"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.Equipment.fk_Equipment_EquipmentModels"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.EquipmentActions.fk_EquipmentActions_Equipment"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_EquipmentModels"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Variables"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.MaintenanceActions.fk_MaintenanceActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.RelatedEquipment.fk_RelatedEquipment_Equipment"/>
-    <FkGl bkCl="ff000000" nm="ODM2Equipment.RelatedEquipment.fk_RelatedEquipment_Equipment_AreRelated"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.DataLoggerFiles.fk_DataLoggerFiles_DataloggerProgramFiles"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentActions.fk_DeploymentActions_Actions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentMeasuredVariables.fk_DeploymentMeasuredVariables_DataLoggerFiles"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentMeasuredVariables.fk_DeploymentMeasuredVariables_DeploymentActions"/>
-    <FkGl bkCl="ff000000" nm="ODM2Sensors.DeploymentMeasuredVariables.fk_DeploymentMeasuredVariables_InstrumentOutputVariables"/>
-    <Notes>
-      <Note bkCl="ffffffe6" x="243" y="479">We could potentially get rid of 
-DeploymentActions if we also get
-rid of DeploymentTypeCV.</Note>
-    </Notes>
-    <Zones/>
-  </Dgm>
-  <RnmMgr NxRnmId="468">
+  <RnmMgr NxRnmId="472">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -5809,7 +5723,7 @@ rid of DeploymentTypeCV.</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="387" nNm="CitationID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="EquipmentActions" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="EquipmentUsed" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="388" nNm="EquipentID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
@@ -6010,6 +5924,18 @@ rid of DeploymentTypeCV.</Note>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Sensors" SupCls="" SupNme="">
       <Rnm id="467" nNm="CalibrationStandards" oNm="FieldCalibrationStandards"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MaintenanceActions" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="468" nNm="MaintenanceCode" oNm="FactoryServiceCode"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MaintenanceActions" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="469" nNm="MaintenanceReason" oNm="FactoryServiceReason"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
+      <Rnm id="470" nNm="EquipmentUsed" oNm="EquipmentActions"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
+      <Rnm id="471" nNm="CalibrationActions" oNm="EquipmentCalibrationActions"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -6031,7 +5957,7 @@ rid of DeploymentTypeCV.</Note>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
-    <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Diagrams (12)</TreePath>
+    <TreePath>/Schemas (11)</TreePath>
+    <TreePath>/Diagrams (11)</TreePath>
   </TreePaths>
 </Db>
