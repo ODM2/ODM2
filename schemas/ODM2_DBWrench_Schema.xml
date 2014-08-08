@@ -1101,7 +1101,7 @@
     </Tbl>
     <CustomTypes/>
   </Sch>
-  <Sch Cm="" nm="ODM2DataQuality">
+  <Sch Cm="Entities and attributes related to data quality." nm="ODM2DataQuality">
     <Tbl UsSo="1" nm="DataQuality">
       <TblOpts/>
       <Pk ClNs="DataQualityID" nm="pkDataQuality"/>
@@ -5953,7 +5953,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>

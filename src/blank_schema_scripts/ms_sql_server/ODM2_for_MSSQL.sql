@@ -32,6 +32,9 @@ GO
 /* Add Schema: ODM2DataQuality */
 CREATE SCHEMA ODM2DataQuality;
 GO
+EXEC sp_addextendedproperty 'MS_Description', 'Entities and attributes related to data quality.', 'schema', 'ODM2DataQuality', 
+	null, null, null, null;
+GO
 
 /* Add Schema: ODM2Equipment */
 CREATE SCHEMA ODM2Equipment;
@@ -49,6 +52,9 @@ GO
 
 /* Add Schema: ODM2ExternalIdentifiers */
 CREATE SCHEMA ODM2ExternalIdentifiers;
+GO
+EXEC sp_addextendedproperty 'MS_Description', 'Entities and attributes for linking ODM2 entities (e.g., Sites, Methods, etc.) to external identifier systems.', 'schema', 'ODM2ExternalIdentifiers', 
+	null, null, null, null;
 GO
 
 /* Add Schema: ODM2LabAnalyses */
@@ -78,14 +84,6 @@ GO
 EXEC sp_addextendedproperty 'MS_Description', 'Information about sampling features, including sites and specimens.', 'schema', 'ODM2SamplingFeatures', 
 	null, null, null, null;
 GO
-
-/* Add Schema: ODM2Sensors */
-CREATE SCHEMA ODM2Sensors;
-GO
-EXEC sp_addextendedproperty 'MS_Description', 'Information about sensor deployment and management for in situ data.', 'schema', 'ODM2Sensors', 
-	null, null, null, null;
-GO
-
 
 
 /************ Update: Tables ***************/
@@ -1330,68 +1328,52 @@ EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the Dat
 	'table', 'ResultsDataQuality', 'column', 'DataQualityID';
 
 
-/******************** Add Table: ODM2Equipment.CalibratedDeploymentVariables ************************/
+/******************** Add Table: ODM2Equipment.CalibrationActions ************************/
 
 /* Build Table Structure */
-CREATE TABLE ODM2Equipment.CalibratedDeploymentVariables
+CREATE TABLE ODM2Equipment.CalibrationActions
+(
+	ActionID INTEGER NOT NULL,
+	CalibrationCheckValue FLOAT NULL,
+	InstrumentOutputVariableID INTEGER NOT NULL,
+	CalibrationEquation VARCHAR(255) NULL
+);
+
+/* Add Primary Key */
+ALTER TABLE ODM2Equipment.CalibrationActions ADD CONSTRAINT pkCalibrationActions
+	PRIMARY KEY (ActionID);
+
+/* Add Comments */
+EXEC sp_addextendedproperty 'MS_Description', 'Information about calibration Actions', 'schema', 'ODM2Equipment', 
+	'table', CalibrationActions, null, null;
+
+
+/******************** Add Table: ODM2Equipment.CalibrationReferenceEquipment ************************/
+
+/* Build Table Structure */
+CREATE TABLE ODM2Equipment.CalibrationReferenceEquipment
 (
 	BridgeID INTEGER IDENTITY (1, 1) NOT NULL,
 	ActionID INTEGER NOT NULL,
-	DeploymentMeasuredVariableID INTEGER NOT NULL,
-	CalibrationCheckValue FLOAT NULL
+	EquipmentID INTEGER NOT NULL
 );
 
 /* Add Primary Key */
-ALTER TABLE ODM2Equipment.CalibratedDeploymentVariables ADD CONSTRAINT pkCalibratedDeploymentVariables
+ALTER TABLE ODM2Equipment.CalibrationReferenceEquipment ADD CONSTRAINT pkCalibrationReferenceEquipment
 	PRIMARY KEY (BridgeID);
 
 /* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Equipment', 
-	'table', 'CalibratedDeploymentVariables', 'column', 'BridgeID';
+EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier ', 'schema', 'ODM2Equipment', 
+	'table', 'CalibrationReferenceEquipment', 'column', 'BridgeID';
 
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the calibration Action', 'schema', 'ODM2Equipment', 
-	'table', 'CalibratedDeploymentVariables', 'column', 'ActionID';
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the Calibration Action', 'schema', 'ODM2Equipment', 
+	'table', 'CalibrationReferenceEquipment', 'column', 'ActionID';
 
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the DeploymentMeasuredVariable to which the calibration was applied', 'schema', 'ODM2Equipment', 
-	'table', 'CalibratedDeploymentVariables', 'column', 'DeploymentMeasuredVariableID';
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the Equipment used in the Calibration Action', 'schema', 'ODM2Equipment', 
+	'table', 'CalibrationReferenceEquipment', 'column', 'EquipmentID';
 
-EXEC sp_addextendedproperty 'MS_Description', 'A numeric value for the DeploymentMeasuredVariable measued using the ReferenceMaterial prior to calibration', 'schema', 'ODM2Equipment', 
-	'table', 'CalibratedDeploymentVariables', 'column', 'CalibrationCheckValue';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Information about which deployment measured variable a calibration Action is associated with', 'schema', 'ODM2Equipment', 
-	'table', CalibratedDeploymentVariables, null, null;
-
-
-/******************** Add Table: ODM2Equipment.CalibrationEquations ************************/
-
-/* Build Table Structure */
-CREATE TABLE ODM2Equipment.CalibrationEquations
-(
-	CalibrationEquationID INTEGER IDENTITY (1, 1) NOT NULL,
-	ActionID INTEGER NOT NULL,
-	InstrumentOutputVariableID INTEGER NOT NULL,
-	OutputVariableEquation VARCHAR(255) NOT NULL
-);
-
-/* Add Primary Key */
-ALTER TABLE ODM2Equipment.CalibrationEquations ADD CONSTRAINT pkCalibrationEquations
-	PRIMARY KEY (CalibrationEquationID);
-
-/* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Equipment', 
-	'table', 'CalibrationEquations', 'column', 'CalibrationEquationID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the calibration Action', 'schema', 'ODM2Equipment', 
-	'table', 'CalibrationEquations', 'column', 'ActionID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier for the InstrumentOutputVariableID to which the calibration equation applies', 'schema', 'ODM2Equipment', 
-	'table', 'CalibrationEquations', 'column', 'InstrumentOutputVariableID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text string that encodes the calibration equation', 'schema', 'ODM2Equipment', 
-	'table', 'CalibrationEquations', 'column', 'OutputVariableEquation';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Information about instrument calibration equations', 'schema', 'ODM2Equipment', 
-	'table', CalibrationEquations, null, null;
+EXEC sp_addextendedproperty 'MS_Description', 'Information about equipment used as referenece for a calibration', 'schema', 'ODM2Equipment', 
+	'table', CalibrationReferenceEquipment, null, null;
 
 
 /******************** Add Table: ODM2Equipment.CalibrationStandards ************************/
@@ -1422,6 +1404,143 @@ EXEC sp_addextendedproperty 'MS_Description', 'Bridge table linking field calibr
 	'table', CalibrationStandards, null, null;
 
 
+/******************** Add Table: ODM2Equipment.DataLoggerFiles ************************/
+
+/* Build Table Structure */
+CREATE TABLE ODM2Equipment.DataLoggerFiles
+(
+	DataLoggerFileID INTEGER IDENTITY (1, 1) NOT NULL,
+	ProgramID INTEGER NOT NULL,
+	DataLoggerFileName VARCHAR(255) NOT NULL,
+	DataLoggerFileDescription VARCHAR(500) NULL,
+	DataLoggerFileLink VARCHAR(255) NULL
+);
+
+/* Add Primary Key */
+ALTER TABLE ODM2Equipment.DataLoggerFiles ADD CONSTRAINT pkDataLoggerFiles
+	PRIMARY KEY (DataLoggerFileID);
+
+/* Add Comments */
+EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Equipment', 
+	'table', 'DataLoggerFiles', 'column', 'DataLoggerFileID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the datalogger program that created the file', 'schema', 'ODM2Equipment', 
+	'table', 'DataLoggerFiles', 'column', 'ProgramID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Text name of the datalogger file', 'schema', 'ODM2Equipment', 
+	'table', 'DataLoggerFiles', 'column', 'DataLoggerFileName';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Text description of the datalogger file', 'schema', 'ODM2Equipment', 
+	'table', 'DataLoggerFiles', 'column', 'DataLoggerFileDescription';
+
+EXEC sp_addextendedproperty 'MS_Description', 'URL or file path to the datalogger file', 'schema', 'ODM2Equipment', 
+	'table', 'DataLoggerFiles', 'column', 'DataLoggerFileLink';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Destibes datalogger files created by a deployment action', 'schema', 'ODM2Equipment', 
+	'table', DataLoggerFiles, null, null;
+
+
+/******************** Add Table: ODM2Equipment.DataloggerFileColumns ************************/
+
+/* Build Table Structure */
+CREATE TABLE ODM2Equipment.DataloggerFileColumns
+(
+	DataloggerFileColumnID INTEGER IDENTITY (1, 1) NOT NULL,
+	ResultID BIGINT NULL,
+	DataLoggerFileID INTEGER NOT NULL,
+	InstrumentOutputVariableID INTEGER NOT NULL,
+	ColumnLabel VARCHAR(50) NOT NULL,
+	ColumnDescription VARCHAR(500) NULL,
+	MeasurementEquation VARCHAR(255) NULL,
+	ScanInterval FLOAT NULL,
+	ScanIntervalUnitsID INTEGER NULL,
+	RecordingInterval FLOAT NULL,
+	RecordingIntervalUnitsID INTEGER NULL,
+	AggregationStatisticCV VARCHAR(255) NULL
+);
+
+/* Add Primary Key */
+ALTER TABLE ODM2Equipment.DataloggerFileColumns ADD CONSTRAINT pkDataloggerFileColumns
+	PRIMARY KEY (DataloggerFileColumnID);
+
+/* Add Comments */
+EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'DataloggerFileColumnID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier for the Result associated with the datalogger file column', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'ResultID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier for the datalogger file in which the column appears', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'DataLoggerFileID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier for the instrument output variable recorded in the column', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'InstrumentOutputVariableID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Text column label', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'ColumnLabel';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Text description of the contents of the column', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'ColumnDescription';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Text specificaiton of the equation used to calculate the column contents', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'MeasurementEquation';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Scanning time interval used in the datalogger program', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'ScanInterval';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier for the Units of the scanning time interval', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'ScanIntervalUnitsID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Recording time interval used in the datalogger program', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'RecordingInterval';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier for the Units of the recording time interval', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerFileColumns', 'column', 'RecordingIntervalUnitsID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Information about columns in datalogger files', 'schema', 'ODM2Equipment', 
+	'table', DataloggerFileColumns, null, null;
+
+
+/******************** Add Table: ODM2Equipment.DataloggerProgramFiles ************************/
+
+/* Build Table Structure */
+CREATE TABLE ODM2Equipment.DataloggerProgramFiles
+(
+	ProgramID INTEGER IDENTITY (1, 1) NOT NULL,
+	AffiliationID INTEGER NOT NULL,
+	ProgramName VARCHAR(255) NOT NULL,
+	ProgramDescription VARCHAR(500) NULL,
+	ProgramVersion VARCHAR(50) NULL,
+	ProgramFileLink VARCHAR(255) NULL
+);
+
+/* Add Primary Key */
+ALTER TABLE ODM2Equipment.DataloggerProgramFiles ADD CONSTRAINT pkDataloggerProgramFiles
+	PRIMARY KEY (ProgramID);
+
+/* Add Comments */
+EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerProgramFiles', 'column', 'ProgramID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the affiliation for the person that created the program', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerProgramFiles', 'column', 'AffiliationID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Text name of the datalogger program file', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerProgramFiles', 'column', 'ProgramName';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Text description of the datalogger program file', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerProgramFiles', 'column', 'ProgramDescription';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Text description of the version of the datalogger program file', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerProgramFiles', 'column', 'ProgramVersion';
+
+EXEC sp_addextendedproperty 'MS_Description', 'URL or file path to the datalogger program file', 'schema', 'ODM2Equipment', 
+	'table', 'DataloggerProgramFiles', 'column', 'ProgramFileLink';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Information about datalogger program files', 'schema', 'ODM2Equipment', 
+	'table', DataloggerProgramFiles, null, null;
+
+
 /******************** Add Table: ODM2Equipment.Equipment ************************/
 
 /* Build Table Structure */
@@ -1446,7 +1565,7 @@ ALTER TABLE ODM2Equipment.Equipment ADD CONSTRAINT pkEquipment
 	PRIMARY KEY (EquipmentID);
 
 /* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Unique identifier', 'schema', 'ODM2Equipment', 
+EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Equipment', 
 	'table', 'Equipment', 'column', 'EquipmentID';
 
 EXEC sp_addextendedproperty 'MS_Description', 'A text code that identifies the piece of equipment', 'schema', 'ODM2Equipment', 
@@ -1486,31 +1605,6 @@ EXEC sp_addextendedproperty 'MS_Description', 'Descriptions of specific pieces o
 	'table', Equipment, null, null;
 
 
-/******************** Add Table: ODM2Equipment.EquipmentActions ************************/
-
-/* Build Table Structure */
-CREATE TABLE ODM2Equipment.EquipmentActions
-(
-	BridgeID INTEGER IDENTITY (1, 1) NOT NULL,
-	EquipmentID INTEGER NOT NULL,
-	ActionID INTEGER NOT NULL
-);
-
-/* Add Primary Key */
-ALTER TABLE ODM2Equipment.EquipmentActions ADD CONSTRAINT pkEquipmentActions
-	PRIMARY KEY (BridgeID);
-
-/* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Primary key for a bridge table, enabling many-to-many joins.', 'schema', 'ODM2Equipment', 
-	'table', 'EquipmentActions', 'column', 'BridgeID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the Equipment entity associated with the Action', 'schema', 'ODM2Equipment', 
-	'table', 'EquipmentActions', 'column', 'EquipmentID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the Action', 'schema', 'ODM2Equipment', 
-	'table', 'EquipmentActions', 'column', 'ActionID';
-
-
 /******************** Add Table: ODM2Equipment.EquipmentModels ************************/
 
 /* Build Table Structure */
@@ -1531,13 +1625,13 @@ ALTER TABLE ODM2Equipment.EquipmentModels ADD CONSTRAINT pkEquipmentModels
 	PRIMARY KEY (EquipmentModelID);
 
 /* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Unique identifier', 'schema', 'ODM2Equipment', 
+EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Equipment', 
 	'table', 'EquipmentModels', 'column', 'EquipmentModelID';
 
 EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the model manufacturer', 'schema', 'ODM2Equipment', 
 	'table', 'EquipmentModels', 'column', 'ModelManufacturerID';
 
-EXEC sp_addextendedproperty 'MS_Description', 'A part number for the equipment model', 'schema', 'ODM2Equipment', 
+EXEC sp_addextendedproperty 'MS_Description', 'Text string for a part number for the equipment model', 'schema', 'ODM2Equipment', 
 	'table', 'EquipmentModels', 'column', 'ModelPartNumber';
 
 EXEC sp_addextendedproperty 'MS_Description', 'Text name of the equipment model', 'schema', 'ODM2Equipment', 
@@ -1557,6 +1651,31 @@ EXEC sp_addextendedproperty 'MS_Description', 'A URL to a website or file having
 
 EXEC sp_addextendedproperty 'MS_Description', 'Describes models of sensors, loggers, and related equipment used in making observations.', 'schema', 'ODM2Equipment', 
 	'table', EquipmentModels, null, null;
+
+
+/******************** Add Table: ODM2Equipment.EquipmentUsed ************************/
+
+/* Build Table Structure */
+CREATE TABLE ODM2Equipment.EquipmentUsed
+(
+	BridgeID INTEGER IDENTITY (1, 1) NOT NULL,
+	ActionID INTEGER NOT NULL,
+	EquipmentID INTEGER NOT NULL
+);
+
+/* Add Primary Key */
+ALTER TABLE ODM2Equipment.EquipmentUsed ADD CONSTRAINT pkEquipmentUsed
+	PRIMARY KEY (BridgeID);
+
+/* Add Comments */
+EXEC sp_addextendedproperty 'MS_Description', 'Primary key for a bridge table, enabling many-to-many joins.', 'schema', 'ODM2Equipment', 
+	'table', 'EquipmentUsed', 'column', 'BridgeID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the Action', 'schema', 'ODM2Equipment', 
+	'table', 'EquipmentUsed', 'column', 'ActionID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the Equipment entity associated with the Action', 'schema', 'ODM2Equipment', 
+	'table', 'EquipmentUsed', 'column', 'EquipmentID';
 
 
 /******************** Add Table: ODM2Equipment.InstrumentOutputVariables ************************/
@@ -1610,8 +1729,8 @@ CREATE TABLE ODM2Equipment.MaintenanceActions
 (
 	ActionID INTEGER NOT NULL,
 	IsFactoryService BIT NOT NULL,
-	FactoryServiceCode VARCHAR(50) NULL,
-	FactoryServiceReason VARCHAR(500) NULL
+	MaintenanceCode VARCHAR(50) NULL,
+	MaintenanceReason VARCHAR(500) NULL
 );
 
 /* Add Primary Key */
@@ -1625,11 +1744,11 @@ EXEC sp_addextendedproperty 'MS_Description', 'Primary key and foreign key idenf
 EXEC sp_addextendedproperty 'MS_Description', 'Boolean indicator of whether the Action is a factory service', 'schema', 'ODM2Equipment', 
 	'table', 'MaintenanceActions', 'column', 'IsFactoryService';
 
-EXEC sp_addextendedproperty 'MS_Description', 'Text code assigned by the factory to the service performed', 'schema', 'ODM2Equipment', 
-	'table', 'MaintenanceActions', 'column', 'FactoryServiceCode';
+EXEC sp_addextendedproperty 'MS_Description', 'Text code assigned to the service performed', 'schema', 'ODM2Equipment', 
+	'table', 'MaintenanceActions', 'column', 'MaintenanceCode';
 
-EXEC sp_addextendedproperty 'MS_Description', 'Text description of why the factory service Action was required', 'schema', 'ODM2Equipment', 
-	'table', 'MaintenanceActions', 'column', 'FactoryServiceReason';
+EXEC sp_addextendedproperty 'MS_Description', 'Text description of why the service Action was required', 'schema', 'ODM2Equipment', 
+	'table', 'MaintenanceActions', 'column', 'MaintenanceReason';
 
 EXEC sp_addextendedproperty 'MS_Description', 'Information about maintenance Actions performed on Equipment', 'schema', 'ODM2Equipment', 
 	'table', MaintenanceActions, null, null;
@@ -1643,7 +1762,11 @@ CREATE TABLE ODM2Equipment.RelatedEquipment
 	RelationID INTEGER IDENTITY (1, 1) NOT NULL,
 	EquipmentID INTEGER NOT NULL,
 	RelationshipTypeCV VARCHAR(255) NOT NULL,
-	RelatedEquipmentID INTEGER NOT NULL
+	RelatedEquipmentID INTEGER NOT NULL,
+	RelationshipStartDateTime DATETIME NOT NULL,
+	RelationshipStartDateTimeUTCOffset INTEGER NOT NULL,
+	RelationshipEndDateTime DATETIME NULL,
+	RelationshipEndDateTimeUTCOffset INTEGER NULL
 );
 
 /* Add Primary Key */
@@ -1657,11 +1780,23 @@ EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema'
 EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier for a piece of Equipment', 'schema', 'ODM2Equipment', 
 	'table', 'RelatedEquipment', 'column', 'EquipmentID';
 
-EXEC sp_addextendedproperty 'MS_Description', 'Text string indicating the type of relationship between two pieces of equipement', 'schema', 'ODM2Equipment', 
+EXEC sp_addextendedproperty 'MS_Description', 'Controlled Vocabulary term indicating the type of relationship between two pieces of equipment', 'schema', 'ODM2Equipment', 
 	'table', 'RelatedEquipment', 'column', 'RelationshipTypeCV';
 
 EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the related piece of equipment', 'schema', 'ODM2Equipment', 
 	'table', 'RelatedEquipment', 'column', 'RelatedEquipmentID';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Beginning date/time of the relationship between the two pieces of equipment', 'schema', 'ODM2Equipment', 
+	'table', 'RelatedEquipment', 'column', 'RelationshipStartDateTime';
+
+EXEC sp_addextendedproperty 'MS_Description', 'UTCOffset of the beginning date/time', 'schema', 'ODM2Equipment', 
+	'table', 'RelatedEquipment', 'column', 'RelationshipStartDateTimeUTCOffset';
+
+EXEC sp_addextendedproperty 'MS_Description', 'Ending date/time of the relationship between two pieces of equipment', 'schema', 'ODM2Equipment', 
+	'table', 'RelatedEquipment', 'column', 'RelationshipEndDateTime';
+
+EXEC sp_addextendedproperty 'MS_Description', 'UTCOffset of the ending date/time', 'schema', 'ODM2Equipment', 
+	'table', 'RelatedEquipment', 'column', 'RelationshipEndDateTimeUTCOffset';
 
 EXEC sp_addextendedproperty 'MS_Description', 'Information about relationships among Equipment', 'schema', 'ODM2Equipment', 
 	'table', RelatedEquipment, null, null;
@@ -3219,174 +3354,6 @@ EXEC sp_addextendedproperty 'MS_Description', 'Equivalent to O&M Sampling Featur
 	'table', Specimens, null, null;
 
 
-/******************** Add Table: ODM2Sensors.DataLoggerFiles ************************/
-
-/* Build Table Structure */
-CREATE TABLE ODM2Sensors.DataLoggerFiles
-(
-	DataLoggerFileID INTEGER IDENTITY (1, 1) NOT NULL,
-	ProgramID INTEGER NOT NULL,
-	DataLoggerFileName VARCHAR(255) NOT NULL,
-	DataLoggerFileDescription VARCHAR(500) NULL,
-	DataLoggerFileLink VARCHAR(255) NULL
-);
-
-/* Add Primary Key */
-ALTER TABLE ODM2Sensors.DataLoggerFiles ADD CONSTRAINT pkDataLoggerFiles
-	PRIMARY KEY (DataLoggerFileID);
-
-/* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Unique identifier for the datalogger file', 'schema', 'ODM2Sensors', 
-	'table', 'DataLoggerFiles', 'column', 'DataLoggerFileID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the datalogger program that created the file', 'schema', 'ODM2Sensors', 
-	'table', 'DataLoggerFiles', 'column', 'ProgramID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text name of the datalogger file', 'schema', 'ODM2Sensors', 
-	'table', 'DataLoggerFiles', 'column', 'DataLoggerFileName';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text description of the datalogger file', 'schema', 'ODM2Sensors', 
-	'table', 'DataLoggerFiles', 'column', 'DataLoggerFileDescription';
-
-EXEC sp_addextendedproperty 'MS_Description', 'File path to the datalogger file', 'schema', 'ODM2Sensors', 
-	'table', 'DataLoggerFiles', 'column', 'DataLoggerFileLink';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Destibes datalogger files created by a deployment action', 'schema', 'ODM2Sensors', 
-	'table', DataLoggerFiles, null, null;
-
-
-/******************** Add Table: ODM2Sensors.DataloggerProgramFiles ************************/
-
-/* Build Table Structure */
-CREATE TABLE ODM2Sensors.DataloggerProgramFiles
-(
-	ProgramID INTEGER IDENTITY (1, 1) NOT NULL,
-	AffiliationID INTEGER NOT NULL,
-	ProgramName VARCHAR(255) NOT NULL,
-	ProgramDescription VARCHAR(500) NULL,
-	ProgramVersion VARCHAR(50) NULL,
-	ProgramFileLink VARCHAR(255) NULL
-);
-
-/* Add Primary Key */
-ALTER TABLE ODM2Sensors.DataloggerProgramFiles ADD CONSTRAINT pkDataloggerProgramFiles
-	PRIMARY KEY (ProgramID);
-
-/* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Sensors', 
-	'table', 'DataloggerProgramFiles', 'column', 'ProgramID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the person that created the program', 'schema', 'ODM2Sensors', 
-	'table', 'DataloggerProgramFiles', 'column', 'AffiliationID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text name of the datalogger program file', 'schema', 'ODM2Sensors', 
-	'table', 'DataloggerProgramFiles', 'column', 'ProgramName';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text description of the datalogger program file', 'schema', 'ODM2Sensors', 
-	'table', 'DataloggerProgramFiles', 'column', 'ProgramDescription';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text description of the version of the datalogger program file', 'schema', 'ODM2Sensors', 
-	'table', 'DataloggerProgramFiles', 'column', 'ProgramVersion';
-
-EXEC sp_addextendedproperty 'MS_Description', 'URL or file path to the datalogger program file', 'schema', 'ODM2Sensors', 
-	'table', 'DataloggerProgramFiles', 'column', 'ProgramFileLink';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Information about datalogger program files', 'schema', 'ODM2Sensors', 
-	'table', DataloggerProgramFiles, null, null;
-
-
-/******************** Add Table: ODM2Sensors.DeploymentActions ************************/
-
-/* Build Table Structure */
-CREATE TABLE ODM2Sensors.DeploymentActions
-(
-	ActionID INTEGER NOT NULL,
-	DeploymentTypeCV VARCHAR(255) NOT NULL,
-	CurrentlyDeployed BIT NOT NULL
-);
-
-/* Add Primary Key */
-ALTER TABLE ODM2Sensors.DeploymentActions ADD CONSTRAINT pkDeploymentActions
-	PRIMARY KEY (ActionID);
-
-/* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifer for the Action that is the deployment', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentActions', 'column', 'ActionID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'CV term that describes the type of the deployment', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentActions', 'column', 'DeploymentTypeCV';
-
-EXEC sp_addextendedproperty 'MS_Description', 'A boolean indicating whether a piece of equipment is currently deployed', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentActions', 'column', 'CurrentlyDeployed';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Describes actions that are deployment events', 'schema', 'ODM2Sensors', 
-	'table', DeploymentActions, null, null;
-
-
-/******************** Add Table: ODM2Sensors.DeploymentMeasuredVariables ************************/
-
-/* Build Table Structure */
-CREATE TABLE ODM2Sensors.DeploymentMeasuredVariables
-(
-	DeploymentMeasuredVariableID INTEGER IDENTITY (1, 1) NOT NULL,
-	ActionID INTEGER NOT NULL,
-	InstrumentOutputVariableID INTEGER NOT NULL,
-	DataloggerFileID INTEGER NOT NULL,
-	ColumnLabel VARCHAR(50) NULL,
-	ColumnDescription VARCHAR(500) NULL,
-	MeasurementEquation VARCHAR(255) NULL,
-	ScanInterval FLOAT NULL,
-	ScanIntervalUnitsID INTEGER NULL,
-	RecordingInterval FLOAT NULL,
-	RecordingIntervalUnitsID INTEGER NULL,
-	AggregationStatisticCV VARCHAR(255) NULL
-);
-
-/* Add Primary Key */
-ALTER TABLE ODM2Sensors.DeploymentMeasuredVariables ADD CONSTRAINT pkDeploymentMeasuredVariables
-	PRIMARY KEY (DeploymentMeasuredVariableID);
-
-/* Add Comments */
-EXEC sp_addextendedproperty 'MS_Description', 'Primary key identifier', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'DeploymentMeasuredVariableID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the Deployment Action associated with the DeploymentMeasuredVariable', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'ActionID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the InstrumentOutputVariable that is the DeploymentMeasuredVariable', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'InstrumentOutputVariableID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the DataloggerFile from in which the DeploymentMeasuredVariable is recorded', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'DataloggerFileID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text label of the column within the DataloggerFile that is the DeploymentMeasuredVariable', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'ColumnLabel';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text description of hte column within the DataloggerFile that is the DeploymentMeasuredVariable', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'ColumnDescription';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text string that gives the equation (if any) associated with the DeploymentMeasuredVariable', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'MeasurementEquation';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Numeric value of the scan interval', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'ScanInterval';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the units of the scan interval', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'ScanIntervalUnitsID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Numeric value of the recording interval', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'RecordingInterval';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Foreign key identifier of the units for the recording interval', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'RecordingIntervalUnitsID';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Text aggregation statistic of the recorded value - chosen from a CV', 'schema', 'ODM2Sensors', 
-	'table', 'DeploymentMeasuredVariables', 'column', 'AggregationStatisticCV';
-
-EXEC sp_addextendedproperty 'MS_Description', 'Inoformation about the variables measured by a deployment', 'schema', 'ODM2Sensors', 
-	'table', DeploymentMeasuredVariables, null, null;
-
-
 
 
 
@@ -3697,34 +3664,69 @@ ALTER TABLE ODM2DataQuality.ResultsDataQuality ADD CONSTRAINT fk_ResultsDataQual
 	FOREIGN KEY (ResultID) REFERENCES ODM2Core.Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-/* Add Foreign Key: fk_CalibratedDeploymentVariables_Actions */
-ALTER TABLE ODM2Equipment.CalibratedDeploymentVariables ADD CONSTRAINT fk_CalibratedDeploymentVariables_Actions
+/* Add Foreign Key: fk_CalibrationActions_Actions */
+ALTER TABLE ODM2Equipment.CalibrationActions ADD CONSTRAINT fk_CalibrationActions_Actions
 	FOREIGN KEY (ActionID) REFERENCES ODM2Core.Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-/* Add Foreign Key: fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables */
-ALTER TABLE ODM2Equipment.CalibratedDeploymentVariables ADD CONSTRAINT fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables
-	FOREIGN KEY (DeploymentMeasuredVariableID) REFERENCES ODM2Sensors.DeploymentMeasuredVariables (DeploymentMeasuredVariableID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_CalibrationEquations_Actions */
-ALTER TABLE ODM2Equipment.CalibrationEquations ADD CONSTRAINT fk_CalibrationEquations_Actions
-	FOREIGN KEY (ActionID) REFERENCES ODM2Core.Actions (ActionID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_CalibrationEquations_InstrumentOutputVariables */
-ALTER TABLE ODM2Equipment.CalibrationEquations ADD CONSTRAINT fk_CalibrationEquations_InstrumentOutputVariables
+/* Add Foreign Key: fk_CalibrationActions_InstrumentOutputVariables */
+ALTER TABLE ODM2Equipment.CalibrationActions ADD CONSTRAINT fk_CalibrationActions_InstrumentOutputVariables
 	FOREIGN KEY (InstrumentOutputVariableID) REFERENCES ODM2Equipment.InstrumentOutputVariables (InstrumentOutputVariableID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-/* Add Foreign Key: fk_FieldCalibrationStandards_Actions */
-ALTER TABLE ODM2Equipment.CalibrationStandards ADD CONSTRAINT fk_FieldCalibrationStandards_Actions
-	FOREIGN KEY (ActionID) REFERENCES ODM2Core.Actions (ActionID)
+/* Add Foreign Key: fk_CalibrationReferenceEquipment_CalibrationActions */
+ALTER TABLE ODM2Equipment.CalibrationReferenceEquipment ADD CONSTRAINT fk_CalibrationReferenceEquipment_CalibrationActions
+	FOREIGN KEY (ActionID) REFERENCES ODM2Equipment.CalibrationActions (ActionID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_CalibrationReferenceEquipment_Equipment */
+ALTER TABLE ODM2Equipment.CalibrationReferenceEquipment ADD CONSTRAINT fk_CalibrationReferenceEquipment_Equipment
+	FOREIGN KEY (EquipmentID) REFERENCES ODM2Equipment.Equipment (EquipmentID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_CalibrationStandards_CalibrationActions */
+ALTER TABLE ODM2Equipment.CalibrationStandards ADD CONSTRAINT fk_CalibrationStandards_CalibrationActions
+	FOREIGN KEY (ActionID) REFERENCES ODM2Equipment.CalibrationActions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 /* Add Foreign Key: fk_FieldCalibrationStandards_ReferenceMaterials */
 ALTER TABLE ODM2Equipment.CalibrationStandards ADD CONSTRAINT fk_FieldCalibrationStandards_ReferenceMaterials
 	FOREIGN KEY (ReferenceMaterialID) REFERENCES ODM2DataQuality.ReferenceMaterials (ReferenceMaterialID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataLoggerFiles_DataloggerProgramFiles */
+ALTER TABLE ODM2Equipment.DataLoggerFiles ADD CONSTRAINT fk_DataLoggerFiles_DataloggerProgramFiles
+	FOREIGN KEY (ProgramID) REFERENCES ODM2Equipment.DataloggerProgramFiles (ProgramID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_DataLoggerFiles */
+ALTER TABLE ODM2Equipment.DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_DataLoggerFiles
+	FOREIGN KEY (DataLoggerFileID) REFERENCES ODM2Equipment.DataLoggerFiles (DataLoggerFileID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_InstrumentOutputVariables */
+ALTER TABLE ODM2Equipment.DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_InstrumentOutputVariables
+	FOREIGN KEY (InstrumentOutputVariableID) REFERENCES ODM2Equipment.InstrumentOutputVariables (InstrumentOutputVariableID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_RecordingUnits */
+ALTER TABLE ODM2Equipment.DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_RecordingUnits
+	FOREIGN KEY (RecordingIntervalUnitsID) REFERENCES ODM2Core.Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_Results */
+ALTER TABLE ODM2Equipment.DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_Results
+	FOREIGN KEY (ResultID) REFERENCES ODM2Core.Results (ResultID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_ScanUnits */
+ALTER TABLE ODM2Equipment.DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_ScanUnits
+	FOREIGN KEY (ScanIntervalUnitsID) REFERENCES ODM2Core.Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerProgramFiles_Affiliations */
+ALTER TABLE ODM2Equipment.DataloggerProgramFiles ADD CONSTRAINT fk_DataloggerProgramFiles_Affiliations
+	FOREIGN KEY (AffiliationID) REFERENCES ODM2Core.Affiliations (AffiliationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 /* Add Foreign Key: fk_Equipment_EquipmentModels */
@@ -3742,19 +3744,19 @@ ALTER TABLE ODM2Equipment.Equipment ADD CONSTRAINT fk_Equipment_People
 	FOREIGN KEY (EquipmentOwnerID) REFERENCES ODM2Core.People (PersonID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+/* Add Foreign Key: fk_EquipmentModels_Organizations */
+ALTER TABLE ODM2Equipment.EquipmentModels ADD CONSTRAINT fk_EquipmentModels_Organizations
+	FOREIGN KEY (ModelManufacturerID) REFERENCES ODM2Core.Organizations (OrganizationID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 /* Add Foreign Key: fk_EquipmentActions_Actions */
-ALTER TABLE ODM2Equipment.EquipmentActions ADD CONSTRAINT fk_EquipmentActions_Actions
+ALTER TABLE ODM2Equipment.EquipmentUsed ADD CONSTRAINT fk_EquipmentActions_Actions
 	FOREIGN KEY (ActionID) REFERENCES ODM2Core.Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 /* Add Foreign Key: fk_EquipmentActions_Equipment */
-ALTER TABLE ODM2Equipment.EquipmentActions ADD CONSTRAINT fk_EquipmentActions_Equipment
+ALTER TABLE ODM2Equipment.EquipmentUsed ADD CONSTRAINT fk_EquipmentActions_Equipment
 	FOREIGN KEY (EquipmentID) REFERENCES ODM2Equipment.Equipment (EquipmentID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_EquipmentModels_Organizations */
-ALTER TABLE ODM2Equipment.EquipmentModels ADD CONSTRAINT fk_EquipmentModels_Organizations
-	FOREIGN KEY (ModelManufacturerID) REFERENCES ODM2Core.Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 /* Add Foreign Key: fk_InstrumentOutputVariables_EquipmentModels */
@@ -4420,44 +4422,4 @@ ALTER TABLE ODM2SamplingFeatures.SpecimenTaxonomicClassifiers ADD CONSTRAINT fk_
 /* Add Foreign Key: fk_Specimens_SamplingFeatures */
 ALTER TABLE ODM2SamplingFeatures.Specimens ADD CONSTRAINT fk_Specimens_SamplingFeatures
 	FOREIGN KEY (SamplingFeatureID) REFERENCES ODM2Core.SamplingFeatures (SamplingFeatureID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DataLoggerFiles_DataloggerProgramFiles */
-ALTER TABLE ODM2Sensors.DataLoggerFiles ADD CONSTRAINT fk_DataLoggerFiles_DataloggerProgramFiles
-	FOREIGN KEY (ProgramID) REFERENCES ODM2Sensors.DataloggerProgramFiles (ProgramID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DataloggerProgramFiles_Affiliations */
-ALTER TABLE ODM2Sensors.DataloggerProgramFiles ADD CONSTRAINT fk_DataloggerProgramFiles_Affiliations
-	FOREIGN KEY (AffiliationID) REFERENCES ODM2Core.Affiliations (AffiliationID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentActions_Actions */
-ALTER TABLE ODM2Sensors.DeploymentActions ADD CONSTRAINT fk_DeploymentActions_Actions
-	FOREIGN KEY (ActionID) REFERENCES ODM2Core.Actions (ActionID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_DataLoggerFiles */
-ALTER TABLE ODM2Sensors.DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_DataLoggerFiles
-	FOREIGN KEY (DataloggerFileID) REFERENCES ODM2Sensors.DataLoggerFiles (DataLoggerFileID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_DeploymentActions */
-ALTER TABLE ODM2Sensors.DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_DeploymentActions
-	FOREIGN KEY (ActionID) REFERENCES ODM2Sensors.DeploymentActions (ActionID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_InstrumentOutputVariables */
-ALTER TABLE ODM2Sensors.DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_InstrumentOutputVariables
-	FOREIGN KEY (InstrumentOutputVariableID) REFERENCES ODM2Equipment.InstrumentOutputVariables (InstrumentOutputVariableID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_RI_Units */
-ALTER TABLE ODM2Sensors.DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_RI_Units
-	FOREIGN KEY (RecordingIntervalUnitsID) REFERENCES ODM2Core.Units (UnitsID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_SI_Units */
-ALTER TABLE ODM2Sensors.DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_SI_Units
-	FOREIGN KEY (ScanIntervalUnitsID) REFERENCES ODM2Core.Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
