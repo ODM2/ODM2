@@ -38,20 +38,38 @@
 <img src="../images/ok12d.gif"></p>
 </td><td class="PkCol"> </td><td class="PkCol">Primary key identifier</td><td class="PkCol"> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_RelatedEquipment_EquipmentID.html">EquipmentID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier for a piece of Equipment</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Equipment_RelatedEquipment_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Text string indicating the type of relationship between two pieces of equipement</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Equipment_RelatedEquipment_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Controlled Vocabulary term indicating the type of relationship between two pieces of equipment</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_RelatedEquipment_RelatedEquipmentID.html">RelatedEquipmentID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the related piece of equipment</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2Equipment_RelatedEquipment_RelationshipStartDateTime.html">RelationshipStartDateTime</a></td><td>DateTime</td><td> </td><td> </td><td> </td><td>Beginning date/time of the relationship between the two pieces of equipment</td><td> </td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Equipment_RelatedEquipment_RelationshipStartDateTimeUTCOffset.html">RelationshipStartDateTimeUTCOffset</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>UTCOffset of the beginning date/time</td><td> </td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2Equipment_RelatedEquipment_RelationshipEndDateTime.html">RelationshipEndDateTime</a></td><td>DateTime</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>Ending date/time of the relationship between two pieces of equipment</td><td> </td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Equipment_RelatedEquipment_RelationshipEndDateTimeUTCOffset.html">RelationshipEndDateTimeUTCOffset</a></td><td>Integer</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>UTCOffset of the ending date/time</td><td> </td>
 </tr>
 </table>
 <br>
@@ -85,9 +103,6 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Equipment.html">ODM2Equipment</a></td>
-</tr>
-<tr>
-<td><a href="../diagrams/ODM2Sensors.html">ODM2Sensors</a></td>
 </tr>
 </table>
 </Body>

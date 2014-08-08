@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">Units</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
@@ -70,6 +70,12 @@
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterialValues_fk_ReferenceMaterialValues_Units.html">fk_ReferenceMaterialValues_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterialValues.html">ODM2DataQuality.ReferenceMaterialValues</a></td><td>UnitsID</td><td>UnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerFileColumns_fk_DataloggerFileColumns_RecordingUnits.html">fk_DataloggerFileColumns_RecordingUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Equipment_DataloggerFileColumns.html">ODM2Equipment.DataloggerFileColumns</a></td><td>UnitsID</td><td>RecordingIntervalUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerFileColumns_fk_DataloggerFileColumns_ScanUnits.html">fk_DataloggerFileColumns_ScanUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Equipment_DataloggerFileColumns.html">ODM2Equipment.DataloggerFileColumns</a></td><td>UnitsID</td><td>ScanIntervalUnitsID</td>
 </tr>
 <tr class="altRow">
 <td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_Units.html">fk_InstrumentOutputVariables_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>UnitsID</td><td>InstrumentRawOutputUnitsID</td>
@@ -203,12 +209,6 @@
 <tr>
 <td><a href="../foreignKeys/ODM2Results_TransectResults_fk_TransectResults_Units.html">fk_TransectResults_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
 </tr>
-<tr class="altRow">
-<td><a href="../foreignKeys/ODM2Sensors_DeploymentMeasuredVariables_fk_DeploymentMeasuredVariables_RI_Units.html">fk_DeploymentMeasuredVariables_RI_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Sensors_DeploymentMeasuredVariables.html">ODM2Sensors.DeploymentMeasuredVariables</a></td><td>UnitsID</td><td>RecordingIntervalUnitsID</td>
-</tr>
-<tr>
-<td><a href="../foreignKeys/ODM2Sensors_DeploymentMeasuredVariables_fk_DeploymentMeasuredVariables_SI_Units.html">fk_DeploymentMeasuredVariables_SI_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Sensors_DeploymentMeasuredVariables.html">ODM2Sensors.DeploymentMeasuredVariables</a></td><td>UnitsID</td><td>ScanIntervalUnitsID</td>
-</tr>
 </table>
 <br>
 <table class="flat">
@@ -220,9 +220,6 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Core.html">ODM2Core</a></td>
-</tr>
-<tr>
-<td><a href="../diagrams/ODM2Equipment.html">ODM2Equipment</a></td>
 </tr>
 </table>
 </Body>
