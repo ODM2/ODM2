@@ -56,15 +56,21 @@ class createResults(serviceBase):
                                      timeaggregationinterval, timeaggregationunit):
 
 
-        for i in range(len(datavalues)):
+        try:
             values = Timeseriesresultvalue()
-            values.ResultID = resultid
-            values.CensorCodeCV = censorcodecv
-            values.QualityCodeCV = qualitycodecv
-            values.TimeAggregationInterval = timeaggregationinterval
-            values.TimeAggregationIntervalUnitsID = timeaggregationunit
-            values.DataValue = datavalues[i]
-            values.ValueDateTime = datetimes[i]
-            values.ValueDateTimeUTCOffset = datetimeoffsets[i]
-            self._session.add(values)
-        self._session.commit()
+            for i in range(len(datavalues)):
+
+                values.ResultID = resultid
+                values.CensorCodeCV = censorcodecv
+                values.QualityCodeCV = qualitycodecv
+                values.TimeAggregationInterval = timeaggregationinterval
+                values.TimeAggregationIntervalUnitsID = timeaggregationunit
+                values.DataValue = datavalues[i]
+                values.ValueDateTime = datetimes[i]
+                values.ValueDateTimeUTCOffset = datetimeoffsets[i]
+                self._session.add(values)
+            self._session.commit()
+            return values
+        except Exception, e:
+            print e
+            return None

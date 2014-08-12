@@ -395,12 +395,33 @@ class readCore(serviceBase):
     def getResultByActionID(self,actionID):
 
         try:
-            return self._session.query(Result,Samplingfeature.FeatureGeometry.ST_AsText()).join(Featureaction).join(Samplingfeature).join(Action).filter_by(ActionID=actionID).all()
+            return self._session.query(Result).join(Featureaction).join(Action).filter_by(ActionID=actionID).all()
         except:
             return None
 
     def getResultByID(self,resultID):
         try:
             return self._session.query(Result).filter_by(ResultID=resultID).one()
+        except:
+            return None
+
+    def getResultAndGeomByID(self,resultID):
+        try:
+            return self._session.query(Result,Samplingfeature.FeatureGeometry.ST_AsText()).\
+                                        join(Featureaction).\
+                                        join(Samplingfeature).\
+                                        join(Result).\
+                                        filter_by(ResultID=resultID).one()
+        except:
+            return None
+
+    def getResultAndGeomByActionID(self,actionID):
+
+        try:
+            return self._session.query(Result,Samplingfeature.FeatureGeometry.ST_AsText()).\
+                                        join(Featureaction).\
+                                        join(Samplingfeature).\
+                                        join(Action).\
+                                        filter_by(ActionID=actionID).all()
         except:
             return None
