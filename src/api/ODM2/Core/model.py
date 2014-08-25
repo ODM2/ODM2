@@ -28,7 +28,9 @@ class Geometry(UserDefinedType):
 
 class Person(Base):
     __tablename__ = u'People'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2Core'
+
+    }
 
     PersonID = Column(Integer, primary_key=True)
     PersonFirstName = Column(String(255), nullable=False)
