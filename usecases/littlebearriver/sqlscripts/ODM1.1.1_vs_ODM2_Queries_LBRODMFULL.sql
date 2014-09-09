@@ -13,7 +13,7 @@ ORDER BY LocalDateTime;
 USE ODM2;
 SELECT rv.ValueID, rv.ResultID, rv.DataValue, rv.ValueDateTime, rv.ValueDateTimeUTCOffset, rv.OffsetOriginID, rv.ValueXLocation, rv.ValueYLocation, rv.ValueZLocation,
 	rv.CensorCodeCV, rv.QualityCodeCV, rv.AggregationDuration, rv.InterpolationTypeCV
-FROM ODM2Results.ResultValues rv, ODM2Core.Results r, ODM2Core.FeatureActionResult far, ODM2Core.Actions a, ODM2SamplingFeatures.Sites s
+FROM ODM2.ResultValues rv, ODM2.Results r, ODM2.FeatureActionResult far, ODM2.Actions a, ODM2.Sites s
 WHERE s.SamplingFeatureID = 1 AND r.VariableID = 36 AND r.QualityControlLevelID = 0 AND a.MethodID = 18 AND rv.ResultID = r.ResultID 
 	AND r.ResultID = far.ResultID AND far.ActionID = a.ActionID AND far.SamplingFeatureID = s.SamplingFeatureID
 ORDER BY ValueDateTime;
@@ -32,7 +32,7 @@ ORDER BY LocalDateTime;
 USE ODM2;
 SELECT rv.ValueID, rv.ResultID, rv.DataValue, rv.ValueDateTime, rv.ValueDateTimeUTCOffset, rv.OffsetOriginID, rv.ValueXLocation, rv.ValueYLocation, rv.ValueZLocation,
 	rv.CensorCodeCV, rv.QualityCodeCV, rv.AggregationDuration, rv.InterpolationTypeCV
-FROM ODM2Results.ResultValues rv, ODM2Core.Results r, ODM2Core.FeatureActionResult far, ODM2Core.Actions a, ODM2SamplingFeatures.Sites s
+FROM ODM2.ResultValues rv, ODM2.Results r, ODM2.FeatureActionResult far, ODM2.Actions a, ODM2.Sites s
 WHERE s.SamplingFeatureID = 1 AND r.VariableID = 36 AND r.QualityControlLevelID = 0 AND a.MethodID = 18 AND ValueDateTime >= '9/1/2007' AND ValueDateTime < '9/2/2007'
 	AND rv.ResultID = r.ResultID AND r.ResultID = far.ResultID AND far.ActionID = a.ActionID AND far.SamplingFeatureID = s.SamplingFeatureID
 ORDER BY ValueDateTime;
@@ -54,17 +54,17 @@ WHERE v.VariableID = 65;
 --To test this for sample based data, use VariableID = 65
 USE ODM2;
 SELECT SiteCode, SiteName
-FROM ODM2SamplingFeatures.Sites s
+FROM ODM2.Sites s
 WHERE s.SamplingFeatureID IN (
 	SELECT DISTINCT far.SamplingFeatureID
-	FROM ODM2Core.FeatureActionResult far, ODM2Core.Results r 
+	FROM ODM2.FeatureActionResult far, ODM2.Results r 
 	WHERE r.VariableID = 65 AND r.ResultID = far.ResultID
 ) OR s.SamplingFeatureID IN (
 	SELECT ParentFeatureID
-	FROM ODM2SamplingFeatures.FeatureParents
+	FROM ODM2.FeatureParents
 	WHERE SamplingFeatureID IN (
 		SELECT DISTINCT far.SamplingFeatureID
-		FROM ODM2Core.FeatureActionResult far, ODM2Core.Results r 
+		FROM ODM2.FeatureActionResult far, ODM2.Results r 
 		WHERE r.VariableID = 65 AND r.ResultID = far.ResultID
 	)
 );
@@ -85,17 +85,17 @@ WHERE s.SiteID = sq.SiteID AND m.MethodID = sq.MethodID AND v.VariableID = sq.Va
 USE ODM2;
 SELECT r.ResultID, far.SamplingFeatureID, s.SiteCode, s.SiteName, s.SiteTypeCV, r.VariableID, v.VariableCode, v.VariableNameCV, v.SpeciationCV, r.UnitsID, 
 	u.UnitsName, r.SampledMediumCV, v.ValueTypeCV, v.DataTypeCV, a.MethodID, m.MethodName, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition
-FROM ODM2Core.Results r, ODM2Core.Variables v, ODM2Core.FeatureActionResult far, ODM2Core.Methods m, ODM2SamplingFeatures.Sites s,
-	ODM2Core.Units u, ODM2Core.Actions a, ODM2Core.QualityControlLevels qc
+FROM ODM2.Results r, ODM2.Variables v, ODM2.FeatureActionResult far, ODM2.Methods m, ODM2.Sites s,
+	ODM2.Units u, ODM2.Actions a, ODM2.QualityControlLevels qc
 WHERE r.VariableID = 6 AND r.ResultTypeCV = 'Time Series Coverage' AND v.VariableID = r.VariableID AND a.ActionID = far.ActionID 
 	AND m.MethodID = a.MethodID AND u.UnitsID = r.UnitsID AND s.SamplingFeatureID = far.SamplingFeatureID AND r.ResultID = far.ResultID
 	AND qc.QualityControlLevelID = r.QualityControlLevelID AND (far.SamplingFeatureID IN (
 		SELECT fp.SamplingFeatureID 
-		FROM ODM2SamplingFeatures.FeatureParents fp, ODM2SamplingFeatures.Sites s
+		FROM ODM2.FeatureParents fp, ODM2.Sites s
 		WHERE s.SamplingFeatureID = fp.ParentFeatureID
 	) OR far.SamplingFeatureID IN (
 		SELECT SamplingFeatureID
-		FROM ODM2SamplingFeatures.Sites
+		FROM ODM2.Sites
 	)
 );
 
@@ -113,17 +113,17 @@ JOIN DataValues dv
 --ODM2 - For ODM2, must check SamplingFeatures that are Sites but also add Sites that have Specimens that were collected at the Site
 USE ODM2;
 SELECT SiteCode, SiteName
-FROM ODM2SamplingFeatures.Sites s
+FROM ODM2.Sites s
 WHERE s.SamplingFeatureID IN (
 	SELECT DISTINCT far.SamplingFeatureID
-	FROM ODM2Core.FeatureActionResult far 
+	FROM ODM2.FeatureActionResult far 
 	WHERE far.ResultID IS NOT NULL
 ) OR s.SamplingFeatureID IN (
 	SELECT ParentFeatureID
-	FROM ODM2SamplingFeatures.FeatureParents
+	FROM ODM2.FeatureParents
 	WHERE SamplingFeatureID IN (
 		SELECT DISTINCT far.SamplingFeatureID
-		FROM ODM2Core.FeatureActionResult far
+		FROM ODM2.FeatureActionResult far
 		WHERE far.ResultID IS NOT NULL 
 	)
 );
@@ -142,8 +142,8 @@ ORDER BY v.VariableName;
 --ODM2
 USE ODM2;
 SELECT DISTINCT VariableCode, VariableNameCV 
-FROM ODM2Core.Variables v
-JOIN ODM2Core.Results r
+FROM ODM2.Variables v
+JOIN ODM2.Results r
 	ON r.VariableID = v.VariableID
 ORDER BY VariableNameCV; 	
 
@@ -162,10 +162,10 @@ ORDER BY m.MethodID;
 --ODM2 - For ODM2, this includes both Methods and LabMethods, whereas for ODM 1.1.1 it includes only Methods
 USE ODM2;
 SELECT DISTINCT m.MethodID, m.MethodCode, m.MethodName
-FROM ODM2Core.Methods m
-JOIN ODM2Core.Actions a
+FROM ODM2.Methods m
+JOIN ODM2.Actions a
 	ON a.MethodID = m.MethodID 
-JOIN ODM2Core.FeatureActionResult far
+JOIN ODM2.FeatureActionResult far
 	ON far.ActionID = a.ActionID
 WHERE far.ResultID IS NOT NULL
 ORDER BY MethodID;
@@ -195,15 +195,15 @@ USE ODM2;
 DECLARE @SamplingFeatureID AS int;
 SELECT @SamplingFeatureID = 1;
 DECLARE @SiteCode AS varchar(50);
-SELECT @SiteCode = SiteCode FROM ODM2SamplingFeatures.Sites WHERE SamplingFeatureID = 1
+SELECT @SiteCode = SiteCode FROM ODM2.Sites WHERE SamplingFeatureID = 1
 DECLARE @SiteName AS varchar(255);
-SELECT @SiteName = SiteName FROM ODM2SamplingFeatures.Sites WHERE SamplingFeatureID = 1
+SELECT @SiteName = SiteName FROM ODM2.Sites WHERE SamplingFeatureID = 1
 SELECT DISTINCT @SamplingFeatureID AS SamplingFeatureID, @SiteCode AS SiteCode, @SiteName AS SiteName, v.VariableID, v.VariableCode, v.VariableNameCV
-FROM ODM2Core.Variables v, ODM2Core.Results r, ODM2Core.FeatureActionResult far
+FROM ODM2.Variables v, ODM2.Results r, ODM2.FeatureActionResult far
 WHERE r.VariableID = v.VariableID AND far.ResultID = r.ResultID 
 	AND (far.SamplingFeatureID IN (
 		SELECT SamplingFeatureID 
-		FROM ODM2SamplingFeatures.FeatureParents
+		FROM ODM2.FeatureParents
 		WHERE ParentFeatureID = @SamplingFeatureID
 	) OR far.SamplingFeatureID = @SamplingFeatureID)
 ORDER BY VariableID; 
@@ -230,13 +230,13 @@ DECLARE @VariableID AS int;
 SELECT @VariableID = 6;
 SELECT r.ResultID, s.SamplingFeatureID, s.SiteCode, s.SiteName, s.SiteTypeCV, v.VariableID, v.VariableCode, v.VariableNameCV, v.SpeciationCV, u.UnitsID, 
 	u.UnitsName, r.SampledMediumCV, v.ValueTypeCV, v.DataTypeCV, m.MethodID, m.MethodName, m.MethodDescription, qc.QualityControlLevelCode, qc.Definition
-FROM ODM2Core.Results r, ODM2Core.Variables v, ODM2Core.Actions a, ODM2Core.Methods m, ODM2Core.FeatureActionResult far, ODM2SamplingFeatures.Sites s,
-	ODM2Core.Units u, ODM2Core.QualityControlLevels qc
+FROM ODM2.Results r, ODM2.Variables v, ODM2.Actions a, ODM2.Methods m, ODM2.FeatureActionResult far, ODM2.Sites s,
+	ODM2.Units u, ODM2.QualityControlLevels qc
 WHERE v.VariableID = @VariableID AND r.ResultTypeCV = 'Time Series Coverage' AND v.VariableID = r.VariableID AND a.ActionID = far.ActionID 
 	AND m.MethodID = a.MethodID AND u.UnitsID = r.UnitsID AND s.SamplingFeatureID = far.SamplingFeatureID AND r.ResultID = far.ResultID
 	AND r.QualityControlLevelID = qc.QualityControlLevelID AND (far.SamplingFeatureID IN (
 		SELECT SamplingFeatureID 
-		FROM ODM2SamplingFeatures.FeatureParents
+		FROM ODM2.FeatureParents
 		WHERE ParentFeatureID = @SamplingFeatureID
 	) OR far.SamplingFeatureID = @SamplingFeatureID);
 	
@@ -257,7 +257,7 @@ USE ODM2;
 DECLARE @VariableID AS int;
 SELECT @VariableID = 36
 SELECT DISTINCT m.MethodID, m.MethodCode, m.MethodName, m.MethodDescription, m.MethodTypeCV 
-FROM ODM2Core.Methods m, ODM2Core.Actions a, ODM2Core.Results r, ODM2Core.Variables v, ODM2Core.FeatureActionResult far
+FROM ODM2.Methods m, ODM2.Actions a, ODM2.Results r, ODM2.Variables v, ODM2.FeatureActionResult far
 WHERE m.MethodID = a.MethodID AND a.ActionID = far.ActionID AND r.ResultID = far.ResultID AND r.VariableID = v.VariableID and v.VariableID = @VariableID
 ORDER BY MethodID;
 
@@ -283,8 +283,8 @@ SELECT r.ResultID, s.SamplingFeatureID, s.SiteCode, s.SiteName, s.SiteTypeCV, r.
 	u.UnitsName, r.SampledMediumCV,	v.ValueTypeCV, r.IntendedObservationSpacing, v.DataTypeCV, a.MethodID, m.MethodDescription, o.OrganizationCode, 
 	o.OrganizationName, r.QualityControlLevelID, qc.QualityControlLevelCode, a.BeginDateTime, a.BeginDateTimeUTCOffset, a.EndDateTime, 
 	a.EndDateTimeUTCOffset, r.ValueCount
-FROM ODM2Core.Results r, ODM2SamplingFeatures.Sites s, ODM2Core.Variables v, ODM2Core.Units u, ODM2Core.Methods m, ODM2Core.Organizations o, 
-	ODM2Core.QualityControlLevels qc, ODM2Core.Actions a, ODM2Core.ActionBy ab, ODM2Core.Affiliations af, ODM2Core.People p, ODM2Core.FeatureActionResult far
+FROM ODM2.Results r, ODM2.Sites s, ODM2.Variables v, ODM2.Units u, ODM2.Methods m, ODM2.Organizations o, 
+	ODM2.QualityControlLevels qc, ODM2.Actions a, ODM2.ActionBy ab, ODM2.Affiliations af, ODM2.People p, ODM2.FeatureActionResult far
 WHERE r.ResultID = far.ResultID AND a.ActionID = far.ActionID AND r.UnitsID = u.UnitsID AND r.VariableID = v.VariableID AND r.QualityControlLevelID = qc.QualityControlLevelID 
 	AND far.SamplingFeatureID = s.SamplingFeatureID AND a.ActionID = ab.ActionID AND ab.AffiliationID = af.AffiliationID AND p.PersonID = af.PersonID 
 	AND af.OrganizationID = o.OrganizationID AND a.MethodID = m.MethodID AND p.PersonFirstName = 'Jeff' AND p.PersonLastName = 'Horsburgh'
@@ -313,8 +313,8 @@ SELECT r.ResultID, s.SamplingFeatureID, s.SiteCode, s.SiteName, s.SiteTypeCV, r.
 	u.UnitsName, r.SampledMediumCV,	v.ValueTypeCV, r.IntendedObservationSpacing, v.DataTypeCV, a.MethodID, m.MethodDescription, o.OrganizationCode, 
 	o.OrganizationName, r.QualityControlLevelID, qc.QualityControlLevelCode, a.BeginDateTime, a.BeginDateTimeUTCOffset, a.EndDateTime, 
 	a.EndDateTimeUTCOffset, r.ValueCount
-FROM ODM2Core.Results r, ODM2SamplingFeatures.Sites s, ODM2Core.Variables v, ODM2Core.Units u, ODM2Core.Methods m, ODM2Core.Organizations o, 
-	ODM2Core.QualityControlLevels qc, ODM2Core.Actions a, ODM2Core.ActionBy ab, ODM2Core.Affiliations af, ODM2Core.People p, ODM2Core.FeatureActionResult far
+FROM ODM2.Results r, ODM2.Sites s, ODM2.Variables v, ODM2.Units u, ODM2.Methods m, ODM2.Organizations o, 
+	ODM2.QualityControlLevels qc, ODM2.Actions a, ODM2.ActionBy ab, ODM2.Affiliations af, ODM2.People p, ODM2.FeatureActionResult far
 WHERE r.ResultID = far.ResultID AND a.ActionID = far.ActionID AND r.UnitsID = u.UnitsID AND r.VariableID = v.VariableID AND r.QualityControlLevelID = qc.QualityControlLevelID 
 	AND far.SamplingFeatureID = s.SamplingFeatureID AND a.ActionID = ab.ActionID AND ab.AffiliationID = af.AffiliationID AND p.PersonID = af.PersonID 
 	AND af.OrganizationID = o.OrganizationID AND a.MethodID = m.MethodID AND o.OrganizationID = 1;
@@ -340,22 +340,22 @@ USE ODM2;
 DECLARE @SamplingFeatureID AS int;
 SELECT @SamplingFeatureID = 1;
 DECLARE @SiteCode AS varchar(50);
-SELECT @SiteCode = SiteCode FROM ODM2SamplingFeatures.Sites WHERE SamplingFeatureID = @SamplingFeatureID;
+SELECT @SiteCode = SiteCode FROM ODM2.Sites WHERE SamplingFeatureID = @SamplingFeatureID;
 DECLARE @SiteName AS varchar(255);
-SELECT @SiteName = SiteName FROM ODM2SamplingFeatures.Sites WHERE SamplingFeatureID = @SamplingFeatureID;
+SELECT @SiteName = SiteName FROM ODM2.Sites WHERE SamplingFeatureID = @SamplingFeatureID;
 DECLARE @SiteType AS varchar(255);
-SELECT @SiteType = SiteTypeCV FROM ODM2SamplingFeatures.Sites WHERE SamplingFeatureID = @SamplingFeatureID;
+SELECT @SiteType = SiteTypeCV FROM ODM2.Sites WHERE SamplingFeatureID = @SamplingFeatureID;
 DECLARE @QualityControlLevelID AS int;
 SELECT @QualityControlLevelID = 1;
 SELECT DISTINCT r.ResultID, @SamplingFeatureID AS SamplingFeatureID, @SiteCode AS SiteCode, @SiteName AS SiteName, @SiteType AS SiteType, v.VariableID, v.VariableCode, 
 	v.VariableNameCV, v.SpeciationCV, u.UnitsID, u.UnitsName, r.SampledMediumCV, v.ValueTypeCV, v.DataTypeCV, m.MethodID, m.MethodName, m.MethodDescription
-FROM ODM2Core.Results r, ODM2Core.Variables v, ODM2Core.Actions a, ODM2Core.Methods m, ODM2Core.SamplingFeatures sf, ODM2SamplingFeatures.Sites s,
-	ODM2Core.Units u, ODM2Core.FeatureActionResult far
+FROM ODM2.Results r, ODM2.Variables v, ODM2.Actions a, ODM2.Methods m, ODM2.SamplingFeatures sf, ODM2.Sites s,
+	ODM2.Units u, ODM2.FeatureActionResult far
 WHERE r.QualityControlLevelID = @QualityControlLevelID AND r.ResultTypeCV = 'Time Series Coverage' AND v.VariableID = r.VariableID AND a.ActionID = far.ActionID 
 	AND r.ResultID = far.ResultID AND m.MethodID = a.MethodID AND u.UnitsID = r.UnitsID AND s.SamplingFeatureID = sf.SamplingFeatureID 
 	AND (far.SamplingFeatureID IN (
 		SELECT SamplingFeatureID 
-		FROM ODM2SamplingFeatures.FeatureParents
+		FROM ODM2.FeatureParents
 		WHERE ParentFeatureID = @SamplingFeatureID
 	) OR far.SamplingFeatureID = @SamplingFeatureID);
 
@@ -378,16 +378,16 @@ SELECT @VariableID = 65;
 DECLARE @SampledMedium AS varchar(255);
 SELECT @SampledMedium = 'Surface Water';
 SELECT s.SamplingFeatureID, s.SiteCode, s.SiteName
-FROM ODM2SamplingFeatures.Sites s
+FROM ODM2.Sites s
 WHERE s.SamplingFeatureID IN (
 	SELECT DISTINCT fp.ParentFeatureID  
-	FROM ODM2SamplingFeatures.FeatureParents fp, ODM2SamplingFeatures.Sites s, ODM2Core.FeatureActionResult far, ODM2Core.Results R
+	FROM ODM2.FeatureParents fp, ODM2.Sites s, ODM2.FeatureActionResult far, ODM2.Results R
 	WHERE fp.ParentFeatureID = s.SamplingFeatureID AND fp.SamplingFeatureID = far.SamplingFeatureID AND far.ResultID = r.ResultID 
 		AND r.VariableID = @VariableID AND r.SampledMediumCV = @SampledMedium
 	) 
 OR s.SamplingFeatureID IN (
 	SELECT DISTINCT s.SamplingFeatureID
-	FROM ODM2SamplingFeatures.Sites s, ODM2Core.FeatureActionResult far, ODM2Core.Results R
+	FROM ODM2.Sites s, ODM2.FeatureActionResult far, ODM2.Results R
 	WHERE s.SamplingFeatureID = far.SamplingFeatureID AND far.ResultID = r.ResultID AND r.VariableID = @VariableID AND r.SampledMediumCV = @SampledMedium
 );
 
