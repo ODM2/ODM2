@@ -1,12 +1,13 @@
 --------------------------------------------------------------------------------------
---Created by:  Jeff Horsburgh
---This script copies an ODM 1.1.1 Database to a blank ODM2 database
---Requirements:
---1.  The ODM2 Database must already exist and it must have all of the ODM2 objects in it
---2.  The ODM2 databae must be empty
---3.  Right now it is hard-coded to an ODM 1.1.1 database called "LittleBearRiverODM" and
---an ODM2 database called "ODM2"
---4.  No other processes adding data to the database while this is being run
+-- Created by:  Jeff Horsburgh
+-- This script copies an ODM 1.1.1 Database to a blank ODM2 database
+-- Requirements:
+-- 1.  The ODM2 Database must already exist and it must have all of the ODM2 objects in it
+-- 2.  The ODM2 database must not contain any data 
+-- 3.  Right now it is hard-coded to an ODM 1.1.1 database called "LittleBearRiverODM" and
+-- an ODM2 database called "ODM2" - these names would need to be changed for running on 
+-- other database names
+-- 4.  No other processes adding data to the database while this is being run
 --------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------
