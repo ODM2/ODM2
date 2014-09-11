@@ -36,7 +36,7 @@
 </td><td class="PkCol"><a href="../columns/ODM2Core_Affiliations_AffiliationID.html">AffiliationID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol">Primay key</td><td class="PkCol"> </td>
+</td><td class="PkCol"> </td><td class="PkCol">Primay key identifier</td><td class="PkCol"> </td>
 </tr>
 <tr class="altRow">
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Affiliations_PersonID.html">PersonID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifer for a person</td><td class="FkCol">
@@ -95,7 +95,7 @@
 <tr>
 <td class="banner" colspan="5">Foreign Keys</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
@@ -119,6 +119,9 @@
 <tr>
 <td><a href="../foreignKeys/ODM2Equipment_DataloggerProgramFiles_fk_DataloggerProgramFiles_Affiliations.html">fk_DataloggerProgramFiles_Affiliations</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td><a href="../tables/ODM2Equipment_DataloggerProgramFiles.html">ODM2Equipment.DataloggerProgramFiles</a></td><td>AffiliationID</td><td>AffiliationID</td>
 </tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Simulation_ModelAffiliations_fk_ModelAffiliations_Affiliations.html">fk_ModelAffiliations_Affiliations</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td><a href="../tables/ODM2Simulation_ModelAffiliations.html">ODM2Simulation.ModelAffiliations</a></td><td>AffiliationID</td><td>AffiliationID</td>
+</tr>
 </table>
 <br>
 <table class="flat">
@@ -130,6 +133,9 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Core.html">ODM2Core</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Simulation.html">ODM2Simulation</a></td>
 </tr>
 </table>
 </Body>

@@ -36,45 +36,48 @@
 </td><td class="PkCol"><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureID.html">SamplingFeatureID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol">Primary key.</td><td class="PkCol"> </td>
+</td><td class="PkCol"> </td><td class="PkCol">Primary key identifier.</td><td class="PkCol"> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureTypeCV.html">SamplingFeatureTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term descripting the type of sampling feature.</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureUUID.html">SamplingFeatureUUID</a></td><td>UniqueID</td><td> </td><td> </td><td> </td><td>A universally unique identifier for the sampling feature.</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureCode.html">SamplingFeatureCode</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>A short but meaningful text identifier for the sampling feature.</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureTypeCV.html">SamplingFeatureTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term descripting the type of sampling feature.</td><td> </td>
 </tr>
 <tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureCode.html">SamplingFeatureCode</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>A short but meaningful text identifier for the sampling feature.</td><td> </td>
+</tr>
+<tr>
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureName.html">SamplingFeatureName</a></td><td>VarChar(255)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Sampling Feature name (free text).</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureDescription.html">SamplingFeatureDescription</a></td><td>VarChar(500)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Text describing the sampling feature.</td><td> </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureGeotypeCV.html">SamplingFeatureGeotypeCV</a></td><td>VarChar(255)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Dimensionality of SamplingFeature; point2d, line2d, etc.</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_FeatureGeometry.html">FeatureGeometry</a></td><td>Geometry</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>The location geometry of the sampling feature on the Earth. Can be a Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc) or Solid/Volume (although often limited to 2D geometries). </td><td> </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_Elevation_m.html">Elevation_m</a></td><td>Float</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>The elevation of the sampling feature in meters, or in the case of Specimen, the elevation from where the SamplingFeature.Specimen was collected</td><td> </td>
 </tr>
-<tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_ElevationDatumCV.html">ElevationDatumCV</a></td><td>VarChar(255)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
@@ -154,6 +157,9 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2SamplingFeatures.html">ODM2SamplingFeatures</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Simulation.html">ODM2Simulation</a></td>
 </tr>
 </table>
 </Body>

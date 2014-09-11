@@ -36,7 +36,7 @@
 </td><td class="PkCol"><a href="../columns/ODM2Core_Actions_ActionID.html">ActionID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol">Unique identifier</td><td class="PkCol"> </td>
+</td><td class="PkCol"> </td><td class="PkCol">Primariy key identifier</td><td class="PkCol"> </td>
 </tr>
 <tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_Actions_ActionTypeCV.html">ActionTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the type of action (e.g., observation, sample collection, sample analysis)</td><td> </td>
@@ -128,6 +128,9 @@
 <tr class="altRow">
 <td><a href="../foreignKeys/ODM2LabAnalyses_ActionDirectives_fk_ActionDirectives_Actions.html">fk_ActionDirectives_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2LabAnalyses_ActionDirectives.html">ODM2LabAnalyses.ActionDirectives</a></td><td>ActionID</td><td>ActionID</td>
 </tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Simulation_Simulations_fk_Simulations_Actions.html">fk_Simulations_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Simulation_Simulations.html">ODM2Simulation.Simulations</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
 </table>
 <br>
 <table class="flat">
@@ -157,6 +160,9 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2Provenance.html">ODM2Provenance</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Simulation.html">ODM2Simulation</a></td>
 </tr>
 </table>
 </Body>
