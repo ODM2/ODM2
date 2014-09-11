@@ -34,7 +34,7 @@ The following is an example workflow for collection and *ex situ* analysis of a 
 
 ####  *In Situ* Observation Example ####
 
-The following is an example workflow for collection of in situ water quality observations using a sensor.  Actions can be created for any of these steps, but, at a minimum, the "InstrumentDeployment action" must be created if a Result is to be created.
+The following is an example workflow for collection of in situ water quality observations using a sensor.  Actions can be created for any of these steps, but, at a minimum, the "InstrumentDeployment action" must be created if a Result is to be created. See the documentation for [RelatedActions](core_relatedactions.md) for more invovled examples of Actions with in situ measurements.
 
 1. A field technician visits a monitoring site.
 2. A field technician deploys a sensor at the site that produces one or more values of the concentration of a water quality variable (this is the "Observation act" that is required).
