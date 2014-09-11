@@ -20,20 +20,20 @@ VariableCode permits users to assign their own naming representation to a variab
 ### Variable Names ###
 To facilitate interoperability of data from various sources, a controlled vocabulary is used to name variables. This prevents confusion that can occur between semantics of describing variables. For example, for the measurement of phosphorus, the user would select a VariableName from this subset of the controlled vocabulary list: 
 
-*Phosphorus, dissolved	
-*Phosphorus, dissolved organic	
-*Phosphorus, inorganic	
-*Phosphorus, organic	
-*Phosphorus, orthophosphate	
-*Phosphorus, orthophosphate dissolved	
-*Phosphorus, orthophosphate total	
-*Phosphorus, particulate	
-*Phosphorus, particulate organic	
-*Phosphorus, phosphate (PO4)	
-*Phosphorus, phosphate flux
-*Phosphorus, polyphosphate	
-*Phosphorus, total	
-*Phosphorus, total dissolved
+* Phosphorus, dissolved	
+* Phosphorus, dissolved organic	
+* Phosphorus, inorganic	
+* Phosphorus, organic	
+* Phosphorus, orthophosphate	
+* Phosphorus, orthophosphate dissolved	
+* Phosphorus, orthophosphate total	
+* Phosphorus, particulate	
+* Phosphorus, particulate organic	
+* Phosphorus, phosphate (PO4)	
+* Phosphorus, phosphate flux
+* Phosphorus, polyphosphate	
+* Phosphorus, total	
+* Phosphorus, total dissolved
 
 ###Variable Definition###
 VariableDefinition permits users to provide additional information to describe the variable being observed. This is an optional text field to be used at the users' discretion. 
