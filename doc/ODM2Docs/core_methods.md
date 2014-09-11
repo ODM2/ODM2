@@ -17,4 +17,4 @@ MethodTypes, which are chosen from a controlled vocabulary, indicate categories 
 * **Model simulation** - A Model simulation Method may be used to generate Results by executing a simulation or model 
 * **Derivation** - A Derivation Method may be used to generate Result(s) that are directly derived from another Result or set of Results
 * **Sample** - A Sample Method may be used to generate Result(s) from analyzing a sample in a laboratory
-* **Etc.**
+* Etc.
