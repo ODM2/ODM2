@@ -18,7 +18,7 @@ It should be noted that using the beginning of the interval is not consistent wi
 
 ### Distinguishing Instances of Dates and Times in ODM2 ###
 
-**Actions:** In actions, the BeginDateTime and EndDateTime are specified. The BeginDateTime is required and represents the date and time that the action was initiated. The EndDateTime is optional. Some actions (e.g., a sensor deployment) are more or less instantaneous and do not require an EndDateTime. For other actions, the EndDatetime may be important to give an indication of the action's duration.
+**Actions:** In the Actions table, the BeginDateTime and EndDateTime are specified. The BeginDateTime is required and represents the date and time that the action was initiated. The EndDateTime is optional. Some Actions (e.g., a sensor deployment) are more or less instantaneous and do not require an EndDateTime. For other actions, the EndDatetime may be important to give an indication of the action's duration.
 
 Example:
 
