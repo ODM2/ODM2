@@ -34,6 +34,6 @@ Example:
 
 The ValidDateTime represents the date and time for which the result is valid. This should typically only be used for a forecast associated with some prospective date and time to which it applies.  
 
-**Result Values**: The ResultValues tables for each result type contain the ValueDateTime attributes to record the date and time that the measurement was made, recorded, or reported. For interval result values, see the above discussion on beginning or end of interval reporting. Most of the Result types involve time spacing and aggregation, which are recorded in the Results and ResultValues tables.
+**Result Values**: The ResultValues tables for each Result type contain ValueDateTime attributes to record the date and time that the measurement was made, recorded, or reported. For interval Result Values, see the above discussion on beginning or end of interval reporting. Most of the Result types involve time spacing and aggregation, which are recorded in the Results and ResultValues tables.
 
 **Equipment**: Because relationships between pieces of equipment may change as the status of the equipment changes, the RelatedEquipment table includes StartDateTime and EndDateTime attributes to indicate the time period for which a relationship between pieces of equipment occurred.
