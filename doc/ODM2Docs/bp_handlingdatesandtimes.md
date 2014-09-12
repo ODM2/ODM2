@@ -28,7 +28,7 @@ In some cases, the Action BeginDateTime and EndDateTime may be somewhat ambiguou
 
 Example:
 
->The BeginDateTime and EndDateTime for the Maintenance Action could be selected to represent when the sensor was shipped to and returned form the factory. Alternatively, only a BeginDateTime could be entered to represent the date that the service was performed at the factory.
+>A sensor is sent to the factory on 2/5/2014. Factory service is reported by the manufacturer as being performed on 2/15/2014. The sensor is received from the factory 2/18/2014. The dates 2/5/2014 and 2/18/2014 could be selected as the BeginDateTime and EndDateTime for the Maintenance Action. Alternatively, 2/15/2014 could be entered as the BeginDateTime to represent the date that the service was performed at the factory, and the optional EndDateTime would not be used.
 
 **Results**: The Results entity contain two types of dates and times. The ResultDateTime represents the date and time at which the entry in the Results became available. For the example of a sensor deployment with data streaming to an ODM2 database, the ResultDateTime is the date and time that the sensor began collecting data. The actual date and times of the sensor observations are encoded in the ResultValues table. 
 
