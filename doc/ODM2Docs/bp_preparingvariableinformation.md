@@ -31,13 +31,13 @@ Example:
 
 >I have a sensor measuring water temperature. I assign a VariableType of "Water Quality". I could also potentially assign a VariableType of "Hydrology".
 
-Speciation is optional, and is only needed for chemical measurements that could be expressed as measurement of various species. In this cases, however, speciation is essential
+Speciation is optional, and is only needed for chemical measurements that could be expressed as measurement of various species. In these cases, however, speciation is essential
 
 Example
 
 >I am reporting values of alkalinity, which is expressed as mg/L CaCO3. The speciation should be specified as CaCO3.
 
-The NoDataValue represents an indicator that no value was measured or collected when one should have been. This must be a numeric value, ans should be outside the range of obsered values for the variable. Many of the tools developed for ODM2 expect -9999 as the NoDataValue, and will not display this value in plots, etc.
+The NoDataValue represents an indicator that no value was measured or collected when one should have been. This must be a numeric value, and should be outside the range of observed values for the variable. Many of the tools developed for ODM2 expect -9999 as the NoDataValue, and will not display data of this value in plots, etc.
 
 Example
 
