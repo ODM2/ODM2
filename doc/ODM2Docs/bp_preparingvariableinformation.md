@@ -33,12 +33,12 @@ Example:
 
 Speciation is optional, and is only needed for chemical measurements that could be expressed as measurement of various species. In these cases, however, speciation is essential
 
-Example
+Example:
 
 >I am reporting values of alkalinity, which is expressed as mg/L CaCO3. The speciation should be specified as CaCO3.
 
 The NoDataValue represents an indicator that no value was measured or collected when one should have been. This must be a numeric value, and should be outside the range of observed values for the variable. Many of the tools developed for ODM2 expect -9999 as the NoDataValue, and will not display data of this value in plots, etc.
 
-Example
+Example:
 
 >I have a datalogger program that reports NaN when there is a problem with the result. When these data stream into an ODM2 database, the NaN entries are converted to -9999 to represent no data.
