@@ -24,7 +24,11 @@ Example:
 
 >I calibrated a sensor in the field. The Calibration Action began 7/21/2014 at 10:05 AM (BeginDateTime). I completed the calibration 7/21/2014 at 10:40 AM (EndDateTime). Recording the period of calibration indicates when this sensor was not deployed and for which the associated measurements are not valid.
 
-In some cases, the Action BeginDateTime and EndDateTime may be somewhat ambiguou and user discretion should be applied. For example, a sensor is sent to the factory for routine maintenance and service. The BeginDateTime and EndDateTime for the Maintenance Action could be selected to represent when the sensor was shipped to and returned form the factory. Alternatively, only a BeginDateTime could be entered to represent the date that the service was performed at the factory.
+In some cases, the Action BeginDateTime and EndDateTime may be somewhat ambiguous and user discretion should be applied. For example, a sensor is sent to the factory for routine maintenance and service. 
+
+Example:
+
+>The BeginDateTime and EndDateTime for the Maintenance Action could be selected to represent when the sensor was shipped to and returned form the factory. Alternatively, only a BeginDateTime could be entered to represent the date that the service was performed at the factory.
 
 **Results**: The Results entity contain two types of dates and times. The ResultDateTime represents the date and time at which the entry in the Results became available. For the example of a sensor deployment with data streaming to an ODM2 database, the ResultDateTime is the date and time that the sensor began collecting data. The actual date and times of the sensor observations are encoded in the ResultValues table. 
 
