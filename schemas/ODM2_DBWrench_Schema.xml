@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Db flnm="ODM2_DBWrench_Schema" nm="ODM2" ver="1.3.4">
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="ODM2_DBWrench_Schema" nm="ODM2" ver="1.3.4">
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
@@ -488,7 +487,7 @@
       <Pk ClNs="ActionID" nm="pkActions"/>
       <Cl au="1" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primariy key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ActionTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -536,7 +535,7 @@
       <Pk ClNs="AffiliationID" nm="pkAffiliations"/>
       <Cl au="1" df="" nm="AffiliationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primay key</Cm>
+        <Cm>Primay key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -591,12 +590,13 @@
       <Cm>Describes groupings of observation results that can be considered "datasets"</Cm>
       <TblOpts/>
       <Pk ClNs="DataSetID" nm="pkDataSets"/>
-      <Cl au="0" df="" nm="DataSetID" nu="0">
+      <Cl au="1" df="" nm="DataSetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetUUID" nu="0">
         <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A universally unique identifier for the dataset.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataSetTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -680,7 +680,7 @@
       <Pk ClNs="MethodID" nm="pkMethods"/>
       <Cl au="1" df="" nm="MethodID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -720,7 +720,7 @@
       <Pk ClNs="OrganizationID" nm="pkOrganizations"/>
       <Cl au="1" df="" nm="OrganizationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -760,7 +760,7 @@
       <Pk ClNs="PersonID" nm="pkPeople"/>
       <Cl au="1" df="" nm="PersonID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary Key</Cm>
+        <Cm>Primary key identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonFirstName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -842,11 +842,11 @@
       <Pk ClNs="ResultID" nm="pkResults"/>
       <Cl au="1" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultUUID" nu="0">
         <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Universally unique identifier for the Result</Cm>
+        <Cm>A universally unique identifier for the Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="FeatureActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -939,7 +939,11 @@
       <Pk ClNs="SamplingFeatureID" nm="pkSamplingFeatures"/>
       <Cl au="1" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key.</Cm>
+        <Cm>Primary key identifier.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureUUID" nu="0">
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A universally unique identifier for the sampling feature.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -981,7 +985,7 @@
       <Pk ClNs="TaxonomicClassifierID" nm="pkTaxonomicClassifiers"/>
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>ID</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1017,7 +1021,7 @@
       <Pk ClNs="UnitsID" nm="pkUnits"/>
       <Cl au="1" df="" nm="UnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Unique identifier</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="UnitsTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1040,7 +1044,7 @@
       <Pk ClNs="VariableID" nm="pkVariables"/>
       <Cl au="1" df="" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
+        <Cm>Primary key identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -4151,7 +4155,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
-        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="SimulationName" nu="0">
         <DT arr="0" ds="Char" en="" id="1" ln="255" sc="null" sg="1" un="0"/>
@@ -4372,12 +4376,12 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="211"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1136" y="397"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="884" y="632"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="380" y="598"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="383" y="605"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="302"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="313" y="440"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="316" y="454"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="20" y="246"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="22" y="398"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="331" y="327"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="15" y="408"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="347" y="337"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1159" y="175"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1141" y="315"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="747" y="485"/>
@@ -4442,7 +4446,7 @@
       <positionableLines/>
     </FkGl>
     <Notes>
-      <Note bkCl="ffffffe6" x="23" y="570">A person does not need to be 
+      <Note bkCl="ffffffe6" x="28" y="583">A person does not need to be 
 associated with an Organization,
 but, an Affiliation record must
 be created for each person because
@@ -4460,7 +4464,7 @@ DataValues that are stored
 in ResultValues tables.
 Results is provides a 
 catalog for ResultValues.</Note>
-      <Note bkCl="ffffffe6" x="21" y="681">Secondary contact info can be added 
+      <Note bkCl="ffffffe6" x="21" y="692">Secondary contact info can be added 
 as an Extension property to Affiliations.
 See ODM2Extensions schema.</Note>
       <Note bkCl="ffffffe6" x="315" y="46">In the barebones implementation:
@@ -6636,16 +6640,11 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Simulation" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Simulation</TreePath>
-    <TreePath>/Schemas (12)/ODM2Simulation/Tables (4)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Simulation/Tables (4)/Models</TreePath>
-    <TreePath>/Schemas (12)/ODM2Simulation/Tables (4)/Models/Foreign Keys (0)</TreePath>
     <TreePath>/Diagrams (12)</TreePath>
   </TreePaths>
 </Db>

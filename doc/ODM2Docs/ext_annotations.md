@@ -7,6 +7,7 @@ The Annotations extension enables users to create data qualifying comments or no
 * Methods
 * Results
 * ResultValues (the ResultValue entities for any of the ResultTypes)
+* Equipment
 
 Each text Annotation is classified by an AnnotationType (e.g., "Action Annotation" or "SamplingFeature Annotation", etc.) and an optional AnnotationCode (e.g., "a" as a code for an annotation of "Approved"). Each text Annotation is also optionally characterized by a date on which it was created and is linked to the Person that created it via AnnotatorID. Finally, an annotation may be linked to a Citation via the ODM2 Provenance extension where it is desireable to store information about the source of a particular Annotation. 
 
