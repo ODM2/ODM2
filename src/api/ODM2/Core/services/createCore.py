@@ -221,7 +221,7 @@ class createCore(serviceBase):
         :param iscontact: indicate if this person is the primary contact for the organization
         :param affiliation_start: begin date of affiliation with organization
         :param affiliation_end: end date of affiliation with organization
-        :return: ODM2Core.Affiliation
+        :return: ODM2.Affiliation
         """
 
         # create affiliation object

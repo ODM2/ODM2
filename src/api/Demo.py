@@ -16,8 +16,8 @@ from ODMconnection import dbconnection
 
 
 #create connection to the database
-conn = dbconnection.createConnection('mssql', '(local)', 'TestODM2', 'ODM', 'odm')
-conn = dbconnection.createConnection('mssql', '(local)', 'TestODM', 'ODM', 'odm')
+conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
+#conn = dbconnection.createConnection('mssql', '(local)', 'TestODM', 'ODM', 'odm')
 conn = dbconnection.createConnection('postgresql', 'castro-server.bluezone.usu.edu', 'ODM2', 'postgres', 'postgres')
 
 #create a connection for each of the schemas. Currently the schemas each of a different
@@ -37,11 +37,12 @@ print "Get all People: ", people
 
 sfs= core_read.getAllSamplingFeatures()
 print "Get all SamplingFeatures: ", sfs
-temp = sfs[0]
-print temp.SamplingFeatureCode
-val= core.read.getSamplingFeatureByCode(temp.SamplingFeatureCode)
-sf = core_read.getSamplingFeatureByCode(u'logan_river_outlet')
-print "Get  SamplingFeatures by code: ", sf
+if len(sfs)>0:
+    temp = sfs[0]
+    print temp.SamplingFeatureCode
+    val= core.read.getSamplingFeatureByCode(temp.SamplingFeatureCode)
+    sf = core_read.getSamplingFeatureByCode(u'logan_river_outlet')
+    print "Get  SamplingFeatures by code: ", sf
 
 
 

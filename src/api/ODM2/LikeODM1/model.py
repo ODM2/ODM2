@@ -70,7 +70,7 @@ class Site(Base):
 
 class Unit(Base):
     __tablename__ = 'Units'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     id = Column('UnitsID', Integer, primary_key=True)
     name = Column('UnitsName', String)
@@ -119,7 +119,7 @@ class ODMVersion(Base):
 
 class SpatialReference(Base):
     __tablename__ = 'SpatialReferences'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     id = Column('SpatialReferenceID', Integer, primary_key=True)
     srs_id = Column('SRSID', String)
@@ -245,7 +245,7 @@ class Sample(Base):
 
 class Qualifier(Base):
     __tablename__ = u'Annotations'
-    __table_args__ = {u'schema': u'ODM2Annotations'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     id = Column('AnnotationID', Integer, primary_key=True)
     code = Column('AnnotationCode', String, nullable=False)
@@ -258,7 +258,7 @@ class Qualifier(Base):
 class OffsetType(Base):
     
     __tablename__ = u'TimeSeriesResults'
-    __table_args__ = {u'schema': 'ODM2Results'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     id = Column('OffsetTypeID', Integer, primary_key=True)
     unit_id = Column('ZLocationUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
@@ -272,7 +272,7 @@ class OffsetType(Base):
 
 class Method(Base):
     __tablename__ = u'Methods'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     id = Column('MethodID', Integer, primary_key=True)
     description = Column('MethodDescription', String, nullable=False)
@@ -283,7 +283,7 @@ class Method(Base):
 
 class QualityControlLevel(Base):
     __tablename__ = u'ProcessingLevels'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     id = Column('ProcessingLevelID', Integer, primary_key=True)
     code = Column('ProcessingLevelCode', String, nullable=False)
@@ -295,7 +295,7 @@ class QualityControlLevel(Base):
 
 class Source(Base):
     __tablename__ = u'Organizations'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     id = Column('OrganizationID', Integer, primary_key=True)
     organization = Column('OrganizationName', String, nullable=False)#TODO organization
@@ -323,7 +323,7 @@ class Source(Base):
 class Site(Base):
     
     __tablename__ = u'Sites'
-    __table_args__ = {u'schema': 'ODM2SamplingFeatures'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     id = Column('SamplingFeatureID', Integer, primary_key=True)
     code = Column('SiteCode', String)
@@ -342,7 +342,7 @@ class Site(Base):
 class Variable(Base):
     #TODO join with Result
     __tablename__ = u'Variables'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     id = Column('VariableID', Integer, primary_key=True)
     code = Column('VariableCode', String, nullable=False)

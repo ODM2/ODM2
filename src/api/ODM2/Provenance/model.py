@@ -9,7 +9,7 @@ from ODM2.Core.model import Person, Dataset,  Method, Result, Base
 
 class Citation(Base):
     __tablename__ = u'Citations'
-    __table_args__ = {u'schema': u'ODM2Provenance'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     CitationID = Column(Integer, primary_key=True)
     Title = Column(String(255), nullable=False)
@@ -20,11 +20,11 @@ class Citation(Base):
 
 class Authorlist(Base):
     __tablename__ = u'AuthorLists'
-    __table_args__ = {u'schema': 'ODM2Provenance'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    CitationID = Column(ForeignKey('ODM2Provenance.Citations.CitationID'), nullable=False)
-    PersonID = Column(ForeignKey('ODM2Core.People.PersonID'), nullable=False)
+    CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
+    PersonID = Column(ForeignKey('ODM2.People.PersonID'), nullable=False)
     AuthorOrder = Column(Integer, nullable=False)
 
     CitationObj = relationship(Citation)
@@ -33,12 +33,12 @@ class Authorlist(Base):
 
 class Datasetcitation(Base):
     __tablename__ = u'DataSetCitations'
-    __table_args__ = {u'schema': 'ODM2Provenance'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    DataSetID = Column(ForeignKey('ODM2Core.DataSets.DataSetID'), nullable=False)
+    DataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
-    CitationID = Column(ForeignKey('ODM2Provenance.Citations.CitationID'), nullable=False)
+    CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj = relationship(Citation)
     DataSetObj = relationship(Dataset)
@@ -46,15 +46,15 @@ class Datasetcitation(Base):
 
 Resultderivationequation = Table(
     u'ResultDerivationEquations', Base.metadata,
-    Column(u'ResultID', ForeignKey('ODM2Core.Results.ResultID'), primary_key=True),
-    Column(u'DerivationEquationID', ForeignKey('ODM2Provenance.DerivationEquations.DerivationEquationID'), nullable=False),
-    schema='ODM2Provenance'
+    Column(u'ResultID', ForeignKey('ODM2.Results.ResultID'), primary_key=True),
+    Column(u'DerivationEquationID', ForeignKey('ODM2.DerivationEquations.DerivationEquationID'), nullable=False),
+    schema='ODM2'
 )
 
 
 class Derivationequation(Base):
     __tablename__ = u'DerivationEquations'
-    __table_args__ = {u'schema': 'ODM2Provenance'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     DerivationEquationID = Column(Integer, primary_key=True)
     DerivationEquation = Column(String(255), nullable=False)
@@ -64,12 +64,12 @@ class Derivationequation(Base):
 
 class Methodcitation(Base):
     __tablename__ = u'MethodCitations'
-    __table_args__ = {u'schema': 'ODM2Provenance'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    MethodID = Column(ForeignKey('ODM2Core.Methods.MethodID'), nullable=False)
+    MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
-    CitationID = Column(ForeignKey('ODM2Provenance.Citations.CitationID'), nullable=False)
+    CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj = relationship(Citation)
     MethodObj = relationship(Method)
@@ -78,12 +78,12 @@ class Methodcitation(Base):
 from ODM2.Annotations.model import Annotation
 class Relatedannotation(Base):
     __tablename__ = u'RelatedAnnotations'
-    __table_args__ = {u'schema': 'ODM2Provenance'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     RelationID = Column(Integer, primary_key=True)
-    AnnotationID = Column(ForeignKey('ODM2Annotations.Annotations.AnnotationID'), nullable=False)
+    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
-    RelatedAnnotationID = Column(ForeignKey('ODM2Annotations.Annotations.AnnotationID'), nullable=False)
+    RelatedAnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
     AnnotationObj = relationship(Annotation, primaryjoin='Relatedannotation.AnnotationID == Annotation.AnnotationID')
     RelatedAnnotationObj = relationship(Annotation, primaryjoin='Relatedannotation.RelatedAnnotationID == Annotation.AnnotationID')
@@ -91,12 +91,12 @@ class Relatedannotation(Base):
 
 class Relatedcitation(Base):
     __tablename__ = u'RelatedCitations'
-    __table_args__ = {u'schema': 'ODM2Provenance'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     RelationID = Column(Integer, primary_key=True)
-    CitationID = Column(ForeignKey('ODM2Provenance.Citations.CitationID'), nullable=False)
+    CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
     RelationshipTypeCV = Column(Integer, nullable=False)
-    RelatedCitationID = Column(ForeignKey('ODM2Provenance.Citations.CitationID'), nullable=False)
+    RelatedCitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj= relationship(Citation, primaryjoin='Relatedcitation.CitationID == Citation.CitationID')
     RelatedCitationObj = relationship(Citation, primaryjoin='Relatedcitation.RelatedCitationID == Citation.CitationID')
@@ -104,12 +104,12 @@ class Relatedcitation(Base):
 
 class Relateddataset(Base):
     __tablename__ = u'RelatedDatasets'
-    __table_args__ = {u'schema': 'ODM2Provenance'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     RelationID = Column(Integer, primary_key=True)
-    DataSetID = Column(ForeignKey('ODM2Core.DataSets.DataSetID'), nullable=False)
+    DataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
-    RelatedDatasetID = Column(ForeignKey('ODM2Core.DataSets.DataSetID'), nullable=False)
+    RelatedDatasetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     VersionCode = Column(String(50))
 
     DataSetObj = relationship(Dataset, primaryjoin='Relateddataset.DataSetID == Dataset.DataSetID')
@@ -118,12 +118,12 @@ class Relateddataset(Base):
 
 class Relatedresult(Base):
     __tablename__ = u'RelatedResults'
-    __table_args__ = {u'schema': 'ODM2Provenance'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     RelationID = Column(Integer, primary_key=True)
-    ResultID = Column(ForeignKey('ODM2Core.Results.ResultID'), nullable=False)
+    ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
-    RelatedResultID = Column(ForeignKey('ODM2Core.Results.ResultID'), nullable=False)
+    RelatedResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
     VersionCode = Column(String(50))
     RelatedResultSequenceNumber = Column(Integer)
 

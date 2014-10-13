@@ -47,12 +47,12 @@ class dbconnection():
         s= SessionFactory(connection_string, echo  = False)
         try:
             if 'mssql' in connection_string:
-                s.ms_test_Session().execute("Select top 1 VariableCode From Variables")
+                s.ms_test_Session().execute("Select top 1 VariableCode From ODM2.Variables")
             elif 'postgresql' in connection_string:
-                s.psql_test_Session().execute('Select "VariableCode" From "ODM2Core"."Variables" Limit 1')
-                #s.psql_test_Session().execute('Select "VariableNameCV" From "ODM2Core"."Variables" Limit 1')
+                s.psql_test_Session().execute('Select "VariableCode" From "ODM2"."Variables" Limit 1')
+                #s.psql_test_Session().execute('Select "VariableNameCV" From "ODM2"."Variables" Limit 1')
             elif 'mysql' in connection_string:
-                s.psql_test_Session().execute('Select "VariableCode" From "ODM2Core"."Variables" Limit 1')
+                s.psql_test_Session().execute('Select "VariableCode" From "ODM2"."Variables" Limit 1')
 
         except Exception as e:
             print "session was crap ", e.message

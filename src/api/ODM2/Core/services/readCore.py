@@ -141,8 +141,7 @@ class readCore(serviceBase):
             :type list:
         """
 
-        """return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
-
+        return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
                                                                         ,SamplingFeatureName\
@@ -151,17 +150,18 @@ class readCore(serviceBase):
                                                                         ,Elevation_m\
                                                                         ,ElevationDatumCV\
                                                                         ,FeatureGeometry.STAsText() As FeatureGeometry\
-                                                                     From ODM2Core.SamplingFeatures").all()"""
+                                                                     From ODM2.SamplingFeatures").all()
         #return self._session.query(Samplingfeature).all()
 
         #return self._session.query(Samplingfeature.Elevation_m, Samplingfeature.FeatureGeometry).all())
-
+        '''
         res = self._session.query(Samplingfeature, Samplingfeature.FeatureGeometry).all()
         newlist = []
         for i in range(len(res)):
             res[i][0].FeatureGeometry = res[i][1]
             newlist.append(res[i][0])
         return newlist
+        '''
 
     def getGeometryTest(self, TestGeom):
         Geom = self._session.query(Samplingfeature).first()
@@ -188,7 +188,7 @@ class readCore(serviceBase):
                                                                         ,Elevation_m\
                                                                         ,ElevationDatumCV\
                                                                         ,FeatureGeometry.STAsText() As FeatureGeometry\
-                                                                     From ODM2Core.SamplingFeatures\
+                                                                     From ODM2.SamplingFeatures\
                                                                      Where SamplingFeatureID=\'%s\'"% samplingId).first()
         except:
             return None
@@ -201,7 +201,8 @@ class readCore(serviceBase):
         :return Return matching SamplingFeature Object filtered by samplingId
             :type SamplingFeature:
         """
-        '''try:
+
+        try:
             return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
@@ -211,11 +212,8 @@ class readCore(serviceBase):
                                                                         ,Elevation_m\
                                                                         ,ElevationDatumCV\
                                                                         ,FeatureGeometry.STAsText() As FeatureGeometry\
-                                                                     From ODM2Core.SamplingFeatures\
+                                                                     From ODM2.SamplingFeatures\
                                                                      Where SamplingFeatureCode=\'%s\'"% samplingCode).first()
-        '''
-        try:
-            return self._session.query(Samplingfeature).filter_by(SamplingFeatureCode=samplingCode).first()
 
         except Exception as e:
             return None
@@ -339,7 +337,7 @@ class readCore(serviceBase):
         :param personfirst: first name of person
         :param personlast: last name of person
         :param orgcode: organization code (e.g. uwrl)
-        :return: ODM2Core.Affiliation
+        :return: ODM2.Affiliation
         """
 
         try:
@@ -354,7 +352,7 @@ class readCore(serviceBase):
         Select all affiliation of person
         :param personfirst: first name of person
         :param personlast: last name of person
-        :return: [ODM2Core.Affiliation]
+        :return: [ODM2.Affiliation]
         """
 
         try:

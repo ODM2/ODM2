@@ -28,7 +28,7 @@ class Geometry(UserDefinedType):
 
 class Person(Base):
     __tablename__ = u'People'
-    __table_args__ = {u'schema': u'ODM2Core'
+    __table_args__ = {u'schema': u'ODM2'
 
     }
 
@@ -40,7 +40,7 @@ class Person(Base):
 
 class Organization(Base):
     __tablename__ = u'Organizations'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     OrganizationID = Column(Integer, primary_key=True)
     OrganizationTypeCV = Column(String(255), nullable=False)
@@ -48,17 +48,17 @@ class Organization(Base):
     OrganizationName = Column(String(255), nullable=False)
     OrganizationDescription = Column(String(500))
     OrganizationLink = Column(String(255))
-    ParentOrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'))
+    ParentOrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'))
 
     parent = relationship(u'Organization', remote_side=[OrganizationID])
 
 class Affiliation(Base):
     __tablename__ = 'Affiliations'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     AffiliationID = Column(Integer, primary_key=True)
-    PersonID = Column(ForeignKey('ODM2Core.People.PersonID'), nullable=False)
-    OrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'))
+    PersonID = Column(ForeignKey('ODM2.People.PersonID'), nullable=False)
+    OrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'))
     IsPrimaryOrganizationContact = Column(Boolean)
     AffiliationStartDate = Column(Date, nullable=False)
     AffiliationEndDate = Column(Date)
@@ -74,7 +74,7 @@ class Affiliation(Base):
 
 class Method(Base):
     __tablename__ = 'Methods'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     MethodID = Column(Integer, primary_key=True)
     MethodTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
@@ -82,18 +82,18 @@ class Method(Base):
     MethodName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     MethodDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
     MethodLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
-    OrganizationID = Column(ForeignKey('ODM2Core.Organizations.OrganizationID'))
+    OrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'))
 
     OrganizationObj = relationship(Organization)
 
 
 class Action(Base):
     __tablename__ = u'Actions'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     ActionID = Column(Integer, primary_key=True)
     ActionTypeCV = Column(String(255), nullable=False)
-    MethodID = Column(ForeignKey('ODM2Core.Methods.MethodID'), nullable=False)
+    MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     BeginDateTime = Column(DateTime, nullable=False)
     BeginDateTimeUTCOffset = Column(Integer, nullable=False)
     EndDateTime = Column(DateTime)
@@ -111,11 +111,11 @@ class Action(Base):
 
 class Actionby(Base):
     __tablename__ = u'ActionBy'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
-    AffiliationID = Column(ForeignKey('ODM2Core.Affiliations.AffiliationID'), nullable=False)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+    AffiliationID = Column(ForeignKey('ODM2.Affiliations.AffiliationID'), nullable=False)
     IsActionLead = Column(Boolean, nullable=False)
     RoleDescription = Column(String(500))
 
@@ -126,7 +126,7 @@ class Actionby(Base):
 
 class Samplingfeature(Base):
     __tablename__ = u'SamplingFeatures'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     SamplingFeatureID = Column(Integer, primary_key=True)
     SamplingFeatureTypeCV = Column(String(255), nullable=False)
@@ -144,11 +144,11 @@ class Samplingfeature(Base):
 
 class Featureaction(Base):
     __tablename__ = u'FeatureActions'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     FeatureActionID = Column(Integer, primary_key=True)
-    SamplingFeatureID = Column(ForeignKey('ODM2Core.SamplingFeatures.SamplingFeatureID'), nullable=False)
-    ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
+    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
     ActionObj = relationship(Action)
     SamplingFeatureObj = relationship(Samplingfeature)
@@ -161,7 +161,7 @@ class Featureaction(Base):
 
 class Dataset(Base):
     __tablename__ = u'DataSets'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     DataSetID = Column(Integer, primary_key=True)
 
@@ -175,7 +175,7 @@ class Dataset(Base):
 
 class Processinglevel(Base):
     __tablename__ = 'ProcessingLevels'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     ProcessingLevelID = Column(Integer, primary_key=True)
     ProcessingLevelCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
@@ -184,12 +184,12 @@ class Processinglevel(Base):
 
 class Relatedaction(Base):
     __tablename__ = 'RelatedActions'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     RelationID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     RelationshipTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    RelatedActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
+    RelatedActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
     ActionObj = relationship(Action, primaryjoin='Relatedaction.ActionID == Action.ActionID')
     RelatedActionObj = relationship( Action, primaryjoin='Relatedaction.RelatedActionID == Action.ActionID')
@@ -197,20 +197,20 @@ class Relatedaction(Base):
 
 class Taxonomicclassifier(Base):
     __tablename__ = 'TaxonomicClassifiers'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     TaxonomicClassifierID = Column(Integer, primary_key=True)
     TaxonomicClassifierTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     TaxonomicClassifierName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     TaxonomicClassifierCommonName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
     TaxonomicClassifierDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
-    ParentTaxonomicClassifierID = Column(ForeignKey('ODM2Core.TaxonomicClassifiers.TaxonomicClassifierID'))
+    ParentTaxonomicClassifierID = Column(ForeignKey('ODM2.TaxonomicClassifiers.TaxonomicClassifierID'))
 
     parent = relationship(u'Taxonomicclassifier', remote_side=[TaxonomicClassifierID])
 
 class Unit(Base):
     __tablename__ = 'Units'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     UnitsID = Column(Integer, primary_key=True)
     UnitsTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
@@ -219,7 +219,7 @@ class Unit(Base):
 
 class Variable(Base):
     __tablename__ = 'Variables'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     VariableID = Column(Integer, primary_key=True)
     VariableTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
@@ -234,7 +234,7 @@ class Variable(Base):
 
 class Resulttypecv(Base):
     __tablename__ = u'ResultTypeCV'
-    __table_args__ = {u'schema': u'ODM2Results'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     ResultTypeCV = Column(String(255), primary_key=True)
     ResultTypeCategory = Column(String(255), nullable=False)
@@ -248,7 +248,7 @@ class Resulttypecv(Base):
 
 class Result(Base):
     __tablename__ = u'Results'
-    __table_args__ = {u'schema': u'ODM2Core'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     ResultID = Column(BigInteger, primary_key=True)
 
@@ -256,12 +256,12 @@ class Result(Base):
     # ResultUUID = Column(UNIQUEIDENTIFIER, nullable=False)
     ResultUUID = Column(String(255),nullable=False)
 
-    FeatureActionID = Column(ForeignKey('ODM2Core.FeatureActions.FeatureActionID'), nullable=False)
-    ResultTypeCV = Column(ForeignKey('ODM2Results.ResultTypeCV.ResultTypeCV'), nullable=False)
-    VariableID = Column(ForeignKey('ODM2Core.Variables.VariableID'), nullable=False)
-    UnitsID = Column(ForeignKey('ODM2Core.Units.UnitsID'), nullable=False)
-    TaxonomicClassifierID = Column(ForeignKey('ODM2Core.TaxonomicClassifiers.TaxonomicClassifierID'))
-    ProcessingLevelID = Column(ForeignKey('ODM2Core.ProcessingLevels.ProcessingLevelID'), nullable=False)
+    FeatureActionID = Column(ForeignKey('ODM2.FeatureActions.FeatureActionID'), nullable=False)
+    ResultTypeCV = Column(ForeignKey('ODM2.ResultTypeCV.ResultTypeCV'), nullable=False)
+    VariableID = Column(ForeignKey('ODM2.Variables.VariableID'), nullable=False)
+    UnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
+    TaxonomicClassifierID = Column(ForeignKey('ODM2.TaxonomicClassifiers.TaxonomicClassifierID'))
+    ProcessingLevelID = Column(ForeignKey('ODM2.ProcessingLevels.ProcessingLevelID'), nullable=False)
     ResultDateTime = Column(DateTime)
     ResultDateTimeUTCOffset = Column(BigInteger)
     ValidDateTime = Column(DateTime)
@@ -286,11 +286,11 @@ class Result(Base):
 
 class Datasetsresult(Base):
     __tablename__ = u'DataSetsResults'
-    __table_args__ = {u'schema': 'ODM2Core'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    DataSetID = Column(ForeignKey('ODM2Core.DataSets.DataSetID'), nullable=False)
-    ResultID = Column(ForeignKey('ODM2Core.Results.ResultID'), nullable=False)
+    DataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
+    ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
 
     DataSetObj = relationship(Dataset)
     ResultObj = relationship(Result)

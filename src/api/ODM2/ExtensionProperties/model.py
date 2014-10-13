@@ -9,24 +9,24 @@ from ODM2.Provenance.model import Citation
 
 class Extensionproperty(Base):
     __tablename__ = u'ExtensionProperties'
-    __table_args__ = {u'schema': u'ODM2ExtensionProperties'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     PropertyID = Column(Integer, primary_key=True)
     PropertyName = Column(String(255), nullable=False)
     PropertyDescription = Column(String(500))
     PropertyDataTypeCV = Column(String(255), nullable=False)
-    PropertyUnitsID = Column(ForeignKey('ODM2Core.Units.UnitsID'))
+    PropertyUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
 
     UnitObj = relationship(Unit)
 
 
 class Actionextensionpropertyvalue(Base):
     __tablename__ = u'ActionExtensionPropertyValues'
-    __table_args__ = {u'schema': 'ODM2ExtensionProperties'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
-    PropertyID = Column(ForeignKey('ODM2ExtensionProperties.ExtensionProperties.PropertyID'), nullable=False)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+    PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
     ActionObj = relationship(Action)
@@ -35,11 +35,11 @@ class Actionextensionpropertyvalue(Base):
 
 class Citationextensionpropertyvalue(Base):
     __tablename__ = u'CitationExtensionPropertyValues'
-    __table_args__ = {u'schema': 'ODM2ExtensionProperties'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    CitationID = Column(ForeignKey('ODM2Provenance.Citations.CitationID'), nullable=False)
-    PropertyID = Column(ForeignKey('ODM2ExtensionProperties.ExtensionProperties.PropertyID'), nullable=False)
+    CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
+    PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
     CitationObj = relationship(Citation)
@@ -48,11 +48,11 @@ class Citationextensionpropertyvalue(Base):
 
 class Methodextensionpropertyvalue(Base):
     __tablename__ = u'MethodExtensionPropertyValues'
-    __table_args__ = {u'schema': 'ODM2ExtensionProperties'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    MethodID = Column(ForeignKey('ODM2Core.Methods.MethodID'), nullable=False)
-    PropertyID = Column(ForeignKey('ODM2ExtensionProperties.ExtensionProperties.PropertyID'), nullable=False)
+    MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
+    PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
     MethodObj = relationship(Method)
@@ -61,11 +61,11 @@ class Methodextensionpropertyvalue(Base):
 
 class Resultextensionpropertyvalue(Base):
     __tablename__ = u'ResultExtensionPropertyValues'
-    __table_args__ = {u'schema': 'ODM2ExtensionProperties'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    ResultID = Column(ForeignKey('ODM2Core.Results.ResultID'), nullable=False)
-    PropertyID = Column(ForeignKey('ODM2ExtensionProperties.ExtensionProperties.PropertyID'), nullable=False)
+    ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
+    PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
     ExtensionPropertyObj = relationship(Extensionproperty)
@@ -74,11 +74,11 @@ class Resultextensionpropertyvalue(Base):
 
 class Samplingfeatureextensionpropertyvalue(Base):
     __tablename__ = u'SamplingFeatureExtensionPropertyValues'
-    __table_args__ = {u'schema': 'ODM2ExtensionProperties'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    SamplingFeatureID = Column(ForeignKey('ODM2Core.SamplingFeatures.SamplingFeatureID'), nullable=False)
-    PropertyID = Column(ForeignKey('ODM2ExtensionProperties.ExtensionProperties.PropertyID'), nullable=False)
+    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
+    PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
     ExtensionPropertyObj = relationship(Extensionproperty)
@@ -87,11 +87,11 @@ class Samplingfeatureextensionpropertyvalue(Base):
 
 class Variableextensionpropertyvalue(Base):
     __tablename__ = u'VariableExtensionPropertyValues'
-    __table_args__ = {u'schema': 'ODM2ExtensionProperties'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    VariableID = Column(ForeignKey('ODM2Core.Variables.VariableID'), nullable=False)
-    PropertyID = Column(ForeignKey('ODM2ExtensionProperties.ExtensionProperties.PropertyID'), nullable=False)
+    VariableID = Column(ForeignKey('ODM2.Variables.VariableID'), nullable=False)
+    PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
     ExtensionPropertyObj = relationship(Extensionproperty)

@@ -9,7 +9,7 @@ from ODM2.Core.model import Action, Base
 
 class Directive(Base):
     __tablename__ = u'Directives'
-    __table_args__ = {u'schema': u'ODM2LabAnalyses'}
+    __table_args__ = {u'schema': u'ODM2'}
 
     DirectiveID = Column(Integer, primary_key=True)
     DirectiveTypeCV = Column(String(255), nullable=False)
@@ -18,11 +18,11 @@ class Directive(Base):
 
 class Actiondirective(Base):
     __tablename__ = u'ActionDirectives'
-    __table_args__ = {u'schema': 'ODM2LabAnalyses'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     BridgeID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2Core.Actions.ActionID'), nullable=False)
-    DirectiveID = Column(ForeignKey('ODM2LabAnalyses.Directives.DirectiveID'), nullable=False)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+    DirectiveID = Column(ForeignKey('ODM2.Directives.DirectiveID'), nullable=False)
 
     ActionObj = relationship(Action)
     DirectiveObj = relationship(Directive)

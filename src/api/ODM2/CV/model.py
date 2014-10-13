@@ -6,7 +6,7 @@ from ODM2.Core.model import Base
 
 class Cvterm(Base):
     __tablename__ = u'CVTerms'
-    __table_args__ = {u'schema': 'ODM2CV'}
+    __table_args__ = {u'schema': 'ODM2'}
 
     TermID = Column(Integer, primary_key=True)
     Term = Column(String(255), nullable=False)
