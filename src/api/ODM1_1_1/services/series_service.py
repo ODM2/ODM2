@@ -144,7 +144,7 @@ class SeriesService():
         elif not isSave:
             if doesExist:
                 print(
-                    "There is already an existing file with this information. Please select 'Save' to overwrite")
+                    "There is already an existing file with this information. Please select 'Save' or 'Save Existing' to overwrite")
                 return False
             else:
                 self._edit_session.add(series)

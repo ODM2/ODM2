@@ -777,42 +777,40 @@ CREATE TABLE ResultsDataQuality
 ) ENGINE=InnoDB;
 
 
-/******************** Add Table: CalibratedDeploymentVariables ************************/
+/******************** Add Table: CalibrationActions ************************/
 
 /* Build Table Structure */
-CREATE TABLE CalibratedDeploymentVariables
+CREATE TABLE CalibrationActions
+(
+	ActionID INTEGER NOT NULL,
+	CalibrationCheckValue FLOAT NULL,
+	InstrumentOutputVariableID INTEGER NOT NULL,
+	CalibrationEquation VARCHAR(255) NULL
+) ENGINE=InnoDB;
+
+/* Add Primary Key */
+ALTER TABLE CalibrationActions ADD CONSTRAINT pkCalibrationActions
+	PRIMARY KEY (ActionID);
+
+/* Add Comments */
+ALTER TABLE CalibrationActions COMMENT = 'Information about calibration Actions';
+
+
+/******************** Add Table: CalibrationReferenceEquipment ************************/
+
+/* Build Table Structure */
+CREATE TABLE CalibrationReferenceEquipment
 (
 	BridgeID INTEGER AUTO_INCREMENT PRIMARY KEY 
-		COMMENT 'Primary key identifier' NOT NULL,
+		COMMENT 'Primary key identifier ' NOT NULL,
 	ActionID INTEGER 
-		COMMENT 'Foreign key identifier of the calibration Action' NOT NULL,
-	DeploymentMeasuredVariableID INTEGER 
-		COMMENT 'Foreign key identifier of the DeploymentMeasuredVariable to which the calibration was applied' NOT NULL,
-	CalibrationCheckValue FLOAT 
-		COMMENT 'A numeric value for the DeploymentMeasuredVariable measued using the ReferenceMaterial prior to calibration' NULL
+		COMMENT 'Foreign key identifier of the Calibration Action' NOT NULL,
+	EquipmentID INTEGER 
+		COMMENT 'Foreign key identifier of the Equipment used in the Calibration Action' NOT NULL
 ) ENGINE=InnoDB;
 
 /* Add Comments */
-ALTER TABLE CalibratedDeploymentVariables COMMENT = 'Information about which deployment measured variable a calibration Action is associated with';
-
-
-/******************** Add Table: CalibrationEquations ************************/
-
-/* Build Table Structure */
-CREATE TABLE CalibrationEquations
-(
-	CalibrationEquationID INTEGER AUTO_INCREMENT PRIMARY KEY 
-		COMMENT 'Primary key identifier' NOT NULL,
-	ActionID INTEGER 
-		COMMENT 'Foreign key identifier of the calibration Action' NOT NULL,
-	InstrumentOutputVariableID INTEGER 
-		COMMENT 'Foreign key identifier for the InstrumentOutputVariableID to which the calibration equation applies' NOT NULL,
-	OutputVariableEquation VARCHAR(255) 
-		COMMENT 'Text string that encodes the calibration equation' NOT NULL
-) ENGINE=InnoDB;
-
-/* Add Comments */
-ALTER TABLE CalibrationEquations COMMENT = 'Information about instrument calibration equations';
+ALTER TABLE CalibrationReferenceEquipment COMMENT = 'Information about equipment used as referenece for a calibration';
 
 
 /******************** Add Table: CalibrationStandards ************************/
@@ -832,13 +830,91 @@ CREATE TABLE CalibrationStandards
 ALTER TABLE CalibrationStandards COMMENT = 'Bridge table linking field calibrations to the reference materials used';
 
 
+/******************** Add Table: DataLoggerFiles ************************/
+
+/* Build Table Structure */
+CREATE TABLE DataLoggerFiles
+(
+	DataLoggerFileID INTEGER AUTO_INCREMENT PRIMARY KEY 
+		COMMENT 'Primary key identifier' NOT NULL,
+	ProgramID INTEGER 
+		COMMENT 'Foreign key identifier of the datalogger program that created the file' NOT NULL,
+	DataLoggerFileName VARCHAR(255) 
+		COMMENT 'Text name of the datalogger file' NOT NULL,
+	DataLoggerFileDescription VARCHAR(500) 
+		COMMENT 'Text description of the datalogger file' NULL,
+	DataLoggerFileLink VARCHAR(255) 
+		COMMENT 'URL or file path to the datalogger file' NULL
+) ENGINE=InnoDB;
+
+/* Add Comments */
+ALTER TABLE DataLoggerFiles COMMENT = 'Destibes datalogger files created by a deployment action';
+
+
+/******************** Add Table: DataloggerFileColumns ************************/
+
+/* Build Table Structure */
+CREATE TABLE DataloggerFileColumns
+(
+	DataloggerFileColumnID INTEGER AUTO_INCREMENT PRIMARY KEY 
+		COMMENT 'Primary key identifier' NOT NULL,
+	ResultID BIGINT 
+		COMMENT 'Foreign key identifier for the Result associated with the datalogger file column' NULL,
+	DataLoggerFileID INTEGER 
+		COMMENT 'Foreign key identifier for the datalogger file in which the column appears' NOT NULL,
+	InstrumentOutputVariableID INTEGER 
+		COMMENT 'Foreign key identifier for the instrument output variable recorded in the column' NOT NULL,
+	ColumnLabel VARCHAR(50) 
+		COMMENT 'Text column label' NOT NULL,
+	ColumnDescription VARCHAR(500) 
+		COMMENT 'Text description of the contents of the column' NULL,
+	MeasurementEquation VARCHAR(255) 
+		COMMENT 'Text specificaiton of the equation used to calculate the column contents' NULL,
+	ScanInterval FLOAT 
+		COMMENT 'Scanning time interval used in the datalogger program' NULL,
+	ScanIntervalUnitsID INTEGER 
+		COMMENT 'Foreign key identifier for the Units of the scanning time interval' NULL,
+	RecordingInterval FLOAT 
+		COMMENT 'Recording time interval used in the datalogger program' NULL,
+	RecordingIntervalUnitsID INTEGER 
+		COMMENT 'Foreign key identifier for the Units of the recording time interval' NULL,
+	AggregationStatisticCV VARCHAR(255) NULL
+) ENGINE=InnoDB;
+
+/* Add Comments */
+ALTER TABLE DataloggerFileColumns COMMENT = 'Information about columns in datalogger files';
+
+
+/******************** Add Table: DataloggerProgramFiles ************************/
+
+/* Build Table Structure */
+CREATE TABLE DataloggerProgramFiles
+(
+	ProgramID INTEGER AUTO_INCREMENT PRIMARY KEY 
+		COMMENT 'Primary key identifier' NOT NULL,
+	AffiliationID INTEGER 
+		COMMENT 'Foreign key identifier of the affiliation for the person that created the program' NOT NULL,
+	ProgramName VARCHAR(255) 
+		COMMENT 'Text name of the datalogger program file' NOT NULL,
+	ProgramDescription VARCHAR(500) 
+		COMMENT 'Text description of the datalogger program file' NULL,
+	ProgramVersion VARCHAR(50) 
+		COMMENT 'Text description of the version of the datalogger program file' NULL,
+	ProgramFileLink VARCHAR(255) 
+		COMMENT 'URL or file path to the datalogger program file' NULL
+) ENGINE=InnoDB;
+
+/* Add Comments */
+ALTER TABLE DataloggerProgramFiles COMMENT = 'Information about datalogger program files';
+
+
 /******************** Add Table: Equipment ************************/
 
 /* Build Table Structure */
 CREATE TABLE Equipment
 (
 	EquipmentID INTEGER AUTO_INCREMENT PRIMARY KEY 
-		COMMENT 'Unique identifier' NOT NULL,
+		COMMENT 'Primary key identifier' NOT NULL,
 	EquipmentCode VARCHAR(50) 
 		COMMENT 'A text code that identifies the piece of equipment' NOT NULL,
 	EquipmentName VARCHAR(255) 
@@ -867,31 +943,17 @@ CREATE TABLE Equipment
 ALTER TABLE Equipment COMMENT = 'Descriptions of specific pieces of equipment.';
 
 
-/******************** Add Table: EquipmentActions ************************/
-
-/* Build Table Structure */
-CREATE TABLE EquipmentActions
-(
-	BridgeID INTEGER AUTO_INCREMENT PRIMARY KEY 
-		COMMENT 'Primary key for a bridge table, enabling many-to-many joins.' NOT NULL,
-	EquipmentID INTEGER 
-		COMMENT 'Foreign key identifier of the Equipment entity associated with the Action' NOT NULL,
-	ActionID INTEGER 
-		COMMENT 'Foreign key identifier of the Action' NOT NULL
-) ENGINE=InnoDB;
-
-
 /******************** Add Table: EquipmentModels ************************/
 
 /* Build Table Structure */
 CREATE TABLE EquipmentModels
 (
 	EquipmentModelID INTEGER AUTO_INCREMENT PRIMARY KEY 
-		COMMENT 'Unique identifier' NOT NULL,
+		COMMENT 'Primary key identifier' NOT NULL,
 	ModelManufacturerID INTEGER 
 		COMMENT 'Foreign key identifier of the model manufacturer' NOT NULL,
 	ModelPartNumber VARCHAR(50) 
-		COMMENT 'A part number for the equipment model' NULL,
+		COMMENT 'Text string for a part number for the equipment model' NULL,
 	ModelName VARCHAR(255) 
 		COMMENT 'Text name of the equipment model' NOT NULL,
 	ModelDescription VARCHAR(500) 
@@ -906,6 +968,20 @@ CREATE TABLE EquipmentModels
 
 /* Add Comments */
 ALTER TABLE EquipmentModels COMMENT = 'Describes models of sensors, loggers, and related equipment used in making observations.';
+
+
+/******************** Add Table: EquipmentUsed ************************/
+
+/* Build Table Structure */
+CREATE TABLE EquipmentUsed
+(
+	BridgeID INTEGER AUTO_INCREMENT PRIMARY KEY 
+		COMMENT 'Primary key for a bridge table, enabling many-to-many joins.' NOT NULL,
+	ActionID INTEGER 
+		COMMENT 'Foreign key identifier of the Action' NOT NULL,
+	EquipmentID INTEGER 
+		COMMENT 'Foreign key identifier of the Equipment entity associated with the Action' NOT NULL
+) ENGINE=InnoDB;
 
 
 /******************** Add Table: InstrumentOutputVariables ************************/
@@ -942,10 +1018,10 @@ CREATE TABLE MaintenanceActions
 		COMMENT 'Primary key and foreign key idenfier of the Equipment MaintenanceAction' NOT NULL,
 	IsFactoryService BOOLEAN 
 		COMMENT 'Boolean indicator of whether the Action is a factory service' NOT NULL,
-	FactoryServiceCode VARCHAR(50) 
-		COMMENT 'Text code assigned by the factory to the service performed' NULL,
-	FactoryServiceReason VARCHAR(500) 
-		COMMENT 'Text description of why the factory service Action was required' NULL
+	MaintenanceCode VARCHAR(50) 
+		COMMENT 'Text code assigned to the service performed' NULL,
+	MaintenanceReason VARCHAR(500) 
+		COMMENT 'Text description of why the service Action was required' NULL
 ) ENGINE=InnoDB;
 
 /* Add Primary Key */
@@ -966,9 +1042,17 @@ CREATE TABLE RelatedEquipment
 	EquipmentID INTEGER 
 		COMMENT 'Foreign key identifier for a piece of Equipment' NOT NULL,
 	RelationshipTypeCV VARCHAR(255) 
-		COMMENT 'Text string indicating the type of relationship between two pieces of equipement' NOT NULL,
+		COMMENT 'Controlled Vocabulary term indicating the type of relationship between two pieces of equipment' NOT NULL,
 	RelatedEquipmentID INTEGER 
-		COMMENT 'Foreign key identifier of the related piece of equipment' NOT NULL
+		COMMENT 'Foreign key identifier of the related piece of equipment' NOT NULL,
+	RelationshipStartDateTime DATETIME 
+		COMMENT 'Beginning date/time of the relationship between the two pieces of equipment' NOT NULL,
+	RelationshipStartDateTimeUTCOffset INTEGER 
+		COMMENT 'UTCOffset of the beginning date/time' NOT NULL,
+	RelationshipEndDateTime DATETIME 
+		COMMENT 'Ending date/time of the relationship between two pieces of equipment' NULL,
+	RelationshipEndDateTimeUTCOffset INTEGER 
+		COMMENT 'UTCOffset of the ending date/time' NULL
 ) ENGINE=InnoDB;
 
 /* Add Comments */
@@ -2050,106 +2134,6 @@ ALTER TABLE Specimens ADD CONSTRAINT pkSpecimens
 ALTER TABLE Specimens COMMENT = 'Equivalent to O&M Sampling Feature Type "Specimen".  Describes physical samples or specimens.';
 
 
-/******************** Add Table: DataLoggerFiles ************************/
-
-/* Build Table Structure */
-CREATE TABLE DataLoggerFiles
-(
-	DataLoggerFileID INTEGER AUTO_INCREMENT PRIMARY KEY 
-		COMMENT 'Unique identifier for the datalogger file' NOT NULL,
-	ProgramID INTEGER 
-		COMMENT 'Foreign key identifier of the datalogger program that created the file' NOT NULL,
-	DataLoggerFileName VARCHAR(255) 
-		COMMENT 'Text name of the datalogger file' NOT NULL,
-	DataLoggerFileDescription VARCHAR(500) 
-		COMMENT 'Text description of the datalogger file' NULL,
-	DataLoggerFileLink VARCHAR(255) 
-		COMMENT 'File path to the datalogger file' NULL
-) ENGINE=InnoDB;
-
-/* Add Comments */
-ALTER TABLE DataLoggerFiles COMMENT = 'Destibes datalogger files created by a deployment action';
-
-
-/******************** Add Table: DataloggerProgramFiles ************************/
-
-/* Build Table Structure */
-CREATE TABLE DataloggerProgramFiles
-(
-	ProgramID INTEGER AUTO_INCREMENT PRIMARY KEY 
-		COMMENT 'Primary key identifier' NOT NULL,
-	AffiliationID INTEGER 
-		COMMENT 'Foreign key identifier of the person that created the program' NOT NULL,
-	ProgramName VARCHAR(255) 
-		COMMENT 'Text name of the datalogger program file' NOT NULL,
-	ProgramDescription VARCHAR(500) 
-		COMMENT 'Text description of the datalogger program file' NULL,
-	ProgramVersion VARCHAR(50) 
-		COMMENT 'Text description of the version of the datalogger program file' NULL,
-	ProgramFileLink VARCHAR(255) 
-		COMMENT 'URL or file path to the datalogger program file' NULL
-) ENGINE=InnoDB;
-
-/* Add Comments */
-ALTER TABLE DataloggerProgramFiles COMMENT = 'Information about datalogger program files';
-
-
-/******************** Add Table: DeploymentActions ************************/
-
-/* Build Table Structure */
-CREATE TABLE DeploymentActions
-(
-	ActionID INTEGER 
-		COMMENT 'Foreign key identifer for the Action that is the deployment' NOT NULL,
-	DeploymentTypeCV VARCHAR(255) 
-		COMMENT 'CV term that describes the type of the deployment' NOT NULL,
-	CurrentlyDeployed BOOLEAN 
-		COMMENT 'A boolean indicating whether a piece of equipment is currently deployed' NOT NULL
-) ENGINE=InnoDB;
-
-/* Add Primary Key */
-ALTER TABLE DeploymentActions ADD CONSTRAINT pkDeploymentActions
-	PRIMARY KEY (ActionID);
-
-/* Add Comments */
-ALTER TABLE DeploymentActions COMMENT = 'Describes actions that are deployment events';
-
-
-/******************** Add Table: DeploymentMeasuredVariables ************************/
-
-/* Build Table Structure */
-CREATE TABLE DeploymentMeasuredVariables
-(
-	DeploymentMeasuredVariableID INTEGER AUTO_INCREMENT PRIMARY KEY 
-		COMMENT 'Primary key identifier' NOT NULL,
-	ActionID INTEGER 
-		COMMENT 'Foreign key identifier of the Deployment Action associated with the DeploymentMeasuredVariable' NOT NULL,
-	InstrumentOutputVariableID INTEGER 
-		COMMENT 'Foreign key identifier of the InstrumentOutputVariable that is the DeploymentMeasuredVariable' NOT NULL,
-	DataloggerFileID INTEGER 
-		COMMENT 'Foreign key identifier of the DataloggerFile from in which the DeploymentMeasuredVariable is recorded' NOT NULL,
-	ColumnLabel VARCHAR(50) 
-		COMMENT 'Text label of the column within the DataloggerFile that is the DeploymentMeasuredVariable' NULL,
-	ColumnDescription VARCHAR(500) 
-		COMMENT 'Text description of hte column within the DataloggerFile that is the DeploymentMeasuredVariable' NULL,
-	MeasurementEquation VARCHAR(255) 
-		COMMENT 'Text string that gives the equation (if any) associated with the DeploymentMeasuredVariable' NULL,
-	ScanInterval FLOAT 
-		COMMENT 'Numeric value of the scan interval' NULL,
-	ScanIntervalUnitsID INTEGER 
-		COMMENT 'Foreign key identifier of the units of the scan interval' NULL,
-	RecordingInterval FLOAT 
-		COMMENT 'Numeric value of the recording interval' NULL,
-	RecordingIntervalUnitsID INTEGER 
-		COMMENT 'Foreign key identifier of the units for the recording interval' NULL,
-	AggregationStatisticCV VARCHAR(255) 
-		COMMENT 'Text aggregation statistic of the recorded value - chosen from a CV' NULL
-) ENGINE=InnoDB;
-
-/* Add Comments */
-ALTER TABLE DeploymentMeasuredVariables COMMENT = 'Inoformation about the variables measured by a deployment';
-
-
 
 
 
@@ -2216,18 +2200,24 @@ fk_ReferenceMaterials_SamplingFeatures may require an index on table: ReferenceM
 fk_ResultNormalizationValues_ReferenceMaterialValues may require an index on table: ResultNormalizationValues, column: NormalizedByReferenceMaterialValueID
 fk_ResultsDataQuality_DataQuality may require an index on table: ResultsDataQuality, column: DataQualityID
 fk_ResultsDataQuality_Results may require an index on table: ResultsDataQuality, column: ResultID
-fk_CalibratedDeploymentVariables_Actions may require an index on table: CalibratedDeploymentVariables, column: ActionID
-fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables may require an index on table: CalibratedDeploymentVariables, column: DeploymentMeasuredVariableID
-fk_CalibrationEquations_Actions may require an index on table: CalibrationEquations, column: ActionID
-fk_CalibrationEquations_InstrumentOutputVariables may require an index on table: CalibrationEquations, column: InstrumentOutputVariableID
-fk_FieldCalibrationStandards_Actions may require an index on table: CalibrationStandards, column: ActionID
+fk_CalibrationActions_InstrumentOutputVariables may require an index on table: CalibrationActions, column: InstrumentOutputVariableID
+fk_CalibrationReferenceEquipment_CalibrationActions may require an index on table: CalibrationReferenceEquipment, column: ActionID
+fk_CalibrationReferenceEquipment_Equipment may require an index on table: CalibrationReferenceEquipment, column: EquipmentID
+fk_CalibrationStandards_CalibrationActions may require an index on table: CalibrationStandards, column: ActionID
 fk_FieldCalibrationStandards_ReferenceMaterials may require an index on table: CalibrationStandards, column: ReferenceMaterialID
+fk_DataLoggerFiles_DataloggerProgramFiles may require an index on table: DataLoggerFiles, column: ProgramID
+fk_DataloggerFileColumns_DataLoggerFiles may require an index on table: DataloggerFileColumns, column: DataLoggerFileID
+fk_DataloggerFileColumns_InstrumentOutputVariables may require an index on table: DataloggerFileColumns, column: InstrumentOutputVariableID
+fk_DataloggerFileColumns_RecordingUnits may require an index on table: DataloggerFileColumns, column: RecordingIntervalUnitsID
+fk_DataloggerFileColumns_Results may require an index on table: DataloggerFileColumns, column: ResultID
+fk_DataloggerFileColumns_ScanUnits may require an index on table: DataloggerFileColumns, column: ScanIntervalUnitsID
+fk_DataloggerProgramFiles_Affiliations may require an index on table: DataloggerProgramFiles, column: AffiliationID
 fk_Equipment_EquipmentModels may require an index on table: Equipment, column: EquipmentModelID
 fk_Equipment_Organizations may require an index on table: Equipment, column: EquipmentVendorID
 fk_Equipment_People may require an index on table: Equipment, column: EquipmentOwnerID
-fk_EquipmentActions_Actions may require an index on table: EquipmentActions, column: ActionID
-fk_EquipmentActions_Equipment may require an index on table: EquipmentActions, column: EquipmentID
 fk_EquipmentModels_Organizations may require an index on table: EquipmentModels, column: ModelManufacturerID
+fk_EquipmentActions_Actions may require an index on table: EquipmentUsed, column: ActionID
+fk_EquipmentActions_Equipment may require an index on table: EquipmentUsed, column: EquipmentID
 fk_InstrumentOutputVariables_EquipmentModels may require an index on table: InstrumentOutputVariables, column: ModelID
 fk_InstrumentOutputVariables_Methods may require an index on table: InstrumentOutputVariables, column: InstrumentMethodID
 fk_InstrumentOutputVariables_Units may require an index on table: InstrumentOutputVariables, column: InstrumentRawOutputUnitsID
@@ -2347,13 +2337,6 @@ fk_FeatureParents_SpatialOffsets may require an index on table: RelatedFeatures,
 fk_Sites_SpatialReferences may require an index on table: Sites, column: LatLonDatumID
 fk_SpecimenTaxonomicClassifiers_Specimens may require an index on table: SpecimenTaxonomicClassifiers, column: SamplingFeatureID
 fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers may require an index on table: SpecimenTaxonomicClassifiers, column: TaxonomicClassifierID
-fk_DataLoggerFiles_DataloggerProgramFiles may require an index on table: DataLoggerFiles, column: ProgramID
-fk_DataloggerProgramFiles_Affiliations may require an index on table: DataloggerProgramFiles, column: AffiliationID
-fk_DeploymentMeasuredVariables_DataLoggerFiles may require an index on table: DeploymentMeasuredVariables, column: DataloggerFileID
-fk_DeploymentMeasuredVariables_DeploymentActions may require an index on table: DeploymentMeasuredVariables, column: ActionID
-fk_DeploymentMeasuredVariables_InstrumentOutputVariables may require an index on table: DeploymentMeasuredVariables, column: InstrumentOutputVariableID
-fk_DeploymentMeasuredVariables_RI_Units may require an index on table: DeploymentMeasuredVariables, column: RecordingIntervalUnitsID
-fk_DeploymentMeasuredVariables_SI_Units may require an index on table: DeploymentMeasuredVariables, column: ScanIntervalUnitsID
 -----------------------------------------------------------
 */
 
@@ -2662,34 +2645,69 @@ ALTER TABLE ResultsDataQuality ADD CONSTRAINT fk_ResultsDataQuality_Results
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-/* Add Foreign Key: fk_CalibratedDeploymentVariables_Actions */
-ALTER TABLE CalibratedDeploymentVariables ADD CONSTRAINT fk_CalibratedDeploymentVariables_Actions
+/* Add Foreign Key: fk_CalibrationActions_Actions */
+ALTER TABLE CalibrationActions ADD CONSTRAINT fk_CalibrationActions_Actions
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-/* Add Foreign Key: fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables */
-ALTER TABLE CalibratedDeploymentVariables ADD CONSTRAINT fk_CalibratedDeploymentVariables_DeploymentMeasuredVariables
-	FOREIGN KEY (DeploymentMeasuredVariableID) REFERENCES DeploymentMeasuredVariables (DeploymentMeasuredVariableID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_CalibrationEquations_Actions */
-ALTER TABLE CalibrationEquations ADD CONSTRAINT fk_CalibrationEquations_Actions
-	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_CalibrationEquations_InstrumentOutputVariables */
-ALTER TABLE CalibrationEquations ADD CONSTRAINT fk_CalibrationEquations_InstrumentOutputVariables
+/* Add Foreign Key: fk_CalibrationActions_InstrumentOutputVariables */
+ALTER TABLE CalibrationActions ADD CONSTRAINT fk_CalibrationActions_InstrumentOutputVariables
 	FOREIGN KEY (InstrumentOutputVariableID) REFERENCES InstrumentOutputVariables (InstrumentOutputVariableID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-/* Add Foreign Key: fk_FieldCalibrationStandards_Actions */
-ALTER TABLE CalibrationStandards ADD CONSTRAINT fk_FieldCalibrationStandards_Actions
-	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
+/* Add Foreign Key: fk_CalibrationReferenceEquipment_CalibrationActions */
+ALTER TABLE CalibrationReferenceEquipment ADD CONSTRAINT fk_CalibrationReferenceEquipment_CalibrationActions
+	FOREIGN KEY (ActionID) REFERENCES CalibrationActions (ActionID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_CalibrationReferenceEquipment_Equipment */
+ALTER TABLE CalibrationReferenceEquipment ADD CONSTRAINT fk_CalibrationReferenceEquipment_Equipment
+	FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_CalibrationStandards_CalibrationActions */
+ALTER TABLE CalibrationStandards ADD CONSTRAINT fk_CalibrationStandards_CalibrationActions
+	FOREIGN KEY (ActionID) REFERENCES CalibrationActions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 /* Add Foreign Key: fk_FieldCalibrationStandards_ReferenceMaterials */
 ALTER TABLE CalibrationStandards ADD CONSTRAINT fk_FieldCalibrationStandards_ReferenceMaterials
 	FOREIGN KEY (ReferenceMaterialID) REFERENCES ReferenceMaterials (ReferenceMaterialID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataLoggerFiles_DataloggerProgramFiles */
+ALTER TABLE DataLoggerFiles ADD CONSTRAINT fk_DataLoggerFiles_DataloggerProgramFiles
+	FOREIGN KEY (ProgramID) REFERENCES DataloggerProgramFiles (ProgramID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_DataLoggerFiles */
+ALTER TABLE DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_DataLoggerFiles
+	FOREIGN KEY (DataLoggerFileID) REFERENCES DataLoggerFiles (DataLoggerFileID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_InstrumentOutputVariables */
+ALTER TABLE DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_InstrumentOutputVariables
+	FOREIGN KEY (InstrumentOutputVariableID) REFERENCES InstrumentOutputVariables (InstrumentOutputVariableID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_RecordingUnits */
+ALTER TABLE DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_RecordingUnits
+	FOREIGN KEY (RecordingIntervalUnitsID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_Results */
+ALTER TABLE DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_Results
+	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerFileColumns_ScanUnits */
+ALTER TABLE DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_ScanUnits
+	FOREIGN KEY (ScanIntervalUnitsID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+/* Add Foreign Key: fk_DataloggerProgramFiles_Affiliations */
+ALTER TABLE DataloggerProgramFiles ADD CONSTRAINT fk_DataloggerProgramFiles_Affiliations
+	FOREIGN KEY (AffiliationID) REFERENCES Affiliations (AffiliationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 /* Add Foreign Key: fk_Equipment_EquipmentModels */
@@ -2707,19 +2725,19 @@ ALTER TABLE Equipment ADD CONSTRAINT fk_Equipment_People
 	FOREIGN KEY (EquipmentOwnerID) REFERENCES People (PersonID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+/* Add Foreign Key: fk_EquipmentModels_Organizations */
+ALTER TABLE EquipmentModels ADD CONSTRAINT fk_EquipmentModels_Organizations
+	FOREIGN KEY (ModelManufacturerID) REFERENCES Organizations (OrganizationID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 /* Add Foreign Key: fk_EquipmentActions_Actions */
-ALTER TABLE EquipmentActions ADD CONSTRAINT fk_EquipmentActions_Actions
+ALTER TABLE EquipmentUsed ADD CONSTRAINT fk_EquipmentActions_Actions
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 /* Add Foreign Key: fk_EquipmentActions_Equipment */
-ALTER TABLE EquipmentActions ADD CONSTRAINT fk_EquipmentActions_Equipment
+ALTER TABLE EquipmentUsed ADD CONSTRAINT fk_EquipmentActions_Equipment
 	FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_EquipmentModels_Organizations */
-ALTER TABLE EquipmentModels ADD CONSTRAINT fk_EquipmentModels_Organizations
-	FOREIGN KEY (ModelManufacturerID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 /* Add Foreign Key: fk_InstrumentOutputVariables_EquipmentModels */
@@ -3385,44 +3403,4 @@ ALTER TABLE SpecimenTaxonomicClassifiers ADD CONSTRAINT fk_SpecimenTaxonomicClas
 /* Add Foreign Key: fk_Specimens_SamplingFeatures */
 ALTER TABLE Specimens ADD CONSTRAINT fk_Specimens_SamplingFeatures
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DataLoggerFiles_DataloggerProgramFiles */
-ALTER TABLE DataLoggerFiles ADD CONSTRAINT fk_DataLoggerFiles_DataloggerProgramFiles
-	FOREIGN KEY (ProgramID) REFERENCES DataloggerProgramFiles (ProgramID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DataloggerProgramFiles_Affiliations */
-ALTER TABLE DataloggerProgramFiles ADD CONSTRAINT fk_DataloggerProgramFiles_Affiliations
-	FOREIGN KEY (AffiliationID) REFERENCES Affiliations (AffiliationID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentActions_Actions */
-ALTER TABLE DeploymentActions ADD CONSTRAINT fk_DeploymentActions_Actions
-	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_DataLoggerFiles */
-ALTER TABLE DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_DataLoggerFiles
-	FOREIGN KEY (DataloggerFileID) REFERENCES DataLoggerFiles (DataLoggerFileID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_DeploymentActions */
-ALTER TABLE DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_DeploymentActions
-	FOREIGN KEY (ActionID) REFERENCES DeploymentActions (ActionID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_InstrumentOutputVariables */
-ALTER TABLE DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_InstrumentOutputVariables
-	FOREIGN KEY (InstrumentOutputVariableID) REFERENCES InstrumentOutputVariables (InstrumentOutputVariableID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_RI_Units */
-ALTER TABLE DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_RI_Units
-	FOREIGN KEY (RecordingIntervalUnitsID) REFERENCES Units (UnitsID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-/* Add Foreign Key: fk_DeploymentMeasuredVariables_SI_Units */
-ALTER TABLE DeploymentMeasuredVariables ADD CONSTRAINT fk_DeploymentMeasuredVariables_SI_Units
-	FOREIGN KEY (ScanIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION;
