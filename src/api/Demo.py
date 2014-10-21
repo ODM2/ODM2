@@ -19,6 +19,9 @@ sys.path.insert(0, directory)
 conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 #conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 #conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'TestODM', 'stephanie', 'odm')
+#conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
+#conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
+#conn = dbconnection.createConnection('mysql', '127.0.0.1:3306', 'ODM2', 'Stephanie', 'odm')
 
 
 # Create a connection for each of the schemas. Currently the schemas each have a different
@@ -40,8 +43,6 @@ print "Get all Variables result: ", allVars
 numVars = allVars.count()
 
 
-
-
 # Get all of the people from the database
 people = core_read.getAllPersons()
 print "Get all People result: ", people
@@ -60,12 +61,9 @@ sf = core_read.getSamplingFeatureByCode('USU-LBR-Mendon')
 print "Get SamplingFeatureByCode result: ", sf
 
 
-
-
-
-
 # You can drill down into the code and get object linked by foreign keys
 print "\n\n------------Foreign Key sample--------- \n",
+
 
 # Call getAllResult, but return only the first result
 firstResult = core_read.getAllResult()[0]
@@ -78,29 +76,40 @@ print "Action Attribute: ", firstResult.FeatureActionObj.ActionObj.ActionTypeCV
 TSResult = result_read.getTimeSeriesResultsByResultId(19)
 print "TSResult: ", TSResult
 
+
 # Get the values for a particular Result - in this case time series values from a time series result
 TSValues = result_read.getTimeSeriesValuesByResultId(19)
 print "Values: ", TSValues
-#print dir(result)
+
+
+
+# Another Results example
+results = core_read.getAllResult()
+if results:
+    result = results[0]
+    print "FeatureAction: ", result.FeatureActionObj
+    print "Action: ", result.FeatureActionObj.ActionObj
+    print "Action Attribute: ", result.FeatureActionObj.ActionObj.ActionTypeCV
+
+    TSResult= result_read.getTimeSeriesResultsByResultId(result.ResultID)
+    print "TSResult: ", TSResult
+    TSValues = result_read.getTimeSeriesValuesByResultId(result.ResultID)
+    print"Values: ", TSValues[0:10]
+else:
+    print "no Results returned"
 
 
 
 
 
 
-
+# Demo the LikeODM1 stuff
 from ODM2.LikeODM1.services import SeriesService
 #### LIKE ODM1 ####
 conn2 = dbconnection.createConnection('mssql', 'localhost', 'odm2', 'root', 'nlcd34GIS')
 odm1service = SeriesService(conn2)
 #print odm1service.get_all_units()
 #print odm1service.get_all_sites()
-
-
-
-
-
-
 
 
 

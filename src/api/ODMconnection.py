@@ -52,13 +52,28 @@ class dbconnection():
                 s.psql_test_Session().execute('Select "VariableCode" From "ODM2"."Variables" Limit 1')
                 #s.psql_test_Session().execute('Select "VariableNameCV" From "ODM2"."Variables" Limit 1')
             elif 'mysql' in connection_string:
-                s.psql_test_Session().execute('Select "VariableCode" From "ODM2"."Variables" Limit 1')
+                s.psql_test_Session().execute('Select variablecode From variables Limit 1')
 
         except Exception as e:
-            print "session was crap ", e.message
+            print "Connection was unsuccessful ", e.message
             return False
         return True
 
+    def testEngine1_1(self, connection_string):
+        s= SessionFactory(connection_string, echo  = False)
+        try:
+            if 'mssql' in connection_string:
+                s.ms_test_Session().execute("Select top 1 VariableCode From Variables")
+            elif 'postgresql' in connection_string:
+                s.psql_test_Session().execute('Select "VariableCode" From "Variables" Limit 1')
+                #s.psql_test_Session().execute('Select "VariableNameCV" From "ODM2"."Variables" Limit 1')
+            elif 'mysql' in connection_string:
+                s.psql_test_Session().execute('Select variablecode From variables Limit 1')
+
+        except Exception as e:
+            print "Connection was unsuccessful ", e.message
+            return False
+        return True
 
 
     def buildConnDict(self, engine, address, db, user, password):

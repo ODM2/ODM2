@@ -1,14 +1,9 @@
 __author__ = 'Stephanie'
 
-
-import sys
-import os
-from sqlalchemy import func
-
-
 from ... import serviceBase
 from ..model import *
-from sqlalchemy import func
+
+
 
 
 class readCore(serviceBase):
@@ -17,6 +12,7 @@ class readCore(serviceBase):
     """
     Variable
     """
+
 
     def getAllVariables(self):
         """Select all on Variables
@@ -141,27 +137,10 @@ class readCore(serviceBase):
             :type list:
         """
 
-        return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
-                                                                        ,SamplingFeatureTypeCV\
-                                                                        ,SamplingFeatureCode\
-                                                                        ,SamplingFeatureName\
-                                                                        ,SamplingFeatureDescription\
-                                                                        ,SamplingFeatureGeotypeCV\
-                                                                        ,Elevation_m\
-                                                                        ,ElevationDatumCV\
-                                                                        ,FeatureGeometry.STAsText() As FeatureGeometry\
-                                                                     From ODM2.SamplingFeatures").all()
-        #return self._session.query(Samplingfeature).all()
 
-        #return self._session.query(Samplingfeature.Elevation_m, Samplingfeature.FeatureGeometry).all())
-        '''
-        res = self._session.query(Samplingfeature, Samplingfeature.FeatureGeometry).all()
-        newlist = []
-        for i in range(len(res)):
-            res[i][0].FeatureGeometry = res[i][1]
-            newlist.append(res[i][0])
-        return newlist
-        '''
+        return self._session.query(Samplingfeature).all()
+
+
 
     def getGeometryTest(self, TestGeom):
         Geom = self._session.query(Samplingfeature).first()
@@ -423,3 +402,4 @@ class readCore(serviceBase):
                                         filter_by(ActionID=actionID).all()
         except:
             return None
+

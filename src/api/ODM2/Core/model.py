@@ -1,11 +1,9 @@
 # coding: utf-8
-from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String, Boolean
-from sqlalchemy.types import NullType as Geometry
-from geoalchemy2 import Geometry
-#from geoalchemy.geometry import Geometry
+from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String, Boolean, func
+from ODM2.apiCustomType import Geometry
 
-from sqlalchemy.orm import relationship, aliased
 
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
@@ -13,24 +11,10 @@ Base = declarative_base()
 
 
 
-'''
-from sqlalchemy import func
-from sqlalchemy.types import UserDefinedType
-class Geometry(UserDefinedType):
-    def get_col_spec(self):
-        return "GEOMETRY"
-    def bind_expression(self, bindvalue):
-        return func.ST_GeomFromText(bindvalue, type_=self)
-    #STGeomFromText
-    def column_expression(self, col):
-        return func.ST_AsText(col, type_=self)
-'''
 
 class Person(Base):
     __tablename__ = u'People'
-    __table_args__ = {u'schema': u'ODM2'
-
-    }
+    __table_args__ = {u'schema': u'ODM2'}
 
     PersonID = Column(Integer, primary_key=True)
     PersonFirstName = Column(String(255), nullable=False)
@@ -123,7 +107,6 @@ class Actionby(Base):
     AffiliationObj = relationship(Affiliation)
 
 
-
 class Samplingfeature(Base):
     __tablename__ = u'SamplingFeatures'
     __table_args__ = {u'schema': u'ODM2'}
@@ -137,7 +120,6 @@ class Samplingfeature(Base):
     Elevation_m = Column(Float(53))
     ElevationDatumCV = Column(String(255))
     FeatureGeometry = Column(Geometry)
-
 
     def __repr__(self):
 		return "<SamplingFeature('%s', '%s', '%s', '%s')>" % (self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.FeatureGeometry)
