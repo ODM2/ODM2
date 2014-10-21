@@ -1,14 +1,9 @@
 __author__ = 'Stephanie'
 
-
-import sys
-import os
-from sqlalchemy import func
-
-
 from ... import serviceBase
 from ..model import *
-from sqlalchemy import func
+
+
 
 
 class readCore(serviceBase):
@@ -17,6 +12,7 @@ class readCore(serviceBase):
     """
     Variable
     """
+
 
     def getAllVariables(self):
         """Select all on Variables
@@ -141,7 +137,7 @@ class readCore(serviceBase):
             :type list:
         """
 
-        return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
+        '''return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
                                                                         ,SamplingFeatureTypeCV\
                                                                         ,SamplingFeatureCode\
                                                                         ,SamplingFeatureName\
@@ -151,7 +147,8 @@ class readCore(serviceBase):
                                                                         ,ElevationDatumCV\
                                                                         ,FeatureGeometry.STAsText() As FeatureGeometry\
                                                                      From ODM2.SamplingFeatures").all()
-        #return self._session.query(Samplingfeature).all()
+        '''
+        return self._session.query(Samplingfeature).all()
 
         #return self._session.query(Samplingfeature.Elevation_m, Samplingfeature.FeatureGeometry).all())
         '''
@@ -423,3 +420,4 @@ class readCore(serviceBase):
                                         filter_by(ActionID=actionID).all()
         except:
             return None
+
