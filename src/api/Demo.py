@@ -1,18 +1,14 @@
-
 import sys
 import os
-
 from ODM2.Core.services import readCore as CSread
 from ODM2.Core.services import CoreServices
 from ODM2.SamplingFeatures.services import readSamplingFeatures as SFread
 from ODM2.Results.services import readResults as Rread
-
 from ODMconnection import dbconnection
 
 this_file = os.path.realpath(__file__)
 directory = os.path.dirname(this_file)
 sys.path.insert(0, directory)
-
 
 # Create a connection to the ODM2 database
 # ----------------------------------------
@@ -33,27 +29,36 @@ result_read = Rread(conn)
 sampfeat_read = SFread(conn)
 
 
-
 # Run some basic sample queries.
 # ------------------------------
-# Get all of the variables from the database
+# Get all of the variables from the database and print thier names to the console
 allVars = core.read.getAllVariables()
-print "Get all Variables result: ", allVars
-
-numVars = allVars.count()
+numVars = len(allVars)
+print "------------ Simple Variables Query ---------------"
+print "There are " + str(numVars) + " Variables in the ODM2 database."
+print "The list of variables includes:"
+for x in allVars:
+    print x.VariableCode + ": " + x.VariableNameCV
 
 
 # Get all of the people from the database
-people = core_read.getAllPersons()
-print "Get all People result: ", people
+allPeople = core_read.getAllPersons()
+numPeople = len(allPeople)
+print "------------ Simple People Query ------------------"
+print "There are " + str(numPeople) + " People in the ODM2 database."
+print "The list of People includes: "
+for x in allPeople:
+    print x.PersonFirstName + " " + x.PersonLastName
 
-# Get all of the SamplingFeatures
-sfs = core_read.getAllSamplingFeatures()
-print "Get all SamplingFeatures result: ", sfs
-if len(sfs) > 0:
-    # Get the first SamplingFeature and print it's SamplingFeatureCode
-    temp = sfs[0]
-    print "The SamplingFeatureCode of the first SamplingFeature is: " + temp.SamplingFeatureCode
+
+# Get all of the SamplingFeatures from the database
+allFeatures = core_read.getAllSamplingFeatures()
+numFeatures = len(allFeatures)
+print "--------------- Information about SamplingFeatures ------------"
+print "There are " + str(numFeatures) + " SamplingFeatures in the ODM2 database."
+print "The list of SamplingFeatures includes: "
+for x in allFeatures:
+    print x.SamplingFeatureCode + ": " + x.SamplingFeatureName
 
 
 # Now get the SamplingFeature object for a SamplingFeature code
