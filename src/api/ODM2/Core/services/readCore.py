@@ -137,28 +137,10 @@ class readCore(serviceBase):
             :type list:
         """
 
-        '''return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
-                                                                        ,SamplingFeatureTypeCV\
-                                                                        ,SamplingFeatureCode\
-                                                                        ,SamplingFeatureName\
-                                                                        ,SamplingFeatureDescription\
-                                                                        ,SamplingFeatureGeotypeCV\
-                                                                        ,Elevation_m\
-                                                                        ,ElevationDatumCV\
-                                                                        ,FeatureGeometry.STAsText() As FeatureGeometry\
-                                                                     From ODM2.SamplingFeatures").all()
-        '''
+
         return self._session.query(Samplingfeature).all()
 
-        #return self._session.query(Samplingfeature.Elevation_m, Samplingfeature.FeatureGeometry).all())
-        '''
-        res = self._session.query(Samplingfeature, Samplingfeature.FeatureGeometry).all()
-        newlist = []
-        for i in range(len(res)):
-            res[i][0].FeatureGeometry = res[i][1]
-            newlist.append(res[i][0])
-        return newlist
-        '''
+
 
     def getGeometryTest(self, TestGeom):
         Geom = self._session.query(Samplingfeature).first()

@@ -1,53 +1,12 @@
 # coding: utf-8
-from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String, Boolean,func
+from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String, Boolean, func
+from ODM2.apiCustomType import Geometry
 
-from sqlalchemy.sql.expression import FunctionElement
-from sqlalchemy.types import UserDefinedType
-from sqlalchemy.ext.compiler import compiles
+
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
-
-from geoalchemy2 import Geometry as Geometry
-
-class GeometryMS(Geometry):
-
-    def column_expression(self, col):
-        return ST_AsBinary(col, type_=self)
-
-class GeometryTEST(UserDefinedType):
-    def get_col_spec(self):
-        return "GEOMETRY"
-    def bind_expression(self, bindvalue):
-        return func.GeomFromText(bindvalue, type_=self)
-    #STGeomFromText
-    def column_expression(self, col):
-        '''
-        try:
-            return func.STAsText(col, type_=self)
-        except:
-            #c1, c2, c3 = column('one'), column('two'), column('three')
-        '''
-        return ST_AsBinary(col)
-
-
-
-def compiles_as_bound(cls):
-    @compiles(cls)
-    def compile_function(element, compiler, **kw):
-        #return "%s.%s(%s)" % (element.clauses.clauses[0], element.name,", ".join([compiler.process(e) for e in element.clauses.clauses[1:]]))
-        return "[SamplingFeatures_1].[FeatureGeometry].%s(%s)" % ( element.name,", ".join([compiler.process(e) for e in element.clauses.clauses[1:]]))
-    return cls
-
-
-@compiles_as_bound
-class ST_AsText(FunctionElement):
-    name = 'STAsText'
-
-@compiles_as_bound
-class ST_AsBinary(FunctionElement):
-    name = 'STAsBinary'
 
 
 
@@ -161,11 +120,6 @@ class Samplingfeature(Base):
     Elevation_m = Column(Float(53))
     ElevationDatumCV = Column(String(255))
     FeatureGeometry = Column(Geometry)
-    #FeatureGeometry = Column(GeometryMS)
-
-
-
-
 
     def __repr__(self):
 		return "<SamplingFeature('%s', '%s', '%s', '%s')>" % (self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.FeatureGeometry)

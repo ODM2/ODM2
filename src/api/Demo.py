@@ -18,7 +18,7 @@ from ODMconnection import dbconnection
 
 #create connection to the database
 conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
-#conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
+conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
 #conn = dbconnection.createConnection('mysql', '127.0.0.1:3306', 'ODM2', 'Stephanie', 'odm')
 
 
@@ -46,7 +46,7 @@ if len(sfs)>0:
     print temp.SamplingFeatureCode
     val= core.read.getSamplingFeatureByCode(temp.SamplingFeatureCode)
     sf = core_read.getSamplingFeatureByCode(u'logan_river_outlet')
-    print "Get  SamplingFeatures by code: ", sf
+    print "Get SamplingFeatures by code: ", sf
 
 
 
