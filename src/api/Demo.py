@@ -32,86 +32,95 @@ sampfeat_read = SFread(conn)
 # Run some basic sample queries.
 # ------------------------------
 # Get all of the variables from the database and print thier names to the console
-allVars = core.read.getAllVariables()
+allVars = core.read.getVariables()
 numVars = len(allVars)
-print "------------ Simple Variables Query ---------------"
-print "There are " + str(numVars) + " Variables in the ODM2 database."
+print "\n------------ Simple Variables Query ---------------"
+print "There are " + str(numVars) + " Variables in the ODM2 database retrieved using getVariables()."
 print "The list of variables includes:"
 for x in allVars:
     print x.VariableCode + ": " + x.VariableNameCV
 
 
 # Get all of the people from the database
-allPeople = core_read.getAllPersons()
+allPeople = core_read.getPeople()
 numPeople = len(allPeople)
-print "------------ Simple People Query ------------------"
-print "There are " + str(numPeople) + " People in the ODM2 database."
+print "\n------------ Simple People Query ------------------"
+print "There are " + str(numPeople) + " People in the ODM2 database retrieved using getPeople()."
 print "The list of People includes: "
 for x in allPeople:
     print x.PersonFirstName + " " + x.PersonLastName
 
 
-# Get all of the SamplingFeatures from the database
-allFeatures = core_read.getAllSamplingFeatures()
-numFeatures = len(allFeatures)
-print "--------------- Information about SamplingFeatures ------------"
-print "There are " + str(numFeatures) + " SamplingFeatures in the ODM2 database."
-print "The list of SamplingFeatures includes: "
-for x in allFeatures:
+# Get all of the SamplingFeatures from the database that are Sites
+siteFeatures = core_read.getSamplingFeaturesByType('Site')
+numSites = len(siteFeatures)
+print "\n--------------- Information about Site SamplingFeatures ------------"
+print "There are " + str(numSites) + " Site SamplingFeatures in the ODM2 database retrieved using getSamplingFeaturesByType()."
+print "The list of Site SamplingFeatures includes: "
+for x in siteFeatures:
     print x.SamplingFeatureCode + ": " + x.SamplingFeatureName
 
 
 # Now get the SamplingFeature object for a SamplingFeature code
 sf = core_read.getSamplingFeatureByCode('USU-LBR-Mendon')
-print "Get SamplingFeatureByCode result: ", sf
+print "\n-------- Information about an individual SamplingFeature ---------"
+print ("The following are some of the attributes of a SamplingFeature retrieved using getSamplingFeatureByCode(): \n" +
+       "SamplingFeatureCode: " + sf.SamplingFeatureCode + "\n" +
+       "SamplingFeatureName: " + sf.SamplingFeatureName + "\n" +
+       "SamplingFeatureDescription: " + sf.SamplingFeatureDescription + "\n" +
+       "SamplingFeatureGeotypeCV: " + sf.SamplingFeatureGeotypeCV + "\n"
+       "SamplingFeatureGeometry: " + sf.FeatureGeometry + "\n" +
+       "Elevation_m: " + str(sf.Elevation_m))
 
 
-# You can drill down into the code and get object linked by foreign keys
-print "\n\n------------Foreign Key sample--------- \n",
-
-
-# Call getAllResult, but return only the first result
-firstResult = core_read.getAllResult()[0]
-print "FeatureAction: ", firstResult.FeatureActionObj
-print "Action: ", firstResult.FeatureActionObj.ActionObj
-print "Action Attribute: ", firstResult.FeatureActionObj.ActionObj.ActionTypeCV
+# Drill down and get objects linked by foreign keys
+print "\n------------ Foreign Key Example --------- \n",
+# Call getResults, but return only the first result
+firstResult = core_read.getResults()[0]
+print "The FeatureAction object for the Result is: ", firstResult.FeatureActionObj
+print "The Action object for the Result is: ", firstResult.FeatureActionObj.ActionObj
+print ("\nThe following are some of the attributes for the Action that created the Result: \n" +
+       "ActionTypeCV: " + firstResult.FeatureActionObj.ActionObj.ActionTypeCV + "\n" +
+       "ActionDescription: " + firstResult.FeatureActionObj.ActionObj.ActionDescription + "\n" +
+       "BeginDateTime: " + str(firstResult.FeatureActionObj.ActionObj.BeginDateTime) + "\n" +
+       "EndDateTime: " + str(firstResult.FeatureActionObj.ActionObj.EndDateTime) + "\n" +
+       "MethodName: " + firstResult.FeatureActionObj.ActionObj.MethodObj.MethodName + "\n" +
+       "MethodDescription: " + firstResult.FeatureActionObj.ActionObj.MethodObj.MethodDescription)
 
 
 # Now get a particular Result using a ResultID
-TSResult = result_read.getTimeSeriesResultsByResultId(19)
-print "TSResult: ", TSResult
+print "\n------- Example of Retrieving Attributes of a Time Series Result -------"
+tsResult = result_read.getTimeSeriesResultByResultId(19)
+print ("The following are some of the attributes for the TimeSeriesResult retrieved using getTimeSeriesResultByResultID(): \n" +
+       "ResultTypeCV: " + tsResult.ResultTypeCV + "\n" +
+       # Get the ProcessingLevel from the TimeSeriesResult's ProcessingLevel object
+       "ProcessingLevel: " + tsResult.ProcessingLevelObj.Definition + "\n" +
+       "SampledMedium: " + tsResult.SampledMediumCV + "\n" +
+       # Get the variable information from the TimeSeriesResult's Variable object
+       "Variable: " + tsResult.VariableObj.VariableCode + ": " + tsResult.VariableObj.VariableNameCV + "\n"
+       "AggregationStatistic: " + tsResult.AggregationStatisticCV + "\n" +
+       "Elevation_m: " + str(sf.Elevation_m) + "\n" +
+       # Get the site information by drilling down
+       "SamplingFeature: " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureCode + " - " +
+       tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName)
 
 
-# Get the values for a particular Result - in this case time series values from a time series result
-TSValues = result_read.getTimeSeriesValuesByResultId(19)
-print "Values: ", TSValues
-
-
-
-# Another Results example
-results = core_read.getAllResult()
-if results:
-    result = results[0]
-    print "FeatureAction: ", result.FeatureActionObj
-    print "Action: ", result.FeatureActionObj.ActionObj
-    print "Action Attribute: ", result.FeatureActionObj.ActionObj.ActionTypeCV
-
-    TSResult= result_read.getTimeSeriesResultsByResultId(result.ResultID)
-    print "TSResult: ", TSResult
-    TSValues = result_read.getTimeSeriesValuesByResultId(result.ResultID)
-    print"Values: ", TSValues[0:10]
-else:
-    print "no Results returned"
-
+# Get the values for a particular TimeSeriesResult
+print "\n-------- Example of Retrieving Time Series Result Values ---------"
+tsValues = result_read.getTimeSeriesResultValuesByResultId(19)
+print "Date                  DataValue"
+for x in range(0, 10):
+    print str(tsValues[x].ValueDateTime) + "   " + str(tsValues[x].DataValue)
 
 
 
 
 
 # Demo the LikeODM1 stuff
+# -------------------------------------------------
 from ODM2.LikeODM1.services import SeriesService
 #### LIKE ODM1 ####
-conn2 = dbconnection.createConnection('mssql', 'localhost', 'odm2', 'root', 'nlcd34GIS')
+conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 odm1service = SeriesService(conn2)
 #print odm1service.get_all_units()
 #print odm1service.get_all_sites()

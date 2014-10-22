@@ -3,9 +3,6 @@ __author__ = 'Stephanie'
 from ... import serviceBase
 from ..model import *
 
-
-
-
 class readCore(serviceBase):
     """queries to tables contained in the core schema"""
 
@@ -13,8 +10,7 @@ class readCore(serviceBase):
     Variable
     """
 
-
-    def getAllVariables(self):
+    def getVariables(self):
         """Select all on Variables
 
         :return Variable Objects:
@@ -52,7 +48,7 @@ class readCore(serviceBase):
     Method
     """
 
-    def getAllMethods(self):
+    def getMethods(self):
         """Select all on Methods
 
         :return Method Objects:
@@ -90,7 +86,7 @@ class readCore(serviceBase):
     ProcessingLevel
     """
 
-    def getAllProcessingLevel(self):
+    def getProcessingLevels(self):
         """Select all on Processing Level
 
         :return ProcessingLevel Objects:
@@ -111,7 +107,6 @@ class readCore(serviceBase):
         except:
             return None
 
-
     def getProcessingLevelByCode(self, processingCode):
         """Select by processingCode
 
@@ -130,24 +125,14 @@ class readCore(serviceBase):
     Sampling Feature
     """
 
-    def getAllSamplingFeatures(self):
+    def getSamplingFeatures(self):
         """Select all on SamplingFeatures
 
         :return SamplingFeature Objects:
             :type list:
         """
 
-
         return self._session.query(Samplingfeature).all()
-
-
-
-    def getGeometryTest(self, TestGeom):
-        Geom = self._session.query(Samplingfeature).first()
-        print "Queried Geometry: ", self._session.query(Geom.FeatureGeometry.ST_AsText()).first()
-        GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry,func.ST_GeomFromText(TestGeom)).ST_AsText()).first()
-
-        print GeomText
 
     def getSamplingFeatureById(self, samplingId):
         """Select by samplingId
@@ -172,43 +157,61 @@ class readCore(serviceBase):
         except:
             return None
 
-    def getSamplingFeatureByCode(self, samplingCode):
-        """Select by samplingCode
+    def getSamplingFeatureByCode(self, samplingFeatureCode):
+        """Select by samplingFeatureCode
 
-        :param samplingCode:
+        :param samplingFeatureCode:
             :type String:
         :return Return matching SamplingFeature Object filtered by samplingId
-            :type SamplingFeature:
+            :type list:
         """
 
         try:
-            return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
-                                                                        ,SamplingFeatureTypeCV\
-                                                                        ,SamplingFeatureCode\
-                                                                        ,SamplingFeatureName\
-                                                                        ,SamplingFeatureDescription\
-                                                                        ,SamplingFeatureGeotypeCV\
-                                                                        ,Elevation_m\
-                                                                        ,ElevationDatumCV\
-                                                                        ,FeatureGeometry.STAsText() As FeatureGeometry\
-                                                                     From ODM2.SamplingFeatures\
-                                                                     Where SamplingFeatureCode=\'%s\'"% samplingCode).first()
-
+            return self._session.query(Samplingfeature).filter_by(SamplingFeatureCode=samplingFeatureCode).first()
         except Exception as e:
             return None
 
+    def getSamplingFeaturesByType(self, samplingFeatureTypeCV):
+        """Select by samplingFeatureTypeCV
+
+        :param samplingFeatureTypeCV:
+            :type String:
+        :return Return matching SamplingFeature Objects filtered by samplingFeatureTypeCV:
+            :type list:
+        """
+
+        try:
+            return self._session.query(Samplingfeature).filter_by(SamplingFeatureTypeCV=samplingFeatureTypeCV).all()
+        except:
+            return None
+
+    def getSamplingFeatureByGeometry(self,wkt_geometry):
+
+        try:
+            #ST_Equals(geometry, geometry)
+            return self._session.query(Samplingfeature).filter(func.ST_AsText(Samplingfeature.FeatureGeometry) == func.ST_AsText(wkt_geometry)).first()
+        except Exception, e:
+            print e
+            return None
+
+    def getGeometryTest(self, TestGeom):
+        Geom = self._session.query(Samplingfeature).first()
+        print "Queried Geometry: ", self._session.query(Geom.FeatureGeometry.ST_AsText()).first()
+        GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry,func.ST_GeomFromText(TestGeom)).ST_AsText()).first()
+
+        print GeomText
 
     """
     Unit
     """
-    def getAllUnits(self):
+
+    def getUnits(self):
         """Select all on Unit
 
         :return Unit Objects:
             :type list:
         """
         return self._session.query(Unit).all()
-
 
     def getUnitById(self, unitId):
         """Select by samplingId
@@ -234,14 +237,14 @@ class readCore(serviceBase):
     """
     Organization
     """
-    def getAllOrganizations(self):
+
+    def getOrganizations(self):
         """Select all on Organization
 
         :return Organization Objects:
             :type list:
         """
         return self._session.query(Organization).all()
-
 
     def getOrganizationById(self, orgId):
         """Select by orgId
@@ -256,7 +259,6 @@ class readCore(serviceBase):
         except:
             return None
 
-
     def getOrganizationByCode(self, orgCode):
         """Select by orgCode
 
@@ -270,17 +272,18 @@ class readCore(serviceBase):
 
         except:
             return None
+
     """
     Person
     """
-    def getAllPersons(self):
+
+    def getPeople(self):
         """Select all on Person
 
         :return Person Objects:
             :type list:
         """
         return self._session.query(Person).all()
-
 
     def getPersonById(self, personId):
         """Select by personId
@@ -340,34 +343,16 @@ class readCore(serviceBase):
         except:
             return None
 
-    def getDataSetByCode(self,dscode):
-
-        try:
-            return self._session.query(Dataset).filer(Dataset.DataSetCode.ilike(dscode)).first()
-        except:
-            return None
-
-    def getSamplingFeatureByGeometry(self,wkt_geometry):
-
-        try:
-            #ST_Equals(geometry, geometry)
-            return self._session.query(Samplingfeature).filter(func.ST_AsText(Samplingfeature.FeatureGeometry) == func.ST_AsText(wkt_geometry)).first()
-        except Exception, e:
-            print e
-            return None
-
-
     """
     Results
     """
 
-    def getAllResult(self):
+    def getResults(self):
 
         try:
             return self._session.query(Result).all()
         except:
             return None
-
 
     def getResultByActionID(self,actionID):
 
@@ -403,3 +388,13 @@ class readCore(serviceBase):
         except:
             return None
 
+    """
+    Datasets
+    """
+
+    def getDataSetByCode(self,dscode):
+
+        try:
+            return self._session.query(Dataset).filer(Dataset.DataSetCode.ilike(dscode)).first()
+        except:
+            return None

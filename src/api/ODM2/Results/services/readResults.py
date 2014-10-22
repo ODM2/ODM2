@@ -1,8 +1,6 @@
 import sys
 import os
 
-
-
 from ... import serviceBase
 from ..model import *
 
@@ -11,12 +9,10 @@ __author__ = 'Jacob'
 class readResults(serviceBase):
     """queries to tables contained in Results schema"""
 
-
-
     """
     TimeSeriesResults
     """
-    def getAllTimeSeriesResults(self):
+    def getTimeSeriesResults(self):
         """Select all on TimeSeriesResults
 
         :return TimeSeriesResults Objects:
@@ -24,7 +20,7 @@ class readResults(serviceBase):
         """
         return self._session.query(Timeseriesresult).all()
 
-    def getTimeSeriesResultsByResultId(self, resultId):
+    def getTimeSeriesResultByResultId(self, resultId):
         """Select by resultID on ResultID
 
         :param resultId:
@@ -37,16 +33,15 @@ class readResults(serviceBase):
         except:
             return None
 
-    def getTimeSeriesResultsbyCode(self, timeSeriesCode):
+    def getTimeSeriesResultbyCode(self, timeSeriesCode):
         """Select by time
         """
         pass
 
-
     """
     TimeSeriesResultValues
     """
-    def getAllTimeSeriesValues(self):
+    def getTimeSeriesResultValues(self):
         """Select all on TimeSeriesResults
 
         :return TimeSeriesResultsValue Objects:
@@ -54,7 +49,7 @@ class readResults(serviceBase):
         """
         return self._session.query(Timeseriesresultvalue).all()
 
-    def getTimeSeriesValuesByResultId(self, resultId):
+    def getTimeSeriesResultValuesByResultId(self, resultId):
         """Select by resultId
 
         :param timeSeriesId:
@@ -67,7 +62,7 @@ class readResults(serviceBase):
         except:
             return None
 
-    def getTimeSeriesValuesByCode(self, timeSeriesCode):
+    def getTimeSeriesResultValuesByCode(self, timeSeriesCode):
         """
 
         :param timeSeriesCode:
@@ -75,7 +70,7 @@ class readResults(serviceBase):
         """
         pass
 
-    def getTimeSeriesValuesByTime(self, resultid, starttime, endtime=None):
+    def getTimeSeriesResultValuesByTime(self, resultid, starttime, endtime=None):
 
         # set end = start if it is None
         endtime = starttime if not endtime else endtime
