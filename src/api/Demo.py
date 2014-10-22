@@ -1,5 +1,7 @@
 import sys
 import os
+import matplotlib.pyplot as plt
+from matplotlib import dates
 from ODM2.Core.services import readCore as CSread
 from ODM2.Core.services import CoreServices
 from ODM2.SamplingFeatures.services import readSamplingFeatures as SFread
@@ -31,7 +33,7 @@ sampfeat_read = SFread(conn)
 
 # Run some basic sample queries.
 # ------------------------------
-# Get all of the variables from the database and print thier names to the console
+# Get all of the variables from the database and print their names to the console
 allVars = core.read.getVariables()
 numVars = len(allVars)
 print "\n------------ Simple Variables Query ---------------"
@@ -108,12 +110,27 @@ print ("The following are some of the attributes for the TimeSeriesResult retrie
 # Get the values for a particular TimeSeriesResult
 print "\n-------- Example of Retrieving Time Series Result Values ---------"
 tsValues = result_read.getTimeSeriesResultValuesByResultId(19)
+# Print the first 10 Time Series Values to the console
 print "Date                  DataValue"
 for x in range(0, 10):
     print str(tsValues[x].ValueDateTime) + "   " + str(tsValues[x].DataValue)
-
-
-
+# Plot the time series
+localDateTimes = [tsValues[z].ValueDateTime for z in range(0,len(tsValues)-1)]
+dataValues = [tsValues[z].ValueDateTime for z in range(0,len(tsValues)-1)]
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(localDateTimes, dataValues, color='grey', linestyle='solid', markersize=0)
+# Set the plot properties
+ax.set_ylabel(tsResult.VariableObj.VariableNameCV + " (" + tsResult.UnitObj.UnitsAbbreviation + ")")
+ax.set_xlabel("Date/Time")
+ax.xaxis.set_minor_locator(dates.MonthLocator())
+ax.xaxis.set_minor_formatter(dates.DateFormatter('%b'))
+ax.xaxis.set_major_locator(dates.YearLocator())
+ax.xaxis.set_major_formatter(dates.DateFormatter('\n%Y'))
+ax.grid(True)
+ax.set_title(tsResult.VariableObj.VariableNameCV + " at " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName)
+fig.tight_layout()
+fig.savefig('~/Users/JeffHorsburgh/Desktop/testfigure.png')
 
 
 # Demo the LikeODM1 stuff
