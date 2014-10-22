@@ -12,12 +12,12 @@ this_file = os.path.realpath(__file__)
 directory = os.path.dirname(this_file)
 sys.path.insert(0, directory)
 
+
 # Create a connection to the ODM2 database
 # ----------------------------------------
-conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
+
 #conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
-#conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'TestODM', 'stephanie', 'odm')
-#conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
+conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 #conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
 #conn = dbconnection.createConnection('mysql', '127.0.0.1:3306', 'ODM2', 'Stephanie', 'odm')
 
@@ -114,6 +114,7 @@ tsValues = result_read.getTimeSeriesResultValuesByResultId(19)
 print "Date                  DataValue"
 for x in range(0, 10):
     print str(tsValues[x].ValueDateTime) + "   " + str(tsValues[x].DataValue)
+
 # Plot the time series
 localDateTimes = [tsValues[z].ValueDateTime for z in range(0,len(tsValues)-1)]
 dataValues = [tsValues[z].ValueDateTime for z in range(0,len(tsValues)-1)]
@@ -133,35 +134,31 @@ fig.tight_layout()
 fig.savefig('~/Users/JeffHorsburgh/Desktop/testfigure.png')
 
 
+
 # Demo the LikeODM1 stuff
 # -------------------------------------------------
 from ODM2.LikeODM1.services import SeriesService
 #### LIKE ODM1 ####
-conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-odm1service = SeriesService(conn2)
+#conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
+odm1service = SeriesService(conn)
 #print odm1service.get_all_units()
 #print odm1service.get_all_sites()
 
-
-
-
-
+'''
 #The following query shows that you can manipulate geometries within the code
 #I can get back a union of two geometries
 #and convert from a string to Geometry type if it is in WKT
-
 #Code that is being run:
 #Geom = self._session.query(Samplingfeature).first()
 #GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry,func.ST_GeomFromText(TestGeom)).ST_AsText()).first()
 
-
-#print "\n\n------------GeometryTest--------- \n",
-#TestGeom = "POINT (30 10)"
-#print "Static Test Geometry:", TestGeom
-#print core_read.getGeometryTest(TestGeom)
-
+print "\n\n------------GeometryTest--------- \n",
+TestGeom = "POINT (30 10)"
+print "Static Test Geometry:", TestGeom
+print core_read.getGeometryTest(TestGeom)
 
 
-#geomsf = core_read.getSamplingFeatureByGeometry('POINT(111.781944 41.743333)')
-#print "Get Sampling Feature by Geometry: ", geomsf
 
+geomsf = core_read.getSamplingFeatureByGeometry('POINT(111.781944 41.743333)')
+print "Get Sampling Feature by Geometry: ", geomsf
+'''

@@ -143,17 +143,7 @@ class readCore(serviceBase):
             :type SamplingFeature:
         """
         try:
-            return self._session.query(Samplingfeature).from_statement("Select SamplingFeatureID\
-                                                                        ,SamplingFeatureTypeCV\
-                                                                        ,SamplingFeatureCode\
-                                                                        ,SamplingFeatureName\
-                                                                        ,SamplingFeatureDescription\
-                                                                        ,SamplingFeatureGeotypeCV\
-                                                                        ,Elevation_m\
-                                                                        ,ElevationDatumCV\
-                                                                        ,FeatureGeometry.STAsText() As FeatureGeometry\
-                                                                     From ODM2.SamplingFeatures\
-                                                                     Where SamplingFeatureID=\'%s\'"% samplingId).first()
+            return self._session.query(Samplingfeature).filter_by(SamplingFeatureID= samplingId).first()
         except:
             return None
 

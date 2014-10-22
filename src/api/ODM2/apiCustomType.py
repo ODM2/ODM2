@@ -12,7 +12,7 @@ from geoalchemy2 import Geometry as GeometryBase
 def compiles_as_bound(cls):
     @compiles(cls)
     def compile_function(element, compiler, **kw):
-        print type(compiler)
+        #print type(compiler)
         if isinstance(compiler, MSSQLCompiler):
             #return "%s.%s(%s)" % (element.clauses.clauses[0], element.name,", ".join([compiler.process(e) for e in element.clauses.clauses[1:]]))
             return "%s.%s(%s)" % ("[SamplingFeatures_1].[FeatureGeometry]", element.name,", ".join([compiler.process(e) for e in element.clauses.clauses[1:]]))
