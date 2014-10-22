@@ -109,8 +109,9 @@ print ("The following are some of the attributes for the TimeSeriesResult retrie
 print "\n-------- Example of Retrieving Time Series Result Values ---------"
 tsValues = result_read.getTimeSeriesResultValuesByResultId(19)
 print "Date                  DataValue"
-for x in range(0, 10):
-    print str(tsValues[x].ValueDateTime) + "   " + str(tsValues[x].DataValue)
+print  tsValues["ValueDateTime"],  tsValues["DataValue"]
+#for x in range(0, 10):
+#    print str(tsValues[x].ValueDateTime) + "   " + str(tsValues[x].DataValue)
 
 
 
@@ -120,19 +121,19 @@ for x in range(0, 10):
 # -------------------------------------------------
 from ODM2.LikeODM1.services import SeriesService
 #### LIKE ODM1 ####
-conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-odm1service = SeriesService(conn2)
+#conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
+odm1service = SeriesService(conn)
 #print odm1service.get_all_units()
 #print odm1service.get_all_sites()
 
-
+'''
 #The following query shows that you can manipulate geometries within the code
 #I can get back a union of two geometries
 #and convert from a string to Geometry type if it is in WKT
 #Code that is being run:
 #Geom = self._session.query(Samplingfeature).first()
 #GeomText = self._session.query(func.ST_Union(Geom.FeatureGeometry,func.ST_GeomFromText(TestGeom)).ST_AsText()).first()
-'''
+
 print "\n\n------------GeometryTest--------- \n",
 TestGeom = "POINT (30 10)"
 print "Static Test Geometry:", TestGeom
@@ -143,30 +144,3 @@ print core_read.getGeometryTest(TestGeom)
 geomsf = core_read.getSamplingFeatureByGeometry('POINT(111.781944 41.743333)')
 print "Get Sampling Feature by Geometry: ", geomsf
 '''
-
-# you can drill down into the code and get object linked by foreign keys
-print "\n\n------------Foreign Key sample--------- \n",
-#
-
-results = core_read.getAllResult()
-if results:
-    result = results[0]
-    print "FeatureAction: ", result.FeatureActionObj
-    print "Action: ", result.FeatureActionObj.ActionObj
-    print "Action Attribute: ", result.FeatureActionObj.ActionObj.ActionTypeCV
-
-    TSResult= result_read.getTimeSeriesResultsByResultId(result.ResultID)
-    print "TSResult: ", TSResult
-    TSValues = result_read.getTimeSeriesValuesByResultId(result.ResultID)
-    print"Values: ",  type(TSValues)
-else:
-    print "no Results returned"
-#print dir(result)
-
-
-from ODM2.LikeODM1.services import SeriesService
-#### LIKE ODM1 ####
-#conn2 = dbconnection.createConnection('mssql', 'arroyo.uwrl.usu.edu', 'TestODM2', 'ODM', 'odm')
-odm1service = SeriesService(conn)
-#print odm1service.get_all_units()
-#print odm1service.get_all_sites()

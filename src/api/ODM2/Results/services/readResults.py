@@ -50,8 +50,8 @@ class readResults(serviceBase):
         """
 
         q=self._session.query(Timeseriesresultvalue).all()
-        df = pd.DataFrame(q.list_repr())
-        df.columns = q.get_columns()
+        df = pd.DataFrame([dv.list_repr() for dv in q])
+        df.columns = q[0].get_columns()
         return df
         #return self._session.query(Timeseriesresultvalue).all()
 
@@ -65,11 +65,13 @@ class readResults(serviceBase):
         """
         try:
             q=self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId).all()
-            df = pd.DataFrame(q.list_repr())
-            df.columns = q.get_columns()
+
+
+            df = pd.DataFrame([dv.list_repr() for dv in q])
+            df.columns = q[0].get_columns()
             return df
             #return self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId).all()
-        except:
+        except Exception as e:
             return None
 
     def getTimeSeriesResultValuesByCode(self, timeSeriesCode):
