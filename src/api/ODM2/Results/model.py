@@ -337,6 +337,18 @@ class Timeseriesresultvalue(Base):
     TimeSeriesResultObj = relationship(Timeseriesresult)
     TimeUnitObj = relationship(Unit)
 
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset",
+            "CensorCodeCV","QualityCodeCV","TimeAggregationInterval","TimeAggregationIntervalUnitsID"]
+
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset,
+            self.CensorCodeCV, self.QualityCodeCV, self.TimeAggregationInterval, self.TimeAggregationIntervalUnitsID]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime, self.TimeAggregationInterval)
+
+
 
 class Trajectoryresultvalue(Base):
     __tablename__ = u'TrajectoryResultValues'

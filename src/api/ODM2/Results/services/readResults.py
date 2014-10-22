@@ -1,5 +1,6 @@
 import sys
 import os
+import pandas as pd
 
 from ... import serviceBase
 from ..model import *
@@ -47,7 +48,12 @@ class readResults(serviceBase):
         :return TimeSeriesResultsValue Objects:
             :type list:
         """
-        return self._session.query(Timeseriesresultvalue).all()
+
+        q=self._session.query(Timeseriesresultvalue).all()
+        df = pd.DataFrame(q.list_repr())
+        df.columns = q.get_columns()
+        return df
+        #return self._session.query(Timeseriesresultvalue).all()
 
     def getTimeSeriesResultValuesByResultId(self, resultId):
         """Select by resultId
@@ -58,7 +64,11 @@ class readResults(serviceBase):
             :type Timeseriesresultvalue:
         """
         try:
-            return self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId).all()
+            q=self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId).all()
+            df = pd.DataFrame(q.list_repr())
+            df.columns = q.get_columns()
+            return df
+            #return self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId).all()
         except:
             return None
 
