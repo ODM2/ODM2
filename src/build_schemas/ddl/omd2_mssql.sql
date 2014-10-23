@@ -1,6 +1,20 @@
-
-CREATE SCHEMA ODM2
+-- Drop the database called 'ODM2' if it exists and then create a new database called 'ODM2'
+USE master;
 GO
+
+IF DB_ID(N'ODM2') IS NOT NULL
+DROP DATABASE ODM2;
+GO
+
+CREATE DATABASE ODM2;
+GO
+
+USE ODM2;
+GO
+
+CREATE SCHEMA ODM2;
+GO
+
 /***************************************************************************/
 /************************* CREATE ODM2ANNOTATIONS **************************/
 /***************************************************************************/
@@ -993,32 +1007,32 @@ CREATE TABLE ODM2.ModelAffiliations (
 )
 CREATE TABLE ODM2.Models (
 	ModelID int  IDENTITY (1,1) NOT NULL,
-	ModelCode char (255)  NOT NULL,
-	ModelName char (255)  NOT NULL,
-	ModelDescription char (500)  NULL,
+	ModelCode varchar (50)  NOT NULL,
+	ModelName varchar (255)  NOT NULL,
+	ModelDescription varchar (500)  NULL,
 	Version varchar (255)  NULL,
-	ModelLink varchar (500)  NULL,
+	ModelLink varchar (255)  NULL,
 	PRIMARY KEY (ModelID)
 )
 CREATE TABLE ODM2.RelatedModels (
 	RelatedID int  IDENTITY (1,1) NOT NULL,
 	ModelID int   NOT NULL,
-	RelationshipTypeCV char (1)  NOT NULL,
-	RelatedModelID bigint   NOT NULL,
+	RelationshipTypeCV varchar (255)  NOT NULL,
+	RelatedModelID int   NOT NULL,
 	PRIMARY KEY (RelatedID)
 )
 CREATE TABLE ODM2.Simulations (
 	SimulationID int  IDENTITY (1,1) NOT NULL,
 	ActionID int   NOT NULL,
-	SimulationName char (255)  NOT NULL,
-	SimulationDescription char (500)  NULL,
+	SimulationName varchar (255)  NOT NULL,
+	SimulationDescription varchar (500)  NULL,
 	SimulationStartDateTime datetime   NOT NULL,
 	SimulationStartDateTimeUTCOffset int   NOT NULL,
 	SimulationEndDateTime datetime   NOT NULL,
 	SimulationEndDateTimeUTCOffset int   NOT NULL,
 	TimeStepValue float   NOT NULL,
-	TimeStepUnitsID bigint   NOT NULL,
-	InputDataSetID bigint   NULL,
+	TimeStepUnitsID int   NOT NULL,
+	InputDataSetID int   NULL,
 	ModelID int   NOT NULL,
 	PRIMARY KEY (SimulationID)
 )

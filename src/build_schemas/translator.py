@@ -12,15 +12,31 @@ class MSSQL():
     def build_ddl(self):
         ddl_text = ''
 
+        #Drop the database called 'ODM2' if it exists and then create a new database called 'ODM2'
+        ddl_text += "-- Drop the database called 'ODM2' if it exists and then create a new database called 'ODM2'"
+        ddl_text += '\nUSE master;'
+        ddl_text += '\nGO\n'
+
+        ddl_text += "\nIF DB_ID(N'ODM2') IS NOT NULL"
+        ddl_text += '\nDROP DATABASE ODM2;'
+        ddl_text += '\nGO\n'
+
+        ddl_text += '\nCREATE DATABASE ODM2;'
+        ddl_text += '\nGO\n'
+
+        ddl_text += '\nUSE ODM2;'
+        ddl_text += '\nGO\n'
+
+
         if self.__use_schemas:
             for obj in set(self.__schemas):
                 # create schema
-                ddl_text += '\nCREATE SCHEMA %s' % obj.name()
-                ddl_text += ('\nGO')
+                ddl_text += '\nCREATE SCHEMA %s;' % obj.name()
+                ddl_text += ('\nGO\n')
         else:
             # create global schema
-            ddl_text += '\nCREATE SCHEMA %s' % self.__global_schema
-            ddl_text += ('\nGO')
+            ddl_text += '\nCREATE SCHEMA %s;' % self.__global_schema
+            ddl_text += ('\nGO\n')
 
 
         #write table data

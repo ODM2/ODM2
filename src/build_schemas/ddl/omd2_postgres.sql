@@ -896,30 +896,30 @@ create table ODM2.ModelAffiliations (
 );
 create table ODM2.Models (
 	modelid serial  NOT NULL primary key,
-	modelcode char (255) NOT NULL,
-	modelname char (255) NOT NULL,
-	modeldescription char (500) NULL,
+	modelcode varchar (50) NOT NULL,
+	modelname varchar (255) NOT NULL,
+	modeldescription varchar (500) NULL,
 	version varchar (255) NULL,
-	modellink varchar (500) NULL
+	modellink varchar (255) NULL
 );
 create table ODM2.RelatedModels (
 	relatedid serial  NOT NULL primary key,
 	modelid integer  NOT NULL,
-	relationshiptypecv char (1) NOT NULL,
-	relatedmodelid bigint  NOT NULL
+	relationshiptypecv varchar (255) NOT NULL,
+	relatedmodelid integer  NOT NULL
 );
 create table ODM2.Simulations (
 	simulationid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
-	simulationname char (255) NOT NULL,
-	simulationdescription char (500) NULL,
+	simulationname varchar (255) NOT NULL,
+	simulationdescription varchar (500) NULL,
 	simulationstartdatetime timestamp  NOT NULL,
 	simulationstartdatetimeutcoffset integer  NOT NULL,
 	simulationenddatetime timestamp  NOT NULL,
 	simulationenddatetimeutcoffset integer  NOT NULL,
 	timestepvalue double precision  NOT NULL,
-	timestepunitsid bigint  NOT NULL,
-	inputdatasetid bigint  NULL,
+	timestepunitsid integer  NOT NULL,
+	inputdatasetid integer  NULL,
 	modelid integer  NOT NULL
 );
 

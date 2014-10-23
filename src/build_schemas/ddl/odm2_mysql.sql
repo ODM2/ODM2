@@ -1007,32 +1007,32 @@ CREATE TABLE ModelAffiliations (
 
 CREATE TABLE Models (
 	ModelID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ModelCode char (255)  NOT NULL,
-	ModelName char (255)  NOT NULL,
-	ModelDescription char (500)  NULL,
+	ModelCode VARCHAR (50)  NOT NULL,
+	ModelName VARCHAR (255)  NOT NULL,
+	ModelDescription VARCHAR (500)  NULL,
 	Version VARCHAR (255)  NULL,
-	ModelLink VARCHAR (500)  NULL
+	ModelLink VARCHAR (255)  NULL
 );
 
 CREATE TABLE RelatedModels (
 	RelatedID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ModelID INT   NOT NULL,
-	RelationshipTypeCV char (1)  NOT NULL,
-	RelatedModelID BIGINT   NOT NULL
+	RelationshipTypeCV VARCHAR (255)  NOT NULL,
+	RelatedModelID INT   NOT NULL
 );
 
 CREATE TABLE Simulations (
 	SimulationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ActionID INT   NOT NULL,
-	SimulationName char (255)  NOT NULL,
-	SimulationDescription char (500)  NULL,
+	SimulationName VARCHAR (255)  NOT NULL,
+	SimulationDescription VARCHAR (500)  NULL,
 	SimulationStartDateTime DATETIME   NOT NULL,
 	SimulationStartDateTimeUTCOffset INT   NOT NULL,
 	SimulationEndDateTime DATETIME   NOT NULL,
 	SimulationEndDateTimeUTCOffset INT   NOT NULL,
 	TimeStepValue FLOAT   NOT NULL,
-	TimeStepUnitsID BIGINT   NOT NULL,
-	InputDataSetID BIGINT   NULL,
+	TimeStepUnitsID INT   NOT NULL,
+	InputDataSetID INT   NULL,
 	ModelID INT   NOT NULL
 );
 
