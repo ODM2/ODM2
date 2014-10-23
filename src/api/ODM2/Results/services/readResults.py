@@ -52,7 +52,8 @@ class readResults(serviceBase):
         q=self._session.query(Timeseriesresultvalue).all()
         df = pd.DataFrame([dv.list_repr() for dv in q])
         df.columns = q[0].get_columns()
-        return df
+
+        return df.sort('ValueDateTime', ascending = True)
         #return self._session.query(Timeseriesresultvalue).all()
 
     def getTimeSeriesResultValuesByResultId(self, resultId):

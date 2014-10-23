@@ -8,6 +8,7 @@ from ODM2.SamplingFeatures.services import readSamplingFeatures as SFread
 from ODM2.Results.services import readResults as Rread
 from ODMconnection import dbconnection
 
+
 this_file = os.path.realpath(__file__)
 directory = os.path.dirname(this_file)
 sys.path.insert(0, directory)
@@ -15,9 +16,11 @@ sys.path.insert(0, directory)
 
 # Create a connection to the ODM2 database
 # ----------------------------------------
+
 #conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 #conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
+
 #conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
 #conn = dbconnection.createConnection('mysql', '127.0.0.1:3306', 'ODM2', 'Stephanie', 'odm')
 
@@ -121,6 +124,7 @@ except Exception as e:
 
 # Get the values for a particular TimeSeriesResult
 print "\n-------- Example of Retrieving Time Series Result Values ---------"
+
 tsValues = result_read.getTimeSeriesResultValuesByResultId(19) #Return type is a pandas dataframe
 # Print a few Time Series Values to the console
 #tsValues.set_index('ValueDateTime', inplace=True)
@@ -132,6 +136,7 @@ tsValues.plot(x='ValueDateTime',y='DataValue',kind='line',
               title=tsResult.VariableObj.VariableNameCV + " at " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName,
               ax=ax)
 ax.set_ylabel(tsResult.VariableObj.VariableNameCV + " (" + tsResult.UnitObj.UnitsAbbreviation +")")
+
 ax.set_xlabel("Date/Time")
 ax.xaxis.set_minor_locator(dates.MonthLocator())
 ax.xaxis.set_minor_formatter(dates.DateFormatter('%b'))
@@ -139,15 +144,11 @@ ax.xaxis.set_major_locator(dates.YearLocator())
 ax.xaxis.set_major_formatter(dates.DateFormatter('\n%Y'))
 ax.grid(True)
 plt.show()
+'''
+ax.set_title(tsResult.VariableObj.VariableNameCV + " at " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName)
+fig.tight_layout()
+fig.savefig('./testfigure.png')
+'''
 
 
 
-
-# Demo the LikeODM1 stuff
-# -------------------------------------------------
-from ODM2.LikeODM1.services import SeriesService
-#### LIKE ODM1 ####
-#conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-odm1service = SeriesService(conn)
-print odm1service.get_all_units()
-print odm1service.get_all_sites()
