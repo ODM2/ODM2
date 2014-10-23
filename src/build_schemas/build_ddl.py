@@ -96,7 +96,7 @@ def BUILD_MSSSQL_DDL(opts, ddl_objs, use_schemas):
     #-------- Write MsSQL DDL --------#
     #---------------------------------#
     sys.stdout.write('> Building MsSQL DDL...')
-    outdir = os.path.join(os.path.abspath(opts.output),'omd2_mssql.sql')
+    outdir = os.path.join(os.path.abspath(opts.output),'ODM2_for_MSSQL.sql')
     with open(outdir,'w') as f:
         f.write(translator.MSSQL(opts, ddl_objs).build_ddl())
     sys.stdout.write('done\n')
@@ -106,7 +106,7 @@ def BUILD_POSTGRES_DDL(opts, ddl_objs, use_schemas):
     #-------- Write PostgreSQL DDL --------#
     #--------------------------------------#
     sys.stdout.write('> Building PostgreSQL DDL...')
-    outdir = os.path.join(os.path.abspath(opts.output),'omd2_postgres.sql')
+    outdir = os.path.join(os.path.abspath(opts.output),'ODM2_for_PostgreSQL.sql')
     with open(outdir,'w') as f:
         f.write(translator.POSTGRESQL(opts, ddl_objs).build_ddl())
     sys.stdout.write('done\n')
@@ -116,7 +116,7 @@ def BUILD_MYSQL_DDL(opts, ddl_objs, use_schemas):
     #-------- Write MySQL DDL --------#
     #---------------------------------#
     sys.stdout.write('> Building MySQL DDL...')
-    outdir = os.path.join(os.path.abspath(opts.output),'odm2_mysql.sql')
+    outdir = os.path.join(os.path.abspath(opts.output),'ODM2_for_MySQL.sql')
     with open(outdir,'w') as f:
         f.write(translator.MYSQL(opts, ddl_objs).build_ddl())
     sys.stdout.write('done\n')
