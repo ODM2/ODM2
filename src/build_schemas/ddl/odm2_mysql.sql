@@ -145,7 +145,7 @@ CREATE TABLE Affiliations (
 );
 
 CREATE TABLE DataSets (
-	DataSetID INT   NOT NULL PRIMARY KEY,
+	DataSetID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	DataSetUUID VARCHAR(36)   NOT NULL,
 	DataSetTypeCV VARCHAR (255)  NOT NULL,
 	DataSetCode VARCHAR (50)  NOT NULL,
@@ -226,6 +226,7 @@ CREATE TABLE Results (
 
 CREATE TABLE SamplingFeatures (
 	SamplingFeatureID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	SamplingFeatureUUID VARCHAR(36)   NOT NULL,
 	SamplingFeatureTypeCV VARCHAR (255)  NOT NULL,
 	SamplingFeatureCode VARCHAR (50)  NOT NULL,
 	SamplingFeatureName VARCHAR (255)  NULL,
@@ -1006,9 +1007,9 @@ CREATE TABLE ModelAffiliations (
 
 CREATE TABLE Models (
 	ModelID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ModelCode VARCHAR (255)  NOT NULL,
-	ModelName VARCHAR (255)  NOT NULL,
-	ModelDescription VARCHAR (500)  NULL,
+	ModelCode char (255)  NOT NULL,
+	ModelName char (255)  NOT NULL,
+	ModelDescription char (500)  NULL,
 	Version VARCHAR (255)  NULL,
 	ModelLink VARCHAR (500)  NULL
 );
@@ -1022,9 +1023,9 @@ CREATE TABLE RelatedModels (
 
 CREATE TABLE Simulations (
 	SimulationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID int   NOT NULL,
-	SimulationName VARCHAR (255)  NOT NULL,
-	SimulationDescription VARCHAR (500)  NULL,
+	ActionID INT   NOT NULL,
+	SimulationName char (255)  NOT NULL,
+	SimulationDescription char (500)  NULL,
 	SimulationStartDateTime DATETIME   NOT NULL,
 	SimulationStartDateTimeUTCOffset INT   NOT NULL,
 	SimulationEndDateTime DATETIME   NOT NULL,
