@@ -11,7 +11,7 @@ SQL scripts for generating blank ODM2 databases can be found at the following lo
 
 * [Microsoft SQL Server](https://github.com/UCHIC/ODM2/blob/master/src/blank_schema_scripts/ms_sql_server/ODM2_for_MSSQL.sql)
 * [MySQL](https://github.com/UCHIC/ODM2/blob/master/src/blank_schema_scripts/mysql/ODM2_for_MySQL.sql)
-* [PostgrSQL](https://github.com/UCHIC/ODM2/blob/master/src/blank_schema_scripts/postgresql/ODM2_DDL_for_PostgreSQL9.3PostGIS2.1.sql)
+* [PostgreSQL](https://github.com/UCHIC/ODM2/blob/master/src/blank_schema_scripts/postgresql/ODM2_for_PostgreSQL.sql)
 
 ### View Documentation of ODM2 Concepts ###
 
