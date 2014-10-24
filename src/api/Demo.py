@@ -126,8 +126,6 @@ ax.xaxis.set_minor_formatter(dates.DateFormatter('%b'))
 ax.xaxis.set_major_locator(dates.YearLocator())
 ax.xaxis.set_major_formatter(dates.DateFormatter('\n%Y'))
 ax.grid(True)
-#ax.set_title('Water temperature at Little Bear River \n at McMurdy Hollow \
-#near Paradise, Utah') #hard coded for now. Should update when SiteID is updated.
 plt.show()
 
 
