@@ -34,7 +34,7 @@ sampfeat_read = SFread(conn)
 # Run some basic sample queries.
 # ------------------------------
 # Get all of the variables from the database and print their names to the console
-allVars = core.read.getVariables()
+allVars = core_read.getVariables()
 numVars = len(allVars)
 print "\n------------ Simple Variables Query ---------------"
 print "There are " + str(numVars) + " Variables in the ODM2 database retrieved using getVariables()."
