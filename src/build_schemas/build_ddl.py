@@ -11,7 +11,6 @@ input_file = 'ODM2_DBWrench_Schema.xml'
 use_schemas = True
 default_schema = 'ODM2'
 
-
 def parse_xml(input_file):
     # parse the dbwrench file
     tree = et.parse(input_file)
@@ -96,8 +95,8 @@ def BUILD_MSSSQL_DDL(opts, ddl_objs, use_schemas):
     #-------- Write MsSQL DDL --------#
     #---------------------------------#
     sys.stdout.write('> Building MsSQL DDL...')
-    outdir = os.path.join(os.path.abspath(opts.output),'ODM2_for_MSSQL.sql')
-    with open(outdir,'w') as f:
+    outdir = os.path.join(os.path.abspath(opts.output), 'ODM2_for_MSSQL.sql')
+    with open(outdir, 'w') as f:
         f.write(translator.MSSQL(opts, ddl_objs).build_ddl())
     sys.stdout.write('done\n')
 
@@ -106,8 +105,8 @@ def BUILD_POSTGRES_DDL(opts, ddl_objs, use_schemas):
     #-------- Write PostgreSQL DDL --------#
     #--------------------------------------#
     sys.stdout.write('> Building PostgreSQL DDL...')
-    outdir = os.path.join(os.path.abspath(opts.output),'ODM2_for_PostgreSQL.sql')
-    with open(outdir,'w') as f:
+    outdir = os.path.join(os.path.abspath(opts.output), 'ODM2_for_PostgreSQL.sql')
+    with open(outdir, 'w') as f:
         f.write(translator.POSTGRESQL(opts, ddl_objs).build_ddl())
     sys.stdout.write('done\n')
 
@@ -116,9 +115,19 @@ def BUILD_MYSQL_DDL(opts, ddl_objs, use_schemas):
     #-------- Write MySQL DDL --------#
     #---------------------------------#
     sys.stdout.write('> Building MySQL DDL...')
-    outdir = os.path.join(os.path.abspath(opts.output),'ODM2_for_MySQL.sql')
-    with open(outdir,'w') as f:
+    outdir = os.path.join(os.path.abspath(opts.output), 'ODM2_for_MySQL.sql')
+    with open(outdir, 'w') as f:
         f.write(translator.MYSQL(opts, ddl_objs).build_ddl())
+    sys.stdout.write('done\n')
+
+def BUILD_SQLITE_DDL(opts, ddl_objs, use_schemas):
+    #----------------------------------#
+    #-------- Write SQLite DDL --------#
+    #----------------------------------#
+    sys.stdout.write('> Building SQLite DDL...')
+    outdir = os.path.join(os.path.abspath(opts.output), 'ODM2_for_SQLite.sql')
+    with open(outdir, 'w') as f:
+        f.write(translator.SQLITE(opts, ddl_objs).build_ddl())
     sys.stdout.write('done\n')
 
 def BUILD_ALL(opts, ddl_objs, use_schemas):
@@ -128,6 +137,8 @@ def BUILD_ALL(opts, ddl_objs, use_schemas):
     BUILD_POSTGRES_DDL(opts, ddl_objs, use_schemas)
 
     BUILD_MYSQL_DDL(opts, ddl_objs, use_schemas)
+
+    BUILD_SQLITE_DDL(opts, ddl_objs, use_schemas)
 
 
 print 'done'
@@ -149,6 +160,7 @@ def parse_args(arg):
     if arg.database.lower() == 'mssql': BUILD_MSSSQL_DDL(arg, objs, use_schemas)
     elif arg.database.lower() == 'mysql': BUILD_MYSQL_DDL(arg, objs, use_schemas)
     elif arg.database.lower() == 'postgresql': BUILD_POSTGRES_DDL(arg, objs, use_schemas)
+    elif arg.database.lower() == 'sqlite': BUILD_SQLITE_DDL(arg, objs, use_schemas)
     elif arg.database.lower() == 'all': BUILD_ALL(arg, objs, use_schemas)
     else: print '> error in input arguments %s %s %s' %(arg.xml,arg.database,use_schemas)
 
@@ -167,7 +179,7 @@ def main(argv):
 
     parser = OptionParser(usage = usage )
     parser.add_option('-u','--use-schemas', help='Indicates that schemas should be used when building the DDL', default=False,action = 'store_true')
-    parser.add_option('-d','--database', help='Type of database to generate the DDL for, (e.g. mssql, mysql, postgresql, all)',default='all')
+    parser.add_option('-d','--database', help='Type of database to generate the DDL for, (e.g. mssql, mysql, postgresql, sqlite, all)',default='all')
     parser.add_option('-x', '--xml', help='A DbWrench XML file path',default=None)
     parser.add_option('-c','--maintain-case', help='Maintain CamelCasing in DDL',default=False,action = 'store_true')
     parser.add_option('-o','--output', help='The output directory for the DDL script',default=join(dirname(__file__),'ddl'))

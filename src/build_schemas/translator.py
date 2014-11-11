@@ -309,6 +309,68 @@ class MYSQL():
 
         return ddl_text
 
+class SQLITE():
+    def __init__(self, options, dbwrenchObj):
+        self.__schemas = dbwrenchObj
+        self.__use_schemas = options.use_schemas
+        self.map = data_mapping.MYSQL()  # May eventually need to create a mapping for SQLite, but using MySQL mapping for now.
+        self.__global_schema = options.global_schema
+
+    def build_ddl(self, include_postgis=True):
+
+        ddl_text = ''
+        
+        # SQLite doesn't use schemas, so no need to do anything with schemas.
+        
+        # write table data including foreign keys because foreign key creation must be in the create table statement
+        for obj in self.__schemas:
+            ddl_text += self._schema2sqlite(obj, self.__use_schemas)
+
+        # The other databases write foreign keys here, but for SQLite it has to be done as part of the table creation
+
+        return ddl_text
+
+    def _schema2sqlite(self, schema, use_schemas=True):
+
+        # add table comment
+        ddl_text = write_title_comment('CREATE %s' % schema.name().upper())
+
+        for tbl in schema.get_tables():
+            ddl_text += self._table2sqlite(tbl)
+
+        return ddl_text
+
+    def _table2sqlite(self, tbl):
+
+        ddl = ('\nCREATE TABLE %s (' % tbl.name())
+
+        for col in tbl.get_columns():
+            ddl += self._column2sqlite(col)
+
+        for fk in tbl.get_foreignkeys():
+            ddl +=  '\n\tFOREIGN KEY (%s) REFERENCES %s (%s)' \
+                    '\n\tON UPDATE NO ACTION ON DELETE NO ACTION,' \
+                    % (fk.childCol, fk.parentTbl, fk.parentCol)
+
+        return ddl[:-1] + '\n);\n'
+
+    def _column2sqlite(self, column):
+        
+        ddl = ''
+
+        att = column.get_attributes()
+        name = att['name']
+        type = self.map.map_data_type(att['dtype'])
+        #type = self.map._mapMySQLDataTypes(att['dtype'])
+        ln = '('+att['length']+')' if att['length'] is not None else ''
+        nu = 'NOT NULL' if not att['nullable'] else 'NULL'
+        pk = 'PRIMARY KEY' if att['primarykey'] else ''
+        au = 'AUTO_INCREMENT' if att['autoincrement'] else ''
+
+        ddl = '\n\t%s %s %s %s %s %s' % (name, type, ln, au, nu, pk)
+
+        return ddl.rstrip(' ')+','
+
 def write_title_comment(title):
     # center the text
     width = 75.
