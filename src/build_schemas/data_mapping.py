@@ -144,7 +144,7 @@ class SQLITE():
 
     def _mapSQLiteDataTypes(self, type):
         dtype_equiv = {
-            'bigint':'BIGINT',
+            'bigint':'INTEGER',
             'binary':'BINARY',
             'bit':'BIT',
             'blob':'BLOB',

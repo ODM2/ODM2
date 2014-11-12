@@ -31,7 +31,7 @@ CREATE TABLE Annotations (
 
 CREATE TABLE CategoricalResultValueAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -51,7 +51,7 @@ CREATE TABLE EquipmentAnnotations (
 
 CREATE TABLE MeasurementResultValueAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (ValueID) REFERENCES MeasurementResultValues (ValueID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -70,8 +70,8 @@ CREATE TABLE MethodAnnotations (
 );
 
 CREATE TABLE PointCoverageResultValueAnnotations (
-	BridgeID BIGINT   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -81,7 +81,7 @@ CREATE TABLE PointCoverageResultValueAnnotations (
 
 CREATE TABLE ProfileResultValueAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -91,7 +91,7 @@ CREATE TABLE ProfileResultValueAnnotations (
 
 CREATE TABLE ResultAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ResultID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	BeginDateTime DATETIME   NOT NULL,
 	EndDateTime DATETIME   NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE SamplingFeatureAnnotations (
 
 CREATE TABLE SectionResultValueAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -123,7 +123,7 @@ CREATE TABLE SectionResultValueAnnotations (
 
 CREATE TABLE SpectraResultValueAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -133,7 +133,7 @@ CREATE TABLE SpectraResultValueAnnotations (
 
 CREATE TABLE TimeSeriesResultValueAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -143,7 +143,7 @@ CREATE TABLE TimeSeriesResultValueAnnotations (
 
 CREATE TABLE TrajectoryResultValueAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -153,7 +153,7 @@ CREATE TABLE TrajectoryResultValueAnnotations (
 
 CREATE TABLE TransectResultValueAnnotations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ValueID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL,
 	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -220,7 +220,7 @@ CREATE TABLE DataSets (
 CREATE TABLE DataSetsResults (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	DataSetID INTEGER   NOT NULL,
-	ResultID BIGINT   NOT NULL,
+	ResultID INTEGER   NOT NULL,
 	FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
@@ -287,7 +287,7 @@ CREATE TABLE RelatedActions (
 );
 
 CREATE TABLE Results (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	ResultUUID VARCHAR(36)   NOT NULL,
 	FeatureActionID INTEGER   NOT NULL,
 	ResultTypeCV VARCHAR (255)  NOT NULL,
@@ -296,9 +296,9 @@ CREATE TABLE Results (
 	TaxonomicClassifierID INTEGER   NULL,
 	ProcessingLevelID INTEGER   NOT NULL,
 	ResultDateTime DATETIME   NULL,
-	ResultDateTimeUTCOffset BIGINT   NULL,
+	ResultDateTimeUTCOffset INTEGER   NULL,
 	ValidDateTime DATETIME   NULL,
-	ValidDateTimeUTCOffset BIGINT   NULL,
+	ValidDateTimeUTCOffset INTEGER   NULL,
 	StatusCV VARCHAR (255)  NULL,
 	SampledMediumCV VARCHAR (255)  NOT NULL,
 	ValueCount INTEGER   NOT NULL,
@@ -420,7 +420,7 @@ CREATE TABLE ReferenceMaterialValues (
 );
 
 CREATE TABLE ResultNormalizationValues (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	NormalizedByReferenceMaterialValueID INTEGER   NOT NULL,
 	FOREIGN KEY (NormalizedByReferenceMaterialValueID) REFERENCES ReferenceMaterialValues (ReferenceMaterialValueID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -430,7 +430,7 @@ CREATE TABLE ResultNormalizationValues (
 
 CREATE TABLE ResultsDataQuality (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ResultID INTEGER   NOT NULL,
 	DataQualityID INTEGER   NOT NULL,
 	FOREIGN KEY (DataQualityID) REFERENCES DataQuality (DataQualityID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -475,7 +475,7 @@ CREATE TABLE CalibrationStandards (
 
 CREATE TABLE DataloggerFileColumns (
 	DataloggerFileColumnID INTEGER   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NULL,
+	ResultID INTEGER   NULL,
 	DataLoggerFileID INTEGER   NOT NULL,
 	InstrumentOutputVariableID INTEGER   NOT NULL,
 	ColumnLabel VARCHAR (50)  NOT NULL,
@@ -654,7 +654,7 @@ CREATE TABLE MethodExtensionPropertyValues (
 
 CREATE TABLE ResultExtensionPropertyValues (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ResultID INTEGER   NOT NULL,
 	PropertyID INTEGER   NOT NULL,
 	PropertyValue VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (PropertyID) REFERENCES ExtensionProperties (PropertyID)
@@ -909,9 +909,9 @@ CREATE TABLE RelatedDatasets (
 
 CREATE TABLE RelatedResults (
 	RelationID INTEGER   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ResultID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	RelatedResultID BIGINT   NOT NULL,
+	RelatedResultID INTEGER   NOT NULL,
 	VersionCode VARCHAR (50)  NULL,
 	RelatedResultSequenceNumber INTEGER   NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
@@ -921,7 +921,7 @@ CREATE TABLE RelatedResults (
 );
 
 CREATE TABLE ResultDerivationEquations (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	DerivationEquationID INTEGER   NOT NULL,
 	FOREIGN KEY (DerivationEquationID) REFERENCES DerivationEquations (DerivationEquationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -934,7 +934,7 @@ CREATE TABLE ResultDerivationEquations (
 /***************************************************************************/
 
 CREATE TABLE CategoricalResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
 	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
@@ -942,7 +942,7 @@ CREATE TABLE CategoricalResults (
 	ZLocation FLOAT   NULL,
 	ZLocationUnitsID INTEGER   NULL,
 	SpatialReferenceID INTEGER   NULL,
-	QualityCodeCV BIGINT   NOT NULL,
+	QualityCodeCV INTEGER   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -950,8 +950,8 @@ CREATE TABLE CategoricalResults (
 );
 
 CREATE TABLE CategoricalResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
 	DataValue VARCHAR (255)  NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
@@ -960,7 +960,7 @@ CREATE TABLE CategoricalResultValues (
 );
 
 CREATE TABLE MeasurementResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
 	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
@@ -988,8 +988,8 @@ CREATE TABLE MeasurementResults (
 );
 
 CREATE TABLE MeasurementResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
@@ -998,7 +998,7 @@ CREATE TABLE MeasurementResultValues (
 );
 
 CREATE TABLE PointCoverageResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	ZLocation FLOAT   NULL,
 	ZLocationUnitsID INTEGER   NULL,
 	SpatialReferenceID INTEGER   NULL,
@@ -1022,9 +1022,9 @@ CREATE TABLE PointCoverageResults (
 );
 
 CREATE TABLE PointCoverageResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
-	DataValue BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
+	DataValue INTEGER   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	XLocation FLOAT   NOT NULL,
@@ -1042,7 +1042,7 @@ CREATE TABLE PointCoverageResultValues (
 );
 
 CREATE TABLE ProfileResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
 	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
@@ -1068,8 +1068,8 @@ CREATE TABLE ProfileResults (
 );
 
 CREATE TABLE ProfileResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
@@ -1101,7 +1101,7 @@ CREATE TABLE ResultTypeCV (
 );
 
 CREATE TABLE SectionResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	YLocation FLOAT   NULL,
 	YLocationUnitsID INTEGER   NULL,
 	SpatialReferenceID INTEGER   NULL,
@@ -1127,15 +1127,15 @@ CREATE TABLE SectionResults (
 );
 
 CREATE TABLE SectionResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
 	DataValue DOUBLE   NOT NULL,
-	ValueDateTime BIGINT   NOT NULL,
-	ValueDateTimeUTCOffset BIGINT   NOT NULL,
+	ValueDateTime INTEGER   NOT NULL,
+	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	XLocation DOUBLE   NOT NULL,
 	XAggregationInterval FLOAT   NOT NULL,
 	XLocationUnitsID INTEGER   NOT NULL,
-	ZLocation BIGINT   NOT NULL,
+	ZLocation INTEGER   NOT NULL,
 	ZAggregationInterval FLOAT   NOT NULL,
 	ZLocationUnitsID INTEGER   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
@@ -1154,7 +1154,7 @@ CREATE TABLE SectionResultValues (
 );
 
 CREATE TABLE SpectraResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
 	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
@@ -1180,8 +1180,8 @@ CREATE TABLE SpectraResults (
 );
 
 CREATE TABLE SpectraResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
@@ -1201,7 +1201,7 @@ CREATE TABLE SpectraResultValues (
 );
 
 CREATE TABLE TimeSeriesResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
 	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
@@ -1227,8 +1227,8 @@ CREATE TABLE TimeSeriesResults (
 );
 
 CREATE TABLE TimeSeriesResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
@@ -1243,7 +1243,7 @@ CREATE TABLE TimeSeriesResultValues (
 );
 
 CREATE TABLE TrajectoryResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	SpatialReferenceID INTEGER   NULL,
 	IntendedTrajectorySpacing FLOAT   NULL,
 	IntendedTrajectorySpacingUnitsID INTEGER   NULL,
@@ -1261,8 +1261,8 @@ CREATE TABLE TrajectoryResults (
 );
 
 CREATE TABLE TrajectoryResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
@@ -1292,7 +1292,7 @@ CREATE TABLE TrajectoryResultValues (
 );
 
 CREATE TABLE TransectResults (
-	ResultID BIGINT   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL PRIMARY KEY,
 	ZLocation FLOAT   NULL,
 	ZLocationUnitsID INTEGER   NULL,
 	SpatialReferenceID INTEGER   NULL,
@@ -1314,8 +1314,8 @@ CREATE TABLE TransectResults (
 );
 
 CREATE TABLE TransectResultValues (
-	ValueID BIGINT   NOT NULL PRIMARY KEY,
-	ResultID BIGINT   NOT NULL,
+	ValueID INTEGER   NOT NULL PRIMARY KEY,
+	ResultID INTEGER   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset DATETIME   NOT NULL,
