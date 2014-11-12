@@ -133,6 +133,50 @@ class MYSQL():
 
         return type
 
+class SQLITE():
+    def __init__(self):
+        pass
+
+    def map_data_type(self,type):
+
+        type = self._mapSQLiteDataTypes(type.lower())
+        return type
+
+    def _mapSQLiteDataTypes(self, type):
+        dtype_equiv = {
+            'bigint':'BIGINT',
+            'binary':'BINARY',
+            'bit':'BIT',
+            'blob':'BLOB',
+            'boolean':'BIT',
+            'char ':'CHAR',
+            'date':'DATE',
+            'datetime':'DATETIME',
+            'decimal ':'DECIMAL',
+            'double':'DOUBLE',
+            'float':'FLOAT',
+            'integer':'INTEGER',
+            'mediumint':'MEDIUMINT',
+            'money':'NUMERIC',
+            'number':'NUMERIC',
+            'numeric':'NUMERIC',
+            'real':'DECIMAL',
+            'smallint':'SMALLINT',
+            'text':'TEXT',
+            'time':'TIME',
+            'timestamp':'TIMESTAMP',
+            'tinyint':'TINYINT',
+            'uniqueid':'VARCHAR(36)',
+            'uuid':'BINARY',
+            'varbinary':'VARBINARY',
+            'varchar':'VARCHAR',
+            'varchar2':'VARCHAR',
+        }
+
+        if type in dtype_equiv:
+            return dtype_equiv[type]
+
+        return type
 
 class MSSQL():
     def __init__(self):

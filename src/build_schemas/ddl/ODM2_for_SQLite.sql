@@ -4,9 +4,9 @@
 /***************************************************************************/
 
 CREATE TABLE ActionAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
@@ -14,15 +14,15 @@ CREATE TABLE ActionAnnotations (
 );
 
 CREATE TABLE Annotations (
-	AnnotationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	AnnotationID INTEGER   NOT NULL PRIMARY KEY,
 	AnnotationTypeCV VARCHAR (255)  NOT NULL,
 	AnnotationCode VARCHAR (50)  NULL,
 	AnnotationText VARCHAR (500)  NOT NULL,
 	AnnotationDateTime DATETIME   NULL,
-	AnnotationUTCOffset INT   NULL,
+	AnnotationUTCOffset INTEGER   NULL,
 	AnnotationLink VARCHAR (255)  NULL,
-	AnnotatorID INT   NULL,
-	CitationID INT   NULL,
+	AnnotatorID INTEGER   NULL,
+	CitationID INTEGER   NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (AnnotatorID) REFERENCES People (PersonID)
@@ -30,9 +30,9 @@ CREATE TABLE Annotations (
 );
 
 CREATE TABLE CategoricalResultValueAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ValueID) REFERENCES CategoricalResultValues (ValueID)
@@ -40,9 +40,9 @@ CREATE TABLE CategoricalResultValueAnnotations (
 );
 
 CREATE TABLE EquipmentAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	EquipmentID INT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	EquipmentID INTEGER   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
@@ -50,9 +50,9 @@ CREATE TABLE EquipmentAnnotations (
 );
 
 CREATE TABLE MeasurementResultValueAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (ValueID) REFERENCES MeasurementResultValues (ValueID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
@@ -60,9 +60,9 @@ CREATE TABLE MeasurementResultValueAnnotations (
 );
 
 CREATE TABLE MethodAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	MethodID INT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	MethodID INTEGER   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (MethodID) REFERENCES Methods (MethodID)
@@ -70,9 +70,9 @@ CREATE TABLE MethodAnnotations (
 );
 
 CREATE TABLE PointCoverageResultValueAnnotations (
-	BridgeID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID BIGINT   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ValueID) REFERENCES PointCoverageResultValues (ValueID)
@@ -80,9 +80,9 @@ CREATE TABLE PointCoverageResultValueAnnotations (
 );
 
 CREATE TABLE ProfileResultValueAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ValueID) REFERENCES ProfileResultValues (ValueID)
@@ -90,9 +90,9 @@ CREATE TABLE ProfileResultValueAnnotations (
 );
 
 CREATE TABLE ResultAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	BeginDateTime DATETIME   NOT NULL,
 	EndDateTime DATETIME   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
@@ -102,9 +102,9 @@ CREATE TABLE ResultAnnotations (
 );
 
 CREATE TABLE SamplingFeatureAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	SamplingFeatureID INT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
@@ -112,9 +112,9 @@ CREATE TABLE SamplingFeatureAnnotations (
 );
 
 CREATE TABLE SectionResultValueAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ValueID) REFERENCES SectionResultValues (ValueID)
@@ -122,9 +122,9 @@ CREATE TABLE SectionResultValueAnnotations (
 );
 
 CREATE TABLE SpectraResultValueAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ValueID) REFERENCES SpectraResultValues (ValueID)
@@ -132,9 +132,9 @@ CREATE TABLE SpectraResultValueAnnotations (
 );
 
 CREATE TABLE TimeSeriesResultValueAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ValueID) REFERENCES TimeSeriesResultValues (ValueID)
@@ -142,9 +142,9 @@ CREATE TABLE TimeSeriesResultValueAnnotations (
 );
 
 CREATE TABLE TrajectoryResultValueAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ValueID) REFERENCES TrajectoryResultValues (ValueID)
@@ -152,9 +152,9 @@ CREATE TABLE TrajectoryResultValueAnnotations (
 );
 
 CREATE TABLE TransectResultValueAnnotations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ValueID BIGINT   NOT NULL,
-	AnnotationID INT   NOT NULL,
+	AnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ValueID) REFERENCES TransectResultValues (ValueID)
@@ -166,9 +166,9 @@ CREATE TABLE TransectResultValueAnnotations (
 /***************************************************************************/
 
 CREATE TABLE ActionBy (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
-	AffiliationID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
+	AffiliationID INTEGER   NOT NULL,
 	IsActionLead BIT   NOT NULL,
 	RoleDescription VARCHAR (500)  NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
@@ -178,13 +178,13 @@ CREATE TABLE ActionBy (
 );
 
 CREATE TABLE Actions (
-	ActionID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL PRIMARY KEY,
 	ActionTypeCV VARCHAR (255)  NOT NULL,
-	MethodID INT   NOT NULL,
+	MethodID INTEGER   NOT NULL,
 	BeginDateTime DATETIME   NOT NULL,
-	BeginDateTimeUTCOffset INT   NOT NULL,
+	BeginDateTimeUTCOffset INTEGER   NOT NULL,
 	EndDateTime DATETIME   NULL,
-	EndDateTimeUTCOffset INT   NULL,
+	EndDateTimeUTCOffset INTEGER   NULL,
 	ActionDescription VARCHAR (500)  NULL,
 	ActionFileLink VARCHAR (255)  NULL,
 	FOREIGN KEY (MethodID) REFERENCES Methods (MethodID)
@@ -192,9 +192,9 @@ CREATE TABLE Actions (
 );
 
 CREATE TABLE Affiliations (
-	AffiliationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	PersonID INT   NOT NULL,
-	OrganizationID INT   NULL,
+	AffiliationID INTEGER   NOT NULL PRIMARY KEY,
+	PersonID INTEGER   NOT NULL,
+	OrganizationID INTEGER   NULL,
 	IsPrimaryOrganizationContact BIT   NULL,
 	AffiliationStartDate DATE   NOT NULL,
 	AffiliationEndDate DATE   NULL,
@@ -209,7 +209,7 @@ CREATE TABLE Affiliations (
 );
 
 CREATE TABLE DataSets (
-	DataSetID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	DataSetID INTEGER   NOT NULL PRIMARY KEY,
 	DataSetUUID VARCHAR(36)   NOT NULL,
 	DataSetTypeCV VARCHAR (255)  NOT NULL,
 	DataSetCode VARCHAR (50)  NOT NULL,
@@ -218,8 +218,8 @@ CREATE TABLE DataSets (
 );
 
 CREATE TABLE DataSetsResults (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	DataSetID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	DataSetID INTEGER   NOT NULL,
 	ResultID BIGINT   NOT NULL,
 	FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -228,9 +228,9 @@ CREATE TABLE DataSetsResults (
 );
 
 CREATE TABLE FeatureActions (
-	FeatureActionID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	SamplingFeatureID INT   NOT NULL,
-	ActionID INT   NOT NULL,
+	FeatureActionID INTEGER   NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL,
+	ActionID INTEGER   NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
@@ -238,48 +238,48 @@ CREATE TABLE FeatureActions (
 );
 
 CREATE TABLE Methods (
-	MethodID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	MethodID INTEGER   NOT NULL PRIMARY KEY,
 	MethodTypeCV VARCHAR (255)  NOT NULL,
 	MethodCode VARCHAR (50)  NOT NULL,
 	MethodName VARCHAR (255)  NOT NULL,
 	MethodDescription VARCHAR (500)  NULL,
 	MethodLink VARCHAR (255)  NULL,
-	OrganizationID INT   NULL,
+	OrganizationID INTEGER   NULL,
 	FOREIGN KEY (OrganizationID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE Organizations (
-	OrganizationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	OrganizationID INTEGER   NOT NULL PRIMARY KEY,
 	OrganizationTypeCV VARCHAR (255)  NOT NULL,
 	OrganizationCode VARCHAR (50)  NOT NULL,
 	OrganizationName VARCHAR (255)  NOT NULL,
 	OrganizationDescription VARCHAR (500)  NULL,
 	OrganizationLink VARCHAR (255)  NULL,
-	ParentOrganizationID INT   NULL,
+	ParentOrganizationID INTEGER   NULL,
 	FOREIGN KEY (ParentOrganizationID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE People (
-	PersonID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	PersonID INTEGER   NOT NULL PRIMARY KEY,
 	PersonFirstName VARCHAR (255)  NOT NULL,
 	PersonMiddleName VARCHAR (255)  NULL,
 	PersonLastName VARCHAR (255)  NOT NULL
 );
 
 CREATE TABLE ProcessingLevels (
-	ProcessingLevelID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ProcessingLevelID INTEGER   NOT NULL PRIMARY KEY,
 	ProcessingLevelCode VARCHAR (50)  NOT NULL,
 	Definition VARCHAR (500)  NULL,
 	Explanation VARCHAR (500)  NULL
 );
 
 CREATE TABLE RelatedActions (
-	RelationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
+	RelationID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	RelatedActionID INT   NOT NULL,
+	RelatedActionID INTEGER   NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedActionID) REFERENCES Actions (ActionID)
@@ -287,21 +287,21 @@ CREATE TABLE RelatedActions (
 );
 
 CREATE TABLE Results (
-	ResultID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	ResultUUID VARCHAR(36)   NOT NULL,
-	FeatureActionID INT   NOT NULL,
+	FeatureActionID INTEGER   NOT NULL,
 	ResultTypeCV VARCHAR (255)  NOT NULL,
-	VariableID INT   NOT NULL,
-	UnitsID INT   NOT NULL,
-	TaxonomicClassifierID INT   NULL,
-	ProcessingLevelID INT   NOT NULL,
+	VariableID INTEGER   NOT NULL,
+	UnitsID INTEGER   NOT NULL,
+	TaxonomicClassifierID INTEGER   NULL,
+	ProcessingLevelID INTEGER   NOT NULL,
 	ResultDateTime DATETIME   NULL,
 	ResultDateTimeUTCOffset BIGINT   NULL,
 	ValidDateTime DATETIME   NULL,
 	ValidDateTimeUTCOffset BIGINT   NULL,
 	StatusCV VARCHAR (255)  NULL,
 	SampledMediumCV VARCHAR (255)  NOT NULL,
-	ValueCount INT   NOT NULL,
+	ValueCount INTEGER   NOT NULL,
 	FOREIGN KEY (FeatureActionID) REFERENCES FeatureActions (FeatureActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ProcessingLevelID) REFERENCES ProcessingLevels (ProcessingLevelID)
@@ -317,7 +317,7 @@ CREATE TABLE Results (
 );
 
 CREATE TABLE SamplingFeatures (
-	SamplingFeatureID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL PRIMARY KEY,
 	SamplingFeatureUUID VARCHAR(36)   NOT NULL,
 	SamplingFeatureTypeCV VARCHAR (255)  NOT NULL,
 	SamplingFeatureCode VARCHAR (50)  NOT NULL,
@@ -330,25 +330,25 @@ CREATE TABLE SamplingFeatures (
 );
 
 CREATE TABLE TaxonomicClassifiers (
-	TaxonomicClassifierID INT   NOT NULL PRIMARY KEY,
+	TaxonomicClassifierID INTEGER   NOT NULL PRIMARY KEY,
 	TaxonomicClassifierTypeCV VARCHAR (255)  NOT NULL,
 	TaxonomicClassifierName VARCHAR (255)  NOT NULL,
 	TaxonomicClassifierCommonName VARCHAR (255)  NULL,
 	TaxonomicClassifierDescription VARCHAR (500)  NULL,
-	ParentTaxonomicClassifierID INT   NULL,
+	ParentTaxonomicClassifierID INTEGER   NULL,
 	FOREIGN KEY (ParentTaxonomicClassifierID) REFERENCES TaxonomicClassifiers (TaxonomicClassifierID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE Units (
-	UnitsID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	UnitsID INTEGER   NOT NULL PRIMARY KEY,
 	UnitsTypeCV VARCHAR (255)  NOT NULL,
 	UnitsAbbreviation VARCHAR (50)  NOT NULL,
 	UnitsName VARCHAR (255)  NOT NULL
 );
 
 CREATE TABLE Variables (
-	VariableID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	VariableID INTEGER   NOT NULL PRIMARY KEY,
 	VariableTypeCV VARCHAR (255)  NOT NULL,
 	VariableCode VARCHAR (50)  NOT NULL,
 	VariableNameCV VARCHAR (255)  NOT NULL,
@@ -362,7 +362,7 @@ CREATE TABLE Variables (
 /***************************************************************************/
 
 CREATE TABLE CVTerms (
-	TermID INT   NOT NULL PRIMARY KEY,
+	TermID INTEGER   NOT NULL PRIMARY KEY,
 	Term VARCHAR (255)  NOT NULL,
 	Definition VARCHAR (500)  NULL,
 	ODMVocabulary VARCHAR (255)  NOT NULL,
@@ -374,11 +374,11 @@ CREATE TABLE CVTerms (
 /***************************************************************************/
 
 CREATE TABLE DataQuality (
-	DataQualityID INT   NOT NULL PRIMARY KEY,
+	DataQualityID INTEGER   NOT NULL PRIMARY KEY,
 	DataQualityTypeCV VARCHAR (255)  NOT NULL,
 	DataQualityCode VARCHAR (255)  NOT NULL,
 	DataQualityValue FLOAT   NULL,
-	DataQualityValueUnitsID INT   NULL,
+	DataQualityValueUnitsID INTEGER   NULL,
 	DataQualityDescription VARCHAR (500)  NULL,
 	DataQualityLink VARCHAR (255)  NULL,
 	FOREIGN KEY (DataQualityValueUnitsID) REFERENCES Units (UnitsID)
@@ -386,15 +386,15 @@ CREATE TABLE DataQuality (
 );
 
 CREATE TABLE ReferenceMaterials (
-	ReferenceMaterialID INT   NOT NULL PRIMARY KEY,
+	ReferenceMaterialID INTEGER   NOT NULL PRIMARY KEY,
 	ReferenceMaterialMediumCV VARCHAR (255)  NOT NULL,
-	ReferenceMaterialOrganizationID INT   NOT NULL,
+	ReferenceMaterialOrganizationID INTEGER   NOT NULL,
 	ReferenceMaterialCode VARCHAR (50)  NOT NULL,
 	ReferenceMaterialLotCode VARCHAR (255)  NULL,
 	ReferenceMaterialPurchaseDate DATETIME   NULL,
 	ReferenceMaterialExpirationDate DATETIME   NULL,
 	ReferenceMaterialCertificateLink VARCHAR (255)  NULL,
-	SamplingFeatureID INT   NULL,
+	SamplingFeatureID INTEGER   NULL,
 	FOREIGN KEY (ReferenceMaterialOrganizationID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
@@ -402,13 +402,13 @@ CREATE TABLE ReferenceMaterials (
 );
 
 CREATE TABLE ReferenceMaterialValues (
-	ReferenceMaterialValueID INT   NOT NULL PRIMARY KEY,
-	ReferenceMaterialID INT   NOT NULL,
+	ReferenceMaterialValueID INTEGER   NOT NULL PRIMARY KEY,
+	ReferenceMaterialID INTEGER   NOT NULL,
 	ReferenceMaterialValue FLOAT   NOT NULL,
 	ReferenceMaterialAccuracy FLOAT   NULL,
-	VariableID INT   NOT NULL,
-	UnitsID INT   NOT NULL,
-	CitationID INT   NOT NULL,
+	VariableID INTEGER   NOT NULL,
+	UnitsID INTEGER   NOT NULL,
+	CitationID INTEGER   NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ReferenceMaterialID) REFERENCES ReferenceMaterials (ReferenceMaterialID)
@@ -421,7 +421,7 @@ CREATE TABLE ReferenceMaterialValues (
 
 CREATE TABLE ResultNormalizationValues (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
-	NormalizedByReferenceMaterialValueID INT   NOT NULL,
+	NormalizedByReferenceMaterialValueID INTEGER   NOT NULL,
 	FOREIGN KEY (NormalizedByReferenceMaterialValueID) REFERENCES ReferenceMaterialValues (ReferenceMaterialValueID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
@@ -429,9 +429,9 @@ CREATE TABLE ResultNormalizationValues (
 );
 
 CREATE TABLE ResultsDataQuality (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
-	DataQualityID INT   NOT NULL,
+	DataQualityID INTEGER   NOT NULL,
 	FOREIGN KEY (DataQualityID) REFERENCES DataQuality (DataQualityID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
@@ -443,9 +443,9 @@ CREATE TABLE ResultsDataQuality (
 /***************************************************************************/
 
 CREATE TABLE CalibrationActions (
-	ActionID INT   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL PRIMARY KEY,
 	CalibrationCheckValue FLOAT   NULL,
-	InstrumentOutputVariableID INT   NOT NULL,
+	InstrumentOutputVariableID INTEGER   NOT NULL,
 	CalibrationEquation VARCHAR (255)  NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -454,9 +454,9 @@ CREATE TABLE CalibrationActions (
 );
 
 CREATE TABLE CalibrationReferenceEquipment (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
-	EquipmentID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
+	EquipmentID INTEGER   NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES CalibrationActions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
@@ -464,9 +464,9 @@ CREATE TABLE CalibrationReferenceEquipment (
 );
 
 CREATE TABLE CalibrationStandards (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
-	ReferenceMaterialID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
+	ReferenceMaterialID INTEGER   NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES CalibrationActions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ReferenceMaterialID) REFERENCES ReferenceMaterials (ReferenceMaterialID)
@@ -474,17 +474,17 @@ CREATE TABLE CalibrationStandards (
 );
 
 CREATE TABLE DataloggerFileColumns (
-	DataloggerFileColumnID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	DataloggerFileColumnID INTEGER   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NULL,
-	DataLoggerFileID INT   NOT NULL,
-	InstrumentOutputVariableID INT   NOT NULL,
+	DataLoggerFileID INTEGER   NOT NULL,
+	InstrumentOutputVariableID INTEGER   NOT NULL,
 	ColumnLabel VARCHAR (50)  NOT NULL,
 	ColumnDescription VARCHAR (500)  NULL,
 	MeasurementEquation VARCHAR (255)  NULL,
 	ScanInterval FLOAT   NULL,
-	ScanIntervalUnitsID INT   NULL,
+	ScanIntervalUnitsID INTEGER   NULL,
 	RecordingInterval FLOAT   NULL,
-	RecordingIntervalUnitsID INT   NULL,
+	RecordingIntervalUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NULL,
 	FOREIGN KEY (DataLoggerFileID) REFERENCES DataLoggerFiles (DataLoggerFileID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -499,8 +499,8 @@ CREATE TABLE DataloggerFileColumns (
 );
 
 CREATE TABLE DataLoggerFiles (
-	DataLoggerFileID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ProgramID INT   NOT NULL,
+	DataLoggerFileID INTEGER   NOT NULL PRIMARY KEY,
+	ProgramID INTEGER   NOT NULL,
 	DataLoggerFileName VARCHAR (255)  NOT NULL,
 	DataLoggerFileDescription VARCHAR (500)  NULL,
 	DataLoggerFileLink VARCHAR (255)  NULL,
@@ -509,8 +509,8 @@ CREATE TABLE DataLoggerFiles (
 );
 
 CREATE TABLE DataloggerProgramFiles (
-	ProgramID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	AffiliationID INT   NOT NULL,
+	ProgramID INTEGER   NOT NULL PRIMARY KEY,
+	AffiliationID INTEGER   NOT NULL,
 	ProgramName VARCHAR (255)  NOT NULL,
 	ProgramDescription VARCHAR (500)  NULL,
 	ProgramVersion VARCHAR (50)  NULL,
@@ -520,14 +520,14 @@ CREATE TABLE DataloggerProgramFiles (
 );
 
 CREATE TABLE Equipment (
-	EquipmentID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	EquipmentID INTEGER   NOT NULL PRIMARY KEY,
 	EquipmentCode VARCHAR (50)  NOT NULL,
 	EquipmentName VARCHAR (255)  NOT NULL,
 	EquipmentTypeCV VARCHAR (255)  NOT NULL,
-	EquipmentModelID INT   NOT NULL,
+	EquipmentModelID INTEGER   NOT NULL,
 	EquipmentSerialNumber VARCHAR (50)  NOT NULL,
-	EquipmentOwnerID INT   NOT NULL,
-	EquipmentVendorID INT   NOT NULL,
+	EquipmentOwnerID INTEGER   NOT NULL,
+	EquipmentVendorID INTEGER   NOT NULL,
 	EquipmentPurchaseDate DATETIME   NOT NULL,
 	EquipmentPurchaseOrderNumber VARCHAR (50)  NULL,
 	EquipmentDescription VARCHAR (500)  NULL,
@@ -541,8 +541,8 @@ CREATE TABLE Equipment (
 );
 
 CREATE TABLE EquipmentModels (
-	EquipmentModelID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ModelManufacturerID INT   NOT NULL,
+	EquipmentModelID INTEGER   NOT NULL PRIMARY KEY,
+	ModelManufacturerID INTEGER   NOT NULL,
 	ModelPartNumber VARCHAR (50)  NULL,
 	ModelName VARCHAR (255)  NOT NULL,
 	ModelDescription VARCHAR (500)  NULL,
@@ -554,9 +554,9 @@ CREATE TABLE EquipmentModels (
 );
 
 CREATE TABLE EquipmentUsed (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
-	EquipmentID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
+	EquipmentID INTEGER   NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
@@ -564,13 +564,13 @@ CREATE TABLE EquipmentUsed (
 );
 
 CREATE TABLE InstrumentOutputVariables (
-	InstrumentOutputVariableID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ModelID INT   NOT NULL,
-	VariableID INT   NOT NULL,
-	InstrumentMethodID INT   NOT NULL,
+	InstrumentOutputVariableID INTEGER   NOT NULL PRIMARY KEY,
+	ModelID INTEGER   NOT NULL,
+	VariableID INTEGER   NOT NULL,
+	InstrumentMethodID INTEGER   NOT NULL,
 	InstrumentResolution VARCHAR (255)  NULL,
 	InstrumentAccuracy VARCHAR (255)  NULL,
-	InstrumentRawOutputUnitsID INT   NOT NULL,
+	InstrumentRawOutputUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (ModelID) REFERENCES EquipmentModels (EquipmentModelID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (InstrumentMethodID) REFERENCES Methods (MethodID)
@@ -582,7 +582,7 @@ CREATE TABLE InstrumentOutputVariables (
 );
 
 CREATE TABLE MaintenanceActions (
-	ActionID INT   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL PRIMARY KEY,
 	IsFactoryService BIT   NOT NULL,
 	MaintenanceCode VARCHAR (50)  NULL,
 	MaintenanceReason VARCHAR (500)  NULL,
@@ -591,14 +591,14 @@ CREATE TABLE MaintenanceActions (
 );
 
 CREATE TABLE RelatedEquipment (
-	RelationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	EquipmentID INT   NOT NULL,
+	RelationID INTEGER   NOT NULL PRIMARY KEY,
+	EquipmentID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	RelatedEquipmentID INT   NOT NULL,
+	RelatedEquipmentID INTEGER   NOT NULL,
 	RelationshipStartDateTime DATETIME   NOT NULL,
-	RelationshipStartDateTimeUTCOffset INT   NOT NULL,
+	RelationshipStartDateTimeUTCOffset INTEGER   NOT NULL,
 	RelationshipEndDateTime DATETIME   NULL,
-	RelationshipEndDateTimeUTCOffset INT   NULL,
+	RelationshipEndDateTimeUTCOffset INTEGER   NULL,
 	FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedEquipmentID) REFERENCES Equipment (EquipmentID)
@@ -610,9 +610,9 @@ CREATE TABLE RelatedEquipment (
 /***************************************************************************/
 
 CREATE TABLE ActionExtensionPropertyValues (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
-	PropertyID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
+	PropertyID INTEGER   NOT NULL,
 	PropertyValue VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -621,9 +621,9 @@ CREATE TABLE ActionExtensionPropertyValues (
 );
 
 CREATE TABLE CitationExtensionPropertyValues (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	CitationID INT   NOT NULL,
-	PropertyID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	CitationID INTEGER   NOT NULL,
+	PropertyID INTEGER   NOT NULL,
 	PropertyValue VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -632,19 +632,19 @@ CREATE TABLE CitationExtensionPropertyValues (
 );
 
 CREATE TABLE ExtensionProperties (
-	PropertyID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	PropertyID INTEGER   NOT NULL PRIMARY KEY,
 	PropertyName VARCHAR (255)  NOT NULL,
 	PropertyDescription VARCHAR (500)  NULL,
 	PropertyDataTypeCV VARCHAR (255)  NOT NULL,
-	PropertyUnitsID INT   NULL,
+	PropertyUnitsID INTEGER   NULL,
 	FOREIGN KEY (PropertyUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE MethodExtensionPropertyValues (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	MethodID INT   NOT NULL,
-	PropertyID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	MethodID INTEGER   NOT NULL,
+	PropertyID INTEGER   NOT NULL,
 	PropertyValue VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (PropertyID) REFERENCES ExtensionProperties (PropertyID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -653,9 +653,9 @@ CREATE TABLE MethodExtensionPropertyValues (
 );
 
 CREATE TABLE ResultExtensionPropertyValues (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
-	PropertyID INT   NOT NULL,
+	PropertyID INTEGER   NOT NULL,
 	PropertyValue VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (PropertyID) REFERENCES ExtensionProperties (PropertyID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -664,9 +664,9 @@ CREATE TABLE ResultExtensionPropertyValues (
 );
 
 CREATE TABLE SamplingFeatureExtensionPropertyValues (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	SamplingFeatureID INT   NOT NULL,
-	PropertyID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL,
+	PropertyID INTEGER   NOT NULL,
 	PropertyValue VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (PropertyID) REFERENCES ExtensionProperties (PropertyID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -675,9 +675,9 @@ CREATE TABLE SamplingFeatureExtensionPropertyValues (
 );
 
 CREATE TABLE VariableExtensionPropertyValues (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	VariableID INT   NOT NULL,
-	PropertyID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	VariableID INTEGER   NOT NULL,
+	PropertyID INTEGER   NOT NULL,
 	PropertyValue VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (PropertyID) REFERENCES ExtensionProperties (PropertyID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -690,9 +690,9 @@ CREATE TABLE VariableExtensionPropertyValues (
 /***************************************************************************/
 
 CREATE TABLE CitationExternalIdentifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	CitationID INT   NOT NULL,
-	ExternalIdentifierSystemID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	CitationID INTEGER   NOT NULL,
+	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	CitationExternalIdentifer VARCHAR (255)  NOT NULL,
 	CitationExternalIdentiferURI VARCHAR (255)  NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
@@ -702,9 +702,9 @@ CREATE TABLE CitationExternalIdentifiers (
 );
 
 CREATE TABLE ExternalIdentifierSystems (
-	ExternalIdentifierSystemID INT   NOT NULL PRIMARY KEY,
+	ExternalIdentifierSystemID INTEGER   NOT NULL PRIMARY KEY,
 	ExternalIdentifierSystemName VARCHAR (255)  NOT NULL,
-	IdentifierSystemOrganizationID INT   NOT NULL,
+	IdentifierSystemOrganizationID INTEGER   NOT NULL,
 	ExternalIdentifierSystemDescription VARCHAR (500)  NULL,
 	ExternalIdentifierSystemURL VARCHAR (255)  NULL,
 	FOREIGN KEY (IdentifierSystemOrganizationID) REFERENCES Organizations (OrganizationID)
@@ -712,9 +712,9 @@ CREATE TABLE ExternalIdentifierSystems (
 );
 
 CREATE TABLE MethodExternalIdentifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	MethodID INT   NOT NULL,
-	ExternalIdentifierSystemID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	MethodID INTEGER   NOT NULL,
+	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	MethodExternalIdentifier VARCHAR (255)  NOT NULL,
 	MethodExternalIdentifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
@@ -724,9 +724,9 @@ CREATE TABLE MethodExternalIdentifiers (
 );
 
 CREATE TABLE PersonExternalIdentifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	PersonID INT   NOT NULL,
-	ExternalIdentifierSystemID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	PersonID INTEGER   NOT NULL,
+	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	PersonExternalIdentifier VARCHAR (255)  NOT NULL,
 	PersonExternalIdenifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
@@ -736,9 +736,9 @@ CREATE TABLE PersonExternalIdentifiers (
 );
 
 CREATE TABLE ReferenceMaterialExternalIdentifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ReferenceMaterialID INT   NOT NULL,
-	ExternalIdentifierSystemID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ReferenceMaterialID INTEGER   NOT NULL,
+	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	ReferenceMaterialExternalIdentifier VARCHAR (255)  NOT NULL,
 	ReferenceMaterialExternalIdentifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
@@ -748,9 +748,9 @@ CREATE TABLE ReferenceMaterialExternalIdentifiers (
 );
 
 CREATE TABLE SamplingFeatureExternalIdentifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	SamplingFeatureID INT   NOT NULL,
-	ExternalIdentifierSystemID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL,
+	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	SamplingFeatureExternalIdentifier VARCHAR (255)  NOT NULL,
 	SamplingFeatureExternalIdentiferURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
@@ -760,9 +760,9 @@ CREATE TABLE SamplingFeatureExternalIdentifiers (
 );
 
 CREATE TABLE SpatialReferenceExternalIdentifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	SpatialReferenceID INT   NOT NULL,
-	ExternalIdentifierSystemID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	SpatialReferenceID INTEGER   NOT NULL,
+	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	SpatialReferenceExternalIdentifier VARCHAR (255)  NOT NULL,
 	SpatialReferenceExternalIdentifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
@@ -772,9 +772,9 @@ CREATE TABLE SpatialReferenceExternalIdentifiers (
 );
 
 CREATE TABLE TaxonomicClassifierExternalIdentifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	TaxonomicClassifierID INT   NOT NULL,
-	ExternalIdentifierSystemID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	TaxonomicClassifierID INTEGER   NOT NULL,
+	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	TaxonomicClassifierExternalIdentifier VARCHAR (255)  NOT NULL,
 	TaxonomicClassifierExternalIdentifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
@@ -784,9 +784,9 @@ CREATE TABLE TaxonomicClassifierExternalIdentifiers (
 );
 
 CREATE TABLE VariableExternalIdentifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	VariableID INT   NOT NULL,
-	ExternalIdentifierSystemID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	VariableID INTEGER   NOT NULL,
+	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	VariableExternalIdentifer VARCHAR (255)  NOT NULL,
 	VariableExternalIdentifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
@@ -800,9 +800,9 @@ CREATE TABLE VariableExternalIdentifiers (
 /***************************************************************************/
 
 CREATE TABLE ActionDirectives (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
-	DirectiveID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
+	DirectiveID INTEGER   NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (DirectiveID) REFERENCES Directives (DirectiveID)
@@ -810,14 +810,14 @@ CREATE TABLE ActionDirectives (
 );
 
 CREATE TABLE Directives (
-	DirectiveID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	DirectiveID INTEGER   NOT NULL PRIMARY KEY,
 	DirectiveTypeCV VARCHAR (255)  NOT NULL,
 	DirectiveDescription VARCHAR (500)  NOT NULL
 );
 
 CREATE TABLE SpecimenBatchPostions (
-	FeatureActionID INT   NOT NULL PRIMARY KEY,
-	BatchPositionNumber INT   NOT NULL,
+	FeatureActionID INTEGER   NOT NULL PRIMARY KEY,
+	BatchPositionNumber INTEGER   NOT NULL,
 	BatchPositionLabel VARCHAR (255)  NULL,
 	FOREIGN KEY (FeatureActionID) REFERENCES FeatureActions (FeatureActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -828,10 +828,10 @@ CREATE TABLE SpecimenBatchPostions (
 /***************************************************************************/
 
 CREATE TABLE AuthorLists (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	CitationID INT   NOT NULL,
-	PersonID INT   NOT NULL,
-	AuthorOrder INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	CitationID INTEGER   NOT NULL,
+	PersonID INTEGER   NOT NULL,
+	AuthorOrder INTEGER   NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (PersonID) REFERENCES People (PersonID)
@@ -839,18 +839,18 @@ CREATE TABLE AuthorLists (
 );
 
 CREATE TABLE Citations (
-	CitationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	CitationID INTEGER   NOT NULL PRIMARY KEY,
 	Title VARCHAR (255)  NOT NULL,
 	Publisher VARCHAR (255)  NOT NULL,
-	PublicationYear INT   NOT NULL,
+	PublicationYear INTEGER   NOT NULL,
 	CitationLink VARCHAR (255)  NULL
 );
 
 CREATE TABLE DataSetCitations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	DataSetID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	DataSetID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	CitationID INT   NOT NULL,
+	CitationID INTEGER   NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
@@ -858,15 +858,15 @@ CREATE TABLE DataSetCitations (
 );
 
 CREATE TABLE DerivationEquations (
-	DerivationEquationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	DerivationEquationID INTEGER   NOT NULL PRIMARY KEY,
 	DerivationEquation VARCHAR (255)  NOT NULL
 );
 
 CREATE TABLE MethodCitations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	MethodID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	MethodID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	CitationID INT   NOT NULL,
+	CitationID INTEGER   NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (MethodID) REFERENCES Methods (MethodID)
@@ -874,10 +874,10 @@ CREATE TABLE MethodCitations (
 );
 
 CREATE TABLE RelatedAnnotations (
-	RelationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	AnnotationID INT   NOT NULL,
+	RelationID INTEGER   NOT NULL PRIMARY KEY,
+	AnnotationID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	RelatedAnnotationID INT   NOT NULL,
+	RelatedAnnotationID INTEGER   NOT NULL,
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedAnnotationID) REFERENCES Annotations (AnnotationID)
@@ -885,10 +885,10 @@ CREATE TABLE RelatedAnnotations (
 );
 
 CREATE TABLE RelatedCitations (
-	RelationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	CitationID INT   NOT NULL,
-	RelationshipTypeCV INT   NOT NULL,
-	RelatedCitationID INT   NOT NULL,
+	RelationID INTEGER   NOT NULL PRIMARY KEY,
+	CitationID INTEGER   NOT NULL,
+	RelationshipTypeCV INTEGER   NOT NULL,
+	RelatedCitationID INTEGER   NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedCitationID) REFERENCES Citations (CitationID)
@@ -896,10 +896,10 @@ CREATE TABLE RelatedCitations (
 );
 
 CREATE TABLE RelatedDatasets (
-	RelationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	DataSetID INT   NOT NULL,
+	RelationID INTEGER   NOT NULL PRIMARY KEY,
+	DataSetID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	RelatedDatasetID INT   NOT NULL,
+	RelatedDatasetID INTEGER   NOT NULL,
 	VersionCode VARCHAR (50)  NULL,
 	FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -908,12 +908,12 @@ CREATE TABLE RelatedDatasets (
 );
 
 CREATE TABLE RelatedResults (
-	RelationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	RelationID INTEGER   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
 	RelatedResultID BIGINT   NOT NULL,
 	VersionCode VARCHAR (50)  NULL,
-	RelatedResultSequenceNumber INT   NULL,
+	RelatedResultSequenceNumber INTEGER   NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedResultID) REFERENCES Results (ResultID)
@@ -922,7 +922,7 @@ CREATE TABLE RelatedResults (
 
 CREATE TABLE ResultDerivationEquations (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
-	DerivationEquationID INT   NOT NULL,
+	DerivationEquationID INTEGER   NOT NULL,
 	FOREIGN KEY (DerivationEquationID) REFERENCES DerivationEquations (DerivationEquationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
@@ -936,12 +936,12 @@ CREATE TABLE ResultDerivationEquations (
 CREATE TABLE CategoricalResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
-	XLocationUnitsID INT   NULL,
+	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
-	YLocationUnitsID INT   NULL,
+	YLocationUnitsID INTEGER   NULL,
 	ZLocation FLOAT   NULL,
-	ZLocationUnitsID INT   NULL,
-	SpatialReferenceID INT   NULL,
+	ZLocationUnitsID INTEGER   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	QualityCodeCV BIGINT   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -950,11 +950,11 @@ CREATE TABLE CategoricalResults (
 );
 
 CREATE TABLE CategoricalResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue VARCHAR (255)  NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL,
+	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES CategoricalResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -962,17 +962,17 @@ CREATE TABLE CategoricalResultValues (
 CREATE TABLE MeasurementResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
-	XLocationUnitsID INT   NULL,
+	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
-	YLocationUnitsID INT   NULL,
+	YLocationUnitsID INTEGER   NULL,
 	ZLocation FLOAT   NULL,
-	ZLocationUnitsID INT   NULL,
-	SpatialReferenceID INT   NULL,
+	ZLocationUnitsID INTEGER   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
@@ -988,11 +988,11 @@ CREATE TABLE MeasurementResults (
 );
 
 CREATE TABLE MeasurementResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL,
+	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES MeasurementResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -1000,15 +1000,15 @@ CREATE TABLE MeasurementResultValues (
 CREATE TABLE PointCoverageResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	ZLocation FLOAT   NULL,
-	ZLocationUnitsID INT   NULL,
-	SpatialReferenceID INT   NULL,
+	ZLocationUnitsID INTEGER   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	IntendedXSpacing FLOAT   NULL,
-	IntendedXSpacingUnitsID INT   NULL,
+	IntendedXSpacingUnitsID INTEGER   NULL,
 	IntendedYSpacing FLOAT   NULL,
-	IntendedYSpacingUnitsID INT   NULL,
+	IntendedYSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1022,15 +1022,15 @@ CREATE TABLE PointCoverageResults (
 );
 
 CREATE TABLE PointCoverageResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue BIGINT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL,
+	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	XLocation FLOAT   NOT NULL,
-	XLocationUnitsID INT   NOT NULL,
+	XLocationUnitsID INTEGER   NOT NULL,
 	YLocation FLOAT   NOT NULL,
-	YLocationUnitsID INT   NOT NULL,
+	YLocationUnitsID INTEGER   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES PointCoverageResults (ResultID)
@@ -1044,14 +1044,14 @@ CREATE TABLE PointCoverageResultValues (
 CREATE TABLE ProfileResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
-	XLocationUnitsID INT   NULL,
+	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
-	YLocationUnitsID INT   NULL,
-	SpatialReferenceID INT   NULL,
+	YLocationUnitsID INTEGER   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	IntendedZSpacing FLOAT   NULL,
-	IntendedZSpacingUnitsID INT   NULL,
+	IntendedZSpacingUnitsID INTEGER   NULL,
 	IntendedTimeSpacing FLOAT   NULL,
-	IntendedTimeSpacingUnitsID INT   NULL,
+	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (IntendedZSpacingUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -1068,18 +1068,18 @@ CREATE TABLE ProfileResults (
 );
 
 CREATE TABLE ProfileResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL,
+	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	ZLocation FLOAT   NOT NULL,
 	ZAggregationInterval FLOAT   NOT NULL,
-	ZLocationUnitsID INT   NOT NULL,
+	ZLocationUnitsID INTEGER   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
@@ -1103,14 +1103,14 @@ CREATE TABLE ResultTypeCV (
 CREATE TABLE SectionResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	YLocation FLOAT   NULL,
-	YLocationUnitsID INT   NULL,
-	SpatialReferenceID INT   NULL,
+	YLocationUnitsID INTEGER   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	IntendedXSpacing FLOAT   NULL,
-	IntendedXSpacingUnitsID INT   NULL,
+	IntendedXSpacingUnitsID INTEGER   NULL,
 	IntendedZSpacing FLOAT   NULL,
-	IntendedZSpacingUnitsID INT   NULL,
+	IntendedZSpacingUnitsID INTEGER   NULL,
 	IntendedTimeSpacing FLOAT   NULL,
-	IntendedTimeSpacingUnitsID INT   NULL,
+	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -1127,22 +1127,22 @@ CREATE TABLE SectionResults (
 );
 
 CREATE TABLE SectionResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue DOUBLE   NOT NULL,
 	ValueDateTime BIGINT   NOT NULL,
 	ValueDateTimeUTCOffset BIGINT   NOT NULL,
 	XLocation DOUBLE   NOT NULL,
 	XAggregationInterval FLOAT   NOT NULL,
-	XLocationUnitsID INT   NOT NULL,
+	XLocationUnitsID INTEGER   NOT NULL,
 	ZLocation BIGINT   NOT NULL,
 	ZAggregationInterval FLOAT   NOT NULL,
-	ZLocationUnitsID INT   NOT NULL,
+	ZLocationUnitsID INTEGER   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES SectionResults (ResultID)
@@ -1156,14 +1156,14 @@ CREATE TABLE SectionResultValues (
 CREATE TABLE SpectraResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
-	XLocationUnitsID INT   NULL,
+	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
-	YLocationUnitsID INT   NULL,
+	YLocationUnitsID INTEGER   NULL,
 	ZLocation FLOAT   NULL,
-	ZLocationUnitsID INT   NULL,
-	SpatialReferenceID INT   NULL,
+	ZLocationUnitsID INTEGER   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	IntendedWavelengthSpacing DOUBLE   NULL,
-	IntendedWavelengthSpacingUnitsID INT   NULL,
+	IntendedWavelengthSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -1180,18 +1180,18 @@ CREATE TABLE SpectraResults (
 );
 
 CREATE TABLE SpectraResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL,
+	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	ExcitationWavelength FLOAT   NOT NULL,
 	EmissionWavelength FLOAT   NOT NULL,
-	WavelengthUnitsID INT   NOT NULL,
+	WavelengthUnitsID INTEGER   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval DOUBLE   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES SpectraResults (ResultID)
@@ -1203,14 +1203,14 @@ CREATE TABLE SpectraResultValues (
 CREATE TABLE TimeSeriesResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	XLocation FLOAT   NULL,
-	XLocationUnitsID INT   NULL,
+	XLocationUnitsID INTEGER   NULL,
 	YLocation FLOAT   NULL,
-	YLocationUnitsID INT   NULL,
+	YLocationUnitsID INTEGER   NULL,
 	ZLocation FLOAT   NULL,
-	ZLocationUnitsID INT   NULL,
-	SpatialReferenceID INT   NULL,
+	ZLocationUnitsID INTEGER   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	IntendedTimeSpacing FLOAT   NULL,
-	IntendedTimeSpacingUnitsID INT   NULL,
+	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -1227,15 +1227,15 @@ CREATE TABLE TimeSeriesResults (
 );
 
 CREATE TABLE TimeSeriesResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL,
+	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES TimeSeriesResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
@@ -1244,11 +1244,11 @@ CREATE TABLE TimeSeriesResultValues (
 
 CREATE TABLE TrajectoryResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
-	SpatialReferenceID INT   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	IntendedTrajectorySpacing FLOAT   NULL,
-	IntendedTrajectorySpacingUnitsID INT   NULL,
+	IntendedTrajectorySpacingUnitsID INTEGER   NULL,
 	IntendedTimeSpacing FLOAT   NULL,
-	IntendedTimeSpacingUnitsID INT   NULL,
+	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -1261,24 +1261,24 @@ CREATE TABLE TrajectoryResults (
 );
 
 CREATE TABLE TrajectoryResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL,
+	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	XLocation FLOAT   NOT NULL,
-	XLocationUnitsID INT   NOT NULL,
+	XLocationUnitsID INTEGER   NOT NULL,
 	YLocation FLOAT   NOT NULL,
-	YLocationUnitsID INT   NOT NULL,
+	YLocationUnitsID INTEGER   NOT NULL,
 	ZLocation FLOAT   NOT NULL,
-	ZLocationUnitsID INT   NOT NULL,
+	ZLocationUnitsID INTEGER   NOT NULL,
 	TrajectoryDistance FLOAT   NOT NULL,
 	TrajectoryDistanceAggregationInterval FLOAT   NOT NULL,
-	TrajectoryDistanceUnitsID INT   NOT NULL,
+	TrajectoryDistanceUnitsID INTEGER   NOT NULL,
 	CensorCode VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES TrajectoryResults (ResultID)
@@ -1294,12 +1294,12 @@ CREATE TABLE TrajectoryResultValues (
 CREATE TABLE TransectResults (
 	ResultID BIGINT   NOT NULL PRIMARY KEY,
 	ZLocation FLOAT   NULL,
-	ZLocationUnitsID INT   NULL,
-	SpatialReferenceID INT   NULL,
+	ZLocationUnitsID INTEGER   NULL,
+	SpatialReferenceID INTEGER   NULL,
 	IntendedTransectSpacing FLOAT   NULL,
-	IntendedTransectSpacingUnitsID INT   NULL,
+	IntendedTransectSpacingUnitsID INTEGER   NULL,
 	IntendedTimeSpacing FLOAT   NULL,
-	IntendedTimeSpacingUnitsID INT   NULL,
+	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -1314,23 +1314,23 @@ CREATE TABLE TransectResults (
 );
 
 CREATE TABLE TransectResultValues (
-	ValueID BIGINT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ValueID BIGINT   NOT NULL PRIMARY KEY,
 	ResultID BIGINT   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset DATETIME   NOT NULL,
 	XLocation FLOAT   NOT NULL,
-	XLocationUnitsID INT   NOT NULL,
+	XLocationUnitsID INTEGER   NOT NULL,
 	YLocation FLOAT   NOT NULL,
-	YLocationUnitsID INT   NOT NULL,
+	YLocationUnitsID INTEGER   NOT NULL,
 	TransectDistance FLOAT   NOT NULL,
 	TransectDistanceAggregationInterval FLOAT   NOT NULL,
-	TransectDistanceUnitsID INT   NOT NULL,
+	TransectDistanceUnitsID INTEGER   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES TransectResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -1340,11 +1340,11 @@ CREATE TABLE TransectResultValues (
 /***************************************************************************/
 
 CREATE TABLE RelatedFeatures (
-	RelationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	SamplingFeatureID INT   NOT NULL,
+	RelationID INTEGER   NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	RelatedFeatureID INT   NOT NULL,
-	SpatialOffsetID INT   NULL,
+	RelatedFeatureID INTEGER   NOT NULL,
+	SpatialOffsetID INTEGER   NULL,
 	FOREIGN KEY (RelatedFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
@@ -1354,11 +1354,11 @@ CREATE TABLE RelatedFeatures (
 );
 
 CREATE TABLE Sites (
-	SamplingFeatureID INT   NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL PRIMARY KEY,
 	SiteTypeCV VARCHAR (255)  NOT NULL,
 	Latitude FLOAT   NOT NULL,
 	Longitude FLOAT   NOT NULL,
-	LatLonDatumID INT   NOT NULL,
+	LatLonDatumID INTEGER   NOT NULL,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (LatLonDatumID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1366,25 +1366,25 @@ CREATE TABLE Sites (
 );
 
 CREATE TABLE SpatialOffsets (
-	SpatialOffsetID INT   NOT NULL PRIMARY KEY,
+	SpatialOffsetID INTEGER   NOT NULL PRIMARY KEY,
 	SpatialOffsetTypeCV VARCHAR (255)  NOT NULL,
 	Offset1Value FLOAT   NOT NULL,
-	Offset1UnitID INT   NOT NULL,
+	Offset1UnitID INTEGER   NOT NULL,
 	Offset2Value FLOAT   NULL,
-	Offset2UnitID INT   NULL,
+	Offset2UnitID INTEGER   NULL,
 	Offset3Value FLOAT   NULL,
-	Offset3UnitID INT   NULL
+	Offset3UnitID INTEGER   NULL
 );
 
 CREATE TABLE SpatialReferences (
-	SpatialReferenceID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	SpatialReferenceID INTEGER   NOT NULL PRIMARY KEY,
 	SRSCode VARCHAR (50)  NULL,
 	SRSName VARCHAR (255)  NOT NULL,
 	SRSDescription VARCHAR (500)  NULL
 );
 
 CREATE TABLE Specimens (
-	SamplingFeatureID INT   NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL PRIMARY KEY,
 	SpecimenTypeCV VARCHAR (255)  NOT NULL,
 	SpecimenMediumCV VARCHAR (255)  NOT NULL,
 	IsFieldSpecimen BIT   NOT NULL,
@@ -1393,10 +1393,10 @@ CREATE TABLE Specimens (
 );
 
 CREATE TABLE SpecimenTaxonomicClassifiers (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	SamplingFeatureID INT   NOT NULL,
-	TaxonomicClassifierID INT   NOT NULL,
-	CitationID INT   NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	SamplingFeatureID INTEGER   NOT NULL,
+	TaxonomicClassifierID INTEGER   NOT NULL,
+	CitationID INTEGER   NULL,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES Specimens (SamplingFeatureID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (TaxonomicClassifierID) REFERENCES TaxonomicClassifiers (TaxonomicClassifierID)
@@ -1408,9 +1408,9 @@ CREATE TABLE SpecimenTaxonomicClassifiers (
 /***************************************************************************/
 
 CREATE TABLE ModelAffiliations (
-	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ModelID INT   NOT NULL,
-	AffiliationID INT   NOT NULL,
+	BridgeID INTEGER   NOT NULL PRIMARY KEY,
+	ModelID INTEGER   NOT NULL,
+	AffiliationID INTEGER   NOT NULL,
 	IsPrimary BIT   NOT NULL,
 	RoleDescription VARCHAR (500)  NULL,
 	FOREIGN KEY (AffiliationID) REFERENCES Affiliations (AffiliationID)
@@ -1420,7 +1420,7 @@ CREATE TABLE ModelAffiliations (
 );
 
 CREATE TABLE Models (
-	ModelID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	ModelID INTEGER   NOT NULL PRIMARY KEY,
 	ModelCode VARCHAR (50)  NOT NULL,
 	ModelName VARCHAR (255)  NOT NULL,
 	ModelDescription VARCHAR (500)  NULL,
@@ -1429,27 +1429,27 @@ CREATE TABLE Models (
 );
 
 CREATE TABLE RelatedModels (
-	RelatedID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ModelID INT   NOT NULL,
+	RelatedID INTEGER   NOT NULL PRIMARY KEY,
+	ModelID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
-	RelatedModelID INT   NOT NULL,
+	RelatedModelID INTEGER   NOT NULL,
 	FOREIGN KEY (ModelID) REFERENCES Models (ModelID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE Simulations (
-	SimulationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	ActionID INT   NOT NULL,
+	SimulationID INTEGER   NOT NULL PRIMARY KEY,
+	ActionID INTEGER   NOT NULL,
 	SimulationName VARCHAR (255)  NOT NULL,
 	SimulationDescription VARCHAR (500)  NULL,
 	SimulationStartDateTime DATETIME   NOT NULL,
-	SimulationStartDateTimeUTCOffset INT   NOT NULL,
+	SimulationStartDateTimeUTCOffset INTEGER   NOT NULL,
 	SimulationEndDateTime DATETIME   NOT NULL,
-	SimulationEndDateTimeUTCOffset INT   NOT NULL,
+	SimulationEndDateTimeUTCOffset INTEGER   NOT NULL,
 	TimeStepValue FLOAT   NOT NULL,
-	TimeStepUnitsID INT   NOT NULL,
-	InputDataSetID INT   NULL,
-	ModelID INT   NOT NULL,
+	TimeStepUnitsID INTEGER   NOT NULL,
+	InputDataSetID INTEGER   NULL,
+	ModelID INTEGER   NOT NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ModelID) REFERENCES Models (ModelID)

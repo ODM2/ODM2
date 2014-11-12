@@ -313,7 +313,7 @@ class SQLITE():
     def __init__(self, options, dbwrenchObj):
         self.__schemas = dbwrenchObj
         self.__use_schemas = options.use_schemas
-        self.map = data_mapping.MYSQL()  # May eventually need to create a mapping for SQLite, but using MySQL mapping for now.
+        self.map = data_mapping.SQLITE()
         self.__global_schema = options.global_schema
 
     def build_ddl(self, include_postgis=True):
@@ -365,7 +365,10 @@ class SQLITE():
         ln = '('+att['length']+')' if att['length'] is not None else ''
         nu = 'NOT NULL' if not att['nullable'] else 'NULL'
         pk = 'PRIMARY KEY' if att['primarykey'] else ''
-        au = 'AUTO_INCREMENT' if att['autoincrement'] else ''
+        # au = 'AUTO_INCREMENT' if att['autoincrement'] else ''
+        # For SQLite, primary key columns automatically autoincrement
+        # The auto_increment flag was causing problems
+        au = ''
 
         ddl = '\n\t%s %s %s %s %s %s' % (name, type, ln, au, nu, pk)
 
