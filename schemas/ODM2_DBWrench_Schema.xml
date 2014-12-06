@@ -3699,7 +3699,7 @@
       <Cl au="0" df="" nm="TrajectoryDistanceUnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="CensorCode" nu="0">
+      <Cl au="0" df="" nm="CensorCodeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="QualityCodeCV" nu="0">
@@ -5470,7 +5470,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="476">
+  <RnmMgr NxRnmId="477">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -6623,6 +6623,9 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Models" SupCls="Schema" SupNme="ODM2Simulation">
       <Rnm id="475" nNm="Version" oNm="PrimaryContactID"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TrajectoryResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="476" nNm="CensorCodeCV" oNm="CensorCode"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -6640,7 +6643,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
