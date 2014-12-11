@@ -4,6 +4,8 @@ We are currently developing approaches and mechanisms regarding the use of contr
 
 ## Vocabulary web hosting and access on MMI ##
 
+**2014-Dec-10 note: Some of this material is now somewhat out of date. It will be updated soon, to include [our new vocabulary conventions](https://github.com/UCHIC/ODM2/issues/62), vocabulary loading workflow, and stable (but still initial) vocabularies loaded into the [new odm2 namespace on MMI ORR](http://mmisw.org/ont/odm2/)**.
+
 The ODM2 team has explored options for external hosting of web-accessible vocabularies. After initial discussions and tests carried out during the March 2014 workshop at Logan, UT, the decision for the initial path forward was to use the [MMI ORR (Marine Metadata Interoperability Ontology Registry and Repository)](http://mmisw.org/). MMI ORR includes convenient vocabulary and vocabulary mapping management capabilities, and ontology and vocabulary term URI resolvers that are both user (human) and machine friendly.
 
 * Listing of all the ODM2 test CV's created on MMI, stored under the "odm2test" authority: http://mmisw.org/ont/odm2test. As of May 9, 2014, there's only one test vocabulary. More will come soon.
