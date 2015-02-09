@@ -172,7 +172,8 @@ class readCore(serviceBase):
 
         try:
             return self._session.query(Samplingfeature).filter_by(SamplingFeatureTypeCV=samplingFeatureTypeCV).all()
-        except:
+        except Exception as e:
+            print e
             return None
 
     def getSamplingFeatureByGeometry(self,wkt_geometry):

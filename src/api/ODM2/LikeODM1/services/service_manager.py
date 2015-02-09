@@ -5,7 +5,7 @@ import utilities as util
 from series_service import SeriesService
 from cv_service import CVService
 from edit_service import EditService
-from export_service import ExportService
+#from export_service import ExportService
 
 
 
@@ -96,8 +96,6 @@ class ServiceManager():
         conn_string = self.__build_connection_string(self._current_connection)
         return EditService(series_id, connection=connection, connection_string=conn_string, debug=self.debug)
 
-    def get_export_service(self):
-        return ExportService(self.get_series_service())
 
     ## ###################
     # private variables

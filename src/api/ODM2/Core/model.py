@@ -195,9 +195,14 @@ class Unit(Base):
     __table_args__ = {u'schema': 'ODM2'}
 
     UnitsID = Column(Integer, primary_key=True)
+    '''
     UnitsTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     UnitsAbbreviation = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     UnitsName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    '''
+    UnitsTypeCV = Column(String(255), nullable=False)
+    UnitsAbbreviation = Column(String(255), nullable=False)
+    UnitsName = Column(String(255), nullable=False)
 
 class Variable(Base):
     __tablename__ = 'Variables'

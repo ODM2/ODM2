@@ -17,7 +17,7 @@ def compiles_as_bound(cls):
             #return "%s.%s(%s)" % (element.clauses.clauses[0], element.name,", ".join([compiler.process(e) for e in element.clauses.clauses[1:]]))
             return "%s.%s(%s)" % ("[SamplingFeatures_1].[FeatureGeometry]", element.name,", ".join([compiler.process(e) for e in element.clauses.clauses[1:]]))
         elif isinstance(compiler, MySQLCompiler):
-            return "%s(%s)"%("ST_AsText", "`ODM2`.`SamplingFeatures`.`FeatureGeometry`")
+            return "%s(%s)"%("astext", "`ODM2`.`SamplingFeatures`.`FeatureGeometry`")
         else:
             return "%s(%s)"%("ST_AsText", "\"ODM2\".\"SamplingFeatures\".\"FeatureGeometry\"")
     return cls

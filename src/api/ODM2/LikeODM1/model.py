@@ -13,6 +13,7 @@ metadata = MetaData()
 from ODM2.Core.model import Action, Organization, Affiliation, Person, Samplingfeature, Result,  Variable
 from ODM2.Results.model import Timeseriesresult
 from ODM2.SamplingFeatures.model import Site, Spatialreference
+from ODM2.CV.model import Cvterm
 
 
 
@@ -24,28 +25,28 @@ site_table =Site()
 variables_table =Variable()
 result_table =Result()
 affiliation_table=Affiliation()
-ts_result_table=Timeseriesresult()
+#ts_result_table=Timeseriesresult()
 action_table=Action()
-'''
+
 ##########joined tables#########
 #source_join = join(people_table, affiliation_table)
-site_join = join(site_table, sampling_feature_table)
-print site_join
+#site_join = join(site_table, sampling_feature_table)
+#print site_join
 ###############joined Classes###########
 class Site(Base):
-    __table__ = site_join
-
+    __table__ = site_table
     #id = column_property(sampling_feature_table.c.SamplingFeatureId)
     #code = address_table.c.id
 
-    id = column_property(sampling_feature_table.c.SamplingFeatureId)#Column('SamplingFeatureID', Integer, primary_key=True)
-    code = sampling_feature_table.SamplingFeatureCode
-    name = sampling_feature_table.SamplingFeatureName
+    id = site_table.SamplingFeatureID
+    code = site_table.SamplingFeatureCode
+    name = site_table.SamplingFeatureName
     latitude = site_table.Latitude
     longitude = site_table.Longitude
-    lat_long_datum_id = column_property(site_table.LatLonDatumID, Integer, ForeignKey('Spatialreference.SpatialReferenceID'))
-    elevation_m = site_table.Elevation_m#('Elevation_m', Float)
-    vertical_datum_id = sampling_feature_table.ElevationDatumCV #Column('VerticalDatum', Integer)
+    lat_long_datum_id = site_table.LatLonDatumID#, Integer, ForeignKey('ODM2.Spatialreference.SpatialReferenceID'))
+    elevation_m = site_table.Elevation_m
+    vertical_datum_id = site_table.ElevationDatumCV
+
     local_x = None#Column('LocalX', Float)
     local_y = None#Column('LocalY', Float)
     local_projection_id = None#Column('LocalProjectionID', Integer, ForeignKey('SpatialReferences.SpatialReferenceID'))
@@ -56,17 +57,15 @@ class Site(Base):
 
     type =None #Column('SiteTypeCV', String)
 
+
     # relationships
     #spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site.lat_long_datum_id"))
-    #local_spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site.local_projection_id"))
+   # local_spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site.local_projection_id"))
 
-    def __init__(self, site_code, site_name):
-        self.code = site_code
-        self.name = site_name
 
     def __repr__(self):
         return "<Site('%s', '%s')>" % (self.code, self.name)
-'''
+
 
 class Unit(Base):
     __tablename__ = 'Units'
@@ -75,7 +74,7 @@ class Unit(Base):
     id = Column('UnitsID', Integer, primary_key=True)
     name = Column('UnitsName', String)
     type = Column('UnitsTypeCV', String)
-    abbreviation = Column('UnitsAbbreviation', String(convert_unicode=True))
+    abbreviation = Column('UnitsAbbreviation', String)
 
     def __repr__(self):
         return "<Unit('%s', '%s', '%s')>" % (self.id, self.name, self.type)
@@ -107,10 +106,11 @@ class LabMethod(Base):
     def __repr__(self):
         return "<LabMethod('%s', '%s', '%s', '%s')>" % (self.id, self.name, self.organization, self.method_name)
 '''
-class ODMVersion(Base):
-    __tablename__ = 'ODMVersion'
+class ODMVersion:
+    #__tablename__ = 'ODMVersion'
 
-    version_number = Column('VersionNumber', String, primary_key=True)
+    #version_number = Column('VersionNumber', String, primary_key=True)
+    version_number = 2
 
     def __repr__(self):
         return "<ODMVersion('%s')>" % (self.version_number)
@@ -129,9 +129,9 @@ class SpatialReference(Base):
 
     def __repr__(self):
         return "<SpatialReference('%s', '%s')>" % (self.id, self.srs_name)
-
+'''
 class CensorCodeCV(Base):
-    __tablename__ = 'CensorCodeCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -140,7 +140,7 @@ class CensorCodeCV(Base):
         return "<CensorCodeCV('%s', '%s')>" % (self.term, self.definition)
 
 class DataTypeCV(Base):
-    __tablename__ = 'DataTypeCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -149,7 +149,7 @@ class DataTypeCV(Base):
         return "<DataTypeCV('%s', '%s')>" % (self.term, self.definition)  # Declare a mapped class
 
 class GeneralCategoryCV(Base):
-    __tablename__ = 'GeneralCategoryCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -158,7 +158,7 @@ class GeneralCategoryCV(Base):
         return "<GeneralCategoryCV('%s', '%s')>" % (self.term, self.definition)
 
 class SampleMediumCV(Base):
-    __tablename__ = 'SampleMediumCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -167,7 +167,7 @@ class SampleMediumCV(Base):
         return "<SampleMedium('%s', '%s')>" % (self.term, self.definition)
 
 class SampleTypeCV(Base):
-    __tablename__ = 'SampleTypeCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -176,7 +176,7 @@ class SampleTypeCV(Base):
         return "<SampleTypeCV('%s', '%s')>" % (self.term, self.definition)
 
 class SiteTypeCV(Base):
-    __tablename__ = 'SiteTypeCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -185,7 +185,7 @@ class SiteTypeCV(Base):
         return "<SiteTypeCV('%s', '%s')>" % (self.term, self.definition)
 
 class SpeciationCV(Base):
-    __tablename__ = 'SpeciationCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -194,7 +194,7 @@ class SpeciationCV(Base):
         return "<SpeciationCV('%s', '%s')>" % (self.term, self.definition)
 
 class TopicCategoryCV(Base):
-    __tablename__ = 'TopicCategoryCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -203,7 +203,7 @@ class TopicCategoryCV(Base):
         return "<TopicCategoryCV('%s', '%s')>" % (self.term, self.definition)
 
 class ValueTypeCV(Base):
-    __tablename__ = 'ValueTypeCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -212,7 +212,7 @@ class ValueTypeCV(Base):
         return "<ValueTypeCV('%s', '%s')>" % (self.term, self.definition)
 
 class VariableNameCV(Base):
-    __tablename__ = 'VariableNameCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
@@ -221,21 +221,21 @@ class VariableNameCV(Base):
         return "<VariableNameCV('%s', '%s')>" % (self.term, self.definition)
 
 class VerticalDatumCV(Base):
-    __tablename__ = 'VerticalDatumCV'
+    __tablename__ = 'cvterms'
 
     term = Column('Term', String, primary_key=True)
     definition = Column('Definition', String)
 
     def __repr__(self):
         return "<VerticalDatumCV('%s', '%s')>" % (self.term, self.definition)
-
+'''
 class Sample(Base):
     __tablename__ = 'Samples'
 
     id = Column('SampleID', Integer, primary_key=True)
     type = Column('SampleType', String, nullable=False)
     lab_sample_code = Column('LabSampleCode', String, nullable=False)
-    lab_method_id = Column('LabMethodID', Integer, ForeignKey('LabMethods.LabMethodID'), nullable=False)
+    lab_method_id = Column('LabMethodID', Integer, ForeignKey('ODM2.LabMethods.LabMethodID'), nullable=False)
 
     # relationships
     #lab_method = relationship(LabMethod)
@@ -261,7 +261,7 @@ class OffsetType(Base):
     __table_args__ = {u'schema': 'ODM2'}
 
     id = Column('OffsetTypeID', Integer, primary_key=True)
-    unit_id = Column('ZLocationUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+    unit_id = Column('ZLocationUnitsID', Integer, ForeignKey('ODM2.Units.UnitsID'), nullable=False)
     description = Column('OffsetDescription', String)
 
     # relationships
@@ -311,7 +311,7 @@ class Source(Base):
     state = Column('State', String, nullable=False)
     zip_code = Column('ZipCode', String, nullable=False)
     citation = Column('Citation', String, nullable=False)
-    iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ISOMetadata.MetadataID'), nullable=False)
+    iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ODM2.ISOMetadata.MetadataID'), nullable=False)
 
     # relationships
     #iso_metadata = relationship(ISOMetadata)
@@ -331,10 +331,10 @@ class Site(Base):
     latitude = Column('Latitude', Float)
     longitude = Column('Longitude', Float)
 
-
-    def __init__(self, site_code, site_name):
-        self.code = site_code
-        self.name = site_name
+    #
+    # def __init__(self, site_code, site_name):
+    #     self.code = site_code
+    #     self.name = site_name
 
     def __repr__(self):
         return "<Site('%s', '%s')>" % (self.code, self.name)
@@ -371,7 +371,7 @@ class Variable(Base):
 '''
 
 
-
+'''
 def copy_data_value(from_dv):
     new = DataValue()
     new.data_value = from_dv.data_value
@@ -391,6 +391,7 @@ def copy_data_value(from_dv):
     new.derived_from_id = from_dv.derived_from_id
     new.quality_control_level_id = from_dv.quality_control_level_id
     return new
+'''
 '''
 class DataValue(Base):
     __tablename__ = 'DataValues'

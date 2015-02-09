@@ -15,8 +15,8 @@ sys.path.insert(0, directory)
 
 # Create a connection to the ODM2 database
 # ----------------------------------------
-conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-#conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
+#conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
+conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 #conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 #conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
 #conn = dbconnection.createConnection('mysql', '127.0.0.1:3306', 'ODM2', 'Stephanie', 'odm')
@@ -54,58 +54,70 @@ for x in allPeople:
 
 
 # Get all of the SamplingFeatures from the database that are Sites
-siteFeatures = core_read.getSamplingFeaturesByType('Site')
-numSites = len(siteFeatures)
-print "\n--------------- Information about Site SamplingFeatures ------------"
-print "There are " + str(numSites) + " Site SamplingFeatures in the ODM2 database retrieved using getSamplingFeaturesByType()."
-print "The list of Site SamplingFeatures includes: "
-for x in siteFeatures:
-    print x.SamplingFeatureCode + ": " + x.SamplingFeatureName
+try:
+    siteFeatures = core_read.getSamplingFeaturesByType('Site')
+    numSites = len(siteFeatures)
+    print "\n--------------- Information about Site SamplingFeatures ------------"
+    print "There are " + str(numSites) + " Site SamplingFeatures in the ODM2 database retrieved using getSamplingFeaturesByType()."
+    print "The list of Site SamplingFeatures includes: "
+    for x in siteFeatures:
+        print x.SamplingFeatureCode + ": " + x.SamplingFeatureName
+except Exception as e:
+    print "Unable to demo getSamplingFeaturesByType", e
 
 
 # Now get the SamplingFeature object for a SamplingFeature code
-sf = core_read.getSamplingFeatureByCode('USU-LBR-Mendon')
-print "\n-------- Information about an individual SamplingFeature ---------"
-print ("The following are some of the attributes of a SamplingFeature retrieved using getSamplingFeatureByCode(): \n" +
-       "SamplingFeatureCode: " + sf.SamplingFeatureCode + "\n" +
-       "SamplingFeatureName: " + sf.SamplingFeatureName + "\n" +
-       "SamplingFeatureDescription: " + sf.SamplingFeatureDescription + "\n" +
-       "SamplingFeatureGeotypeCV: " + sf.SamplingFeatureGeotypeCV + "\n"
-       "SamplingFeatureGeometry: " + sf.FeatureGeometry + "\n" +
-       "Elevation_m: " + str(sf.Elevation_m))
+try:
+    sf = core_read.getSamplingFeatureByCode('USU-LBR-Mendon')
+    print "\n-------- Information about an individual SamplingFeature ---------"
+    print ("The following are some of the attributes of a SamplingFeature retrieved using getSamplingFeatureByCode(): \n" +
+           "SamplingFeatureCode: " + sf.SamplingFeatureCode + "\n" +
+           "SamplingFeatureName: " + sf.SamplingFeatureName + "\n" +
+           "SamplingFeatureDescription: " + sf.SamplingFeatureDescription + "\n" +
+           "SamplingFeatureGeotypeCV: " + sf.SamplingFeatureGeotypeCV + "\n"
+           "SamplingFeatureGeometry: " + sf.FeatureGeometry + "\n" +
+           "Elevation_m: " + str(sf.Elevation_m))
+except Exception as e:
+    print "Unable to demo getSamplingFeatureByCode: ", e
+
 
 
 # Drill down and get objects linked by foreign keys
 print "\n------------ Foreign Key Example --------- \n",
-# Call getResults, but return only the first result
-firstResult = core_read.getResults()[0]
-print "The FeatureAction object for the Result is: ", firstResult.FeatureActionObj
-print "The Action object for the Result is: ", firstResult.FeatureActionObj.ActionObj
-print ("\nThe following are some of the attributes for the Action that created the Result: \n" +
-       "ActionTypeCV: " + firstResult.FeatureActionObj.ActionObj.ActionTypeCV + "\n" +
-       "ActionDescription: " + firstResult.FeatureActionObj.ActionObj.ActionDescription + "\n" +
-       "BeginDateTime: " + str(firstResult.FeatureActionObj.ActionObj.BeginDateTime) + "\n" +
-       "EndDateTime: " + str(firstResult.FeatureActionObj.ActionObj.EndDateTime) + "\n" +
-       "MethodName: " + firstResult.FeatureActionObj.ActionObj.MethodObj.MethodName + "\n" +
-       "MethodDescription: " + firstResult.FeatureActionObj.ActionObj.MethodObj.MethodDescription)
+try:
+    # Call getResults, but return only the first result
+    firstResult = core_read.getResults()[0]
+    print "The FeatureAction object for the Result is: ", firstResult.FeatureActionObj
+    print "The Action object for the Result is: ", firstResult.FeatureActionObj.ActionObj
+    print ("\nThe following are some of the attributes for the Action that created the Result: \n" +
+           "ActionTypeCV: " + firstResult.FeatureActionObj.ActionObj.ActionTypeCV + "\n" +
+           "ActionDescription: " + firstResult.FeatureActionObj.ActionObj.ActionDescription + "\n" +
+           "BeginDateTime: " + str(firstResult.FeatureActionObj.ActionObj.BeginDateTime) + "\n" +
+           "EndDateTime: " + str(firstResult.FeatureActionObj.ActionObj.EndDateTime) + "\n" +
+           "MethodName: " + firstResult.FeatureActionObj.ActionObj.MethodObj.MethodName + "\n" +
+           "MethodDescription: " + firstResult.FeatureActionObj.ActionObj.MethodObj.MethodDescription)
+except Exception as e:
+    print "Unable to demo Foreign Key Example: ", e
 
 
 # Now get a particular Result using a ResultID
 print "\n------- Example of Retrieving Attributes of a Time Series Result -------"
-tsResult = result_read.getTimeSeriesResultByResultId(19)
-print ("The following are some of the attributes for the TimeSeriesResult retrieved using getTimeSeriesResultByResultID(): \n" +
-       "ResultTypeCV: " + tsResult.ResultTypeCV + "\n" +
-       # Get the ProcessingLevel from the TimeSeriesResult's ProcessingLevel object
-       "ProcessingLevel: " + tsResult.ProcessingLevelObj.Definition + "\n" +
-       "SampledMedium: " + tsResult.SampledMediumCV + "\n" +
-       # Get the variable information from the TimeSeriesResult's Variable object
-       "Variable: " + tsResult.VariableObj.VariableCode + ": " + tsResult.VariableObj.VariableNameCV + "\n"
-       "AggregationStatistic: " + tsResult.AggregationStatisticCV + "\n" +
-       "Elevation_m: " + str(sf.Elevation_m) + "\n" +
-       # Get the site information by drilling down
-       "SamplingFeature: " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureCode + " - " +
-       tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName)
-
+try:
+    tsResult = result_read.getTimeSeriesResultByResultId(19)
+    print ("The following are some of the attributes for the TimeSeriesResult retrieved using getTimeSeriesResultByResultID(): \n" +
+           "ResultTypeCV: " + tsResult.ResultTypeCV + "\n" +
+           # Get the ProcessingLevel from the TimeSeriesResult's ProcessingLevel object
+           "ProcessingLevel: " + tsResult.ProcessingLevelObj.Definition + "\n" +
+           "SampledMedium: " + tsResult.SampledMediumCV + "\n" +
+           # Get the variable information from the TimeSeriesResult's Variable object
+           "Variable: " + tsResult.VariableObj.VariableCode + ": " + tsResult.VariableObj.VariableNameCV + "\n"
+           "AggregationStatistic: " + tsResult.AggregationStatisticCV + "\n" +
+           "Elevation_m: " + str(sf.Elevation_m) + "\n" +
+           # Get the site information by drilling down
+           "SamplingFeature: " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureCode + " - " +
+           tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName)
+except Exception as e:
+    print "Unable to demo Example of retrieving Attributes of a time Series Result: ", e
 
 # Get the values for a particular TimeSeriesResult
 print "\n-------- Example of Retrieving Time Series Result Values ---------"
@@ -133,9 +145,9 @@ plt.show()
 
 # Demo the LikeODM1 stuff
 # -------------------------------------------------
-#from ODM2.LikeODM1.services import SeriesService
+from ODM2.LikeODM1.services import SeriesService
 #### LIKE ODM1 ####
 #conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-#odm1service = SeriesService(conn)
-#print odm1service.get_all_units()
-#print odm1service.get_all_sites()
+odm1service = SeriesService(conn)
+print odm1service.get_all_units()
+print odm1service.get_all_sites()
