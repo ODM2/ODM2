@@ -38,5 +38,5 @@ from ODM2.LikeODM1.services import SeriesService
 #### LIKE ODM1 ####
 #conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 odm1service = SeriesService(conn)
-print odm1service.get_all_units()
-print odm1service.get_all_sites()
+print "Units: ", odm1service.get_all_units()
+print "Sites: ", odm1service.get_all_sites()

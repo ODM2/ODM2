@@ -4,7 +4,7 @@ from sqlalchemy import distinct
 import sqlalchemy.exc
 
 from ODMconnection import SessionFactory
-from ODM2.LikeODM1.model import  Site, Unit,  Qualifier, OffsetType, Sample, Method, QualityControlLevel, ODMVersion
+from ODM2.LikeODM1.model import Site, Unit,  Qualifier, OffsetType, Sample, Method, QualityControlLevel, ODMVersion
 from ODM1_1_1 import   Variable, Series, DataValue
 
 
@@ -31,7 +31,7 @@ class SeriesService():
 
     # Site methods
     def get_all_sites(self):
-        return self._session.query(Site).order_by(Site.code).all()
+        return self._session.query(Site).all()
 
     def get_site_by_id(self, site_id):
         try:

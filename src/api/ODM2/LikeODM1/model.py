@@ -20,8 +20,8 @@ from ODM2.CV.model import Cvterm
 
 organization_table =Table()
 people_table = Person()
-sampling_feature_table = Samplingfeature()
-site_table =Site()
+sf_table = Samplingfeature().__table__
+site_table =Site().__table__
 variables_table =Variable()
 result_table =Result()
 affiliation_table=Affiliation()
@@ -31,21 +31,40 @@ action_table=Action()
 ##########joined tables#########
 #source_join = join(people_table, affiliation_table)
 #site_join = join(site_table, sampling_feature_table)
+site_join = site_table.join(sf_table, site_table.c.SamplingFeatureID == sf_table.c.SamplingFeatureID)
 #print site_join
 ###############joined Classes###########
+
+class SpatialReference(Base):
+    __tablename__ = 'SpatialReferences'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    id = Column('SpatialReferenceID', Integer, primary_key=True)
+    srs_id = Column('SRSID', String)
+    srs_name = Column('SRSName', String)
+    is_geographic = None
+    #is_geographic = Column('IsGeographic', Boolean)
+    notes = Column('Description', String)
+
+    def __repr__(self):
+        return "<SpatialReference('%s', '%s')>" % (self.id, self.srs_name)
+
 class Site(Base):
-    __table__ = site_table
+    #__table__ = site_join
+    __table__ = site_join
+    #__tablename__ = site_table.__tablename__
+
     #id = column_property(sampling_feature_table.c.SamplingFeatureId)
     #code = address_table.c.id
 
-    id = site_table.SamplingFeatureID
-    code = site_table.SamplingFeatureCode
-    name = site_table.SamplingFeatureName
-    latitude = site_table.Latitude
-    longitude = site_table.Longitude
-    lat_long_datum_id = site_table.LatLonDatumID#, Integer, ForeignKey('ODM2.Spatialreference.SpatialReferenceID'))
-    elevation_m = site_table.Elevation_m
-    vertical_datum_id = site_table.ElevationDatumCV
+    id = site_table.c.SamplingFeatureID
+    code = sf_table.c.SamplingFeatureCode
+    name = sf_table.c.SamplingFeatureName
+    latitude = site_table.c.Latitude
+    longitude = site_table.c.Longitude
+    lat_long_datum_id = site_table.c.LatLonDatumID#, Integer, ForeignKey('ODM2.Spatialreference.SpatialReferenceID'))
+    elevation_m = sf_table.c.Elevation_m
+    vertical_datum_id = sf_table.c.ElevationDatumCV
 
     local_x = None#Column('LocalX', Float)
     local_y = None#Column('LocalY', Float)
@@ -55,16 +74,18 @@ class Site(Base):
     county = None#Column('County', String)
     comments = None#Column('Comments', String)
 
-    type =None #Column('SiteTypeCV', String)
+    type = site_table.c.SiteTypeCV #Column('SiteTypeCV', String)
 
 
     # relationships
     #spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site.lat_long_datum_id"))
-   # local_spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site.local_projection_id"))
+    #local_spatial_ref = relationship(SpatialReference, primaryjoin="SpatialReference.id == Site.LatLonDatumID")
+    #local_spatial_ref = relationship(SpatialReference, primaryjoin="Site.lat_long_datum_id == SpatialReference.id")
 
 
     def __repr__(self):
         return "<Site('%s', '%s')>" % (self.code, self.name)
+
 
 
 class Unit(Base):
@@ -78,6 +99,37 @@ class Unit(Base):
 
     def __repr__(self):
         return "<Unit('%s', '%s', '%s')>" % (self.id, self.name, self.type)
+
+class Variable(Base):
+    #TODO join with Result
+    __tablename__ = u'Variables'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    id = Column('VariableID', Integer, primary_key=True)
+    code = Column('VariableCode', String, nullable=False)
+    name = Column('VariableNameCV', String, nullable=False)
+    speciation = Column('SpeciationCV', String, nullable=False)
+    no_data_value = Column('NoDataValue', Float, nullable=False)
+
+'''
+    variable_unit_id = Column('VariableUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+    sample_medium = Column('SampleMedium', String, nullable=False)
+    value_type = Column('ValueType', String, nullable=False)
+    is_regular = Column('IsRegular', Boolean, nullable=False)
+    time_support = Column('TimeSupport', Float, nullable=False)
+    time_unit_id = Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+    data_type = Column('DataType', String, nullable=False)
+    general_category = Column('GeneralCategory', String, nullable=False)
+
+
+    # relationships
+    variable_unit = relationship(Unit, primaryjoin=(
+    "Unit.id==Variable.variable_unit_id"))  # <-- Uses class attribute names, not table column names
+    time_unit = relationship(Unit, primaryjoin=("Unit.id==Variable.time_unit_id"))
+
+    def __repr__(self):
+        return "<Variable('%s', '%s', '%s')>" % (self.id, self.code, self.name)
+'''
 
 '''class ISOMetadata(Base):
     __tablename__ = 'ISOMetadata'
@@ -117,18 +169,7 @@ class ODMVersion:
 
 
 
-class SpatialReference(Base):
-    __tablename__ = 'SpatialReferences'
-    __table_args__ = {u'schema': 'ODM2'}
 
-    id = Column('SpatialReferenceID', Integer, primary_key=True)
-    srs_id = Column('SRSID', String)
-    srs_name = Column('SRSName', String)
-    #is_geographic = Column('IsGeographic', Boolean)
-    notes = Column('Description', String)
-
-    def __repr__(self):
-        return "<SpatialReference('%s', '%s')>" % (self.id, self.srs_name)
 '''
 class CensorCodeCV(Base):
     __tablename__ = 'cvterms'
@@ -319,56 +360,7 @@ class Source(Base):
     def __repr__(self):
         return "<Source('%s', '%s', '%s')>" % (self.id, self.organization, self.description)
 
-#ToDO join Sampling feature and sites
-class Site(Base):
-    
-    __tablename__ = u'Sites'
-    __table_args__ = {u'schema': 'ODM2'}
 
-    id = Column('SamplingFeatureID', Integer, primary_key=True)
-    code = Column('SiteCode', String)
-    name = Column('SiteName', String)
-    latitude = Column('Latitude', Float)
-    longitude = Column('Longitude', Float)
-
-    #
-    # def __init__(self, site_code, site_name):
-    #     self.code = site_code
-    #     self.name = site_name
-
-    def __repr__(self):
-        return "<Site('%s', '%s')>" % (self.code, self.name)
-
-class Variable(Base):
-    #TODO join with Result
-    __tablename__ = u'Variables'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    id = Column('VariableID', Integer, primary_key=True)
-    code = Column('VariableCode', String, nullable=False)
-    name = Column('VariableNameCV', String, nullable=False)
-    speciation = Column('SpeciationCV', String, nullable=False)
-    no_data_value = Column('NoDataValue', Float, nullable=False)
-
-'''
-    variable_unit_id = Column('VariableUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
-    sample_medium = Column('SampleMedium', String, nullable=False)
-    value_type = Column('ValueType', String, nullable=False)
-    is_regular = Column('IsRegular', Boolean, nullable=False)
-    time_support = Column('TimeSupport', Float, nullable=False)
-    time_unit_id = Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
-    data_type = Column('DataType', String, nullable=False)
-    general_category = Column('GeneralCategory', String, nullable=False)
-
-
-    # relationships
-    variable_unit = relationship(Unit, primaryjoin=(
-    "Unit.id==Variable.variable_unit_id"))  # <-- Uses class attribute names, not table column names
-    time_unit = relationship(Unit, primaryjoin=("Unit.id==Variable.time_unit_id"))
-
-    def __repr__(self):
-        return "<Variable('%s', '%s', '%s')>" % (self.id, self.code, self.name)
-'''
 
 
 '''
