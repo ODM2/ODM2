@@ -20,8 +20,7 @@ from ODM2.CV.model import Cvterm
 
 organization_table =Table()
 people_table = Person()
-sf_table = Samplingfeature().__table__
-site_table =Site().__table__
+
 variables_table =Variable()
 result_table =Result()
 affiliation_table=Affiliation()
@@ -30,9 +29,7 @@ action_table=Action()
 
 ##########joined tables#########
 #source_join = join(people_table, affiliation_table)
-#site_join = join(site_table, sampling_feature_table)
-site_join = site_table.join(sf_table, site_table.c.SamplingFeatureID == sf_table.c.SamplingFeatureID)
-#print site_join
+
 ###############joined Classes###########
 
 class SpatialReference(Base):
@@ -49,38 +46,36 @@ class SpatialReference(Base):
     def __repr__(self):
         return "<SpatialReference('%s', '%s')>" % (self.id, self.srs_name)
 
-class Site(Base):
-    #__table__ = site_join
+sf_table = Samplingfeature().__table__
+site_table =Site().__table__
+site_join = site_table.join(sf_table, site_table.c.SamplingFeatureID == sf_table.c.SamplingFeatureID)
+class Site2(Base):
     __table__ = site_join
-    #__tablename__ = site_table.__tablename__
 
-    #id = column_property(sampling_feature_table.c.SamplingFeatureId)
-    #code = address_table.c.id
 
-    id = site_table.c.SamplingFeatureID
-    code = sf_table.c.SamplingFeatureCode
-    name = sf_table.c.SamplingFeatureName
-    latitude = site_table.c.Latitude
-    longitude = site_table.c.Longitude
-    lat_long_datum_id = site_table.c.LatLonDatumID#, Integer, ForeignKey('ODM2.Spatialreference.SpatialReferenceID'))
-    elevation_m = sf_table.c.Elevation_m
-    vertical_datum_id = sf_table.c.ElevationDatumCV
+    id = site_join.c.ODM2_Sites_SamplingFeatureID
+    code = site_join.c.ODM2_SamplingFeatures_SamplingFeatureCode
+    name = site_join.c.ODM2_SamplingFeatures_SamplingFeatureName
+    latitude = site_join.c.ODM2_Sites_Latitude
+    longitude = site_join.c.ODM2_Sites_Longitude
+    lat_long_datum_id = site_join.c.ODM2_Sites_LatLonDatumID._clone().foreign_keys = ForeignKey("SpatialReference.id")#, Integer, ForeignKey("SpatialReference.id"))#column_property(site_table.c.LatLonDatumID, ForeignKey('SpatialReference.id'))
+    elevation_m = site_join.c.ODM2_SamplingFeatures_Elevation_m
+    vertical_datum_id = site_join.c.ODM2_SamplingFeatures_ElevationDatumCV
 
-    local_x = None#Column('LocalX', Float)
-    local_y = None#Column('LocalY', Float)
+    local_x = None
+    local_y = None
     local_projection_id = None#Column('LocalProjectionID', Integer, ForeignKey('SpatialReferences.SpatialReferenceID'))
-    pos_accuracy_m = None#Column('PosAccuracy_m', Float)
-    state = None#Column('State', String)
-    county = None#Column('County', String)
-    comments = None#Column('Comments', String)
+    pos_accuracy_m = None
+    state = None
+    county = None
+    comments = None
 
-    type = site_table.c.SiteTypeCV #Column('SiteTypeCV', String)
 
 
     # relationships
-    #spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site.lat_long_datum_id"))
-    #local_spatial_ref = relationship(SpatialReference, primaryjoin="SpatialReference.id == Site.LatLonDatumID")
-    #local_spatial_ref = relationship(SpatialReference, primaryjoin="Site.lat_long_datum_id == SpatialReference.id")
+    spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site2.lat_long_datum_id"))
+    #spatial_ref = relationship(SpatialReference)
+    #spatial_ref = relationship(SpatialReference, primaryjoin="Site.lat_long_datum_id == SpatialReference.id")
 
 
     def __repr__(self):
