@@ -15,7 +15,7 @@ sys.path.insert(0, directory)
 
 # Create a connection to the ODM2 database
 # ----------------------------------------
-#conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
+# conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 #conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 #conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
@@ -39,11 +39,7 @@ from ODM2.LikeODM1.services import SeriesService
 #conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 odm1service = SeriesService(conn)
 print "Units: ", odm1service.get_all_units()
-
-sites =  "Sites: ", odm1service.get_all_sites()
-
-
-print sites
-
+print "Sites: ", odm1service.get_all_sites()
 print "Variables: ", odm1service.get_all_variables()
+
 

@@ -72,7 +72,9 @@ class Site2(Base):
 
 
     # relationships
-    spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site2.lat_long_datum_id"))
+    # TODO @sreeder, Please take a look at this line as it throws: sqlalchemy.exc.InvalidRequestError: Class <class 'ODM2.LikeODM1.model.Site2'> does not have a mapped column named 'lat_long_datum_id'
+    # :)
+    #spatial_ref = relationship(SpatialReference, primaryjoin=("SpatialReference.id==Site2.lat_long_datum_id"))
     #spatial_ref = relationship(SpatialReference)
     #spatial_ref = relationship(SpatialReference, primaryjoin="Site.lat_long_datum_id == SpatialReference.id")
 
@@ -95,26 +97,20 @@ class Unit(Base):
         return "<Unit('%s', '%s', '%s')>" % (self.id, self.name, self.type)
 
 
-"""Requires joining with Variable, Result, Timeseriesresult, and Timeseriesresultvalue to build Variable for ODM1_1_1"""
+"""Requires joining with Variable, Result, and Timeseriesresult to build Variable for ODM1_1_1"""
 variables_table = Variable().__table__
-result_table = Result().__table__
 ts_table = Timeseriesresult().__table__
-# ts_results_values = Timeseriesresultvalue().__table__
 
-aliased_table1 = select([
-    result_table.c.ResultID.label("results_ResultID"),
+result_table = Result().__table__
+aliased_table = select([
+    result_table.c.ResultID.label("RID"),
     result_table.c.UnitsID,
     result_table.c.VariableID,
     result_table.c.SampledMediumCV,
-]).alias()
+]).alias("ODM2_Aliased")
 
-ts_join = aliased_table1.join(ts_table, aliased_table1.c.results_ResultID == ts_table.c.ResultID)
-results = ts_join.join(variables_table, variables_table.c.VariableID == ts_join.c.results_ResultID)
-
-
-#variable_join = variables_table.join(result_table, variables_table.c.VariableID == result_table.c.VariableID)
-#results = variable_join.join(ts_result_table, ts_result_table.c.ResultID == variables_table.c.VariableID)
-#results = results.join(ts_results_values, ts_results_values.c.ResultID == results.c.ODM2_Results_ResultID)
+ts_join = aliased_table.join(ts_table, aliased_table.c.RID == ts_table.c.ResultID)
+results = ts_join.join(variables_table, variables_table.c.VariableID == ts_join.c.ODM2_Aliased_RID)
 
 class Variable(Base):
     __tablename__ = 'Variables'
@@ -126,8 +122,8 @@ class Variable(Base):
     speciation = results.c.ODM2_Variables_SpeciationCV                                  # Column('SpeciationCV', String, nullable=False)
     no_data_value = results.c.ODM2_Variables_NoDataValue                                # Column('NoDataValue', Float, nullable=False)
 
-    variable_unit_id = results.c.UnitsID                                   # Column('VariableUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
-    sample_medium = results.c.SampledMediumCV                              # Column('ODM2_Results_UnitsID', String, nullable=False)
+    variable_unit_id = results.c.ODM2_Aliased_UnitsID                                   # Column('VariableUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+    sample_medium = results.c.ODM2_Aliased_SampledMediumCV                              # Column('ODM2_Results_UnitsID', String, nullable=False)
     value_type = results.c.ODM2_Variables_VariableTypeCV                                # Column('ValueType', String, nullable=False)
     is_regular = None                                                                   # Column('IsRegular', Boolean, nullable=False)
     time_support = results.c.ODM2_TimeSeriesResults_IntendedTimeSpacing                 # Column('TimeSupport', Float, nullable=False)
