@@ -34,12 +34,41 @@ sampfeat_read = SFread(conn)
 
 # Demo the LikeODM1 stuff
 # -------------------------------------------------
+import pprint
+pp = pprint.PrettyPrinter(indent=8)
 from ODM2.LikeODM1.services import SeriesService
 #### LIKE ODM1 ####
 #conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-odm1service = SeriesService(conn)
-print "Units: ", odm1service.get_all_units()
-print "Sites: ", odm1service.get_all_sites()
-print "Variables: ", odm1service.get_all_variables()
 
+odm1service = SeriesService(conn)
+
+print
+print "************************************************"
+print "\t\tUnits: "
+print "************************************************"
+print
+
+pp.pprint(odm1service.get_all_units())
+
+print
+print "************************************************"
+print "\t\tSites: "
+print "************************************************"
+print
+
+pp.pprint(odm1service.get_all_sites())
+
+print
+print "************************************************"
+print "\t\tVariables: "
+print "************************************************"
+print
+
+pp.pprint(odm1service.get_all_variables())
+
+print
+print "************************************************"
+print "\t\tData Sources: "
+print "************************************************"
+print
 

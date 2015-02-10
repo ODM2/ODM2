@@ -19,12 +19,9 @@ from ODM2.CV.model import Cvterm
 
 
 
-organization_table =Table()
-people_table = Person()
+#organization_table = Table()
 
-
-affiliation_table=Affiliation()
-action_table=Action()
+action_table = Action()
 
 ##########joined tables#########
 #source_join = join(people_table, affiliation_table)
@@ -46,7 +43,7 @@ class SpatialReference(Base):
         return "<SpatialReference('%s', '%s')>" % (self.id, self.srs_name)
 
 sf_table = Samplingfeature().__table__
-site_table =Site().__table__
+site_table = Site().__table__
 site_join = site_table.join(sf_table, site_table.c.SamplingFeatureID == sf_table.c.SamplingFeatureID)
 class Site2(Base):
     __table__ = site_join
@@ -85,7 +82,7 @@ class Site2(Base):
 
 
 class Unit(Base):
-    __tablename__ = 'Units'
+    __tablename__ = u'Units'
     __table_args__ = {u'schema': 'ODM2'}
 
     id = Column('UnitsID', Integer, primary_key=True)
@@ -113,8 +110,8 @@ ts_join = aliased_table.join(ts_table, aliased_table.c.RID == ts_table.c.ResultI
 results = ts_join.join(variables_table, variables_table.c.VariableID == ts_join.c.ODM2_Aliased_RID)
 
 class Variable(Base):
-    __tablename__ = 'Variables'
     __table__ = results
+    __tablename__ = u'Variables'
 
     id = results.c.ODM2_Variables_VariableID                                            # Column('VariableID', Integer, primary_key=True)
     code = results.c.ODM2_Variables_VariableCode                                        # Column('VariableCode', String, nullable=False)
@@ -140,7 +137,40 @@ class Variable(Base):
     def __repr__(self):
         return "<Variable('%s', '%s', '%s')>" % (self.id, self.code, self.name)
 
-'''class ISOMetadata(Base):
+people_table = Person().__table__
+affiliation_table = Affiliation().__table__
+organization_table = Organization().__table__
+affiliation_join = affiliation_table.join(people_table, affiliation_table.c.AffiliationID == people_table.c.PersonID)
+results = affiliation_join.join(organization_table, affiliation_join.c.ODM2_Affiliations_OrganizationID == organization_table.c.OrganizationID)
+
+class Source(Base):
+    __table__ = results
+    __tablename__ = u'Organizations'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    id = results.c.ODM2_Affiliations_AffiliationID                      #Column('OrganizationID', Integer, primary_key=True)
+    organization = results.c.ODM2_Affiliations_OrganizationID           # Column('OrganizationName', String, nullable=False)#TODO organization
+    description = results.c.ODM2_Organizations_OrganizationDescription  #Column('OrganizationDescription', String, nullable=False)
+    link = results.c.ODM2_Organizations_OrganizationLink                # Column('OrganizationLink', String)
+
+    #TODO Affiliation, People
+    contact_name = Column('ContactName', String, nullable=False)
+    phone = results.c.ODM2_Affiliations_PrimaryPhone                    # Column('Phone', String, nullable=False)
+    email = results.c.ODM2_Affiliations_PrimaryEmail                    # Column('Email', String, nullable=False)
+    address = results.c.ODM2_Affiliations_PrimaryAddress                # Column('Address', String, nullable=False)
+    city = Column('City', String, nullable=False)
+    state = Column('State', String, nullable=False)
+    zip_code = Column('ZipCode', String, nullable=False)
+    citation = Column('Citation', String, nullable=False)
+    iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ODM2.ISOMetadata.MetadataID'), nullable=False)
+
+    # relationships
+    #iso_metadata = relationship(ISOMetadata)
+
+    def __repr__(self):
+        return "<Source('%s', '%s', '%s')>" % (self.id, self.organization, self.description)
+
+class ISOMetadata(Base):
     __tablename__ = 'ISOMetadata'
 
     id = Column('MetadataID', Integer, primary_key=True)
@@ -152,7 +182,7 @@ class Variable(Base):
 
     def __repr__(self):
         return "<ISOMetadata('%s', '%s', '%s')>" % (self.id, self.topic_category, self.title)
-
+'''
 #combined with Methods
 class LabMethod(Base):
     __tablename__ = 'LabMethods'
@@ -342,34 +372,6 @@ class QualityControlLevel(Base):
 
     def __repr__(self):
         return "<QualityControlLevel('%s', '%s', '%s', '%s')>" % (self.id, self.code, self.definition, self.explanation)
-
-class Source(Base):
-    __tablename__ = u'Organizations'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    id = Column('OrganizationID', Integer, primary_key=True)
-    organization = Column('OrganizationName', String, nullable=False)#TODO organization
-    description = Column('OrganizationDescription', String, nullable=False)
-    link = Column('OrganizationLink', String)
-
-    #TODO Affiliation, People
-    contact_name = Column('ContactName', String, nullable=False)
-    phone = Column('Phone', String, nullable=False)
-    email = Column('Email', String, nullable=False)
-    address = Column('Address', String, nullable=False)
-    city = Column('City', String, nullable=False)
-    state = Column('State', String, nullable=False)
-    zip_code = Column('ZipCode', String, nullable=False)
-    citation = Column('Citation', String, nullable=False)
-    iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ODM2.ISOMetadata.MetadataID'), nullable=False)
-
-    # relationships
-    #iso_metadata = relationship(ISOMetadata)
-
-    def __repr__(self):
-        return "<Source('%s', '%s', '%s')>" % (self.id, self.organization, self.description)
-
-
 
 
 '''
