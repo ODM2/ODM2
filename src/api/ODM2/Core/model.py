@@ -202,7 +202,7 @@ class Unit(Base):
     '''
     UnitsTypeCV = Column(String(255), nullable=False)
     UnitsAbbreviation = Column(String(255), nullable=False)
-    UnitsName = Column(String(255), nullable=False)
+    UnitsName = Column(String, nullable=False)
 
 class Variable(Base):
     __tablename__ = 'Variables'

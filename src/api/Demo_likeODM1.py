@@ -40,3 +40,4 @@ from ODM2.LikeODM1.services import SeriesService
 odm1service = SeriesService(conn)
 print "Units: ", odm1service.get_all_units()
 print "Sites: ", odm1service.get_all_sites()
+print "Variables: ", odm1service.get_all_variables()

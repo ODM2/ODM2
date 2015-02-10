@@ -1,5 +1,6 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import column_property
+from sqlalchemy import select
 
 Base = declarative_base()
 
@@ -10,8 +11,8 @@ from sqlalchemy.orm import relationship
 metadata = MetaData()
 
 ################ODM 2 Tables###########
-from ODM2.Core.model import Action, Organization, Affiliation, Person, Samplingfeature, Result,  Variable
-from ODM2.Results.model import Timeseriesresult
+from ODM2.Core.model import Action, Organization, Affiliation, Person, Samplingfeature, Result, Variable
+from ODM2.Results.model import Timeseriesresult, Timeseriesresultvalue
 from ODM2.SamplingFeatures.model import Site, Spatialreference
 from ODM2.CV.model import Cvterm
 
@@ -22,10 +23,7 @@ organization_table =Table()
 people_table = Person()
 sf_table = Samplingfeature().__table__
 site_table =Site().__table__
-variables_table =Variable()
-result_table =Result()
 affiliation_table=Affiliation()
-#ts_result_table=Timeseriesresult()
 action_table=Action()
 
 ##########joined tables#########
@@ -100,36 +98,55 @@ class Unit(Base):
     def __repr__(self):
         return "<Unit('%s', '%s', '%s')>" % (self.id, self.name, self.type)
 
+
+"""Requires joining with Variable, Result, Timeseriesresult, and Timeseriesresultvalue to build Variable for ODM1_1_1"""
+variables_table = Variable().__table__
+result_table = Result().__table__
+ts_table = Timeseriesresult().__table__
+# ts_results_values = Timeseriesresultvalue().__table__
+
+aliased_table1 = select([
+    result_table.c.ResultID.label("results_ResultID"),
+    result_table.c.UnitsID,
+    result_table.c.VariableID,
+    result_table.c.SampledMediumCV,
+]).alias()
+
+ts_join = aliased_table1.join(ts_table, aliased_table1.c.results_ResultID == ts_table.c.ResultID)
+results = ts_join.join(variables_table, variables_table.c.VariableID == ts_join.c.results_ResultID)
+
+
+#variable_join = variables_table.join(result_table, variables_table.c.VariableID == result_table.c.VariableID)
+#results = variable_join.join(ts_result_table, ts_result_table.c.ResultID == variables_table.c.VariableID)
+#results = results.join(ts_results_values, ts_results_values.c.ResultID == results.c.ODM2_Results_ResultID)
+
 class Variable(Base):
-    #TODO join with Result
-    __tablename__ = u'Variables'
-    __table_args__ = {u'schema': u'ODM2'}
+    __tablename__ = 'Variables'
+    __table__ = results
 
-    id = Column('VariableID', Integer, primary_key=True)
-    code = Column('VariableCode', String, nullable=False)
-    name = Column('VariableNameCV', String, nullable=False)
-    speciation = Column('SpeciationCV', String, nullable=False)
-    no_data_value = Column('NoDataValue', Float, nullable=False)
+    id = results.c.ODM2_Variables_VariableID                                            # Column('VariableID', Integer, primary_key=True)
+    code = results.c.ODM2_Variables_VariableCode                                        # Column('VariableCode', String, nullable=False)
+    name = results.c.ODM2_Variables_VariableNameCV                                      # Column('VariableNameCV', String, nullable=False)
+    speciation = results.c.ODM2_Variables_SpeciationCV                                  # Column('SpeciationCV', String, nullable=False)
+    no_data_value = results.c.ODM2_Variables_NoDataValue                                # Column('NoDataValue', Float, nullable=False)
 
-'''
-    variable_unit_id = Column('VariableUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
-    sample_medium = Column('SampleMedium', String, nullable=False)
-    value_type = Column('ValueType', String, nullable=False)
-    is_regular = Column('IsRegular', Boolean, nullable=False)
-    time_support = Column('TimeSupport', Float, nullable=False)
-    time_unit_id = Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
-    data_type = Column('DataType', String, nullable=False)
-    general_category = Column('GeneralCategory', String, nullable=False)
+    variable_unit_id = results.c.UnitsID                                   # Column('VariableUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+    sample_medium = results.c.SampledMediumCV                              # Column('ODM2_Results_UnitsID', String, nullable=False)
+    value_type = results.c.ODM2_Variables_VariableTypeCV                                # Column('ValueType', String, nullable=False)
+    is_regular = None                                                                   # Column('IsRegular', Boolean, nullable=False)
+    time_support = results.c.ODM2_TimeSeriesResults_IntendedTimeSpacing                 # Column('TimeSupport', Float, nullable=False)
+    time_unit_id = results.c.ODM2_TimeSeriesResults_IntendedTimeSpacingUnitsID          # Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+    data_type = results.c.ODM2_TimeSeriesResults_AggregationStatisticCV                 # Column('DataType', String, nullable=False)
+    general_category = None                                                             # Column('GeneralCategory', String, nullable=False)
 
-
+    """
     # relationships
     variable_unit = relationship(Unit, primaryjoin=(
     "Unit.id==Variable.variable_unit_id"))  # <-- Uses class attribute names, not table column names
     time_unit = relationship(Unit, primaryjoin=("Unit.id==Variable.time_unit_id"))
-
+    """
     def __repr__(self):
         return "<Variable('%s', '%s', '%s')>" % (self.id, self.code, self.name)
-'''
 
 '''class ISOMetadata(Base):
     __tablename__ = 'ISOMetadata'

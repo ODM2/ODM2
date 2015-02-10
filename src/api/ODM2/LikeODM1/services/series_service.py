@@ -4,8 +4,8 @@ from sqlalchemy import distinct
 import sqlalchemy.exc
 
 from ODMconnection import SessionFactory
-from ODM2.LikeODM1.model import Site, Unit,  Qualifier, OffsetType, Sample, Method, QualityControlLevel, ODMVersion
-from ODM1_1_1 import   Variable, Series, DataValue
+from ODM2.LikeODM1.model import Site, Unit,  Qualifier, OffsetType, Sample, Method, QualityControlLevel, ODMVersion, Variable
+from ODM1_1_1 import Series, DataValue
 
 
 
