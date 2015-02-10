@@ -34,10 +34,7 @@ class readResults(serviceBase):
         except:
             return None
 
-    def getTimeSeriesResultbyCode(self, timeSeriesCode):
-        """Select by time
-        """
-        pass
+
 
     """
     TimeSeriesResultValues
@@ -48,13 +45,14 @@ class readResults(serviceBase):
         :return TimeSeriesResultsValue Objects:
             :type list:
         """
+        try:
+            q=self._session.query(Timeseriesresultvalue).order_by(Timeseriesresultvalue.ValueDateTime).all()
+            df = pd.DataFrame([dv.list_repr() for dv in q])
+            df.columns = q[0].get_columns()
 
-        q=self._session.query(Timeseriesresultvalue).all()
-        df = pd.DataFrame([dv.list_repr() for dv in q])
-        df.columns = q[0].get_columns()
-
-        return df.sort('ValueDateTime', ascending = True)
-        #return self._session.query(Timeseriesresultvalue).all()
+            return df
+        except:
+            return None
 
     def getTimeSeriesResultValuesByResultId(self, resultId):
         """Select by resultId
@@ -65,7 +63,8 @@ class readResults(serviceBase):
             :type Timeseriesresultvalue:
         """
         try:
-            q=self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId).all()
+            q=self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultId)\
+                .order_by(Timeseriesresultvalue.ValueDateTime).all()
 
 
             df = pd.DataFrame([dv.list_repr() for dv in q])
@@ -75,13 +74,6 @@ class readResults(serviceBase):
         except Exception as e:
             return None
 
-    def getTimeSeriesResultValuesByCode(self, timeSeriesCode):
-        """
-
-        :param timeSeriesCode:
-        :return:
-        """
-        pass
 
     def getTimeSeriesResultValuesByTime(self, resultid, starttime, endtime=None):
 
@@ -89,9 +81,16 @@ class readResults(serviceBase):
         endtime = starttime if not endtime else endtime
 
         try:
-            return self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultid) \
+            q= self._session.query(Timeseriesresultvalue).filter_by(ResultID=resultid) \
                                                       .filter(Timeseriesresultvalue.ValueDateTime >= starttime) \
                                                       .filter(Timeseriesresultvalue.ValueDateTime <= endtime) \
                                                       .order_by(Timeseriesresultvalue.ValueDateTime).all()
+
+
+
+
+            df = pd.DataFrame([dv.list_repr() for dv in q])
+            df.columns = q[0].get_columns()
+            return df.sort('ValueDateTime', ascending = True)
         except:
             return None

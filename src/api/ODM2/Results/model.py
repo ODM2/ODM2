@@ -213,6 +213,14 @@ class Categoricalresultvalue(Base):
     ValueDateTimeUTCOffset = Column(Integer, nullable=False)
 
     CategoricalResultObj = relationship(Categoricalresult)
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset",]
+
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset, ]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime)
 
 
 class Measurementresultvalue(Base):
@@ -226,7 +234,14 @@ class Measurementresultvalue(Base):
     ValueDateTimeUTCOffset = Column(Integer, nullable=False)
 
     MeasurementResultObj = relationship(Measurementresult)
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset"]
 
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset,]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime)
 
 class Pointcoverageresultvalue(Base):
     __tablename__ = u'PointCoverageResultValues'
@@ -248,7 +263,18 @@ class Pointcoverageresultvalue(Base):
     XUnitObj = relationship(Unit, primaryjoin='Pointcoverageresultvalue.XLocationUnitsID == Unit.UnitsID')
     YUnitObj = relationship(Unit, primaryjoin='Pointcoverageresultvalue.YLocationUnitsID == Unit.UnitsID')
 
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset", "XLocation",  "XLocationUnitsID",
+                "YLocation", "YLocationUnitsID",
+            "CensorCodeCV","QualityCodeCV",]
 
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset, self.XLocation, self.XLocationUnitsID,
+            self.YZLocation,self.YLocationUnitsID,
+                self.CensorCodeCV, self.QualityCodeCV]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime)
 class Profileresultvalue(Base):
     __tablename__ = u'ProfileResultValues'
     __table_args__ = {u'schema': 'ODM2'}
@@ -269,7 +295,18 @@ class Profileresultvalue(Base):
     ProfileResultObj = relationship(u'Profileresult')
     TimeUnitObj = relationship(Unit, primaryjoin='Profileresultvalue.TimeAggregationIntervalUnitsID == Unit.UnitsID')
     ZUnitObj = relationship(Unit, primaryjoin='Profileresultvalue.ZLocationUnitsID == Unit.UnitsID')
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset",
+                "ZLocation", "ZAggregationInterval", "ZLocationUnitsID",
+            "CensorCodeCV","QualityCodeCV","TimeAggregationInterval","TimeAggregationIntervalUnitsID"]
 
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset,
+            self.ZLocation, self.ZAggregationInterval,self.ZLocationUnitsID,
+                self.CensorCodeCV, self.QualityCodeCV, self.TimeAggregationInterval, self.TimeAggregationIntervalUnitsID]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime, self.TimeAggregationInterval)
 
 class Sectionresultvalue(Base):
     __tablename__ = u'SectionResultValues'
@@ -296,7 +333,18 @@ class Sectionresultvalue(Base):
     TimeUnitObj = relationship(Unit, primaryjoin='Sectionresultvalue.TimeAggregationIntervalUnitsID == Unit.UnitsID')
     XUnitObj = relationship(Unit, primaryjoin='Sectionresultvalue.XLocationUnitsID == Unit.UnitsID')
     ZUnitObj = relationship(Unit, primaryjoin='Sectionresultvalue.ZLocationUnitsID == Unit.UnitsID')
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset", "XLocation", "XAggregationInterval", "XLocationUnitsID",
+                "ZLocation", "ZAggregationInterval", "ZLocationUnitsID",
+            "CensorCodeCV","QualityCodeCV","AggregationStatisticCV","TimeAggregationInterval","TimeAggregationIntervalUnitsID"]
 
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset, self.XLocation, self.XAggregationInterval,self.XLocationUnitsID,
+            self.ZLocation, self.ZAggregationInterval,self.ZLocationUnitsID,
+                self.CensorCodeCV, self.QualityCodeCV, self.AggregationStatisticCV,self.TimeAggregationInterval, self.TimeAggregationIntervalUnitsID]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime, self.TimeAggregationInterval)
 
 class Spectraresultvalue(Base):
     __tablename__ = u'SpectraResultValues'
@@ -318,6 +366,17 @@ class Spectraresultvalue(Base):
     SpectraResultObj = relationship(Spectraresult)
     TimeUnitObj = relationship(Unit, primaryjoin='Spectraresultvalue.TimeAggregationIntervalUnitsID == Unit.UnitsID')
     WavelengthUnitObj = relationship(Unit, primaryjoin='Spectraresultvalue.WavelengthUnitsID == Unit.UnitsID')
+
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset", "ExcitationWavelength", "WavelengthUnitsID",
+            "CensorCodeCV","QualityCodeCV","TimeAggregationInterval","TimeAggregationIntervalUnitsID"]
+
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset, self.ExcitationWavelength, self.WavelengthUnitsID,
+            self.CensorCodeCV, self.QualityCodeCV, self.TimeAggregationInterval, self.TimeAggregationIntervalUnitsID]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime, self.TimeAggregationInterval)
 
 
 class Timeseriesresultvalue(Base):
@@ -368,7 +427,7 @@ class Trajectoryresultvalue(Base):
     TrajectoryDistance = Column(Float(53), nullable=False)
     TrajectoryDistanceAggregationInterval = Column(Float(53), nullable=False)
     TrajectoryDistanceUnitsID = Column(Integer, nullable=False)
-    CensorCode = Column(String(255), nullable=False)
+    CensorCodeCV = Column(String(255), nullable=False)
     QualityCodeCV = Column(String(255), nullable=False)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
@@ -378,7 +437,20 @@ class Trajectoryresultvalue(Base):
     XUnitObj = relationship(Unit, primaryjoin='Trajectoryresultvalue.XLocationUnitsID == Unit.UnitsID')
     YUnitObj = relationship(Unit, primaryjoin='Trajectoryresultvalue.YLocationUnitsID == Unit.UnitsID')
     ZUnitObj = relationship(Unit, primaryjoin='Trajectoryresultvalue.ZLocationUnitsID == Unit.UnitsID')
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset", "XLocation",  "XLocationUnitsID",
+                "YLocation",  "YLocationUnitsID","ZLocation",  "ZLocationUnitsID","TrajectoryDistance",
+                "TrajectoryDistanceAggregationInterval","TrajectoryDistanceUnitsID",
+            "CensorCodeCV","QualityCodeCV","TimeAggregationInterval","TimeAggregationIntervalUnitsID"]
 
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset, self.XLocation, self.XLocationUnitsID,
+            self.YLocation,self.YLocationUnitsID, self.ZLocation,self.ZLocationUnitsID,  self.TrajectoryDistance,
+                self.TrajectoryDistanceAggregationInterval,self.TrajectoryDistanceUnitsID,
+                self.CensorCodeCV, self.QualityCodeCV, self.TimeAggregationInterval, self.TimeAggregationIntervalUnitsID]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime, self.TimeAggregationInterval)
 
 class Transectresultvalue(Base):
     __tablename__ = u'TransectResultValues'
@@ -403,6 +475,21 @@ class Transectresultvalue(Base):
     TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
 
     TransectResultObj = relationship(Transectresult)
+
+    def get_columns(self):
+        return ["ValueID","ResultID","DataValue","ValueDateTime","ValueDateTimeUTCOffset", "XLocation",  "XLocationUnitsID",
+                "YLocation",  "YLocationUnitsID","TransectDistance",
+                "TransectDistanceAggregationInterval","TransectDistanceUnitsID",
+            "CensorCodeCV","QualityCodeCV","AggregationStatisticCV", "TimeAggregationInterval","TimeAggregationIntervalUnitsID"]
+
+    def list_repr(self):
+        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset, self.XLocation, self.XLocationUnitsID,
+            self.YLocation,self.YLocationUnitsID,  self.TransectDistance,
+                self.TransectDistanceAggregationInterval,self.TransectDistanceUnitsID,
+                self.CensorCodeCV, self.QualityCodeCV, self.AggregationStatisticCV, self.TimeAggregationInterval, self.TimeAggregationIntervalUnitsID]
+
+    def __repr__(self):
+	    return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime, self.TimeAggregationInterval)
 
 
 

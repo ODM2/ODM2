@@ -17,6 +17,7 @@ sys.path.insert(0, directory)
 # Create a connection to the ODM2 database
 # ----------------------------------------
 
+
 #conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 #conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
@@ -70,6 +71,7 @@ except Exception as e:
 
 
 # Now get the SamplingFeature object for a SamplingFeature code
+
 try:
     sf = core_read.getSamplingFeatureByCode('USU-LBR-Mendon')
     print "\n-------- Information about an individual SamplingFeature ---------"
@@ -82,6 +84,7 @@ try:
            "Elevation_m: " + str(sf.Elevation_m))
 except Exception as e:
     print "Unable to demo getSamplingFeatureByCode: ", e
+
 
 
 
