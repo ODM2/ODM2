@@ -44,3 +44,6 @@ sites =  "Sites: ", odm1service.get_all_sites()
 
 
 print sites
+
+print "Variables: ", odm1service.get_all_variables()
+
