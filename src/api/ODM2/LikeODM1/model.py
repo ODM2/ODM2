@@ -140,26 +140,33 @@ class Variable(Base):
 people_table = Person().__table__
 affiliation_table = Affiliation().__table__
 organization_table = Organization().__table__
-affiliation_join = affiliation_table.join(people_table, affiliation_table.c.AffiliationID == people_table.c.PersonID)
-results = affiliation_join.join(organization_table, affiliation_join.c.ODM2_Affiliations_OrganizationID == organization_table.c.OrganizationID)
 
-#address = {}
-#address
+aliased_table = select([
+    people_table.c.PersonID.label("PID"),
+    people_table.c.PersonFirstName,
+    people_table.c.PersonMiddleName,
+    people_table.c.PersonLastName,
+]).alias("ODM2_Aliased")
+
+affiliation_join = aliased_table.join(affiliation_table, affiliation_table.c.AffiliationID == aliased_table.c.PID)
+results = affiliation_join.join(organization_table, affiliation_join.c.ODM2_Affiliations_OrganizationID == organization_table.c.OrganizationID)
 
 class Source(Base):
     __table__ = results
-    __tablename__ = u'Organizations'
+    __tablename__ = u'Data Sources'
     __table_args__ = {u'schema': u'ODM2'}
 
     id = results.c.ODM2_Affiliations_AffiliationID                      # Column('OrganizationID', Integer, primary_key=True)
-    organization = results.c.ODM2_Affiliations_OrganizationID           # Column('OrganizationName', String, nullable=False)#TODO organization
+    organization = results.c.ODM2_Affiliations_OrganizationID           # Column('OrganizationName', String, nullable=False)
     description = results.c.ODM2_Organizations_OrganizationDescription  # Column('OrganizationDescription', String, nullable=False)
     link = results.c.ODM2_Organizations_OrganizationLink                # Column('OrganizationLink', String)
 
-    first_name = results.c.ODM2_People_PersonFirstName
-    middle_name = results.c.ODM2_People_PersonMiddleName
-    last_name = results.c.ODM2_People_PersonLastName
-    contact_name = column_property(first_name + " " + middle_name + " " + last_name)
+    first_name = results.c.ODM2_Aliased_PersonFirstName
+    middle_name = results.c.ODM2_Aliased_PersonMiddleName
+    last_name = results.c.ODM2_Aliased_PersonLastName
+    # this doesnt work...
+    # contact_name = column_property(first_name + " " + middle_name + " " + last_name)
+    contact_name = column_property(first_name + " " + last_name)
 
     phone = results.c.ODM2_Affiliations_PrimaryPhone                    # Column('Phone', String, nullable=False)
     email = results.c.ODM2_Affiliations_PrimaryEmail                    # Column('Email', String, nullable=False)
@@ -174,7 +181,9 @@ class Source(Base):
     #iso_metadata = relationship(ISOMetadata)
 
     def __repr__(self):
-        return "<Source('%s', '%s', '%s')>" % (self.id, self.organization, self.description)
+        return "<Source('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % \
+               (self.id, self.contact_name, self.first_name, self.last_name,
+                self.phone, self.organization, self.description)
 
 class ISOMetadata(Base):
     __tablename__ = 'ISOMetadata'
