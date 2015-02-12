@@ -72,3 +72,5 @@ print "\t\tData Sources: "
 print "************************************************"
 print
 
+pp.pprint(odm1service.get_all_Source())
+

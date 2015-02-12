@@ -143,26 +143,32 @@ organization_table = Organization().__table__
 affiliation_join = affiliation_table.join(people_table, affiliation_table.c.AffiliationID == people_table.c.PersonID)
 results = affiliation_join.join(organization_table, affiliation_join.c.ODM2_Affiliations_OrganizationID == organization_table.c.OrganizationID)
 
+#address = {}
+#address
+
 class Source(Base):
     __table__ = results
     __tablename__ = u'Organizations'
     __table_args__ = {u'schema': u'ODM2'}
 
-    id = results.c.ODM2_Affiliations_AffiliationID                      #Column('OrganizationID', Integer, primary_key=True)
+    id = results.c.ODM2_Affiliations_AffiliationID                      # Column('OrganizationID', Integer, primary_key=True)
     organization = results.c.ODM2_Affiliations_OrganizationID           # Column('OrganizationName', String, nullable=False)#TODO organization
-    description = results.c.ODM2_Organizations_OrganizationDescription  #Column('OrganizationDescription', String, nullable=False)
+    description = results.c.ODM2_Organizations_OrganizationDescription  # Column('OrganizationDescription', String, nullable=False)
     link = results.c.ODM2_Organizations_OrganizationLink                # Column('OrganizationLink', String)
 
-    #TODO Affiliation, People
-    contact_name = Column('ContactName', String, nullable=False)
+    first_name = results.c.ODM2_People_PersonFirstName
+    middle_name = results.c.ODM2_People_PersonMiddleName
+    last_name = results.c.ODM2_People_PersonLastName
+    contact_name = column_property(first_name + " " + middle_name + " " + last_name)
+
     phone = results.c.ODM2_Affiliations_PrimaryPhone                    # Column('Phone', String, nullable=False)
     email = results.c.ODM2_Affiliations_PrimaryEmail                    # Column('Email', String, nullable=False)
     address = results.c.ODM2_Affiliations_PrimaryAddress                # Column('Address', String, nullable=False)
-    city = Column('City', String, nullable=False)
-    state = Column('State', String, nullable=False)
-    zip_code = Column('ZipCode', String, nullable=False)
-    citation = Column('Citation', String, nullable=False)
-    iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ODM2.ISOMetadata.MetadataID'), nullable=False)
+    city = results.c.ODM2_Affiliations_PrimaryAddress                   # Column('City', String, nullable=False)
+    state = results.c.ODM2_Affiliations_PrimaryAddress                  # Column('State', String, nullable=False)
+    zip_code = results.c.ODM2_Affiliations_PrimaryAddress               # Column('ZipCode', String, nullable=False)
+    #citation = Column('Citation', String, nullable=False)
+    #iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ODM2.ISOMetadata.MetadataID'), nullable=False)
 
     # relationships
     #iso_metadata = relationship(ISOMetadata)

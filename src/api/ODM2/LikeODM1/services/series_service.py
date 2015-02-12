@@ -4,7 +4,8 @@ from sqlalchemy import distinct
 import sqlalchemy.exc
 
 from ODMconnection import SessionFactory
-from ODM2.LikeODM1.model import Site, Unit,  Qualifier, OffsetType, Sample, Method, QualityControlLevel, ODMVersion, Variable
+from ODM2.LikeODM1.model import Site, Unit, Qualifier, OffsetType, Sample, Method, QualityControlLevel, ODMVersion, Variable,\
+    Source
 from ODM1_1_1 import Series, DataValue
 
 
@@ -116,6 +117,9 @@ class SeriesService():
                 source_id=source_id, quality_control_level_id=qcl_id).one()
         except:
             return None
+    # Source
+    def get_all_Source(self):
+        return self._session.query(Source).order_by(Source.id).all()
 
     def get_series_from_filter(self):
         # Pass in probably a Series object, match it against the database
