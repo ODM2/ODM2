@@ -1,12 +1,8 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import column_property
-from sqlalchemy import select
+from sqlalchemy.orm import column_property, relationship
+from sqlalchemy import select, MetaData, Integer, String, Column, ForeignKey, DateTime, Float
 
 Base = declarative_base()
-
-from sqlalchemy import *
-from sqlalchemy.orm import relationship
-
 
 metadata = MetaData()
 
@@ -16,17 +12,7 @@ from ODM2.Results.model import Timeseriesresult, Timeseriesresultvalue
 from ODM2.SamplingFeatures.model import Site, Spatialreference
 from ODM2.CV.model import Cvterm
 
-
-
-
-#organization_table = Table()
-
 action_table = Action()
-
-##########joined tables#########
-#source_join = join(people_table, affiliation_table)
-
-###############joined Classes###########
 
 class SpatialReference(Base):
     __tablename__ = 'SpatialReferences'
@@ -46,6 +32,7 @@ sf_table = Samplingfeature().__table__
 site_table = Site().__table__
 site_join = site_table.join(sf_table, site_table.c.SamplingFeatureID == sf_table.c.SamplingFeatureID)
 class Site2(Base):
+    __tablename__ = u'Sites'
     __table__ = site_join
 
 
@@ -91,7 +78,7 @@ class Unit(Base):
     abbreviation = Column('UnitsAbbreviation', String)
 
     def __repr__(self):
-        return "<Unit('%s', '%s', '%s')>" % (self.id, self.name, self.type)
+        return "<Unit('%s', '%s', '%s', '%s')>" % (self.id, self.name, self.type, self.abbreviation)
 
 
 """Requires joining with Variable, Result, and Timeseriesresult to build Variable for ODM1_1_1"""
@@ -135,7 +122,9 @@ class Variable(Base):
     time_unit = relationship(Unit, primaryjoin=("Unit.id==Variable.time_unit_id"))
     """
     def __repr__(self):
-        return "<Variable('%s', '%s', '%s')>" % (self.id, self.code, self.name)
+        return "<Variable('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % \
+               (self.id, self.code, self.name, self.speciation, self.no_data_value, self.variable_unit_id,
+               self.sample_medium, self.value_type, self.time_support, self.time_unit_id, self.data_type)
 
 people_table = Person().__table__
 affiliation_table = Affiliation().__table__
@@ -171,10 +160,10 @@ class Source(Base):
     phone = results.c.ODM2_Affiliations_PrimaryPhone                    # Column('Phone', String, nullable=False)
     email = results.c.ODM2_Affiliations_PrimaryEmail                    # Column('Email', String, nullable=False)
     address = results.c.ODM2_Affiliations_PrimaryAddress                # Column('Address', String, nullable=False)
-    city = results.c.ODM2_Affiliations_PrimaryAddress                   # Column('City', String, nullable=False)
-    state = results.c.ODM2_Affiliations_PrimaryAddress                  # Column('State', String, nullable=False)
-    zip_code = results.c.ODM2_Affiliations_PrimaryAddress               # Column('ZipCode', String, nullable=False)
-    #citation = Column('Citation', String, nullable=False)
+    city = "Unknown"                                                   # Column('City', String, nullable=False)
+    state = "Unknown"                                                  # Column('State', String, nullable=False)
+    zip_code = "Unknown"                                               # Column('ZipCode', String, nullable=False)
+    citation = "Not specified"
     #iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ODM2.ISOMetadata.MetadataID'), nullable=False)
 
     # relationships
@@ -484,7 +473,9 @@ def copy_series(from_series):
     new.end_date_time_utc = from_series.end_date_time_utc
     new.value_count = from_series.value_count
     return new
-class Series(Base):
+'''
+'''
+class SeriesCatalog(Base):
     __tablename__ = 'SeriesCatalog'
 
     id = Column('SeriesID', Integer, primary_key=True)
