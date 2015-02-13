@@ -47,6 +47,14 @@ pp.pprint(odm1service.get_all_sites())
 
 print
 print "************************************************"
+print "\t\tMethods: get_all_methods()"
+print "************************************************"
+print
+
+pp.pprint(odm1service.get_all_methods())
+
+print
+print "************************************************"
 print "\t\tVariables: get_all_variables()"
 print "************************************************"
 print

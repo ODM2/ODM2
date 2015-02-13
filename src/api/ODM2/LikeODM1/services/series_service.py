@@ -30,7 +30,9 @@ class SeriesService():
     def get_db_version(self):
         return self._session.query(ODMVersion).first().version_number
 
-    # Site methods
+    # ###########################################################################################
+    #                   Sites Methods
+    # ###########################################################################################
     def get_all_sites(self):
         return self._session.query(Site).all()
 
@@ -40,7 +42,9 @@ class SeriesService():
         except:
             return None
 
-    # Variables methods
+    # ###########################################################################################
+    #                   Variables Methods
+    # ###########################################################################################
     def get_all_variables(self):
         return self._session.query(Variable).all()
 
@@ -69,7 +73,10 @@ class SeriesService():
 
         return variables
 
-    # Unit methods
+    # ###########################################################################################
+    #                   Unit Methods
+    # ###########################################################################################
+
     def get_all_units(self):
         return self._session.query(Unit).all()
 
@@ -100,7 +107,10 @@ class SeriesService():
             Series.data_values).filter(Series.id == series_id, DataValue.sample_id != None).distinct().subquery()
         return self._session.query(Sample).join(subquery).distinct().all()
 
-    # Series Catalog methods
+    # ###########################################################################################
+    #                   Series Catalog Methods
+    # ###########################################################################################
+
     def get_all_series(self):
         return self._session.query(Series).order_by(Series.id).all()
 
@@ -117,7 +127,11 @@ class SeriesService():
                 source_id=source_id, quality_control_level_id=qcl_id).one()
         except:
             return None
-    # Source
+
+    # ###########################################################################################
+    #                   Source
+    # ###########################################################################################
+
     def get_all_Source(self):
         return self._session.query(Source).order_by(Source.id).all()
 
@@ -193,7 +207,9 @@ class SeriesService():
         except:
             return None
 
-    # Method methods
+    # ###########################################################################################
+    #                   Method
+    # ###########################################################################################
     def get_all_methods(self):
         return self._session.query(Method).all()
 
@@ -207,6 +223,13 @@ class SeriesService():
     def get_method_by_description(self, method_code):
         try:
             result = self._session.query(Method).filter_by(description=method_code).one()
+        except:
+            result = None
+        return result
+
+    def get_method_by_link(self, method_link):
+        try:
+            result = self._session.query(Method).filter_by(link=method_link).one()
         except:
             result = None
         return result

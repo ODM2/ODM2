@@ -7,12 +7,18 @@ Base = declarative_base()
 metadata = MetaData()
 
 ################ODM 2 Tables###########
-from ODM2.Core.model import Action, Organization, Affiliation, Person, Samplingfeature, Result, Variable
+from ODM2.Core.model import Action, Organization, Affiliation, Person, \
+    Samplingfeature, Result, Variable, Method
 from ODM2.Results.model import Timeseriesresult, Timeseriesresultvalue
 from ODM2.SamplingFeatures.model import Site, Spatialreference
 from ODM2.CV.model import Cvterm
 
 action_table = Action()
+
+# ###################################################################################
+#                           Monitoring Site Locations
+# ###################################################################################
+
 
 class SpatialReference(Base):
     __tablename__ = 'SpatialReferences'
@@ -66,7 +72,9 @@ class Site2(Base):
     def __repr__(self):
         return "<Site('%s', '%s')>" % (self.code, self.name)
 
-
+# ###################################################################################
+#                            Units
+# ###################################################################################
 
 class Unit(Base):
     __tablename__ = u'Units'
@@ -80,6 +88,9 @@ class Unit(Base):
     def __repr__(self):
         return "<Unit('%s', '%s', '%s', '%s')>" % (self.id, self.name, self.type, self.abbreviation)
 
+# ###################################################################################
+#                            Variables
+# ###################################################################################
 
 """Requires joining with Variable, Result, and Timeseriesresult to build Variable for ODM1_1_1"""
 variables_table = Variable().__table__
@@ -125,6 +136,11 @@ class Variable(Base):
         return "<Variable('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % \
                (self.id, self.code, self.name, self.speciation, self.no_data_value, self.variable_unit_id,
                self.sample_medium, self.value_type, self.time_support, self.time_unit_id, self.data_type)
+
+
+# ###################################################################################
+#                            Data Sources
+# ###################################################################################
 
 people_table = Person().__table__
 affiliation_table = Affiliation().__table__
@@ -186,8 +202,13 @@ class ISOMetadata(Base):
 
     def __repr__(self):
         return "<ISOMetadata('%s', '%s', '%s')>" % (self.id, self.topic_category, self.title)
-'''
-#combined with Methods
+
+# ###################################################################################
+#                            Data Collection Methods
+# ###################################################################################
+
+method_table = Method().__table__
+
 class LabMethod(Base):
     __tablename__ = 'LabMethods'
 
@@ -200,7 +221,22 @@ class LabMethod(Base):
 
     def __repr__(self):
         return "<LabMethod('%s', '%s', '%s', '%s')>" % (self.id, self.name, self.organization, self.method_name)
-'''
+
+class Method(Base):
+    __table__ = method_table
+    __tablename__ = u'Methods'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    id = method_table.c.MethodID                            # Column('MethodID', Integer, primary_key=True)
+    description = method_table.c.MethodDescription          # Column('MethodDescription', String, nullable=False)
+    link = method_table.c.MethodLink                        # Column('MethodLink', String)
+
+    def __repr__(self):
+        return "<Method('%s', '%s', '%s')>" % (self.id, self.description, self.link)
+
+# ###################################################################################
+#                            ODMVersion
+# ###################################################################################
 class ODMVersion:
     #__tablename__ = 'ODMVersion'
 
@@ -209,9 +245,6 @@ class ODMVersion:
 
     def __repr__(self):
         return "<ODMVersion('%s')>" % (self.version_number)
-
-
-
 
 '''
 class CensorCodeCV(Base):
@@ -354,16 +387,6 @@ class OffsetType(Base):
     def __repr__(self):
         return "<Unit('%s', '%s', '%s')>" % (self.id, self.unit_id, self.description)
 
-class Method(Base):
-    __tablename__ = u'Methods'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    id = Column('MethodID', Integer, primary_key=True)
-    description = Column('MethodDescription', String, nullable=False)
-    link = Column('MethodLink', String)
-
-    def __repr__(self):
-        return "<Method('%s', '%s', '%s')>" % (self.id, self.description, self.link)
 
 class QualityControlLevel(Base):
     __tablename__ = u'ProcessingLevels'
