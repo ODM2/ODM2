@@ -15,11 +15,16 @@ sys.path.insert(0, directory)
 
 # Create a connection to the ODM2 database
 # ----------------------------------------
-#conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
-#conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
-#conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
+#conn = dbconnection.createConnection('mysql', 'localhost:3306', 'odm2', 'ODM', 'ODM123!!')
 #conn = dbconnection.createConnection('mysql', '127.0.0.1:3306', 'ODM2', 'Stephanie', 'odm')
+#conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
+
+conn = dbconnection.createConnection('postgresql', 'localhost:5432', 'ODM2', 'ODM', 'ODM123!!')
+#conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
+
+
+####Microsoft Sql Server
+#conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 
 
 # Create a connection for each of the schemas. Currently the schemas each have a different

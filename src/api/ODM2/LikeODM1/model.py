@@ -8,9 +8,9 @@ metadata = MetaData()
 
 ################ODM 2 Tables###########
 from ODM2.Core.model import Action, Organization, Affiliation, Person, \
-    Samplingfeature, Result, Variable, Method
+    Samplingfeature, Result, Variable as Variable2, Method as Method2
 from ODM2.Results.model import Timeseriesresult, Timeseriesresultvalue
-from ODM2.SamplingFeatures.model import Site, Spatialreference
+from ODM2.SamplingFeatures.model import Site as Site2, Spatialreference
 from ODM2.CV.model import Cvterm
 
 action_table = Action()
@@ -35,9 +35,9 @@ class SpatialReference(Base):
         return "<SpatialReference('%s', '%s')>" % (self.id, self.srs_name)
 
 sf_table = Samplingfeature().__table__
-site_table = Site().__table__
+site_table = Site2().__table__
 site_join = site_table.join(sf_table, site_table.c.SamplingFeatureID == sf_table.c.SamplingFeatureID)
-class Site2(Base):
+class Site(Base):
     __tablename__ = u'Sites'
     __table__ = site_join
 
@@ -70,7 +70,7 @@ class Site2(Base):
 
 
     def __repr__(self):
-        return "<Site('%s', '%s')>" % (self.code, self.name)
+        return "<Site('%s', '%s', '%s')>" % (self.code, self.name, self.elevation_m)
 
 # ###################################################################################
 #                            Units
@@ -93,7 +93,7 @@ class Unit(Base):
 # ###################################################################################
 
 """Requires joining with Variable, Result, and Timeseriesresult to build Variable for ODM1_1_1"""
-variables_table = Variable().__table__
+variables_table = Variable2().__table__
 ts_table = Timeseriesresult().__table__
 
 result_table = Result().__table__
@@ -207,7 +207,7 @@ class ISOMetadata(Base):
 #                            Data Collection Methods
 # ###################################################################################
 
-method_table = Method().__table__
+method_table = Method2().__table__
 
 class LabMethod(Base):
     __tablename__ = 'LabMethods'
