@@ -1088,17 +1088,25 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
       </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
-        <Cm>Definition of term</Cm>
+        <Cm>Definition of vocabulary term</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ODMVocabulary" nu="0">
+      <Cl au="0" df="" nm="Category" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Name of the ODM controlled vocabulary to which the term belongs</Cm>
+        <Cm>A category within which the term falls.</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SourceVocabulary" nu="1">
+      <Cl au="0" df="" nm="ODM2Vocabulary" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Name and/or description of the source vocabulary from which the term was derived</Cm>
+        <Cm>Name of the ODM2 controlled vocabulary to which the term belongs.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -4203,7 +4211,7 @@
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4351,7 +4359,7 @@
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4546,7 +4554,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2DataQuality">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4611,7 +4619,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Equipment">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4744,7 +4752,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2ExtensionProperties">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4824,7 +4832,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2ExternalIdentifers">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4920,7 +4928,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2LabAnalyses">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4990,7 +4998,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Provenance">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5114,7 +5122,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5227,7 +5235,7 @@ business rules could be enforced.</Note>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5309,7 +5317,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Simulation">
-    <RnCf ClkAct="true" FtSz="9" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="9" lkStgy="OffsetDirect" zm="0.75">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5470,7 +5478,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="477">
+  <RnmMgr NxRnmId="479">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -6100,9 +6108,11 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
       <Rnm id="246" nNm="DeploymentTypeCV" oNm="DeploymentType"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="CVTerms" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="478" nNm="SourceVocabularyURI" oNm="SourceVocabulary"/>
       <Rnm id="247" nNm="SourceVocabulary" oNm="Source"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="CVTerms" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="477" nNm="ODM2Vocabulary" oNm="ODMVocabulary"/>
       <Rnm id="248" nNm="ODMVocabulary" oNm="Vocabulary"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
