@@ -27,20 +27,20 @@ The spatial reference system of the Latitude and Longitude coordinates in the Si
 
 The EPSG registry can be found at [http://www.epsg-registry.org](http://www.epsg-registry.org).  The following is a full example for the SRS associated with WGS84 (EPSG:4326) as extracted from the EPSG registry:
 
-**SRSCode**: EPSG:4326
-**SRSName**: WGS 84
-**SRSDescription**: Horizontal component of 3D system. Used by the GPS satellite navigation system and for NATO military geodetic surveying.
-**SRSLink**: http://www.epsg-registry.org/export.htm?wkt=urn:ogc:def:crs:EPSG::4326
+- **SRSCode**: EPSG:4326
+- **SRSName**: WGS 84
+- **SRSDescription**: Horizontal component of 3D system. Used by the GPS satellite navigation system and for NATO military geodetic surveying.
+- **SRSLink**: http://www.epsg-registry.org/export.htm?wkt=urn:ogc:def:crs:EPSG::4326
 
 In this case the SRSLink attribute is used to specify a URL that returns the Well Known Text (WKT) representation of the SRS. The EPSG registry provides capability for building a similar URL for any SRS defined in their system. These URLs can be created by clicking on the "WKT" button on the EPSG webpage that defines the SRS. 
 
 #### SpatialReferences and Results ####
 The SpatialReferences entity is also used to store the descriptions of SRSs used to describe the X, Y, and Z coordinates associated with Results and their values (see the ODM2 Results extension). In many of these cases, a local site coordinate system may be used. The following is an example of how a local SRS can be encoded in the SpatialReferences entity:
 
-**SRSCode**: NULL
-**SRSName**: Local coordinate system for climate monitoring site
-**SRSDescription**: A local coordinate system used with climate monitoring sites. It is expressed using Cartesian coordinates where X is distance along an axis aligned with true East, Y is distance aligned with true North, and Z is distance aligned straight up. Depths are expressed a negative numbers. The origin of the coordinate system is a marker at the base of the instrumentation tower or tripod. 
-**SRSLink**: NULL
+- **SRSCode**: NULL
+- **SRSName**: Local coordinate system for climate monitoring site
+- **SRSDescription**: A local coordinate system used with climate monitoring sites. It is expressed using Cartesian coordinates where X is distance along an axis aligned with true East, Y is distance aligned with true North, and Z is distance aligned straight up. Depths are expressed a negative numbers. The origin of the coordinate system is a marker at the base of the instrumentation tower or tripod. 
+- **SRSLink**: NULL
 
 ### Sampling Features that are Specimens ###
 **Specimens** are equivalent to "samples" and may take many forms. Specimens can have a SpecimenType chosen from a controlled vocabulary. They can also be qualified by a SpecimenMedium, which is the environmental medium of the sample - e.g., rock, gas, sediment, tissue, etc. 
