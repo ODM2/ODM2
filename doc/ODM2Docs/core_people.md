@@ -8,6 +8,8 @@ ODM2 Core: People
 2. An Affiliation is created in the **Affiliations** entity that associates the Person with the Organization. The Affiliation includes a beginning and ending date, and the Person's contact information at the Organization is also included with the Affiliation. A Person can also be designated as an Organization's primary contact in the Affiliations entity.
 3. The Affiliation is associated with an Action via the **ActionBy** entity. Multiple Affiliations (People/Organization combinations) can be associated with an Action, but at least one Affiliation is required.
 
+NOTE:  Secondary contact information for a person can be added as an ExtensionProperty to the Affiliations entity.  See the ODM2ExtensionProperties schema.
+
 ### In the Case that a Person is not a Member of an Organization ###
 1. A person is created in the **People** entity.
 2. An Affiliation is created in the **Affiliations** entity. The Person's contact information is entered, but no Organization is linked.

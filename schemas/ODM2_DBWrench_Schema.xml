@@ -4384,22 +4384,22 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="252" y="163"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="826" y="211"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1136" y="397"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="884" y="632"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="383" y="605"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="569" y="302"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="316" y="454"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="20" y="246"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="15" y="408"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="347" y="337"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1159" y="175"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1141" y="315"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="747" y="485"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1017" y="516"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="598" y="633"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="566" y="208"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="276" y="27"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="850" y="75"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1160" y="261"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="908" y="496"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="407" y="469"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="593" y="166"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="340" y="318"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="44" y="110"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="39" y="272"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="371" y="201"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1183" y="39"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1165" y="179"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="771" y="349"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1041" y="380"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="622" y="497"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="590" y="72"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -4457,43 +4457,9 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <Notes>
-      <Note bkCl="ffffffe6" x="28" y="583">A person does not need to be 
-associated with an Organization,
-but, an Affiliation record must
-be created for each person because
-that is how people get linked to 
-actions.</Note>
-      <Note bkCl="ffffffe6" x="548" y="47">An ObservationAct is 
-the only ActionType that 
-can produce a ResultSet.
-
-ActionTypeCV draft at
-http://goo.gl/bRi2p1</Note>
-      <Note bkCl="ffffffe6" x="969" y="49">A "Result" describes
-metadata for one or more
-DataValues that are stored 
-in ResultValues tables.
-Results is provides a 
-catalog for ResultValues.</Note>
-      <Note bkCl="ffffffe6" x="21" y="692">Secondary contact info can be added 
-as an Extension property to Affiliations.
-See ODM2Extensions schema.</Note>
-      <Note bkCl="ffffffe6" x="315" y="46">In the barebones implementation:
-Actions are all ObservationActs
-on a SamplingFeature
-by at least one Person
-using a Method
-producing at least one ResultsSet.</Note>
-      <Note bkCl="ffffffe6" x="727" y="48">Reasons for separating
-ObservationActs from ResultsSets:
-1. Allows Results for many Variables
-    from each ObservationAct 
-2. Allows for other ActionTypes</Note>
-      <Note bkCl="ffffffe6" x="651" y="158">In OGC O&amp;M, Actions &amp; Results are functionally concatenated into "Observations".</Note>
-    </Notes>
+    <Notes/>
     <Zones>
-      <Zone bkCl="ffece9d8" h="568" nm="Observations" w="294" x="547" y="173"/>
+      <Zone bkCl="ffece9d8" h="568" nm="Observations" w="294" x="571" y="37"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
@@ -6636,8 +6602,7 @@ business rules could be enforced.</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
