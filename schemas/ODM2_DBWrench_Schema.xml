@@ -4215,7 +4215,7 @@
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4485,46 +4485,11 @@
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffccccff" sch="ODM2CV" tbl="CVTerms" x="40" y="35"/>
-    <Notes>
-      <Note bkCl="ffffffe6" x="283" y="54">The following is the list of CVs in ODM2:
-ActionTypeCV
-AnnotationTypeCV
-CalibrationStandardTypeCV
-CensorCodeCV
-DataQualityTypeCV
-DatasetTypeCV
-DeploymentTypeCV
-DirectiveTypeCV
-EquipmentTypeCV
-InterpolationTypeCV
-MethodTypeCV
-OrganizationTypeCV
-PropertyDataTypeCV
-QualityCodeCV
-ReferenceMaterialMediumCV
-RelationshipTypeCV
-ResultTypeCV
-SampledMediumCV
-SamplingFeatureGeoTypeCV
-SamplingFeatureTypeCV
-SiteTypeCV
-SpatialOffsetTypeCV
-SpatialReferences
-SpeciationCV
-SpecimenMediumCV
-SpecimenTypeCV
-StatusCV
-TaxonomicClassifierTypeCV
-Units
-UnitsTypeCV
-VariableNameCV
-VariableTypeCV
-VerticalDatumCV</Note>
-    </Notes>
+    <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2DataQuality">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4545,16 +4510,16 @@ VerticalDatumCV</Note>
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="647" y="566"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="307" y="472"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="564" y="178"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="297" y="320"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="301" y="114"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="15" y="308"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="12" y="477"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="871" y="336"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="892" y="167"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultNormalizationValues" x="629" y="479"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="682" y="479"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="342" y="385"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="599" y="91"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="332" y="233"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="336" y="27"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="50" y="221"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="47" y="390"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="906" y="249"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="927" y="80"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultNormalizationValues" x="664" y="392"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -4589,7 +4554,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Equipment">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4722,7 +4687,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2ExtensionProperties">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4802,7 +4767,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2ExternalIdentifers">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4898,7 +4863,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2LabAnalyses">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -4968,7 +4933,7 @@ VerticalDatumCV</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Provenance">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5076,19 +5041,7 @@ VerticalDatumCV</Note>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.ResultDerivationEquations.fk_ResultDerivationEquations_Results" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <Notes>
-      <Note bkCl="ffffffe6" x="24" y="720">RelationshipTypeCV:
-* isDerivedFrom
-* isNewVersionOf
-See full list used by DataCite.org at
-http://dlib.org/dlib/january11/starr/01starr.html</Note>
-      <Note bkCl="ffffffe6" x="746" y="687">An ObservationAction with MethodType=ResultDerivation
-can specify which RelatedResults the new Result was
-"DerivedFrom" [=RelationshipType].
-
-The exact DerivationEquation can be specified in the
-entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
-    </Notes>
+    <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
@@ -5113,26 +5066,26 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="913" y="196"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResults" x="1047" y="569"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1049" y="843"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="746" y="569"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="754" y="849"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResults" x="131" y="566"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResults" x="449" y="567"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResultValues" x="447" y="847"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResults" x="1345" y="570"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResultValues" x="1353" y="843"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResults" x="1946" y="568"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResultValues" x="1977" y="847"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResults" x="1657" y="569"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResultValues" x="1679" y="845"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResults" x="2254" y="566"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResultValues" x="2300" y="848"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResults" x="2593" y="567"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResultValues" x="2639" y="847"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultTypeCV" x="551" y="204"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="131" y="847"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="929" y="52"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResults" x="1063" y="425"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1065" y="699"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="762" y="425"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="770" y="705"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResults" x="147" y="422"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResults" x="465" y="423"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResultValues" x="463" y="703"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResults" x="1361" y="426"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResultValues" x="1369" y="699"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResults" x="1962" y="424"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TransectResultValues" x="1993" y="703"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResults" x="1673" y="425"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResultValues" x="1695" y="701"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResults" x="2270" y="422"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TrajectoryResultValues" x="2316" y="704"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResults" x="2609" y="423"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SpectraResultValues" x="2655" y="703"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ResultTypeCV" x="567" y="60"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="147" y="703"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_ResultTypeCV" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -5190,18 +5143,10 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.TransectResultValues.fk_TransectResultValues_TransectResults" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <Notes>
-      <Note bkCl="ffffffe6" x="88" y="410">Below are each of the ResultTypes
-mapped out completely, with 
-attributes separated as either "Fixed" 
-or "Variable/Measured". Each set of 
-entities completely defines a 
-ResultType in a way in which 
-business rules could be enforced.</Note>
-    </Notes>
+    <Notes/>
     <Zones>
-      <Zone bkCl="ffece9d8" h="2842" nm="Attributes that are Fixed" w="264" x="92" y="532"/>
-      <Zone bkCl="ffccffcc" h="2843" nm="Attributes that are Variable or Measured" w="340" x="90" y="809"/>
+      <Zone bkCl="ffece9d8" h="2842" nm="Attributes that are Fixed" w="264" x="108" y="388"/>
+      <Zone bkCl="ffccffcc" h="2843" nm="Attributes that are Variable or Measured" w="340" x="106" y="665"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
