@@ -3934,7 +3934,7 @@
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Longitude of the site</Cm>
       </Cl>
-      <Cl au="0" df="" nm="LatLonDatumID" nu="0">
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</Cm>
       </Cl>
@@ -3946,7 +3946,7 @@
       <Fk deAc="3" nm="fk_Sites_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
         <CdTb mn="1" nm="Sites" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="LatLonDatumID" prCl="SpatialReferenceID"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -4009,6 +4009,10 @@
       <Cl au="0" df="" nm="SRSDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text notes describing the spatial reference system</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SRSLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to a description of or a formal specification of the spatial reference system.</Cm>
       </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -4359,7 +4363,7 @@
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5122,7 +5126,7 @@ entity of that name, if the RelatedResultSequenceNumber is specified.</Note>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Results">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5235,7 +5239,7 @@ business rules could be enforced.</Note>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2SamplingFeatures">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5256,14 +5260,14 @@ business rules could be enforced.</Note>
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="98" y="116"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="311" y="309"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="27" y="317"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="394" y="122"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="566" y="333"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="721" y="133"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="16" y="425"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="36" y="533"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="118" y="49"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="331" y="242"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="47" y="250"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="414" y="55"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="585" y="243"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="741" y="66"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="36" y="358"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="56" y="466"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -5291,29 +5295,7 @@ business rules could be enforced.</Note>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.SpecimenTaxonomicClassifiers.fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <Notes>
-      <Note bkCl="ffffffe6" x="408" y="220">FeatureParents table enables parent-child
-relationships between any SamplingFeatures,
-including between Specimens and allowing
-composites (i.e. multiple parents).</Note>
-      <Note bkCl="ffffffe6" x="15" y="1">OGC O&amp;M considers Points, Curves, Surfaces and Volumes all as 
-SpatialSamplingFeatures, in which "the value of a property varies 
-within the scope of the feature."  Therefore these SamplingFeatures 
-can be used to record Coverage results.</Note>
-      <Note bkCl="ffffffe6" x="422" y="422">Sites are a special, widely used
-SamplingFeature type with a Point (XY) 
-Geometry. But named, polygon (XY) 
-spatial units (watersheds, admin units) 
-should also be accounted for.</Note>
-      <Note bkCl="ffffffe6" x="467" y="0">See OGC O&amp;M documentation on examples of different types of SamplingPoints, 
-SamplingCurves &amp; SamplingSurfaces and their required attributes/metadata.
-Page 25 in: Cox_10-004r3_Topic_20_Observations_and_Measurements.pdf
-Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSampling#Sampling_model</Note>
-      <Note bkCl="ffffffe6" x="722" y="272">SpatialOffsetTypeCV:
-- Draft at http://goo.gl/uOgK8U</Note>
-      <Note bkCl="ffffffe6" x="269" y="62">SamplingFeatureTypeCV:
-- Draft at http://goo.gl/DBvZko</Note>
-    </Notes>
+    <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Simulation">
@@ -5478,7 +5460,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="479">
+  <RnmMgr NxRnmId="480">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -6303,6 +6285,7 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
       <Rnm id="338" nNm="SamplingFeatureGeotypeCV" oNm="SamplingFeatureGeotype"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Sites" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="479" nNm="SpatialReferenceID" oNm="LatLonDatumID"/>
       <Rnm id="339" nNm="LatLonDatumID" oNm="LatLongDatumID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpatialReferences" SupCls="Schema" SupNme="ODM2SamplingFeatures">
@@ -6653,7 +6636,8 @@ Sampling Model: https://www.seegrid.csiro.au/wiki/AppSchemas/ObservationsAndSamp
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
