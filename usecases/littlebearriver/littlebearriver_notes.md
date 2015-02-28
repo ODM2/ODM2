@@ -20,12 +20,13 @@ Eventually I could add the ODM2Equipment, ODM2Sensors, and ODM2DataQuality schem
 ## Implementation Notes for Sensor-Based Data ##
 
 #### SpatialReferences
-SpatialReferences in ODM2 are the same as in ODM1.  Basically copied them straight across.
+SpatialReferences in ODM2 are mostly the same as in ODM1.  Basically copied them straight across.
 
 1. Set ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID = ODM1.SpatialReferences.SpatialReferenceID
-2. Set ODM2SamplingFeatures.SpatialReferences.SRSID = ODM1.SpatialReferences.SRSID - had to cast this to VARCHAR(50) to be consistent with ODM2
+2. Set ODM2SamplingFeatures.SpatialReferences.SRSID = "CUAHSI:" & ODM1.SpatialReferences.SRSID - had to concatenate the CUAHSI string and cast this to VARCHAR(50) to be consistent with ODM2
 3. Set ODM2SamplingFeatures.SpatialReferences.SRSName = ODM1.SpatialReferences.SRSName
 4. Set ODM2SamplingFeatures.SpatialReferences.SRSDescription = ODM1.SpatialReferences.Notes - had to cast this to VARCHAR(500) to be consistent with ODM2, which might truncate some information
+5. Set ODM2SamplingFeatures.SpatialReferences.SRSLink = "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=SpatialReferences"
 
 But, I also need to create a SpatialReference record for each OffsetType in the ODM1 database so I can use it in ODM2 to define how the offsets are being used.
 
@@ -53,7 +54,7 @@ Adding records to **ODM2SamplingFeatures.Sites**: Some of the ODM1 Site attribut
 2. Set ODM2SamplingFeatures.Sites.SiteTypeCV = ODM1.Sites.SiteType
 3. Set ODM2SamplingFeatures.Sites.Latitude = ODM1.Sites.Latitude
 4. Set ODM2SamplingFeatures.Sites.Longitude = ODM1.Sites.Longitude
-5. Set ODM2SamplingFeatures.Sites.LatLongDatumID = ODM1.Sites.LatLongDatumeID - I can do this because I moved all of the SpatialReferences from ODM1 and preserved the SpatialReferenceIDs
+5. Set ODM2SamplingFeatures.Sites.SpatialReferenceID = ODM1.Sites.LatLongDatumeID - I can do this because I moved all of the SpatialReferences from ODM1 and preserved the SpatialReferenceIDs
 
 #### Units
 Units are the same in ODM1 an ODM2.  The only change is the order in which the attributes appear in the table and ODM1.Units.UnitsType = ODM2.Units.UnitsTypeCV.  Copied Units straight across from ODM1, preserving the UnitsIDs.
@@ -62,6 +63,7 @@ Units are the same in ODM1 an ODM2.  The only change is the order in which the a
 2. Set ODM2Core.Units.UnitsTypeCV = ODM1.Units.UnitsType
 3. Set ODM2Core.Units.UnitsAbbreviation = ODM1.Units.UnitsAbbreviation
 4. Set ODM2Core.Units.UnitsName = ODM1.Units.UnitsName
+5. Set ODM2Core.Units.UnitsLink = 'http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units'
 
 #### ProcessingLevels
 ProcessingLevels in ODM2 are the same as QualityControlLevels in ODM1. I copied QualityControlLevels straight across from ODM1, preserving the QualityControlLevelIDs.

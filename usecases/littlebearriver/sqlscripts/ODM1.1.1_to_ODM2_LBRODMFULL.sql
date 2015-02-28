@@ -17,15 +17,15 @@
 --2.  Currently uses the LatLongDatumID as SpatialReferenceID
 --------------------------------------------------------------------------------------
 
---Populate the ODM2.SpatialReferences table
+--Populate the ODM2.SpatialReferences table with the SpatialReferences that were used in the ODM 1.1.1 database
 SET IDENTITY_INSERT ODM2.ODM2.SpatialReferences ON;
-INSERT INTO ODM2.ODM2.SpatialReferences (SpatialReferenceID, SRSCode, SRSName, SRSDescription)
-SELECT SpatialReferenceID, CAST(SRSID AS VARCHAR(50)) AS SRSCode, SRSName, CAST(Notes AS VARCHAR(500)) AS SRSDescription
+INSERT INTO ODM2.ODM2.SpatialReferences (SpatialReferenceID, SRSCode, SRSName, SRSDescription, SRSLink)
+SELECT SpatialReferenceID, 'CUAHSI:' + CAST(SRSID AS VARCHAR(50)) AS SRSCode, SRSName, CAST(Notes AS VARCHAR(500)) AS SRSDescription, 'http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=SpatialReferences' AS SRSLink
 FROM LittleBearRiverODM.dbo.SpatialReferences
 ORDER BY SpatialReferenceID;
 SET IDENTITY_INSERT ODM2.ODM2.SpatialReferences OFF;
 
---Add Records to teh ODM2.SpatialReference table for the OffsetTypes used in ODM1
+--Add records to the ODM2.SpatialReferences table for the OffsetTypes used in ODM1
 INSERT INTO ODM2.ODM2.SpatialReferences (SRSName)
 SELECT OffsetDescription
 FROM LittleBearRiverODM.dbo.OffsetTypes;
@@ -52,7 +52,7 @@ ORDER BY SamplingFeatureID;
 SET IDENTITY_INSERT ODM2.ODM2.SamplingFeatures OFF;
 
 --Populate the ODM2.Sites table
-INSERT INTO ODM2.ODM2.Sites (SamplingFeatureID, SiteTypeCV, Latitude, Longitude, LatLonDatumID)
+INSERT INTO ODM2.ODM2.Sites (SamplingFeatureID, SiteTypeCV, Latitude, Longitude, SpatialReferenceID)
 SELECT SiteID AS SamplingFeatureID, SiteType AS SiteTypeCV, Latitude, Longitude, LatLongDatumID
 FROM LittleBearRiverODM.dbo.Sites 
 ORDER BY SiteID;
@@ -62,8 +62,8 @@ ORDER BY SiteID;
 --------------------------------------------------------------------------------------
 --Load the Units from ODM 1.1 - can just move these straight across and use the same IDs
 SET IDENTITY_INSERT ODM2.ODM2.Units ON; 
-INSERT INTO ODM2.ODM2.Units (UnitsID, UnitsTypeCV, UnitsAbbreviation, UnitsName)
-SELECT UnitsID, UnitsType AS UnitsTypeCV, UnitsAbbreviation, UnitsName 
+INSERT INTO ODM2.ODM2.Units (UnitsID, UnitsTypeCV, UnitsAbbreviation, UnitsName, UnitsLink)
+SELECT UnitsID, UnitsType AS UnitsTypeCV, UnitsAbbreviation, UnitsName, 'http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units' AS UnitsLink
 FROM LittleBearRiverODM.dbo.Units 
 ORDER BY UnitsID;
 SET IDENTITY_INSERT ODM2.ODM2.Units OFF;
