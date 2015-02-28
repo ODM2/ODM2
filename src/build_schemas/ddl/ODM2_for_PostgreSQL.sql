@@ -224,7 +224,8 @@ create table ODM2.Units (
 	unitsid serial  NOT NULL primary key,
 	unitstypecv varchar (255) NOT NULL,
 	unitsabbreviation varchar (50) NOT NULL,
-	unitsname varchar (255) NOT NULL
+	unitsname varchar (255) NOT NULL,
+	unitslink varchar (255) NULL
 );
 create table ODM2.Variables (
 	variableid serial  NOT NULL primary key,
@@ -242,9 +243,11 @@ create table ODM2.Variables (
 create table ODM2.CVTerms (
 	termid integer  NOT NULL primary key,
 	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL,
 	definition varchar (500) NULL,
-	odmvocabulary varchar (255) NOT NULL,
-	sourcevocabulary varchar (255) NULL
+	category varchar (255) NULL,
+	odm2vocabulary varchar (255) NOT NULL,
+	sourcevocabularyuri varchar (255) NULL
 );
 /***************************************************************************/
 /************************* CREATE ODM2DATAQUALITY **************************/
@@ -802,7 +805,7 @@ create table ODM2.TrajectoryResultValues (
 	trajectorydistance double precision  NOT NULL,
 	trajectorydistanceaggregationinterval double precision  NOT NULL,
 	trajectorydistanceunitsid integer  NOT NULL,
-	censorcode varchar (255) NOT NULL,
+	censorcodecv varchar (255) NOT NULL,
 	qualitycodecv varchar (255) NOT NULL,
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL
@@ -853,7 +856,7 @@ create table ODM2.Sites (
 	sitetypecv varchar (255) NOT NULL,
 	latitude double precision  NOT NULL,
 	longitude double precision  NOT NULL,
-	latlondatumid integer  NOT NULL
+	spatialreferenceid integer  NOT NULL
 );
 create table ODM2.SpatialOffsets (
 	spatialoffsetid integer  NOT NULL primary key,
@@ -869,7 +872,8 @@ create table ODM2.SpatialReferences (
 	spatialreferenceid serial  NOT NULL primary key,
 	srscode varchar (50) NULL,
 	srsname varchar (255) NOT NULL,
-	srsdescription varchar (500) NULL
+	srsdescription varchar (500) NULL,
+	srslink varchar (255) NULL
 );
 create table ODM2.Specimens (
 	samplingfeatureid integer  NOT NULL primary key,
@@ -1760,7 +1764,7 @@ foreign key (SamplingFeatureID) References ODM2.SamplingFeatures (SamplingFeatur
 on update no Action on delete cascade;
 
 alter table ODM2.Sites add constraint fk_Sites_SpatialReferences
-foreign key (LatLonDatumID) References ODM2.SpatialReferences (SpatialReferenceID)
+foreign key (SpatialReferenceID) References ODM2.SpatialReferences (SpatialReferenceID)
 on update no Action on delete cascade;
 
 alter table ODM2.Specimens add constraint fk_Specimens_SamplingFeatures

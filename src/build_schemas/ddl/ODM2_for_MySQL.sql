@@ -250,7 +250,8 @@ CREATE TABLE Units (
 	UnitsID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	UnitsTypeCV VARCHAR (255)  NOT NULL,
 	UnitsAbbreviation VARCHAR (50)  NOT NULL,
-	UnitsName VARCHAR (255)  NOT NULL
+	UnitsName VARCHAR (255)  NOT NULL,
+	UnitsLink VARCHAR (255)  NULL
 );
 
 CREATE TABLE Variables (
@@ -271,9 +272,11 @@ USE ODM2;
 CREATE TABLE CVTerms (
 	TermID INT   NOT NULL PRIMARY KEY,
 	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL,
 	Definition VARCHAR (500)  NULL,
-	ODMVocabulary VARCHAR (255)  NOT NULL,
-	SourceVocabulary VARCHAR (255)  NULL
+	Category VARCHAR (255)  NULL,
+	ODM2Vocabulary VARCHAR (255)  NOT NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
 );
 
 /***************************************************************************/
@@ -901,7 +904,7 @@ CREATE TABLE TrajectoryResultValues (
 	TrajectoryDistance FLOAT   NOT NULL,
 	TrajectoryDistanceAggregationInterval FLOAT   NOT NULL,
 	TrajectoryDistanceUnitsID INT   NOT NULL,
-	CensorCode VARCHAR (255)  NOT NULL,
+	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
 	TimeAggregationIntervalUnitsID INT   NOT NULL
@@ -957,7 +960,7 @@ CREATE TABLE Sites (
 	SiteTypeCV VARCHAR (255)  NOT NULL,
 	Latitude FLOAT   NOT NULL,
 	Longitude FLOAT   NOT NULL,
-	LatLonDatumID INT   NOT NULL
+	SpatialReferenceID INT   NOT NULL
 );
 
 CREATE TABLE SpatialOffsets (
@@ -975,7 +978,8 @@ CREATE TABLE SpatialReferences (
 	SpatialReferenceID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	SRSCode VARCHAR (50)  NULL,
 	SRSName VARCHAR (255)  NOT NULL,
-	SRSDescription VARCHAR (500)  NULL
+	SRSDescription VARCHAR (500)  NULL,
+	SRSLink VARCHAR (255)  NULL
 );
 
 CREATE TABLE Specimens (
@@ -1874,7 +1878,7 @@ FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE Sites ADD CONSTRAINT fk_Sites_SpatialReferences
-FOREIGN KEY (LatLonDatumID) REFERENCES SpatialReferences (SpatialReferenceID)
+FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE Specimens ADD CONSTRAINT fk_Specimens_SamplingFeatures

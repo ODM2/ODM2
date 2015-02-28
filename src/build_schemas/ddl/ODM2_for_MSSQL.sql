@@ -261,6 +261,7 @@ CREATE TABLE ODM2.Units (
 	UnitsTypeCV varchar (255)  NOT NULL,
 	UnitsAbbreviation varchar (50)  NOT NULL,
 	UnitsName varchar (255)  NOT NULL,
+	UnitsLink varchar (255)  NULL,
 	PRIMARY KEY (UnitsID)
 )
 CREATE TABLE ODM2.Variables (
@@ -280,9 +281,11 @@ CREATE TABLE ODM2.Variables (
 CREATE TABLE ODM2.CVTerms (
 	TermID int   NOT NULL,
 	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
 	Definition varchar (500)  NULL,
-	ODMVocabulary varchar (255)  NOT NULL,
-	SourceVocabulary varchar (255)  NULL,
+	Category varchar (255)  NULL,
+	ODM2Vocabulary varchar (255)  NOT NULL,
+	SourceVocabularyURI varchar (255)  NULL,
 	PRIMARY KEY (TermID)
 )
 /***************************************************************************/
@@ -903,7 +906,7 @@ CREATE TABLE ODM2.TrajectoryResultValues (
 	TrajectoryDistance float   NOT NULL,
 	TrajectoryDistanceAggregationInterval float   NOT NULL,
 	TrajectoryDistanceUnitsID int   NOT NULL,
-	CensorCode varchar (255)  NOT NULL,
+	CensorCodeCV varchar (255)  NOT NULL,
 	QualityCodeCV varchar (255)  NOT NULL,
 	TimeAggregationInterval float   NOT NULL,
 	TimeAggregationIntervalUnitsID int   NOT NULL,
@@ -958,7 +961,7 @@ CREATE TABLE ODM2.Sites (
 	SiteTypeCV varchar (255)  NOT NULL,
 	Latitude float   NOT NULL,
 	Longitude float   NOT NULL,
-	LatLonDatumID int   NOT NULL,
+	SpatialReferenceID int   NOT NULL,
 	PRIMARY KEY (SamplingFeatureID)
 )
 CREATE TABLE ODM2.SpatialOffsets (
@@ -977,6 +980,7 @@ CREATE TABLE ODM2.SpatialReferences (
 	SRSCode varchar (50)  NULL,
 	SRSName varchar (255)  NOT NULL,
 	SRSDescription varchar (500)  NULL,
+	SRSLink varchar (255)  NULL,
 	PRIMARY KEY (SpatialReferenceID)
 )
 CREATE TABLE ODM2.Specimens (
@@ -1874,7 +1878,7 @@ FOREIGN KEY (SamplingFeatureID) REFERENCES ODM2.SamplingFeatures (SamplingFeatur
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.Sites ADD CONSTRAINT fk_Sites_SpatialReferences
-FOREIGN KEY (LatLonDatumID) REFERENCES ODM2.SpatialReferences (SpatialReferenceID)
+FOREIGN KEY (SpatialReferenceID) REFERENCES ODM2.SpatialReferences (SpatialReferenceID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.Specimens ADD CONSTRAINT fk_Specimens_SamplingFeatures
