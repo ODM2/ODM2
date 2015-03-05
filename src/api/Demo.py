@@ -2,10 +2,12 @@ import sys
 import os
 import matplotlib.pyplot as plt
 from matplotlib import dates
-from ODM2.Core.services import readCore as CSread
-from ODM2.Core.services import CoreServices
-from ODM2.SamplingFeatures.services import readSamplingFeatures as SFread
-from ODM2.Results.services import readResults as Rread
+# from ODM2.Core.services import readCore as CSread
+from ODM2.new_services import *
+# from ODM2.Core.services import CoreServices
+# from ODM2.SamplingFeatures.services import readSamplingFeatures as SFread
+# from ODM2.Results.services import readResults as Rread
+
 from ODMconnection import dbconnection
 
 this_file = os.path.realpath(__file__)
@@ -25,10 +27,14 @@ conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM',
 # Create a connection for each of the schemas. Currently the schemas each have a different
 # connection but it will be changed to all the services sharing a connection
 # ----------------------------------------------------------------------------------------
-core_read = CSread(conn)
-core = CoreServices(conn)
-result_read = Rread(conn)
-sampfeat_read = SFread(conn)
+core_read = readCore(conn)
+result_read = readResults(conn)
+sampfeat_read = readSamplingFeatures(conn)
+
+# core_read = CSread(conn)
+# core = CoreServices(conn)
+# result_read = Rread(conn)
+# sampfeat_read = SFread(conn)
 
 
 # Run some basic sample queries.
@@ -145,9 +151,9 @@ plt.show()
 
 # Demo the LikeODM1 stuff
 # -------------------------------------------------
-from ODM2.LikeODM1.services import SeriesService
-#### LIKE ODM1 ####
-#conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-odm1service = SeriesService(conn)
-print odm1service.get_all_units()
-print odm1service.get_all_sites()
+# from ODM2.LikeODM1.services import SeriesService
+# #### LIKE ODM1 ####
+# #conn2 = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
+# odm1service = SeriesService(conn)
+# print odm1service.get_all_units()
+# print odm1service.get_all_sites()

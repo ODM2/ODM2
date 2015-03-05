@@ -10,87 +10,6 @@ from apiCustomType import Geometry
 Base = declarative_base()
 metadata = Base.metadata
 
-# ################################################################################
-# Annotations
-# ################################################################################
-class Annotation(Base):
-    __tablename__ = u'Annotations'
-
-    __table_args__ = {u'schema': u'ODM2'}
-
-    AnnotationID = Column(Integer, primary_key=True)
-    AnnotationTypeCV = Column(String(255), nullable=False)
-    AnnotationCode = Column(String(50))
-    AnnotationText = Column(String(500), nullable=False)
-    AnnotationDateTime = Column(DateTime)
-    AnnotationUTCOffset = Column(Integer)
-    AnnotationLink = Column(String(255))
-    AnnotatorID = Column(ForeignKey('ODM2.People.PersonID'))
-    CitationID = Column(ForeignKey('ODM2.Citations.CitationID'))
-
-    PersonObj = relationship(Person)
-    CitationObj = relationship(Citation)
-
-
-class Actionannotation(Base):
-    __tablename__ = u'ActionAnnotations'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
-    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
-
-    ActionObj = relationship(Action)
-    AnnotationObj = relationship(Annotation)
-
-
-class Methodannotation(Base):
-    __tablename__ = u'MethodAnnotations'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
-    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
-
-    AnnotationObj = relationship(Annotation)
-    MethodObj = relationship(Method)
-
-
-class Resultannotation(Base):
-    __tablename__ = u'ResultAnnotations'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
-    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
-    BeginDateTime = Column(DateTime, nullable=False)
-    EndDateTime = Column(DateTime, nullable=False)
-
-    AnnotationObj = relationship(Annotation)
-    ResultObj = relationship(Result)
-
-
-class Resultvalueannotation(Base):
-    __tablename__ = u'ResultValueAnnotations'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    ValueID = Column(BigInteger, nullable=False)
-    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
-
-    Annotation = relationship(Annotation)
-
-
-class Samplingfeatureannotation(Base):
-    __tablename__ = u'SamplingFeatureAnnotations'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
-    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
-
-    AnnotationObj = relationship(Annotation)
-    SamplingFeatureObj = relationship(Samplingfeature)
 
 
 # ################################################################################
@@ -381,6 +300,393 @@ class Result(Base):
             self.ResultID, self.ResultTypeCV, self.ProcessingLevelID, self.ValueCount)
 
 
+
+# ################################################################################
+# Equipment
+# ################################################################################
+
+
+class Equipmentmodel(Base):
+    __tablename__ = u'EquipmentModels'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    ModelID = Column(Integer, primary_key=True)
+    ModelManufacturerID = Column(ForeignKey('ODM2.Organizations.OrganizationID'), nullable=False)
+    ModelPartNumber = Column(String(50))
+    ModelName = Column(String(255), nullable=False)
+    ModelDescription = Column(String(500))
+    ModelSpecificationsFileLink = Column(String(255))
+    ModelLink = Column(String(255))
+    IsInstrument = Column(BIT, nullable=False)
+
+    OrganizationObj = relationship(Organization)
+
+
+class Equipment(Base):
+    __tablename__ = u'Equipment'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    EquipmentID = Column(Integer, primary_key=True)
+    EquipmentCode = Column(String(50), nullable=False)
+    EquipmentName = Column(String(255), nullable=False)
+    EquipmentTypeCV = Column(String(255), nullable=False)
+    ModelID = Column(ForeignKey('ODM2.EquipmentModels.ModelID'), nullable=False)
+    EquipmentSerialNumber = Column(String(50), nullable=False)
+    EquipmentInventoryNumber = Column(String(50))
+    EquipmentOwnerID = Column(ForeignKey('ODM2.People.PersonID'), nullable=False)
+    EquipmentVendorID = Column(ForeignKey('ODM2.Organizations.OrganizationID'), nullable=False)
+    EquipmentPurchaseDate = Column(DateTime, nullable=False)
+    EquipmentPurchaseOrderNumber = Column(String(50))
+    EquipmentPhotoFileLink = Column(String(255))
+    EquipmentDescription = Column(String(500))
+    ParentEquipmentID = Column(ForeignKey('ODM2.Equipment.EquipmentID'))
+
+    PersonObj = relationship(Person)
+    OrganizationObj = relationship(Organization)
+    EquipmentModelObj = relationship(Equipmentmodel)
+    parent = relationship(u'Equipment', remote_side=[EquipmentID])
+
+
+class Equipmentaction(Base):
+    __tablename__ = u'EquipmentActions'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    EquipmentID = Column(ForeignKey('ODM2.Equipment.EquipmentID'), nullable=False)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+
+    ActionObj = relationship(Action)
+    EquipmentObj = relationship(Equipment)
+
+
+class Instrumentoutputvariable(Base):
+    __tablename__ = u'InstrumentOutputVariables'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    InstrumentOutputVariableID = Column(Integer, primary_key=True)
+    ModelID = Column(ForeignKey('ODM2.EquipmentModels.ModelID'), nullable=False)
+    VariableID = Column(ForeignKey('ODM2.Variables.VariableID'), nullable=False)
+    InstrumentMethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
+    InstrumentResolution = Column(String(255))
+    InstrumentAccuracy = Column(String(255))
+    InstrumentRawOutputUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
+
+    MethodObj = relationship(Method)
+    OutputUnitObj = relationship(Unit)
+    EquipmentModelObj = relationship(Equipmentmodel)
+    VariableObj = relationship(Variable)
+
+
+
+
+
+
+# ################################################################################
+# Lab Analyses
+# ################################################################################
+
+class Directive(Base):
+    __tablename__ = u'Directives'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    DirectiveID = Column(Integer, primary_key=True)
+    DirectiveTypeCV = Column(String(255), nullable=False)
+    DirectiveDescription = Column(String(500), nullable=False)
+
+
+class Actiondirective(Base):
+    __tablename__ = u'ActionDirectives'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+    DirectiveID = Column(ForeignKey('ODM2.Directives.DirectiveID'), nullable=False)
+
+    ActionObj = relationship(Action)
+    DirectiveObj = relationship(Directive)
+
+
+# ################################################################################
+# Like ODM 1
+# ################################################################################
+
+## TODO add ODM 1
+
+
+
+
+# ################################################################################
+# Sampling Features
+# ################################################################################
+
+
+
+class Spatialreference(Base):
+    __tablename__ = u'SpatialReferences'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    SpatialReferenceID = Column(Integer, primary_key=True)
+    SRSCode = Column(String(50))
+    SRSName = Column(String(255), nullable=False)
+    SRSDescription = Column(String(500))
+
+
+class Specimen(Samplingfeature):
+    __tablename__ = u'Specimens'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), primary_key=True)
+    SpecimenTypeCV = Column(String(255), nullable=False)
+    SpecimenMediumCV = Column(String(255), nullable=False)
+    IsFieldSpecimen = Column(BIT, nullable=False)
+
+
+class Spatialoffset(Base):
+    __tablename__ = u'SpatialOffsets'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    SpatialOffsetID = Column(Integer, primary_key=True)
+    SpatialOffsetTypeCV = Column(String(255), nullable=False)
+    Offset1Value = Column(Float(53), nullable=False)
+    Offset1UnitID = Column(Integer, nullable=False)
+    Offset2Value = Column(Float(53))
+    Offset2UnitID = Column(Integer)
+    Offset3Value = Column(Float(53))
+    Offset3UnitID = Column(Integer)
+
+
+class Site(Samplingfeature):
+    __tablename__ = u'Sites'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), primary_key=True)
+    SiteTypeCV = Column(String(255), nullable=False)
+    Latitude = Column(Float(53), nullable=False)
+    Longitude = Column(Float(53), nullable=False)
+    LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
+
+    SpatialReferenceObj = relationship(Spatialreference)
+
+
+class Relatedfeature(Base):
+    __tablename__ = u'RelatedFeatures'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    RelationID = Column(Integer, primary_key=True)
+    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
+    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelatedFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
+    SpatialOffsetID = Column(ForeignKey('ODM2.SpatialOffsets.SpatialOffsetID'))
+
+    SamplingFeatureObj = relationship(Samplingfeature,
+                                      primaryjoin='Relatedfeature.RelatedFeatureID == Samplingfeature.SamplingFeatureID')
+    RelatedFeatureObj = relationship(Samplingfeature,
+                                     primaryjoin='Relatedfeature.SamplingFeatureID == Samplingfeature.SamplingFeatureID')
+    SpatialOffsetObj = relationship(Spatialoffset)
+
+
+class Specimentaxonomicclassifier(Base):
+    __tablename__ = u'SpecimenTaxonomicClassifiers'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    SamplingFeatureID = Column(ForeignKey('ODM2.Specimens.SamplingFeatureID'), nullable=False)
+    TaxonomicClassifierID = Column(ForeignKey('ODM2.TaxonomicClassifiers.TaxonomicClassifierID'), nullable=False)
+    CitationID = Column(Integer)
+
+    SpecimenObj = relationship(Specimen)
+    TaxonomicClassifierObj = relationship(Taxonomicclassifier)
+
+
+# ################################################################################
+# Sensors
+# ################################################################################
+
+class Deploymentaction(Base):
+    __tablename__ = u'DeploymentActions'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    DeploymentActionID = Column(Integer, primary_key=True)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+    DeploymentTypeCV = Column(String(255), nullable=False)
+    DeploymentDescription = Column(String(500))
+    ConfigurationActionID = Column(Integer, nullable=False)
+    CalibrationActionID = Column(Integer, nullable=False)
+    SpatialOffsetID = Column(Integer)
+    DeploymentSchematicLink = Column(String(255))
+
+    ActionObj = relationship(Action)
+
+
+class Dataloggerfile(Base):
+    __tablename__ = u'DataLoggerFiles'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    DataLoggerFileID = Column(Integer, primary_key=True)
+    DeploymentActionID = Column(ForeignKey('ODM2.DeploymentActions.DeploymentActionID'), nullable=False)
+    DataLoggerOutputFileLink = Column(String(255), nullable=False)
+    DataLoggerOutputFileDescription = Column(String(500))
+
+    DeploymentActionObj = relationship(Deploymentaction)
+
+
+class Photo(Base):
+    __tablename__ = u'Photos'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    PhotoID = Column(Integer, primary_key=True)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+    PhotoFileLink = Column(String(255), nullable=False)
+    PhotoDescription = Column(String(500))
+
+    ActionObj = relationship(Action)
+
+
+# ################################################################################
+# Simulation
+# ################################################################################
+
+
+class Model(Base):
+    __tablename__ = 'Models'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    ModelID = Column(Integer, primary_key=True)
+    ModelCode = Column(String(255), nullable=False)
+    ModelName = Column(String(255), nullable=False)
+    ModelDescription = Column(String(500))
+
+
+class Relatedmodel(Base):
+    __tablename__ = 'RelatedModels'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    RelationID = Column(Integer, primary_key=True)
+    ModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
+    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelatedModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
+
+    Model = relationship(u'Model', primaryjoin='Relatedmodel.ModelID == Model.ModelID')
+    Model1 = relationship(u'Model', primaryjoin='Relatedmodel.RelatedModelID == Model.ModelID')
+
+
+class Simulation(Base):
+    __tablename__ = 'Simulations'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    SimulationID = Column(Integer, primary_key=True)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+    SimulationName = Column(String(255), nullable=False)
+    SimulationDescription = Column(String(500))
+    SimulationStartDateTime = Column(Date, nullable=False)
+    SimulationStartDateTimeUTCOffset = Column(Integer, nullable=False)
+    SimulationEndDateTime = Column(Date, nullable=False)
+    SimulationEndDateTimeUTCOffset = Column(Integer, nullable=False)
+    TimeStepValue = Column(Float(53), nullable=False)
+    TimeStepUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
+    InputDataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'))
+    OutputDataSetID = Column(Integer)
+    ModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
+
+    Action = relationship(u'Action')
+    DataSet = relationship(u'Dataset')
+    Model = relationship(u'Model')
+    Unit = relationship(u'Unit')
+
+# Part of the Provenance table, needed here to meet dependancies
+class Citation(Base):
+    __tablename__ = u'Citations'
+    __table_args__ = {u'schema': u'ODM2'}
+
+    CitationID = Column(Integer, primary_key=True)
+    Title = Column(String(255), nullable=False)
+    Publisher = Column(String(255), nullable=False)
+    PublicationYear = Column(Integer, nullable=False)
+    CitationLink = Column(String(255))
+
+
+# ################################################################################
+# Annotations
+# ################################################################################
+class Annotation(Base):
+    __tablename__ = u'Annotations'
+
+    __table_args__ = {u'schema': u'ODM2'}
+
+    AnnotationID = Column(Integer, primary_key=True)
+    AnnotationTypeCV = Column(String(255), nullable=False)
+    AnnotationCode = Column(String(50))
+    AnnotationText = Column(String(500), nullable=False)
+    AnnotationDateTime = Column(DateTime)
+    AnnotationUTCOffset = Column(Integer)
+    AnnotationLink = Column(String(255))
+    AnnotatorID = Column(ForeignKey('ODM2.People.PersonID'))
+    CitationID = Column(ForeignKey('ODM2.Citations.CitationID'))
+
+    PersonObj = relationship(Person)
+    CitationObj = relationship(Citation)
+
+
+class Actionannotation(Base):
+    __tablename__ = u'ActionAnnotations'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
+    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
+
+    ActionObj = relationship(Action)
+    AnnotationObj = relationship(Annotation)
+
+
+class Methodannotation(Base):
+    __tablename__ = u'MethodAnnotations'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
+    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
+
+    AnnotationObj = relationship(Annotation)
+    MethodObj = relationship(Method)
+
+
+class Resultannotation(Base):
+    __tablename__ = u'ResultAnnotations'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
+    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
+    BeginDateTime = Column(DateTime, nullable=False)
+    EndDateTime = Column(DateTime, nullable=False)
+
+    AnnotationObj = relationship(Annotation)
+    ResultObj = relationship(Result)
+
+
+class Resultvalueannotation(Base):
+    __tablename__ = u'ResultValueAnnotations'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    ValueID = Column(BigInteger, nullable=False)
+    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
+
+    Annotation = relationship(Annotation)
+
+
+class Samplingfeatureannotation(Base):
+    __tablename__ = u'SamplingFeatureAnnotations'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    BridgeID = Column(Integer, primary_key=True)
+    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
+    AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
+
+    AnnotationObj = relationship(Annotation)
+    SamplingFeatureObj = relationship(Samplingfeature)
+
 # ################################################################################
 # Data Quality
 # ################################################################################
@@ -468,83 +774,6 @@ class Resultsdataquality(Base):
 
     DataQualityObj = relationship(Dataquality)
     ResultObj = relationship(Result)
-
-
-# ################################################################################
-# Equipment
-# ################################################################################
-
-
-class Equipmentmodel(Base):
-    __tablename__ = u'EquipmentModels'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    ModelID = Column(Integer, primary_key=True)
-    ModelManufacturerID = Column(ForeignKey('ODM2.Organizations.OrganizationID'), nullable=False)
-    ModelPartNumber = Column(String(50))
-    ModelName = Column(String(255), nullable=False)
-    ModelDescription = Column(String(500))
-    ModelSpecificationsFileLink = Column(String(255))
-    ModelLink = Column(String(255))
-    IsInstrument = Column(BIT, nullable=False)
-
-    OrganizationObj = relationship(Organization)
-
-
-class Equipment(Base):
-    __tablename__ = u'Equipment'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    EquipmentID = Column(Integer, primary_key=True)
-    EquipmentCode = Column(String(50), nullable=False)
-    EquipmentName = Column(String(255), nullable=False)
-    EquipmentTypeCV = Column(String(255), nullable=False)
-    ModelID = Column(ForeignKey('ODM2.EquipmentModels.ModelID'), nullable=False)
-    EquipmentSerialNumber = Column(String(50), nullable=False)
-    EquipmentInventoryNumber = Column(String(50))
-    EquipmentOwnerID = Column(ForeignKey('ODM2.People.PersonID'), nullable=False)
-    EquipmentVendorID = Column(ForeignKey('ODM2.Organizations.OrganizationID'), nullable=False)
-    EquipmentPurchaseDate = Column(DateTime, nullable=False)
-    EquipmentPurchaseOrderNumber = Column(String(50))
-    EquipmentPhotoFileLink = Column(String(255))
-    EquipmentDescription = Column(String(500))
-    ParentEquipmentID = Column(ForeignKey('ODM2.Equipment.EquipmentID'))
-
-    PersonObj = relationship(Person)
-    OrganizationObj = relationship(Organization)
-    EquipmentModelObj = relationship(Equipmentmodel)
-    parent = relationship(u'Equipment', remote_side=[EquipmentID])
-
-
-class Equipmentaction(Base):
-    __tablename__ = u'EquipmentActions'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    EquipmentID = Column(ForeignKey('ODM2.Equipment.EquipmentID'), nullable=False)
-    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
-
-    ActionObj = relationship(Action)
-    EquipmentObj = relationship(Equipment)
-
-
-class Instrumentoutputvariable(Base):
-    __tablename__ = u'InstrumentOutputVariables'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    InstrumentOutputVariableID = Column(Integer, primary_key=True)
-    ModelID = Column(ForeignKey('ODM2.EquipmentModels.ModelID'), nullable=False)
-    VariableID = Column(ForeignKey('ODM2.Variables.VariableID'), nullable=False)
-    InstrumentMethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
-    InstrumentResolution = Column(String(255))
-    InstrumentAccuracy = Column(String(255))
-    InstrumentRawOutputUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
-
-    MethodObj = relationship(Method)
-    OutputUnitObj = relationship(Unit)
-    EquipmentModelObj = relationship(Equipmentmodel)
-    VariableObj = relationship(Variable)
-
 
 # ################################################################################
 # Extension Properties
@@ -640,7 +869,6 @@ class Variableextensionpropertyvalue(Base):
 
     ExtensionPropertyObj = relationship(Extensionproperty)
     VariableObj = relationship(Variable)
-
 
 # ################################################################################
 # Extension Identifiers
@@ -779,51 +1007,10 @@ class Variableexternalidentifier(Base):
     ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
     VariableObj = relationship(Variable)
 
-
-# ################################################################################
-# Lab Analyses
-# ################################################################################
-
-class Directive(Base):
-    __tablename__ = u'Directives'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    DirectiveID = Column(Integer, primary_key=True)
-    DirectiveTypeCV = Column(String(255), nullable=False)
-    DirectiveDescription = Column(String(500), nullable=False)
-
-
-class Actiondirective(Base):
-    __tablename__ = u'ActionDirectives'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
-    DirectiveID = Column(ForeignKey('ODM2.Directives.DirectiveID'), nullable=False)
-
-    ActionObj = relationship(Action)
-    DirectiveObj = relationship(Directive)
-
-
-# ################################################################################
-# Like ODM 1
-# ################################################################################
-
-## TODO add ODM 1
-
 # ################################################################################
 # Provenance
 # ################################################################################
 
-class Citation(Base):
-    __tablename__ = u'Citations'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    CitationID = Column(Integer, primary_key=True)
-    Title = Column(String(255), nullable=False)
-    Publisher = Column(String(255), nullable=False)
-    PublicationYear = Column(Integer, nullable=False)
-    CitationLink = Column(String(255))
 
 
 class Authorlist(Base):
@@ -938,7 +1125,6 @@ class Relatedresult(Base):
 
     ResultObj = relationship(Result, primaryjoin='Relatedresult.RelatedResultID == Result.ResultID')
     RelatedResultObj = relationship(Result, primaryjoin='Relatedresult.ResultID == Result.ResultID')
-
 
 # ################################################################################
 # Results
@@ -1341,181 +1527,3 @@ class Transectresultvalue(Base):
 
     TransectResultObj = relationship(Transectresult)
 
-
-# ################################################################################
-# Sampling Features
-# ################################################################################
-
-
-
-class Spatialreference(Base):
-    __tablename__ = u'SpatialReferences'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    SpatialReferenceID = Column(Integer, primary_key=True)
-    SRSCode = Column(String(50))
-    SRSName = Column(String(255), nullable=False)
-    SRSDescription = Column(String(500))
-
-
-class Specimen(Samplingfeature):
-    __tablename__ = u'Specimens'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), primary_key=True)
-    SpecimenTypeCV = Column(String(255), nullable=False)
-    SpecimenMediumCV = Column(String(255), nullable=False)
-    IsFieldSpecimen = Column(BIT, nullable=False)
-
-
-class Spatialoffset(Base):
-    __tablename__ = u'SpatialOffsets'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    SpatialOffsetID = Column(Integer, primary_key=True)
-    SpatialOffsetTypeCV = Column(String(255), nullable=False)
-    Offset1Value = Column(Float(53), nullable=False)
-    Offset1UnitID = Column(Integer, nullable=False)
-    Offset2Value = Column(Float(53))
-    Offset2UnitID = Column(Integer)
-    Offset3Value = Column(Float(53))
-    Offset3UnitID = Column(Integer)
-
-
-class Site(Samplingfeature):
-    __tablename__ = u'Sites'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), primary_key=True)
-    SiteTypeCV = Column(String(255), nullable=False)
-    Latitude = Column(Float(53), nullable=False)
-    Longitude = Column(Float(53), nullable=False)
-    LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
-
-    SpatialReferenceObj = relationship(Spatialreference)
-
-
-class Relatedfeature(Base):
-    __tablename__ = u'RelatedFeatures'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    RelationID = Column(Integer, primary_key=True)
-    SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
-    RelatedFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
-    SpatialOffsetID = Column(ForeignKey('ODM2.SpatialOffsets.SpatialOffsetID'))
-
-    SamplingFeatureObj = relationship(Samplingfeature,
-                                      primaryjoin='Relatedfeature.RelatedFeatureID == Samplingfeature.SamplingFeatureID')
-    RelatedFeatureObj = relationship(Samplingfeature,
-                                     primaryjoin='Relatedfeature.SamplingFeatureID == Samplingfeature.SamplingFeatureID')
-    SpatialOffsetObj = relationship(Spatialoffset)
-
-
-class Specimentaxonomicclassifier(Base):
-    __tablename__ = u'SpecimenTaxonomicClassifiers'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    BridgeID = Column(Integer, primary_key=True)
-    SamplingFeatureID = Column(ForeignKey('ODM2.Specimens.SamplingFeatureID'), nullable=False)
-    TaxonomicClassifierID = Column(ForeignKey('ODM2.TaxonomicClassifiers.TaxonomicClassifierID'), nullable=False)
-    CitationID = Column(Integer)
-
-    SpecimenObj = relationship(Specimen)
-    TaxonomicClassifierObj = relationship(Taxonomicclassifier)
-
-
-# ################################################################################
-# Sensors
-# ################################################################################
-
-class Deploymentaction(Base):
-    __tablename__ = u'DeploymentActions'
-    __table_args__ = {u'schema': u'ODM2'}
-
-    DeploymentActionID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
-    DeploymentTypeCV = Column(String(255), nullable=False)
-    DeploymentDescription = Column(String(500))
-    ConfigurationActionID = Column(Integer, nullable=False)
-    CalibrationActionID = Column(Integer, nullable=False)
-    SpatialOffsetID = Column(Integer)
-    DeploymentSchematicLink = Column(String(255))
-
-    ActionObj = relationship(Action)
-
-
-class Dataloggerfile(Base):
-    __tablename__ = u'DataLoggerFiles'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    DataLoggerFileID = Column(Integer, primary_key=True)
-    DeploymentActionID = Column(ForeignKey('ODM2.DeploymentActions.DeploymentActionID'), nullable=False)
-    DataLoggerOutputFileLink = Column(String(255), nullable=False)
-    DataLoggerOutputFileDescription = Column(String(500))
-
-    DeploymentActionObj = relationship(Deploymentaction)
-
-
-class Photo(Base):
-    __tablename__ = u'Photos'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    PhotoID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
-    PhotoFileLink = Column(String(255), nullable=False)
-    PhotoDescription = Column(String(500))
-
-    ActionObj = relationship(Action)
-
-
-# ################################################################################
-# Simulation
-# ################################################################################
-
-
-class Model(Base):
-    __tablename__ = 'Models'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    ModelID = Column(Integer, primary_key=True)
-    ModelCode = Column(String(255), nullable=False)
-    ModelName = Column(String(255), nullable=False)
-    ModelDescription = Column(String(500))
-
-
-class Relatedmodel(Base):
-    __tablename__ = 'RelatedModels'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    RelationID = Column(Integer, primary_key=True)
-    ModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
-    RelatedModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
-
-    Model = relationship(u'Model', primaryjoin='Relatedmodel.ModelID == Model.ModelID')
-    Model1 = relationship(u'Model', primaryjoin='Relatedmodel.RelatedModelID == Model.ModelID')
-
-
-class Simulation(Base):
-    __tablename__ = 'Simulations'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    SimulationID = Column(Integer, primary_key=True)
-    ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
-    SimulationName = Column(String(255), nullable=False)
-    SimulationDescription = Column(String(500))
-    SimulationStartDateTime = Column(Date, nullable=False)
-    SimulationStartDateTimeUTCOffset = Column(Integer, nullable=False)
-    SimulationEndDateTime = Column(Date, nullable=False)
-    SimulationEndDateTimeUTCOffset = Column(Integer, nullable=False)
-    TimeStepValue = Column(Float(53), nullable=False)
-    TimeStepUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
-    InputDataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'))
-    OutputDataSetID = Column(Integer)
-    ModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
-
-    Action = relationship(u'Action')
-    DataSet = relationship(u'Dataset')
-    Model = relationship(u'Model')
-    Unit = relationship(u'Unit')
