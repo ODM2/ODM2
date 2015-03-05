@@ -42,6 +42,9 @@ class Person(Base):
     PersonMiddleName = Column(String(255))
     PersonLastName = Column(String(255), nullable=False)
 
+    def __repr__(self):
+        return "<Person('%s', '%s', '%s')>" % (self.PersonID, self.PersonFirstName,
+                                               self.PersonLastName)
 
 class Organization(Base):
     __tablename__ = u'Organizations'

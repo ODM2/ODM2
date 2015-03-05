@@ -1,13 +1,10 @@
 import sys
 import os
 import matplotlib.pyplot as plt
-from matplotlib import dates
-# from ODM2.Core.services import readCore as CSread
-from ODM2.new_services import *
-# from ODM2.Core.services import CoreServices
-# from ODM2.SamplingFeatures.services import readSamplingFeatures as SFread
-# from ODM2.Results.services import readResults as Rread
+import pprint
 
+from matplotlib import dates
+from ODM2.new_services import *
 from ODMconnection import dbconnection
 
 this_file = os.path.realpath(__file__)
@@ -36,6 +33,7 @@ sampfeat_read = readSamplingFeatures(conn)
 # result_read = Rread(conn)
 # sampfeat_read = SFread(conn)
 
+pp = pprint.PrettyPrinter(indent=8)
 
 # Run some basic sample queries.
 # ------------------------------
@@ -45,8 +43,9 @@ numVars = len(allVars)
 print "\n------------ Simple Variables Query ---------------"
 print "There are " + str(numVars) + " Variables in the ODM2 database retrieved using getVariables()."
 print "The list of variables includes:"
-for x in allVars:
-    print x.VariableCode + ": " + x.VariableNameCV
+pp.pprint(allVars)
+# for x in allVars:
+#     print x.VariableCode + ": " + x.VariableNameCV
 
 
 # Get all of the people from the database
@@ -55,8 +54,9 @@ numPeople = len(allPeople)
 print "\n------------ Simple People Query ------------------"
 print "There are " + str(numPeople) + " People in the ODM2 database retrieved using getPeople()."
 print "The list of People includes: "
-for x in allPeople:
-    print x.PersonFirstName + " " + x.PersonLastName
+pp.pprint(allPeople)
+# for x in allPeople:
+#     print x.PersonFirstName + " " + x.PersonLastName
 
 
 # Get all of the SamplingFeatures from the database that are Sites
@@ -66,8 +66,9 @@ try:
     print "\n--------------- Information about Site SamplingFeatures ------------"
     print "There are " + str(numSites) + " Site SamplingFeatures in the ODM2 database retrieved using getSamplingFeaturesByType()."
     print "The list of Site SamplingFeatures includes: "
-    for x in siteFeatures:
-        print x.SamplingFeatureCode + ": " + x.SamplingFeatureName
+    pp.pprint(siteFeatures)
+    # for x in siteFeatures:
+    #     print x.SamplingFeatureCode + ": " + x.SamplingFeatureName
 except Exception as e:
     print "Unable to demo getSamplingFeaturesByType", e
 
@@ -130,7 +131,11 @@ print "\n-------- Example of Retrieving Time Series Result Values ---------"
 tsValues = result_read.getTimeSeriesResultValuesByResultId(19) #Return type is a pandas dataframe
 # Print a few Time Series Values to the console
 #tsValues.set_index('ValueDateTime', inplace=True)
-print tsValues.head()
+try:
+    print tsValues.head()
+except Exception as e:
+    print e
+
 # Plot the time series
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -145,9 +150,6 @@ ax.xaxis.set_major_locator(dates.YearLocator())
 ax.xaxis.set_major_formatter(dates.DateFormatter('\n%Y'))
 ax.grid(True)
 plt.show()
-
-
-
 
 # Demo the LikeODM1 stuff
 # -------------------------------------------------
