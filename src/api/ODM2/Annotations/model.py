@@ -5,7 +5,6 @@ from sqlalchemy.orm import relationship
 from ODM2.Core.model import Action, Method, Samplingfeature, Result, Person, Base
 from ODM2.Provenance.model import Citation
 
-
 class Annotation(Base):
     __tablename__ = u'Annotations'
 
@@ -85,6 +84,7 @@ class Samplingfeatureannotation(Base):
 
     AnnotationObj = relationship(Annotation)
     SamplingFeatureObj = relationship(Samplingfeature)
+
 
 
 
