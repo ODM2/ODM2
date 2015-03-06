@@ -1,0 +1,178 @@
+# TODO:  Need to check all of the values in the CV fields to make sure they use valid values
+# TODO:  Need to find out what the convention is for empty elements in YAML and fix throughout
+# TODO:  Make sure all required elements are specified
+# TODO:  Where objects are referenced by referencing an anchor, what should the element name be (e.g., "Action" or "ActionID"?)
+
+---
+YODA: {Version: 1.0.0, Profile: SpecimenTimeSeries}
+
+Dataset:
+  DataSetUUID: "000000000000000000000"
+  DataSetTypeCV: SpecimenTimeSeries
+  DataSetCode: iUTAH_GAMUT_WQ_Samples
+  DataSetTitle: Water Quality Sample Results for the iUTAH GAMUT Network
+  DataSetAbstract: These data represent results from water quality samples collected at the iUTAH GAMUT Network aquatic monitoring sites.
+
+People:
+  - &PersonID001 {PersonFirstName: Dave, PersonMiddleName: "", PersonLastName: Eiriksson}
+  - &PersonID002 {PersonFirstName: Chris, PersonMiddleName: "", PersonLastName: Cox}
+  - &PersonID003 {PersonFirstName: Joe, PersonMiddleName: "", PersonLastName: Crawford}
+  - &PersonID004 {PersonFirstName: Janet, PersonMiddleName: "", PersonLastName: Barnette}
+  - &PersonID005 {PersonFirstName: Lisa, PersonMiddleName: "", PersonLastName: Ward}
+
+Organizations:
+  - &OrganizationID001 {OrganizationTypeCV: University, OrganizationCode: USU, OrganizationName: Utah State University, OrganizationDescription: , OrganizationLink: "http://www.usu.edu", ParentOrganizationID: }
+  - &OrganizationID002 {OrganizationTypeCV: University, OrganizationCode: UU, OrganizationName: University of Utah, OrganizationDescription: , OrganizationLink: "http://www.utah.edu", ParentOrganizationID: }
+  - &OrganizationID003 {OrganizationTypeCV: University, OrganizationCode: BYU, OrganizationName: Brigham Young University, OrganizationDescription: , OrganizationLink: "http://www.byu.edu", ParentOrganizationID: }
+  - &OrganizationID004 {OrganizationTypeCV: Analytical laboratory, OrganizationCode: USU_Baker_Lab, OrganizationName: USU Aquatic Biogeochemistry Laboratory, OrganizationDescription: , OrganizationLink: "http://canoeecology.weebly.com/lab-services.html", ParentOrganizationID: *OrganizationID001}
+  - &OrganizationID005 {OrganizationTypeCV: Analytical laboratory, OrganizationCode: BYU_Aanderud_Lab, OrganizationName: BYU Aanderud Lab, OrganizationDescription: , OrganizationLink: , ParentOrganizationID: *OrganizationID003}
+  - &OrganizationID006 {OrganizationTypeCV: Analytical laboratory, OrganizationCode: UU_SIRFER, OrganizationName: University of Utah SIRFER Lab, OrganizationDescription: , OrganizationLink: , ParentOrganizationID: *OrganizationID002}
+
+Affiliations:
+  - &AffiliationID001 {PersonID: *PersonID001, OrganizationID: *OrganizationID002, IsPrimaryOrganizationContact: No, AffiliationStartDate: "2013-01-01", AffiliationEndDate: , PrimaryPhone: , PrimaryEmail: dave.eiriksson@utah.edu, PrimaryAddress: , PersonLink: }
+  - &AffiliationID002 {PersonID: *PersonID002, OrganizationID: *OrganizationID001, IsPrimaryOrganizationContact: No, AffiliationStartDate: "2013-01-01", AffiliationEndDate: , PrimaryPhone: , PrimaryEmail: chris.cox@usu.edu, PrimaryAddress: , PersonLink: }
+  - &AffiliationID003 {PersonID: *PersonID003, OrganizationID: *OrganizationID003, IsPrimaryOrganizationContact: No, AffiliationStartDate: "2013-01-01", AffiliationEndDate: , PrimaryPhone: , PrimaryEmail: joe_crawford@byu.edu, PrimaryAddress: , PersonLink: }
+  - &AffiliationID004 {PersonID: *PersonID004, OrganizationID: *OrganizationID006, IsPrimaryOrganizationContact: No, AffiliationStartDate: "2013-01-01", AffiliationEndDate: , PrimaryPhone: , PrimaryEmail: Unknown, PrimaryAddress: , PersonLink: }
+  - &AffiliationID005 {PersonID: *PersonID005, OrganizationID: *OrganizationID004, IsPrimaryOrganizationContact: No, AffiliationStartDate: "2013-01-01", AffiliationEndDate: , PrimaryPhone: , PrimaryEmail: Unknown, PrimaryAddress: , PersonLink: }
+
+AuthorList:
+  - &AuthorID001 {AuthorName: *PersonID001, AuthorOrder: 1}
+  - &AuthorID002 {AuthorName: *PersonID002, AuthorOrder: 2}
+  - &AuthorID003 {AuthorName: *PersonID003, AuthorOrder: 3}
+
+Citation:
+    Title: Water Quality Sample Results for the iUTAH GAMUT Network
+    Publisher: iUTAH Modeling and Data Federation
+    PubliationYear: 2015
+    CitationLink: http://repository.iutahepscor.org/dataset/iUTAH_GAMUT_WQ_Samples
+    Authors: [*AuthorID001, *AuthorID002, *AuthorID003]
+
+SpatialReferences:
+  - &SRSID001 {SpatialReferenceID: 2, SRSCode: EPSG4269, SRSName: NAD83, SRSDescription: ""}
+  - &SRSID002 {SpatialReferenceID: 340, SRSCode: "", SRSName: Local Coordinate System, SRSDescription: Coordinates are expressed in meters from the local site datum.}
+
+SamplingFeatures:     # Need to encode FeatureGeometry as Well Known Text
+  - &SamplingFeatureID001 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Site, SamplingFeatureCode: RB_KF_BA, SamplingFeatureName: Knowlton Fork at Knowlton Fork Basic Aquatic, SamplingFeatureDescription: GAMUT Aquatic Site, SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 1986, ElevationDatumCV: EGM96}
+  - &SamplingFeatureID002 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Site, SamplingFeatureCode: RB_RBG_BA, SamplingFeatureName: Red Butte Creek at Red Butte Gate Basic Aquatic, SamplingFeatureDescription: GAMUT Aquatic Site, SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 1582, ElevationDatumCV: EGM96}
+  - &SamplingFeatureID003 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: D101, SamplingFeatureName: Specimen D101, SamplingFeatureDescription: Aquatic Specimen, SamplingFeatureGeoTypeCV: Not applicable, FeatureGeometry: Not Applicable, Elevation_m: "", ElevationDatumCV: ""}
+  - &SamplingFeatureID004 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: D102, SamplingFeatureName: Specimen D102, SamplingFeatureDescription: Aquatic Specimen, SamplingFeatureGeoTypeCV: Not applicable, FeatureGeometry: Not Applicable, Elevation_m: "", ElevationDatumCV: ""}
+  - &SamplingFeatureID005 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: D3236, SamplingFeatureName: Specimen D3236, SamplingFeatureDescription: Aquatic Specimen, SamplingFeatureGeoTypeCV: Not applicable, FeatureGeometry: Not Applicable, Elevation_m: "", ElevationDatumCV: ""}
+  - &SamplingFeatureID006 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: 524, SamplingFeatureName: Specimen 524, SamplingFeatureDescription: Aquatic Specimen, SamplingFeatureGeoTypeCV: Not applicable, FeatureGeometry: Not Applicable, Elevation_m: "", ElevationDatumCV: ""}
+
+Sites:
+  - &SiteID001 {SamplingFeatureID: *SamplingFeatureID001, SiteTypeCV: Stream, Latitude: 40.809522, Longitude: -111.765472, LatLonDatumID: *SRSID001}
+  - &SiteID002 {SamplingFeatureID: *SamplingFeatureID002, SiteTypeCV: Stream, Latitude: 40.774228, Longitude: -111.817025, LatLonDatumID: *SRSID001}
+
+Specimens:
+  - &SpecimenID001 {SamplingFeatureID: *SamplingFeatureID003, SpecimenTypeCV: Grab, SpecimenMediumCV: Water, IsFieldSpecimen: True}
+  - &SpecimenID002 {SamplingFeatureID: *SamplingFeatureID004, SpecimenTypeCV: Grab, SpecimenMediumCV: Water, IsFieldSpecimen: True}
+  - &SpecimenID003 {SamplingFeatureID: *SamplingFeatureID005, SpecimenTypeCV: Grab, SpecimenMediumCV: Water, IsFieldSpecimen: True}
+  - &SpecimenID004 {SamplingFeatureID: *SamplingFeatureID006, SpecimenTypeCV: Grab, SpecimenMediumCV: Water, IsFieldSpecimen: True}
+
+RelatedFeatures:
+  - {SamplingFeatureID: *SamplingFeatureID003, RelationshipTypeCV: wasCollectedAt, RelatedFeatureID: *SamplingFeatureID001, SpatialOffsetID: ""}
+  - {SamplingFeatureID: *SamplingFeatureID004, RelationshipTypeCV: wasCollectedAt, RelatedFeatureID: *SamplingFeatureID002, SpatialOffsetID: ""}
+  - {SamplingFeatureID: *SamplingFeatureID005, RelationshipTypeCV: wasCollectedAt, RelatedFeatureID: *SamplingFeatureID002, SpatialOffsetID: ""}
+  - {SamplingFeatureID: *SamplingFeatureID006, RelationshipTypeCV: wasCollectedAt, RelatedFeatureID: *SamplingFeatureID002, SpatialOffsetID: ""}
+
+# TODO: Organizations associated with Methods are missing, this needs to be fixed
+Methods:
+  - &MethodID001 {MethodTypeCV: Sample collection, MethodCode: Grab_Sampling, MethodName: Grab samples collected in the field with acid-washed bottles for TN and TP analysis., MethodDescription: Grab samples collected in the field with acid-washed bottles for TN and TP analysis., MethodLink: "http://data.iutahepscor.or", OrganizationID: ""}
+  - &MethodID002 {MethodTypeCV: Sample analysis, MethodCode: EPA353.2, MethodName: Nitrate-Nitrite Colorometric Automated Cadmium Reduction, MethodDescription: Nitrate-Nitrite Colorometric Automated Cadmium Reduction, MethodLink: "http://data.iutahepscor.org", OrganizationID: ""}
+  - &MethodID003 {MethodTypeCV: Sample analysis, MethodCode: TotalNitrogen, MethodName: Astoria Total Nitrogen, MethodDescription: Determination of total Nitrogen by persulphate oxidation digestion and cadmium reduction method, MethodLink: "http://data.iutahepscor.org", OrganizationID: ""}
+  - &MethodID004 {MethodTypeCV: Sample analysis, MethodCode: TotalPhosphorus, MethodName: Astoria Total Phosphorus, MethodDescription: Determination of total phosphorus by persulphate oxidation digestion and ascorbic acid method, MethodLink: "http://data.iutahepscor.or", OrganizationID: ""}
+
+Variables:
+  - &VariableID001 {VariableTypeCV: Water quality, VariableCode: TN, VariableNameCV: "Nitrogen, total", VariableDefinition: "", SpeciationCV: N, NoDataValue: -9999}
+  - &VariableID002 {VariableTypeCV: Water quality, VariableCode: TP, VariableNameCV: "Phosphorus, total", VariableDefinition: "", SpeciationCV: P, NoDataValue: -9999}
+  - &VariableID003 {VariableTypeCV: Water quality, VariableCode: Nitrate, VariableNameCV: "Nitrogen, dissolved nitrite (NO2) + Nitrate (NO3)", VariableDefinition: "", SpeciationCV: N, NoDataValue: -9999}
+
+Units:
+  - &UnitID001 {UnitsID: 199, UnitsName: milligrams per liter, UnitsTypeCV: Concentration, UnitsAbbreviation: "mg/L"}
+  - &UnitID002 {UnitsID: 102, UnitsName: Minute, UnitsTypeCV: Time, UnitsAbbreviation: min}
+  - &UnitID003 {UnitsID: 52, UnitsName: Meter, UnitsTypeCV: Length, UnitsAbbreviation: m}
+
+ProcessingLevels:
+  - &ProcessingLevelID001 {ProcessingLevelCode: "1", Definition: Quality controlled data, Explanation: "Processed data and data products that have undergone quality control."}
+
+Actions:
+  - &ActionID001 {ActionTypeCV: Specimen collection, MethodID: *MethodID001, BeginDateTime: "2013-05-20 13:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2013-05-20 13:30:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Aquatic specimen collection., ActionFileLink: ""}
+  - &ActionID002 {ActionTypeCV: Specimen collection, MethodID: *MethodID001, BeginDateTime: "2013-05-20 13:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2013-05-20 13:30:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Aquatic specimen collection., ActionFileLink: ""}
+  - &ActionID003 {ActionTypeCV: Specimen collection, MethodID: *MethodID001, BeginDateTime: "2013-05-16 12:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2013-05-16 12:30:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Aquatic specimen collection., ActionFileLink: ""}
+  - &ActionID004 {ActionTypeCV: Specimen collection, MethodID: *MethodID001, BeginDateTime: "2013-05-16 12:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2013-05-16 12:30:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Aquatic specimen collection., ActionFileLink: ""}
+  - &ActionID005 {ActionTypeCV: Specimen analysis, MethodID: *MethodID002, BeginDateTime: "2015-01-01 00:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2015-01-01 04:00:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Specimen analysis., ActionFileLink: ""}
+  - &ActionID006 {ActionTypeCV: Specimen analysis, MethodID: *MethodID002, BeginDateTime: "2015-01-01 00:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2015-01-01 04:00:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Specimen analysis., ActionFileLink: ""}
+  - &ActionID007 {ActionTypeCV: Specimen analysis, MethodID: *MethodID003, BeginDateTime: "2015-01-01 00:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2015-01-01 04:00:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Specimen analysis., ActionFileLink: ""}
+  - &ActionID008 {ActionTypeCV: Specimen analysis, MethodID: *MethodID004, BeginDateTime: "2015-01-01 00:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2015-01-01 04:00:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Specimen analysis., ActionFileLink: ""}
+  - &ActionID009 {ActionTypeCV: Specimen analysis, MethodID: *MethodID004, BeginDateTime: "2015-01-01 00:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2015-01-01 04:00:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Specimen analysis., ActionFileLink: ""}
+
+ActionBy:
+  - {ActionID: *ActionID001, AffiliationID: *AffiliationID001, IsActionLead: True, RoleDescription: }
+  - {ActionID: *ActionID002, AffiliationID: *AffiliationID001, IsActionLead: True, RoleDescription: }
+  - {ActionID: *ActionID003, AffiliationID: *AffiliationID002, IsActionLead: True, RoleDescription: }
+  - {ActionID: *ActionID004, AffiliationID: *AffiliationID002, IsActionLead: True, RoleDescription: }
+  - {ActionID: *ActionID005, AffiliationID: *AffiliationID004, IsActionLead: True, RoleDescription: }
+  - {ActionID: *ActionID006, AffiliationID: *AffiliationID004, IsActionLead: True, RoleDescription: }
+  - {ActionID: *ActionID007, AffiliationID: *AffiliationID005, IsActionLead: True, RoleDescription: }
+  - {ActionID: *ActionID008, AffiliationID: *AffiliationID005, IsActionLead: True, RoleDescription: }
+  - {ActionID: *ActionID009, AffiliationID: *AffiliationID005, IsActionLead: True, RoleDescription: }
+
+# Relate the the actions to the SamplingFeatures to which they apply
+FeatureActions:
+  - &FeatureActionID001 {SamplingFeatureID: *SamplingFeatureID003, ActionID: *ActionID001}
+  - &FeatureActionID002 {SamplingFeatureID: *SamplingFeatureID004, ActionID: *ActionID002}
+  - &FeatureActionID003 {SamplingFeatureID: *SamplingFeatureID005, ActionID: *ActionID003}
+  - &FeatureActionID004 {SamplingFeatureID: *SamplingFeatureID006, ActionID: *ActionID004}
+  - &FeatureActionID005 {SamplingFeatureID: *SamplingFeatureID003, ActionID: *ActionID005}
+  - &FeatureActionID006 {SamplingFeatureID: *SamplingFeatureID004, ActionID: *ActionID006}
+  - &FeatureActionID007 {SamplingFeatureID: *SamplingFeatureID005, ActionID: *ActionID007}
+  - &FeatureActionID008 {SamplingFeatureID: *SamplingFeatureID005, ActionID: *ActionID008}
+  - &FeatureActionID009 {SamplingFeatureID: *SamplingFeatureID006, ActionID: *ActionID009}
+
+RelatedActions:
+  - {ActionID: *ActionID001, RelationshipTypeCV: isSpecimenCollectionFor, RelatedActionID: *ActionID005}
+  - {ActionID: *ActionID002, RelationshipTypeCV: isSpecimenCollectionFor, RelatedActionID: *ActionID006}
+  - {ActionID: *ActionID003, RelationshipTypeCV: isSpecimenCollectionFor, RelatedActionID: *ActionID007}
+  - {ActionID: *ActionID003, RelationshipTypeCV: isSpecimenCollectionFor, RelatedActionID: *ActionID008}
+  - {ActionID: *ActionID004, RelationshipTypeCV: isSpecimenCollectionFor, RelatedActionID: *ActionID009}
+
+Results:
+  - &ResultID001 {ResultUUID: "000000000000000000000", FeatureActionID: *FeatureActionID001, ResultTypeCV: Measurement, VariableID: *VariableID003, UnitsID: *UnitID001, TaxonomicClassifierID: "", ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2015-02-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: "", ValidDateTimeUTCOffset: "", StatusCV: Complete, SampledMediumCV: Water, ValueCount: 1}
+  - &ResultID002 {ResultUUID: "000000000000000000000", FeatureActionID: *FeatureActionID002, ResultTypeCV: Measurement, VariableID: *VariableID003, UnitsID: *UnitID001, TaxonomicClassifierID: "", ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2015-02-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: "", ValidDateTimeUTCOffset: "", StatusCV: Complete, SampledMediumCV: Water, ValueCount: 1}
+  - &ResultID003 {ResultUUID: "000000000000000000000", FeatureActionID: *FeatureActionID003, ResultTypeCV: Measurement, VariableID: *VariableID001, UnitsID: *UnitID001, TaxonomicClassifierID: "", ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2015-02-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: "", ValidDateTimeUTCOffset: "", StatusCV: Complete, SampledMediumCV: Water, ValueCount: 1}
+  - &ResultID004 {ResultUUID: "000000000000000000000", FeatureActionID: *FeatureActionID004, ResultTypeCV: Measurement, VariableID: *VariableID002, UnitsID: *UnitID001, TaxonomicClassifierID: "", ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2015-02-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: "", ValidDateTimeUTCOffset: "", StatusCV: Complete, SampledMediumCV: Water, ValueCount: 1}
+  - &ResultID005 {ResultUUID: "000000000000000000000", FeatureActionID: *FeatureActionID005, ResultTypeCV: Measurement, VariableID: *VariableID002, UnitsID: *UnitID001, TaxonomicClassifierID: "", ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2015-02-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: "", ValidDateTimeUTCOffset: "", StatusCV: Complete, SampledMediumCV: Water, ValueCount: 1}
+
+MeasurementResults:
+  - &MeasurementResultID001 {ResultID: *ResultID001, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 0, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, CensorCode: NC, QualityCode: "", AggregationStatisticCV: Sample, TimeAggregationInterval: 0, TimeAggregationIntervalUnitsID: *UnitID002}
+  - &MeasurementResultID002 {ResultID: *ResultID002, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 0, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, CensorCode: NC, QualityCode: "", AggregationStatisticCV: Sample, TimeAggregationInterval: 0, TimeAggregationIntervalUnitsID: *UnitID002}
+  - &MeasurementResultID003 {ResultID: *ResultID003, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 0, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, CensorCode: NC, QualityCode: "", AggregationStatisticCV: Sample, TimeAggregationInterval: 0, TimeAggregationIntervalUnitsID: *UnitID002}
+  - &MeasurementResultID004 {ResultID: *ResultID004, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 0, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, CensorCode: NC, QualityCode: "", AggregationStatisticCV: Sample, TimeAggregationInterval: 0, TimeAggregationIntervalUnitsID: *UnitID002}
+  - &MeasurementResultID005 {ResultID: *ResultID005, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 0, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, CensorCode: NC, QualityCode: "", AggregationStatisticCV: Sample, TimeAggregationInterval: 0, TimeAggregationIntervalUnitsID: *UnitID002}
+
+# A table with a single DataValue column is the best way to encode these data because each
+# of the samples was collected at a discrete date/time and at different locations. There is only
+# one analysis and resulting value per sample, so doing a crosstab format would require a lot of
+# NoData Values (to fill the columns in the table) that would end up in whatever database is
+# used to store these data.
+MeasurementResultValues:
+  ColumnDefinitions:
+    - {ColumnNumber: 1, Label: ValueDateTime, ODM2Field: ValueDateTime}
+    - {ColumnNumber: 2, Label: ValueDateTimeUTCOffset, ODM2Field: ValueDateTimeUTCOffset}
+    - {ColumnNumber: 3, Label: DataValue, ODM2Field: DataValue}
+    - {ColumnNumber: 4, Label: MeasurementResultID, ODM2Field: }
+  Data:
+  - [ValueDateTime,ValueDateTimeUTCOffset,DataValue,MeasurementResultID]
+  - &ValueID001 ["2015-01-01 00:30:00",-7.0,0.02,*MeasurementResultID001]
+  - &ValueID002 ["2015-01-01 00:45:00",-7.0,0.05,*MeasurementResultID002]
+  - &ValueID003 ["2015-01-01 01:00:00",-7.0,0.10,*MeasurementResultID003]
+  - &ValueID004 ["2015-01-01 01:15:00",-7.0,0.04,*MeasurementResultID004]
+  - &ValueID005 ["2015-01-01 01:30:00",-7.0,0.08,*MeasurementResultID005]
+
+# Annotations end up being a little awkward - the full DataValue object (and all of it's associated metadata)
+# is referenced by the *ValueIDxxx reference. It wouldn't be that easy to get a list of Annotations for a
+# particular object.  A better way would be to have references to annotations in the DataValue records in the
+# Data table, but then it would be hard to have multiple annotations for a single DataValue
+MeasurementResultValueAnnotations:
+  - {ValueID: *ValueID001, AnnotationTypeCV: MeasurementResultValueAnnotation, AnnotationCode: HT, AnnotationText: Sample holding time exceeded., AnnotationDateTime: "", AnnotationUTCOffset: "", AnnotationLink: "", AnnotatorID: *PersonID004, CitationID: ""}
+  - {ValueID: *ValueID001, AnnotationTypeCV: MeasurementResultValueAnnotation, AnnotationCode: Suspect, AnnotationText: Suspect data value. Use with caution., AnnotationDateTime: "", AnnotationUTCOffset: "", AnnotationLink: "", AnnotatorID: *PersonID004, CitationID: ""}

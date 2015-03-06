@@ -6,6 +6,7 @@ import pprint
 from matplotlib import dates
 from ODM2.new_services import *
 from ODMconnection import dbconnection
+from src.api.ODM2.YAML.yamlFunctions import YamlFunctions
 
 this_file = os.path.realpath(__file__)
 directory = os.path.dirname(this_file)
@@ -14,8 +15,10 @@ sys.path.insert(0, directory)
 
 # Create a connection to the ODM2 database
 # ----------------------------------------
+
 #conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
+conn = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
+#conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 #conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 #conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
 #conn = dbconnection.createConnection('mysql', '127.0.0.1:3306', 'ODM2', 'Stephanie', 'odm')
@@ -28,10 +31,8 @@ core_read = readCore(conn)
 result_read = readResults(conn)
 sampfeat_read = readSamplingFeatures(conn)
 
-# core_read = CSread(conn)
-# core = CoreServices(conn)
-# result_read = Rread(conn)
-# sampfeat_read = SFread(conn)
+
+
 
 pp = pprint.PrettyPrinter(indent=8)
 
@@ -137,19 +138,32 @@ except Exception as e:
     print e
 
 # Plot the time series
-fig = plt.figure()
-ax = fig.add_subplot(111)
-tsValues.plot(x='ValueDateTime',y='DataValue',kind='line',
-              title=tsResult.VariableObj.VariableNameCV + " at " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName,
-              ax=ax)
-ax.set_ylabel(tsResult.VariableObj.VariableNameCV + " (" + tsResult.UnitObj.UnitsAbbreviation +")")
-ax.set_xlabel("Date/Time")
-ax.xaxis.set_minor_locator(dates.MonthLocator())
-ax.xaxis.set_minor_formatter(dates.DateFormatter('%b'))
-ax.xaxis.set_major_locator(dates.YearLocator())
-ax.xaxis.set_major_formatter(dates.DateFormatter('\n%Y'))
-ax.grid(True)
-plt.show()
+try:
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    tsValues.plot(x='ValueDateTime',y='DataValue',kind='line',
+                  title=tsResult.VariableObj.VariableNameCV + " at " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName,
+                  ax=ax)
+    ax.set_ylabel(tsResult.VariableObj.VariableNameCV + " (" + tsResult.UnitObj.UnitsAbbreviation +")")
+    ax.set_xlabel("Date/Time")
+    ax.xaxis.set_minor_locator(dates.MonthLocator())
+    ax.xaxis.set_minor_formatter(dates.DateFormatter('%b'))
+    ax.xaxis.set_major_locator(dates.YearLocator())
+    ax.xaxis.set_major_formatter(dates.DateFormatter('\n%Y'))
+    ax.grid(True)
+    plt.show()
+except Exception as e:
+    print "Unable to demo plotting of tsValues: ", e
+
+# Demonstrate loading a yaml file into an ODM2 database
+print "\n-------- Example of Loading yaml file into SQLAlchemy ---------"
+#file = os.path.join('.', 'ODM2/YAML/iUTAH_SpecimenTimeSeriesExample_CompactHeader.yaml')
+#file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_LongHeader+AKA.yaml')
+file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml')
+test_yaml = file
+yaml_load = YamlFunctions(conn)
+yaml_load.loadFromFile(test_yaml)
+
 
 # Demo the LikeODM1 stuff
 # -------------------------------------------------
