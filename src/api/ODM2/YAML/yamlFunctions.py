@@ -66,12 +66,13 @@ class YamlFunctions(serviceBase):
         :filename: path to yaml file
         """
 
-
         # try:
         yl = YamlLoader(models)
         # s = yaml.safe_load(open(filename).read())
         s = yaml.load(open(filename).read())
-        yl.from_list(self._session, s)
+        print s
+
+        yl.from_list(self._session, [s])
 
         # except Exception as e:
         #     print "There was an issue with loading the yaml file [%s] into SQLAlchemy: (%s)" % (filename, e)

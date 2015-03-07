@@ -413,6 +413,12 @@ class readCore(serviceBase):
     Datasets
     """
 
+    def getDataSets(self):
+        try:
+            return self._session.query(Dataset).all()
+        except:
+            return None
+
     def getDataSetByCode(self, dscode):
 
         try:
@@ -476,6 +482,15 @@ class readLabAnalyses(serviceBase):
 # ################################################################################
 
 class readProvenance(serviceBase):
+
+    """
+    Citation
+    """
+
+    # def getCitations(self):
+    #     self._session.query(Provenance)
+    #
+
     def test(self):
         return None
 

@@ -34,6 +34,7 @@ sampfeat_read = readSamplingFeatures(conn)
 
 
 
+
 pp = pprint.PrettyPrinter(indent=8)
 
 # Run some basic sample queries.
@@ -163,6 +164,10 @@ file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader.y
 test_yaml = file
 yaml_load = YamlFunctions(conn)
 yaml_load.loadFromFile(test_yaml)
+
+datasets = core_read.getDataSets()
+
+pp.pprint(datasets)
 
 
 # Demo the LikeODM1 stuff
