@@ -1,6 +1,6 @@
 from ..models import Timeseriesresult
 from ..models import Timeseriesresultvalue
-from ..models import Spatialreference
+from ..models import SpatialReferences
 from ..models import Deploymentaction
 from ..models import Model
 from ..models import Relatedmodel
@@ -16,9 +16,9 @@ from ..models import Processinglevel
 from ..models import Samplingfeature
 from ..models import Unit
 from ..models import Organization
-from ..models import Person
+from ..models import People
 from ..models import Affiliation
-from ..models import Dataset
+from ..models import Datasets
 from src.api.ODM1_1_1 import Site
 
 __author__ = 'jmeline'
@@ -235,7 +235,7 @@ class createCore(serviceBase):
         :return:
         """
 
-        p = Person()
+        p = People()
         p.PersonFirstName = firstName
         p.PersonMiddleName = middleName
         p.PersonLastName = lastName
@@ -284,7 +284,7 @@ class createCore(serviceBase):
         return a
 
     def createDataSet(self, dstype, dscode, dstitle, dsabstract):
-        ds = Dataset()
+        ds = Datasets()
 
         # create the dataset
         ds.DataSetTypeCV = dstype
@@ -531,7 +531,7 @@ class createSamplingFeatures(serviceBase):
 
 
     def createSpatialReference(self, srsCode, srsName, srsDescription=None):
-        spatialreference = Spatialreference()
+        spatialreference = SpatialReferences()
         spatialreference.SRSCode = srsCode
         spatialreference.SRSName = srsName
         spatialreference.SRSDescription = srsDescription

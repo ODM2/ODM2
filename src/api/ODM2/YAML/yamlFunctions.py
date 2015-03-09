@@ -59,20 +59,36 @@ import src.api.ODM2.models as models
 import yaml
 
 
-class YamlFunctions(serviceBase):
+class YamlFunctions(object):
+    def __init__(self, session):
+        self._session = session
+
     def loadFromFile(self, filename):
         """
         Open a YAML file to be loaded into the SQLAlchemy connection
         :filename: path to yaml file
         """
-
+        people = [
+            {
+             'PersonLastName': 'Horsburgh',
+             'PersonFirstName': 'Jeffery',
+             'PersonMiddleName': 'S.'
+            }
+        ]
+        # loader = Loader(models)
+        # loader.from_list(self._session, people)
+        #
         # try:
         yl = YamlLoader(models)
-        # s = yaml.safe_load(open(filename).read())
         s = yaml.load(open(filename).read())
-        print s
+        import pprint
+        pp =pprint.PrettyPrinter(indent=8)
+        pp.pprint(s)
 
         yl.from_list(self._session, [s])
+
+        # person = self._session.query(models.Person).all()
+        # print [(p.PersonLastName, p.PersonFirstName, p.PersonMiddleName) for p in person]
 
         # except Exception as e:
         #     print "There was an issue with loading the yaml file [%s] into SQLAlchemy: (%s)" % (filename, e)
@@ -86,7 +102,6 @@ class YamlFunctions(serviceBase):
 
         for item in files:
             self.loadFromFile(item)
-
 
 
 

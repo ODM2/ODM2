@@ -2,11 +2,12 @@ import sys
 import os
 import matplotlib.pyplot as plt
 import pprint
-
+from ODM2.models import People, Datasets
 from matplotlib import dates
 from ODM2.new_services import *
 from ODMconnection import dbconnection
 from src.api.ODM2.YAML.yamlFunctions import YamlFunctions
+
 
 this_file = os.path.realpath(__file__)
 directory = os.path.dirname(this_file)
@@ -17,22 +18,24 @@ sys.path.insert(0, directory)
 # ----------------------------------------
 
 #conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
-conn = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
-#conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
-#conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
-#conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
+
+session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
+# conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
+
+# conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
+# conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
 #conn = dbconnection.createConnection('mysql', '127.0.0.1:3306', 'ODM2', 'Stephanie', 'odm')
 
 
 # Create a connection for each of the schemas. Currently the schemas each have a different
 # connection but it will be changed to all the services sharing a connection
 # ----------------------------------------------------------------------------------------
-core_read = readCore(conn)
-result_read = readResults(conn)
-sampfeat_read = readSamplingFeatures(conn)
 
+_session = session_factory.getSession()
 
-
+core_read = readCore(_session)
+result_read = readResults(_session)
+sampfeat_read = readSamplingFeatures(_session)
 
 
 pp = pprint.PrettyPrinter(indent=8)
@@ -162,12 +165,25 @@ print "\n-------- Example of Loading yaml file into SQLAlchemy ---------"
 #file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_LongHeader+AKA.yaml')
 file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml')
 test_yaml = file
-yaml_load = YamlFunctions(conn)
+yaml_load = YamlFunctions(_session)
 yaml_load.loadFromFile(test_yaml)
 
-datasets = core_read.getDataSets()
+# citation =
+# yaml_load._session.autoflush = False
+persons = _session.query(People).all()
+datasets = _session.query(Datasets).all()
 
+# yaml_load._session.commit()
+_session.autoflush = False
+person_read = core_read.getPeople()
+print
+pp.pprint("---Example YAML reading People---")
+pp.pprint(person_read)
+print
+pp.pprint("---Example YAML reading Citation---")
 pp.pprint(datasets)
+print
+# pp.pprint("DataSets %s" % datasets)
 
 
 # Demo the LikeODM1 stuff

@@ -1,8 +1,7 @@
 from sqlalchemy import func
-from src.api import serviceBase
-from src.api.ODM2.models import Variable, Person, Method, Processinglevel, Samplingfeature, Unit, Organization, Result, \
-    Dataset, Affiliation, Featureaction, Action, Dataquality, Equipment, Timeseriesresult, Timeseriesresultvalue, Site, \
-    Deploymentaction, Spatialreference, Model, Simulation, Relatedmodel
+from src.api.ODM2.models import Variable, People, Method, Processinglevel, Samplingfeature, Unit, Organization, Result, \
+    Datasets, Affiliation, Featureaction, Action, Dataquality, Equipment, Timeseriesresult, Timeseriesresultvalue, Site, \
+    Deploymentaction, SpatialReferences, Model, Simulation, Relatedmodel
 
 import pandas as pd
 
@@ -11,7 +10,7 @@ __author__ = 'jmeline'
 # Annotations
 # ################################################################################
 
-class readAnnotations(serviceBase):
+class readAnnotations(object):
     def test(self):
         return None
 
@@ -21,7 +20,7 @@ class readAnnotations(serviceBase):
 # ################################################################################
 
 
-class readCV(serviceBase):
+class readCV(object):
     def test(self):
         return None
 
@@ -31,8 +30,11 @@ class readCV(serviceBase):
 # ################################################################################
 
 
-class readCore(serviceBase):
+class readCore(object):
     """queries to tables contained in the core schema"""
+
+    def __init__(self, session):
+        self._session = session
 
     """
     Variable
@@ -304,7 +306,7 @@ class readCore(serviceBase):
         :return Person Objects:
             :type list:
         """
-        return self._session.query(Person).all()
+        return self._session.query(People).all()
 
     def getPersonById(self, personId):
         """Select by personId
@@ -315,7 +317,7 @@ class readCore(serviceBase):
             :type Person:
         """
         try:
-            return self._session.query(Person).filter_by(PersonID=personId).first()
+            return self._session.query(People).filter_by(PersonID=personId).first()
 
         except:
             return None
@@ -329,8 +331,8 @@ class readCore(serviceBase):
             :type Person:
         """
         try:
-            return self._session.query(Person).filter(Person.PersonFirstName.ilike(personfirst)). \
-                filter(Person.PersonLastName.ilike(personlast)).first()
+            return self._session.query(People).filter(People.PersonFirstName.ilike(personfirst)). \
+                filter(People.PersonLastName.ilike(personlast)).first()
         except:
             return None
 
@@ -345,8 +347,8 @@ class readCore(serviceBase):
 
         try:
             return self._session.query(Affiliation).filter(Organization.OrganizationCode.ilike(orgcode)) \
-                .filter(Person.PersonFirstName.ilike(personfirst)) \
-                .filter(Person.PersonLastName.ilike(personlast)).first()
+                .filter(People.PersonFirstName.ilike(personfirst)) \
+                .filter(People.PersonLastName.ilike(personlast)).first()
         except:
             return None
 
@@ -359,8 +361,8 @@ class readCore(serviceBase):
         """
 
         try:
-            return self._session.query(Affiliation).filter(Person.PersonFirstName.ilike(personfirst)) \
-                .filter(Person.PersonLastName.ilike(personlast)).all()
+            return self._session.query(Affiliation).filter(People.PersonFirstName.ilike(personfirst)) \
+                .filter(People.PersonLastName.ilike(personlast)).all()
         except:
             return None
 
@@ -415,14 +417,14 @@ class readCore(serviceBase):
 
     def getDataSets(self):
         try:
-            return self._session.query(Dataset).all()
+            return self._session.query(Datasets).all()
         except:
             return None
 
     def getDataSetByCode(self, dscode):
 
         try:
-            return self._session.query(Dataset).filer(Dataset.DataSetCode.ilike(dscode)).first()
+            return self._session.query(Datasets).filer(Datasets.DataSetCode.ilike(dscode)).first()
         except:
             return None
 
@@ -431,7 +433,7 @@ class readCore(serviceBase):
 # Data Quality
 # ################################################################################
 
-class readDataQuality(serviceBase):
+class readDataQuality(object):
     def getAllDataQuality(self):
         """Select all on Data Quality
 
@@ -445,7 +447,7 @@ class readDataQuality(serviceBase):
 # Equipment
 # ################################################################################
 
-class readEquipment(serviceBase):
+class readEquipment(object):
     def getAllEquipment(self):
         return self._session.query(Equipment).all()
 
@@ -454,7 +456,7 @@ class readEquipment(serviceBase):
 # Extension Properties
 # ################################################################################
 
-class readExtensionProperties(serviceBase):
+class readExtensionProperties(object):
     def test(self):
         return None
 
@@ -463,7 +465,7 @@ class readExtensionProperties(serviceBase):
 # External Identifiers
 # ################################################################################
 
-class readExternalIdentifiers(serviceBase):
+class readExternalIdentifiers(object):
     def test(self):
         return None
 
@@ -472,7 +474,7 @@ class readExternalIdentifiers(serviceBase):
 # Lab Analyses
 # ################################################################################
 
-class readLabAnalyses(serviceBase):
+class readLabAnalyses(object):
     def test(self):
         return None
 
@@ -481,7 +483,7 @@ class readLabAnalyses(serviceBase):
 # Provenance
 # ################################################################################
 
-class readProvenance(serviceBase):
+class readProvenance(object):
 
     """
     Citation
@@ -499,9 +501,11 @@ class readProvenance(serviceBase):
 # Results
 # ################################################################################
 
-class readResults(serviceBase):
+class readResults(object):
     """queries to tables contained in Results schema"""
 
+    def __init__(self, session):
+        self._session = session
     """
     TimeSeriesResults
     """
@@ -593,9 +597,10 @@ class readResults(serviceBase):
 # Annotations
 # ################################################################################
 
-class readSamplingFeatures(serviceBase):
+class readSamplingFeatures(object):
     """Queries to tables contained in the SamplingFeature """
-
+    def __init__(self, session):
+        self._session = session
     """
     Site
     """
@@ -638,7 +643,7 @@ class readSamplingFeatures(serviceBase):
 
 
         try:
-            return self._session.query(Spatialreference).filter(Spatialreference.SRSCode.ilike(srsCode)).first()
+            return self._session.query(SpatialReferences).filter(SpatialReferences.SRSCode.ilike(srsCode)).first()
         except:
             return None
 
@@ -648,7 +653,7 @@ class readSamplingFeatures(serviceBase):
 # ################################################################################
 
 
-class readSensors(serviceBase):
+class readSensors(object):
     """
     DeploymentAction
     """
@@ -696,7 +701,7 @@ class readSensors(serviceBase):
 # ################################################################################
 
 
-class readSimulation(serviceBase):
+class readSimulation(object):
     def getAllModels(self):
 
         try:
@@ -752,6 +757,6 @@ class readSimulation(serviceBase):
 # ODM2
 # ################################################################################
 
-class readODM2(serviceBase):
+class readODM2(object):
    def test(self):
         return None
