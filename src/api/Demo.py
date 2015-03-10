@@ -191,7 +191,10 @@ persons = _session.query(People).all()
 datasets = _session.query(Datasets).all()
 citations = _session.query(Citations).all()
 spatial_references = _session.query(SpatialReferences).all()
-
+methods = _session.query(Methods).all()
+variables = _session.query(Variables).all()
+units = _session.query(Units).all()
+processing_levels = _session.query(ProcessingLevels).all()
 
 # yaml_load._session.commit()
 
@@ -209,6 +212,20 @@ print
 pp.pprint("---Example YAML reading <Spatial References>---")
 pp.pprint(spatial_references)
 print
+pp.pprint("---Example YAML reading <Methods>---")
+pp.pprint(methods)
+print
+pp.pprint("---Example YAML reading <Variables>---")
+pp.pprint(variables)
+print
+pp.pprint("---Example YAML reading <Units>---")
+pp.pprint(units)
+print
+pp.pprint("---Example YAML reading <ProcessingLevels>---")
+pp.pprint(processing_levels)
+print
+
+
 
 
 

@@ -1,6 +1,6 @@
 from sqlalchemy import func
-from src.api.ODM2.models import Variables, People, Method, Processinglevel, SamplingFeatures, Unit, Organization, Result, \
-    Datasets, Affiliation, Featureaction, Action, Dataquality, Equipment, Timeseriesresult, Timeseriesresultvalue, Sites, \
+from src.api.ODM2.models import Variables, People, Methods, ProcessingLevels, SamplingFeatures, Units, Organization, Result, \
+    Datasets, Affiliation, Featureaction, Actions, Dataquality, Equipment, Timeseriesresult, Timeseriesresultvalue, Sites, \
     Deploymentaction, SpatialReferences, Model, Simulation, Relatedmodel
 
 import pandas as pd
@@ -84,7 +84,7 @@ class readCore(object):
         :return Method Objects:
             :type list:
         """
-        return self._session.query(Method).all()
+        return self._session.query(Methods).all()
 
     def getMethodById(self, methodId):
         """Select by methodId
@@ -95,7 +95,7 @@ class readCore(object):
             :type Method:
         """
         try:
-            return self._session.query(Method).filter_by(MethodID=methodId).first()
+            return self._session.query(Methods).filter_by(MethodID=methodId).first()
         except:
             return None
 
@@ -108,7 +108,7 @@ class readCore(object):
             :type Method:
         """
         try:
-            return self._session.query(Method).filter_by(MethodCode=methodCode).first()
+            return self._session.query(Methods).filter_by(MethodCode=methodCode).first()
         except:
             return None
 
@@ -122,7 +122,7 @@ class readCore(object):
         :return ProcessingLevel Objects:
             :type list:
         """
-        return self._session.query(Processinglevel).all()
+        return self._session.query(ProcessingLevels).all()
 
     def getProcessingLevelById(self, processingId):
         """Select by processingId
@@ -133,7 +133,7 @@ class readCore(object):
             :type Processinglevel:
         """
         try:
-            return self._session.query(Processinglevel).filter_by(ProcessingLevelID=processingId).first()
+            return self._session.query(ProcessingLevels).filter_by(ProcessingLevelID=processingId).first()
         except:
             return None
 
@@ -146,7 +146,7 @@ class readCore(object):
             :type Processinglevel:
         """
         try:
-            return self._session.query(Processinglevel).filter_by(ProcessingLevelCode=str(processingCode)).first()
+            return self._session.query(ProcessingLevels).filter_by(ProcessingLevelCode=str(processingCode)).first()
         except Exception, e:
             print e
             return None
@@ -234,7 +234,7 @@ class readCore(object):
         :return Unit Objects:
             :type list:
         """
-        return self._session.query(Unit).all()
+        return self._session.query(Units).all()
 
     def getUnitById(self, unitId):
         """Select by samplingId
@@ -245,7 +245,7 @@ class readCore(object):
             :type Unit:
         """
         try:
-            return self._session.query(Unit).filter_by(UnitsID=unitId).first()
+            return self._session.query(Units).filter_by(UnitsID=unitId).first()
         except:
             return None
 
@@ -253,7 +253,7 @@ class readCore(object):
 
 
         try:
-            return self._session.query(Unit).filter(Unit.UnitsName.ilike(unitName)).first()
+            return self._session.query(Units).filter(Units.UnitsName.ilike(unitName)).first()
         except:
             return None
 
@@ -380,7 +380,7 @@ class readCore(object):
     def getResultByActionID(self, actionID):
 
         try:
-            return self._session.query(Result).join(Featureaction).join(Action).filter_by(ActionID=actionID).all()
+            return self._session.query(Result).join(Featureaction).join(Actions).filter_by(ActionID=actionID).all()
         except:
             return None
 
@@ -406,7 +406,7 @@ class readCore(object):
             return self._session.query(Result, SamplingFeatures.FeatureGeometry.ST_AsText()). \
                 join(Featureaction). \
                 join(SamplingFeatures). \
-                join(Action). \
+                join(Actions). \
                 filter_by(ActionID=actionID).all()
         except:
             return None

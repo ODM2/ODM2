@@ -80,7 +80,7 @@ class Affiliation(Base):
     PersonObj = relationship(People)
 
 
-class Method(Base):
+class Methods(Base):
     __tablename__ = 'Methods'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -94,8 +94,12 @@ class Method(Base):
 
     OrganizationObj = relationship(Organization)
 
+    def __repr__(self):
+        return "<Methods('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" \
+               % (self.MethodID, self.MethodTypeCV, self.MethodCode, self.MethodName, self.MethodDescription, self.MethodLink, self.OrganizationID)
 
-class Action(Base):
+
+class Actions(Base):
     __tablename__ = u'Actions'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -109,7 +113,7 @@ class Action(Base):
     ActionDescription = Column(String(500))
     ActionFileLink = Column(String(255))
 
-    MethodObj = relationship(Method)
+    MethodObj = relationship(Methods)
 
 
     def __repr__(self):
@@ -127,7 +131,7 @@ class Actionby(Base):
     IsActionLead = Column(Boolean, nullable=False)
     RoleDescription = Column(String(500))
 
-    ActionObj = relationship(Action)
+    ActionObj = relationship(Actions)
     AffiliationObj = relationship(Affiliation)
 
 
@@ -159,7 +163,7 @@ class Featureaction(Base):
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
-    ActionObj = relationship(Action)
+    ActionObj = relationship(Actions)
     SamplingFeatureObj = relationship(SamplingFeatures)
 
 
@@ -186,7 +190,7 @@ class Datasets(Base):
             self.DataSetUUID, self.DataSetTypeCV, self.DataSetCode, self.DataSetTitle, self.DataSetAbstract)
 
 
-class Processinglevel(Base):
+class ProcessingLevels(Base):
     __tablename__ = 'ProcessingLevels'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -194,6 +198,10 @@ class Processinglevel(Base):
     ProcessingLevelCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     Definition = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
     Explanation = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+
+    def __repr__(self):
+        return "<ProcessingLevels('%s', '%s', '%s', '%s')>" \
+               % (self.ProcessingLevelID, self.ProcessingLevelCode, self.Definition, self.Explanation)
 
 
 class Relatedaction(Base):
@@ -205,8 +213,8 @@ class Relatedaction(Base):
     RelationshipTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     RelatedActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
-    ActionObj = relationship(Action, primaryjoin='Relatedaction.ActionID == Action.ActionID')
-    RelatedActionObj = relationship(Action, primaryjoin='Relatedaction.RelatedActionID == Action.ActionID')
+    ActionObj = relationship(Actions, primaryjoin='Relatedaction.ActionID == Actions.ActionID')
+    RelatedActionObj = relationship(Actions, primaryjoin='Relatedaction.RelatedActionID == Actions.ActionID')
 
 
 class Taxonomicclassifier(Base):
@@ -223,7 +231,7 @@ class Taxonomicclassifier(Base):
     parent = relationship(u'Taxonomicclassifier', remote_side=[TaxonomicClassifierID])
 
 
-class Unit(Base):
+class Units(Base):
     __tablename__ = 'Units'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -236,6 +244,10 @@ class Unit(Base):
     UnitsTypeCV = Column(String(255), nullable=False)
     UnitsAbbreviation = Column(String(255), nullable=False)
     UnitsName = Column(String, nullable=False)
+    UnitsLink = Column(String(255))
+
+    def __repr__(self):
+        return "<Units('%s', '%s', '%s', '%s')>" % (self.UnitsID, self.UnitsTypeCV, self.UnitsAbbreviation, self.UnitsName)
 
 
 class Variables(Base):
@@ -296,10 +308,10 @@ class Result(Base):
     # IntendedObservationSpacing = Column(String(255))
 
     FeatureActionObj = relationship(Featureaction)
-    ProcessingLevelObj = relationship(Processinglevel)
+    ProcessingLevelObj = relationship(ProcessingLevels)
     ResultTypeCVObj = relationship(Resulttypecv)
     TaxonomicClassifierObj = relationship(Taxonomicclassifier)
-    UnitObj = relationship(Unit)
+    UnitObj = relationship(Units)
     VariableObj = relationship(Variables)
 
 
@@ -363,7 +375,7 @@ class Equipmentaction(Base):
     EquipmentID = Column(ForeignKey('ODM2.Equipment.EquipmentID'), nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
-    ActionObj = relationship(Action)
+    ActionObj = relationship(Actions)
     EquipmentObj = relationship(Equipment)
 
 
@@ -379,8 +391,8 @@ class Instrumentoutputvariable(Base):
     InstrumentAccuracy = Column(String(255))
     InstrumentRawOutputUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
-    MethodObj = relationship(Method)
-    OutputUnitObj = relationship(Unit)
+    MethodObj = relationship(Methods)
+    OutputUnitObj = relationship(Units)
     EquipmentModelObj = relationship(Equipmentmodel)
     VariableObj = relationship(Variables)
 
@@ -410,7 +422,7 @@ class Actiondirective(Base):
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     DirectiveID = Column(ForeignKey('ODM2.Directives.DirectiveID'), nullable=False)
 
-    ActionObj = relationship(Action)
+    ActionObj = relationship(Actions)
     DirectiveObj = relationship(Directive)
 
 
@@ -531,7 +543,7 @@ class Deploymentaction(Base):
     SpatialOffsetID = Column(Integer)
     DeploymentSchematicLink = Column(String(255))
 
-    ActionObj = relationship(Action)
+    ActionObj = relationship(Actions)
 
 
 class Dataloggerfile(Base):
@@ -555,7 +567,7 @@ class Photo(Base):
     PhotoFileLink = Column(String(255), nullable=False)
     PhotoDescription = Column(String(500))
 
-    ActionObj = relationship(Action)
+    ActionObj = relationship(Actions)
 
 
 # ################################################################################
@@ -604,10 +616,10 @@ class Simulation(Base):
     OutputDataSetID = Column(Integer)
     ModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
 
-    Action = relationship(u'Action')
+    Action = relationship(u'Actions')
     DataSet = relationship(u'Datasets')
     Model = relationship(u'Model')
-    Unit = relationship(u'Unit')
+    Unit = relationship(u'Units')
 
 # Part of the Provenance table, needed here to meet dependancies
 class Citations(Base):
@@ -654,7 +666,7 @@ class Actionannotation(Base):
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
-    ActionObj = relationship(Action)
+    ActionObj = relationship(Actions)
     AnnotationObj = relationship(Annotation)
 
 
@@ -667,7 +679,7 @@ class Methodannotation(Base):
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
     AnnotationObj = relationship(Annotation)
-    MethodObj = relationship(Method)
+    MethodObj = relationship(Methods)
 
 
 class Resultannotation(Base):
@@ -734,7 +746,7 @@ class Dataquality(Base):
     DataQualityDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
     DataQualityLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
 
-    UnitObj = relationship(Unit)
+    UnitObj = relationship(Units)
 
 
 class Referencematerial(Base):
@@ -778,7 +790,7 @@ class Referencematerialvalue(Base):
 
     CitationObj = relationship(Citations)
     ReferenceMaterialObj = relationship(Referencematerial)
-    UnitObj = relationship(Unit)
+    UnitObj = relationship(Units)
     VariableObj = relationship(Variables)
     ResultsObj = relationship(Result, secondary=Resultnormalizationvalue)
 
@@ -809,7 +821,7 @@ class Extensionproperty(Base):
     PropertyDataTypeCV = Column(String(255), nullable=False)
     PropertyUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
 
-    UnitObj = relationship(Unit)
+    UnitObj = relationship(Units)
 
 
 class Actionextensionpropertyvalue(Base):
@@ -821,7 +833,7 @@ class Actionextensionpropertyvalue(Base):
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
-    ActionObj = relationship(Action)
+    ActionObj = relationship(Actions)
     ExtensionPropertyObj = relationship(Extensionproperty)
 
 
@@ -847,7 +859,7 @@ class Methodextensionpropertyvalue(Base):
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
-    MethodObj = relationship(Method)
+    MethodObj = relationship(Methods)
     ExtensionPropertyObj = relationship(Extensionproperty)
 
 
@@ -934,7 +946,7 @@ class Methodexternalidentifier(Base):
     MethodExternalIdentifierURI = Column(String(255))
 
     ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
-    MethodObj = relationship(Method)
+    MethodObj = relationship(Methods)
 
 
 class Personexternalidentifier(Base):
@@ -1088,7 +1100,7 @@ class Methodcitation(Base):
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj = relationship(Citations)
-    MethodObj = relationship(Method)
+    MethodObj = relationship(Methods)
 
 
 # from ODM2.Annotations.model import Annotation
@@ -1168,10 +1180,10 @@ class Pointcoverageresult(Result):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
 
-    XUnitObj = relationship(Unit, primaryjoin='Pointcoverageresult.IntendedXSpacingUnitsID == Unit.UnitsID')
-    YUnitObj = relationship(Unit, primaryjoin='Pointcoverageresult.IntendedYSpacingUnitsID == Unit.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='Pointcoverageresult.IntendedXSpacingUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='Pointcoverageresult.IntendedYSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    ZUnitObj = relationship(Unit, primaryjoin='Pointcoverageresult.ZLocationUnitsID == Unit.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Pointcoverageresult.ZLocationUnitsID == Units.UnitsID')
 
 
 class Profileresult(Result):
@@ -1190,11 +1202,11 @@ class Profileresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Unit, primaryjoin='Profileresult.IntendedTimeSpacingUnitsID == Unit.UnitsID')
-    ZUnitObj = relationship(Unit, primaryjoin='Profileresult.IntendedZSpacingUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Profileresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Profileresult.IntendedZSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    XUnitObj = relationship(Unit, primaryjoin='Profileresult.XLocationUnitsID == Unit.UnitsID')
-    YUnitObj = relationship(Unit, primaryjoin='Profileresult.YLocationUnitsID == Unit.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='Profileresult.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='Profileresult.YLocationUnitsID == Units.UnitsID')
 
 
 class Categoricalresult(Result):
@@ -1228,10 +1240,10 @@ class Transectresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Unit, primaryjoin='Transectresult.IntendedTimeSpacingUnitsID == Unit.UnitsID')
-    TransectUnitObj = relationship(Unit, primaryjoin='Transectresult.IntendedTransectSpacingUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Transectresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    TransectUnitObj = relationship(Units, primaryjoin='Transectresult.IntendedTransectSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    ZUnitObj = relationship(Unit, primaryjoin='Transectresult.ZLocationUnitsID == Unit.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Transectresult.ZLocationUnitsID == Units.UnitsID')
 
 
 class Spectraresult(Result):
@@ -1250,11 +1262,11 @@ class Spectraresult(Result):
     IntendedWavelengthSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    WaveUnitObj = relationship(Unit, primaryjoin='Spectraresult.IntendedWavelengthSpacingUnitsID == Unit.UnitsID')
+    WaveUnitObj = relationship(Units, primaryjoin='Spectraresult.IntendedWavelengthSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    XUnitObj = relationship(Unit, primaryjoin='Spectraresult.XLocationUnitsID == Unit.UnitsID')
-    YUnitObj = relationship(Unit, primaryjoin='Spectraresult.YLocationUnitsID == Unit.UnitsID')
-    ZUnitObj = relationship(Unit, primaryjoin='Spectraresult.ZLocationUnitsID == Unit.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='Spectraresult.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='Spectraresult.YLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Spectraresult.ZLocationUnitsID == Units.UnitsID')
 
 
 class Timeseriesresult(Result):
@@ -1273,11 +1285,11 @@ class Timeseriesresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Unit, primaryjoin='Timeseriesresult.IntendedTimeSpacingUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Timeseriesresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    XUnitObj = relationship(Unit, primaryjoin='Timeseriesresult.XLocationUnitsID == Unit.UnitsID')
-    YUnitObj = relationship(Unit, primaryjoin='Timeseriesresult.YLocationUnitsID == Unit.UnitsID')
-    ZUnitObj = relationship(Unit, primaryjoin='Timeseriesresult.ZLocationUnitsID == Unit.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='Timeseriesresult.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='Timeseriesresult.YLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Timeseriesresult.ZLocationUnitsID == Units.UnitsID')
 
 
 class Sectionresult(Result):
@@ -1296,11 +1308,11 @@ class Sectionresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Unit, primaryjoin='Sectionresult.IntendedTimeSpacingUnitsID == Unit.UnitsID')
-    XUnitObj = relationship(Unit, primaryjoin='Sectionresult.IntendedXSpacingUnitsID == Unit.UnitsID')
-    ZUnitObj = relationship(Unit, primaryjoin='Sectionresult.IntendedZSpacingUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Sectionresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='Sectionresult.IntendedXSpacingUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Sectionresult.IntendedZSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    YUnitObj = relationship(Unit, primaryjoin='Sectionresult.YLocationUnitsID == Unit.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='Sectionresult.YLocationUnitsID == Units.UnitsID')
 
 
 class Trajectoryresult(Result):
@@ -1315,9 +1327,9 @@ class Trajectoryresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Unit, primaryjoin='Trajectoryresult.IntendedTimeSpacingUnitsID == Unit.UnitsID')
-    TrajectoryUnitObj = relationship(Unit,
-                                     primaryjoin='Trajectoryresult.IntendedTrajectorySpacingUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Trajectoryresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    TrajectoryUnitObj = relationship(Units,
+                                     primaryjoin='Trajectoryresult.IntendedTrajectorySpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
 
 
@@ -1340,10 +1352,10 @@ class Measurementresult(Result):
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
     SpatialReferenceObj = relationship(SpatialReferences)
-    TimeUnitObj = relationship(Unit, primaryjoin='Measurementresult.TimeAggregationIntervalUnitsID == Unit.UnitsID')
-    XUnitObjObj = relationship(Unit, primaryjoin='Measurementresult.XLocationUnitsID == Unit.UnitsID')
-    YUnitObj = relationship(Unit, primaryjoin='Measurementresult.YLocationUnitsID == Unit.UnitsID')
-    ZUnitObj = relationship(Unit, primaryjoin='Measurementresult.ZLocationUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Measurementresult.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    XUnitObjObj = relationship(Units, primaryjoin='Measurementresult.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='Measurementresult.YLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Measurementresult.ZLocationUnitsID == Units.UnitsID')
 
 
 class Categoricalresultvalue(Base):
@@ -1389,8 +1401,8 @@ class Pointcoverageresultvalue(Base):
     QualityCodeCV = Column(String(255), nullable=False)
 
     PointCoverageResultObj = relationship(Pointcoverageresult)
-    XUnitObj = relationship(Unit, primaryjoin='Pointcoverageresultvalue.XLocationUnitsID == Unit.UnitsID')
-    YUnitObj = relationship(Unit, primaryjoin='Pointcoverageresultvalue.YLocationUnitsID == Unit.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='Pointcoverageresultvalue.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='Pointcoverageresultvalue.YLocationUnitsID == Units.UnitsID')
 
 
 class Profileresultvalue(Base):
@@ -1411,8 +1423,8 @@ class Profileresultvalue(Base):
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
     ProfileResultObj = relationship(u'Profileresult')
-    TimeUnitObj = relationship(Unit, primaryjoin='Profileresultvalue.TimeAggregationIntervalUnitsID == Unit.UnitsID')
-    ZUnitObj = relationship(Unit, primaryjoin='Profileresultvalue.ZLocationUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Profileresultvalue.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Profileresultvalue.ZLocationUnitsID == Units.UnitsID')
 
 
 class Sectionresultvalue(Base):
@@ -1437,9 +1449,9 @@ class Sectionresultvalue(Base):
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
     SectionResultObj = relationship(Sectionresult)
-    TimeUnitObj = relationship(Unit, primaryjoin='Sectionresultvalue.TimeAggregationIntervalUnitsID == Unit.UnitsID')
-    XUnitObj = relationship(Unit, primaryjoin='Sectionresultvalue.XLocationUnitsID == Unit.UnitsID')
-    ZUnitObj = relationship(Unit, primaryjoin='Sectionresultvalue.ZLocationUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Sectionresultvalue.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='Sectionresultvalue.XLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Sectionresultvalue.ZLocationUnitsID == Units.UnitsID')
 
 
 class Spectraresultvalue(Base):
@@ -1460,8 +1472,8 @@ class Spectraresultvalue(Base):
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
     SpectraResultObj = relationship(Spectraresult)
-    TimeUnitObj = relationship(Unit, primaryjoin='Spectraresultvalue.TimeAggregationIntervalUnitsID == Unit.UnitsID')
-    WavelengthUnitObj = relationship(Unit, primaryjoin='Spectraresultvalue.WavelengthUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Spectraresultvalue.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    WavelengthUnitObj = relationship(Units, primaryjoin='Spectraresultvalue.WavelengthUnitsID == Units.UnitsID')
 
 
 class Timeseriesresultvalue(Base):
@@ -1479,7 +1491,7 @@ class Timeseriesresultvalue(Base):
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
     TimeSeriesResultObj = relationship(Timeseriesresult)
-    TimeUnitObj = relationship(Unit)
+    TimeUnitObj = relationship(Units)
 
     def get_columns(self):
         return ["ValueID", "ResultID", "DataValue", "ValueDateTime", "ValueDateTimeUTCOffset",
@@ -1518,10 +1530,10 @@ class Trajectoryresultvalue(Base):
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
     TrajectoryResultObj = relationship(Trajectoryresult)
-    TimeUnitObj = relationship(Unit, primaryjoin='Trajectoryresultvalue.TimeAggregationIntervalUnitsID == Unit.UnitsID')
-    XUnitObj = relationship(Unit, primaryjoin='Trajectoryresultvalue.XLocationUnitsID == Unit.UnitsID')
-    YUnitObj = relationship(Unit, primaryjoin='Trajectoryresultvalue.YLocationUnitsID == Unit.UnitsID')
-    ZUnitObj = relationship(Unit, primaryjoin='Trajectoryresultvalue.ZLocationUnitsID == Unit.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='Trajectoryresultvalue.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='Trajectoryresultvalue.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='Trajectoryresultvalue.YLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='Trajectoryresultvalue.ZLocationUnitsID == Units.UnitsID')
 
 
 class Transectresultvalue(Base):

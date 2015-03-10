@@ -5,16 +5,16 @@ from ..models import Deploymentaction
 from ..models import Model
 from ..models import Relatedmodel
 from ..models import Simulation
-from ..models import Action
+from ..models import Actions
 from ..models import Datasetsresult
 from ..models import Actionby
 from ..models import Featureaction
 from ..models import Result
 from ..models import Variables
-from ..models import Method
-from ..models import Processinglevel
+from ..models import Methods
+from ..models import ProcessingLevels
 from ..models import SamplingFeatures
-from ..models import Unit
+from ..models import Units
 from ..models import Organization
 from ..models import People
 from ..models import Affiliation
@@ -99,7 +99,7 @@ class createCore(serviceBase):
         :return:
         """
 
-        meth = Method()
+        meth = Methods()
         meth.MethodCode = code
         meth.MethodName = name
         meth.MethodDescription = description
@@ -123,7 +123,7 @@ class createCore(serviceBase):
             :type String(500):
         :return:
         """
-        pl = Processinglevel()
+        pl = ProcessingLevels()
         pl.ProcessingLevelCode = str(code)
         pl.Definition = definition
         pl.Explanation = explanation
@@ -182,7 +182,7 @@ class createCore(serviceBase):
             :type String(255):
         :return:
         """
-        unit = Unit()
+        unit = Units()
         unit.UnitsTypeCV = type
         unit.UnitsAbbreviation = abbrev
         unit.UnitsName = name
@@ -312,7 +312,7 @@ class createCore(serviceBase):
 
     def createAction(self, type, methodid, begindatetime, begindatetimeoffset, enddatetime=None, enddatetimeoffset=None,
                      description=None, filelink=None):
-        action = Action()
+        action = Actions()
         action.ActionTypeCV = type
         action.MethodID = methodid
         action.BeginDateTime = begindatetime
