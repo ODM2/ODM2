@@ -1,6 +1,6 @@
 from sqlalchemy import func
-from src.api.ODM2.models import Variable, People, Method, Processinglevel, Samplingfeature, Unit, Organization, Result, \
-    Datasets, Affiliation, Featureaction, Action, Dataquality, Equipment, Timeseriesresult, Timeseriesresultvalue, Site, \
+from src.api.ODM2.models import Variables, People, Method, Processinglevel, SamplingFeatures, Unit, Organization, Result, \
+    Datasets, Affiliation, Featureaction, Action, Dataquality, Equipment, Timeseriesresult, Timeseriesresultvalue, Sites, \
     Deploymentaction, SpatialReferences, Model, Simulation, Relatedmodel
 
 import pandas as pd
@@ -46,7 +46,7 @@ class readCore(object):
         :return Variable Objects:
             :type list:
         """
-        return self._session.query(Variable).all()
+        return self._session.query(Variables).all()
 
     def getVariableById(self, variableId):
         """Select by variableId
@@ -57,7 +57,7 @@ class readCore(object):
             :type Variable:
         """
         try:
-            return self._session.query(Variable).filter_by(VariableID=variableId).first()
+            return self._session.query(Variables).filter_by(VariableID=variableId).first()
         except:
             return None
 
@@ -70,7 +70,7 @@ class readCore(object):
             :type Variable:
         """
         try:
-            return self._session.query(Variable).filter_by(VariableCode=variableCode).first()
+            return self._session.query(Variables).filter_by(VariableCode=variableCode).first()
         except:
             return None
 
@@ -162,7 +162,7 @@ class readCore(object):
             :type list:
         """
 
-        return self._session.query(Samplingfeature).all()
+        return self._session.query(SamplingFeatures).all()
 
     def getSamplingFeatureById(self, samplingId):
         """Select by samplingId
@@ -173,7 +173,7 @@ class readCore(object):
             :type SamplingFeature:
         """
         try:
-            return self._session.query(Samplingfeature).filter_by(SamplingFeatureID=samplingId).first()
+            return self._session.query(SamplingFeatures).filter_by(SamplingFeatureID=samplingId).first()
         except:
             return None
 
@@ -187,7 +187,7 @@ class readCore(object):
         """
 
         try:
-            return self._session.query(Samplingfeature).filter_by(SamplingFeatureCode=samplingFeatureCode).first()
+            return self._session.query(SamplingFeatures).filter_by(SamplingFeatureCode=samplingFeatureCode).first()
         except Exception as e:
             return None
 
@@ -201,7 +201,7 @@ class readCore(object):
         """
 
         try:
-            return self._session.query(Samplingfeature).filter_by(SamplingFeatureTypeCV=samplingFeatureTypeCV).all()
+            return self._session.query(SamplingFeatures).filter_by(SamplingFeatureTypeCV=samplingFeatureTypeCV).all()
         except Exception as e:
             print e
             return None
@@ -210,14 +210,14 @@ class readCore(object):
 
         try:
             # ST_Equals(geometry, geometry)
-            return self._session.query(Samplingfeature).filter(
-                func.ST_AsText(Samplingfeature.FeatureGeometry) == func.ST_AsText(wkt_geometry)).first()
+            return self._session.query(SamplingFeatures).filter(
+                func.ST_AsText(SamplingFeatures.FeatureGeometry) == func.ST_AsText(wkt_geometry)).first()
         except Exception, e:
             print e
             return None
 
     def getGeometryTest(self, TestGeom):
-        Geom = self._session.query(Samplingfeature).first()
+        Geom = self._session.query(SamplingFeatures).first()
         print "Queried Geometry: ", self._session.query(Geom.FeatureGeometry.ST_AsText()).first()
         GeomText = self._session.query(
             func.ST_Union(Geom.FeatureGeometry, func.ST_GeomFromText(TestGeom)).ST_AsText()).first()
@@ -392,9 +392,9 @@ class readCore(object):
 
     def getResultAndGeomByID(self, resultID):
         try:
-            return self._session.query(Result, Samplingfeature.FeatureGeometry.ST_AsText()). \
+            return self._session.query(Result, SamplingFeatures.FeatureGeometry.ST_AsText()). \
                 join(Featureaction). \
-                join(Samplingfeature). \
+                join(SamplingFeatures). \
                 join(Result). \
                 filter_by(ResultID=resultID).one()
         except:
@@ -403,9 +403,9 @@ class readCore(object):
     def getResultAndGeomByActionID(self, actionID):
 
         try:
-            return self._session.query(Result, Samplingfeature.FeatureGeometry.ST_AsText()). \
+            return self._session.query(Result, SamplingFeatures.FeatureGeometry.ST_AsText()). \
                 join(Featureaction). \
-                join(Samplingfeature). \
+                join(SamplingFeatures). \
                 join(Action). \
                 filter_by(ActionID=actionID).all()
         except:
@@ -611,7 +611,7 @@ class readSamplingFeatures(object):
         :return Site Objects:
             :type list:
         """
-        return self._session.query(Site).all()
+        return self._session.query(Sites).all()
 
     def getSiteBySFId(self, siteId):
         """Select by siteId
@@ -622,7 +622,7 @@ class readSamplingFeatures(object):
             :type Site:
         """
         try:
-            return self._session.query(Site).filter_by(SamplingFeatureID=siteId).one()
+            return self._session.query(Sites).filter_by(SamplingFeatureID=siteId).one()
         except:
             return None
 
@@ -636,8 +636,8 @@ class readSamplingFeatures(object):
             :type Samplingfeature:
         """
 
-        sf = self._session.query(Samplingfeature).filter_by(SamplingFeatureCode=siteCode).one()
-        return self._session.query(Site).filter_by(SamplingFeatureID=sf.SamplingFeatureID).one()
+        sf = self._session.query(SamplingFeatures).filter_by(SamplingFeatureCode=siteCode).one()
+        return self._session.query(Sites).filter_by(SamplingFeatureID=sf.SamplingFeatureID).one()
 
     def getSpatialReferenceByCode(self, srsCode):
 

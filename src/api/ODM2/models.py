@@ -131,16 +131,17 @@ class Actionby(Base):
     AffiliationObj = relationship(Affiliation)
 
 
-class Samplingfeature(Base):
+class SamplingFeatures(Base):
     __tablename__ = u'SamplingFeatures'
     __table_args__ = {u'schema': u'ODM2'}
 
     SamplingFeatureID = Column(Integer, primary_key=True)
+    SamplingFeatureUUID = Column(String(36), nullable=False)
     SamplingFeatureTypeCV = Column(String(255), nullable=False)
     SamplingFeatureCode = Column(String(50), nullable=False)
     SamplingFeatureName = Column(String(255))
     SamplingFeatureDescription = Column(String(500))
-    SamplingFeatureGeotypeCV = Column(String(255))
+    SamplingFeatureGeoTypeCV = Column(String(255))
     Elevation_m = Column(Float(53))
     ElevationDatumCV = Column(String(255))
     FeatureGeometry = Column(Geometry)
@@ -159,7 +160,7 @@ class Featureaction(Base):
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
     ActionObj = relationship(Action)
-    SamplingFeatureObj = relationship(Samplingfeature)
+    SamplingFeatureObj = relationship(SamplingFeatures)
 
 
     def __repr__(self):
@@ -237,7 +238,7 @@ class Unit(Base):
     UnitsName = Column(String, nullable=False)
 
 
-class Variable(Base):
+class Variables(Base):
     __tablename__ = 'Variables'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -299,7 +300,7 @@ class Result(Base):
     ResultTypeCVObj = relationship(Resulttypecv)
     TaxonomicClassifierObj = relationship(Taxonomicclassifier)
     UnitObj = relationship(Unit)
-    VariableObj = relationship(Variable)
+    VariableObj = relationship(Variables)
 
 
     def __repr__(self):
@@ -381,7 +382,7 @@ class Instrumentoutputvariable(Base):
     MethodObj = relationship(Method)
     OutputUnitObj = relationship(Unit)
     EquipmentModelObj = relationship(Equipmentmodel)
-    VariableObj = relationship(Variable)
+    VariableObj = relationship(Variables)
 
 
 
@@ -438,8 +439,15 @@ class SpatialReferences(Base):
     SRSDescription = Column(String(500))
     SRSLink = Column(String(255))
 
+    def __repr__(self):
+        return "<SpatialReferences('%s', '%s', '%s', '%s', '%s')>" \
+               % (self.SpatialReferenceID, self.SRSCode, self.SRSName, self.SRSDescription, self.SRSLink)
 
-class Specimen(Samplingfeature):
+
+
+
+
+class Specimen(SamplingFeatures):
     __tablename__ = u'Specimens'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -463,7 +471,7 @@ class Spatialoffset(Base):
     Offset3UnitID = Column(Integer)
 
 
-class Site(Samplingfeature):
+class Sites(SamplingFeatures):
     __tablename__ = u'Sites'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -486,10 +494,10 @@ class Relatedfeature(Base):
     RelatedFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     SpatialOffsetID = Column(ForeignKey('ODM2.SpatialOffsets.SpatialOffsetID'))
 
-    SamplingFeatureObj = relationship(Samplingfeature,
-                                      primaryjoin='Relatedfeature.RelatedFeatureID == Samplingfeature.SamplingFeatureID')
-    RelatedFeatureObj = relationship(Samplingfeature,
-                                     primaryjoin='Relatedfeature.SamplingFeatureID == Samplingfeature.SamplingFeatureID')
+    SamplingFeatureObj = relationship(SamplingFeatures,
+                                      primaryjoin='Relatedfeature.RelatedFeatureID == SamplingFeatures.SamplingFeatureID')
+    RelatedFeatureObj = relationship(SamplingFeatures,
+                                     primaryjoin='Relatedfeature.SamplingFeatureID == SamplingFeatures.SamplingFeatureID')
     SpatialOffsetObj = relationship(Spatialoffset)
 
 
@@ -612,6 +620,9 @@ class Citations(Base):
     PublicationYear = Column(Integer, nullable=False)
     CitationLink = Column(String(255))
 
+    def __repr__(self):
+        return "<Citations('%s', '%s', '%s', '%s', '%s')>" % (self.CitationID, self.Title, self.Publisher, self.PublicationYear, self.CitationLink)
+
 
 # ################################################################################
 # Annotations
@@ -693,7 +704,7 @@ class Samplingfeatureannotation(Base):
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
     AnnotationObj = relationship(Annotation)
-    SamplingFeatureObj = relationship(Samplingfeature)
+    SamplingFeatureObj = relationship(SamplingFeatures)
 
 # ################################################################################
 # Data Quality
@@ -741,7 +752,7 @@ class Referencematerial(Base):
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'))
 
     OrganizationObj = relationship(Organization)
-    SamplingFeature = relationship(Samplingfeature)
+    SamplingFeature = relationship(SamplingFeatures)
 
 
 Resultnormalizationvalue = Table(
@@ -768,7 +779,7 @@ class Referencematerialvalue(Base):
     CitationObj = relationship(Citations)
     ReferenceMaterialObj = relationship(Referencematerial)
     UnitObj = relationship(Unit)
-    VariableObj = relationship(Variable)
+    VariableObj = relationship(Variables)
     ResultsObj = relationship(Result, secondary=Resultnormalizationvalue)
 
 
@@ -863,7 +874,7 @@ class Samplingfeatureextensionpropertyvalue(Base):
     PropertyValue = Column(String(255), nullable=False)
 
     ExtensionPropertyObj = relationship(Extensionproperty)
-    SamplingFeatureObj = relationship(Samplingfeature)
+    SamplingFeatureObj = relationship(SamplingFeatures)
 
 
 class Variableextensionpropertyvalue(Base):
@@ -876,7 +887,7 @@ class Variableextensionpropertyvalue(Base):
     PropertyValue = Column(String(255), nullable=False)
 
     ExtensionPropertyObj = relationship(Extensionproperty)
-    VariableObj = relationship(Variable)
+    VariableObj = relationship(Variables)
 
 # ################################################################################
 # Extension Identifiers
@@ -968,7 +979,7 @@ class Samplingfeatureexternalidentifier(Base):
     SamplingFeatureExternalIdentiferURI = Column(String(255))
 
     ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
-    SamplingFeatureObj = relationship(Samplingfeature)
+    SamplingFeatureObj = relationship(SamplingFeatures)
 
 
 class Spatialreferenceexternalidentifier(Base):
@@ -1013,7 +1024,7 @@ class Variableexternalidentifier(Base):
     VariableExternalIdentifierURI = Column(String(255))
 
     ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
-    VariableObj = relationship(Variable)
+    VariableObj = relationship(Variables)
 
 # ################################################################################
 # Provenance

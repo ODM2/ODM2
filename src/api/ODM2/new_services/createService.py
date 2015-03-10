@@ -10,10 +10,10 @@ from ..models import Datasetsresult
 from ..models import Actionby
 from ..models import Featureaction
 from ..models import Result
-from ..models import Variable
+from ..models import Variables
 from ..models import Method
 from ..models import Processinglevel
-from ..models import Samplingfeature
+from ..models import SamplingFeatures
 from ..models import Unit
 from ..models import Organization
 from ..models import People
@@ -68,7 +68,7 @@ class createCore(serviceBase):
             :type String(500):
         :return:
         """
-        var = Variable()
+        var = Variables()
         var.VariableCode = code
         var.VariableNameCV = name
         var.VariableDefinition = definition
@@ -155,7 +155,7 @@ class createCore(serviceBase):
             :type NullType:
         :return:
         """
-        sf = Samplingfeature()
+        sf = SamplingFeatures()
         sf.SamplingFeatureTypeCV = vType
         sf.SamplingFeatureCode = code
         sf.SamplingFeatureName = name

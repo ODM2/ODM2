@@ -2,7 +2,7 @@ import sys
 import os
 import matplotlib.pyplot as plt
 import pprint
-from ODM2.models import People, Datasets
+from ODM2.models import *
 from matplotlib import dates
 from ODM2.new_services import *
 from ODMconnection import dbconnection
@@ -160,29 +160,59 @@ except Exception as e:
     print "Unable to demo plotting of tsValues: ", e
 
 # Demonstrate loading a yaml file into an ODM2 database
-print "\n-------- Example of Loading yaml file into SQLAlchemy ---------"
+print
+print "---------------------------------------------------------------------"
+print "---------                                                  ----------"
+print "-------- \tExample of Loading yaml file into SQLAlchemy \t---------"
+print "---------                                                  ----------"
+print "---------------------------------------------------------------------"
+
+
 #file = os.path.join('.', 'ODM2/YAML/iUTAH_SpecimenTimeSeriesExample_CompactHeader.yaml')
 #file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_LongHeader+AKA.yaml')
 file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml')
-test_yaml = file
+
+import timeit
+start = timeit.default_timer()
 yaml_load = YamlFunctions(_session)
-yaml_load.loadFromFile(test_yaml)
+yaml_load.loadFromFile(file)
+
+print
+print "-------- Performance Results using python module: timeit --------"
+print "Loaded YAML file in ", timeit.default_timer() - start, " seconds"
 
 # citation =
+
+_session.autoflush = False
+
 # yaml_load._session.autoflush = False
+_session.flush()
 persons = _session.query(People).all()
 datasets = _session.query(Datasets).all()
+citations = _session.query(Citations).all()
+spatial_references = _session.query(SpatialReferences).all()
+
 
 # yaml_load._session.commit()
-_session.autoflush = False
+
 person_read = core_read.getPeople()
 print
-pp.pprint("---Example YAML reading People---")
+pp.pprint("---Example YAML reading <People>---")
 pp.pprint(person_read)
 print
-pp.pprint("---Example YAML reading Citation---")
+pp.pprint("---Example YAML reading <Citation>---")
+pp.pprint(citations)
+print
+pp.pprint("---Example YAML reading <DataSets>---")
 pp.pprint(datasets)
 print
+pp.pprint("---Example YAML reading <Spatial References>---")
+pp.pprint(spatial_references)
+print
+
+
+
+
 # pp.pprint("DataSets %s" % datasets)
 
 
