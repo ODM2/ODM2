@@ -1,4 +1,4 @@
-from src.api import serviceBase
+from .. import serviceBase
 
 __author__ = 'jmeline'
 # ################################################################################

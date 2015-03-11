@@ -23,7 +23,7 @@ from ..models import DataSets
 
 __author__ = 'jmeline'
 
-from api import serviceBase
+from .. import serviceBase
 import datetime as dt
 import uuid
 

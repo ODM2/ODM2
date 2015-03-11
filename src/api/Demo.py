@@ -6,7 +6,7 @@ from ODM2.models import *
 from matplotlib import dates
 from ODM2.new_services import *
 from ODMconnection import dbconnection
-from src.api.ODM2.YAML.yamlFunctions import YamlFunctions
+from ODM2.YAML.yamlFunctions import YamlFunctions
 
 
 this_file = os.path.realpath(__file__)
@@ -19,8 +19,8 @@ sys.path.insert(0, directory)
 
 #conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 
-session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
-# conn = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
+#session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
+session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 
 # conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 # conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')

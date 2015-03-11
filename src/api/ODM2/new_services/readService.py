@@ -1,7 +1,7 @@
 from sqlalchemy import func
-from src.api.ODM2.models import Variables, People, Methods, ProcessingLevels, SamplingFeatures, Units, Organization, Result, \
-    Datasets, Affiliation, Featureaction, Actions, Dataquality, Equipment, Timeseriesresult, Timeseriesresultvalue, Sites, \
-    Deploymentaction, SpatialReferences, Model, Simulation, Relatedmodel
+from ..models import Variables, People, Methods, ProcessingLevels, SamplingFeatures, Units, Organizations, Results, \
+    DataSets, Affiliations, FeatureActions, Actions, DataQuality, Equipment, TimeSeriesResults, TimeSeriesResultValues, \
+    Sites, DeploymentActions, SpatialReferences, Models, Simulations, RelatedModels
 
 import pandas as pd
 

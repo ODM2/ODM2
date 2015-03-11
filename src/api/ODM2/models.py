@@ -58,7 +58,7 @@ class Organizations(Base):
     OrganizationLink = Column(String(255))
     ParentOrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'))
 
-    parent = relationship(u'Organization', remote_side=[OrganizationID])
+    parent = relationship(u'Organizations', remote_side=[OrganizationID])
 
 
 class Affiliations(Base):
@@ -213,8 +213,8 @@ class RelatedActions(Base):
     RelationshipTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     RelatedActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
-    ActionObj = relationship(Actions, primaryjoin='Relatedaction.ActionID == Actions.ActionID')
-    RelatedActionObj = relationship(Actions, primaryjoin='Relatedaction.RelatedActionID == Actions.ActionID')
+    ActionObj = relationship(Actions, primaryjoin='RelatedActions.ActionID == Actions.ActionID')
+    RelatedActionObj = relationship(Actions, primaryjoin='RelatedActions.RelatedActionID == Actions.ActionID')
 
 
 class TaxonomicClassifiers(Base):
@@ -290,6 +290,7 @@ class Results(Base):
     # This has been changed to String to support multiple database uuid types
     # ResultUUID = Column(UNIQUEIDENTIFIER, nullable=False)
     ResultUUID = Column(String(255), nullable=False)
+    ResultTypeCVObj = relationship(ResultTypeCV)
 
     FeatureActionID = Column(ForeignKey('ODM2.FeatureActions.FeatureActionID'), nullable=False)
     ResultTypeCV = Column(ForeignKey('ODM2.ResultTypeCV.ResultTypeCV'), nullable=False)
@@ -309,7 +310,7 @@ class Results(Base):
 
     FeatureActionObj = relationship(FeatureActions)
     ProcessingLevelObj = relationship(ProcessingLevels)
-    ResultTypeCVObj = relationship(ResultTypeCV)
+
     TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
     UnitObj = relationship(Units)
     VariableObj = relationship(Variables)
@@ -496,7 +497,7 @@ class Sites(SamplingFeatures):
     SpatialReferenceObj = relationship(SpatialReferences)
 
 
-class Relatedfeature(Base):
+class RelatedFeatures(Base):
     __tablename__ = u'RelatedFeatures'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -507,9 +508,9 @@ class Relatedfeature(Base):
     SpatialOffsetID = Column(ForeignKey('ODM2.SpatialOffsets.SpatialOffsetID'))
 
     SamplingFeatureObj = relationship(SamplingFeatures,
-                                      primaryjoin='Relatedfeature.RelatedFeatureID == SamplingFeatures.SamplingFeatureID')
+                                      primaryjoin='RelatedFeatures.RelatedFeatureID == SamplingFeatures.SamplingFeatureID')
     RelatedFeatureObj = relationship(SamplingFeatures,
-                                     primaryjoin='Relatedfeature.SamplingFeatureID == SamplingFeatures.SamplingFeatureID')
+                                     primaryjoin='RelatedFeatures.SamplingFeatureID == SamplingFeatures.SamplingFeatureID')
     SpatialOffsetObj = relationship(Spatialoffset)
 
 
@@ -594,8 +595,8 @@ class RelatedModels(Base):
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
 
-    Model = relationship(u'Model', primaryjoin='RelatedModels.ModelID == Models.ModelID')
-    Model1 = relationship(u'Model', primaryjoin='RelatedModels.RelatedModelID == Models.ModelID')
+    ModelObj = relationship(Models, primaryjoin='RelatedModels.ModelID == Models.ModelID')
+    RelatedModelObj = relationship(Models, primaryjoin='RelatedModels.RelatedModelID == Models.ModelID')
 
 
 class Simulations(Base):
@@ -1113,9 +1114,9 @@ class RelatedAnnotations(Base):
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedAnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
-    AnnotationObj = relationship(Annotations, primaryjoin='RelatedAnnotations.AnnotationID == Annotation.AnnotationID')
+    AnnotationObj = relationship(Annotations, primaryjoin='RelatedAnnotations.AnnotationID == Annotations.AnnotationID')
     RelatedAnnotationObj = relationship(Annotations,
-                                        primaryjoin='RelatedAnnotations.RelatedAnnotationID == Annotation.AnnotationID')
+                                        primaryjoin='RelatedAnnotations.RelatedAnnotationID == Annotations.AnnotationID')
 
 
 class RelatedCitations(Base):
@@ -1141,8 +1142,8 @@ class RelatedDatasets(Base):
     RelatedDatasetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     VersionCode = Column(String(50))
 
-    DataSetObj = relationship(DataSets, primaryjoin='RelatedDataSets.DataSetID == Datasets.DataSetID')
-    RelatedDatasetObj = relationship(DataSets, primaryjoin='RelatedDataSets.RelatedDatasetID == Datasets.DataSetID')
+    DataSetObj = relationship(DataSets, primaryjoin='RelatedDatasets.DataSetID == DataSets.DataSetID')
+    RelatedDatasetObj = relationship(DataSets, primaryjoin='RelatedDatasets.RelatedDatasetID == DataSets.DataSetID')
 
 
 class RelatedResults(Base):
@@ -1156,8 +1157,8 @@ class RelatedResults(Base):
     VersionCode = Column(String(50))
     RelatedResultSequenceNumber = Column(Integer)
 
-    ResultObj = relationship(Results, primaryjoin='RelatedResults.RelatedResultID == Result.ResultID')
-    RelatedResultObj = relationship(Results, primaryjoin='RelatedResults.ResultID == Result.ResultID')
+    ResultObj = relationship(Results, primaryjoin='RelatedResults.RelatedResultID == Results.ResultID')
+    RelatedResultObj = relationship(Results, primaryjoin='RelatedResults.ResultID == Results.ResultID')
 
 # ################################################################################
 # Results
@@ -1422,7 +1423,7 @@ class ProfileResultValues(Base):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
-    ProfileResultObj = relationship(u'Profileresult')
+    ProfileResultObj = relationship(u'ProfileResults')
     TimeUnitObj = relationship(Units, primaryjoin='ProfileResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
     ZUnitObj = relationship(Units, primaryjoin='ProfileResultValues.ZLocationUnitsID == Units.UnitsID')
 
