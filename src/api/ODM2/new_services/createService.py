@@ -1,29 +1,29 @@
-from ..models import Timeseriesresult
-from ..models import Timeseriesresultvalue
+from ..models import TimeSeriesResults
+from ..models import TimeSeriesResultValues
 from ..models import SpatialReferences
-from ..models import Deploymentaction
-from ..models import Model
-from ..models import Relatedmodel
-from ..models import Simulation
+from ..models import DeploymentActions
+from ..models import Models
+from ..models import RelatedModels
+from ..models import Simulations
 from ..models import Actions
-from ..models import Datasetsresult
-from ..models import Actionby
-from ..models import Featureaction
-from ..models import Result
+from ..models import DataSetsResults
+from ..models import ActionBy
+from ..models import FeatureActions
+from ..models import Results
 from ..models import Variables
 from ..models import Methods
 from ..models import ProcessingLevels
 from ..models import SamplingFeatures
 from ..models import Units
-from ..models import Organization
+from ..models import Organizations
 from ..models import People
-from ..models import Affiliation
-from ..models import Datasets
-from src.api.ODM1_1_1 import Site
+from ..models import Affiliations
+from ..models import DataSets
+#from src.api.ODM1_1_1 import Site
 
 __author__ = 'jmeline'
 
-from src.api import serviceBase
+from .. import serviceBase
 import datetime as dt
 import uuid
 
@@ -210,7 +210,7 @@ class createCore(serviceBase):
         :return:
         """
 
-        org = Organization()
+        org = Organizations()
         org.OrganizationTypeCV = cvType
         org.OrganizationCode = code
         org.OrganizationName = name
@@ -264,7 +264,7 @@ class createCore(serviceBase):
         """
 
         # create affiliation object
-        a = Affiliation()
+        a = Affiliations()
         a.PersonID = personid
         a.OrganizationID = organizationid
         a.PrimaryEmail = email
@@ -284,7 +284,7 @@ class createCore(serviceBase):
         return a
 
     def createDataSet(self, dstype, dscode, dstitle, dsabstract):
-        ds = Datasets()
+        ds = DataSets()
 
         # create the dataset
         ds.DataSetTypeCV = dstype
@@ -299,7 +299,7 @@ class createCore(serviceBase):
         return ds
 
     def createDataSetResults(self, dsid, resultid):
-        dsr = Datasetsresult()
+        dsr = DataSetsResults()
 
         # link dataset to results
         dsr.DataSetID = dsid
@@ -328,7 +328,7 @@ class createCore(serviceBase):
         return action
 
     def createActionBy(self, actionid, affiliationid, isactionlead=True, roledescription=None):
-        actionby = Actionby()
+        actionby = ActionBy()
         actionby.ActionID = actionid
         actionby.AffiliationID = affiliationid
         actionby.IsActionLead = isactionlead
@@ -340,7 +340,7 @@ class createCore(serviceBase):
         return actionby
 
     def createFeatureAction(self, samplingfeatureid, actionid):
-        featureaction = Featureaction()
+        featureaction = FeatureActions()
         featureaction.SamplingFeatureID = samplingfeatureid
         featureaction.ActionID = actionid
 
@@ -354,7 +354,7 @@ class createCore(serviceBase):
                      resulttypecv,
                      taxonomicclass=None, resultdatetime=None, resultdatetimeutcoffset=None,
                      validdatetime=None, validdatetimeutcoffset=None, statuscv=None):
-        result = Result()
+        result = Results()
         result.ResultUUID = uuid.uuid4().hex
         result.FeatureActionID = featureactionid
         result.ResultTypeCV = resulttypecv
@@ -444,7 +444,7 @@ class createResults(serviceBase):
                                yloc_unitid=None, zloc=None, zloc_unitid=None,
                                srsID=None, timespacing=None, timespacing_unitid=None):
 
-        tsr = Timeseriesresult()
+        tsr = TimeSeriesResults()
 
         # tsr.ResultID = result.ResultID
         #tsr.ResultUUID = result.ResultUUID
@@ -484,7 +484,7 @@ class createResults(serviceBase):
 
 
         try:
-            values = Timeseriesresultvalue()
+            values = TimeSeriesResultValues()
             for i in range(len(datavalues)):
                 values.ResultID = resultid
                 values.CensorCodeCV = censorcodecv
@@ -568,7 +568,7 @@ class createSensors(serviceBase):
             :return:
         """
 
-        da = Deploymentaction()
+        da = DeploymentActions()
         da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
         da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
         da.ActionID = (kwargs['actionId'] if kwargs['actionId'] else None)
@@ -583,7 +583,7 @@ class createSensors(serviceBase):
 
 class createSimulation(serviceBase):
     def createModel(self, code, name, description=None):
-        model = Model()
+        model = Models()
         model.ModelCode = code
         model.ModelName = name
         model.ModelDescription = description
@@ -595,7 +595,7 @@ class createSimulation(serviceBase):
 
 
     def createRelatedModel(self, modelid, relatedModelID, relationshipType):
-        related = Relatedmodel()
+        related = RelatedModels()
         related.ModelID = modelid
         related.RelationshipTypeCV = relationshipType
         related.RelatedModelID = relatedModelID
@@ -610,7 +610,7 @@ class createSimulation(serviceBase):
                          simulationStartOffset,
                          simulationEndDateTime, simulationEndOffset, timeStepValue, timeStepUnitID,
                          inputDatasetID=None):
-        sim = Simulation()
+        sim = Simulations()
         sim.ActionID = actionid
         sim.ModelID = modelID
         sim.SimulationName = simulationName

@@ -16,7 +16,7 @@ metadata = Base.metadata
 # CV
 # ################################################################################
 
-class Cvterm(Base):
+class CVTerms(Base):
     __tablename__ = u'CVTerms'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -46,7 +46,7 @@ class People(Base):
         return "<Person('%s', '%s', '%s')>" % (self.PersonID, self.PersonFirstName,
                                                self.PersonLastName)
 
-class Organization(Base):
+class Organizations(Base):
     __tablename__ = u'Organizations'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -58,10 +58,10 @@ class Organization(Base):
     OrganizationLink = Column(String(255))
     ParentOrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'))
 
-    parent = relationship(u'Organization', remote_side=[OrganizationID])
+    parent = relationship(u'Organizations', remote_side=[OrganizationID])
 
 
-class Affiliation(Base):
+class Affiliations(Base):
     __tablename__ = 'Affiliations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -76,7 +76,7 @@ class Affiliation(Base):
     PrimaryAddress = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
     PersonLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
 
-    OrganizationObj = relationship(Organization)
+    OrganizationObj = relationship(Organizations)
     PersonObj = relationship(People)
 
 
@@ -92,7 +92,7 @@ class Methods(Base):
     MethodLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
     OrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'))
 
-    OrganizationObj = relationship(Organization)
+    OrganizationObj = relationship(Organizations)
 
     def __repr__(self):
         return "<Methods('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" \
@@ -117,11 +117,11 @@ class Actions(Base):
 
 
     def __repr__(self):
-        return "<Action('%s', '%s', '%s', '%s')>" % (
+        return "<Actions('%s', '%s', '%s', '%s')>" % (
             self.ActionID, self.ActionTypeCV, self.BeginDateTime, self.ActionDescription)
 
 
-class Actionby(Base):
+class ActionBy(Base):
     __tablename__ = u'ActionBy'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -132,7 +132,7 @@ class Actionby(Base):
     RoleDescription = Column(String(500))
 
     ActionObj = relationship(Actions)
-    AffiliationObj = relationship(Affiliation)
+    AffiliationObj = relationship(Affiliations)
 
 
 class SamplingFeatures(Base):
@@ -151,11 +151,11 @@ class SamplingFeatures(Base):
     FeatureGeometry = Column(Geometry)
 
     def __repr__(self):
-        return "<SamplingFeature('%s', '%s', '%s', '%s')>" % (
-            self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.Elevation_m)
+        return "<SamplingFeatures('%s', '%s', '%s', '%s')>" % (
+            self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.FeatureGeometry)
 
 
-class Featureaction(Base):
+class FeatureActions(Base):
     __tablename__ = u'FeatureActions'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -168,10 +168,10 @@ class Featureaction(Base):
 
 
     def __repr__(self):
-        return "<FeatureAction('%s', '%s', '%s', )>" % (self.FeatureActionID, self.SamplingFeatureID, self.ActionID)
+        return "<FeatureActions('%s', '%s', '%s', )>" % (self.FeatureActionID, self.SamplingFeatureID, self.ActionID)
 
 
-class Datasets(Base):
+class DataSets(Base):
     __tablename__ = u'DataSets'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -204,7 +204,7 @@ class ProcessingLevels(Base):
                % (self.ProcessingLevelID, self.ProcessingLevelCode, self.Definition, self.Explanation)
 
 
-class Relatedaction(Base):
+class RelatedActions(Base):
     __tablename__ = 'RelatedActions'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -213,11 +213,11 @@ class Relatedaction(Base):
     RelationshipTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     RelatedActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
-    ActionObj = relationship(Actions, primaryjoin='Relatedaction.ActionID == Actions.ActionID')
-    RelatedActionObj = relationship(Actions, primaryjoin='Relatedaction.RelatedActionID == Actions.ActionID')
+    ActionObj = relationship(Actions, primaryjoin='RelatedActions.ActionID == Actions.ActionID')
+    RelatedActionObj = relationship(Actions, primaryjoin='RelatedActions.RelatedActionID == Actions.ActionID')
 
 
-class Taxonomicclassifier(Base):
+class TaxonomicClassifiers(Base):
     __tablename__ = 'TaxonomicClassifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -228,7 +228,7 @@ class Taxonomicclassifier(Base):
     TaxonomicClassifierDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
     ParentTaxonomicClassifierID = Column(ForeignKey('ODM2.TaxonomicClassifiers.TaxonomicClassifierID'))
 
-    parent = relationship(u'Taxonomicclassifier', remote_side=[TaxonomicClassifierID])
+    parent = relationship(u'TaxonomicClassifiers', remote_side=[TaxonomicClassifierID])
 
 
 class Units(Base):
@@ -263,10 +263,10 @@ class Variables(Base):
     NoDataValue = Column(Float(53), nullable=False)
 
     def __repr__(self):
-        return "<Variable('%s', '%s', '%s')>" % (self.VariableID, self.VariableCode, self.VariableNameCV)
+        return "<Variables('%s', '%s', '%s')>" % (self.VariableID, self.VariableCode, self.VariableNameCV)
 
 
-class Resulttypecv(Base):
+class ResultTypeCV(Base):
     __tablename__ = u'ResultTypeCV'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -281,7 +281,7 @@ class Resulttypecv(Base):
     VariableMeasurementFramework = Column(String(255), nullable=False)
 
 
-class Result(Base):
+class Results(Base):
     __tablename__ = u'Results'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -290,6 +290,7 @@ class Result(Base):
     # This has been changed to String to support multiple database uuid types
     # ResultUUID = Column(UNIQUEIDENTIFIER, nullable=False)
     ResultUUID = Column(String(255), nullable=False)
+    ResultTypeCVObj = relationship(ResultTypeCV)
 
     FeatureActionID = Column(ForeignKey('ODM2.FeatureActions.FeatureActionID'), nullable=False)
     ResultTypeCV = Column(ForeignKey('ODM2.ResultTypeCV.ResultTypeCV'), nullable=False)
@@ -307,16 +308,16 @@ class Result(Base):
 
     # IntendedObservationSpacing = Column(String(255))
 
-    FeatureActionObj = relationship(Featureaction)
+    FeatureActionObj = relationship(FeatureActions)
     ProcessingLevelObj = relationship(ProcessingLevels)
-    ResultTypeCVObj = relationship(Resulttypecv)
-    TaxonomicClassifierObj = relationship(Taxonomicclassifier)
+
+    TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
     UnitObj = relationship(Units)
     VariableObj = relationship(Variables)
 
 
     def __repr__(self):
-        return "<Result('%s', '%s', '%s', '%s')>" % (
+        return "<Results('%s', '%s', '%s', '%s')>" % (
             self.ResultID, self.ResultTypeCV, self.ProcessingLevelID, self.ValueCount)
 
 
@@ -326,7 +327,7 @@ class Result(Base):
 # ################################################################################
 
 
-class Equipmentmodel(Base):
+class EquipmentModels(Base):
     __tablename__ = u'EquipmentModels'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -339,7 +340,7 @@ class Equipmentmodel(Base):
     ModelLink = Column(String(255))
     IsInstrument = Column(BIT, nullable=False)
 
-    OrganizationObj = relationship(Organization)
+    OrganizationObj = relationship(Organizations)
 
 
 class Equipment(Base):
@@ -362,12 +363,12 @@ class Equipment(Base):
     ParentEquipmentID = Column(ForeignKey('ODM2.Equipment.EquipmentID'))
 
     PersonObj = relationship(People)
-    OrganizationObj = relationship(Organization)
-    EquipmentModelObj = relationship(Equipmentmodel)
+    OrganizationObj = relationship(Organizations)
+    EquipmentModelObj = relationship(EquipmentModels)
     parent = relationship(u'Equipment', remote_side=[EquipmentID])
 
 
-class Equipmentaction(Base):
+class EquipmentAction(Base):
     __tablename__ = u'EquipmentActions'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -379,7 +380,7 @@ class Equipmentaction(Base):
     EquipmentObj = relationship(Equipment)
 
 
-class Instrumentoutputvariable(Base):
+class InstrumentOutputVariables(Base):
     __tablename__ = u'InstrumentOutputVariables'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -393,7 +394,7 @@ class Instrumentoutputvariable(Base):
 
     MethodObj = relationship(Methods)
     OutputUnitObj = relationship(Units)
-    EquipmentModelObj = relationship(Equipmentmodel)
+    EquipmentModelObj = relationship(EquipmentModels)
     VariableObj = relationship(Variables)
 
 
@@ -405,7 +406,7 @@ class Instrumentoutputvariable(Base):
 # Lab Analyses
 # ################################################################################
 
-class Directive(Base):
+class Directives(Base):
     __tablename__ = u'Directives'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -414,7 +415,7 @@ class Directive(Base):
     DirectiveDescription = Column(String(500), nullable=False)
 
 
-class Actiondirective(Base):
+class ActionDirectives(Base):
     __tablename__ = u'ActionDirectives'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -423,7 +424,7 @@ class Actiondirective(Base):
     DirectiveID = Column(ForeignKey('ODM2.Directives.DirectiveID'), nullable=False)
 
     ActionObj = relationship(Actions)
-    DirectiveObj = relationship(Directive)
+    DirectiveObj = relationship(Directives)
 
 
 # ################################################################################
@@ -498,7 +499,7 @@ class Sites(SamplingFeatures):
     SamplingFeaturesObj = relationship(SamplingFeatures)
 
 
-class Relatedfeature(Base):
+class RelatedFeatures(Base):
     __tablename__ = u'RelatedFeatures'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -509,13 +510,13 @@ class Relatedfeature(Base):
     SpatialOffsetID = Column(ForeignKey('ODM2.SpatialOffsets.SpatialOffsetID'))
 
     SamplingFeatureObj = relationship(SamplingFeatures,
-                                      primaryjoin='Relatedfeature.RelatedFeatureID == SamplingFeatures.SamplingFeatureID')
+                                      primaryjoin='RelatedFeatures.RelatedFeatureID == SamplingFeatures.SamplingFeatureID')
     RelatedFeatureObj = relationship(SamplingFeatures,
-                                     primaryjoin='Relatedfeature.SamplingFeatureID == SamplingFeatures.SamplingFeatureID')
+                                     primaryjoin='RelatedFeatures.SamplingFeatureID == SamplingFeatures.SamplingFeatureID')
     SpatialOffsetObj = relationship(Spatialoffset)
 
 
-class Specimentaxonomicclassifier(Base):
+class SpecimenTaxonomicClassifiers(Base):
     __tablename__ = u'SpecimenTaxonomicClassifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -525,14 +526,14 @@ class Specimentaxonomicclassifier(Base):
     CitationID = Column(Integer)
 
     SpecimenObj = relationship(Specimen)
-    TaxonomicClassifierObj = relationship(Taxonomicclassifier)
+    TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
 
 
 # ################################################################################
 # Sensors
 # ################################################################################
 
-class Deploymentaction(Base):
+class DeploymentActions(Base):
     __tablename__ = u'DeploymentActions'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -548,7 +549,7 @@ class Deploymentaction(Base):
     ActionObj = relationship(Actions)
 
 
-class Dataloggerfile(Base):
+class DataLoggerFiles(Base):
     __tablename__ = u'DataLoggerFiles'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -557,10 +558,10 @@ class Dataloggerfile(Base):
     DataLoggerOutputFileLink = Column(String(255), nullable=False)
     DataLoggerOutputFileDescription = Column(String(500))
 
-    DeploymentActionObj = relationship(Deploymentaction)
+    DeploymentActionObj = relationship(DeploymentActions)
 
 
-class Photo(Base):
+class Photos(Base):
     __tablename__ = u'Photos'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -577,7 +578,7 @@ class Photo(Base):
 # ################################################################################
 
 
-class Model(Base):
+class Models(Base):
     __tablename__ = 'Models'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -587,7 +588,7 @@ class Model(Base):
     ModelDescription = Column(String(500))
 
 
-class Relatedmodel(Base):
+class RelatedModels(Base):
     __tablename__ = 'RelatedModels'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -596,11 +597,11 @@ class Relatedmodel(Base):
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
 
-    Model = relationship(u'Model', primaryjoin='Relatedmodel.ModelID == Model.ModelID')
-    Model1 = relationship(u'Model', primaryjoin='Relatedmodel.RelatedModelID == Model.ModelID')
+    ModelObj = relationship(Models, primaryjoin='RelatedModels.ModelID == Models.ModelID')
+    RelatedModelObj = relationship(Models, primaryjoin='RelatedModels.RelatedModelID == Models.ModelID')
 
 
-class Simulation(Base):
+class Simulations(Base):
     __tablename__ = 'Simulations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -618,10 +619,10 @@ class Simulation(Base):
     OutputDataSetID = Column(Integer)
     ModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
 
-    Action = relationship(u'Actions')
-    DataSet = relationship(u'Datasets')
-    Model = relationship(u'Model')
-    Unit = relationship(u'Units')
+    Action = relationship(Actions)
+    DataSet = relationship(DataSets)
+    Model = relationship(Models)
+    Unit = relationship(Units)
 
 # Part of the Provenance table, needed here to meet dependancies
 class Citations(Base):
@@ -641,7 +642,7 @@ class Citations(Base):
 # ################################################################################
 # Annotations
 # ################################################################################
-class Annotation(Base):
+class Annotations(Base):
     __tablename__ = u'Annotations'
 
     __table_args__ = {u'schema': u'ODM2'}
@@ -660,7 +661,7 @@ class Annotation(Base):
     CitationObj = relationship(Citations)
 
 
-class Actionannotation(Base):
+class ActionAnnotations(Base):
     __tablename__ = u'ActionAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -669,10 +670,10 @@ class Actionannotation(Base):
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
     ActionObj = relationship(Actions)
-    AnnotationObj = relationship(Annotation)
+    AnnotationObj = relationship(Annotations)
 
 
-class Methodannotation(Base):
+class MethodAnnotations(Base):
     __tablename__ = u'MethodAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -680,11 +681,11 @@ class Methodannotation(Base):
     MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
-    AnnotationObj = relationship(Annotation)
+    AnnotationObj = relationship(Annotations)
     MethodObj = relationship(Methods)
 
 
-class Resultannotation(Base):
+class ResultAnnotations(Base):
     __tablename__ = u'ResultAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -694,11 +695,11 @@ class Resultannotation(Base):
     BeginDateTime = Column(DateTime, nullable=False)
     EndDateTime = Column(DateTime, nullable=False)
 
-    AnnotationObj = relationship(Annotation)
-    ResultObj = relationship(Result)
+    AnnotationObj = relationship(Annotations)
+    ResultObj = relationship(Results)
 
 
-class Resultvalueannotation(Base):
+class ResultValueAnnotations(Base):
     __tablename__ = u'ResultValueAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -706,10 +707,10 @@ class Resultvalueannotation(Base):
     ValueID = Column(BigInteger, nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
-    Annotation = relationship(Annotation)
+    Annotation = relationship(Annotations)
 
 
-class Samplingfeatureannotation(Base):
+class SamplingFeatureAnnotations(Base):
     __tablename__ = u'SamplingFeatureAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -717,14 +718,14 @@ class Samplingfeatureannotation(Base):
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
-    AnnotationObj = relationship(Annotation)
+    AnnotationObj = relationship(Annotations)
     SamplingFeatureObj = relationship(SamplingFeatures)
 
 # ################################################################################
 # Data Quality
 # ################################################################################
 
-class Datasetsresult(Base):
+class DataSetsResults(Base):
     __tablename__ = u'DataSetsResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -732,11 +733,11 @@ class Datasetsresult(Base):
     DataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
 
-    DataSetObj = relationship(Datasets)
-    ResultObj = relationship(Result)
+    DataSetObj = relationship(DataSets)
+    ResultObj = relationship(Results)
 
 
-class Dataquality(Base):
+class DataQuality(Base):
     __tablename__ = 'DataQuality'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -751,7 +752,7 @@ class Dataquality(Base):
     UnitObj = relationship(Units)
 
 
-class Referencematerial(Base):
+class ReferenceMaterials(Base):
     __tablename__ = 'ReferenceMaterials'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -765,11 +766,11 @@ class Referencematerial(Base):
     ReferenceMaterialCertificateLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'))
 
-    OrganizationObj = relationship(Organization)
+    OrganizationObj = relationship(Organizations)
     SamplingFeature = relationship(SamplingFeatures)
 
 
-Resultnormalizationvalue = Table(
+ResultNormalizationValues = Table(
     u'ResultNormalizationValues', Base.metadata,
     Column(u'ResultID', ForeignKey('ODM2.Results.ResultID'), primary_key=True),
     Column(u'NormalizedByReferenceMaterialValueID', ForeignKey('ODM2.ReferenceMaterialValues.ReferenceMaterialValueID'),
@@ -791,13 +792,13 @@ class Referencematerialvalue(Base):
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj = relationship(Citations)
-    ReferenceMaterialObj = relationship(Referencematerial)
+    ReferenceMaterialObj = relationship(ReferenceMaterials)
     UnitObj = relationship(Units)
     VariableObj = relationship(Variables)
-    ResultsObj = relationship(Result, secondary=Resultnormalizationvalue)
+    ResultsObj = relationship(Results, secondary=ResultNormalizationValues)
 
 
-class Resultsdataquality(Base):
+class ResultsDataQuality(Base):
     __tablename__ = 'ResultsDataQuality'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -805,15 +806,15 @@ class Resultsdataquality(Base):
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
     DataQualityID = Column(ForeignKey('ODM2.DataQuality.DataQualityID'), nullable=False)
 
-    DataQualityObj = relationship(Dataquality)
-    ResultObj = relationship(Result)
+    DataQualityObj = relationship(DataQuality)
+    ResultObj = relationship(Results)
 
 # ################################################################################
 # Extension Properties
 # ################################################################################
 
 
-class Extensionproperty(Base):
+class ExtensionProperties(Base):
     __tablename__ = u'ExtensionProperties'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -826,7 +827,7 @@ class Extensionproperty(Base):
     UnitObj = relationship(Units)
 
 
-class Actionextensionpropertyvalue(Base):
+class ActionExtensionPropertyValues(Base):
     __tablename__ = u'ActionExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -836,10 +837,10 @@ class Actionextensionpropertyvalue(Base):
     PropertyValue = Column(String(255), nullable=False)
 
     ActionObj = relationship(Actions)
-    ExtensionPropertyObj = relationship(Extensionproperty)
+    ExtensionPropertyObj = relationship(ExtensionProperties)
 
 
-class Citationextensionpropertyvalue(Base):
+class CitationExtensionPropertyValues(Base):
     __tablename__ = u'CitationExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -849,10 +850,10 @@ class Citationextensionpropertyvalue(Base):
     PropertyValue = Column(String(255), nullable=False)
 
     CitationObj = relationship(Citations)
-    ExtensionPropertyObj = relationship(Extensionproperty)
+    ExtensionPropertyObj = relationship(ExtensionProperties)
 
 
-class Methodextensionpropertyvalue(Base):
+class MethodExtensionPropertyValues(Base):
     __tablename__ = u'MethodExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -862,10 +863,10 @@ class Methodextensionpropertyvalue(Base):
     PropertyValue = Column(String(255), nullable=False)
 
     MethodObj = relationship(Methods)
-    ExtensionPropertyObj = relationship(Extensionproperty)
+    ExtensionPropertyObj = relationship(ExtensionProperties)
 
 
-class Resultextensionpropertyvalue(Base):
+class ResultExtensionPropertyValues(Base):
     __tablename__ = u'ResultExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -874,11 +875,11 @@ class Resultextensionpropertyvalue(Base):
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
-    ExtensionPropertyObj = relationship(Extensionproperty)
-    ResultObj = relationship(Result)
+    ExtensionPropertyObj = relationship(ExtensionProperties)
+    ResultObj = relationship(Results)
 
 
-class Samplingfeatureextensionpropertyvalue(Base):
+class SamplingFeatureExtensionPropertyValues(Base):
     __tablename__ = u'SamplingFeatureExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -887,11 +888,11 @@ class Samplingfeatureextensionpropertyvalue(Base):
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
-    ExtensionPropertyObj = relationship(Extensionproperty)
+    ExtensionPropertyObj = relationship(ExtensionProperties)
     SamplingFeatureObj = relationship(SamplingFeatures)
 
 
-class Variableextensionpropertyvalue(Base):
+class VariableExtensionPropertyValues(Base):
     __tablename__ = u'VariableExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -900,7 +901,7 @@ class Variableextensionpropertyvalue(Base):
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
 
-    ExtensionPropertyObj = relationship(Extensionproperty)
+    ExtensionPropertyObj = relationship(ExtensionProperties)
     VariableObj = relationship(Variables)
 
 # ################################################################################
@@ -908,7 +909,7 @@ class Variableextensionpropertyvalue(Base):
 # ################################################################################
 
 
-class Externalidentifiersystem(Base):
+class ExternalIdentifierSystems(Base):
     __tablename__ = u'ExternalIdentifierSystems'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -918,10 +919,10 @@ class Externalidentifiersystem(Base):
     ExternalIdentifierSystemDescription = Column(String(500))
     ExternalIdentifierSystemURL = Column(String(255))
 
-    OrganizationObj = relationship(Organization)
+    OrganizationObj = relationship(Organizations)
 
 
-class Citationexternalidentifier(Base):
+class CitationExternalIdentifiers(Base):
     __tablename__ = u'CitationExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -933,10 +934,10 @@ class Citationexternalidentifier(Base):
     CitationExternalIdentiferURI = Column(String(255))
 
     CitationObj = relationship(Citations)
-    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
 
 
-class Methodexternalidentifier(Base):
+class MethodExternalIdentifiers(Base):
     __tablename__ = u'MethodExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -947,11 +948,11 @@ class Methodexternalidentifier(Base):
     MethodExternalIdentifier = Column(String(255), nullable=False)
     MethodExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     MethodObj = relationship(Methods)
 
 
-class Personexternalidentifier(Base):
+class PersonExternalIdentifiers(Base):
     __tablename__ = u'PersonExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -962,11 +963,11 @@ class Personexternalidentifier(Base):
     PersonExternalIdentifier = Column(String(255), nullable=False)
     PersonExternalIdenifierURI = Column(String(255))
 
-    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     PersonObj = relationship(People)
 
 
-class Referencematerialexternalidentifier(Base):
+class ReferenceMaterialExternalIdentifiers(Base):
     __tablename__ = u'ReferenceMaterialExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -977,11 +978,11 @@ class Referencematerialexternalidentifier(Base):
     ReferenceMaterialExternalIdentifier = Column(String(255), nullable=False)
     ReferenceMaterialExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
-    ReferenceMaterialObj = relationship(Referencematerial)
+    ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
+    ReferenceMaterialObj = relationship(ReferenceMaterials)
 
 
-class Samplingfeatureexternalidentifier(Base):
+class SamplingFeatureExternalIdentifiers(Base):
     __tablename__ = u'SamplingFeatureExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -992,11 +993,11 @@ class Samplingfeatureexternalidentifier(Base):
     SamplingFeatureExternalIdentifier = Column(String(255), nullable=False)
     SamplingFeatureExternalIdentiferURI = Column(String(255))
 
-    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     SamplingFeatureObj = relationship(SamplingFeatures)
 
 
-class Spatialreferenceexternalidentifier(Base):
+class SpatialReferenceExternalIdentifiers(Base):
     __tablename__ = u'SpatialReferenceExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1007,11 +1008,11 @@ class Spatialreferenceexternalidentifier(Base):
     SpatialReferenceExternalIdentifier = Column(String(255), nullable=False)
     SpatialReferenceExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     SpatialReferenceObj = relationship(SpatialReferences)
 
 
-class Taxonomicclassifierexternalidentifier(Base):
+class TaxonomicClassifierExternalIdentifiers(Base):
     __tablename__ = u'TaxonomicClassifierExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1022,11 +1023,11 @@ class Taxonomicclassifierexternalidentifier(Base):
     TaxonomicClassifierExternalIdentifier = Column(String(255), nullable=False)
     TaxonomicClassifierExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
-    TaxonomicClassifierObj = relationship(Taxonomicclassifier)
+    ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
+    TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
 
 
-class Variableexternalidentifier(Base):
+class VariableExternalIdentifiers(Base):
     __tablename__ = u'VariableExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1037,7 +1038,7 @@ class Variableexternalidentifier(Base):
     VariableExternalIdentifer = Column(String(255), nullable=False)
     VariableExternalIdentifierURI = Column(String(255))
 
-    ExternalIdentifierSystemObj = relationship(Externalidentifiersystem)
+    ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     VariableObj = relationship(Variables)
 
 # ################################################################################
@@ -1065,7 +1066,7 @@ class AuthorLists(Base):
 
 
 
-class Datasetcitation(Base):
+class DataSetCitations(Base):
     __tablename__ = u'DataSetCitations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1075,10 +1076,10 @@ class Datasetcitation(Base):
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj = relationship(Citations)
-    DataSetObj = relationship(Datasets)
+    DataSetObj = relationship(DataSets)
 
 
-Resultderivationequation = Table(
+ResultDerivationEquations = Table(
     u'ResultDerivationEquations', Base.metadata,
     Column(u'ResultID', ForeignKey('ODM2.Results.ResultID'), primary_key=True),
     Column(u'DerivationEquationID', ForeignKey('ODM2.DerivationEquations.DerivationEquationID'), nullable=False),
@@ -1086,17 +1087,17 @@ Resultderivationequation = Table(
 )
 
 
-class Derivationequation(Base):
+class DerivationEquations(Base):
     __tablename__ = u'DerivationEquations'
     __table_args__ = {u'schema': 'ODM2'}
 
     DerivationEquationID = Column(Integer, primary_key=True)
     DerivationEquation = Column(String(255), nullable=False)
 
-    ResultsObj = relationship(Result, secondary=Resultderivationequation)
+    ResultsObj = relationship(Results, secondary=ResultDerivationEquations)
 
 
-class Methodcitation(Base):
+class MethodCitations(Base):
     __tablename__ = u'MethodCitations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1110,7 +1111,7 @@ class Methodcitation(Base):
 
 
 # from ODM2.Annotations.model import Annotation
-class Relatedannotation(Base):
+class RelatedAnnotations(Base):
     __tablename__ = u'RelatedAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1119,12 +1120,12 @@ class Relatedannotation(Base):
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedAnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
-    AnnotationObj = relationship(Annotation, primaryjoin='Relatedannotation.AnnotationID == Annotation.AnnotationID')
-    RelatedAnnotationObj = relationship(Annotation,
-                                        primaryjoin='Relatedannotation.RelatedAnnotationID == Annotation.AnnotationID')
+    AnnotationObj = relationship(Annotations, primaryjoin='RelatedAnnotations.AnnotationID == Annotations.AnnotationID')
+    RelatedAnnotationObj = relationship(Annotations,
+                                        primaryjoin='RelatedAnnotations.RelatedAnnotationID == Annotations.AnnotationID')
 
 
-class Relatedcitation(Base):
+class RelatedCitations(Base):
     __tablename__ = u'RelatedCitations'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1133,11 +1134,11 @@ class Relatedcitation(Base):
     RelationshipTypeCV = Column(Integer, nullable=False)
     RelatedCitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
-    CitationObj = relationship(Citations, primaryjoin='Relatedcitation.CitationID == Citations.CitationID')
-    RelatedCitationObj = relationship(Citations, primaryjoin='Relatedcitation.RelatedCitationID == Citations.CitationID')
+    CitationObj = relationship(Citations, primaryjoin='RelatedCitations.CitationID == Citations.CitationID')
+    RelatedCitationObj = relationship(Citations, primaryjoin='RelatedCitations.RelatedCitationID == Citations.CitationID')
 
 
-class Relateddataset(Base):
+class RelatedDatasets(Base):
     __tablename__ = u'RelatedDatasets'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1147,11 +1148,11 @@ class Relateddataset(Base):
     RelatedDatasetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     VersionCode = Column(String(50))
 
-    DataSetObj = relationship(Datasets, primaryjoin='Relateddataset.DataSetID == Datasets.DataSetID')
-    RelatedDatasetObj = relationship(Datasets, primaryjoin='Relateddataset.RelatedDatasetID == Datasets.DataSetID')
+    DataSetObj = relationship(DataSets, primaryjoin='RelatedDatasets.DataSetID == DataSets.DataSetID')
+    RelatedDatasetObj = relationship(DataSets, primaryjoin='RelatedDatasets.RelatedDatasetID == DataSets.DataSetID')
 
 
-class Relatedresult(Base):
+class RelatedResults(Base):
     __tablename__ = u'RelatedResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1162,15 +1163,15 @@ class Relatedresult(Base):
     VersionCode = Column(String(50))
     RelatedResultSequenceNumber = Column(Integer)
 
-    ResultObj = relationship(Result, primaryjoin='Relatedresult.RelatedResultID == Result.ResultID')
-    RelatedResultObj = relationship(Result, primaryjoin='Relatedresult.ResultID == Result.ResultID')
+    ResultObj = relationship(Results, primaryjoin='RelatedResults.RelatedResultID == Results.ResultID')
+    RelatedResultObj = relationship(Results, primaryjoin='RelatedResults.ResultID == Results.ResultID')
 
 # ################################################################################
 # Results
 # ################################################################################
 
 
-class Pointcoverageresult(Result):
+class PointCoverageResults(Results):
     __tablename__ = u'PointCoverageResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1186,13 +1187,13 @@ class Pointcoverageresult(Result):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
 
-    XUnitObj = relationship(Units, primaryjoin='Pointcoverageresult.IntendedXSpacingUnitsID == Units.UnitsID')
-    YUnitObj = relationship(Units, primaryjoin='Pointcoverageresult.IntendedYSpacingUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='PointCoverageResults.IntendedXSpacingUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='PointCoverageResults.IntendedYSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    ZUnitObj = relationship(Units, primaryjoin='Pointcoverageresult.ZLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='PointCoverageResults.ZLocationUnitsID == Units.UnitsID')
 
 
-class Profileresult(Result):
+class ProfileResults(Results):
     __tablename__ = u'ProfileResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1208,14 +1209,14 @@ class Profileresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Units, primaryjoin='Profileresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='Profileresult.IntendedZSpacingUnitsID == Units.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='ProfileResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='ProfileResults.IntendedZSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    XUnitObj = relationship(Units, primaryjoin='Profileresult.XLocationUnitsID == Units.UnitsID')
-    YUnitObj = relationship(Units, primaryjoin='Profileresult.YLocationUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='ProfileResults.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='ProfileResults.YLocationUnitsID == Units.UnitsID')
 
 
-class Categoricalresult(Result):
+class CategoricalResults(Results):
     __tablename__ = u'CategoricalResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1232,7 +1233,7 @@ class Categoricalresult(Result):
     SpatialReferenceObj = relationship(SpatialReferences)
 
 
-class Transectresult(Result):
+class TransectResults(Results):
     __tablename__ = u'TransectResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1246,13 +1247,13 @@ class Transectresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Units, primaryjoin='Transectresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
-    TransectUnitObj = relationship(Units, primaryjoin='Transectresult.IntendedTransectSpacingUnitsID == Units.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    TransectUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTransectSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    ZUnitObj = relationship(Units, primaryjoin='Transectresult.ZLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='TransectResults.ZLocationUnitsID == Units.UnitsID')
 
 
-class Spectraresult(Result):
+class SpectraResults(Results):
     __tablename__ = u'SpectraResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1268,14 +1269,14 @@ class Spectraresult(Result):
     IntendedWavelengthSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    WaveUnitObj = relationship(Units, primaryjoin='Spectraresult.IntendedWavelengthSpacingUnitsID == Units.UnitsID')
+    WaveUnitObj = relationship(Units, primaryjoin='SpectraResults.IntendedWavelengthSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    XUnitObj = relationship(Units, primaryjoin='Spectraresult.XLocationUnitsID == Units.UnitsID')
-    YUnitObj = relationship(Units, primaryjoin='Spectraresult.YLocationUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='Spectraresult.ZLocationUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='SpectraResults.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='SpectraResults.YLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='SpectraResults.ZLocationUnitsID == Units.UnitsID')
 
 
-class Timeseriesresult(Result):
+class TimeSeriesResults(Results):
     __tablename__ = u'TimeSeriesResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1291,14 +1292,14 @@ class Timeseriesresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Units, primaryjoin='Timeseriesresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='TimeSeriesResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    XUnitObj = relationship(Units, primaryjoin='Timeseriesresult.XLocationUnitsID == Units.UnitsID')
-    YUnitObj = relationship(Units, primaryjoin='Timeseriesresult.YLocationUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='Timeseriesresult.ZLocationUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='TimeSeriesResults.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='TimeSeriesResults.YLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='TimeSeriesResults.ZLocationUnitsID == Units.UnitsID')
 
 
-class Sectionresult(Result):
+class SectionResults(Results):
     __tablename__ = u'SectionResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1314,14 +1315,14 @@ class Sectionresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Units, primaryjoin='Sectionresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
-    XUnitObj = relationship(Units, primaryjoin='Sectionresult.IntendedXSpacingUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='Sectionresult.IntendedZSpacingUnitsID == Units.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='SectionResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='SectionResults.IntendedXSpacingUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='SectionResults.IntendedZSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    YUnitObj = relationship(Units, primaryjoin='Sectionresult.YLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='SectionResults.YLocationUnitsID == Units.UnitsID')
 
 
-class Trajectoryresult(Result):
+class TrajectoryResults(Results):
     __tablename__ = u'TrajectoryResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1333,13 +1334,13 @@ class Trajectoryresult(Result):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Units, primaryjoin='Trajectoryresult.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='TrajectoryResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     TrajectoryUnitObj = relationship(Units,
-                                     primaryjoin='Trajectoryresult.IntendedTrajectorySpacingUnitsID == Units.UnitsID')
+                                     primaryjoin='TrajectoryResults.IntendedTrajectorySpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
 
 
-class Measurementresult(Result):
+class MeasurementResults(Results):
     __tablename__ = u'MeasurementResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1358,13 +1359,13 @@ class Measurementresult(Result):
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
     SpatialReferenceObj = relationship(SpatialReferences)
-    TimeUnitObj = relationship(Units, primaryjoin='Measurementresult.TimeAggregationIntervalUnitsID == Units.UnitsID')
-    XUnitObjObj = relationship(Units, primaryjoin='Measurementresult.XLocationUnitsID == Units.UnitsID')
-    YUnitObj = relationship(Units, primaryjoin='Measurementresult.YLocationUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='Measurementresult.ZLocationUnitsID == Units.UnitsID')
+    TimeUnitObj = relationship(Units, primaryjoin='MeasurementResults.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    XUnitObjObj = relationship(Units, primaryjoin='MeasurementResults.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='MeasurementResults.YLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='MeasurementResults.ZLocationUnitsID == Units.UnitsID')
 
 
-class Categoricalresultvalue(Base):
+class CategoricalResultValues(Base):
     __tablename__ = u'CategoricalResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1374,10 +1375,10 @@ class Categoricalresultvalue(Base):
     ValueDateTime = Column(DateTime, nullable=False)
     ValueDateTimeUTCOffset = Column(Integer, nullable=False)
 
-    CategoricalResultObj = relationship(Categoricalresult)
+    CategoricalResultObj = relationship(CategoricalResults)
 
 
-class Measurementresultvalue(Base):
+class MeasurementResultValues(Base):
     __tablename__ = u'MeasurementResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1387,10 +1388,10 @@ class Measurementresultvalue(Base):
     ValueDateTime = Column(DateTime, nullable=False)
     ValueDateTimeUTCOffset = Column(Integer, nullable=False)
 
-    MeasurementResultObj = relationship(Measurementresult)
+    MeasurementResultObj = relationship(MeasurementResults)
 
 
-class Pointcoverageresultvalue(Base):
+class PointCoverageResultValues(Base):
     __tablename__ = u'PointCoverageResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1406,12 +1407,12 @@ class Pointcoverageresultvalue(Base):
     CensorCodeCV = Column(String(255), nullable=False)
     QualityCodeCV = Column(String(255), nullable=False)
 
-    PointCoverageResultObj = relationship(Pointcoverageresult)
-    XUnitObj = relationship(Units, primaryjoin='Pointcoverageresultvalue.XLocationUnitsID == Units.UnitsID')
-    YUnitObj = relationship(Units, primaryjoin='Pointcoverageresultvalue.YLocationUnitsID == Units.UnitsID')
+    PointCoverageResultObj = relationship(PointCoverageResults)
+    XUnitObj = relationship(Units, primaryjoin='PointCoverageResultValues.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='PointCoverageResultValues.YLocationUnitsID == Units.UnitsID')
 
 
-class Profileresultvalue(Base):
+class ProfileResultValues(Base):
     __tablename__ = u'ProfileResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1428,12 +1429,12 @@ class Profileresultvalue(Base):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
-    ProfileResultObj = relationship(u'Profileresult')
-    TimeUnitObj = relationship(Units, primaryjoin='Profileresultvalue.TimeAggregationIntervalUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='Profileresultvalue.ZLocationUnitsID == Units.UnitsID')
+    ProfileResultObj = relationship(u'ProfileResults')
+    TimeUnitObj = relationship(Units, primaryjoin='ProfileResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='ProfileResultValues.ZLocationUnitsID == Units.UnitsID')
 
 
-class Sectionresultvalue(Base):
+class SectionResultValues(Base):
     __tablename__ = u'SectionResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1454,13 +1455,13 @@ class Sectionresultvalue(Base):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
-    SectionResultObj = relationship(Sectionresult)
-    TimeUnitObj = relationship(Units, primaryjoin='Sectionresultvalue.TimeAggregationIntervalUnitsID == Units.UnitsID')
-    XUnitObj = relationship(Units, primaryjoin='Sectionresultvalue.XLocationUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='Sectionresultvalue.ZLocationUnitsID == Units.UnitsID')
+    SectionResultObj = relationship(SectionResults)
+    TimeUnitObj = relationship(Units, primaryjoin='SectionResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='SectionResultValues.XLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='SectionResultValues.ZLocationUnitsID == Units.UnitsID')
 
 
-class Spectraresultvalue(Base):
+class SpectraResultValues(Base):
     __tablename__ = u'SpectraResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1477,12 +1478,12 @@ class Spectraresultvalue(Base):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
-    SpectraResultObj = relationship(Spectraresult)
-    TimeUnitObj = relationship(Units, primaryjoin='Spectraresultvalue.TimeAggregationIntervalUnitsID == Units.UnitsID')
-    WavelengthUnitObj = relationship(Units, primaryjoin='Spectraresultvalue.WavelengthUnitsID == Units.UnitsID')
+    SpectraResultObj = relationship(SpectraResults)
+    TimeUnitObj = relationship(Units, primaryjoin='SpectraResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    WavelengthUnitObj = relationship(Units, primaryjoin='SpectraResultValues.WavelengthUnitsID == Units.UnitsID')
 
 
-class Timeseriesresultvalue(Base):
+class TimeSeriesResultValues(Base):
     __tablename__ = u'TimeSeriesResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1496,7 +1497,7 @@ class Timeseriesresultvalue(Base):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
-    TimeSeriesResultObj = relationship(Timeseriesresult)
+    TimeSeriesResultObj = relationship(TimeSeriesResults)
     TimeUnitObj = relationship(Units)
 
     def get_columns(self):
@@ -1512,7 +1513,7 @@ class Timeseriesresultvalue(Base):
         return "<DataValue('%s', '%s', '%s')>" % (self.DataValue, self.ValueDateTime, self.TimeAggregationInterval)
 
 
-class Trajectoryresultvalue(Base):
+class TrajectoryResultValues(Base):
     __tablename__ = u'TrajectoryResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1535,14 +1536,14 @@ class Trajectoryresultvalue(Base):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
-    TrajectoryResultObj = relationship(Trajectoryresult)
-    TimeUnitObj = relationship(Units, primaryjoin='Trajectoryresultvalue.TimeAggregationIntervalUnitsID == Units.UnitsID')
-    XUnitObj = relationship(Units, primaryjoin='Trajectoryresultvalue.XLocationUnitsID == Units.UnitsID')
-    YUnitObj = relationship(Units, primaryjoin='Trajectoryresultvalue.YLocationUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='Trajectoryresultvalue.ZLocationUnitsID == Units.UnitsID')
+    TrajectoryResultObj = relationship(TrajectoryResults)
+    TimeUnitObj = relationship(Units, primaryjoin='TrajectoryResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
+    XUnitObj = relationship(Units, primaryjoin='TrajectoryResultValues.XLocationUnitsID == Units.UnitsID')
+    YUnitObj = relationship(Units, primaryjoin='TrajectoryResultValues.YLocationUnitsID == Units.UnitsID')
+    ZUnitObj = relationship(Units, primaryjoin='TrajectoryResultValues.ZLocationUnitsID == Units.UnitsID')
 
 
-class Transectresultvalue(Base):
+class TransectResultValues(Base):
     __tablename__ = u'TransectResultValues'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1564,5 +1565,5 @@ class Transectresultvalue(Base):
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
 
-    TransectResultObj = relationship(Transectresult)
+    TransectResultObj = relationship(TransectResults)
 

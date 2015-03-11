@@ -54,8 +54,8 @@ Example using bootalchemy (if the model is within the same module)
 # pp.pprint(results)
 # print "-"*50
 from bootalchemy.loader import Loader, YamlLoader
-from src.api import serviceBase
-import src.api.ODM2.models as models
+from .. import serviceBase
+import ODM2.models as models
 import yaml
 from collections import OrderedDict
 

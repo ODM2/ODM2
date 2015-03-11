@@ -7,13 +7,11 @@ Base = declarative_base()
 metadata = MetaData()
 
 ################ODM 2 Tables###########
-from ODM2.Core.model import Action, Organization, Affiliation, Person, \
-    Samplingfeature, Result, Variable, Method
-from ODM2.Results.model import Timeseriesresult, Timeseriesresultvalue
-from ODM2.SamplingFeatures.model import Site, Spatialreference
-from ODM2.CV.model import Cvterm
+from ..model import Actions, Organizations, Affiliation, People, \
+    Samplingfeatures, Results, Variables, Methods, Timeseriesresult, \
+    Timeseriesresultvalue, Site, SpatialReference, CVTerms
 
-action_table = Action()
+action_table = Actions()
 
 # ###################################################################################
 #                           Monitoring Site Locations
