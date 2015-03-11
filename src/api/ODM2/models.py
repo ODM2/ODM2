@@ -1292,12 +1292,16 @@ class TimeSeriesResults(Results):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(String(255), nullable=False)
 
-    TimeUnitObj = relationship(Units, primaryjoin='TimeSeriesResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
+    IntendedTimeSpacingUnitsObj = relationship(Units, primaryjoin='TimeSeriesResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
-    XUnitObj = relationship(Units, primaryjoin='TimeSeriesResults.XLocationUnitsID == Units.UnitsID')
-    YUnitObj = relationship(Units, primaryjoin='TimeSeriesResults.YLocationUnitsID == Units.UnitsID')
-    ZUnitObj = relationship(Units, primaryjoin='TimeSeriesResults.ZLocationUnitsID == Units.UnitsID')
+    XLocationUnitsObj = relationship(Units, primaryjoin='TimeSeriesResults.XLocationUnitsID == Units.UnitsID')
+    YLocationUnitsObj = relationship(Units, primaryjoin='TimeSeriesResults.YLocationUnitsID == Units.UnitsID')
+    ZLocationUnitsObj = relationship(Units, primaryjoin='TimeSeriesResults.ZLocationUnitsID == Units.UnitsID')
+    ResultObj = relationship(Results, primaryjoin='TimeSeriesResults.ResultID == Results.ResultID')
 
+    def __repr__(self):
+        return "<TimeSeriesResults('%s', '%s', '%s', '%s', '%s', '%s')>" % \
+            (self.ResultObj, self.XLocation, self.XLocationUnitsObj, self.SpatialReferenceObj, self.IntendedTimeSpacing, self.AggregationStatisticCV )
 
 class SectionResults(Results):
     __tablename__ = u'SectionResults'

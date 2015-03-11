@@ -233,7 +233,7 @@ class Resulttypecv(Base):
     TimeMeasurementFramework = Column(String(255), nullable=False)
     VariableMeasurementFramework = Column(String(255), nullable=False)
 
-class Result(Base):
+class Results(Base):
     __tablename__ = u'Results'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -280,5 +280,5 @@ class Datasetsresult(Base):
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
 
     DataSetObj = relationship(Dataset)
-    ResultObj = relationship(Result)
+    ResultObj = relationship(Results)
 
