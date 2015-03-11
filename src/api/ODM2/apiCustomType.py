@@ -44,3 +44,9 @@ class Geometry(GeometryBase):
         if value is  None:
             value = func.ST_AsText(col, type_=self)
         return value
+
+
+
+
+#GeomFromText
+#ST_GeomFromText

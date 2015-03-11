@@ -57,9 +57,21 @@ from bootalchemy.loader import Loader, YamlLoader
 from src.api import serviceBase
 import src.api.ODM2.models as models
 import yaml
-
+from collections import OrderedDict
 
 class YamlFunctions(object):
+
+    _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
+
+    def dict_representer(dumper, data):
+        return dumper.represent_dict(data.iteritems())
+
+    def dict_constructor(loader, node):
+        return OrderedDict(loader.construct_pairs(node))
+
+    yaml.add_representer(OrderedDict, dict_representer)
+    yaml.add_constructor(_mapping_tag, dict_constructor)
+
     def __init__(self, session):
         self._session = session
 
@@ -70,18 +82,21 @@ class YamlFunctions(object):
         """
 
         yl = YamlLoader(models)
+        # loader = Loader(models)
         s = yaml.load(open(filename).read())
 
         if 'YODA' in s:
-            print "<YODA Field FOUND! ... Manually removing it using 'dict.pop'>"
+            print "<YODA Field FOUND! ... Manually removing it using 'dict.pop'> " \
+                  "else it'll crash the program as sqlalchemy doesn't know what to do with it"
             s.pop('YODA')
 
         # debugging information
         import pprint
         pp =pprint.PrettyPrinter(indent=8)
-        pp.pprint(s)
-
+        pp.pprint([s])
+        # yl.loadf(self._session, filename)
         yl.from_list(self._session, [s])
+        # loader.from_list(self._session, [s])
 
 
     def loadFromFiles(self, files):

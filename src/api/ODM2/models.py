@@ -152,7 +152,7 @@ class SamplingFeatures(Base):
 
     def __repr__(self):
         return "<SamplingFeature('%s', '%s', '%s', '%s')>" % (
-            self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.FeatureGeometry)
+            self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.Elevation_m)
 
 
 class Featureaction(Base):
@@ -494,6 +494,8 @@ class Sites(SamplingFeatures):
     LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
 
     SpatialReferenceObj = relationship(SpatialReferences)
+
+    SamplingFeaturesObj = relationship(SamplingFeatures)
 
 
 class Relatedfeature(Base):
@@ -1055,6 +1057,10 @@ class AuthorLists(Base):
 
     CitationObj = relationship(Citations, primaryjoin='AuthorLists.CitationID == Citations.CitationID')
     PersonObj = relationship(People, primaryjoin='AuthorLists.PersonID == People.PersonID')
+
+    def __repr__(self):
+        return "<AuthorLists('%s', '%s', '%s', '%s', '%s', '%s')>" \
+               % (self.BridgeID, self.CitationID, self.PersonID, self.AuthorOrder, self.CitationObj, self.PersonObj)
 
 
 
