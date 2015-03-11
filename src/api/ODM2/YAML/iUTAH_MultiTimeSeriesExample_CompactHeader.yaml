@@ -6,7 +6,7 @@
 YODA:
   - {Version: 1.0.0, Profile: TimeSeries}
 # Working
-Datasets:
+DataSets:
   - {DataSetUUID: "000000000000000000000", DataSetTypeCV: TimeSeriesTable, DataSetCode: TWDEF_AirTemp, DataSetTitle: Air temperature at the TW Daniels Experimental Forest Climate Station, DataSetAbstract: Air temperature at the TW Daniels Experimental Forest Climate Station. The data were measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Measurements represent the average over the 15 minute recording period.}
 
 # Working
