@@ -19,8 +19,8 @@ sys.path.insert(0, directory)
 
 #conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 
-#session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
-session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
+session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
+#session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 
 # conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 # conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
@@ -190,11 +190,19 @@ _session.flush()
 persons = _session.query(People).all()
 datasets = _session.query(DataSets).all()
 citations = _session.query(Citations).all()
+authorlists = _session.query(AuthorLists).all()
 spatial_references = _session.query(SpatialReferences).all()
+
+# sampling_features = _session.query(SamplingFeatures).all()
+sampling_features = []
+# sites = _session.query(Sites).all()
+sites = []
+
 methods = _session.query(Methods).all()
 variables = _session.query(Variables).all()
 units = _session.query(Units).all()
 processing_levels = _session.query(ProcessingLevels).all()
+actions = _session.query(Actions).all()
 
 # yaml_load._session.commit()
 
@@ -205,6 +213,9 @@ pp.pprint(person_read)
 print
 pp.pprint("---Example YAML reading <Citation>---")
 pp.pprint(citations)
+print
+pp.pprint("---Example YAML reading <AuthorLists>---")
+pp.pprint(authorlists)
 print
 pp.pprint("---Example YAML reading <DataSets>---")
 pp.pprint(datasets)
@@ -224,7 +235,15 @@ print
 pp.pprint("---Example YAML reading <ProcessingLevels>---")
 pp.pprint(processing_levels)
 print
-
+pp.pprint("---Example YAML reading <Sites>---")
+pp.pprint(sites)
+print
+pp.pprint("---Example YAML reading <SamplingFeatures>---")
+pp.pprint(sampling_features)
+print
+pp.pprint("---Example YAML reading <Actions>---")
+pp.pprint(actions)
+print
 
 
 

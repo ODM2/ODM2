@@ -74,6 +74,7 @@ class Geometry(GeometryBase):
             value = func.ST_AsText(col, type_=self)
         return value
 
+
     def bind_expression(self, bindvalue):
         return func.ST_GeomFromText(bindvalue, type_=self)
 
@@ -95,3 +96,4 @@ class Geometry(UserDefinedType):
 
 
 '''
+

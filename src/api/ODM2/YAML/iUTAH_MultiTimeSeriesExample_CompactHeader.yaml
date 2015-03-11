@@ -11,62 +11,65 @@ DataSets:
 
 # Working
 People:
-  - &PersonID001 {PersonFirstName: Jeffery, PersonMiddleName: S., PersonLastName: Horsburgh}
-  - &PersonID002 {PersonFirstName: Amber, PersonMiddleName: NULL, PersonLastName: Spackman Jones}
+  - {'&PersonID001': {PersonFirstName: Jeffery, PersonMiddleName: S., PersonLastName: Horsburgh}}
+  - {'&PersonID002': {PersonFirstName: Amber, PersonMiddleName: NULL, PersonLastName: Spackman Jones}}
 
 # Working
 Citations:
-  - &CitationID001 {Title: Air temperature at the TW Daniels Experimental Forest Climate Station, Publisher: iUTAH Modeling and Data Federation, PublicationYear: 2015, CitationLink: "http://repository.iutahepscor.org/dataset/iutah-gamut-network-raw-data-at-tw-daniels-forest-climate-site-lr-twdef-c"}
+  - {'&CitationID001': {Title: Air temperature at the TW Daniels Experimental Forest Climate Station, Publisher: iUTAH Modeling and Data Federation, PublicationYear: 2015, CitationLink: "http://repository.iutahepscor.org/dataset/iutah-gamut-network-raw-data-at-tw-daniels-forest-climate-site-lr-twdef-c"}}
 
-#AuthorLists:
-#  - &AuthorID001 {CitationObj: *CitationID001, PersonObj: *PersonID001, AuthorOrder: 1}
-#  - &AuthorID002 {CitationObj: *CitationID001, PersonObj: *PersonID002, AuthorOrder: 2}
+# Working
+AuthorLists:
+  - {'&AuthorID001': {CitationObj: '*CitationID001', PersonObj: '*PersonID001', AuthorOrder: 1}}
+  - {'&AuthorID002': {CitationObj: '*CitationID001', PersonObj: '*PersonID002', AuthorOrder: 2}}
 
 # Working
 SpatialReferences:
-  - &SRSID001 {SRSCode: "EPSG:4269", SRSName: NAD83, SRSDescription: NULL, SRSLink: "http://www.epsg-registry.org/export.htm?wkt=urn:ogc:def:crs:EPSG::4269"}
-  - &SRSID002 {SRSCode: NULL, SRSName: Local Coordinate System, SRSDescription: Coordinates are expressed in meters from the local site datum., SRSLink: NULL}
+  - {'&SRSID001' : {SRSCode: "EPSG:4269", SRSName: NAD83, SRSDescription: NULL, SRSLink: "http://www.epsg-registry.org/export.htm?wkt=urn:ogc:def:crs:EPSG::4269"}}
+  - {'&SRSID002': {SRSCode: NULL, SRSName: Local Coordinate System, SRSDescription: Coordinates are expressed in meters from the local site datum., SRSLink: NULL}}
 
-## Sites needs SamplingFeatures in order to work. SamplingFeatures isn't working
+# Sites needs SamplingFeatures in order to work. SamplingFeatures isn't working
 #SamplingFeatures:
-#  - &SamplingFeatureID001 {SamplingFeatureID: 0001, SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Site, SamplingFeatureCode: LR_TWDEF_C, SamplingFeatureName: Climate Station at TW Daniels Experimental Forest, SamplingFeatureDescription: This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network., SamplingFeatureGeoTypeCV: Point, FeatureGeometry: POINT(-111.507494 41.864805), Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+#  - {'&SamplingFeatureID001': {SamplingFeatureID: 0001, SamplingFeatureUUID: "F2E3DC76-B258-E411-AE79-0024E852D68F", SamplingFeatureTypeCV: Site, SamplingFeatureCode: LR_TWDEF_C, SamplingFeatureName: Climate Station at TW Daniels Experimental Forest, SamplingFeatureDescription: This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network., SamplingFeatureGeoTypeCV: Point, FeatureGeometry: , Elevation_m: 2629.2, ElevationDatumCV: EGM96}}
+##  - {'&SamplingFeatureID001': {SamplingFeatureID: 1, SamplingFeatureUUID: "000000000000000000001", SamplingFeatureTypeCV: Site, SamplingFeatureCode: LR_TWDEF_C, SamplingFeatureName: Climate Station at TW Daniels Experimental Forest, SamplingFeatureDescription: This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network., SamplingFeatureGeoTypeCV: Point, Elevation_m: 2629.2, ElevationDatumCV: EGM96}} #FeatureGeometry: POINT(-111.507494 41.864805)
 #
 #Sites:
-#  - {SamplingFeatureID: *SamplingFeatureID001, SiteTypeCV: Atmosphere, Latitude: 41.864805, Longitude: -111.507494, SpatialReferenceID: *SRSID001}
+#  - {SamplingFeaturesObj: '*SamplingFeatureID001', SiteTypeCV: Atmosphere, Latitude: 41.864805, Longitude: -111.507494} #, SpatialReferenceID: '*SRSID001'}
 
 # Working
 Methods:
-  - &MethodID001 {MethodTypeCV: Instrument deployment, MethodCode: Air_Temp_HC2S3, MethodName: HC2S3 Air Temperature, MethodDescription: Air temperature measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Average over 15 minutes., MethodLink: "http://data.iutahepscor.org", OrganizationID: NULL}
+  - {'&MethodID001': {MethodTypeCV: Instrument deployment, MethodCode: Air_Temp_HC2S3, MethodName: HC2S3 Air Temperature, MethodDescription: Air temperature measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Average over 15 minutes., MethodLink: "http://data.iutahepscor.org", OrganizationID: NULL}}
 
 # Working
 Variables:
-  - &VariableID001 {VariableTypeCV: Climate, VariableCode: AirtTemp_Avg, VariableNameCV: Temperature, VariableDefinition: NULL, SpeciationCV: Not applicable, NoDataValue: -9999}
-  - &VariableID002 {VariableTypeCV: Climate, VariableCode: AirtTemp_Min, VariableNameCV: Temperature, VariableDefinition: NULL, SpeciationCV: Not applicable, NoDataValue: -9999}
-  - &VariableID003 {VariableTypeCV: Climate, VariableCode: AirtTemp_Max, VariableNameCV: Temperature, VariableDefinition: NULL, SpeciationCV: Not applicable, NoDataValue: -9999}
+  - {'&VariableID001': {VariableTypeCV: Climate, VariableCode: AirtTemp_Avg, VariableNameCV: Temperature, VariableDefinition: NULL, SpeciationCV: Not applicable, NoDataValue: -9999}}
+  - {'&VariableID002': {VariableTypeCV: Climate, VariableCode: AirtTemp_Min, VariableNameCV: Temperature, VariableDefinition: NULL, SpeciationCV: Not applicable, NoDataValue: -9999}}
+  - {'&VariableID003': {VariableTypeCV: Climate, VariableCode: AirtTemp_Max, VariableNameCV: Temperature, VariableDefinition: NULL, SpeciationCV: Not applicable, NoDataValue: -9999}}
 
 # Working
 Units:
-  - &UnitID001 {UnitsTypeCV: Temperature, UnitsAbbreviation: degC, UnitsName: Degree celsius, UnitsLink: ""}
-  - &UnitID002 {UnitsTypeCV: Time, UnitsAbbreviation: min, UnitsName: Minute, UnitsLink: "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units"}
-  - &UnitID003 {UnitsTypeCV: Length, UnitsAbbreviation: m, UnitsName: Meter, UnitsLink: "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units"}
+  - {'&UnitID001': {UnitsTypeCV: Temperature, UnitsAbbreviation: degC, UnitsName: Degree celsius, UnitsLink: ""}}
+  - {'&UnitID002': {UnitsTypeCV: Time, UnitsAbbreviation: min, UnitsName: Minute, UnitsLink: "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units"}}
+  - {'&UnitID003': {UnitsTypeCV: Length, UnitsAbbreviation: m, UnitsName: Meter, UnitsLink: "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units"}}
 
 # Working
 ProcessingLevels:
-  - &ProcessingLevelID001 {ProcessingLevelCode: "0", Definition: Raw data, Explanation: "Raw and unprocessed data and data products that have not undergone quality control.  Depending on the variable, data type, and data transmission system, raw data may be available within seconds or minutes after the measurements have been made. Examples include real time precipitation, streamflow and water quality measurements."}
+  - {'&ProcessingLevelID001': {ProcessingLevelCode: "0", Definition: Raw data, Explanation: "Raw and unprocessed data and data products that have not undergone quality control.  Depending on the variable, data type, and data transmission system, raw data may be available within seconds or minutes after the measurements have been made. Examples include real time precipitation, streamflow and water quality measurements."}}
 
-#Actions:
-#  - &ActionID001 {ActionTypeCV: Observation, MethodObj: *MethodID001, BeginDateTime: "2015-01-01 00:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2015-01-01 04:00:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Deployment of an air temperature sensor resulting in multiple time series of air temperature observations., ActionFileLink: NULL}
+Actions:
+  - {'&ActionID001': {ActionTypeCV: Observation, MethodObj: '*MethodID001', BeginDateTime: "2015-01-01 00:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2015-01-01 04:00:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Deployment of an air temperature sensor resulting in multiple time series of air temperature observations., ActionFileLink: NULL}}
 
 #Results:
-#  - &ResultID001 {ResultUUID: "000000000000000000000", SamplingFeatureID: *SamplingFeatureID001, ActionID: *ActionID001, ResultTypeCV: TimeSeries, VariableID: *VariableID001, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
-#  - &ResultID002 {ResultUUID: "000000000000000000000", SamplingFeatureID: *SamplingFeatureID001, ActionID: *ActionID001, ResultTypeCV: TimeSeries, VariableID: *VariableID002, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
-#  - &ResultID003 {ResultUUID: "000000000000000000000", SamplingFeatureID: *SamplingFeatureID001, ActionID: *ActionID001, ResultTypeCV: TimeSeries, VariableID: *VariableID003, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
+#  - {'&ResultID001': {ResultUUID: "000000000000000000000", SamplingFeatureID: '*SamplingFeatureID001', ActionID: '*ActionID001', ResultTypeCV: TimeSeries, VariableID: '*VariableID001', UnitsID: '*UnitID002', TaxonomicClassifierID: NULL, ProcessingLevelID: '*ProcessingLevelID001', ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}}
+#  - {'&ResultID002': {ResultUUID: "000000000000000000000", SamplingFeatureID: '*SamplingFeatureID001', ActionID: '*ActionID001', ResultTypeCV: TimeSeries, VariableID: '*VariableID002', UnitsID: '*UnitID002', TaxonomicClassifierID: NULL, ProcessingLevelID: '*ProcessingLevelID001', ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}}
+#  - {'&ResultID003': {ResultUUID: "000000000000000000000", SamplingFeatureID: '*SamplingFeatureID001', ActionID: '*ActionID001', ResultTypeCV: TimeSeries, VariableID: '*VariableID003', UnitsID: '*UnitID002', TaxonomicClassifierID: NULL, ProcessingLevelID: '*ProcessingLevelID001', ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}}
+
 #
 
 #TimeSeriesResults:
-#  - &TimeSeriesResultID001 {ResultID: *ResultID001, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticCV: Average}
-#  - &TimeSeriesResultID002 {ResultID: *ResultID002, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticsCV: Minimum}
-#  - &TimeSeriesResultID003 {ResultID: *ResultID003, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticsCV: Maximum}
+#  - {'&TimeSeriesResultID001': {ResultObj: '*ResultID001', XLocation: 0, XLocationUnitsObj: '*UnitID003', YLocation: 0, YLocationUnitsObj: '*UnitID003', ZLocation: 2, ZLocationUnitsObj: '*UnitID003', SpatialReferenceObj: '*SRSID002', IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsObj: '*UnitID002', AggregationStatisticCV: Average}}
+#  - {'&TimeSeriesResultID002': {ResultObj: '*ResultID002', XLocation: 0, XLocationUnitsObj: '*UnitID003', YLocation: 0, YLocationUnitsObj: '*UnitID003', ZLocation: 2, ZLocationUnitsObj: '*UnitID003', SpatialReferenceObj: '*SRSID002', IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsObj: '*UnitID002', AggregationStatisticsCV: Minimum}}
+#  - {'&TimeSeriesResultID003': {ResultObj: '*ResultID003', XLocation: 0, XLocationUnitsObj: '*UnitID003', YLocation: 0, YLocationUnitsObj: '*UnitID003', ZLocation: 2, ZLocationUnitsObj: '*UnitID003', SpatialReferenceObj: '*SRSID002', IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsObj: '*UnitID002', AggregationStatisticsCV: Maximum}}
 
 #TimeSeriesResultValues:
 #  ColumnDefinitions:
