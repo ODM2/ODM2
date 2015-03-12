@@ -492,8 +492,8 @@ class Sites(SamplingFeatures):
     SiteTypeCV = Column(String(255), nullable=False)
     Latitude = Column(Float(53), nullable=False)
     Longitude = Column(Float(53), nullable=False)
-    LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
-
+    #LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
+    SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
     SpatialReferenceObj = relationship(SpatialReferences)
 
     SamplingFeaturesObj = relationship(SamplingFeatures)

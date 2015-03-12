@@ -26,7 +26,7 @@ AuthorLists:
 # Working
 SpatialReferences:
   - {'&SRSID001' : {SRSCode: "EPSG:4269", SRSName: NAD83, SRSDescription: NULL, SRSLink: "http://www.epsg-registry.org/export.htm?wkt=urn:ogc:def:crs:EPSG::4269"}}
-  - {'&SRSID002': {SRSCode: NULL, SRSName: Local Coordinate System, SRSDescription: Coordinates are expressed in meters from the local site datum., SRSLink: NULL}}
+  - {'&SRSID002': {SpatialReferenceID: '002', SRSCode: NULL, SRSName: Local Coordinate System, SRSDescription: Coordinates are expressed in meters from the local site datum., SRSLink: NULL}}
 
 # Sites needs SamplingFeatures in order to work. SamplingFeatures isn't working
 #SamplingFeatures:
