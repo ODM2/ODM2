@@ -2,7 +2,7 @@
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>/Users/JeffHorsburgh/Desktop/ODM2_Current</DocFolder>
+  <DocFolder>\Users\JeffHorsburgh\Desktop\ODM2_Current</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
@@ -2203,7 +2203,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique ID, such as an IGSN; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
-      <Cl au="0" df="" nm="PersonExternalIdenifierURI" nu="1">
+      <Cl au="0" df="" nm="PersonExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting.</Cm>
       </Cl>
@@ -5375,7 +5375,7 @@
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="480">
+  <RnmMgr NxRnmId="481">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -6154,6 +6154,7 @@
       <Rnm id="328" nNm="SamplingFeatureExternalIdentiferURI" oNm="SamplingFeatureExternalIdentiferURN"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="480" nNm="PersonExternalIdentifierURI" oNm="PersonExternalIdenifierURI"/>
       <Rnm id="329" nNm="PersonExternalIdenifierURI" oNm="PersonExternalIdenifierURN"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="VariableExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
@@ -6551,11 +6552,14 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2ExternalIdentifiers</TreePath>
+    <TreePath>/Schemas (12)/ODM2ExternalIdentifiers/Tables (9)</TreePath>
+    <TreePath>/Schemas (12)/ODM2ExternalIdentifiers/Tables (9)/PersonExternalIdentifiers</TreePath>
     <TreePath>/Diagrams (12)</TreePath>
   </TreePaths>
 </Db>
