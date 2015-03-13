@@ -29,8 +29,7 @@ class YamlFunctions(object):
         :filename: path to yaml file
         """
 
-        yl = YamlLoader(models)
-        s = yaml.load(open(filename).read())
+        s = self.extractYaml(filename)
 
         if 'YODA' in s:
             print "<YODA Field FOUND! ... Manually removing it using 'dict.pop'> " \
@@ -40,6 +39,7 @@ class YamlFunctions(object):
         # debugging information
         # self.printValues(s)
 
+        yl = YamlLoader(models)
         yl.from_list(self._session, [s])
 
     def loadFromFiles(self, files):
@@ -51,7 +51,9 @@ class YamlFunctions(object):
 
         for item in files:
             self.loadFromFile(item)
-
+    def extractYaml(self, filename):
+        s = yaml.load(open(filename).read())
+        return s
     def writeValues(self,s ):
         import os
         print "PWD: ", os.getcwd()

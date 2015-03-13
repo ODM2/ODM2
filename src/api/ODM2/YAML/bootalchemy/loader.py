@@ -410,14 +410,14 @@ class Loader(object):
         try:
             print "Modules: ", self.modules
             for group in data:
-                print "Group: ", group
+                # print "Group: ", group
                 for name, items in group.iteritems():
                     if name not in skip_keys:
-                        print "Name: ", name
-                        print "Items: ", items
+                        # print "Name: ", name
+                        # print "Items: ", items
 
                         klass = self.get_klass(name)
-                        print klass, '\n'
+                        # print klass, '\n'
                         self.add_klasses(klass, items)
 
                 if 'flush' in group:
