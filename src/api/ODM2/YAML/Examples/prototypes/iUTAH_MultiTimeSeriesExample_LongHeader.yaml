@@ -1,0 +1,258 @@
+# TODO:  Need to check all of the values in the CV fields to make sure they use valid values
+# TODO:  Need to find out what the convention is for empty elements in YAML and fix throughout
+# TODO:  Make sure all required elements are specified
+# TODO:  Where objects are referenced by referencing an anchor, what should the element name be (e.g., "Action" or "ActionID"?)
+
+---
+YODA: {Version: 1.0.0, Profile: TimeSeries}
+
+Dataset:
+  DataSetUUID: "000000000000000000000"
+  DataSetTypeCV: TimeSeriesTable
+  DataSetCode: TWDEF_AirTemp
+  DataSetTitle: Air temperature at the TW Daniels Experimental Forest Climate Station
+  DataSetAbstract: Air temperature at the TW Daniels Experimental Forest Climate Station. The data were measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Measurements represent the average over the 15 minute recording period.
+
+People:
+ - Person: &PersonID001
+     PersonFirstName: Jeffery
+     PersonMiddleName: S.
+     PersonLastName: Horsburgh
+ - Person: &PersonID002
+     PersonFirstName: Amber
+     PersonMiddleName: ""
+     PersonLastName: Spackman Jones
+
+AuthorList:
+  - Author: &AuthorID001
+      AuthorName: *PersonID001
+      AuthorOrder: 1
+  - Author: &AuthorID002
+      AuthorName: *PersonID002
+      AuthorOrder: 2
+
+Citation:
+    Title: Air temperature at the TW Daniels Experimental Forest Climate Station
+    Publisher: iUTAH Modeling and Data Federation
+    PubliationYear: 2015
+    CitationLink: http://repository.iutahepscor.org/dataset/iutah-gamut-network-raw-data-at-tw-daniels-forest-climate-site-lr-twdef-c
+    Authors: [*AuthorID001, *AuthorID002]
+
+SpatialReferences:
+  - SpatialReference: &SRSID001   # Give the SpatialReference an ID
+      SpatialReferenceID: 2       # These IDs are standardized because SpatialReferences is a CV
+      SRSCode: EPSG4269
+      SRSName: NAD83
+      SRSDescription:             # There is no description for this SRS
+  - SpatialReference: &SRSID002
+      SpatialReferenceID: 340
+      SRSCode:                    # Leave this blank
+      SRSName: Local Coordinate System
+      SRSDescription: Coordinates are expressed in meters from the local site datum.
+
+SamplingFeatures:
+  - SamplingFeature: &SamplingFeatureID001
+      SamplingFeatureUUID: "000000000000000000000"
+      SamplingFeatureTypeCV: Site
+      SamplingFeatureCode: LR_TWDEF_C
+      SamplingFeatureName: Climate Station at TW Daniels Experimental Forest
+      SamplingFeatureDescription: This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network.
+      SamplingFeatureGeoTypeCV: Point
+      FeatureGeometry:        # {Well known text here????}
+      Elevation_m: 2629.2
+      ElevationDatumCV: EGM96
+
+Site:
+  SamplingFeatureID: *SamplingFeatureID001
+  SiteTypeCV: Atmosphere
+  Latitude: 41.864805
+  Longitude: -111.507494
+  LatLonDatumID: *SRSID001  # Points at the ID for the SpatialReference
+ 
+Methods:
+  - Method: &MethodID001
+      MethodTypeCV: Instrument deployment
+      MethodCode: Air_Temp_HC2S3
+      MethodName: HC2S3 Air Temperature
+      MethodDescription: Air temperature measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Average over 15 minutes.
+      MethodLink: http://data.iutahepscor.org
+      OrganizationID:       # Reference to organization here
+
+Variables:
+  - Variable: &VariableID001
+      VariableTypeCV: Climate       # This CV hasn't been worked out yet, so this term might not be appropriate
+      VariableCode: AirtTemp_Avg
+      VariableNameCV: Temperature
+      VariableDefinition:           # Leave this blank
+      SpeciationCV: Not applicable
+      NoDataValue: -9999
+  - Variable: &VariableID002
+      VariableTypeCV: Climate  
+      VariableCode: AirtTemp_Min
+      VariableNameCV: Temperature
+      VariableDefinition:           # Leave this blank
+      SpeciationCV: Not applicable
+      NoDataValue: -9999
+  - Variable: &VariableID003
+      VariableTypeCV: Climate  
+      VariableCode: AirtTemp_Max
+      VariableNameCV: Temperature
+      VariableDefinition:           # Leave this blank
+      SpeciationCV: Not applicable
+      NoDataValue: -9999
+    
+Units:
+  - Unit: &UnitID001
+      UnitsID: 96                   # These IDs are standardized because Units is a CV
+      UnitsName: Degree celsius
+      UnitsTypeCV: Temperature
+      UnitsAbbreviation: degC
+  - Unit: &UnitID002
+      UnitsID: 102  
+      UnitsName: Minute
+      UnitsTypeCV: Time
+      UnitsAbbreviation: min
+  - Unit: &UnitID003
+      UnitsID: 52  
+      UnitsName: Meter
+      UnitsTypeCV: Length
+      UnitsAbbreviation: m
+    
+ProcessingLevels:
+  - ProcessingLevel: &ProcessingLevelID001
+      ProcessingLevelCode: "0"
+      Definition: Raw data
+      Explanation: Raw and unprocessed data and data products that have not undergone quality control.  Depending on the variable, data type, and data transmission system, raw data may be available within seconds or minutes after the measurements have been made. Examples include real time precipitation, streamflow and water quality measurements.
+  
+Actions:
+  - Action: &ActionID001
+      ActionTypeCV: Observation
+      MethodID: *MethodID001
+      BeginDateTime: 2015-01-01 00:30:00
+      BeginDateTimeUTCOffset: -7.0
+      EndDateTime: 2015-01-01 04:00:00
+      EndDateTimeUTCOffset: -7.0
+      ActionDescription: Deployment of an air temperature sensor resulting in multiple time series of air temperature observations.
+      ActionFileLink:        # Leave this blank.       
+      
+Results:
+  - Result: &ResultID001
+      ResultUUID: "000000000000000000000"
+      SamplingFeatureID: *SamplingFeatureID001
+      ActionID: *ActionID001
+      ResultTypeCV: TimeSeries
+      VariableID: *VariableID001
+      UnitsID: *UnitID002
+      TaxonomicClassifierID:   # Leave this blank
+      ProcessingLevelID: *ProcessingLevelID001
+      ResultDateTime: 2014-01-07 11:15:00
+      ResultDateTimeUTCOffset: -07:00
+      ValidDateTime:           # Leave this blank
+      ValidDateTimeUTCOffset:  # Leave this blank
+      StatusCV: Data collection ongoing  # This CV hasn't been developed yet.
+      SampledMediumCV: Air     # Need to check CV.
+      ValueCount: 38056
+  - Result: &ResultID002
+      ResultUUID: "000000000000000000000"
+      SamplingFeatureID: *SamplingFeatureID001
+      ActionID: *ActionID001
+      ResultTypeCV: TimeSeries
+      VariableID: *VariableID002
+      UnitsID: *UnitID002
+      TaxonomicClassifierID:   # Leave this blank
+      ProcessingLevelID: *ProcessingLevelID001
+      ResultDateTime: 2014-01-07 11:15:00
+      ResultDateTimeUTCOffset: -07:00
+      ValidDateTime:           # Leave this blank
+      ValidDateTimeUTCOffset:  # Leave this blank
+      StatusCV: Data collection ongoing  # This CV hasn't been developed yet.
+      SampledMediumCV: Air     # Need to check CV.
+      ValueCount: 38056
+  - Result: &ResultID003
+      ResultUUID: "000000000000000000000"
+      SamplingFeatureID: *SamplingFeatureID001
+      ActionID: *ActionID001
+      ResultTypeCV: TimeSeries
+      VariableID: *VariableID003
+      UnitsID: *UnitID002
+      TaxonomicClassifierID:   # Leave this blank
+      ProcessingLevelID: *ProcessingLevelID001
+      ResultDateTime: 2014-01-07 11:15:00
+      ResultDateTimeUTCOffset: -07:00
+      ValidDateTime:           # Leave this blank
+      ValidDateTimeUTCOffset:  # Leave this blank
+      StatusCV: Data collection ongoing  # This CV hasn't been developed yet.
+      SampledMediumCV: Air     # Need to check CV.
+      ValueCount: 38056   
+
+TimeSeriesResults:
+  - TimeSeriesResult: &TimeSeriesResultID001
+      ResultID: *ResultID001
+      XLocation: 0
+      XLocationUnitsID: *UnitID003
+      YLocation: 0
+      YLocationUnitsID: *UnitID003
+      ZLocation: 2
+      ZLocationUnitsID: *UnitID003
+      SpatialReferenceID: *SRSID002
+      IntendedTimeSpacing: 15
+      IntendedTimeSpacingUnitsID: *UnitID002
+      AggregationStatisticsCV: Average
+  - TimeSeriesResult: &TimeSeriesResultID002
+      ResultID: *ResultID002
+      XLocation: 0
+      XLocationUnitsID: *UnitID003
+      YLocation: 0
+      YLocationUnitsID: *UnitID003
+      ZLocation: 2
+      ZLocationUnitsID: *UnitID003
+      SpatialReferenceID: *SRSID002
+      IntendedTimeSpacing: 15
+      IntendedTimeSpacingUnitsID: *UnitID002
+      AggregationStatisticsCV: Minimum
+  - TimeSeriesResult: &TimeSeriesResultID003
+      ResultID: *ResultID003
+      XLocation: 0
+      XLocationUnitsID: *UnitID003
+      YLocation: 0
+      YLocationUnitsID: *UnitID003
+      ZLocation: 2
+      ZLocationUnitsID: *UnitID003
+      SpatialReferenceID: *SRSID002
+      IntendedTimeSpacing: 15
+      IntendedTimeSpacingUnitsID: *UnitID002
+      AggregationStatisticsCV: Maximum
+      
+TimeSeriesResultValues:
+  ColumnDefinitions:
+    - {ColumnNumber: 1, Label: ValueDateTime, ODM2Field: ValueDateTime}
+    - {ColumnNumber: 2, Label: ValueDateTimeUTCOffset, ODM2Field: ValueDateTimeUTCOffset}
+    - {ColumnNumber: 3, Label: AirTemp_Avg, Result: *TimeSeriesResultID001, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
+    - {ColumnNumber: 4, Label: AirTemp_Min, Result: *TimeSeriesResultID002, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
+    - {ColumnNumber: 5, Label: AirTemp_Max, Result: *TimeSeriesResultID003, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
+  Data:
+  - [ValueDateTime,ValueDateTimeUTCOffset,AirTemp_Avg,AirTemp_Min,AirTemp_Max]
+  - ["2015-01-01 00:30:00",-7.0,-9.56,-9.31,-9.87]
+  - ["2015-01-01 00:45:00",-7.0,-10.1,-9.19,-11.73]
+  - ["2015-01-01 01:00:00",-7.0,-10.19,-9.13,-11.25]
+  - ["2015-01-01 01:15:00",-7.0,-9.74,-9.13,-11.15]
+  - ["2015-01-01 01:30:00",-7.0,-9.37,-8.94,-10.29]
+  - ["2015-01-01 01:45:00",-7.0,-10.65,-8.65,-13.52]
+  - ["2015-01-01 02:00:00",-7.0,-14.5,-13.6,-15.06]
+  - ["2015-01-01 02:15:00",-7.0,-15.31,-14.92,-15.63]
+  - ["2015-01-01 02:30:00",-7.0,-15.43,-15.04,-15.8]
+  - ["2015-01-01 02:45:00",-7.0,-15.78,-15.61,-15.9]
+  - ["2015-01-01 03:00:00",-7.0,-16.02,-15.65,-16.29]
+  - ["2015-01-01 03:15:00",-7.0,-16.23,-16.0,-16.36]
+  - ["2015-01-01 03:30:00",-7.0,-16.23,-16.0,-16.38]
+  - ["2015-01-01 03:45:00",-7.0,-15.63,-14.94,-16.36]
+  - ["2015-01-01 04:00:00",-7.0,-15.34,-14.95,-15.77]
+
+# RULE:  The ColumnDefinitions will be matched to the columns in the data table using the ColumnNumber. We will check to make sure the labels match, but we need to decide later whether to throw an error if the labels in the ColumnDefinitions do not match the columns in the data table.
+# In the case where a single DataValues column contains multiple time series Results, the reference to the Result has to go in a separate column and not in the ColumnDefinitions.
+# CensorCode, QualityCode, TimeAggregationInterval, and TimeAggregationIntervalUnitsID can be specified as a default for the whole DataValues column in the column definition.
+# Otherwise, a column for each of these attributes must be included in the table and defined in the ColumnDefinitions.
+
+# Annotations for each DataValue (there may be multiple Annotations per value)
+
+...

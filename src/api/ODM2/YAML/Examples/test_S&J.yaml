@@ -1,0 +1,134 @@
+
+---
+Sue&JenniferLIKE YODA (YAML ODM2 Data Archive) File: {Version: 2.0.0, Profile: DataManagersROCK}
+
+Dataset:
+  DataSetUUID: "00000000000000000000"
+  DataSetTypeCV: TableInReference
+  DataSetCode: 007-EA 7
+  DataSetTitle: BC_CZO_XRF
+  DataSetAbstract:  This dataset is so very great and allowed a very nice to person to graduate in December2012.
+  
+Citation:
+  Title:  Sub-surface evolution, characterizing the physical and geochemical changes in weathered bedrock of lower gordon gulch Boulder Creek CZO.
+  Publisher:  University of Colorado, Boulder
+  Journal:    "Cool Geology Papers; Vol: 123; pg: 1-5"
+  PubliationYear: 2014
+  CitationLink:   http://mypapergotpublished.com.2014.11.008
+
+Authors:
+- {PersonFirstName: Nicholas, PersonMiddleName: St., PersonLastName:  Claus, AuthorOrder: 1}
+- {PersonFirstName: Olaf, PersonMiddleName: "", PersonLastName:   FromFrozen, AuthorOrder: 2}
+
+SpatialReferences:
+- &SRSID001 {SpatialReferenceID: 2, SRSCode: "", SRSName: WGS84, SRSDescription: ""}
+
+SamplingFeatures:
+#CorePitWell
+- &SamplingFeatureID001 {SamplingFeatureUUID: "000000000000000000001", SamplingFeatureTypeCV: WellSiteCV, SamplingFeatureCode: SomeCodeForWellSite, SamplingFeatureName: IGSN_BCZ00001X, SamplingFeatureDescription: CorePit1, SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2505.867 , ElevationDatumCV: NAVD84}
+
+#DepthInterval
+- &SamplingFeatureID002 {SamplingFeatureUUID: "", ParentSamplingFeatureID:   *SamplingFeatureID001,  SamplingFeatureTypeCV: IntervalCV, SamplingFeatureCode: SomeCodeForInterval, SamplingFeatureName: IGSN_BCZ000001, SamplingFeatureDescription: DepthInternal0_2cm, SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+- &SamplingFeatureID003 {SamplingFeatureUUID: "", ParentSamplingFeatureID:   *SamplingFeatureID001,  SamplingFeatureTypeCV: IntervalCV, SamplingFeatureCode: SomeCodeForInterval, SamplingFeatureName: IGSN_BCZ000002, SamplingFeatureDescription: DepthInternal9_11cm, SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+- &SamplingFeatureID004 {SamplingFeatureUUID: "", ParentSamplingFeatureID:   *SamplingFeatureID001,  SamplingFeatureTypeCV: IntervalCV, SamplingFeatureCode: SomeCodeForInterval, SamplingFeatureName: IGSN_BCZ000003, SamplingFeatureDescription: DepthInternal19_21cm, SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+- &SamplingFeatureID005 {SamplingFeatureUUID: "", ParentSamplingFeatureID:   *SamplingFeatureID001,  SamplingFeatureTypeCV: IntervalCV, SamplingFeatureCode: SomeCodeForInterval, SamplingFeatureName: IGSN_BCZ000004, SamplingFeatureDescription: DepthInternal31_33cm, SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+- &SamplingFeatureID006 {SamplingFeatureUUID: "", ParentSamplingFeatureID:   *SamplingFeatureID001,  SamplingFeatureTypeCV: IntervalCV, SamplingFeatureCode: SomeCodeForInterval, SamplingFeatureName: IGSN_BCZ000005, SamplingFeatureDescription: DepthInternal45_47cm, SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+
+#Sample
+- &SamplingFeatureID0007 {SamplingFeatureUUID: "", ParentSamplingFeatureID:  *SamplingFeatureID002,  SamplingFeatureTypeCV: RockCV, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: IGSN_BCZ000001, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+- &SamplingFeatureID0008 {SamplingFeatureUUID: "", ParentSamplingFeatureID:  *SamplingFeatureID003,  SamplingFeatureTypeCV: RockCV, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: IGSN_BCZ000002, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+- &SamplingFeatureID0009 {SamplingFeatureUUID: "", ParentSamplingFeatureID:  *SamplingFeatureID004,  SamplingFeatureTypeCV: RockCV, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: IGSN_BCZ000003, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+- &SamplingFeatureID0010 {SamplingFeatureUUID: "", ParentSamplingFeatureID:  *SamplingFeatureID005,  SamplingFeatureTypeCV: RockCV, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: IGSN_BCZ000004, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+- &SamplingFeatureID0011 {SamplingFeatureUUID: "", ParentSamplingFeatureID:  *SamplingFeatureID006,  SamplingFeatureTypeCV: RockCV, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: IGSN_BCZ000005, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here}
+
+Methods:
+- &MethodID001 {MethodTypeCV: Lab Analyses, MethodCode: EMP, MethodName: Name of Method 1, MethodDescription: VG SECTOR 54, MethodLink: "" , OrganizationID: ""}
+- &MethodID002 {MethodTypeCV: Lab Analyses, MethodCode: ICPMS, MethodName: Name of Method 2, MethodDescription: ICPMS, MethodLink: "", OrganizationID: ""}
+
+Units:
+- &UnitID001 {UnitsID: 1, UnitsName: wt%, UnitsTypeCV: "", UnitsAbbreviation: wt%}
+
+ProcessingLevels:
+- &ProcessingLevelID001 {ProcessingLevelCode: "?", Definition: "??", Explanation: "??"}
+
+Actions:
+- &ActionID001 {ActionTypeCV: Observation, MethodID: *MethodID001, BeginDateTime: "", BeginDateTimeUTCOffset: , EndDateTime: "", EndDateTimeUTCOffset: , ActionDescription: Blabla., ActionFileLink: ""}
+- &ActionID002 {ActionTypeCV: Observation, MethodID: *MethodID002, BeginDateTime: "", BeginDateTimeUTCOffset: , EndDateTime: "", EndDateTimeUTCOffset: , ActionDescription: Blaba., ActionFileLink: ""}
+
+Variables:
+- &VariableID001 {VariableTypeCV: MAJ, VariableCode: SiO2, VariableNameCV: SiO2, VariableDefinition: ""}
+- &VariableID002 {VariableTypeCV: MAJ, VariableCode: AlO2, VariableNameCV: AlO2, VariableDefinition: ""}
+- &VariableID003 {VariableTypeCV: IR, VariableCode: Sr87_Sr86, VariableNameCV: Sr87_Sr86, VariableDefinition: ""}
+- &VariableID004 {VariableTypeCV: IR, VariableCode: Nd143_Nd144, VariableNameCV: Nd143_Nd144, VariableDefinition: ""}
+
+
+ResultValuesMatrix:
+  ColumnDefinitions:
+    - {ColumnNumber: 1, Label: SampleID}
+    - {ColumnNumber: 2, Label: SiO2, Action: *ActionID001, Variable: *VariableID001, Units: *UnitID001}
+    - {ColumnNumber: 3, Label: AlO2, Action: *ActionID001, Variable: *VariableID002, Units: *UnitID001}
+    - {ColumnNumber: 4, Label: Sr87_Sr86, Action: *ActionID001, Variable: *VariableID003}
+    - {ColumnNumber: 5, Label: Nd143_Nd144, Action: *ActionID001, Variable: *VariableID004}
+ 
+# For Demo, only show data for 4 specimen below
+
+Specimens:
+  Specimen:
+  #- {SamplingFeatureID: *SamplingFeatureID001, SiteTypeCV: Atmosphere, Latitude: 41.864805, Longitude: -111.507494, LatLonDatumID: *SRSID001}
+
+  ColumnDefinitions:
+   - {ColumnNumber: 1, Label: SamplingFeatureID}
+   - {ColumnNumber: 2, Label: SpecimenTypeCV}
+   - {ColumnNumber: 3, Label: IsFieldSpecimen}
+   - {ColumnNumber: 4, Label: MineralType}
+   - {ColumnNumber: 5, Label: InclusionType}
+   - {ColumnNumber: 6, Label: RimOrCore}
+     
+  Data: [[
+    SamplingFeatureID, SpecimenTypeCV,IsFieldSpecimen,MineralType,InclusionType, RimOrCore, ],[
+    *SamplingFeatureID0013,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0014,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0015,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0016,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0017,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0018,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0019,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0020,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0021,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0022,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0023,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0024,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0025,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0026,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0027,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0028,Whole Rock,False,~,~,,~],[
+    *SamplingFeatureID0029,Mineral,False,PLAG,~,RIM,~],[
+    *SamplingFeatureID0030,Mineral,False,PLAG,~,CORE,~],[
+    *SamplingFeatureID0031,Mineral,False,OL,~,RIM,~],[
+    *SamplingFeatureID0032,Mineral,False,OL,~,CORE,~],[
+    *SamplingFeatureID0033,Mineral,False,OL,~,INTERMEDIATE,~],[
+    *SamplingFeatureID0034,Mineral,False,CPX,~,RIM,~],[
+    *SamplingFeatureID0035,Mineral,False,CPX,~,CORE,~],[
+    *SamplingFeatureID0036,Mineral,False,CPX,~,INTERMEDIATE,]~,[
+    *SamplingFeatureID0037,Mineral,False,OPX,~,RIM,~],[
+    *SamplingFeatureID0038,Mineral,False,OPX,~,RIM,~],[
+    *SamplingFeatureID0039,Mineral,False,OPX,~,RIM,~],[
+    *SamplingFeatureID0040,Mineral,False,SP,~,RIM,~],[
+    *SamplingFeatureID0041,Mineral,False,SP,~,RIM,~],[
+    *SamplingFeatureID0042,Mineral,False,SP,~,RIM,~],[
+    *SamplingFeatureID0043,Mineral,False,AMPH,~,RIM,~],[
+    *SamplingFeatureID0044,Mineral,False,AMPH,~,RIM,~],[
+    *SamplingFeatureID0045,Mineral,False,PLAG,GLASS,RIM,~],[
+    *SamplingFeatureID0046,Mineral,False,PLAG,GLASS,RIM,~],[
+    *SamplingFeatureID0047,Mineral,False,PLAG,GLASS,RIM,~],[
+    *SamplingFeatureID0048,Mineral,False,PLAG,GLASS,RIM,~],[
+    *SamplingFeatureID0049,Mineral,False,PLAG,GLASS,RIM,~],[
+    *SamplingFeatureID0050,Mineral,False,PLAG,FLUID,RIM,~]]
+
+
+  Data: [[
+    SampleID,SiO2,AlO2,Sr87_Sr86,Nd143_Nd144,],[
+    *SamplingFeatureID0013,-9.56,-9.31,0.5,0.8,],[
+    *SamplingFeatureID0013,46.0,56.9,0.73,0.6,],[
+    *SamplingFeatureID0029,42.5,43.8,0.25,0.7,],[
+    *SamplingFeatureID0030,54.8,44.5,0.15,0.23,]]

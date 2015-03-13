@@ -1,0 +1,46 @@
+1,SODO,"Rincon Mountains, AZ",420,18.5,,mountain
+2,SOGR,"Rincon Mountains, AZ",511,16.4,,mountain
+3,SOPJ,"Rincon Mountains, AZ",585,14.8,,mountain
+4,SOPP,"Rincon Mountains, AZ",785,10,,mountain
+14,STFRLA,"St. Francisville, Louisiana ",1547,,,city
+15,NATCMS,"Natchez, Mississippi",1537,,,city
+16,VICKMS,"Vicksburg, Mississippi",1417,,,city
+17,MECHMS,"Mechanicsville, Mississippi",1475,,,city
+32,MORRIL,"Morrison, Illinois",936,,,city
+31,RACYIL,"Rapids City, Illinois",993,,,city
+30,MONMIL,"Monmouth, Illinois",942,,,city
+29,QUINIL,"Quincy, Illinois",1007,,,city
+28,GRHOIL,"Greenbay Hollow, Illinois",953,,,city
+27,ELGRIL,"Ellis Grove, Illinois",1023,,,city
+26,MURPIL,"Murphysboro, Illinois",1128,,,city
+33,MTCAIL,"Mt. Carroll, Illinois",926,,,city
+34,GALEIL,"Galena, Illinois",904,,,city
+25,ANNAIL,"Anna, Illinois",1215,,,city
+24,ARLIKY,"Arlington, Kentucky",1234,,,city
+22,MILLTN,"Millington, Tennessee",1323,,,city
+21,SENAMS,"Senatobia, Mississippi",1350,,,city
+20,BATEMS,"Batesville, Mississippi",1455,,,city
+19,GREEMS,"Greenwood, Mississippi",1428,,,city
+10,LUMNPR,"Luquillo Mountains, Puerto Rico",4200,22,,mountain
+36,BURNPA,"Burnham, Pennsylvania",,24,,city
+18,YAZOMS,"Yazoo County, Mississippi",1475,,,county
+23,LAUDTN,"Lauderdale County, Tennessee",1275,,,county
+35,CLCTIA,"Clayton County, Iowa",777,,,county
+38,ALPLKMN,"Alpine Lake, Minnesota",700,,,lake
+9,STCRUZCA,"Santa Cruz Terraces, near San Francisco, CA",727,13.4,,location
+6,SAGANY,"Sagamore Lake (SL), Adirondack Mountains, NY",1150,4.5,,lake
+5,BARLAKNY,"Barnes Lake, Adirondack Mountains, New York",1150,4.4,,lake
+11,MCJACK,"Marcellus at Jackson's Corner, Huntingdon, PA",971.55,9.72,,location
+12,BACJUN,"Brumbaugh Academic Center, Juniata College",971.55,9.72,,location
+8,SSHCZO,Susquehanna Shale Hills Critical Zone Observatory,1070,10,,czo
+7,LCZO,Luquillo Critical Zone Observatory,4000,21,Rio Icacos watershed,czo
+13,YNP,Yosemite National Park,,,,national park
+37,CLTSE,Calhoun Long Term Soil-Ecosystem Experiment,1250,16,http://calhoun.env.duke.edu/,observatory
+39,PPFCVa,"Piedmont province in Fairax County, Va",1040,10,PPFCVa lies between early Mesozoic basins to the west and Coastal Plain to the east,cdp (census designated place)
+41,BCCZO_LGG,Boulder Creek Critical Zone Observatory: Lower Gordon Gulch,,,,czo
+40,JUGHA5,"Mendocino, California",,,,city
+42,CGPSGSCO,"Central Great Plains, Shortgrass Steppe, Colorado",344,9.3,,observatory
+43,CGPARKCO,"Central Great Plains, Arickaree, Colorado",462,9.7,,place
+44,CGPSVKS,"Central Great Plains, Smokey Valley, Kansas",502,10.8,,place
+45,CGPHYKS,"Central Great Plains, Hays, Kansas",575,11.9,,place
+46,CGPKNZKS,"Central Great Plains, Konza, Kansas",835,12.7,,place

@@ -171,7 +171,9 @@ print "---------------------------------------------------------------------"
 file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader2.yaml')
 # file = os.path.join('.', 'ODM2/YAML/iUTAH_SpecimenTimeSeriesExample_CompactHeader.yaml')
 # file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml')
-# file = os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_LongHeader+AKA.yaml')
+# file = os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml')
+# file = os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_LongHeader+AKA.yaml')
+file = os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_LongHeader.yaml')
 
 import timeit
 start = timeit.default_timer()

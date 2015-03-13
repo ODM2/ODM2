@@ -489,14 +489,14 @@ class Sites(SamplingFeatures):
     __table_args__ = {u'schema': 'ODM2'}
 
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), primary_key=True)
+    SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
     SiteTypeCV = Column(String(255), nullable=False)
     Latitude = Column(Float(53), nullable=False)
     Longitude = Column(Float(53), nullable=False)
     #LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
-    SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
-    SpatialReferenceObj = relationship(SpatialReferences)
 
-    SamplingFeaturesObj = relationship(SamplingFeatures)
+    SpatialReferenceObj = relationship(SpatialReferences)
+    SamplingFeatureObj = relationship(SamplingFeatures)
 
 
 class RelatedFeatures(Base):

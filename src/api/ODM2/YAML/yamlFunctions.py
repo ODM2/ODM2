@@ -38,9 +38,7 @@ class YamlFunctions(object):
             s.pop('YODA')
 
         # debugging information
-        self.printValues(s)
-
-       # import os
+        # self.printValues(s)
 
         yl.from_list(self._session, [s])
 
