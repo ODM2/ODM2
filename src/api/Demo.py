@@ -19,8 +19,8 @@ sys.path.insert(0, directory)
 
 #conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 
-session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
-#session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
+#session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
+session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 
 # conn = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 # conn = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
