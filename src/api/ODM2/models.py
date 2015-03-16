@@ -20,7 +20,7 @@ class CVTerms(Base):
     __tablename__ = u'CVTerms'
     __table_args__ = {u'schema': 'ODM2'}
 
-    TermID = Column(Integer, primary_key=True)
+    TermID = Column(Integer, primary_key=True, nullable=False)
     Term = Column(String(255), nullable=False)
     Definition = Column(String(500))
     ODMVocabulary = Column(String(255), nullable=False)
@@ -37,7 +37,7 @@ class People(Base):
     __tablename__ = u'People'
     __table_args__ = {u'schema': u'ODM2'}
 
-    PersonID = Column(Integer, primary_key=True)
+    PersonID = Column(Integer, primary_key=True, nullable=False)
     PersonFirstName = Column(String(255), nullable=False)
     PersonMiddleName = Column(String(255))
     PersonLastName = Column(String(255), nullable=False)
@@ -50,7 +50,7 @@ class Organizations(Base):
     __tablename__ = u'Organizations'
     __table_args__ = {u'schema': u'ODM2'}
 
-    OrganizationID = Column(Integer, primary_key=True)
+    OrganizationID = Column(Integer, primary_key=True, nullable=False)
     OrganizationTypeCV = Column(String(255), nullable=False)
     OrganizationCode = Column(String(50), nullable=False)
     OrganizationName = Column(String(255), nullable=False)
@@ -65,7 +65,7 @@ class Affiliations(Base):
     __tablename__ = 'Affiliations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    AffiliationID = Column(Integer, primary_key=True)
+    AffiliationID = Column(Integer, primary_key=True, nullable=False)
     PersonID = Column(ForeignKey('ODM2.People.PersonID'), nullable=False)
     OrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'))
     IsPrimaryOrganizationContact = Column(Boolean)
@@ -84,7 +84,7 @@ class Methods(Base):
     __tablename__ = 'Methods'
     __table_args__ = {u'schema': 'ODM2'}
 
-    MethodID = Column(Integer, primary_key=True)
+    MethodID = Column(Integer, primary_key=True, nullable=False)
     MethodTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     MethodCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     MethodName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
@@ -103,7 +103,7 @@ class Actions(Base):
     __tablename__ = u'Actions'
     __table_args__ = {u'schema': u'ODM2'}
 
-    ActionID = Column(Integer, primary_key=True)
+    ActionID = Column(Integer, primary_key=True, nullable=False)
     ActionTypeCV = Column(String(255), nullable=False)
     MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     BeginDateTime = Column(DateTime, nullable=False)
@@ -125,7 +125,7 @@ class ActionBy(Base):
     __tablename__ = u'ActionBy'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     AffiliationID = Column(ForeignKey('ODM2.Affiliations.AffiliationID'), nullable=False)
     IsActionLead = Column(Boolean, nullable=False)
@@ -139,7 +139,7 @@ class SamplingFeatures(Base):
     __tablename__ = u'SamplingFeatures'
     __table_args__ = {u'schema': u'ODM2'}
 
-    SamplingFeatureID = Column(Integer, primary_key=True)
+    SamplingFeatureID = Column(Integer, primary_key=True, nullable=False)
     SamplingFeatureUUID = Column(String(36), nullable=False)
     SamplingFeatureTypeCV = Column(String(255), nullable=False)
     SamplingFeatureCode = Column(String(50), nullable=False)
@@ -148,18 +148,18 @@ class SamplingFeatures(Base):
     SamplingFeatureGeoTypeCV = Column(String(255))
     Elevation_m = Column(Float(53))
     ElevationDatumCV = Column(String(255))
-    FeatureGeometry = Column(Geometry)
+    #FeatureGeometry = Column(Geometry)
 
     def __repr__(self):
         return "<SamplingFeatures('%s', '%s', '%s', '%s')>" % (
-            self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.FeatureGeometry)
+            self.SamplingFeatureCode, self.SamplingFeatureName, self.SamplingFeatureDescription, self.Elevation_m)#self.FeatureGeometry)
 
 
 class FeatureActions(Base):
     __tablename__ = u'FeatureActions'
     __table_args__ = {u'schema': u'ODM2'}
 
-    FeatureActionID = Column(Integer, primary_key=True)
+    FeatureActionID = Column(Integer, primary_key=True, nullable=False)
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
@@ -175,7 +175,7 @@ class DataSets(Base):
     __tablename__ = u'DataSets'
     __table_args__ = {u'schema': 'ODM2'}
 
-    DataSetID = Column(Integer, primary_key=True)
+    DataSetID = Column(Integer, primary_key=True, nullable=False)
 
     # This has been changed to String to support multiple database uuid types
 
@@ -194,10 +194,12 @@ class ProcessingLevels(Base):
     __tablename__ = 'ProcessingLevels'
     __table_args__ = {u'schema': 'ODM2'}
 
-    ProcessingLevelID = Column(Integer, primary_key=True)
+    ProcessingLevelID = Column(Integer, primary_key=True, nullable=False)
     ProcessingLevelCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     Definition = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
     Explanation = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+
+
 
     def __repr__(self):
         return "<ProcessingLevels('%s', '%s', '%s', '%s')>" \
@@ -208,7 +210,7 @@ class RelatedActions(Base):
     __tablename__ = 'RelatedActions'
     __table_args__ = {u'schema': 'ODM2'}
 
-    RelationID = Column(Integer, primary_key=True)
+    RelationID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     RelationshipTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     RelatedActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
@@ -221,7 +223,7 @@ class TaxonomicClassifiers(Base):
     __tablename__ = 'TaxonomicClassifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    TaxonomicClassifierID = Column(Integer, primary_key=True)
+    TaxonomicClassifierID = Column(Integer, primary_key=True, nullable=False)
     TaxonomicClassifierTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     TaxonomicClassifierName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     TaxonomicClassifierCommonName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
@@ -235,7 +237,7 @@ class Units(Base):
     __tablename__ = 'Units'
     __table_args__ = {u'schema': 'ODM2'}
 
-    UnitsID = Column(Integer, primary_key=True)
+    UnitsID = Column(Integer, primary_key=True, nullable=False)
     '''
     UnitsTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     UnitsAbbreviation = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
@@ -254,7 +256,7 @@ class Variables(Base):
     __tablename__ = 'Variables'
     __table_args__ = {u'schema': 'ODM2'}
 
-    VariableID = Column(Integer, primary_key=True)
+    VariableID = Column(Integer, primary_key=True, nullable=False)
     VariableTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     VariableCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     VariableNameCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
@@ -331,7 +333,7 @@ class EquipmentModels(Base):
     __tablename__ = u'EquipmentModels'
     __table_args__ = {u'schema': u'ODM2'}
 
-    ModelID = Column(Integer, primary_key=True)
+    ModelID = Column(Integer, primary_key=True, nullable=False)
     ModelManufacturerID = Column(ForeignKey('ODM2.Organizations.OrganizationID'), nullable=False)
     ModelPartNumber = Column(String(50))
     ModelName = Column(String(255), nullable=False)
@@ -347,7 +349,7 @@ class Equipment(Base):
     __tablename__ = u'Equipment'
     __table_args__ = {u'schema': 'ODM2'}
 
-    EquipmentID = Column(Integer, primary_key=True)
+    EquipmentID = Column(Integer, primary_key=True, nullable=False)
     EquipmentCode = Column(String(50), nullable=False)
     EquipmentName = Column(String(255), nullable=False)
     EquipmentTypeCV = Column(String(255), nullable=False)
@@ -372,7 +374,7 @@ class EquipmentAction(Base):
     __tablename__ = u'EquipmentActions'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     EquipmentID = Column(ForeignKey('ODM2.Equipment.EquipmentID'), nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
 
@@ -384,7 +386,7 @@ class InstrumentOutputVariables(Base):
     __tablename__ = u'InstrumentOutputVariables'
     __table_args__ = {u'schema': 'ODM2'}
 
-    InstrumentOutputVariableID = Column(Integer, primary_key=True)
+    InstrumentOutputVariableID = Column(Integer, primary_key=True, nullable=False)
     ModelID = Column(ForeignKey('ODM2.EquipmentModels.ModelID'), nullable=False)
     VariableID = Column(ForeignKey('ODM2.Variables.VariableID'), nullable=False)
     InstrumentMethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
@@ -410,7 +412,7 @@ class Directives(Base):
     __tablename__ = u'Directives'
     __table_args__ = {u'schema': u'ODM2'}
 
-    DirectiveID = Column(Integer, primary_key=True)
+    DirectiveID = Column(Integer, primary_key=True, nullable=False)
     DirectiveTypeCV = Column(String(255), nullable=False)
     DirectiveDescription = Column(String(500), nullable=False)
 
@@ -419,7 +421,7 @@ class ActionDirectives(Base):
     __tablename__ = u'ActionDirectives'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     DirectiveID = Column(ForeignKey('ODM2.Directives.DirectiveID'), nullable=False)
 
@@ -446,7 +448,7 @@ class SpatialReferences(Base):
     __tablename__ = u'SpatialReferences'
     __table_args__ = {u'schema': u'ODM2'}
 
-    SpatialReferenceID = Column(Integer, primary_key=True)
+    SpatialReferenceID = Column(Integer, primary_key=True, nullable=False)
     SRSCode = Column(String(50))
     SRSName = Column(String(255), nullable=False)
     SRSDescription = Column(String(500))
@@ -474,7 +476,7 @@ class Spatialoffset(Base):
     __tablename__ = u'SpatialOffsets'
     __table_args__ = {u'schema': u'ODM2'}
 
-    SpatialOffsetID = Column(Integer, primary_key=True)
+    SpatialOffsetID = Column(Integer, primary_key=True, nullable=False)
     SpatialOffsetTypeCV = Column(String(255), nullable=False)
     Offset1Value = Column(Float(53), nullable=False)
     Offset1UnitID = Column(Integer, nullable=False)
@@ -503,7 +505,7 @@ class RelatedFeatures(Base):
     __tablename__ = u'RelatedFeatures'
     __table_args__ = {u'schema': 'ODM2'}
 
-    RelationID = Column(Integer, primary_key=True)
+    RelationID = Column(Integer, primary_key=True, nullable=False)
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
@@ -520,7 +522,7 @@ class SpecimenTaxonomicClassifiers(Base):
     __tablename__ = u'SpecimenTaxonomicClassifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     SamplingFeatureID = Column(ForeignKey('ODM2.Specimens.SamplingFeatureID'), nullable=False)
     TaxonomicClassifierID = Column(ForeignKey('ODM2.TaxonomicClassifiers.TaxonomicClassifierID'), nullable=False)
     CitationID = Column(Integer)
@@ -537,7 +539,7 @@ class DeploymentActions(Base):
     __tablename__ = u'DeploymentActions'
     __table_args__ = {u'schema': u'ODM2'}
 
-    DeploymentActionID = Column(Integer, primary_key=True)
+    DeploymentActionID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     DeploymentTypeCV = Column(String(255), nullable=False)
     DeploymentDescription = Column(String(500))
@@ -553,7 +555,7 @@ class DataLoggerFiles(Base):
     __tablename__ = u'DataLoggerFiles'
     __table_args__ = {u'schema': 'ODM2'}
 
-    DataLoggerFileID = Column(Integer, primary_key=True)
+    DataLoggerFileID = Column(Integer, primary_key=True, nullable=False)
     DeploymentActionID = Column(ForeignKey('ODM2.DeploymentActions.DeploymentActionID'), nullable=False)
     DataLoggerOutputFileLink = Column(String(255), nullable=False)
     DataLoggerOutputFileDescription = Column(String(500))
@@ -565,7 +567,7 @@ class Photos(Base):
     __tablename__ = u'Photos'
     __table_args__ = {u'schema': 'ODM2'}
 
-    PhotoID = Column(Integer, primary_key=True)
+    PhotoID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     PhotoFileLink = Column(String(255), nullable=False)
     PhotoDescription = Column(String(500))
@@ -582,7 +584,7 @@ class Models(Base):
     __tablename__ = 'Models'
     __table_args__ = {u'schema': 'ODM2'}
 
-    ModelID = Column(Integer, primary_key=True)
+    ModelID = Column(Integer, primary_key=True, nullable=False)
     ModelCode = Column(String(255), nullable=False)
     ModelName = Column(String(255), nullable=False)
     ModelDescription = Column(String(500))
@@ -592,7 +594,7 @@ class RelatedModels(Base):
     __tablename__ = 'RelatedModels'
     __table_args__ = {u'schema': 'ODM2'}
 
-    RelationID = Column(Integer, primary_key=True)
+    RelationID = Column(Integer, primary_key=True, nullable=False)
     ModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
@@ -605,7 +607,7 @@ class Simulations(Base):
     __tablename__ = 'Simulations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    SimulationID = Column(Integer, primary_key=True)
+    SimulationID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     SimulationName = Column(String(255), nullable=False)
     SimulationDescription = Column(String(500))
@@ -629,7 +631,7 @@ class Citations(Base):
     __tablename__ = u'Citations'
     __table_args__ = {u'schema': u'ODM2'}
 
-    CitationID = Column(Integer, primary_key=True)
+    CitationID = Column(Integer, primary_key=True, nullable=False)
     Title = Column(String(255), nullable=False)
     Publisher = Column(String(255), nullable=False)
     PublicationYear = Column(Integer, nullable=False)
@@ -647,7 +649,7 @@ class Annotations(Base):
 
     __table_args__ = {u'schema': u'ODM2'}
 
-    AnnotationID = Column(Integer, primary_key=True)
+    AnnotationID = Column(Integer, primary_key=True, nullable=False)
     AnnotationTypeCV = Column(String(255), nullable=False)
     AnnotationCode = Column(String(50))
     AnnotationText = Column(String(500), nullable=False)
@@ -665,7 +667,7 @@ class ActionAnnotations(Base):
     __tablename__ = u'ActionAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
@@ -677,7 +679,7 @@ class MethodAnnotations(Base):
     __tablename__ = u'MethodAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
@@ -689,7 +691,7 @@ class ResultAnnotations(Base):
     __tablename__ = u'ResultAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
     BeginDateTime = Column(DateTime, nullable=False)
@@ -703,7 +705,7 @@ class ResultValueAnnotations(Base):
     __tablename__ = u'ResultValueAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ValueID = Column(BigInteger, nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
@@ -714,7 +716,7 @@ class SamplingFeatureAnnotations(Base):
     __tablename__ = u'SamplingFeatureAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
@@ -729,7 +731,7 @@ class DataSetsResults(Base):
     __tablename__ = u'DataSetsResults'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     DataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
 
@@ -741,7 +743,7 @@ class DataQuality(Base):
     __tablename__ = 'DataQuality'
     __table_args__ = {u'schema': 'ODM2'}
 
-    DataQualityID = Column(Integer, primary_key=True)
+    DataQualityID = Column(Integer, primary_key=True, nullable=False)
     DataQualityTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     DataQualityCode = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     DataQualityValue = Column(Float(53))
@@ -756,7 +758,7 @@ class ReferenceMaterials(Base):
     __tablename__ = 'ReferenceMaterials'
     __table_args__ = {u'schema': 'ODM2'}
 
-    ReferenceMaterialID = Column(Integer, primary_key=True)
+    ReferenceMaterialID = Column(Integer, primary_key=True, nullable=False)
     ReferenceMaterialMediumCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     ReferenceMaterialOrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'), nullable=False)
     ReferenceMaterialCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
@@ -783,7 +785,7 @@ class Referencematerialvalue(Base):
     __tablename__ = u'ReferenceMaterialValues'
     __table_args__ = {u'schema': 'ODM2'}
 
-    ReferenceMaterialValueID = Column(Integer, primary_key=True)
+    ReferenceMaterialValueID = Column(Integer, primary_key=True, nullable=False)
     ReferenceMaterialID = Column(ForeignKey('ODM2.ReferenceMaterials.ReferenceMaterialID'), nullable=False)
     ReferenceMaterialValue = Column(Float(53), nullable=False)
     ReferenceMaterialAccuracy = Column(Float(53))
@@ -802,7 +804,7 @@ class ResultsDataQuality(Base):
     __tablename__ = 'ResultsDataQuality'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
     DataQualityID = Column(ForeignKey('ODM2.DataQuality.DataQualityID'), nullable=False)
 
@@ -818,7 +820,7 @@ class ExtensionProperties(Base):
     __tablename__ = u'ExtensionProperties'
     __table_args__ = {u'schema': u'ODM2'}
 
-    PropertyID = Column(Integer, primary_key=True)
+    PropertyID = Column(Integer, primary_key=True, nullable=False)
     PropertyName = Column(String(255), nullable=False)
     PropertyDescription = Column(String(500))
     PropertyDataTypeCV = Column(String(255), nullable=False)
@@ -831,7 +833,7 @@ class ActionExtensionPropertyValues(Base):
     __tablename__ = u'ActionExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
@@ -844,7 +846,7 @@ class CitationExtensionPropertyValues(Base):
     __tablename__ = u'CitationExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
@@ -857,7 +859,7 @@ class MethodExtensionPropertyValues(Base):
     __tablename__ = u'MethodExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
@@ -870,7 +872,7 @@ class ResultExtensionPropertyValues(Base):
     __tablename__ = u'ResultExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
@@ -883,7 +885,7 @@ class SamplingFeatureExtensionPropertyValues(Base):
     __tablename__ = u'SamplingFeatureExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
@@ -896,7 +898,7 @@ class VariableExtensionPropertyValues(Base):
     __tablename__ = u'VariableExtensionPropertyValues'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     VariableID = Column(ForeignKey('ODM2.Variables.VariableID'), nullable=False)
     PropertyID = Column(ForeignKey('ODM2.ExtensionProperties.PropertyID'), nullable=False)
     PropertyValue = Column(String(255), nullable=False)
@@ -913,7 +915,7 @@ class ExternalIdentifierSystems(Base):
     __tablename__ = u'ExternalIdentifierSystems'
     __table_args__ = {u'schema': u'ODM2'}
 
-    ExternalIdentifierSystemID = Column(Integer, primary_key=True)
+    ExternalIdentifierSystemID = Column(Integer, primary_key=True, nullable=False)
     ExternalIdentifierSystemName = Column(String(255), nullable=False)
     IdentifierSystemOrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'), nullable=False)
     ExternalIdentifierSystemDescription = Column(String(500))
@@ -926,7 +928,7 @@ class CitationExternalIdentifiers(Base):
     __tablename__ = u'CitationExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
@@ -941,7 +943,7 @@ class MethodExternalIdentifiers(Base):
     __tablename__ = u'MethodExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
@@ -956,7 +958,7 @@ class PersonExternalIdentifiers(Base):
     __tablename__ = u'PersonExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     PersonID = Column(ForeignKey('ODM2.People.PersonID'), nullable=False)
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
@@ -971,7 +973,7 @@ class ReferenceMaterialExternalIdentifiers(Base):
     __tablename__ = u'ReferenceMaterialExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     ReferenceMaterialID = Column(ForeignKey('ODM2.ReferenceMaterials.ReferenceMaterialID'), nullable=False)
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
@@ -986,7 +988,7 @@ class SamplingFeatureExternalIdentifiers(Base):
     __tablename__ = u'SamplingFeatureExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
@@ -1001,7 +1003,7 @@ class SpatialReferenceExternalIdentifiers(Base):
     __tablename__ = u'SpatialReferenceExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
@@ -1016,7 +1018,7 @@ class TaxonomicClassifierExternalIdentifiers(Base):
     __tablename__ = u'TaxonomicClassifierExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     TaxonomicClassifierID = Column(ForeignKey('ODM2.TaxonomicClassifiers.TaxonomicClassifierID'), nullable=False)
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
@@ -1031,7 +1033,7 @@ class VariableExternalIdentifiers(Base):
     __tablename__ = u'VariableExternalIdentifiers'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     VariableID = Column(ForeignKey('ODM2.Variables.VariableID'), nullable=False)
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
@@ -1051,7 +1053,7 @@ class AuthorLists(Base):
     __tablename__ = u'AuthorLists'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
     PersonID = Column(ForeignKey('ODM2.People.PersonID'), nullable=False)
     AuthorOrder = Column(Integer, nullable=False)
@@ -1070,7 +1072,7 @@ class DataSetCitations(Base):
     __tablename__ = u'DataSetCitations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     DataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
@@ -1091,7 +1093,7 @@ class DerivationEquations(Base):
     __tablename__ = u'DerivationEquations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    DerivationEquationID = Column(Integer, primary_key=True)
+    DerivationEquationID = Column(Integer, primary_key=True, nullable=False)
     DerivationEquation = Column(String(255), nullable=False)
 
     ResultsObj = relationship(Results, secondary=ResultDerivationEquations)
@@ -1101,7 +1103,7 @@ class MethodCitations(Base):
     __tablename__ = u'MethodCitations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    BridgeID = Column(Integer, primary_key=True)
+    BridgeID = Column(Integer, primary_key=True, nullable=False)
     MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
@@ -1115,7 +1117,7 @@ class RelatedAnnotations(Base):
     __tablename__ = u'RelatedAnnotations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    RelationID = Column(Integer, primary_key=True)
+    RelationID = Column(Integer, primary_key=True, nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedAnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
@@ -1129,7 +1131,7 @@ class RelatedCitations(Base):
     __tablename__ = u'RelatedCitations'
     __table_args__ = {u'schema': 'ODM2'}
 
-    RelationID = Column(Integer, primary_key=True)
+    RelationID = Column(Integer, primary_key=True, nullable=False)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
     RelationshipTypeCV = Column(Integer, nullable=False)
     RelatedCitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
@@ -1142,7 +1144,7 @@ class RelatedDatasets(Base):
     __tablename__ = u'RelatedDatasets'
     __table_args__ = {u'schema': 'ODM2'}
 
-    RelationID = Column(Integer, primary_key=True)
+    RelationID = Column(Integer, primary_key=True, nullable=False)
     DataSetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedDatasetID = Column(ForeignKey('ODM2.DataSets.DataSetID'), nullable=False)
@@ -1156,7 +1158,7 @@ class RelatedResults(Base):
     __tablename__ = u'RelatedResults'
     __table_args__ = {u'schema': 'ODM2'}
 
-    RelationID = Column(Integer, primary_key=True)
+    RelationID = Column(Integer, primary_key=True, nullable=False)
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
     RelationshipTypeCV = Column(String(255), nullable=False)
     RelatedResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)

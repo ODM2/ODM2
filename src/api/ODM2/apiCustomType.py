@@ -95,7 +95,8 @@ class ST_GeomFromText(FunctionElement):
 
 
 class Geometry(GeometryBase):
-    from_text = 'geomFromText'
+    from_text = 'Geometry::STGeomFromText'
+    from_text = 'GeomFromText'
 
     def column_expression(self, col):
 

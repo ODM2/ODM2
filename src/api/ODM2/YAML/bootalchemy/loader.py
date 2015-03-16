@@ -313,13 +313,14 @@ class Loader(object):
         resolved_values = self._check_types(klass, resolved_values)
 
         obj = self.create_obj(klass, resolved_values)
-        self.session.add(obj)
 
-        if ref_name:
-            self.add_reference(ref_name, obj)
-        if self.has_references(values):
-            self.session.flush()
-            self.set_references(obj, values)
+        if obj not in self.session.new:
+            if ref_name:
+                self.add_reference(ref_name, obj)
+            if self.has_references(values):
+                self.session.flush()
+                self.set_references(obj, values)
+            self.session.add(obj)
 
         return obj
 
