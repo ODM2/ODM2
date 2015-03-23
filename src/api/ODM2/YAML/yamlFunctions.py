@@ -10,20 +10,34 @@ from collections import OrderedDict
 
 from yaml.loader import Loader
 from yaml import scanner
+import re
+
+import pprint
+pp =pprint.PrettyPrinter(indent=8)
 
 class ODMLoader(Loader):
     def __init__(self, stream):
 
         Loader.__init__(self, stream)
 
-    def fetch_alias(self):
-        self.allow_simple_key = False
-        self.forward()
-    def fetch_anchor(self):
-        self.allow_simple_key = False
-        self.forward()
+    def check_plain(self):
 
-        # pass
+        # A plain scalar may start with any non-space character except:
+        #   '-', '?', ':', ',', '[', ']', '{', '}',
+        #   '#', '&', '*', '!', '|', '>', '\'', '\"',
+        #   '%', '@', '`'.
+        #
+        # It may also start with
+        #   '-', '?', ':'
+        # if it is followed by a non-space character.
+        #
+        # Note that we limit the last rule to the block context (except the
+        # '-' character) because we want the flow context to be space
+        # independent.
+        ch = self.peek()
+        return ch not in u'\0 \t\r\n\x85\u2028\u2029-?:,[]{}#!|>\'\"%@`'  \
+                or (self.peek(1) not in u'\0 \t\r\n\x85\u2028\u2029'
+                        and (ch == u'-' or (not self.flow_level and ch in u'?:')))
     def fetch_more_tokens(self):
 
         # Eat whitespaces and comments until we reach the next token.
@@ -93,13 +107,13 @@ class ODMLoader(Loader):
         if ch == u':' and self.check_value():
             return self.fetch_value()
 
-        # Is it an alias?
-        if ch == u'*':
-            return self.fetch_alias()
-
-        # Is it an anchor?
-        if ch == u'&':
-            return self.fetch_anchor()
+        # # Is it an alias?
+        # if ch == u'*':
+        #     return self.fetch_alias()
+        #
+        # # Is it an anchor?
+        # if ch == u'&':
+        #     return self.fetch_anchor()
 
         # Is it a tag?
         if ch == u'!':
@@ -148,6 +162,30 @@ class YamlFunctions(object):
     def __init__(self, session):
         self._session = session
 
+    def reconstructFile(self, values):
+        anchor_pattern = r'(?<=- )(&\w*)\s?(?={.*})'
+        alias_pattern = r'(\*[\w]*)'
+        line_pattern = r"(?<=- )('&\w*')\s?({.*})"
+
+        fixedAnchor = re.sub(anchor_pattern, r"'\1'", values)
+        fixedAlias = re.sub(alias_pattern, r"'\1'", fixedAnchor)
+        reconstructedFile = re.sub(line_pattern, r"{\1:\2}", fixedAlias)
+
+        return reconstructedFile
+
+
+        # pprint(reconstructedFile)
+    def extractYaml(self, filename):
+        file_values = open(filename).read()
+
+        ## Reconstruct file to match boot alchemy's format
+        reconstructed_values = self.reconstructFile(file_values)
+
+        ## Load modified yaml file
+        s = yaml.load(reconstructed_values)
+        return s
+
+
     def loadFromFile(self, filename):
         """
         Open a YAML file to be loaded into the SQLAlchemy connection
@@ -155,8 +193,6 @@ class YamlFunctions(object):
         """
 
         s = self.extractYaml(filename)
-        #for token in yaml.scan(s):
-        #    print token
 
         if 'YODA' in s:
             print "<YODA Field FOUND! ... Manually removing it using 'dict.pop'> " \
@@ -167,7 +203,7 @@ class YamlFunctions(object):
         self.printValues(s)
 
         yl = YamlLoader(models)
-        # yl.from_list(self._session, [s])
+        yl.from_list(self._session, [s])
 
     def loadFromFiles(self, files):
         """
@@ -178,9 +214,9 @@ class YamlFunctions(object):
 
         for item in files:
             self.loadFromFile(item)
-    def extractYaml(self, filename):
-        s = yaml.load(open(filename).read(), ODMLoader)
-        return s
+
+
+
     def writeValues(self,s ):
         import os
         print "PWD: ", os.getcwd()
@@ -188,8 +224,7 @@ class YamlFunctions(object):
             outfile.write( yaml.dump(s, default_flow_style=True) )
 
     def printValues(self, s):
-        import pprint
-        pp =pprint.PrettyPrinter(indent=8)
+
         pp.pprint([s])
 
         for k,v in s.iteritems():

@@ -75,8 +75,6 @@ class Loader(object):
 
         self.check_types = check_types
 
-        # self._object = {'SamplingFeatureID': }
-
     def clear(self):
         """
         clear the existing references
@@ -138,13 +136,6 @@ class Loader(object):
 
         elif isinstance(value, list):
             return [self.resolve_value(list_item) for list_item in value]
-
-        elif isinstance(value, tuple):
-            key, items = value
-            klass = self.get_klass(key)
-
-            if isinstance(items, dict):
-                return self.add_klass_with_values(klass, items)
 
         # an 'assert isinstance(value, basestring) and value[0:1] not in ('&', '*', '!') could probably go here.
         return value
@@ -218,10 +209,10 @@ class Loader(object):
         # Convert the sqlalchemy object equivalent of <table>Obj from <table>ID
         key = self.get_object_key(new_obj_key)
 
-        value = self.get_key_value_tuple(new_obj_key, value)
+        # value = self.get_key_value_tuple(new_obj_key, value)
 
         assert isinstance(key, basestring)
-        assert isinstance(value, tuple)
+        # assert isinstance(value, tuple)
 
         return key, value
 
@@ -265,9 +256,13 @@ class Loader(object):
 
         tmp_key = key
 
+
         # Need to handle special cases
         if tmp_key[:-2] == 'Person':
             tmp_key = 'People'
+
+        elif 'Units' in tmp_key[:-2]:
+            tmp_key = "Units"
 
         # Handle plural cases
         else:
@@ -282,6 +277,7 @@ class Loader(object):
         """
         ref_name = None
         keys = values.keys()
+
         if len(keys) == 1 and keys[0].startswith('&') and isinstance(values[keys[0]], dict):
             ref_name = keys[0]
             values = values[ref_name] # ie. item.values[0]
@@ -292,35 +288,39 @@ class Loader(object):
 
         for key, value in resolved_values.iteritems():
 
-            ## If True, we have identified a location where an Object will need to be created.
-            if "ID" in key and "UUID" not in key:
-                if isinstance(value, dict):
-                    """
-                    If we are working with <Table>ID, we know that we cannot put an Object into <Table>ID due to the Integer constraint,
-                        we will need to put it into <Table>Obj.
+            # if "ID" in key and "UUID" not in key:
+            if value and isinstance(value, basestring) and value.startswith('*'):
+                self.session.flush()
 
-                        Algorithm:
-                            1) key = Change <Table>ID to <Table>Obj (following ODM2 Schema), set 'key' to be the <Table>Obj
-                            2) value = Change <Table>ID to be the <Table>, set 'value' to be a tuple(<Table>, value)
-                            3) pray... pray... pray... that this works. This is going to be recursive due to the chance that there
-                                will be objects within objects.
-                    """
+                ref = None
 
-                    key, value = self.obtain_key_value(key, value, resolved_values)
+                try:
+                    ref = self._references[value[1:]]
+                except Exception as e:
+                    print "key: ", key, " value: ", value
+
+                if not 'UnitsID' in key:
+                    value = getattr(ref, key)
+                else:
+                    value = getattr(ref, "UnitsID")
+
+                    # key, value = self.obtain_key_value(key, value, resolved_values)
+
+
             resolved_values[key] = self.resolve_value(value)
 
-        # _check_types currently does nothing (unless you call the loaded with a check_types parameter)
+
+        # _check_types currently does nothingublssdf (unless you call the loaded with a check_types parameter)
         resolved_values = self._check_types(klass, resolved_values)
 
         obj = self.create_obj(klass, resolved_values)
+        self.session.add(obj)
 
-        if obj not in self.session.new:
-            if ref_name:
-                self.add_reference(ref_name, obj)
-            if self.has_references(values):
-                self.session.flush()
-                self.set_references(obj, values)
-            self.session.add(obj)
+        if ref_name:
+            self.add_reference(ref_name, obj)
+        if self.has_references(values):
+            self.session.flush()
+            self.set_references(obj, values)
 
         return obj
 
@@ -420,6 +420,8 @@ class Loader(object):
                         klass = self.get_klass(name)
                         # print klass, '\n'
                         self.add_klasses(klass, items)
+
+                # session.flush()
 
                 if 'flush' in group:
                     session.flush()

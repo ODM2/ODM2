@@ -25,8 +25,8 @@ SpatialReferences:
   - &SRSID002 {SRSCode: NULL, SRSName: Local Coordinate System, SRSDescription: Coordinates are expressed in meters from the local site datum., SRSLink: NULL}
 
 SamplingFeatures:
- # - &SamplingFeatureID001 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Site, SamplingFeatureCode: LR_TWDEF_C, SamplingFeatureName: Climate Station at TW Daniels Experimental Forest, SamplingFeatureDescription: This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network., SamplingFeatureGeoTypeCV: Point, FeatureGeometry: POINT(-111.507494 41.864805), Elevation_m: 2629.2, ElevationDatumCV: EGM96}
-  - &SamplingFeatureID001 { SamplingFeatureTypeCV: Site, SamplingFeatureCode: LR_TWDEF_C, SamplingFeatureName: Climate Station at TW Daniels Experimental Forest, SamplingFeatureDescription: This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network., SamplingFeatureGeoTypeCV: Point, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+# - &SamplingFeatureID001 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Site, SamplingFeatureCode: LR_TWDEF_C, SamplingFeatureName: Climate Station at TW Daniels Experimental Forest, SamplingFeatureDescription: This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network., SamplingFeatureGeoTypeCV: Point, FeatureGeometry: POINT(-111.507494 41.864805), Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+  - &SamplingFeatureID001 { SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: Site, SamplingFeatureCode: LR_TWDEF_C, SamplingFeatureName: Climate Station at TW Daniels Experimental Forest, SamplingFeatureDescription: This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network., SamplingFeatureGeoTypeCV: Point, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
 
 Sites:
   - {SamplingFeatureID: *SamplingFeatureID001, SiteTypeCV: Atmosphere, Latitude: 41.864805, Longitude: -111.507494, SpatialReferenceID: *SRSID001}
@@ -50,40 +50,44 @@ ProcessingLevels:
 Actions:
   - &ActionID001 {ActionTypeCV: Observation, MethodID: *MethodID001, BeginDateTime: "2015-01-01 00:30:00", BeginDateTimeUTCOffset: -7.0, EndDateTime: "2015-01-01 04:00:00", EndDateTimeUTCOffset: -7.0, ActionDescription: Deployment of an air temperature sensor resulting in multiple time series of air temperature observations., ActionFileLink: NULL}
 
-#Results:
-#  - &ResultID001 {ResultUUID: "000000000000000000000", SamplingFeatureID: *SamplingFeatureID001, ActionID: *ActionID001, ResultTypeCV: TimeSeries, VariableID: *VariableID001, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
-#  - &ResultID002 {ResultUUID: "000000000000000000000", SamplingFeatureID: *SamplingFeatureID001, ActionID: *ActionID001, ResultTypeCV: TimeSeries, VariableID: *VariableID002, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
-#  - &ResultID003 {ResultUUID: "000000000000000000000", SamplingFeatureID: *SamplingFeatureID001, ActionID: *ActionID001, ResultTypeCV: TimeSeries, VariableID: *VariableID003, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
-#
-#TimeSeriesResults:
-#  - &TimeSeriesResultID001 {ResultID: *ResultID001, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticCV: Average}
-#  - &TimeSeriesResultID002 {ResultID: *ResultID002, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticsCV: Minimum}
-#  - &TimeSeriesResultID003 {ResultID: *ResultID003, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticsCV: Maximum}
-#
-#TimeSeriesResultValues:
-#  ColumnDefinitions:
-#    - {ColumnNumber: 1, Label: ValueDateTime, ODM2Field: ValueDateTime}
-#    - {ColumnNumber: 2, Label: ValueDateTimeUTCOffset, ODM2Field: ValueDateTimeUTCOffset}
-#    - {ColumnNumber: 3, Label: AirTemp_Avg, Result: *TimeSeriesResultID001, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
-#    - {ColumnNumber: 4, Label: AirTemp_Min, Result: *TimeSeriesResultID002, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
-#    - {ColumnNumber: 5, Label: AirTemp_Max, Result: *TimeSeriesResultID003, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
-#  Data:
-#  - [ValueDateTime,ValueDateTimeUTCOffset,AirTemp_Avg,AirTemp_Min,AirTemp_Max]
-#  - ["2015-01-01 00:30:00",-7.0,-9.56,-9.31,-9.87]
-#  - ["2015-01-01 00:45:00",-7.0,-10.1,-9.19,-11.73]
-#  - ["2015-01-01 01:00:00",-7.0,-10.19,-9.13,-11.25]
-#  - ["2015-01-01 01:15:00",-7.0,-9.74,-9.13,-11.15]
-#  - ["2015-01-01 01:30:00",-7.0,-9.37,-8.94,-10.29]
-#  - ["2015-01-01 01:45:00",-7.0,-10.65,-8.65,-13.52]
-#  - ["2015-01-01 02:00:00",-7.0,-14.5,-13.6,-15.06]
-#  - ["2015-01-01 02:15:00",-7.0,-15.31,-14.92,-15.63]
-#  - ["2015-01-01 02:30:00",-7.0,-15.43,-15.04,-15.8]
-#  - ["2015-01-01 02:45:00",-7.0,-15.78,-15.61,-15.9]
-#  - ["2015-01-01 03:00:00",-7.0,-16.02,-15.65,-16.29]
-#  - ["2015-01-01 03:15:00",-7.0,-16.23,-16.0,-16.36]
-#  - ["2015-01-01 03:30:00",-7.0,-16.23,-16.0,-16.38]
-#  - ["2015-01-01 03:45:00",-7.0,-15.63,-14.94,-16.36]
-#  - ["2015-01-01 04:00:00",-7.0,-15.34,-14.95,-15.77]
+FeatureActions:
+  - &FeatureActionID001 {SamplingFeatureID: *SamplingFeatureID001, ActionID: *ActionID001}
+
+# There is no ActionID in Results, Changing ActionID to FeatureActionID
+Results:
+  - &ResultID001 {ResultUUID: "000000000000000000012", FeatureActionID: *FeatureActionID001, ResultTypeCV: 'TimeSeries', VariableID: *VariableID001, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
+  - &ResultID002 {ResultUUID: "000000000000000000023", FeatureActionID: *FeatureActionID001, ResultTypeCV: 'TimeSeries', VariableID: *VariableID002, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
+  - &ResultID003 {ResultUUID: "000000000000000000034", FeatureActionID: *FeatureActionID001, ResultTypeCV: 'TimeSeries', VariableID: *VariableID003, UnitsID: *UnitID002, TaxonomicClassifierID: NULL, ProcessingLevelID: *ProcessingLevelID001, ResultDateTime: "2014-01-07 11:15:00", ResultDateTimeUTCOffset: -7.0, ValidDateTime: NULL, ValidDateTimeUTCOffset: NULL, StatusCV: Ongoing, SampledMediumCV: Gas, ValueCount: 38056}
+
+TimeSeriesResults:
+  - &TimeSeriesResultID001 {ResultID: *ResultID001, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticCV: Average}
+  - &TimeSeriesResultID002 {ResultID: *ResultID002, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticCV: Minimum}
+  - &TimeSeriesResultID003 {ResultID: *ResultID003, XLocation: 0, XLocationUnitsID: *UnitID003, YLocation: 0, YLocationUnitsID: *UnitID003, ZLocation: 2, ZLocationUnitsID: *UnitID003, SpatialReferenceID: *SRSID002, IntendedTimeSpacing: 15, IntendedTimeSpacingUnitsID: *UnitID002, AggregationStatisticCV: Maximum}
+
+TimeSeriesResultValues:
+  ColumnDefinitions:
+    - {ColumnNumber: 1, Label: ValueDateTime, ODM2Field: ValueDateTime}
+    - {ColumnNumber: 2, Label: ValueDateTimeUTCOffset, ODM2Field: ValueDateTimeUTCOffset}
+    - {ColumnNumber: 3, Label: AirTemp_Avg, ResultID: *TimeSeriesResultID001, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
+    - {ColumnNumber: 4, Label: AirTemp_Min, ResultID: *TimeSeriesResultID002, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
+    - {ColumnNumber: 5, Label: AirTemp_Max, ResultID: *TimeSeriesResultID003, ODM2Field: DataValue, CensorCodeCV: NC, TimeAggregationInterval: 15, TimeAggregationIntervalUnitsID: *UnitID002}
+  Data:
+  - [ValueDateTime,ValueDateTimeUTCOffset,AirTemp_Avg,AirTemp_Min,AirTemp_Max]
+  - ["2015-01-01 00:30:00",-7.0,-9.56,-9.31,-9.87]
+  - ["2015-01-01 00:45:00",-7.0,-10.1,-9.19,-11.73]
+  - ["2015-01-01 01:00:00",-7.0,-10.19,-9.13,-11.25]
+  - ["2015-01-01 01:15:00",-7.0,-9.74,-9.13,-11.15]
+  - ["2015-01-01 01:30:00",-7.0,-9.37,-8.94,-10.29]
+  - ["2015-01-01 01:45:00",-7.0,-10.65,-8.65,-13.52]
+  - ["2015-01-01 02:00:00",-7.0,-14.5,-13.6,-15.06]
+  - ["2015-01-01 02:15:00",-7.0,-15.31,-14.92,-15.63]
+  - ["2015-01-01 02:30:00",-7.0,-15.43,-15.04,-15.8]
+  - ["2015-01-01 02:45:00",-7.0,-15.78,-15.61,-15.9]
+  - ["2015-01-01 03:00:00",-7.0,-16.02,-15.65,-16.29]
+  - ["2015-01-01 03:15:00",-7.0,-16.23,-16.0,-16.36]
+  - ["2015-01-01 03:30:00",-7.0,-16.23,-16.0,-16.38]
+  - ["2015-01-01 03:45:00",-7.0,-15.63,-14.94,-16.36]
+  - ["2015-01-01 04:00:00",-7.0,-15.34,-14.95,-15.77]
 
 # RULE:  The ColumnDefinitions will be matched to the columns in the data table using the ColumnNumber. We will check to make sure the labels match, but we need to decide later whether to throw an error if the labels in the ColumnDefinitions do not match the columns in the data table.
 # In the case where a single DataValues column contains multiple time series Results, the reference to the Result has to go in a separate column and not in the ColumnDefinitions.

@@ -282,7 +282,6 @@ class ResultTypeCV(Base):
     TimeMeasurementFramework = Column(String(255), nullable=False)
     VariableMeasurementFramework = Column(String(255), nullable=False)
 
-
 class Results(Base):
     __tablename__ = u'Results'
     __table_args__ = {u'schema': u'ODM2'}
@@ -314,13 +313,14 @@ class Results(Base):
     ProcessingLevelObj = relationship(ProcessingLevels)
 
     TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
-    UnitObj = relationship(Units)
+    UnitsObj = relationship(Units)
     VariableObj = relationship(Variables)
 
 
+
     def __repr__(self):
-        return "<Results('%s', '%s', '%s', '%s')>" % (
-            self.ResultID, self.ResultTypeCV, self.ProcessingLevelID, self.ValueCount)
+        return "<Results('%s', '%s', '%s', '%s', '%s')>" % (
+            self.ResultID, self.ResultUUID , self.ResultTypeCV, self.ProcessingLevelID, self.ValueCount)
 
 
 
@@ -462,7 +462,7 @@ class SpatialReferences(Base):
 
 
 
-class Specimen(SamplingFeatures):
+class Specimen(Base):
     __tablename__ = u'Specimens'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -486,7 +486,7 @@ class Spatialoffset(Base):
     Offset3UnitID = Column(Integer)
 
 
-class Sites(SamplingFeatures):
+class Sites(Base):
     __tablename__ = u'Sites'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -499,6 +499,11 @@ class Sites(SamplingFeatures):
 
     SpatialReferenceObj = relationship(SpatialReferences)
     SamplingFeatureObj = relationship(SamplingFeatures)
+
+    def __repr__(self):
+        return "<Sites('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" \
+               % (self.SamplingFeatureID, self.SpatialReferenceID, self.SiteTypeCV, self.Latitude, self.Longitude,
+                  self.SpatialReferenceObj, self.SamplingFeatureObj)
 
 
 class RelatedFeatures(Base):
@@ -1173,7 +1178,7 @@ class RelatedResults(Base):
 # ################################################################################
 
 
-class PointCoverageResults(Results):
+class PointCoverageResults(Base):
     __tablename__ = u'PointCoverageResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1193,9 +1198,11 @@ class PointCoverageResults(Results):
     YUnitObj = relationship(Units, primaryjoin='PointCoverageResults.IntendedYSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
     ZUnitObj = relationship(Units, primaryjoin='PointCoverageResults.ZLocationUnitsID == Units.UnitsID')
+    ResultObj = relationship(Results, primaryjoin='PointCoverageResults.ResultID == Results.ResultID')
 
 
-class ProfileResults(Results):
+
+class ProfileResults(Base):
     __tablename__ = u'ProfileResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1216,9 +1223,11 @@ class ProfileResults(Results):
     SpatialReferenceObj = relationship(SpatialReferences)
     XUnitObj = relationship(Units, primaryjoin='ProfileResults.XLocationUnitsID == Units.UnitsID')
     YUnitObj = relationship(Units, primaryjoin='ProfileResults.YLocationUnitsID == Units.UnitsID')
+    ResultObj = relationship(Results, primaryjoin='ProfileResults.ResultID == Results.ResultID')
 
 
-class CategoricalResults(Results):
+
+class CategoricalResults(Base):
     __tablename__ = u'CategoricalResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1233,9 +1242,11 @@ class CategoricalResults(Results):
     QualityCodeCV = Column(BigInteger, nullable=False)
 
     SpatialReferenceObj = relationship(SpatialReferences)
+    ResultObj = relationship(Results, primaryjoin='CategoricalResults.ResultID == Results.ResultID')
 
 
-class TransectResults(Results):
+
+class TransectResults(Base):
     __tablename__ = u'TransectResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1253,9 +1264,10 @@ class TransectResults(Results):
     TransectUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTransectSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
     ZUnitObj = relationship(Units, primaryjoin='TransectResults.ZLocationUnitsID == Units.UnitsID')
+    ResultObj = relationship(Results, primaryjoin='TransectResults.ResultID == Results.ResultID')
 
 
-class SpectraResults(Results):
+class SpectraResults(Base):
     __tablename__ = u'SpectraResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1276,9 +1288,11 @@ class SpectraResults(Results):
     XUnitObj = relationship(Units, primaryjoin='SpectraResults.XLocationUnitsID == Units.UnitsID')
     YUnitObj = relationship(Units, primaryjoin='SpectraResults.YLocationUnitsID == Units.UnitsID')
     ZUnitObj = relationship(Units, primaryjoin='SpectraResults.ZLocationUnitsID == Units.UnitsID')
+    ResultObj = relationship(Results, primaryjoin='SpectraResults.ResultID == Results.ResultID')
 
 
-class TimeSeriesResults(Results):
+
+class TimeSeriesResults(Base):
     __tablename__ = u'TimeSeriesResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1305,7 +1319,7 @@ class TimeSeriesResults(Results):
         return "<TimeSeriesResults('%s', '%s', '%s', '%s', '%s', '%s')>" % \
             (self.ResultObj, self.XLocation, self.XLocationUnitsObj, self.SpatialReferenceObj, self.IntendedTimeSpacing, self.AggregationStatisticCV )
 
-class SectionResults(Results):
+class SectionResults(Base):
     __tablename__ = u'SectionResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1326,9 +1340,11 @@ class SectionResults(Results):
     ZUnitObj = relationship(Units, primaryjoin='SectionResults.IntendedZSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
     YUnitObj = relationship(Units, primaryjoin='SectionResults.YLocationUnitsID == Units.UnitsID')
+    ResultObj = relationship(Results, primaryjoin='SectionResults.ResultID == Results.ResultID')
 
 
-class TrajectoryResults(Results):
+
+class TrajectoryResults(Base):
     __tablename__ = u'TrajectoryResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1344,9 +1360,11 @@ class TrajectoryResults(Results):
     TrajectoryUnitObj = relationship(Units,
                                      primaryjoin='TrajectoryResults.IntendedTrajectorySpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
+    ResultObj = relationship(Results, primaryjoin='TrajectoryResults.ResultID == Results.ResultID')
 
 
-class MeasurementResults(Results):
+
+class MeasurementResults(Base):
     __tablename__ = u'MeasurementResults'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -1369,6 +1387,8 @@ class MeasurementResults(Results):
     XUnitObjObj = relationship(Units, primaryjoin='MeasurementResults.XLocationUnitsID == Units.UnitsID')
     YUnitObj = relationship(Units, primaryjoin='MeasurementResults.YLocationUnitsID == Units.UnitsID')
     ZUnitObj = relationship(Units, primaryjoin='MeasurementResults.ZLocationUnitsID == Units.UnitsID')
+    ResultObj = relationship(Results, primaryjoin='MeasurementResults.ResultID == Results.ResultID')
+
 
 
 class CategoricalResultValues(Base):
