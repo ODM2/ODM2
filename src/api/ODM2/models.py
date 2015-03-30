@@ -495,7 +495,7 @@ class Sites(Base):
     SiteTypeCV = Column(String(255), nullable=False)
     Latitude = Column(Float(53), nullable=False)
     Longitude = Column(Float(53), nullable=False)
-    #LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
+    # LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
 
     SpatialReferenceObj = relationship(SpatialReferences)
     SamplingFeatureObj = relationship(SamplingFeatures)
@@ -1316,8 +1316,10 @@ class TimeSeriesResults(Base):
     ResultObj = relationship(Results, primaryjoin='TimeSeriesResults.ResultID == Results.ResultID')
 
     def __repr__(self):
-        return "<TimeSeriesResults('%s', '%s', '%s', '%s', '%s', '%s')>" % \
-            (self.ResultObj, self.XLocation, self.XLocationUnitsObj, self.SpatialReferenceObj, self.IntendedTimeSpacing, self.AggregationStatisticCV )
+        return "<TimeSeriesResults('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % \
+            (self.ResultID, self.XLocation, self.YLocation, self.XLocation,
+             self.ResultObj,  self.XLocationUnitsObj, self.SpatialReferenceObj,
+             self.IntendedTimeSpacing, self.AggregationStatisticCV )
 
 class SectionResults(Base):
     __tablename__ = u'SectionResults'

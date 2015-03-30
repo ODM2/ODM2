@@ -15,149 +15,18 @@ import re
 import pprint
 pp =pprint.PrettyPrinter(indent=8)
 
-class ODMLoader(Loader):
-    def __init__(self, stream):
-
-        Loader.__init__(self, stream)
-
-    def check_plain(self):
-
-        # A plain scalar may start with any non-space character except:
-        #   '-', '?', ':', ',', '[', ']', '{', '}',
-        #   '#', '&', '*', '!', '|', '>', '\'', '\"',
-        #   '%', '@', '`'.
-        #
-        # It may also start with
-        #   '-', '?', ':'
-        # if it is followed by a non-space character.
-        #
-        # Note that we limit the last rule to the block context (except the
-        # '-' character) because we want the flow context to be space
-        # independent.
-        ch = self.peek()
-        return ch not in u'\0 \t\r\n\x85\u2028\u2029-?:,[]{}#!|>\'\"%@`'  \
-                or (self.peek(1) not in u'\0 \t\r\n\x85\u2028\u2029'
-                        and (ch == u'-' or (not self.flow_level and ch in u'?:')))
-    def fetch_more_tokens(self):
-
-        # Eat whitespaces and comments until we reach the next token.
-        self.scan_to_next_token()
-
-        # Remove obsolete possible simple keys.
-        self.stale_possible_simple_keys()
-
-        # Compare the current indentation and column. It may add some tokens
-        # and decrease the current indentation level.
-        self.unwind_indent(self.column)
-
-        # Peek the next character.
-        ch = self.peek()
-
-        # Is it the end of stream?
-        if ch == u'\0':
-            return self.fetch_stream_end()
-
-        # Is it a directive?
-        if ch == u'%' and self.check_directive():
-            return self.fetch_directive()
-
-        # Is it the document start?
-        if ch == u'-' and self.check_document_start():
-            return self.fetch_document_start()
-
-        # Is it the document end?
-        if ch == u'.' and self.check_document_end():
-            return self.fetch_document_end()
-
-        # TODO: support for BOM within a stream.
-        #if ch == u'\uFEFF':
-        #    return self.fetch_bom()    <-- issue BOMToken
-
-        # Note: the order of the following checks is NOT significant.
-
-        # Is it the flow sequence start indicator?
-        if ch == u'[':
-            return self.fetch_flow_sequence_start()
-
-        # Is it the flow mapping start indicator?
-        if ch == u'{':
-            return self.fetch_flow_mapping_start()
-
-        # Is it the flow sequence end indicator?
-        if ch == u']':
-            return self.fetch_flow_sequence_end()
-
-        # Is it the flow mapping end indicator?
-        if ch == u'}':
-            return self.fetch_flow_mapping_end()
-
-        # Is it the flow entry indicator?
-        if ch == u',':
-            return self.fetch_flow_entry()
-
-        # Is it the block entry indicator?
-        if ch == u'-' and self.check_block_entry():
-            return self.fetch_block_entry()
-
-        # Is it the key indicator?
-        if ch == u'?' and self.check_key():
-            return self.fetch_key()
-
-        # Is it the value indicator?
-        if ch == u':' and self.check_value():
-            return self.fetch_value()
-
-        # # Is it an alias?
-        # if ch == u'*':
-        #     return self.fetch_alias()
-        #
-        # # Is it an anchor?
-        # if ch == u'&':
-        #     return self.fetch_anchor()
-
-        # Is it a tag?
-        if ch == u'!':
-            return self.fetch_tag()
-
-        # Is it a literal scalar?
-        if ch == u'|' and not self.flow_level:
-            return self.fetch_literal()
-
-        # Is it a folded scalar?
-        if ch == u'>' and not self.flow_level:
-            return self.fetch_folded()
-
-        # Is it a single quoted scalar?
-        if ch == u'\'':
-            return self.fetch_single()
-
-        # Is it a double quoted scalar?
-        if ch == u'\"':
-            return self.fetch_double()
-
-        # It must be a plain scalar then.
-        if self.check_plain():
-            return self.fetch_plain()
-
-        # No? It's an error. Let's produce a nice error message.
-        raise ScannerError("while scanning for the next token", None,
-                "found character %r that cannot start any token"
-                % ch.encode('utf-8'), self.get_mark())
-
-
-
 class YamlFunctions(object):
 
-    # _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
-    #
-    # def dict_representer(dumper, data):
-    #     return dumper.represent_dict(data.iteritems())
-    #
-    # def dict_constructor(loader, node):
-    #     return OrderedDict(loader.construct_pairs(node))
-    #
-    # yaml.add_representer(OrderedDict, dict_representer)
-    # yaml.add_constructor(_mapping_tag, dict_constructor)
+    _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
+
+    def dict_representer(dumper, data):
+        return dumper.represent_dict(data.iteritems())
+
+    def dict_constructor(loader, node):
+        return OrderedDict(loader.construct_pairs(node))
+
+    yaml.add_representer(OrderedDict, dict_representer)
+    yaml.add_constructor(_mapping_tag, dict_constructor)
 
     def __init__(self, session):
         self._session = session
@@ -199,11 +68,33 @@ class YamlFunctions(object):
                   "else it'll crash the program as sqlalchemy doesn't know what to do with it"
             s.pop('YODA')
 
+        timeSeriesResultsValues = None
+        if "TimeSeriesResultValues" in s:
+            print "Found TimeSeriesResults"
+            timeSeriesResultsValues = s.pop('TimeSeriesResultValues')
+
         # debugging information
         self.printValues(s)
 
         yl = YamlLoader(models)
         yl.from_list(self._session, [s])
+
+
+        data = yl.resolve_references(self._session, timeSeriesResultsValues)
+
+        try:
+            data.pop('ValueDateTime')
+            data.pop('ValueDateTimeUTCOffset')
+        except:
+            pass
+
+        print "timeSeriesResults: ", data
+
+        import pandas as pd
+
+        df2 = pd.DataFrame(data, )
+
+
 
     def loadFromFiles(self, files):
         """
@@ -221,7 +112,7 @@ class YamlFunctions(object):
         import os
         print "PWD: ", os.getcwd()
         with open('data.yaml', 'w') as outfile:
-            outfile.write( yaml.dump(s, default_flow_style=True) )
+            outfile.write(yaml.dump(s, default_flow_style=True) )
 
     def printValues(self, s):
 

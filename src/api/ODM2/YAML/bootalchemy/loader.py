@@ -290,21 +290,8 @@ class Loader(object):
 
             # if "ID" in key and "UUID" not in key:
             if value and isinstance(value, basestring) and value.startswith('*'):
-                self.session.flush()
-
-                ref = None
-
-                try:
-                    ref = self._references[value[1:]]
-                except Exception as e:
-                    print "key: ", key, " value: ", value
-
-                if not 'UnitsID' in key:
-                    value = getattr(ref, key)
-                else:
-                    value = getattr(ref, "UnitsID")
-
-                    # key, value = self.obtain_key_value(key, value, resolved_values)
+                value = self.obtain_object_id(key, value)
+                # key, value = self.obtain_key_value(key, value, resolved_values)
 
 
             resolved_values[key] = self.resolve_value(value)
@@ -324,8 +311,72 @@ class Loader(object):
 
         return obj
 
-    def create_reference_object(self, klass, items):
-        pass
+    def obtain_object_id(self, key, value):
+        self.session.flush()
+
+        ref = None
+
+        try:
+
+            ref = self._references[value[1:]]
+            if not 'UnitsID' in key:
+                value = getattr(ref, key)
+            else:
+                value = getattr(ref, "UnitsID")
+
+            return value
+        except Exception as e:
+            return value
+            # print "key: ", key, " value: ", value
+
+        # value = None
+        # if ref:
+        #     if not 'UnitsID' in key:
+        #         value = getattr(ref, key)
+        #     else:
+        #         value = getattr(ref, "UnitsID")
+        #
+        # return value
+
+    def resolve_references(self, session, values):
+        """
+
+        :param values:
+        :return:
+        """
+
+        dictOfValues = {}
+
+        self.session = session
+
+        """
+        Find the ID for each of the anchors/aliases without adding
+        it to a session but pulling references from available session
+        """
+        dictOfValues = {}
+
+        columnValues = None
+        if isinstance(values, dict) and "ColumnDefinitions" in values:
+            columnValues = values.pop('ColumnDefinitions')
+
+
+            for i in columnValues:
+                values = []
+                print "I: ", i
+                for k, v in i.iteritems():
+                    newValue = self.resolve_value(v)
+                    if k == "ResultID":
+                        newValue = newValue.ResultID
+                    elif k == "TimeAggregationIntervalUnitsID":
+                        newValue = newValue.UnitsID
+                    values.append(newValue)
+                    print "K: ", k, " Value: ", newValue
+                dictOfValues[i['Label']] = values
+                print
+
+        self.session = None
+
+        return dictOfValues
 
     def add_klasses(self, klass, items):
         """

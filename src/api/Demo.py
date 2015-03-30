@@ -17,7 +17,7 @@ sys.path.insert(0, directory)
 # Create a connection to the ODM2 database
 # ----------------------------------------
 
-#conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
+# conn = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'ODM123!!')
 
 session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
 # session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
@@ -36,7 +36,6 @@ _session = session_factory.getSession()
 core_read = readCore(_session)
 result_read = readResults(_session)
 sampfeat_read = readSamplingFeatures(_session)
-
 
 pp = pprint.PrettyPrinter(indent=8)
 
@@ -69,7 +68,8 @@ try:
     siteFeatures = core_read.getSamplingFeaturesByType('Site')
     numSites = len(siteFeatures)
     print "\n--------------- Information about Site SamplingFeatures ------------"
-    print "There are " + str(numSites) + " Site SamplingFeatures in the ODM2 database retrieved using getSamplingFeaturesByType()."
+    print "There are " + str(
+        numSites) + " Site SamplingFeatures in the ODM2 database retrieved using getSamplingFeaturesByType()."
     print "The list of Site SamplingFeatures includes: "
     pp.pprint(siteFeatures)
     # for x in siteFeatures:
@@ -82,13 +82,14 @@ except Exception as e:
 try:
     sf = core_read.getSamplingFeatureByCode('USU-LBR-Mendon')
     print "\n-------- Information about an individual SamplingFeature ---------"
-    print ("The following are some of the attributes of a SamplingFeature retrieved using getSamplingFeatureByCode(): \n" +
-           "SamplingFeatureCode: " + sf.SamplingFeatureCode + "\n" +
-           "SamplingFeatureName: " + sf.SamplingFeatureName + "\n" +
-           "SamplingFeatureDescription: " + sf.SamplingFeatureDescription + "\n" +
-           "SamplingFeatureGeotypeCV: " + sf.SamplingFeatureGeotypeCV + "\n"
-           "SamplingFeatureGeometry: " + sf.FeatureGeometry + "\n" +
-           "Elevation_m: " + str(sf.Elevation_m))
+    print (
+    "The following are some of the attributes of a SamplingFeature retrieved using getSamplingFeatureByCode(): \n" +
+    "SamplingFeatureCode: " + sf.SamplingFeatureCode + "\n" +
+    "SamplingFeatureName: " + sf.SamplingFeatureName + "\n" +
+    "SamplingFeatureDescription: " + sf.SamplingFeatureDescription + "\n" +
+    "SamplingFeatureGeotypeCV: " + sf.SamplingFeatureGeotypeCV + "\n"
+                                                                 "SamplingFeatureGeometry: " + sf.FeatureGeometry + "\n" +
+    "Elevation_m: " + str(sf.Elevation_m))
 except Exception as e:
     print "Unable to demo getSamplingFeatureByCode: ", e
 
@@ -116,24 +117,25 @@ except Exception as e:
 print "\n------- Example of Retrieving Attributes of a Time Series Result -------"
 try:
     tsResult = result_read.getTimeSeriesResultByResultId(19)
-    print ("The following are some of the attributes for the TimeSeriesResult retrieved using getTimeSeriesResultByResultID(): \n" +
-           "ResultTypeCV: " + tsResult.ResultTypeCV + "\n" +
-           # Get the ProcessingLevel from the TimeSeriesResult's ProcessingLevel object
-           "ProcessingLevel: " + tsResult.ProcessingLevelObj.Definition + "\n" +
-           "SampledMedium: " + tsResult.SampledMediumCV + "\n" +
-           # Get the variable information from the TimeSeriesResult's Variable object
-           "Variable: " + tsResult.VariableObj.VariableCode + ": " + tsResult.VariableObj.VariableNameCV + "\n"
-           "AggregationStatistic: " + tsResult.AggregationStatisticCV + "\n" +
-           "Elevation_m: " + str(sf.Elevation_m) + "\n" +
-           # Get the site information by drilling down
-           "SamplingFeature: " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureCode + " - " +
-           tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName)
+    print (
+    "The following are some of the attributes for the TimeSeriesResult retrieved using getTimeSeriesResultByResultID(): \n" +
+    "ResultTypeCV: " + tsResult.ResultTypeCV + "\n" +
+    # Get the ProcessingLevel from the TimeSeriesResult's ProcessingLevel object
+    "ProcessingLevel: " + tsResult.ProcessingLevelObj.Definition + "\n" +
+    "SampledMedium: " + tsResult.SampledMediumCV + "\n" +
+    # Get the variable information from the TimeSeriesResult's Variable object
+    "Variable: " + tsResult.VariableObj.VariableCode + ": " + tsResult.VariableObj.VariableNameCV + "\n"
+                                                                                                    "AggregationStatistic: " + tsResult.AggregationStatisticCV + "\n" +
+    "Elevation_m: " + str(sf.Elevation_m) + "\n" +
+    # Get the site information by drilling down
+    "SamplingFeature: " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureCode + " - " +
+    tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName)
 except Exception as e:
     print "Unable to demo Example of retrieving Attributes of a time Series Result: ", e
 
 # Get the values for a particular TimeSeriesResult
 print "\n-------- Example of Retrieving Time Series Result Values ---------"
-tsValues = result_read.getTimeSeriesResultValuesByResultId(19) #Return type is a pandas dataframe
+tsValues = result_read.getTimeSeriesResultValuesByResultId(19)  #Return type is a pandas dataframe
 # Print a few Time Series Values to the console
 #tsValues.set_index('ValueDateTime', inplace=True)
 try:
@@ -145,10 +147,10 @@ except Exception as e:
 try:
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    tsValues.plot(x='ValueDateTime',y='DataValue',kind='line',
+    tsValues.plot(x='ValueDateTime', y='DataValue', kind='line',
                   title=tsResult.VariableObj.VariableNameCV + " at " + tsResult.FeatureActionObj.SamplingFeatureObj.SamplingFeatureName,
                   ax=ax)
-    ax.set_ylabel(tsResult.VariableObj.VariableNameCV + " (" + tsResult.UnitObj.UnitsAbbreviation +")")
+    ax.set_ylabel(tsResult.VariableObj.VariableNameCV + " (" + tsResult.UnitObj.UnitsAbbreviation + ")")
     ax.set_xlabel("Date/Time")
     ax.xaxis.set_minor_locator(dates.MonthLocator())
     ax.xaxis.set_minor_formatter(dates.DateFormatter('%b'))
@@ -167,10 +169,9 @@ print "-------- \tExample of Loading yaml file into SQLAlchemy \t---------"
 print "---------                                                  ----------"
 print "---------------------------------------------------------------------"
 
-
 files = []
 # files.append(os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader2.yaml'))
-# files.append(os.path.join('.', 'ODM2/YAML/iUTAH_SpecimenTimeSeriesExample_CompactHeader.yaml'))
+# files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_SpecimenTimeSeriesExample_CompactHeader.yaml'))
 # files.append(os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml'))
 # files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_LongHeader+AKA.yaml'))
 # files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_LongHeader.yaml'))
@@ -182,6 +183,7 @@ files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_
 _session.autoflush = False
 
 import timeit
+
 start = timeit.default_timer()
 yaml_load = YamlFunctions(_session)
 
@@ -208,6 +210,7 @@ units = _session.query(Units).all()
 processing_levels = _session.query(ProcessingLevels).all()
 actions = _session.query(Actions).all()
 results = _session.query(Results).all()
+# noinspection PyUnboundLocalVariable
 time_series_results = _session.query(TimeSeriesResults).all()
 
 # yaml_load._session.commit()

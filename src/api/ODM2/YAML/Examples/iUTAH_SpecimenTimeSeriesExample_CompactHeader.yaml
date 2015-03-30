@@ -6,7 +6,7 @@
 YODA:
   - {Version: 1.0.0, Profile: SpecimenTimeSeries}
 
-Datasets:
+DataSets:
   - {DataSetUUID: "000000000000000000000", DataSetTypeCV: SpecimenTimeSeries, DataSetCode: iUTAH_GAMUT_WQ_Samples, DataSetTitle: Water Quality Sample Results for the iUTAH GAMUT Network, DataSetAbstract: These data represent results from water quality samples collected at the iUTAH GAMUT Network aquatic monitoring sites.}
 
 People:

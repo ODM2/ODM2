@@ -5,8 +5,8 @@ import sqlalchemy.exc
 
 from ODMconnection import SessionFactory
 from ODM2.LikeODM1.model import Site, Unit, Qualifier, OffsetType, Sample, Method, QualityControlLevel, ODMVersion, Variable,\
-    Source
-from ODM1_1_1 import Series, DataValue
+    Source, DataValue
+from ODM1_1_1 import Series
 
 
 
@@ -312,6 +312,12 @@ class SeriesService():
         delete_series = self._session.merge(series)
         self._session.delete(delete_series)
         self._session.commit()
+
+    def get_all_DataValues(self):
+        try:
+            return self._session.query(DataValue).limit(25).all()
+        except Exception as e:
+            return e
 
     def qcl_exists(self, q):
         try:

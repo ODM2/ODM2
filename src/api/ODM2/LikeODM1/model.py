@@ -7,9 +7,9 @@ Base = declarative_base()
 metadata = MetaData()
 
 ################ODM 2 Tables###########
-from ..model import Actions, Organizations, Affiliation, People, \
-    Samplingfeatures, Results, Variables, Methods, Timeseriesresult, \
-    Timeseriesresultvalue, Site, SpatialReference, CVTerms
+from ..models import Actions, ActionBy, Organizations, Affiliations, People, \
+    SamplingFeatures, Results, Variables, Methods, TimeSeriesResults, \
+    TimeSeriesResultValues, Sites, SpatialReferences, CVTerms, FeatureActions
 
 action_table = Actions()
 
@@ -32,20 +32,19 @@ class SpatialReference(Base):
     def __repr__(self):
         return "<SpatialReference('%s', '%s')>" % (self.id, self.srs_name)
 
-sf_table = Samplingfeature().__table__
-site_table = Site().__table__
+sf_table = SamplingFeatures().__table__
+site_table = Sites().__table__
 site_join = site_table.join(sf_table, site_table.c.SamplingFeatureID == sf_table.c.SamplingFeatureID)
-class Site2(Base):
+class Site(Base):
     __tablename__ = u'Sites'
     __table__ = site_join
-
 
     id = site_join.c.ODM2_Sites_SamplingFeatureID
     code = site_join.c.ODM2_SamplingFeatures_SamplingFeatureCode
     name = site_join.c.ODM2_SamplingFeatures_SamplingFeatureName
     latitude = site_join.c.ODM2_Sites_Latitude
     longitude = site_join.c.ODM2_Sites_Longitude
-    lat_long_datum_id = site_join.c.ODM2_Sites_LatLonDatumID._clone().foreign_keys = ForeignKey("SpatialReference.id")#, Integer, ForeignKey("SpatialReference.id"))#column_property(site_table.c.LatLonDatumID, ForeignKey('SpatialReference.id'))
+    lat_long_datum_id = site_join.c.ODM2_Sites_SpatialReferenceID._clone().foreign_keys = ForeignKey("SpatialReference.id")#, Integer, ForeignKey("SpatialReference.id"))#column_property(site_table.c.LatLonDatumID, ForeignKey('SpatialReference.id'))
     elevation_m = site_join.c.ODM2_SamplingFeatures_Elevation_m
     vertical_datum_id = site_join.c.ODM2_SamplingFeatures_ElevationDatumCV
 
@@ -91,18 +90,19 @@ class Unit(Base):
 # ###################################################################################
 
 """Requires joining with Variable, Result, and Timeseriesresult to build Variable for ODM1_1_1"""
-variables_table = Variable().__table__
-ts_table = Timeseriesresult().__table__
+variables_table = Variables().__table__
+ts_table = TimeSeriesResults().__table__
 
-result_table = Result().__table__
-aliased_table = select([
+result_table = Results().__table__
+result_aliased_table = select([
     result_table.c.ResultID.label("RID"),
     result_table.c.UnitsID,
     result_table.c.VariableID,
     result_table.c.SampledMediumCV,
+
 ]).alias("ODM2_Aliased")
 
-ts_join = aliased_table.join(ts_table, aliased_table.c.RID == ts_table.c.ResultID)
+ts_join = result_aliased_table.join(ts_table, result_aliased_table.c.RID == ts_table.c.ResultID)
 results = ts_join.join(variables_table, variables_table.c.VariableID == ts_join.c.ODM2_Aliased_RID)
 
 class Variable(Base):
@@ -140,18 +140,18 @@ class Variable(Base):
 #                            Data Sources
 # ###################################################################################
 
-people_table = Person().__table__
-affiliation_table = Affiliation().__table__
-organization_table = Organization().__table__
+people_table = People().__table__
+affiliation_table = Affiliations().__table__
+organization_table = Organizations().__table__
 
-aliased_table = select([
+result_aliased_table = select([
     people_table.c.PersonID.label("PID"),
     people_table.c.PersonFirstName,
     people_table.c.PersonMiddleName,
     people_table.c.PersonLastName,
 ]).alias("ODM2_Aliased")
 
-affiliation_join = aliased_table.join(affiliation_table, affiliation_table.c.AffiliationID == aliased_table.c.PID)
+affiliation_join = result_aliased_table.join(affiliation_table, affiliation_table.c.AffiliationID == result_aliased_table.c.PID)
 results = affiliation_join.join(organization_table, affiliation_join.c.ODM2_Affiliations_OrganizationID == organization_table.c.OrganizationID)
 
 class Source(Base):
@@ -205,7 +205,7 @@ class ISOMetadata(Base):
 #                            Data Collection Methods
 # ###################################################################################
 
-method_table = Method().__table__
+method_table = Methods().__table__
 
 class LabMethod(Base):
     __tablename__ = 'LabMethods'
@@ -399,60 +399,73 @@ class QualityControlLevel(Base):
         return "<QualityControlLevel('%s', '%s', '%s', '%s')>" % (self.id, self.code, self.definition, self.explanation)
 
 
-'''
-def copy_data_value(from_dv):
-    new = DataValue()
-    new.data_value = from_dv.data_value
-    new.value_accuracy = from_dv.value_accuracy
-    new.local_date_time = from_dv.local_date_time
-    new.utc_offset = from_dv.utc_offset
-    new.date_time_utc = from_dv.date_time_utc
-    new.site_id = from_dv.site_id
-    new.variable_id = from_dv.variable_id
-    new.offset_value = from_dv.offset_value
-    new.offset_type_id = from_dv.offset_type_id
-    new.censor_code = from_dv.censor_code
-    new.qualifier_id = from_dv.qualifier_id
-    new.method_id = from_dv.method_id
-    new.source_id = from_dv.source_id
-    new.sample_id = from_dv.sample_id
-    new.derived_from_id = from_dv.derived_from_id
-    new.quality_control_level_id = from_dv.quality_control_level_id
-    return new
-'''
-'''
-class DataValue(Base):
-    __tablename__ = 'DataValues'
+timeseriesresultvalues_table = TimeSeriesResultValues.__table__
+# timeseriesresults_table = TimeSeriesResults.__table__
+feature_action_table = FeatureActions.__table__
+result_table = Results.__table__
+action_table = Actions.__table__
+action_by_table = ActionBy.__table__
 
-    id = Column('ValueID', Integer, primary_key=True)
-    data_value = Column('DataValue', Float)
-    value_accuracy = Column('ValueAccuracy', Float)
-    local_date_time = Column('LocalDateTime', DateTime)
-    utc_offset = Column('UTCOffset', Float)
-    date_time_utc = Column('DateTimeUTC', DateTime)
-    site_id = Column('SiteID', Integer, ForeignKey('Sites.SiteID'), nullable=False)
-    variable_id = Column('VariableID', Integer, ForeignKey('Variables.VariableID'), nullable=False)
-    offset_value = Column('OffsetValue', Float)
-    offset_type_id = Column('OffsetTypeID', Integer, ForeignKey('OffsetTypes.OffsetTypeID'))
-    censor_code = Column('CensorCode', String)
-    qualifier_id = Column('QualifierID', Integer, ForeignKey('Qualifiers.QualifierID'))
-    method_id = Column('MethodID', Integer, ForeignKey('Methods.MethodID'), nullable=False)
-    source_id = Column('SourceID', Integer, ForeignKey('Sources.SourceID'), nullable=False)
-    sample_id = Column('SampleID', Integer, ForeignKey('Samples.SampleID'))
-    derived_from_id = Column('DerivedFromID', Integer)
-    quality_control_level_id = Column('QualityControlLevelID', Integer,
-                                      ForeignKey('QualityControlLevels.QualityControlLevelID'), nullable=False)
+result_aliased_table = select([
+    result_table.c.ResultID.label("RID"),
+    result_table.c.UnitsID,
+    result_table.c.VariableID,
+    result_table.c.SampledMediumCV,
+    result_table.c.FeatureActionID.label("FAID"),
+
+]).alias("ODM2_Aliased")
+
+action_aliased_table = select([
+    action_table.c.ActionID.label("AID"),
+    action_table.c.MethodID,
+
+]).alias("ODM2_ACTION_ALIASED")
+
+action_by_aliased_table = select([
+    action_by_table.c.ActionID.label("ABID"),
+    action_by_table.c.AffiliationID,
+
+]).alias("ODM2_ACTION_BY_ALIASED")
+
+joined_table = timeseriesresultvalues_table.join(result_aliased_table, timeseriesresultvalues_table.c.ResultID ==
+                                                 result_aliased_table.c.RID)
+joined_table = joined_table.join(feature_action_table, feature_action_table.c.FeatureActionID == result_aliased_table.c.FAID)
+joined_table = joined_table.join(action_aliased_table, feature_action_table.c.ActionID == action_aliased_table.c.AID)
+joined_table = joined_table.join(action_by_aliased_table, action_aliased_table.c.AID == action_by_aliased_table.c.ABID)
+
+
+class DataValue(Base):
+    # __tablename__ = 'DataValues'
+    __table__ = joined_table
+
+    id = joined_table.c.ODM2_TimeSeriesResultValues_ValueID
+    data_value = joined_table.c.ODM2_TimeSeriesResultValues_DataValue
+    value_accuracy = None ## question for jeff
+    local_date_time = joined_table.c.ODM2_TimeSeriesResultValues_ValueDateTime
+    utc_offset = joined_table.c.ODM2_TimeSeriesResultValues_ValueDateTimeUTCOffset
+    date_time_utc = None ## column propertly datetimeutcoffset
+    site_id = joined_table.c.ODM2_FeatureActions_SamplingFeatureID
+    variable_id = joined_table.c.ODM2_Aliased_VariableID
+    offset_value = None ## Question for jeff
+    offset_type_id = None ## Question for Jeff
+    censor_code = joined_table.c.ODM2_TimeSeriesResultValues_CensorCodeCV
+    qualifier_id = None ## Join with annotations..
+    method_id = joined_table.c.ODM2_ACTION_ALIASED_MethodID
+    source_id = joined_table.c.ODM2_ACTION_BY_ALIASED_AffiliationID
+    sample_id = site_id ## Question for jeff
+    derived_from_id = None
+    quality_control_level_id = joined_table.c.ODM2_TimeSeriesResultValues_QualityCodeCV
 
     # relationships
-    site = relationship(Site)
-    variable = relationship(Variable)
-    method = relationship(Method)
-    source = relationship(Source)
-    quality_control_level = relationship(QualityControlLevel)
-
-    qualifier = relationship(Qualifier)
-    offset_type = relationship(OffsetType)
-    sample = relationship(Sample)
+    # site = relationship(Site)
+    # variable = relationship(Variable)
+    # method = relationship(Method)
+    # source = relationship(Source)
+    # quality_control_level = relationship(QualityControlLevel)
+    #
+    # qualifier = relationship(Qualifier)
+    # offset_type = relationship(OffsetType)
+    # sample = relationship(Sample)
 
     def list_repr(self):
         return [self.id, self.data_value, self.value_accuracy, self.local_date_time,
@@ -461,9 +474,13 @@ class DataValue(Base):
                 self.method_id, self.source_id, self.sample_id, self.derived_from_id,
                 self.quality_control_level_id]
 
+    # def __repr__(self):
+    #     return "<DataValue('%s', '%s', '%s')>" % (self.id, self.data_value, self.local_date_time, self.value_accuracy)
+    #
     def __repr__(self):
-        return "<DataValue('%s', '%s', '%s')>" % (self.data_value, self.local_date_time, self.value_accuracy)
+        return "<DataValue(%s)>" % ', '.join([str(x) for x in self.list_repr()])
 
+'''
 def copy_series(from_series):
     new = Series()
     new.site_id = from_series.site_id
