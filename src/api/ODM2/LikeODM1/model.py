@@ -504,61 +504,64 @@ joined_table = joined_table.join(source_join, joined_table.c.ODM2_ActionBy_Affil
 joined_table = joined_table.join(processing_levels_table, joined_table.c.ODM2_RESULT_Aliased_ProcessingLevelID == processing_levels_table.c.ProcessingLevelID)
 
 
-class Series(Base):
-    # __tablename__ = 'SeriesCatalog'
-    __table__ = joined_table
-
-    id = joined_table.c.ODM2_RESULT_Aliased_RID
-    site_id = joined_table.c.ODM2_Sites_SamplingFeatureID
-    site_code = joined_table.c.ODM2_SamplingFeatures_SamplingFeatureCode
-    site_name = joined_table.c.ODM2_SamplingFeatures_SamplingFeatureName
-    variable_id = joined_table.c.ODM2_RESULT_Aliased_VariableID
-    variable_code = joined_table.c.ODM2_Variables_VariableCode
-    variable_name = joined_table.c.ODM2_Variables_VariableNameCV
-    speciation = joined_table.c.ODM2_Variables_SpeciationCV
-    variable_units_id = joined_table.c.ODM2_Aliased_UnitsID
-    variable_units_name = None #joined_table.c.
-    sample_medium = joined_table.c.ODM2_RESULT_Aliased_SampledMediumCV
-    value_type = joined_table.c.ODM2_Variables_VariableTypeCV
-    time_support = joined_table.c.ODM2_TimeSeriesResults_IntendedTimeSpacing                 # Column('TimeSupport', Float, nullable=False)
-    time_unit_id = joined_table.c.ODM2_TimeSeriesResults_IntendedTimeSpacingUnitsID          # Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
-    data_type = joined_table.c.ODM2_TimeSeriesResults_AggregationStatisticCV
-    time_units_name = None # join with units
-    general_category = None
-    method_id = joined_table.c.ODM2_Methods_MethodID
-    method_description = joined_table.c.ODM2_Methods_MethodDescription
-    source_id = joined_table.c.ODM2_Affiliations_AffiliationID
-    description = joined_table.c.ODM2_Organizations_OrganizationDescription  # Column('OrganizationDescription', String, nullable=False)
-    link = joined_table.c.ODM2_Organizations_OrganizationLink
-    citation = None # please calculate
-    quality_control_level_id = joined_table.c.ODM2_ProcessingLevels_ProcessingLevelID
-    quality_control_level_code = joined_table.c.ODM2_ProcessingLevels_ProcessingLevelCode
-    begin_date_time = joined_table.c.ODM2_Actions_BeginDateTime
-    end_date_time = joined_table.c.ODM2_Actions_EndDateTime
-    begin_date_time_utc = None #Column('BeginDateTimeUTC', DateTime)
-    end_date_time_utc = None #Column('EndDateTimeUTC', DateTime)
-    value_count = joined_table.c.ODM2_RESULT_Aliased_ValueCount
-
-    # data_values = relationship("DataValue",
-    #                            primaryjoin="and_(DataValue.site_id == Series.site_id, "
-    #                                        "DataValue.variable_id == Series.variable_id, "
-    #                                        "DataValue.method_id == Series.method_id, "
-    #                                        "DataValue.source_id == Series.source_id, "
-    #                                        "DataValue.quality_control_level_id == Series.quality_control_level_id)",
-    #                            foreign_keys="[DataValue.site_id, DataValue.variable_id, DataValue.method_id, DataValue.source_id, DataValue.quality_control_level_id]",
-    #                            order_by="DataValue.local_date_time",
-    #                            backref="series")
-    #
-    # site = relationship(Site)
-    # variable = relationship(Variable)
-    # method = relationship(Method)
-    # source = relationship(Source)
-    # quality_control_level = relationship(QualityControlLevel)
-
-    # TODO add all to repr
-    def __repr__(self):
-        return "<Series('%s')>" % (self.id)
-
-    def get_table_columns(self):
-        return self.__table__.columns.keys()
-
+class Series:
+    pass
+#
+# class Series(Base):
+#     # __tablename__ = 'SeriesCatalog'
+#     __table__ = joined_table
+#
+#     id = joined_table.c.ODM2_RESULT_Aliased_RID
+#     site_id = joined_table.c.ODM2_Sites_SamplingFeatureID
+#     site_code = joined_table.c.ODM2_SamplingFeatures_SamplingFeatureCode
+#     site_name = joined_table.c.ODM2_SamplingFeatures_SamplingFeatureName
+#     variable_id = joined_table.c.ODM2_RESULT_Aliased_VariableID
+#     variable_code = joined_table.c.ODM2_Variables_VariableCode
+#     variable_name = joined_table.c.ODM2_Variables_VariableNameCV
+#     speciation = joined_table.c.ODM2_Variables_SpeciationCV
+#     variable_units_id = joined_table.c.ODM2_Aliased_UnitsID
+#     variable_units_name = None #joined_table.c.
+#     sample_medium = joined_table.c.ODM2_RESULT_Aliased_SampledMediumCV
+#     value_type = joined_table.c.ODM2_Variables_VariableTypeCV
+#     time_support = joined_table.c.ODM2_TimeSeriesResults_IntendedTimeSpacing                 # Column('TimeSupport', Float, nullable=False)
+#     time_unit_id = joined_table.c.ODM2_TimeSeriesResults_IntendedTimeSpacingUnitsID          # Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+#     data_type = joined_table.c.ODM2_TimeSeriesResults_AggregationStatisticCV
+#     time_units_name = None # join with units
+#     general_category = None
+#     method_id = joined_table.c.ODM2_Methods_MethodID
+#     method_description = joined_table.c.ODM2_Methods_MethodDescription
+#     source_id = joined_table.c.ODM2_Affiliations_AffiliationID
+#     description = joined_table.c.ODM2_Organizations_OrganizationDescription  # Column('OrganizationDescription', String, nullable=False)
+#     link = joined_table.c.ODM2_Organizations_OrganizationLink
+#     citation = None # please calculate
+#     quality_control_level_id = joined_table.c.ODM2_ProcessingLevels_ProcessingLevelID
+#     quality_control_level_code = joined_table.c.ODM2_ProcessingLevels_ProcessingLevelCode
+#     begin_date_time = joined_table.c.ODM2_Actions_BeginDateTime
+#     end_date_time = joined_table.c.ODM2_Actions_EndDateTime
+#     begin_date_time_utc = None #Column('BeginDateTimeUTC', DateTime)
+#     end_date_time_utc = None #Column('EndDateTimeUTC', DateTime)
+#     value_count = joined_table.c.ODM2_RESULT_Aliased_ValueCount
+#
+#     # data_values = relationship("DataValue",
+#     #                            primaryjoin="and_(DataValue.site_id == Series.site_id, "
+#     #                                        "DataValue.variable_id == Series.variable_id, "
+#     #                                        "DataValue.method_id == Series.method_id, "
+#     #                                        "DataValue.source_id == Series.source_id, "
+#     #                                        "DataValue.quality_control_level_id == Series.quality_control_level_id)",
+#     #                            foreign_keys="[DataValue.site_id, DataValue.variable_id, DataValue.method_id, DataValue.source_id, DataValue.quality_control_level_id]",
+#     #                            order_by="DataValue.local_date_time",
+#     #                            backref="series")
+#     #
+#     # site = relationship(Site)
+#     # variable = relationship(Variable)
+#     # method = relationship(Method)
+#     # source = relationship(Source)
+#     # quality_control_level = relationship(QualityControlLevel)
+#
+#     # TODO add all to repr
+#     def __repr__(self):
+#         return "<Series('%s')>" % (self.id)
+#
+#     def get_table_columns(self):
+#         return self.__table__.columns.keys()
+#

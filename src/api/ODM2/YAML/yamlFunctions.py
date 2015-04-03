@@ -13,10 +13,11 @@ from yaml import scanner
 import re
 
 import pprint
-pp =pprint.PrettyPrinter(indent=8)
+
+pp = pprint.PrettyPrinter(indent=8)
+
 
 class YamlFunctions(object):
-
     _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
 
     def dict_representer(dumper, data):
@@ -28,8 +29,9 @@ class YamlFunctions(object):
     yaml.add_representer(OrderedDict, dict_representer)
     yaml.add_constructor(_mapping_tag, dict_constructor)
 
-    def __init__(self, session):
+    def __init__(self, session, engine):
         self._session = session
+        self._engine = engine
 
     def reconstructFile(self, values):
         anchor_pattern = r'(?<=- )(&\w*)\s?(?={.*})'
@@ -44,6 +46,7 @@ class YamlFunctions(object):
 
 
         # pprint(reconstructedFile)
+
     def extractYaml(self, filename):
         file_values = open(filename).read()
 
@@ -68,33 +71,20 @@ class YamlFunctions(object):
                   "else it'll crash the program as sqlalchemy doesn't know what to do with it"
             s.pop('YODA')
 
-        timeSeriesResultsValues = None
+        timeSeries = None
         if "TimeSeriesResultValues" in s:
             print "Found TimeSeriesResults"
-            timeSeriesResultsValues = s.pop('TimeSeriesResultValues')
+            timeSeries = s.pop('TimeSeriesResultValues')
+            # columnDefinitions = timeSeries.pop('ColumnDefinitions')
 
         # debugging information
-        self.printValues(s)
+        # self.printValues(s)
 
         yl = YamlLoader(models)
         yl.from_list(self._session, [s])
 
-
-        data = yl.resolve_references(self._session, timeSeriesResultsValues)
-
-        try:
-            data.pop('ValueDateTime')
-            data.pop('ValueDateTimeUTCOffset')
-        except:
-            pass
-
-        print "timeSeriesResults: ", data
-
-        import pandas as pd
-
-        df2 = pd.DataFrame(data, )
-
-
+        # load the Time Series Result information
+        yl.loadTimeSeriesResults(self._session, self._engine, timeSeries)
 
     def loadFromFiles(self, files):
         """
@@ -107,21 +97,21 @@ class YamlFunctions(object):
             self.loadFromFile(item)
 
 
-
-    def writeValues(self,s ):
+    def writeValues(self, s):
         import os
+
         print "PWD: ", os.getcwd()
         with open('data.yaml', 'w') as outfile:
-            outfile.write(yaml.dump(s, default_flow_style=True) )
+            outfile.write(yaml.dump(s, default_flow_style=True))
 
     def printValues(self, s):
 
         pp.pprint([s])
 
-        for k,v in s.iteritems():
-            print '-'*45
+        for k, v in s.iteritems():
+            print '-' * 45
             print k
-            print '-'*45
+            print '-' * 45
             for values in v:
                 if isinstance(values, dict):
                     for item in values.iteritems():

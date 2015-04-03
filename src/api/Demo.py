@@ -32,6 +32,7 @@ session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'r
 # ----------------------------------------------------------------------------------------
 
 _session = session_factory.getSession()
+_engine = session_factory.engine
 
 core_read = readCore(_session)
 result_read = readResults(_session)
@@ -185,7 +186,7 @@ _session.autoflush = False
 import timeit
 
 start = timeit.default_timer()
-yaml_load = YamlFunctions(_session)
+yaml_load = YamlFunctions(_session, _engine)
 
 yaml_load.loadFromFile(files[0])
 

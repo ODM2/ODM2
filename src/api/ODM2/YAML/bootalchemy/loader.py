@@ -52,7 +52,7 @@ class Loader(object):
                               Float:float,
                               Boolean: partial(self.cast, bool, lambda x: x.lower() not in ('f', 'false', 'no', 'n')),
                               Binary: partial(self.cast, str, lambda x: x.encode('base64'))
-                              }
+        }
         if PGArray:
             self.default_casts[PGArray] = list
 
@@ -91,15 +91,15 @@ class Loader(object):
         except TypeError, e:
             self.log_error(e, None, klass, item)
             raise TypeError("The class, %s, cannot be given the items %s. Original Error: %s" %
-                (klass.__name__, str(item), str(e)))
+                            (klass.__name__, str(item), str(e)))
         except AttributeError, e:
             self.log_error(e, None, klass, item)
             raise AttributeError("Object creation failed while initializing a %s with the items %s. Original Error: %s" %
-                (klass.__name__, str(item), str(e)))
+                                 (klass.__name__, str(item), str(e)))
         except KeyError, e:
             self.log_error(e, None, klass, item)
             raise KeyError("On key, %s, failed while initializing a %s with the items %s. %s.keys() = %s" %
-                (str(e), klass.__name__, str(item), klass.__name__, str(klass.__dict__.keys())))
+                           (str(e), klass.__name__, str(item), klass.__name__, str(klass.__dict__.keys())))
 
         return obj
 
@@ -132,7 +132,7 @@ class Loader(object):
                     return self.add_klasses(klass, items)
                 else:
                     raise TypeError('You can only give a nested value a list or a dict. You tried to feed a %s into a %s.' %
-                        (items.__class__.__name__, klass_name))
+                                    (items.__class__.__name__, klass_name))
 
         elif isinstance(value, list):
             return [self.resolve_value(list_item) for list_item in value]
@@ -185,9 +185,9 @@ class Loader(object):
         for module in self.modules:
             # try:
             klass = getattr(module, klass_name)
-            break;
+            break
             # except AttributeError:
-                # pass
+            # pass
         # check that the class was found.
         if klass is None:
             raise AttributeError('Class %s from %s not found in any module' % (klass_name , self.source))
@@ -329,14 +329,14 @@ class Loader(object):
             return value
             # print "key: ", key, " value: ", value
 
-        # value = None
-        # if ref:
-        #     if not 'UnitsID' in key:
-        #         value = getattr(ref, key)
-        #     else:
-        #         value = getattr(ref, "UnitsID")
-        #
-        # return value
+            # value = None
+            # if ref:
+            #     if not 'UnitsID' in key:
+            #         value = getattr(ref, key)
+            #     else:
+            #         value = getattr(ref, "UnitsID")
+            #
+            # return value
 
     def resolve_references(self, session, values):
         """
@@ -362,7 +362,7 @@ class Loader(object):
 
             for i in columnValues:
                 values = []
-                print "I: ", i
+                # print "I: ", i
                 for k, v in i.iteritems():
                     newValue = self.resolve_value(v)
                     if k == "ResultID":
@@ -370,13 +370,108 @@ class Loader(object):
                     elif k == "TimeAggregationIntervalUnitsID":
                         newValue = newValue.UnitsID
                     values.append(newValue)
-                    print "K: ", k, " Value: ", newValue
+                    # print "K: ", k, " Value: ", newValue
                 dictOfValues[i['Label']] = values
                 print
 
-        self.session = None
-
         return dictOfValues
+
+    def obtain_time_series(self, timeSeries):
+        """
+        Clean up time series data to be put into a pandas dataframe
+        """
+
+        data = self.resolve_references(self.session, timeSeries)
+
+        try:
+            data.pop('ValueDateTime')
+            data.pop('ValueDateTimeUTCOffset')
+        except:
+            pass
+
+        # convert dictionary of data into a list of data with the first element removed
+        tmp_list = []
+        for k, v in data.iteritems():
+            v.pop(0)
+            tmp_list.append(v)
+        data = tmp_list
+        tmp_list = None
+
+        return data
+
+    def loadTimeSeriesResults(self, session, engine, timeSeries):
+        """
+        Loads TimeSeriesResultsValues into pandas DataFrame
+        """
+        self.session = session
+        self.engine = engine
+        data_values = timeSeries.pop('Data')
+        data = self.obtain_time_series(timeSeries)
+
+        import pandas as pd
+        # removes the warning message for pandas chained_assignment
+        pd.options.mode.chained_assignment = None
+
+        column_labels = data_values[0]
+        data_values = data_values[1:]
+        df = pd.DataFrame(data_values, columns=column_labels)
+        df.set_index(['ValueDateTime', 'ValueDateTimeUTCOffset'], inplace=True)
+        dfUnstacked = df.unstack(level=['ValueDateTime', 'ValueDateTimeUTCOffset'])
+
+        df2 = pd.DataFrame(data, columns=['Label', 'ResultID', 'ODM2Field', 'CensorCodeCV', 'TimeAggregationInterval',
+                                          'TimeAggregationIntervalUnitsID'])
+        dfUnstacked = dfUnstacked.reset_index()
+        df3 = pd.merge(df2, dfUnstacked, left_on="Label", right_on="level_0")
+
+        # Remove unnecessary column
+        del df3['ODM2Field']
+        del df3['level_0']
+
+        # print df3
+
+        # Construct the sql queries
+        AVGDataFrame = df3[df3['Label'] == 'AirTemp_Avg']
+        MaxDataFrame = df3[df3['Label'] == 'AirTemp_Max']
+        MinDataFrame = df3[df3['Label'] == 'AirTemp_Min']
+
+        # Remove unnecessary column
+        del AVGDataFrame['Label']
+        del MaxDataFrame['Label']
+        del MinDataFrame['Label']
+        del df3
+        del dfUnstacked
+        del df2
+        del df
+
+        # set column names for the last element
+        AVGDataFrame.columns.values[-1] = 'DataValue'
+        MinDataFrame.columns.values[-1] = 'DataValue'
+        MaxDataFrame.columns.values[-1] = 'DataValue'
+
+        # add missing values
+        AVGDataFrame['QualityCodeCV'] = 'Unknown'
+        MinDataFrame['QualityCodeCV'] = 'Unknown'
+        MaxDataFrame['QualityCodeCV'] = 'Unknown'
+
+        klass = self.get_klass("TimeSeriesResultValues")
+
+        AVGValues = AVGDataFrame.to_dict('records')
+        MinValues = MinDataFrame.to_dict('records')
+        MaxValues = MaxDataFrame.to_dict('records')
+
+        merged_dicts = self.merge_dicts(AVGValues, MinValues, MaxValues)
+        AVGValues = None
+        MinValues = None
+        MaxValues = None
+
+        for value in merged_dicts:
+            resolved_values = self._check_types(klass, value)
+            obj = self.create_obj(klass, resolved_values)
+            self.session.add(obj)
+
+        # AVGDataFrame.to_sql("self.engine)
+        self.session = None
+        self.engine = None
 
     def add_klasses(self, klass, items):
         """
@@ -502,12 +597,25 @@ class Loader(object):
         self.session = None
 
     def log_error(self, e, data, klass, item):
-            log.error('error occured while loading yaml data with output:\n%s'%pformat(data))
-            log.error('references:\n%s'%pformat(self._references))
-            log.error('class: %s'%klass)
-            log.error('item: %s'%item)
-            import traceback
-            log.error(traceback.format_exc(e))
+        log.error('error occured while loading yaml data with output:\n%s'%pformat(data))
+        log.error('references:\n%s'%pformat(self._references))
+        log.error('class: %s'%klass)
+        log.error('item: %s'%item)
+        import traceback
+        log.error(traceback.format_exc(e))
+
+    def merge_dicts(self, *dict_args):
+        '''
+        Given any number of dicts, shallow copy and merge into a new dict,
+        precedence goes to key value pairs in latter dicts.
+        '''
+        result = []
+
+        if isinstance(dict_args, tuple):
+            for i in dict_args:
+                for dictionary in i:
+                    result.append(dictionary)
+        return result
 
 class YamlLoader(Loader):
 
