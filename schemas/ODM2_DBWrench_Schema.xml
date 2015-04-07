@@ -640,7 +640,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
-      <Cl au="0" df="" nm="DataSetID" nu="0">
+      <Cl au="0" df="" nm="DatasetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the DataSet</Cm>
       </Cl>
@@ -651,7 +651,7 @@
       <Fk deAc="3" nm="fk_DataSetsResults_DataSets" prLkCl="DatasetID" upAc="3">
         <PrTb mn="0" nm="Datasets" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="DatasetsResults" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DataSetID" prCl="DatasetID"/>
+        <ClPr cdCl="DatasetID" prCl="DatasetID"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataSetsResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -6465,7 +6465,7 @@
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="496">
+  <RnmMgr NxRnmId="497">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7665,6 +7665,9 @@
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Datasets" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="495" nNm="DatasetAbstract" oNm="DataSetAbstract"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DatasetsResults" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="496" nNm="DatasetID" oNm="DataSetID"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
