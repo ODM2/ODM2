@@ -1259,11 +1259,11 @@ foreign key (PersonID) References ODM2.People (PersonID)
 on update no Action on delete cascade;
 
 alter table ODM2.Datasets add constraint fk_Datasets_CV_DatasetTypeCV
-foreign key (DataSetTypeCV) References ODM2.CV_DatasetTypeCV (Name)
+foreign key (DatasetTypeCV) References ODM2.CV_DatasetTypeCV (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.DatasetsResults add constraint fk_DataSetsResults_DataSets
-foreign key (DataSetID) References ODM2.Datasets (DataSetID)
+foreign key (DatasetID) References ODM2.Datasets (DatasetID)
 on update no Action on delete cascade;
 
 alter table ODM2.DatasetsResults add constraint fk_DataSetsResults_Results
@@ -1699,7 +1699,7 @@ foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.DatasetCitations add constraint fk_DataSetCitations_DataSets
-foreign key (DataSetID) References ODM2.Datasets (DataSetID)
+foreign key (DataSetID) References ODM2.Datasets (DatasetID)
 on update no Action on delete cascade;
 
 alter table ODM2.MethodCitations add constraint fk_MethodCitations_Citations
@@ -1743,11 +1743,11 @@ foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.RelatedDatasets add constraint fk_RelatedDatasets_DataSets
-foreign key (DataSetID) References ODM2.Datasets (DataSetID)
+foreign key (DataSetID) References ODM2.Datasets (DatasetID)
 on update no Action on delete cascade;
 
 alter table ODM2.RelatedDatasets add constraint fk_RelatedDatasets_DataSets_AreRelated
-foreign key (RelatedDatasetID) References ODM2.Datasets (DataSetID)
+foreign key (RelatedDatasetID) References ODM2.Datasets (DatasetID)
 on update no Action on delete cascade;
 
 alter table ODM2.RelatedResults add constraint fk_RelatedResults_CV_RelationshipType

@@ -155,17 +155,17 @@ CREATE TABLE ODM2.Affiliations (
 	PRIMARY KEY (AffiliationID)
 )
 CREATE TABLE ODM2.Datasets (
-	DataSetID int  IDENTITY (1,1) NOT NULL,
-	DataSetUUID uniqueidentifier   NOT NULL,
-	DataSetTypeCV varchar (255)  NOT NULL,
-	DataSetCode varchar (50)  NOT NULL,
-	DataSetTitle varchar (255)  NOT NULL,
-	DataSetAbstract varchar (500)  NOT NULL,
-	PRIMARY KEY (DataSetID)
+	DatasetID int  IDENTITY (1,1) NOT NULL,
+	DatasetUUID uniqueidentifier   NOT NULL,
+	DatasetTypeCV varchar (255)  NOT NULL,
+	DatasetCode varchar (50)  NOT NULL,
+	DatasetTitle varchar (255)  NOT NULL,
+	DatasetAbstract varchar (500)  NOT NULL,
+	PRIMARY KEY (DatasetID)
 )
 CREATE TABLE ODM2.DatasetsResults (
 	BridgeID int  IDENTITY (1,1) NOT NULL,
-	DataSetID int   NOT NULL,
+	DatasetID int   NOT NULL,
 	ResultID bigint   NOT NULL,
 	PRIMARY KEY (BridgeID)
 )
@@ -1400,11 +1400,11 @@ FOREIGN KEY (PersonID) REFERENCES ODM2.People (PersonID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.Datasets ADD CONSTRAINT fk_Datasets_CV_DatasetTypeCV
-FOREIGN KEY (DataSetTypeCV) REFERENCES ODM2.CV_DatasetTypeCV (Name)
+FOREIGN KEY (DatasetTypeCV) REFERENCES ODM2.CV_DatasetTypeCV (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.DatasetsResults ADD CONSTRAINT fk_DataSetsResults_DataSets
-FOREIGN KEY (DataSetID) REFERENCES ODM2.Datasets (DataSetID)
+FOREIGN KEY (DatasetID) REFERENCES ODM2.Datasets (DatasetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.DatasetsResults ADD CONSTRAINT fk_DataSetsResults_Results
@@ -1840,7 +1840,7 @@ FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.DatasetCitations ADD CONSTRAINT fk_DataSetCitations_DataSets
-FOREIGN KEY (DataSetID) REFERENCES ODM2.Datasets (DataSetID)
+FOREIGN KEY (DataSetID) REFERENCES ODM2.Datasets (DatasetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.MethodCitations ADD CONSTRAINT fk_MethodCitations_Citations
@@ -1884,11 +1884,11 @@ FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.RelatedDatasets ADD CONSTRAINT fk_RelatedDatasets_DataSets
-FOREIGN KEY (DataSetID) REFERENCES ODM2.Datasets (DataSetID)
+FOREIGN KEY (DataSetID) REFERENCES ODM2.Datasets (DatasetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.RelatedDatasets ADD CONSTRAINT fk_RelatedDatasets_DataSets_AreRelated
-FOREIGN KEY (RelatedDatasetID) REFERENCES ODM2.Datasets (DataSetID)
+FOREIGN KEY (RelatedDatasetID) REFERENCES ODM2.Datasets (DatasetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.RelatedResults ADD CONSTRAINT fk_RelatedResults_CV_RelationshipType
