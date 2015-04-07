@@ -586,10 +586,10 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="DataSets">
+    <Tbl UsSo="1" nm="Datasets">
       <Cm>Describes groupings of observation results that can be considered "datasets"</Cm>
       <TblOpts/>
-      <Pk ClNs="DataSetID" nm="pkDataSets"/>
+      <Pk ClNs="DataSetID" nm="pkDatasets"/>
       <Cl au="1" df="" nm="DataSetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier.</Cm>
@@ -617,10 +617,10 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="DataSetsResults">
+    <Tbl UsSo="1" nm="DatasetsResults">
       <Cm>Lists the Results that are grouped into a DataSet</Cm>
       <TblOpts/>
-      <Pk ClNs="BridgeID" nm="pkDataSetsResults"/>
+      <Pk ClNs="BridgeID" nm="pkDatasetsResults"/>
       <Cl au="1" df="" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
@@ -634,13 +634,13 @@
         <Cm>Foreign key identifier of the Result</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_DataSetsResults_DataSets" prLkCl="DataSetID" upAc="3">
-        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataSetsResults" oe="0" sch="ODM2Core" zr="1"/>
+        <PrTb mn="0" nm="Datasets" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DatasetsResults" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="DataSetID" prCl="DataSetID"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataSetsResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataSetsResults" oe="0" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="DatasetsResults" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints/>
@@ -2541,10 +2541,10 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="DataSetCitations">
+    <Tbl UsSo="1" nm="DatasetCitations">
       <Cm>Relationship between DataSets and Citations</Cm>
       <TblOpts/>
-      <Pk ClNs="BridgeID" nm="pkDataSetCitations"/>
+      <Pk ClNs="BridgeID" nm="pkDatasetCitations"/>
       <Cl au="1" df="" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
@@ -2563,12 +2563,12 @@
       </Cl>
       <Fk deAc="3" nm="fk_DataSetCitations_Citations" prLkCl="CitationID" upAc="3">
         <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
-        <CdTb mn="1" nm="DataSetCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <CdTb mn="1" nm="DatasetCitations" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataSetCitations_DataSets" prLkCl="DataSetID" upAc="3">
-        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="DataSetCitations" oe="0" sch="ODM2Provenance" zr="1"/>
+        <PrTb mn="0" nm="Datasets" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="DatasetCitations" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="DataSetID" prCl="DataSetID"/>
       </Fk>
       <UniqueConstraints/>
@@ -2708,12 +2708,12 @@
         <Cm>Text version number/code that can be specified if the DataSet is an explicit version of another DataSet and where the RelationshipTypeCV = "isNewVersionOf".</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_RelatedDatasets_DataSets" prLkCl="DataSetID" upAc="3">
-        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Datasets" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="RelatedDatasets" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="DataSetID" prCl="DataSetID"/>
       </Fk>
       <Fk deAc="3" nm="fk_RelatedDatasets_DataSets_AreRelated" prLkCl="DataSetID" upAc="3">
-        <PrTb mn="0" nm="DataSets" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Datasets" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="RelatedDatasets" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="RelatedDatasetID" prCl="DataSetID"/>
       </Fk>
@@ -4398,8 +4398,8 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="44" y="110"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="39" y="272"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="371" y="201"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="1183" y="39"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="1165" y="179"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1183" y="39"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1165" y="179"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="771" y="349"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1041" y="380"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="622" y="497"/>
@@ -4419,10 +4419,10 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Affiliations.fk_Affiliations_People" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_DataSets" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_Results" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions" parentEdge="" positioner="">
@@ -4962,13 +4962,13 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="50" y="285"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="32" y="443"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="40" y="621"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="653" y="533"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="650" y="401"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="653" y="533"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="650" y="401"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="891" y="406"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedResults" x="347" y="692"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DerivationEquations" x="1031" y="617"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="ResultDerivationEquations" x="660" y="620"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DataSetCitations" x="592" y="295"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DatasetCitations" x="592" y="295"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="614" y="166"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="AuthorLists" x="291" y="175"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="36" y="168"/>
@@ -4985,10 +4985,10 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_Methods" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_DataSets" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_Results" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions" parentEdge="" positioner="">
@@ -5003,10 +5003,10 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.AuthorLists.fk_AuthorLists_People" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_Citations" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.DatasetCitations.fk_DataSetCitations_Citations" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.DataSetCitations.fk_DataSetCitations_DataSets" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.DatasetCitations.fk_DataSetCitations_DataSets" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.MethodCitations.fk_MethodCitations_Citations" parentEdge="" positioner="">
@@ -5248,8 +5248,8 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="1140" y="412"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="881" y="423"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="932" y="577"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSets" x="454" y="102"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DataSetsResults" x="291" y="107"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="454" y="102"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="291" y="107"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="102" y="204"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="98" y="506"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="734" y="598"/>
@@ -5285,10 +5285,10 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Affiliations.fk_Affiliations_People" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_DataSets" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_DataSets" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DataSetsResults.fk_DataSetsResults_Results" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_Results" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions" parentEdge="" positioner="">
@@ -5375,7 +5375,7 @@
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="481">
+  <RnmMgr NxRnmId="484">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -5861,11 +5861,11 @@
       <Rnm id="296" nNm="MethodIdentifierID" oNm="MethodUniqueID"/>
       <Rnm id="184" nNm="MethodUniqueID" oNm="MethodUniqueIdentifier"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Datasets" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="298" nNm="DataSetIdentifierID" oNm="DataSetUniqueID"/>
       <Rnm id="185" nNm="DataSetUniqueID" oNm="DataSetUniqueIdentifier"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Datasets" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="188" nNm="DataSetUniqueIDTypeCV" oNm="DatasetUniqueIDTypeCV"/>
       <Rnm id="186" nNm="DatasetUniqueIDTypeCV" oNm="DatasetUniqueIdentifierTypeCV"/>
     </RnmCh>
@@ -5873,7 +5873,7 @@
       <Rnm id="294" nNm="OrganizationIdentifierID" oNm="OrganizationUniqueID"/>
       <Rnm id="187" nNm="OrganizationUniqueID" oNm="OrganizationUniqueIdentifier"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Datasets" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="386" nNm="DataSetCitationID" oNm="DataSetCitation"/>
       <Rnm id="189" nNm="DataSetCitation" oNm="Citation"/>
     </RnmCh>
@@ -5939,11 +5939,12 @@
       <Rnm id="223" nNm="AlternateCodeDescription" oNm="AlternativeCodeDescription"/>
       <Rnm id="219" nNm="AlternativeCodeDescription" oNm="LabCodeDescription"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetsResults" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DatasetsResults" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="226" nNm="ResultID" oNm="ResultsID"/>
       <Rnm id="224" nNm="ResultsID" oNm="ResultsSetID"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
+      <Rnm id="482" nNm="DatasetsResults" oNm="DataSetsResults"/>
       <Rnm id="225" nNm="DataSetsResults" oNm="DataSetsResultsSets"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Results" SupCls="" SupNme="">
@@ -6020,7 +6021,7 @@
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="250" nNm="SpeciationCV" oNm="Speciation"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSets" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Datasets" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="326" nNm="DataSetTypeCV" oNm="DataSetTopicCategoryCV"/>
       <Rnm id="251" nNm="DataSetTopicCategoryCV" oNm="DataSetTopicCategory"/>
     </RnmCh>
@@ -6535,6 +6536,12 @@
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TrajectoryResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="476" nNm="CensorCodeCV" oNm="CensorCode"/>
     </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
+      <Rnm id="481" nNm="Datasets" oNm="DataSets"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Provenance" SupCls="" SupNme="">
+      <Rnm id="483" nNm="DatasetCitations" oNm="DataSetCitations"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -6557,9 +6564,6 @@
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2ExternalIdentifiers</TreePath>
-    <TreePath>/Schemas (12)/ODM2ExternalIdentifiers/Tables (9)</TreePath>
-    <TreePath>/Schemas (12)/ODM2ExternalIdentifiers/Tables (9)/PersonExternalIdentifiers</TreePath>
     <TreePath>/Diagrams (12)</TreePath>
   </TreePaths>
 </Db>
