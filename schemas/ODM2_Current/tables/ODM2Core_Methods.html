@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr>
+<tr class="altRow">
 <td class="title_nm">Methods</td><td class="watermark_right">Describes methods used to perform actions recorded in ODM (e.g., obser...</td>
 </tr>
 </table>
@@ -39,7 +39,10 @@
 </td><td class="PkCol"> </td><td class="PkCol">Primary key identifier</td><td class="PkCol"> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_Methods_MethodTypeCV.html">MethodTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term describing the type of method (e.g., sample collection, laboratory analytical, field, sample prepratation, etc.)</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Methods_MethodTypeCV.html">MethodTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV term describing the type of method (e.g., sample collection, laboratory analytical, field, sample prepratation, etc.)</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2Core_Methods_MethodCode.html">MethodCode</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>A text code identifiying the method (e.g., EPA 650.2)</td><td> </td>
@@ -72,10 +75,19 @@
 <br>
 <table class="flat">
 <tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
 <td class="banner" colspan="5">Foreign Keys</td>
 </tr>
 <tr>
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Methods_fk_Methods_CV_MethodType.html">fk_Methods_CV_MethodType</a></td><td><a href="../tables/ODM2CV_CV_MethodType.html">ODM2CV.CV_MethodType</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td>Name</td><td>MethodTypeCV</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Core_Methods_fk_Methods_Organizations.html">fk_Methods_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td>OrganizationID</td><td>OrganizationID</td>

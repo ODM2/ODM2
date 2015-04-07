@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">Results</td><td class="watermark_right">Describes the results of observation actions (e.g., groups of one or m...</td>
 </tr>
 </table>
@@ -105,16 +105,28 @@
 </td><td> </td><td> </td><td>UTCOffset of ValidDateTime</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Core_Results_StatusCV.html">StatusCV</a></td><td>VarChar(255)</td><td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_StatusCV.html">StatusCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Status of the result (e.g., finished, ongoing, etc.)</td><td> </td>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Status of the result (e.g., finished, ongoing, etc.)</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_Results_SampledMediumCV.html">SampledMediumCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term defining the environmental medium that the result represents (e.g., air, soil, water)</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Results_SampledMediumCV.html">SampledMediumCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV term defining the environmental medium that the result represents (e.g., air, soil, water)</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2Core_Results_ValueCount.html">ValueCount</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Number of data values contained within the result</td><td> </td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
 </tr>
 </table>
 <br>
@@ -126,13 +138,19 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_FeatureActions.html">fk_Results_FeatureActions</a></td><td><a href="../tables/ODM2Core_FeatureActions.html">ODM2Core.FeatureActions</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>FeatureActionID</td><td>FeatureActionID</td>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_ResultType.html">fk_Results_CV_ResultType</a></td><td><a href="../tables/ODM2CV_CV_ResultType.html">ODM2CV.CV_ResultType</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>ResultTypeCV</td>
 </tr>
 <tr class="altRow">
-<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_ProcessingLevels.html">fk_Results_ProcessingLevels</a></td><td><a href="../tables/ODM2Core_ProcessingLevels.html">ODM2Core.ProcessingLevels</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>ProcessingLevelID</td><td>ProcessingLevelID</td>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_SampledMedium.html">fk_Results_CV_SampledMedium</a></td><td><a href="../tables/ODM2CV_CV_SampledMedium.html">ODM2CV.CV_SampledMedium</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>SampledMediumCV</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_ResultTypeCV.html">fk_Results_ResultTypeCV</a></td><td><a href="../tables/ODM2Results_ResultTypeCV.html">ODM2Results.ResultTypeCV</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>ResultTypeCV</td><td>ResultTypeCV</td>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_Status.html">fk_Results_CV_Status</a></td><td><a href="../tables/ODM2CV_CV_Status.html">ODM2CV.CV_Status</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>StatusCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_FeatureActions.html">fk_Results_FeatureActions</a></td><td><a href="../tables/ODM2Core_FeatureActions.html">ODM2Core.FeatureActions</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>FeatureActionID</td><td>FeatureActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_ProcessingLevels.html">fk_Results_ProcessingLevels</a></td><td><a href="../tables/ODM2Core_ProcessingLevels.html">ODM2Core.ProcessingLevels</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>ProcessingLevelID</td><td>ProcessingLevelID</td>
 </tr>
 <tr class="altRow">
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_TaxonomicClassifiers.html">fk_Results_TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>TaxonomicClassifierID</td><td>TaxonomicClassifierID</td>
@@ -156,7 +174,7 @@
 <td><a href="../foreignKeys/ODM2Annotations_ResultAnnotations_fk_ResultAnnotations_Results.html">fk_ResultAnnotations_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Annotations_ResultAnnotations.html">ODM2Annotations.ResultAnnotations</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
 <tr class="altRow">
-<td><a href="../foreignKeys/ODM2Core_DataSetsResults_fk_DataSetsResults_Results.html">fk_DataSetsResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_DataSetsResults.html">ODM2Core.DataSetsResults</a></td><td>ResultID</td><td>ResultID</td>
+<td><a href="../foreignKeys/ODM2Core_DatasetsResults_fk_DataSetsResults_Results.html">fk_DataSetsResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_DatasetsResults.html">ODM2Core.DatasetsResults</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2DataQuality_ResultNormalizationValues_fk_ResultNormalizationValues_Results.html">fk_ResultNormalizationValues_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2DataQuality_ResultNormalizationValues.html">ODM2DataQuality.ResultNormalizationValues</a></td><td>ResultID</td><td>ResultID</td>

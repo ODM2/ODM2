@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr>
+<tr class="altRow">
 <td class="title_nm">SamplingFeatures</td><td class="watermark_right">Describes the sampling features on which observations are made.</td>
 </tr>
 </table>
@@ -42,7 +42,10 @@
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureUUID.html">SamplingFeatureUUID</a></td><td>UniqueID</td><td> </td><td> </td><td> </td><td>A universally unique identifier for the sampling feature.</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureTypeCV.html">SamplingFeatureTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term descripting the type of sampling feature.</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureTypeCV.html">SamplingFeatureTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV term descripting the type of sampling feature.</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureCode.html">SamplingFeatureCode</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>A short but meaningful text identifier for the sampling feature.</td><td> </td>
@@ -60,10 +63,13 @@
 </td><td> </td><td> </td><td>Text describing the sampling feature.</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureGeotypeCV.html">SamplingFeatureGeotypeCV</a></td><td>VarChar(255)</td><td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureGeotypeCV.html">SamplingFeatureGeotypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Dimensionality of SamplingFeature; point2d, line2d, etc.</td><td> </td>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Dimensionality of SamplingFeature; point2d, line2d, etc.</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_FeatureGeometry.html">FeatureGeometry</a></td><td>Geometry</td><td>
@@ -78,16 +84,37 @@
 </td><td> </td><td> </td><td>The elevation of the sampling feature in meters, or in the case of Specimen, the elevation from where the SamplingFeature.Specimen was collected</td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_ElevationDatumCV.html">ElevationDatumCV</a></td><td>VarChar(255)</td><td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_SamplingFeatures_ElevationDatumCV.html">ElevationDatumCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>The code for the vertical geodetic datum that specifies the zero point for the Sampling Feature Elevation.</td><td> </td>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">The code for the vertical geodetic datum that specifies the zero point for the Sampling Feature Elevation.</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 </table>
 <br>
 <table class="flat">
 <tr>
-<td class="banner" colspan="1">Foreign Keys<span class="plain"> (none)</span></td>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_SamplingFeatures_fk_SamplingFeatures_CV_ElevationDatum.html">fk_SamplingFeatures_CV_ElevationDatum</a></td><td><a href="../tables/ODM2CV_CV_ElevationDatum.html">ODM2CV.CV_ElevationDatum</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td>Name</td><td>ElevationDatumCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_SamplingFeatures_fk_SamplingFeatures_CV_SamplingFeatureGeoType.html">fk_SamplingFeatures_CV_SamplingFeatureGeoType</a></td><td><a href="../tables/ODM2CV_CV_SamplingFeatureGeoType.html">ODM2CV.CV_SamplingFeatureGeoType</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td>Name</td><td>SamplingFeatureGeotypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_SamplingFeatures_fk_SamplingFeatures_CV_SamplingFeatureType.html">fk_SamplingFeatures_CV_SamplingFeatureType</a></td><td><a href="../tables/ODM2CV_CV_SamplingFeatureType.html">ODM2CV.CV_SamplingFeatureType</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td>Name</td><td>SamplingFeatureTypeCV</td>
 </tr>
 </table>
 <br>

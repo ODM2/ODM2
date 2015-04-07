@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr>
+<tr class="altRow">
 <td class="title_nm">ExtensionProperties</td><td class="watermark_right">Describes extension properties added to objects in an ODM database</td>
 </tr>
 </table>
@@ -48,7 +48,10 @@
 </td><td> </td><td> </td><td>Text description of the extension property</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2ExtensionProperties_ExtensionProperties_PropertyDataTypeCV.html">PropertyDataTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>CV term specifying the data type of the property value</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2ExtensionProperties_ExtensionProperties_PropertyDataTypeCV.html">PropertyDataTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV term specifying the data type of the property value</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2ExtensionProperties_ExtensionProperties_PropertyUnitsID.html">PropertyUnitsID</a></td><td class="FkCol">Integer</td><td class="FkCol">
@@ -63,10 +66,19 @@
 <br>
 <table class="flat">
 <tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
 <td class="banner" colspan="5">Foreign Keys</td>
 </tr>
 <tr>
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_ExtensionProperties_fk_ExtensionProperties_CV_PropertyDataType.html">fk_ExtensionProperties_CV_PropertyDataType</a></td><td><a href="../tables/ODM2CV_CV_PropertyDataType.html">ODM2CV.CV_PropertyDataType</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td>Name</td><td>PropertyDataTypeCV</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2ExtensionProperties_ExtensionProperties_fk_ExtensionProperties_Units.html">fk_ExtensionProperties_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td>UnitsID</td><td>PropertyUnitsID</td>

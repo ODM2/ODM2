@@ -1,6 +1,6 @@
 <HTML>
 <Header>
-<Title>DataSetsResults - Table</Title>
+<Title>DatasetsResults - Table</Title>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 <Link href="../css/doc.css" rel="stylesheet" type="text/css">
 </Header>
@@ -17,8 +17,8 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr>
-<td class="title_nm">DataSetsResults</td><td class="watermark_right">Lists the Results that are grouped into a DataSet</td>
+<tr class="altRow">
+<td class="title_nm">DatasetsResults</td><td class="watermark_right">Lists the Results that are grouped into a DataSet</td>
 </tr>
 </table>
 <br>
@@ -33,22 +33,28 @@
 <td class="PkCol">
 <p class="boolImg">
 <img src="../images/pkb16.gif"></p>
-</td><td class="PkCol"><a href="../columns/ODM2Core_DataSetsResults_BridgeID.html">BridgeID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+</td><td class="PkCol"><a href="../columns/ODM2Core_DatasetsResults_BridgeID.html">BridgeID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td class="PkCol"> </td><td class="PkCol">Primary key for a bridge table, enabling many-to-many joins.</td><td class="PkCol"> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_DataSetsResults_DataSetID.html">DataSetID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the DataSet</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_DatasetsResults_DataSetID.html">DataSetID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the DataSet</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_DataSetsResults_ResultID.html">ResultID</a></td><td class="FkCol">BigInt</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the Result</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_DatasetsResults_ResultID.html">ResultID</a></td><td class="FkCol">BigInt</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the Result</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
 </tr>
 </table>
 <br>
@@ -60,10 +66,10 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_DataSetsResults_fk_DataSetsResults_DataSets.html">fk_DataSetsResults_DataSets</a></td><td><a href="../tables/ODM2Core_DataSets.html">ODM2Core.DataSets</a></td><td><a href="../tables/ODM2Core_DataSetsResults.html">ODM2Core.DataSetsResults</a></td><td>DataSetID</td><td>DataSetID</td>
+<td><a href="../foreignKeys/ODM2Core_DatasetsResults_fk_DataSetsResults_DataSets.html">fk_DataSetsResults_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Core_DatasetsResults.html">ODM2Core.DatasetsResults</a></td><td>DataSetID</td><td>DataSetID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_DataSetsResults_fk_DataSetsResults_Results.html">fk_DataSetsResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_DataSetsResults.html">ODM2Core.DataSetsResults</a></td><td>ResultID</td><td>ResultID</td>
+<td><a href="../foreignKeys/ODM2Core_DatasetsResults_fk_DataSetsResults_Results.html">fk_DataSetsResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_DatasetsResults.html">ODM2Core.DatasetsResults</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
 </table>
 <br>

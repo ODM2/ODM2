@@ -108,7 +108,16 @@
 </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Results_SpectraResults_AggregationStatisticCV.html">AggregationStatisticCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td> </td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Results_SpectraResults_AggregationStatisticCV.html">AggregationStatisticCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
 </tr>
 </table>
 <br>
@@ -120,21 +129,24 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_CV_AggregationStatistic.html">fk_SpectraResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_Results.html">fk_SpectraResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_SpatialReferences.html">fk_SpectraResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_Units.html">fk_SpectraResults_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>UnitsID</td><td>IntendedWavelengthSpacingUnitsID</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_XUnits.html">fk_SpectraResults_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_YUnits.html">fk_SpectraResults_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
 </tr>
-<tr class="altRow">
+<tr>
 <td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_ZUnits.html">fk_SpectraResults_ZUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
 </tr>
 </table>
@@ -143,7 +155,7 @@
 <tr>
 <td class="banner" colspan="5">Parent Relations</td>
 </tr>
-<tr>
+<tr class="altRow">
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>

@@ -54,10 +54,16 @@
 <td> </td><td><a href="../columns/ODM2Results_TimeSeriesResultValues_ValueDateTimeUTCOffset.html">ValueDateTimeUTCOffset</a></td><td>Integer</td><td> </td><td> </td><td> </td><td> </td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Results_TimeSeriesResultValues_CensorCodeCV.html">CensorCodeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td> </td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Results_TimeSeriesResultValues_CensorCodeCV.html">CensorCodeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Results_TimeSeriesResultValues_QualityCodeCV.html">QualityCodeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td> </td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Results_TimeSeriesResultValues_QualityCodeCV.html">QualityCodeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Results_TimeSeriesResultValues_TimeAggregationInterval.html">TimeAggregationInterval</a></td><td>Float</td><td> </td><td> </td><td> </td><td> </td><td> </td>
@@ -72,16 +78,28 @@
 <br>
 <table class="flat">
 <tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
 <td class="banner" colspan="5">Foreign Keys</td>
 </tr>
 <tr>
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_TimeSeriesResults.html">fk_TimeSeriesResultValues_TimeSeriesResults</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>ResultID</td><td>ResultID</td>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_AIUnits.html">fk_TimeSeriesResultValues_AIUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_Units.html">fk_TimeSeriesResultValues_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_CV_CensorCode.html">fk_TimeSeriesResultValues_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_CV_QualityCode.html">fk_TimeSeriesResultValues_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_TimeSeriesResults.html">fk_TimeSeriesResultValues_TimeSeriesResults</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>ResultID</td><td>ResultID</td>
 </tr>
 </table>
 <br>

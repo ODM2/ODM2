@@ -17,7 +17,7 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
+<tr>
 <td class="title_nm">Directives</td><td class="watermark_right">Describes the directive or purpose under which actions are made.  Dire...</td>
 </tr>
 </table>
@@ -39,7 +39,10 @@
 </td><td class="PkCol"> </td><td class="PkCol">Unique identifier.</td><td class="PkCol"> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2LabAnalyses_Directives_DirectiveTypeCV.html">DirectiveTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Directive type, such as project, intended analyte/analysis for a Specimen, etc.</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2LabAnalyses_Directives_DirectiveTypeCV.html">DirectiveTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Directive type, such as project, intended analyte/analysis for a Specimen, etc.</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2LabAnalyses_Directives_DirectiveDescription.html">DirectiveDescription</a></td><td>VarChar(500)</td><td> </td><td> </td><td> </td><td>Text description of the directive or purpose under which the action was taken.</td><td> </td>
@@ -48,7 +51,19 @@
 <br>
 <table class="flat">
 <tr>
-<td class="banner" colspan="1">Foreign Keys<span class="plain"> (none)</span></td>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2LabAnalyses_Directives_fk_Directives_CV_DirectiveType.html">fk_Directives_CV_DirectiveType</a></td><td><a href="../tables/ODM2CV_CV_DirectiveType.html">ODM2CV.CV_DirectiveType</a></td><td><a href="../tables/ODM2LabAnalyses_Directives.html">ODM2LabAnalyses.Directives</a></td><td>Name</td><td>DirectiveTypeCV</td>
 </tr>
 </table>
 <br>

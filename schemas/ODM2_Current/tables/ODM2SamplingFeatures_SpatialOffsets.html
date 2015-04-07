@@ -36,13 +36,19 @@
 </td><td class="PkCol"><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_SpatialOffsetID.html">SpatialOffsetID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol">Primary Key of SpatialOffset</td><td class="PkCol"> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_SpatialOffsetTypeCV.html">SpatialOffsetTypeCV</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>Type of SpatialOffset, such as Depth, DepthInterval, HorizaontalRadial</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_SpatialOffsetTypeCV.html">SpatialOffsetTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Type of SpatialOffset, such as Depth, DepthInterval, HorizaontalRadial</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset1Value.html">Offset1Value</a></td><td>Float</td><td> </td><td> </td><td> </td><td>Numerical value for 1st SpatialOffset, which is defined by SpatialOffsetType</td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset1UnitID.html">Offset1UnitID</a></td><td>Integer</td><td> </td><td> </td><td> </td><td>Units for 1st SpatialOffset, which is defined by SpatialOffsetType</td><td> </td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset1UnitID.html">Offset1UnitID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Units for 1st SpatialOffset, which is defined by SpatialOffsetType</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset2Value.html">Offset2Value</a></td><td>Float</td><td>
@@ -51,10 +57,13 @@
 </td><td> </td><td> </td><td>Numerical value for 2nd SpatialOffset, which is defined by SpatialOffsetType</td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset2UnitID.html">Offset2UnitID</a></td><td>Integer</td><td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset2UnitID.html">Offset2UnitID</a></td><td class="FkCol">Integer</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Units for 2nd SpatialOffset, which is defined by SpatialOffsetType</td><td> </td>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Units for 2nd SpatialOffset, which is defined by SpatialOffsetType</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 <tr>
 <td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset3Value.html">Offset3Value</a></td><td>Float</td><td>
@@ -63,16 +72,40 @@
 </td><td> </td><td> </td><td>Numerical value for 3rd SpatialOffset, which is defined by SpatialOffsetType</td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset3UnitID.html">Offset3UnitID</a></td><td>Integer</td><td>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_SpatialOffsets_Offset3UnitID.html">Offset3UnitID</a></td><td class="FkCol">Integer</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>Units for 3rd SpatialOffset, which is defined by SpatialOffsetType</td><td> </td>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Units for 3rd SpatialOffset, which is defined by SpatialOffsetType</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
 </tr>
 </table>
 <br>
 <table class="flat">
 <tr>
-<td class="banner" colspan="1">Foreign Keys<span class="plain"> (none)</span></td>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_CV_SpatialOffsetType.html">fk_SpatialOffsets_CV_SpatialOffsetType</a></td><td><a href="../tables/ODM2CV_CV_SpatialOffsetType.html">ODM2CV.CV_SpatialOffsetType</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>Name</td><td>SpatialOffsetTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_Offset1Units.html">fk_SpatialOffsets_Offset1Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>UnitsID</td><td>Offset1UnitID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_Offset2Units.html">fk_SpatialOffsets_Offset2Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>UnitsID</td><td>Offset2UnitID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_Offset3Units.html">fk_SpatialOffsets_Offset3Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>UnitsID</td><td>Offset3UnitID</td>
 </tr>
 </table>
 <br>
