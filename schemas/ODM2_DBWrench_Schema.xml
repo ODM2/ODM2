@@ -2,7 +2,7 @@
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>\Users\JeffHorsburgh\Desktop\ODM2_Current</DocFolder>
+  <DocFolder>/Users/JeffHorsburgh/Desktop/ODM2_Current</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
@@ -7656,7 +7656,7 @@
       <Name>db.doc.option.mgr</Name>
       <BoolOpt lbl="Diagrams" nm="doc.diagrams" on="1" spl="0"/>
       <BoolOpt lbl="Foreign Keys" nm="doc.fks" on="1" spl="0"/>
-      <BoolOpt lbl="Indexes" nm="doc.indexes" on="0" spl="1"/>
+      <BoolOpt lbl="Indexes" nm="doc.indexes" on="1" spl="1"/>
       <BoolOpt lbl="Overwrite CSS File" nm="doc.overwrite.css" on="1" spl="0"/>
       <BoolOpt lbl="Procedures" nm="doc.procs" on="0" spl="1"/>
       <BoolOpt lbl="Schemas" nm="doc.schemas" on="1" spl="0"/>
@@ -7667,8 +7667,7 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
