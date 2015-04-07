@@ -25,6 +25,8 @@ CREATE TABLE Annotations (
 	CitationID INTEGER   NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (AnnotationTypeCV) REFERENCES CV_AnnotationType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (AnnotatorID) REFERENCES People (PersonID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -187,6 +189,8 @@ CREATE TABLE Actions (
 	EndDateTimeUTCOffset INTEGER   NULL,
 	ActionDescription VARCHAR (500)  NULL,
 	ActionFileLink VARCHAR (255)  NULL,
+	FOREIGN KEY (ActionTypeCV) REFERENCES CV_ActionType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (MethodID) REFERENCES Methods (MethodID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -208,20 +212,22 @@ CREATE TABLE Affiliations (
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE DataSets (
+CREATE TABLE Datasets (
 	DataSetID INTEGER   NOT NULL PRIMARY KEY,
 	DataSetUUID VARCHAR(36)   NOT NULL,
 	DataSetTypeCV VARCHAR (255)  NOT NULL,
 	DataSetCode VARCHAR (50)  NOT NULL,
 	DataSetTitle VARCHAR (255)  NOT NULL,
-	DataSetAbstract VARCHAR (500)  NOT NULL
+	DataSetAbstract VARCHAR (500)  NOT NULL,
+	FOREIGN KEY (DataSetTypeCV) REFERENCES CV_DatasetTypeCV (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE DataSetsResults (
+CREATE TABLE DatasetsResults (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	DataSetID INTEGER   NOT NULL,
 	ResultID INTEGER   NOT NULL,
-	FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
+	FOREIGN KEY (DataSetID) REFERENCES Datasets (DataSetID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -245,6 +251,8 @@ CREATE TABLE Methods (
 	MethodDescription VARCHAR (500)  NULL,
 	MethodLink VARCHAR (255)  NULL,
 	OrganizationID INTEGER   NULL,
+	FOREIGN KEY (MethodTypeCV) REFERENCES CV_MethodType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (OrganizationID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -257,6 +265,8 @@ CREATE TABLE Organizations (
 	OrganizationDescription VARCHAR (500)  NULL,
 	OrganizationLink VARCHAR (255)  NULL,
 	ParentOrganizationID INTEGER   NULL,
+	FOREIGN KEY (OrganizationTypeCV) REFERENCES CV_OrganizationType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ParentOrganizationID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -283,6 +293,8 @@ CREATE TABLE RelatedActions (
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedActionID) REFERENCES Actions (ActionID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -302,11 +314,15 @@ CREATE TABLE Results (
 	StatusCV VARCHAR (255)  NULL,
 	SampledMediumCV VARCHAR (255)  NOT NULL,
 	ValueCount INTEGER   NOT NULL,
+	FOREIGN KEY (ResultTypeCV) REFERENCES CV_ResultType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (SampledMediumCV) REFERENCES CV_SampledMedium (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (StatusCV) REFERENCES CV_Status (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (FeatureActionID) REFERENCES FeatureActions (FeatureActionID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ProcessingLevelID) REFERENCES ProcessingLevels (ProcessingLevelID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION,
-	FOREIGN KEY (ResultTypeCV) REFERENCES ResultTypeCV (ResultTypeCV)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (TaxonomicClassifierID) REFERENCES TaxonomicClassifiers (TaxonomicClassifierID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -326,7 +342,13 @@ CREATE TABLE SamplingFeatures (
 	SamplingFeatureGeotypeCV VARCHAR (255)  NULL,
 	FeatureGeometry geometry   NULL,
 	Elevation_m FLOAT   NULL,
-	ElevationDatumCV VARCHAR (255)  NULL
+	ElevationDatumCV VARCHAR (255)  NULL,
+	FOREIGN KEY (ElevationDatumCV) REFERENCES CV_ElevationDatum (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (SamplingFeatureGeotypeCV) REFERENCES CV_SamplingFeatureGeoType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (SamplingFeatureTypeCV) REFERENCES CV_SamplingFeatureType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE TaxonomicClassifiers (
@@ -337,6 +359,8 @@ CREATE TABLE TaxonomicClassifiers (
 	TaxonomicClassifierDescription VARCHAR (500)  NULL,
 	ParentTaxonomicClassifierID INTEGER   NULL,
 	FOREIGN KEY (ParentTaxonomicClassifierID) REFERENCES TaxonomicClassifiers (TaxonomicClassifierID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (TaxonomicClassifierTypeCV) REFERENCES CV_TaxonomicClassifierType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -345,7 +369,9 @@ CREATE TABLE Units (
 	UnitsTypeCV VARCHAR (255)  NOT NULL,
 	UnitsAbbreviation VARCHAR (50)  NOT NULL,
 	UnitsName VARCHAR (255)  NOT NULL,
-	UnitsLink VARCHAR (255)  NULL
+	UnitsLink VARCHAR (255)  NULL,
+	FOREIGN KEY (UnitsTypeCV) REFERENCES CV_UnitsType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE Variables (
@@ -355,20 +381,248 @@ CREATE TABLE Variables (
 	VariableNameCV VARCHAR (255)  NOT NULL,
 	VariableDefinition VARCHAR (500)  NULL,
 	SpeciationCV VARCHAR (255)  NULL,
-	NoDataValue DOUBLE   NOT NULL
+	NoDataValue DOUBLE   NOT NULL,
+	FOREIGN KEY (SpeciationCV) REFERENCES CV_Speciation (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (VariableNameCV) REFERENCES CV_VariableName (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (VariableTypeCV) REFERENCES CV_VariableType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 /***************************************************************************/
 /****************************** CREATE ODM2CV ******************************/
 /***************************************************************************/
 
-CREATE TABLE CVTerms (
-	TermID INTEGER   NOT NULL PRIMARY KEY,
+CREATE TABLE CV_ActionType (
 	Term VARCHAR (255)  NOT NULL,
-	Name VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
 	Definition VARCHAR (500)  NULL,
 	Category VARCHAR (255)  NULL,
-	ODM2Vocabulary VARCHAR (255)  NOT NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_AggregationStatistic (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_AnnotationType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_CensorCode (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_DataQualityType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_DatasetTypeCV (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_DirectiveType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_ElevationDatum (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_EquipmentType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_MethodType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_OrganizationType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_PropertyDataType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_QualityCode (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_ReferenceMaterialMedium (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_RelationshipType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_ResultType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SampledMedium (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SamplingFeatureGeoType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SamplingFeatureType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SiteType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SpatialOffsetType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_Speciation (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SpecimenMedium (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SpecimenType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_Status (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_TaxonomicClassifierType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_UnitsType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_VariableName (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_VariableType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
 
@@ -384,6 +638,8 @@ CREATE TABLE DataQuality (
 	DataQualityValueUnitsID INTEGER   NULL,
 	DataQualityDescription VARCHAR (500)  NULL,
 	DataQualityLink VARCHAR (255)  NULL,
+	FOREIGN KEY (DataQualityTypeCV) REFERENCES CV_DataQualityType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (DataQualityValueUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -398,6 +654,8 @@ CREATE TABLE ReferenceMaterials (
 	ReferenceMaterialExpirationDate DATETIME   NULL,
 	ReferenceMaterialCertificateLink VARCHAR (255)  NULL,
 	SamplingFeatureID INTEGER   NULL,
+	FOREIGN KEY (ReferenceMaterialMediumCV) REFERENCES CV_ReferenceMaterialMedium (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ReferenceMaterialOrganizationID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
@@ -489,6 +747,8 @@ CREATE TABLE DataloggerFileColumns (
 	RecordingInterval FLOAT   NULL,
 	RecordingIntervalUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NULL,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (DataLoggerFileID) REFERENCES DataLoggerFiles (DataLoggerFileID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (InstrumentOutputVariableID) REFERENCES InstrumentOutputVariables (InstrumentOutputVariableID)
@@ -535,6 +795,8 @@ CREATE TABLE Equipment (
 	EquipmentPurchaseOrderNumber VARCHAR (50)  NULL,
 	EquipmentDescription VARCHAR (500)  NULL,
 	EquipmentDocumentationLink VARCHAR (255)  NULL,
+	FOREIGN KEY (EquipmentTypeCV) REFERENCES CV_EquipmentType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (EquipmentModelID) REFERENCES EquipmentModels (EquipmentModelID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (EquipmentVendorID) REFERENCES Organizations (OrganizationID)
@@ -602,6 +864,8 @@ CREATE TABLE RelatedEquipment (
 	RelationshipStartDateTimeUTCOffset INTEGER   NOT NULL,
 	RelationshipEndDateTime DATETIME   NULL,
 	RelationshipEndDateTimeUTCOffset INTEGER   NULL,
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedEquipmentID) REFERENCES Equipment (EquipmentID)
@@ -640,6 +904,8 @@ CREATE TABLE ExtensionProperties (
 	PropertyDescription VARCHAR (500)  NULL,
 	PropertyDataTypeCV VARCHAR (255)  NOT NULL,
 	PropertyUnitsID INTEGER   NULL,
+	FOREIGN KEY (PropertyDataTypeCV) REFERENCES CV_PropertyDataType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (PropertyUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -731,7 +997,7 @@ CREATE TABLE PersonExternalIdentifiers (
 	PersonID INTEGER   NOT NULL,
 	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	PersonExternalIdentifier VARCHAR (255)  NOT NULL,
-	PersonExternalIdenifierURI VARCHAR (255)  NULL,
+	PersonExternalIdentifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (PersonID) REFERENCES People (PersonID)
@@ -815,7 +1081,9 @@ CREATE TABLE ActionDirectives (
 CREATE TABLE Directives (
 	DirectiveID INTEGER   NOT NULL PRIMARY KEY,
 	DirectiveTypeCV VARCHAR (255)  NOT NULL,
-	DirectiveDescription VARCHAR (500)  NOT NULL
+	DirectiveDescription VARCHAR (500)  NOT NULL,
+	FOREIGN KEY (DirectiveTypeCV) REFERENCES CV_DirectiveType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE SpecimenBatchPostions (
@@ -849,14 +1117,16 @@ CREATE TABLE Citations (
 	CitationLink VARCHAR (255)  NULL
 );
 
-CREATE TABLE DataSetCitations (
+CREATE TABLE DatasetCitations (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	DataSetID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
 	CitationID INTEGER   NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
-	FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (DataSetID) REFERENCES Datasets (DataSetID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -872,6 +1142,8 @@ CREATE TABLE MethodCitations (
 	CitationID INTEGER   NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (MethodID) REFERENCES Methods (MethodID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -884,17 +1156,21 @@ CREATE TABLE RelatedAnnotations (
 	FOREIGN KEY (AnnotationID) REFERENCES Annotations (AnnotationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedAnnotationID) REFERENCES Annotations (AnnotationID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE RelatedCitations (
 	RelationID INTEGER   NOT NULL PRIMARY KEY,
 	CitationID INTEGER   NOT NULL,
-	RelationshipTypeCV INTEGER   NOT NULL,
+	RelationshipTypeCV VARCHAR (255)  NOT NULL,
 	RelatedCitationID INTEGER   NOT NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedCitationID) REFERENCES Citations (CitationID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -904,9 +1180,11 @@ CREATE TABLE RelatedDatasets (
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
 	RelatedDatasetID INTEGER   NOT NULL,
 	VersionCode VARCHAR (50)  NULL,
-	FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
-	FOREIGN KEY (RelatedDatasetID) REFERENCES DataSets (DataSetID)
+	FOREIGN KEY (DataSetID) REFERENCES Datasets (DataSetID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (RelatedDatasetID) REFERENCES Datasets (DataSetID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -917,6 +1195,8 @@ CREATE TABLE RelatedResults (
 	RelatedResultID INTEGER   NOT NULL,
 	VersionCode VARCHAR (50)  NULL,
 	RelatedResultSequenceNumber INTEGER   NULL,
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (RelatedResultID) REFERENCES Results (ResultID)
@@ -945,7 +1225,9 @@ CREATE TABLE CategoricalResults (
 	ZLocation FLOAT   NULL,
 	ZLocationUnitsID INTEGER   NULL,
 	SpatialReferenceID INTEGER   NULL,
-	QualityCodeCV INTEGER   NOT NULL,
+	QualityCodeCV VARCHAR (255)  NOT NULL,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -977,6 +1259,12 @@ CREATE TABLE MeasurementResults (
 	TimeAggregationInterval FLOAT   NOT NULL,
 	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -1012,6 +1300,8 @@ CREATE TABLE PointCoverageResults (
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
 	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1036,6 +1326,10 @@ CREATE TABLE PointCoverageResultValues (
 	YLocationUnitsID INTEGER   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
+	FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES PointCoverageResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (XLocationUnitsID) REFERENCES Units (UnitsID)
@@ -1056,6 +1350,8 @@ CREATE TABLE ProfileResults (
 	IntendedTimeSpacing FLOAT   NULL,
 	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (IntendedZSpacingUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
@@ -1085,22 +1381,14 @@ CREATE TABLE ProfileResultValues (
 	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES ProfileResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
-CREATE TABLE ResultTypeCV (
-	ResultTypeCV VARCHAR (255)  NOT NULL PRIMARY KEY,
-	ResultTypeCategory VARCHAR (255)  NOT NULL,
-	DataType VARCHAR (255)  NOT NULL,
-	ResultTypeDefinition VARCHAR (500)  NOT NULL,
-	FixedDimensions VARCHAR (255)  NOT NULL,
-	VaryingDimensions VARCHAR (255)  NOT NULL,
-	SpaceMeasurementFramework VARCHAR (255)  NOT NULL,
-	TimeMeasurementFramework VARCHAR (255)  NOT NULL,
-	VariableMeasurementFramework VARCHAR (255)  NOT NULL
 );
 
 CREATE TABLE SectionResults (
@@ -1115,6 +1403,8 @@ CREATE TABLE SectionResults (
 	IntendedTimeSpacing FLOAT   NULL,
 	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1148,6 +1438,12 @@ CREATE TABLE SectionResultValues (
 	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES SectionResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (XLocationUnitsID) REFERENCES Units (UnitsID)
@@ -1168,6 +1464,8 @@ CREATE TABLE SpectraResults (
 	IntendedWavelengthSpacing DOUBLE   NULL,
 	IntendedWavelengthSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1197,6 +1495,10 @@ CREATE TABLE SpectraResultValues (
 	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES SpectraResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (WavelengthUnitsID) REFERENCES Units (UnitsID)
@@ -1215,6 +1517,8 @@ CREATE TABLE TimeSeriesResults (
 	IntendedTimeSpacing FLOAT   NULL,
 	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1239,9 +1543,13 @@ CREATE TABLE TimeSeriesResultValues (
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
 	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
-	FOREIGN KEY (ResultID) REFERENCES TimeSeriesResults (ResultID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (ResultID) REFERENCES TimeSeriesResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -1253,6 +1561,8 @@ CREATE TABLE TrajectoryResults (
 	IntendedTimeSpacing FLOAT   NULL,
 	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1284,6 +1594,12 @@ CREATE TABLE TrajectoryResultValues (
 	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
 	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (TrajectoryDistanceUnitsID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES TrajectoryResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (XLocationUnitsID) REFERENCES Units (UnitsID)
@@ -1304,6 +1620,8 @@ CREATE TABLE TransectResults (
 	IntendedTimeSpacing FLOAT   NULL,
 	IntendedTimeSpacingUnitsID INTEGER   NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1334,7 +1652,21 @@ CREATE TABLE TransectResultValues (
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
 	TimeAggregationIntervalUnitsID INTEGER   NOT NULL,
+	FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (TransectDistanceUnitsID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES TransectResults (ResultID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (XLocationUnitsID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (YLocationUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -1353,6 +1685,8 @@ CREATE TABLE RelatedFeatures (
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialOffsetID) REFERENCES SpatialOffsets (SpatialOffsetID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -1362,6 +1696,8 @@ CREATE TABLE Sites (
 	Latitude FLOAT   NOT NULL,
 	Longitude FLOAT   NOT NULL,
 	SpatialReferenceID INTEGER   NOT NULL,
+	FOREIGN KEY (SiteTypeCV) REFERENCES CV_SiteType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
@@ -1376,7 +1712,15 @@ CREATE TABLE SpatialOffsets (
 	Offset2Value FLOAT   NULL,
 	Offset2UnitID INTEGER   NULL,
 	Offset3Value FLOAT   NULL,
-	Offset3UnitID INTEGER   NULL
+	Offset3UnitID INTEGER   NULL,
+	FOREIGN KEY (SpatialOffsetTypeCV) REFERENCES CV_SpatialOffsetType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (Offset1UnitID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (Offset2UnitID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (Offset3UnitID) REFERENCES Units (UnitsID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE SpatialReferences (
@@ -1392,6 +1736,10 @@ CREATE TABLE Specimens (
 	SpecimenTypeCV VARCHAR (255)  NOT NULL,
 	SpecimenMediumCV VARCHAR (255)  NOT NULL,
 	IsFieldSpecimen BIT   NOT NULL,
+	FOREIGN KEY (SpecimenMediumCV) REFERENCES CV_SpecimenMedium (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (SpecimenTypeCV) REFERENCES CV_SpecimenType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -1401,6 +1749,8 @@ CREATE TABLE SpecimenTaxonomicClassifiers (
 	SamplingFeatureID INTEGER   NOT NULL,
 	TaxonomicClassifierID INTEGER   NOT NULL,
 	CitationID INTEGER   NULL,
+	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES Specimens (SamplingFeatureID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (TaxonomicClassifierID) REFERENCES TaxonomicClassifiers (TaxonomicClassifierID)
@@ -1437,6 +1787,8 @@ CREATE TABLE RelatedModels (
 	ModelID INTEGER   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
 	RelatedModelID INTEGER   NOT NULL,
+	FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ModelID) REFERENCES Models (ModelID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );

@@ -154,7 +154,7 @@ CREATE TABLE ODM2.Affiliations (
 	PersonLink varchar (255)  NULL,
 	PRIMARY KEY (AffiliationID)
 )
-CREATE TABLE ODM2.DataSets (
+CREATE TABLE ODM2.Datasets (
 	DataSetID int  IDENTITY (1,1) NOT NULL,
 	DataSetUUID uniqueidentifier   NOT NULL,
 	DataSetTypeCV varchar (255)  NOT NULL,
@@ -163,7 +163,7 @@ CREATE TABLE ODM2.DataSets (
 	DataSetAbstract varchar (500)  NOT NULL,
 	PRIMARY KEY (DataSetID)
 )
-CREATE TABLE ODM2.DataSetsResults (
+CREATE TABLE ODM2.DatasetsResults (
 	BridgeID int  IDENTITY (1,1) NOT NULL,
 	DataSetID int   NOT NULL,
 	ResultID bigint   NOT NULL,
@@ -278,15 +278,237 @@ CREATE TABLE ODM2.Variables (
 /****************************** CREATE ODM2CV ******************************/
 /***************************************************************************/
 
-CREATE TABLE ODM2.CVTerms (
-	TermID int   NOT NULL,
+CREATE TABLE ODM2.CV_ActionType (
 	Term varchar (255)  NOT NULL,
 	Name varchar (255)  NOT NULL,
 	Definition varchar (500)  NULL,
 	Category varchar (255)  NULL,
-	ODM2Vocabulary varchar (255)  NOT NULL,
 	SourceVocabularyURI varchar (255)  NULL,
-	PRIMARY KEY (TermID)
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_AggregationStatistic (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_AnnotationType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_CensorCode (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_DataQualityType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_DatasetTypeCV (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_DirectiveType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_ElevationDatum (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_EquipmentType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_MethodType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_OrganizationType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_PropertyDataType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_QualityCode (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_ReferenceMaterialMedium (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_RelationshipType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_ResultType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_SampledMedium (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_SamplingFeatureGeoType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_SamplingFeatureType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_SiteType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_SpatialOffsetType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_Speciation (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_SpecimenMedium (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_SpecimenType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_Status (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_TaxonomicClassifierType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_UnitsType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_VariableName (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
+)
+CREATE TABLE ODM2.CV_VariableType (
+	Term varchar (255)  NOT NULL,
+	Name varchar (255)  NOT NULL,
+	Definition varchar (500)  NULL,
+	Category varchar (255)  NULL,
+	SourceVocabularyURI varchar (255)  NULL,
+	PRIMARY KEY (Name)
 )
 /***************************************************************************/
 /************************* CREATE ODM2DATAQUALITY **************************/
@@ -537,7 +759,7 @@ CREATE TABLE ODM2.PersonExternalIdentifiers (
 	PersonID int   NOT NULL,
 	ExternalIdentifierSystemID int   NOT NULL,
 	PersonExternalIdentifier varchar (255)  NOT NULL,
-	PersonExternalIdenifierURI varchar (255)  NULL,
+	PersonExternalIdentifierURI varchar (255)  NULL,
 	PRIMARY KEY (BridgeID)
 )
 CREATE TABLE ODM2.ReferenceMaterialExternalIdentifiers (
@@ -621,7 +843,7 @@ CREATE TABLE ODM2.Citations (
 	CitationLink varchar (255)  NULL,
 	PRIMARY KEY (CitationID)
 )
-CREATE TABLE ODM2.DataSetCitations (
+CREATE TABLE ODM2.DatasetCitations (
 	BridgeID int  IDENTITY (1,1) NOT NULL,
 	DataSetID int   NOT NULL,
 	RelationshipTypeCV varchar (255)  NOT NULL,
@@ -650,7 +872,7 @@ CREATE TABLE ODM2.RelatedAnnotations (
 CREATE TABLE ODM2.RelatedCitations (
 	RelationID int  IDENTITY (1,1) NOT NULL,
 	CitationID int   NOT NULL,
-	RelationshipTypeCV int   NOT NULL,
+	RelationshipTypeCV varchar (255)  NOT NULL,
 	RelatedCitationID int   NOT NULL,
 	PRIMARY KEY (RelationID)
 )
@@ -689,7 +911,7 @@ CREATE TABLE ODM2.CategoricalResults (
 	ZLocation float   NULL,
 	ZLocationUnitsID int   NULL,
 	SpatialReferenceID int   NULL,
-	QualityCodeCV bigint   NOT NULL,
+	QualityCodeCV varchar (255)  NOT NULL,
 	PRIMARY KEY (ResultID)
 )
 CREATE TABLE ODM2.CategoricalResultValues (
@@ -780,18 +1002,6 @@ CREATE TABLE ODM2.ProfileResultValues (
 	TimeAggregationInterval float   NOT NULL,
 	TimeAggregationIntervalUnitsID int   NOT NULL,
 	PRIMARY KEY (ValueID)
-)
-CREATE TABLE ODM2.ResultTypeCV (
-	ResultTypeCV varchar (255)  NOT NULL,
-	ResultTypeCategory varchar (255)  NOT NULL,
-	DataType varchar (255)  NOT NULL,
-	ResultTypeDefinition varchar (500)  NOT NULL,
-	FixedDimensions varchar (255)  NOT NULL,
-	VaryingDimensions varchar (255)  NOT NULL,
-	SpaceMeasurementFramework varchar (255)  NOT NULL,
-	TimeMeasurementFramework varchar (255)  NOT NULL,
-	VariableMeasurementFramework varchar (255)  NOT NULL,
-	PRIMARY KEY (ResultTypeCV)
 )
 CREATE TABLE ODM2.SectionResults (
 	ResultID bigint   NOT NULL,
@@ -1053,6 +1263,10 @@ ALTER TABLE ODM2.Annotations ADD CONSTRAINT fk_Annotations_Citations
 FOREIGN KEY (CitationID) REFERENCES ODM2.Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.Annotations ADD CONSTRAINT fk_Annotations_CV_AnnotationType
+FOREIGN KEY (AnnotationTypeCV) REFERENCES ODM2.CV_AnnotationType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.Annotations ADD CONSTRAINT fk_Annotations_People
 FOREIGN KEY (AnnotatorID) REFERENCES ODM2.People (PersonID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1169,6 +1383,10 @@ ALTER TABLE ODM2.ActionBy ADD CONSTRAINT fk_ActionPeople_Affiliations
 FOREIGN KEY (AffiliationID) REFERENCES ODM2.Affiliations (AffiliationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.Actions ADD CONSTRAINT fk_Actions_CV_ActionType
+FOREIGN KEY (ActionTypeCV) REFERENCES ODM2.CV_ActionType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.Actions ADD CONSTRAINT fk_Actions_Methods
 FOREIGN KEY (MethodID) REFERENCES ODM2.Methods (MethodID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1181,11 +1399,15 @@ ALTER TABLE ODM2.Affiliations ADD CONSTRAINT fk_Affiliations_People
 FOREIGN KEY (PersonID) REFERENCES ODM2.People (PersonID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
-ALTER TABLE ODM2.DataSetsResults ADD CONSTRAINT fk_DataSetsResults_DataSets
-FOREIGN KEY (DataSetID) REFERENCES ODM2.DataSets (DataSetID)
+ALTER TABLE ODM2.Datasets ADD CONSTRAINT fk_Datasets_CV_DatasetTypeCV
+FOREIGN KEY (DataSetTypeCV) REFERENCES ODM2.CV_DatasetTypeCV (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
-ALTER TABLE ODM2.DataSetsResults ADD CONSTRAINT fk_DataSetsResults_Results
+ALTER TABLE ODM2.DatasetsResults ADD CONSTRAINT fk_DataSetsResults_DataSets
+FOREIGN KEY (DataSetID) REFERENCES ODM2.Datasets (DataSetID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.DatasetsResults ADD CONSTRAINT fk_DataSetsResults_Results
 FOREIGN KEY (ResultID) REFERENCES ODM2.Results (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
@@ -1197,8 +1419,16 @@ ALTER TABLE ODM2.FeatureActions ADD CONSTRAINT fk_FeatureActions_SamplingFeature
 FOREIGN KEY (SamplingFeatureID) REFERENCES ODM2.SamplingFeatures (SamplingFeatureID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.Methods ADD CONSTRAINT fk_Methods_CV_MethodType
+FOREIGN KEY (MethodTypeCV) REFERENCES ODM2.CV_MethodType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.Methods ADD CONSTRAINT fk_Methods_Organizations
 FOREIGN KEY (OrganizationID) REFERENCES ODM2.Organizations (OrganizationID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Organizations ADD CONSTRAINT fk_Organizations_CV_OrganizationType
+FOREIGN KEY (OrganizationTypeCV) REFERENCES ODM2.CV_OrganizationType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.Organizations ADD CONSTRAINT fk_Organizations_Organizations
@@ -1213,16 +1443,28 @@ ALTER TABLE ODM2.RelatedActions ADD CONSTRAINT fk_RelatedActions_Actions_AreRela
 FOREIGN KEY (RelatedActionID) REFERENCES ODM2.Actions (ActionID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.RelatedActions ADD CONSTRAINT fk_RelatedActions_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Results ADD CONSTRAINT fk_Results_CV_ResultType
+FOREIGN KEY (ResultTypeCV) REFERENCES ODM2.CV_ResultType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Results ADD CONSTRAINT fk_Results_CV_SampledMedium
+FOREIGN KEY (SampledMediumCV) REFERENCES ODM2.CV_SampledMedium (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Results ADD CONSTRAINT fk_Results_CV_Status
+FOREIGN KEY (StatusCV) REFERENCES ODM2.CV_Status (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.Results ADD CONSTRAINT fk_Results_FeatureActions
 FOREIGN KEY (FeatureActionID) REFERENCES ODM2.FeatureActions (FeatureActionID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.Results ADD CONSTRAINT fk_Results_ProcessingLevels
 FOREIGN KEY (ProcessingLevelID) REFERENCES ODM2.ProcessingLevels (ProcessingLevelID)
-ON UPDATE NO ACTION ON DELETE NO ACTION
-
-ALTER TABLE ODM2.Results ADD CONSTRAINT fk_Results_ResultTypeCV
-FOREIGN KEY (ResultTypeCV) REFERENCES ODM2.ResultTypeCV (ResultTypeCV)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.Results ADD CONSTRAINT fk_Results_TaxonomicClassifiers
@@ -1237,12 +1479,52 @@ ALTER TABLE ODM2.Results ADD CONSTRAINT fk_Results_Variables
 FOREIGN KEY (VariableID) REFERENCES ODM2.Variables (VariableID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.SamplingFeatures ADD CONSTRAINT fk_SamplingFeatures_CV_ElevationDatum
+FOREIGN KEY (ElevationDatumCV) REFERENCES ODM2.CV_ElevationDatum (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SamplingFeatures ADD CONSTRAINT fk_SamplingFeatures_CV_SamplingFeatureGeoType
+FOREIGN KEY (SamplingFeatureGeotypeCV) REFERENCES ODM2.CV_SamplingFeatureGeoType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SamplingFeatures ADD CONSTRAINT fk_SamplingFeatures_CV_SamplingFeatureType
+FOREIGN KEY (SamplingFeatureTypeCV) REFERENCES ODM2.CV_SamplingFeatureType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.TaxonomicClassifiers ADD CONSTRAINT fk_ParentTaxon_Taxon
 FOREIGN KEY (ParentTaxonomicClassifierID) REFERENCES ODM2.TaxonomicClassifiers (TaxonomicClassifierID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.TaxonomicClassifiers ADD CONSTRAINT fk_TaxonomicClassifiers_CV_TaxonomicClassifierType
+FOREIGN KEY (TaxonomicClassifierTypeCV) REFERENCES ODM2.CV_TaxonomicClassifierType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Units ADD CONSTRAINT fk_Units_CV_UnitsType
+FOREIGN KEY (UnitsTypeCV) REFERENCES ODM2.CV_UnitsType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Variables ADD CONSTRAINT fk_Variables_CV_Speciation
+FOREIGN KEY (SpeciationCV) REFERENCES ODM2.CV_Speciation (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Variables ADD CONSTRAINT fk_Variables_CV_VariableName
+FOREIGN KEY (VariableNameCV) REFERENCES ODM2.CV_VariableName (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Variables ADD CONSTRAINT fk_Variables_CV_VariableType
+FOREIGN KEY (VariableTypeCV) REFERENCES ODM2.CV_VariableType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.DataQuality ADD CONSTRAINT fk_DataQuality_CV_DataQualityType
+FOREIGN KEY (DataQualityTypeCV) REFERENCES ODM2.CV_DataQualityType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.DataQuality ADD CONSTRAINT fk_DataQuality_Units
 FOREIGN KEY (DataQualityValueUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.ReferenceMaterials ADD CONSTRAINT fk_ReferenceMaterials_CV_ReferenceMaterialMedium
+FOREIGN KEY (ReferenceMaterialMediumCV) REFERENCES ODM2.CV_ReferenceMaterialMedium (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.ReferenceMaterials ADD CONSTRAINT fk_ReferenceMaterials_Organizations
@@ -1309,6 +1591,10 @@ ALTER TABLE ODM2.CalibrationStandards ADD CONSTRAINT fk_FieldCalibrationStandard
 FOREIGN KEY (ReferenceMaterialID) REFERENCES ODM2.ReferenceMaterials (ReferenceMaterialID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_DataLoggerFiles
 FOREIGN KEY (DataLoggerFileID) REFERENCES ODM2.DataLoggerFiles (DataLoggerFileID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1335,6 +1621,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.DataloggerProgramFiles ADD CONSTRAINT fk_DataloggerProgramFiles_Affiliations
 FOREIGN KEY (AffiliationID) REFERENCES ODM2.Affiliations (AffiliationID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Equipment ADD CONSTRAINT fk_Equipment_CV_EquipmentType
+FOREIGN KEY (EquipmentTypeCV) REFERENCES ODM2.CV_EquipmentType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.Equipment ADD CONSTRAINT fk_Equipment_EquipmentModels
@@ -1381,6 +1671,10 @@ ALTER TABLE ODM2.MaintenanceActions ADD CONSTRAINT fk_MaintenanceActions_Actions
 FOREIGN KEY (ActionID) REFERENCES ODM2.Actions (ActionID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.RelatedEquipment ADD CONSTRAINT fk_RelatedEquipment_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.RelatedEquipment ADD CONSTRAINT fk_RelatedEquipment_Equipment
 FOREIGN KEY (EquipmentID) REFERENCES ODM2.Equipment (EquipmentID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1403,6 +1697,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.CitationExtensionPropertyValues ADD CONSTRAINT fk_CitationExtensionPropertyValues_ExtensionProperties
 FOREIGN KEY (PropertyID) REFERENCES ODM2.ExtensionProperties (PropertyID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.ExtensionProperties ADD CONSTRAINT fk_ExtensionProperties_CV_PropertyDataType
+FOREIGN KEY (PropertyDataTypeCV) REFERENCES ODM2.CV_PropertyDataType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.ExtensionProperties ADD CONSTRAINT fk_ExtensionProperties_Units
@@ -1517,6 +1815,10 @@ ALTER TABLE ODM2.ActionDirectives ADD CONSTRAINT fk_ActionDirectives_Directives
 FOREIGN KEY (DirectiveID) REFERENCES ODM2.Directives (DirectiveID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.Directives ADD CONSTRAINT fk_Directives_CV_DirectiveType
+FOREIGN KEY (DirectiveTypeCV) REFERENCES ODM2.CV_DirectiveType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.SpecimenBatchPostions ADD CONSTRAINT fk_SpecimenBatchPostions_FeatureActions
 FOREIGN KEY (FeatureActionID) REFERENCES ODM2.FeatureActions (FeatureActionID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1529,16 +1831,24 @@ ALTER TABLE ODM2.AuthorLists ADD CONSTRAINT fk_AuthorLists_People
 FOREIGN KEY (PersonID) REFERENCES ODM2.People (PersonID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
-ALTER TABLE ODM2.DataSetCitations ADD CONSTRAINT fk_DataSetCitations_Citations
+ALTER TABLE ODM2.DatasetCitations ADD CONSTRAINT fk_DataSetCitations_Citations
 FOREIGN KEY (CitationID) REFERENCES ODM2.Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
-ALTER TABLE ODM2.DataSetCitations ADD CONSTRAINT fk_DataSetCitations_DataSets
-FOREIGN KEY (DataSetID) REFERENCES ODM2.DataSets (DataSetID)
+ALTER TABLE ODM2.DatasetCitations ADD CONSTRAINT fk_DatasetCitations_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.DatasetCitations ADD CONSTRAINT fk_DataSetCitations_DataSets
+FOREIGN KEY (DataSetID) REFERENCES ODM2.Datasets (DataSetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.MethodCitations ADD CONSTRAINT fk_MethodCitations_Citations
 FOREIGN KEY (CitationID) REFERENCES ODM2.Citations (CitationID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.MethodCitations ADD CONSTRAINT fk_MethodCitations_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.MethodCitations ADD CONSTRAINT fk_MethodCitations_Methods
@@ -1553,6 +1863,10 @@ ALTER TABLE ODM2.RelatedAnnotations ADD CONSTRAINT fk_RelatedAnnotations_Annotat
 FOREIGN KEY (RelatedAnnotationID) REFERENCES ODM2.Annotations (AnnotationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.RelatedAnnotations ADD CONSTRAINT fk_RelatedAnnotations_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.RelatedCitations ADD CONSTRAINT fk_RelatedCitations_Citations
 FOREIGN KEY (CitationID) REFERENCES ODM2.Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1561,12 +1875,24 @@ ALTER TABLE ODM2.RelatedCitations ADD CONSTRAINT fk_RelatedCitations_Citations_A
 FOREIGN KEY (RelatedCitationID) REFERENCES ODM2.Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.RelatedCitations ADD CONSTRAINT fk_RelatedCitations_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.RelatedDatasets ADD CONSTRAINT fk_RelatedDatasets_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.RelatedDatasets ADD CONSTRAINT fk_RelatedDatasets_DataSets
-FOREIGN KEY (DataSetID) REFERENCES ODM2.DataSets (DataSetID)
+FOREIGN KEY (DataSetID) REFERENCES ODM2.Datasets (DataSetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.RelatedDatasets ADD CONSTRAINT fk_RelatedDatasets_DataSets_AreRelated
-FOREIGN KEY (RelatedDatasetID) REFERENCES ODM2.DataSets (DataSetID)
+FOREIGN KEY (RelatedDatasetID) REFERENCES ODM2.Datasets (DataSetID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.RelatedResults ADD CONSTRAINT fk_RelatedResults_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.RelatedResults ADD CONSTRAINT fk_RelatedResults_Results
@@ -1585,6 +1911,10 @@ ALTER TABLE ODM2.ResultDerivationEquations ADD CONSTRAINT fk_ResultDerivationEqu
 FOREIGN KEY (ResultID) REFERENCES ODM2.Results (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.CategoricalResults ADD CONSTRAINT fk_CategoricalResults_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.CategoricalResults ADD CONSTRAINT fk_CategoricalResults_Results
 FOREIGN KEY (ResultID) REFERENCES ODM2.Results (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1599,6 +1929,18 @@ ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.MeasurementResults ADD CONSTRAINT fk_MeasurementResults_AIUnits
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.MeasurementResults ADD CONSTRAINT fk_MeasurementResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.MeasurementResults ADD CONSTRAINT fk_MeasurementResults_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES ODM2.CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.MeasurementResults ADD CONSTRAINT fk_MeasurementResults_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.MeasurementResults ADD CONSTRAINT fk_MeasurementResults_Results
@@ -1625,6 +1967,10 @@ ALTER TABLE ODM2.MeasurementResultValues ADD CONSTRAINT fk_MeasurementResultValu
 FOREIGN KEY (ResultID) REFERENCES ODM2.MeasurementResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.PointCoverageResults ADD CONSTRAINT fk_PointCoverageResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.PointCoverageResults ADD CONSTRAINT fk_PointCoverageResults_Results
 FOREIGN KEY (ResultID) REFERENCES ODM2.Results (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1645,6 +1991,14 @@ ALTER TABLE ODM2.PointCoverageResults ADD CONSTRAINT fk_PointCoverageResults_ZUn
 FOREIGN KEY (ZLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.PointCoverageResultValues ADD CONSTRAINT fk_PointCoverageResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES ODM2.CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.PointCoverageResultValues ADD CONSTRAINT fk_PointCoverageResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.PointCoverageResultValues ADD CONSTRAINT fk_PointCoverageResultValues_PointCoverageResults
 FOREIGN KEY (ResultID) REFERENCES ODM2.PointCoverageResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1655,6 +2009,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.PointCoverageResultValues ADD CONSTRAINT fk_PointCoverageResultValues_YUnits
 FOREIGN KEY (YLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.ProfileResults ADD CONSTRAINT fk_ProfileResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.ProfileResults ADD CONSTRAINT fk_ProfileResults_DUnits
@@ -1685,12 +2043,24 @@ ALTER TABLE ODM2.ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_AIUni
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES ODM2.CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_DUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_ProfileResults
 FOREIGN KEY (ResultID) REFERENCES ODM2.ProfileResults (ResultID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SectionResults ADD CONSTRAINT fk_SectionResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.SectionResults ADD CONSTRAINT fk_SectionResults_Results
@@ -1721,6 +2091,18 @@ ALTER TABLE ODM2.SectionResultValues ADD CONSTRAINT fk_SectionResultValues_AIUni
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.SectionResultValues ADD CONSTRAINT fk_SectionResultValues_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SectionResultValues ADD CONSTRAINT fk_SectionResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES ODM2.CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SectionResultValues ADD CONSTRAINT fk_SectionResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.SectionResultValues ADD CONSTRAINT fk_SectionResultValues_SectionResults
 FOREIGN KEY (ResultID) REFERENCES ODM2.SectionResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1731,6 +2113,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.SectionResultValues ADD CONSTRAINT fk_SectionResultValues_ZUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SpectraResults ADD CONSTRAINT fk_SpectraResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.SpectraResults ADD CONSTRAINT fk_SpectraResults_Results
@@ -1761,12 +2147,24 @@ ALTER TABLE ODM2.SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_AIUni
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES ODM2.CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_SpectraResults
 FOREIGN KEY (ResultID) REFERENCES ODM2.SpectraResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_WUnits
 FOREIGN KEY (WavelengthUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TimeSeriesResults ADD CONSTRAINT fk_TimeSeriesResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.TimeSeriesResults ADD CONSTRAINT fk_TimeSeriesResults_Results
@@ -1793,12 +2191,24 @@ ALTER TABLE ODM2.TimeSeriesResults ADD CONSTRAINT fk_TimeSeriesResults_ZUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_AIUnits
+FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES ODM2.CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_TimeSeriesResults
 FOREIGN KEY (ResultID) REFERENCES ODM2.TimeSeriesResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
-ALTER TABLE ODM2.TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_Units
-FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES ODM2.Units (UnitsID)
+ALTER TABLE ODM2.TrajectoryResults ADD CONSTRAINT fk_TrajectoryResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.TrajectoryResults ADD CONSTRAINT fk_TrajectoryResults_Results
@@ -1821,6 +2231,18 @@ ALTER TABLE ODM2.TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES ODM2.CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_DistanceUnits
+FOREIGN KEY (TrajectoryDistanceUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_TrajectoryResults
 FOREIGN KEY (ResultID) REFERENCES ODM2.TrajectoryResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1835,6 +2257,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_ZUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TransectResults ADD CONSTRAINT fk_TransectResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.TransectResults ADD CONSTRAINT fk_TransectResults_Results
@@ -1857,8 +2283,36 @@ ALTER TABLE ODM2.TransectResults ADD CONSTRAINT fk_TransectResults_Units
 FOREIGN KEY (ZLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.TransectResultValues ADD CONSTRAINT fk_TransectResultValues_AIUnits
+FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TransectResultValues ADD CONSTRAINT fk_TransectResultValues_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES ODM2.CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TransectResultValues ADD CONSTRAINT fk_TransectResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES ODM2.CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TransectResultValues ADD CONSTRAINT fk_TransectResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES ODM2.CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TransectResultValues ADD CONSTRAINT fk_TransectResultValues_DistanceUnits
+FOREIGN KEY (TransectDistanceUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.TransectResultValues ADD CONSTRAINT fk_TransectResultValues_TransectResults
 FOREIGN KEY (ResultID) REFERENCES ODM2.TransectResults (ResultID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TransectResultValues ADD CONSTRAINT fk_TransectResultValues_XUnits
+FOREIGN KEY (XLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.TransectResultValues ADD CONSTRAINT fk_TransectResultValues_YUnits
+FOREIGN KEY (YLocationUnitsID) REFERENCES ODM2.Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.RelatedFeatures ADD CONSTRAINT fk_FeatureParents_FeaturesParent
@@ -1873,6 +2327,14 @@ ALTER TABLE ODM2.RelatedFeatures ADD CONSTRAINT fk_FeatureParents_SpatialOffsets
 FOREIGN KEY (SpatialOffsetID) REFERENCES ODM2.SpatialOffsets (SpatialOffsetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.RelatedFeatures ADD CONSTRAINT fk_RelatedFeatures_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Sites ADD CONSTRAINT fk_Sites_CV_SiteType
+FOREIGN KEY (SiteTypeCV) REFERENCES ODM2.CV_SiteType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.Sites ADD CONSTRAINT fk_Sites_SamplingFeatures
 FOREIGN KEY (SamplingFeatureID) REFERENCES ODM2.SamplingFeatures (SamplingFeatureID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1881,8 +2343,36 @@ ALTER TABLE ODM2.Sites ADD CONSTRAINT fk_Sites_SpatialReferences
 FOREIGN KEY (SpatialReferenceID) REFERENCES ODM2.SpatialReferences (SpatialReferenceID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
+ALTER TABLE ODM2.SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_CV_SpatialOffsetType
+FOREIGN KEY (SpatialOffsetTypeCV) REFERENCES ODM2.CV_SpatialOffsetType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_Offset1Units
+FOREIGN KEY (Offset1UnitID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_Offset2Units
+FOREIGN KEY (Offset2UnitID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_Offset3Units
+FOREIGN KEY (Offset3UnitID) REFERENCES ODM2.Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Specimens ADD CONSTRAINT fk_Specimens_CV_SpecimenMedium
+FOREIGN KEY (SpecimenMediumCV) REFERENCES ODM2.CV_SpecimenMedium (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.Specimens ADD CONSTRAINT fk_Specimens_CV_SpecimenType
+FOREIGN KEY (SpecimenTypeCV) REFERENCES ODM2.CV_SpecimenType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
 ALTER TABLE ODM2.Specimens ADD CONSTRAINT fk_Specimens_SamplingFeatures
 FOREIGN KEY (SamplingFeatureID) REFERENCES ODM2.SamplingFeatures (SamplingFeatureID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.SpecimenTaxonomicClassifiers ADD CONSTRAINT fk_SpecimenTaxonomicClassifiers_Citations
+FOREIGN KEY (CitationID) REFERENCES ODM2.Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.SpecimenTaxonomicClassifiers ADD CONSTRAINT fk_SpecimenTaxonomicClassifiers_Specimens
@@ -1899,6 +2389,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.ModelAffiliations ADD CONSTRAINT fk_ModelAffiliations_Models
 FOREIGN KEY (ModelID) REFERENCES ODM2.Models (ModelID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.RelatedModels ADD CONSTRAINT fk_RelatedModels_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES ODM2.CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.RelatedModels ADD CONSTRAINT fk_RelatedModels_Models

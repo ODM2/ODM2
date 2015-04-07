@@ -12,12 +12,12 @@ create schema ODM2;
 /************************* CREATE ODM2ANNOTATIONS **************************/
 /***************************************************************************/
 
-create table ODM2.ActionAnnotations (
+create table ODM2."ActionAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.Annotations (
+create table ODM2."Annotations" (
 	annotationid serial  NOT NULL primary key,
 	annotationtypecv varchar (255) NOT NULL,
 	annotationcode varchar (50) NULL,
@@ -28,69 +28,69 @@ create table ODM2.Annotations (
 	annotatorid integer  NULL,
 	citationid integer  NULL
 );
-create table ODM2.CategoricalResultValueAnnotations (
+create table ODM2."CategoricalResultValueAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.EquipmentAnnotations (
+create table ODM2."EquipmentAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	equipmentid integer  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.MeasurementResultValueAnnotations (
+create table ODM2."MeasurementResultValueAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.MethodAnnotations (
+create table ODM2."MethodAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	methodid integer  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.PointCoverageResultValueAnnotations (
+create table ODM2."PointCoverageResultValueAnnotations" (
 	bridgeid bigserial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.ProfileResultValueAnnotations (
+create table ODM2."ProfileResultValueAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.ResultAnnotations (
+create table ODM2."ResultAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	annotationid integer  NOT NULL,
 	begindatetime timestamp  NOT NULL,
 	enddatetime timestamp  NOT NULL
 );
-create table ODM2.SamplingFeatureAnnotations (
+create table ODM2."SamplingFeatureAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	samplingfeatureid integer  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.SectionResultValueAnnotations (
+create table ODM2."SectionResultValueAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.SpectraResultValueAnnotations (
+create table ODM2."SpectraResultValueAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.TimeSeriesResultValueAnnotations (
+create table ODM2."TimeSeriesResultValueAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.TrajectoryResultValueAnnotations (
+create table ODM2."TrajectoryResultValueAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
 );
-create table ODM2.TransectResultValueAnnotations (
+create table ODM2."TransectResultValueAnnotations" (
 	bridgeid serial  NOT NULL primary key,
 	valueid bigint  NOT NULL,
 	annotationid integer  NOT NULL
@@ -99,14 +99,14 @@ create table ODM2.TransectResultValueAnnotations (
 /***************************** CREATE ODM2CORE *****************************/
 /***************************************************************************/
 
-create table ODM2.ActionBy (
+create table ODM2."ActionBy" (
 	bridgeid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	affiliationid integer  NOT NULL,
 	isactionlead boolean  NOT NULL,
 	roledescription varchar (500) NULL
 );
-create table ODM2.Actions (
+create table ODM2."Actions" (
 	actionid serial  NOT NULL primary key,
 	actiontypecv varchar (255) NOT NULL,
 	methodid integer  NOT NULL,
@@ -117,7 +117,7 @@ create table ODM2.Actions (
 	actiondescription varchar (500) NULL,
 	actionfilelink varchar (255) NULL
 );
-create table ODM2.Affiliations (
+create table ODM2."Affiliations" (
 	affiliationid serial  NOT NULL primary key,
 	personid integer  NOT NULL,
 	organizationid integer  NULL,
@@ -129,7 +129,7 @@ create table ODM2.Affiliations (
 	primaryaddress varchar (255) NULL,
 	personlink varchar (255) NULL
 );
-create table ODM2.DataSets (
+create table ODM2."Datasets" (
 	datasetid serial  NOT NULL primary key,
 	datasetuuid uuid  NOT NULL,
 	datasettypecv varchar (255) NOT NULL,
@@ -137,17 +137,17 @@ create table ODM2.DataSets (
 	datasettitle varchar (255) NOT NULL,
 	datasetabstract varchar (500) NOT NULL
 );
-create table ODM2.DataSetsResults (
+create table ODM2."DatasetsResults" (
 	bridgeid serial  NOT NULL primary key,
 	datasetid integer  NOT NULL,
 	resultid bigint  NOT NULL
 );
-create table ODM2.FeatureActions (
+create table ODM2."FeatureActions" (
 	featureactionid serial  NOT NULL primary key,
 	samplingfeatureid integer  NOT NULL,
 	actionid integer  NOT NULL
 );
-create table ODM2.Methods (
+create table ODM2."Methods" (
 	methodid serial  NOT NULL primary key,
 	methodtypecv varchar (255) NOT NULL,
 	methodcode varchar (50) NOT NULL,
@@ -156,7 +156,7 @@ create table ODM2.Methods (
 	methodlink varchar (255) NULL,
 	organizationid integer  NULL
 );
-create table ODM2.Organizations (
+create table ODM2."Organizations" (
 	organizationid serial  NOT NULL primary key,
 	organizationtypecv varchar (255) NOT NULL,
 	organizationcode varchar (50) NOT NULL,
@@ -165,25 +165,25 @@ create table ODM2.Organizations (
 	organizationlink varchar (255) NULL,
 	parentorganizationid integer  NULL
 );
-create table ODM2.People (
+create table ODM2."People" (
 	personid serial  NOT NULL primary key,
 	personfirstname varchar (255) NOT NULL,
 	personmiddlename varchar (255) NULL,
 	personlastname varchar (255) NOT NULL
 );
-create table ODM2.ProcessingLevels (
+create table ODM2."ProcessingLevels" (
 	processinglevelid serial  NOT NULL primary key,
 	processinglevelcode varchar (50) NOT NULL,
 	definition varchar (500) NULL,
 	explanation varchar (500) NULL
 );
-create table ODM2.RelatedActions (
+create table ODM2."RelatedActions" (
 	relationid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
 	relatedactionid integer  NOT NULL
 );
-create table ODM2.Results (
+create table ODM2."Results" (
 	resultid bigserial  NOT NULL primary key,
 	resultuuid uuid  NOT NULL,
 	featureactionid integer  NOT NULL,
@@ -200,7 +200,7 @@ create table ODM2.Results (
 	sampledmediumcv varchar (255) NOT NULL,
 	valuecount integer  NOT NULL
 );
-create table ODM2.SamplingFeatures (
+create table ODM2."SamplingFeatures" (
 	samplingfeatureid serial  NOT NULL primary key,
 	samplingfeatureuuid uuid  NOT NULL,
 	samplingfeaturetypecv varchar (255) NOT NULL,
@@ -212,7 +212,7 @@ create table ODM2.SamplingFeatures (
 	elevation_m double precision  NULL,
 	elevationdatumcv varchar (255) NULL
 );
-create table ODM2.TaxonomicClassifiers (
+create table ODM2."TaxonomicClassifiers" (
 	taxonomicclassifierid integer  NOT NULL primary key,
 	taxonomicclassifiertypecv varchar (255) NOT NULL,
 	taxonomicclassifiername varchar (255) NOT NULL,
@@ -220,14 +220,14 @@ create table ODM2.TaxonomicClassifiers (
 	taxonomicclassifierdescription varchar (500) NULL,
 	parenttaxonomicclassifierid integer  NULL
 );
-create table ODM2.Units (
+create table ODM2."Units" (
 	unitsid serial  NOT NULL primary key,
 	unitstypecv varchar (255) NOT NULL,
 	unitsabbreviation varchar (50) NOT NULL,
 	unitsname varchar (255) NOT NULL,
 	unitslink varchar (255) NULL
 );
-create table ODM2.Variables (
+create table ODM2."Variables" (
 	variableid serial  NOT NULL primary key,
 	variabletypecv varchar (255) NOT NULL,
 	variablecode varchar (50) NOT NULL,
@@ -240,20 +240,214 @@ create table ODM2.Variables (
 /****************************** CREATE ODM2CV ******************************/
 /***************************************************************************/
 
-create table ODM2.CVTerms (
-	termid integer  NOT NULL primary key,
+create table ODM2."CV_ActionType" (
 	term varchar (255) NOT NULL,
-	name varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
 	definition varchar (500) NULL,
 	category varchar (255) NULL,
-	odm2vocabulary varchar (255) NOT NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_AggregationStatistic" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_AnnotationType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_CensorCode" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_DataQualityType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_DatasetTypeCV" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_DirectiveType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_ElevationDatum" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_EquipmentType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_MethodType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_OrganizationType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_PropertyDataType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_QualityCode" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_ReferenceMaterialMedium" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_RelationshipType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_ResultType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_SampledMedium" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_SamplingFeatureGeoType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_SamplingFeatureType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_SiteType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_SpatialOffsetType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_Speciation" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_SpecimenMedium" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_SpecimenType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_Status" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_TaxonomicClassifierType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_UnitsType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_VariableName" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
+create table ODM2."CV_VariableType" (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (500) NULL,
+	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 /***************************************************************************/
 /************************* CREATE ODM2DATAQUALITY **************************/
 /***************************************************************************/
 
-create table ODM2.DataQuality (
+create table ODM2."DataQuality" (
 	dataqualityid integer  NOT NULL primary key,
 	dataqualitytypecv varchar (255) NOT NULL,
 	dataqualitycode varchar (255) NOT NULL,
@@ -262,7 +456,7 @@ create table ODM2.DataQuality (
 	dataqualitydescription varchar (500) NULL,
 	dataqualitylink varchar (255) NULL
 );
-create table ODM2.ReferenceMaterials (
+create table ODM2."ReferenceMaterials" (
 	referencematerialid integer  NOT NULL primary key,
 	referencematerialmediumcv varchar (255) NOT NULL,
 	referencematerialorganizationid integer  NOT NULL,
@@ -273,7 +467,7 @@ create table ODM2.ReferenceMaterials (
 	referencematerialcertificatelink varchar (255) NULL,
 	samplingfeatureid integer  NULL
 );
-create table ODM2.ReferenceMaterialValues (
+create table ODM2."ReferenceMaterialValues" (
 	referencematerialvalueid integer  NOT NULL primary key,
 	referencematerialid integer  NOT NULL,
 	referencematerialvalue double precision  NOT NULL,
@@ -282,11 +476,11 @@ create table ODM2.ReferenceMaterialValues (
 	unitsid integer  NOT NULL,
 	citationid integer  NOT NULL
 );
-create table ODM2.ResultNormalizationValues (
+create table ODM2."ResultNormalizationValues" (
 	resultid bigint  NOT NULL primary key,
 	normalizedbyreferencematerialvalueid integer  NOT NULL
 );
-create table ODM2.ResultsDataQuality (
+create table ODM2."ResultsDataQuality" (
 	bridgeid serial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	dataqualityid integer  NOT NULL
@@ -295,23 +489,23 @@ create table ODM2.ResultsDataQuality (
 /************************** CREATE ODM2EQUIPMENT ***************************/
 /***************************************************************************/
 
-create table ODM2.CalibrationActions (
+create table ODM2."CalibrationActions" (
 	actionid integer  NOT NULL primary key,
 	calibrationcheckvalue double precision  NULL,
 	instrumentoutputvariableid integer  NOT NULL,
 	calibrationequation varchar (255) NULL
 );
-create table ODM2.CalibrationReferenceEquipment (
+create table ODM2."CalibrationReferenceEquipment" (
 	bridgeid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	equipmentid integer  NOT NULL
 );
-create table ODM2.CalibrationStandards (
+create table ODM2."CalibrationStandards" (
 	bridgeid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	referencematerialid integer  NOT NULL
 );
-create table ODM2.DataloggerFileColumns (
+create table ODM2."DataloggerFileColumns" (
 	dataloggerfilecolumnid serial  NOT NULL primary key,
 	resultid bigint  NULL,
 	dataloggerfileid integer  NOT NULL,
@@ -325,14 +519,14 @@ create table ODM2.DataloggerFileColumns (
 	recordingintervalunitsid integer  NULL,
 	aggregationstatisticcv varchar (255) NULL
 );
-create table ODM2.DataLoggerFiles (
+create table ODM2."DataLoggerFiles" (
 	dataloggerfileid serial  NOT NULL primary key,
 	programid integer  NOT NULL,
 	dataloggerfilename varchar (255) NOT NULL,
 	dataloggerfiledescription varchar (500) NULL,
 	dataloggerfilelink varchar (255) NULL
 );
-create table ODM2.DataloggerProgramFiles (
+create table ODM2."DataloggerProgramFiles" (
 	programid serial  NOT NULL primary key,
 	affiliationid integer  NOT NULL,
 	programname varchar (255) NOT NULL,
@@ -340,7 +534,7 @@ create table ODM2.DataloggerProgramFiles (
 	programversion varchar (50) NULL,
 	programfilelink varchar (255) NULL
 );
-create table ODM2.Equipment (
+create table ODM2."Equipment" (
 	equipmentid serial  NOT NULL primary key,
 	equipmentcode varchar (50) NOT NULL,
 	equipmentname varchar (255) NOT NULL,
@@ -354,7 +548,7 @@ create table ODM2.Equipment (
 	equipmentdescription varchar (500) NULL,
 	equipmentdocumentationlink varchar (255) NULL
 );
-create table ODM2.EquipmentModels (
+create table ODM2."EquipmentModels" (
 	equipmentmodelid serial  NOT NULL primary key,
 	modelmanufacturerid integer  NOT NULL,
 	modelpartnumber varchar (50) NULL,
@@ -364,12 +558,12 @@ create table ODM2.EquipmentModels (
 	modelspecificationsfilelink varchar (255) NULL,
 	modellink varchar (255) NULL
 );
-create table ODM2.EquipmentUsed (
+create table ODM2."EquipmentUsed" (
 	bridgeid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	equipmentid integer  NOT NULL
 );
-create table ODM2.InstrumentOutputVariables (
+create table ODM2."InstrumentOutputVariables" (
 	instrumentoutputvariableid serial  NOT NULL primary key,
 	modelid integer  NOT NULL,
 	variableid integer  NOT NULL,
@@ -378,13 +572,13 @@ create table ODM2.InstrumentOutputVariables (
 	instrumentaccuracy varchar (255) NULL,
 	instrumentrawoutputunitsid integer  NOT NULL
 );
-create table ODM2.MaintenanceActions (
+create table ODM2."MaintenanceActions" (
 	actionid integer  NOT NULL primary key,
 	isfactoryservice boolean  NOT NULL,
 	maintenancecode varchar (50) NULL,
 	maintenancereason varchar (500) NULL
 );
-create table ODM2.RelatedEquipment (
+create table ODM2."RelatedEquipment" (
 	relationid serial  NOT NULL primary key,
 	equipmentid integer  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
@@ -398,44 +592,44 @@ create table ODM2.RelatedEquipment (
 /********************* CREATE ODM2EXTENSIONPROPERTIES **********************/
 /***************************************************************************/
 
-create table ODM2.ActionExtensionPropertyValues (
+create table ODM2."ActionExtensionPropertyValues" (
 	bridgeid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	propertyid integer  NOT NULL,
 	propertyvalue varchar (255) NOT NULL
 );
-create table ODM2.CitationExtensionPropertyValues (
+create table ODM2."CitationExtensionPropertyValues" (
 	bridgeid serial  NOT NULL primary key,
 	citationid integer  NOT NULL,
 	propertyid integer  NOT NULL,
 	propertyvalue varchar (255) NOT NULL
 );
-create table ODM2.ExtensionProperties (
+create table ODM2."ExtensionProperties" (
 	propertyid serial  NOT NULL primary key,
 	propertyname varchar (255) NOT NULL,
 	propertydescription varchar (500) NULL,
 	propertydatatypecv varchar (255) NOT NULL,
 	propertyunitsid integer  NULL
 );
-create table ODM2.MethodExtensionPropertyValues (
+create table ODM2."MethodExtensionPropertyValues" (
 	bridgeid serial  NOT NULL primary key,
 	methodid integer  NOT NULL,
 	propertyid integer  NOT NULL,
 	propertyvalue varchar (255) NOT NULL
 );
-create table ODM2.ResultExtensionPropertyValues (
+create table ODM2."ResultExtensionPropertyValues" (
 	bridgeid serial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	propertyid integer  NOT NULL,
 	propertyvalue varchar (255) NOT NULL
 );
-create table ODM2.SamplingFeatureExtensionPropertyValues (
+create table ODM2."SamplingFeatureExtensionPropertyValues" (
 	bridgeid serial  NOT NULL primary key,
 	samplingfeatureid integer  NOT NULL,
 	propertyid integer  NOT NULL,
 	propertyvalue varchar (255) NOT NULL
 );
-create table ODM2.VariableExtensionPropertyValues (
+create table ODM2."VariableExtensionPropertyValues" (
 	bridgeid serial  NOT NULL primary key,
 	variableid integer  NOT NULL,
 	propertyid integer  NOT NULL,
@@ -445,63 +639,63 @@ create table ODM2.VariableExtensionPropertyValues (
 /********************* CREATE ODM2EXTERNALIDENTIFIERS **********************/
 /***************************************************************************/
 
-create table ODM2.CitationExternalIdentifiers (
+create table ODM2."CitationExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
 	citationid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
 	citationexternalidentifer varchar (255) NOT NULL,
 	citationexternalidentiferuri varchar (255) NULL
 );
-create table ODM2.ExternalIdentifierSystems (
+create table ODM2."ExternalIdentifierSystems" (
 	externalidentifiersystemid integer  NOT NULL primary key,
 	externalidentifiersystemname varchar (255) NOT NULL,
 	identifiersystemorganizationid integer  NOT NULL,
 	externalidentifiersystemdescription varchar (500) NULL,
 	externalidentifiersystemurl varchar (255) NULL
 );
-create table ODM2.MethodExternalIdentifiers (
+create table ODM2."MethodExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
 	methodid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
 	methodexternalidentifier varchar (255) NOT NULL,
 	methodexternalidentifieruri varchar (255) NULL
 );
-create table ODM2.PersonExternalIdentifiers (
+create table ODM2."PersonExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
 	personid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
 	personexternalidentifier varchar (255) NOT NULL,
-	personexternalidenifieruri varchar (255) NULL
+	personexternalidentifieruri varchar (255) NULL
 );
-create table ODM2.ReferenceMaterialExternalIdentifiers (
+create table ODM2."ReferenceMaterialExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
 	referencematerialid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
 	referencematerialexternalidentifier varchar (255) NOT NULL,
 	referencematerialexternalidentifieruri varchar (255) NULL
 );
-create table ODM2.SamplingFeatureExternalIdentifiers (
+create table ODM2."SamplingFeatureExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
 	samplingfeatureid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
 	samplingfeatureexternalidentifier varchar (255) NOT NULL,
 	samplingfeatureexternalidentiferuri varchar (255) NULL
 );
-create table ODM2.SpatialReferenceExternalIdentifiers (
+create table ODM2."SpatialReferenceExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
 	spatialreferenceid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
 	spatialreferenceexternalidentifier varchar (255) NOT NULL,
 	spatialreferenceexternalidentifieruri varchar (255) NULL
 );
-create table ODM2.TaxonomicClassifierExternalIdentifiers (
+create table ODM2."TaxonomicClassifierExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
 	taxonomicclassifierid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
 	taxonomicclassifierexternalidentifier varchar (255) NOT NULL,
 	taxonomicclassifierexternalidentifieruri varchar (255) NULL
 );
-create table ODM2.VariableExternalIdentifiers (
+create table ODM2."VariableExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
 	variableid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
@@ -512,17 +706,17 @@ create table ODM2.VariableExternalIdentifiers (
 /************************* CREATE ODM2LABANALYSES **************************/
 /***************************************************************************/
 
-create table ODM2.ActionDirectives (
+create table ODM2."ActionDirectives" (
 	bridgeid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	directiveid integer  NOT NULL
 );
-create table ODM2.Directives (
+create table ODM2."Directives" (
 	directiveid serial  NOT NULL primary key,
 	directivetypecv varchar (255) NOT NULL,
 	directivedescription varchar (500) NOT NULL
 );
-create table ODM2.SpecimenBatchPostions (
+create table ODM2."SpecimenBatchPostions" (
 	featureactionid integer  NOT NULL primary key,
 	batchpositionnumber integer  NOT NULL,
 	batchpositionlabel varchar (255) NULL
@@ -531,55 +725,55 @@ create table ODM2.SpecimenBatchPostions (
 /************************** CREATE ODM2PROVENANCE **************************/
 /***************************************************************************/
 
-create table ODM2.AuthorLists (
+create table ODM2."AuthorLists" (
 	bridgeid serial  NOT NULL primary key,
 	citationid integer  NOT NULL,
 	personid integer  NOT NULL,
 	authororder integer  NOT NULL
 );
-create table ODM2.Citations (
+create table ODM2."Citations" (
 	citationid serial  NOT NULL primary key,
 	title varchar (255) NOT NULL,
 	publisher varchar (255) NOT NULL,
 	publicationyear integer  NOT NULL,
 	citationlink varchar (255) NULL
 );
-create table ODM2.DataSetCitations (
+create table ODM2."DatasetCitations" (
 	bridgeid serial  NOT NULL primary key,
 	datasetid integer  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
 	citationid integer  NOT NULL
 );
-create table ODM2.DerivationEquations (
+create table ODM2."DerivationEquations" (
 	derivationequationid serial  NOT NULL primary key,
 	derivationequation varchar (255) NOT NULL
 );
-create table ODM2.MethodCitations (
+create table ODM2."MethodCitations" (
 	bridgeid serial  NOT NULL primary key,
 	methodid integer  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
 	citationid integer  NOT NULL
 );
-create table ODM2.RelatedAnnotations (
+create table ODM2."RelatedAnnotations" (
 	relationid serial  NOT NULL primary key,
 	annotationid integer  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
 	relatedannotationid integer  NOT NULL
 );
-create table ODM2.RelatedCitations (
+create table ODM2."RelatedCitations" (
 	relationid serial  NOT NULL primary key,
 	citationid integer  NOT NULL,
-	relationshiptypecv integer  NOT NULL,
+	relationshiptypecv varchar (255) NOT NULL,
 	relatedcitationid integer  NOT NULL
 );
-create table ODM2.RelatedDatasets (
+create table ODM2."RelatedDatasets" (
 	relationid serial  NOT NULL primary key,
 	datasetid integer  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
 	relateddatasetid integer  NOT NULL,
 	versioncode varchar (50) NULL
 );
-create table ODM2.RelatedResults (
+create table ODM2."RelatedResults" (
 	relationid serial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
@@ -587,7 +781,7 @@ create table ODM2.RelatedResults (
 	versioncode varchar (50) NULL,
 	relatedresultsequencenumber integer  NULL
 );
-create table ODM2.ResultDerivationEquations (
+create table ODM2."ResultDerivationEquations" (
 	resultid bigint  NOT NULL primary key,
 	derivationequationid integer  NOT NULL
 );
@@ -595,7 +789,7 @@ create table ODM2.ResultDerivationEquations (
 /*************************** CREATE ODM2RESULTS ****************************/
 /***************************************************************************/
 
-create table ODM2.CategoricalResults (
+create table ODM2."CategoricalResults" (
 	resultid bigint  NOT NULL primary key,
 	xlocation double precision  NULL,
 	xlocationunitsid integer  NULL,
@@ -604,16 +798,16 @@ create table ODM2.CategoricalResults (
 	zlocation double precision  NULL,
 	zlocationunitsid integer  NULL,
 	spatialreferenceid integer  NULL,
-	qualitycodecv bigint  NOT NULL
+	qualitycodecv varchar (255) NOT NULL
 );
-create table ODM2.CategoricalResultValues (
+create table ODM2."CategoricalResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue varchar (255) NOT NULL,
 	valuedatetime timestamp  NOT NULL,
 	valuedatetimeutcoffset integer  NOT NULL
 );
-create table ODM2.MeasurementResults (
+create table ODM2."MeasurementResults" (
 	resultid bigint  NOT NULL primary key,
 	xlocation double precision  NULL,
 	xlocationunitsid integer  NULL,
@@ -628,14 +822,14 @@ create table ODM2.MeasurementResults (
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL
 );
-create table ODM2.MeasurementResultValues (
+create table ODM2."MeasurementResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue double precision  NOT NULL,
 	valuedatetime timestamp  NOT NULL,
 	valuedatetimeutcoffset integer  NOT NULL
 );
-create table ODM2.PointCoverageResults (
+create table ODM2."PointCoverageResults" (
 	resultid bigint  NOT NULL primary key,
 	zlocation double precision  NULL,
 	zlocationunitsid integer  NULL,
@@ -648,7 +842,7 @@ create table ODM2.PointCoverageResults (
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL
 );
-create table ODM2.PointCoverageResultValues (
+create table ODM2."PointCoverageResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue bigint  NOT NULL,
@@ -661,7 +855,7 @@ create table ODM2.PointCoverageResultValues (
 	censorcodecv varchar (255) NOT NULL,
 	qualitycodecv varchar (255) NOT NULL
 );
-create table ODM2.ProfileResults (
+create table ODM2."ProfileResults" (
 	resultid bigint  NOT NULL primary key,
 	xlocation double precision  NULL,
 	xlocationunitsid integer  NULL,
@@ -674,7 +868,7 @@ create table ODM2.ProfileResults (
 	intendedtimespacingunitsid integer  NULL,
 	aggregationstatisticcv varchar (255) NOT NULL
 );
-create table ODM2.ProfileResultValues (
+create table ODM2."ProfileResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue double precision  NOT NULL,
@@ -688,18 +882,7 @@ create table ODM2.ProfileResultValues (
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL
 );
-create table ODM2.ResultTypeCV (
-	resulttypecv varchar (255) NOT NULL primary key,
-	resulttypecategory varchar (255) NOT NULL,
-	datatype varchar (255) NOT NULL,
-	resulttypedefinition varchar (500) NOT NULL,
-	fixeddimensions varchar (255) NOT NULL,
-	varyingdimensions varchar (255) NOT NULL,
-	spacemeasurementframework varchar (255) NOT NULL,
-	timemeasurementframework varchar (255) NOT NULL,
-	variablemeasurementframework varchar (255) NOT NULL
-);
-create table ODM2.SectionResults (
+create table ODM2."SectionResults" (
 	resultid bigint  NOT NULL primary key,
 	ylocation double precision  NULL,
 	ylocationunitsid integer  NULL,
@@ -712,7 +895,7 @@ create table ODM2.SectionResults (
 	intendedtimespacingunitsid integer  NULL,
 	aggregationstatisticcv varchar (255) NOT NULL
 );
-create table ODM2.SectionResultValues (
+create table ODM2."SectionResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue double precision  NOT NULL,
@@ -730,7 +913,7 @@ create table ODM2.SectionResultValues (
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL
 );
-create table ODM2.SpectraResults (
+create table ODM2."SpectraResults" (
 	resultid bigint  NOT NULL primary key,
 	xlocation double precision  NULL,
 	xlocationunitsid integer  NULL,
@@ -743,7 +926,7 @@ create table ODM2.SpectraResults (
 	intendedwavelengthspacingunitsid integer  NULL,
 	aggregationstatisticcv varchar (255) NOT NULL
 );
-create table ODM2.SpectraResultValues (
+create table ODM2."SpectraResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue double precision  NOT NULL,
@@ -757,7 +940,7 @@ create table ODM2.SpectraResultValues (
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL
 );
-create table ODM2.TimeSeriesResults (
+create table ODM2."TimeSeriesResults" (
 	resultid bigint  NOT NULL primary key,
 	xlocation double precision  NULL,
 	xlocationunitsid integer  NULL,
@@ -770,7 +953,7 @@ create table ODM2.TimeSeriesResults (
 	intendedtimespacingunitsid integer  NULL,
 	aggregationstatisticcv varchar (255) NOT NULL
 );
-create table ODM2.TimeSeriesResultValues (
+create table ODM2."TimeSeriesResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue double precision  NOT NULL,
@@ -781,7 +964,7 @@ create table ODM2.TimeSeriesResultValues (
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL
 );
-create table ODM2.TrajectoryResults (
+create table ODM2."TrajectoryResults" (
 	resultid bigint  NOT NULL primary key,
 	spatialreferenceid integer  NULL,
 	intendedtrajectoryspacing double precision  NULL,
@@ -790,7 +973,7 @@ create table ODM2.TrajectoryResults (
 	intendedtimespacingunitsid integer  NULL,
 	aggregationstatisticcv varchar (255) NOT NULL
 );
-create table ODM2.TrajectoryResultValues (
+create table ODM2."TrajectoryResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue double precision  NOT NULL,
@@ -810,7 +993,7 @@ create table ODM2.TrajectoryResultValues (
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL
 );
-create table ODM2.TransectResults (
+create table ODM2."TransectResults" (
 	resultid bigint  NOT NULL primary key,
 	zlocation double precision  NULL,
 	zlocationunitsid integer  NULL,
@@ -821,7 +1004,7 @@ create table ODM2.TransectResults (
 	intendedtimespacingunitsid integer  NULL,
 	aggregationstatisticcv varchar (255) NOT NULL
 );
-create table ODM2.TransectResultValues (
+create table ODM2."TransectResultValues" (
 	valueid bigserial  NOT NULL primary key,
 	resultid bigint  NOT NULL,
 	datavalue double precision  NOT NULL,
@@ -844,21 +1027,21 @@ create table ODM2.TransectResultValues (
 /*********************** CREATE ODM2SAMPLINGFEATURES ***********************/
 /***************************************************************************/
 
-create table ODM2.RelatedFeatures (
+create table ODM2."RelatedFeatures" (
 	relationid serial  NOT NULL primary key,
 	samplingfeatureid integer  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
 	relatedfeatureid integer  NOT NULL,
 	spatialoffsetid integer  NULL
 );
-create table ODM2.Sites (
+create table ODM2."Sites" (
 	samplingfeatureid integer  NOT NULL primary key,
 	sitetypecv varchar (255) NOT NULL,
 	latitude double precision  NOT NULL,
 	longitude double precision  NOT NULL,
 	spatialreferenceid integer  NOT NULL
 );
-create table ODM2.SpatialOffsets (
+create table ODM2."SpatialOffsets" (
 	spatialoffsetid integer  NOT NULL primary key,
 	spatialoffsettypecv varchar (255) NOT NULL,
 	offset1value double precision  NOT NULL,
@@ -868,20 +1051,20 @@ create table ODM2.SpatialOffsets (
 	offset3value double precision  NULL,
 	offset3unitid integer  NULL
 );
-create table ODM2.SpatialReferences (
+create table ODM2."SpatialReferences" (
 	spatialreferenceid serial  NOT NULL primary key,
 	srscode varchar (50) NULL,
 	srsname varchar (255) NOT NULL,
 	srsdescription varchar (500) NULL,
 	srslink varchar (255) NULL
 );
-create table ODM2.Specimens (
+create table ODM2."Specimens" (
 	samplingfeatureid integer  NOT NULL primary key,
 	specimentypecv varchar (255) NOT NULL,
 	specimenmediumcv varchar (255) NOT NULL,
 	isfieldspecimen boolean  NOT NULL
 );
-create table ODM2.SpecimenTaxonomicClassifiers (
+create table ODM2."SpecimenTaxonomicClassifiers" (
 	bridgeid serial  NOT NULL primary key,
 	samplingfeatureid integer  NOT NULL,
 	taxonomicclassifierid integer  NOT NULL,
@@ -891,14 +1074,14 @@ create table ODM2.SpecimenTaxonomicClassifiers (
 /************************** CREATE ODM2SIMULATION **************************/
 /***************************************************************************/
 
-create table ODM2.ModelAffiliations (
+create table ODM2."ModelAffiliations" (
 	bridgeid serial  NOT NULL primary key,
 	modelid integer  NOT NULL,
 	affiliationid integer  NOT NULL,
 	isprimary boolean  NOT NULL,
 	roledescription varchar (500) NULL
 );
-create table ODM2.Models (
+create table ODM2."Models" (
 	modelid serial  NOT NULL primary key,
 	modelcode varchar (50) NOT NULL,
 	modelname varchar (255) NOT NULL,
@@ -906,13 +1089,13 @@ create table ODM2.Models (
 	version varchar (255) NULL,
 	modellink varchar (255) NULL
 );
-create table ODM2.RelatedModels (
+create table ODM2."RelatedModels" (
 	relatedid serial  NOT NULL primary key,
 	modelid integer  NOT NULL,
 	relationshiptypecv varchar (255) NOT NULL,
 	relatedmodelid integer  NOT NULL
 );
-create table ODM2.Simulations (
+create table ODM2."Simulations" (
 	simulationid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	simulationname varchar (255) NOT NULL,
@@ -937,6 +1120,10 @@ on update no Action on delete cascade;
 
 alter table ODM2.Annotations add constraint fk_Annotations_Citations
 foreign key (CitationID) References ODM2.Citations (CitationID)
+on update no Action on delete cascade;
+
+alter table ODM2.Annotations add constraint fk_Annotations_CV_AnnotationType
+foreign key (AnnotationTypeCV) References ODM2.CV_AnnotationType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.Annotations add constraint fk_Annotations_People
@@ -1055,6 +1242,10 @@ alter table ODM2.ActionBy add constraint fk_ActionPeople_Affiliations
 foreign key (AffiliationID) References ODM2.Affiliations (AffiliationID)
 on update no Action on delete cascade;
 
+alter table ODM2.Actions add constraint fk_Actions_CV_ActionType
+foreign key (ActionTypeCV) References ODM2.CV_ActionType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.Actions add constraint fk_Actions_Methods
 foreign key (MethodID) References ODM2.Methods (MethodID)
 on update no Action on delete cascade;
@@ -1067,11 +1258,15 @@ alter table ODM2.Affiliations add constraint fk_Affiliations_People
 foreign key (PersonID) References ODM2.People (PersonID)
 on update no Action on delete cascade;
 
-alter table ODM2.DataSetsResults add constraint fk_DataSetsResults_DataSets
-foreign key (DataSetID) References ODM2.DataSets (DataSetID)
+alter table ODM2.Datasets add constraint fk_Datasets_CV_DatasetTypeCV
+foreign key (DataSetTypeCV) References ODM2.CV_DatasetTypeCV (Name)
 on update no Action on delete cascade;
 
-alter table ODM2.DataSetsResults add constraint fk_DataSetsResults_Results
+alter table ODM2.DatasetsResults add constraint fk_DataSetsResults_DataSets
+foreign key (DataSetID) References ODM2.Datasets (DataSetID)
+on update no Action on delete cascade;
+
+alter table ODM2.DatasetsResults add constraint fk_DataSetsResults_Results
 foreign key (ResultID) References ODM2.Results (ResultID)
 on update no Action on delete cascade;
 
@@ -1083,8 +1278,16 @@ alter table ODM2.FeatureActions add constraint fk_FeatureActions_SamplingFeature
 foreign key (SamplingFeatureID) References ODM2.SamplingFeatures (SamplingFeatureID)
 on update no Action on delete cascade;
 
+alter table ODM2.Methods add constraint fk_Methods_CV_MethodType
+foreign key (MethodTypeCV) References ODM2.CV_MethodType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.Methods add constraint fk_Methods_Organizations
 foreign key (OrganizationID) References ODM2.Organizations (OrganizationID)
+on update no Action on delete cascade;
+
+alter table ODM2.Organizations add constraint fk_Organizations_CV_OrganizationType
+foreign key (OrganizationTypeCV) References ODM2.CV_OrganizationType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.Organizations add constraint fk_Organizations_Organizations
@@ -1099,16 +1302,28 @@ alter table ODM2.RelatedActions add constraint fk_RelatedActions_Actions_AreRela
 foreign key (RelatedActionID) References ODM2.Actions (ActionID)
 on update no Action on delete cascade;
 
+alter table ODM2.RelatedActions add constraint fk_RelatedActions_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Results add constraint fk_Results_CV_ResultType
+foreign key (ResultTypeCV) References ODM2.CV_ResultType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Results add constraint fk_Results_CV_SampledMedium
+foreign key (SampledMediumCV) References ODM2.CV_SampledMedium (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Results add constraint fk_Results_CV_Status
+foreign key (StatusCV) References ODM2.CV_Status (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.Results add constraint fk_Results_FeatureActions
 foreign key (FeatureActionID) References ODM2.FeatureActions (FeatureActionID)
 on update no Action on delete cascade;
 
 alter table ODM2.Results add constraint fk_Results_ProcessingLevels
 foreign key (ProcessingLevelID) References ODM2.ProcessingLevels (ProcessingLevelID)
-on update no Action on delete cascade;
-
-alter table ODM2.Results add constraint fk_Results_ResultTypeCV
-foreign key (ResultTypeCV) References ODM2.ResultTypeCV (ResultTypeCV)
 on update no Action on delete cascade;
 
 alter table ODM2.Results add constraint fk_Results_TaxonomicClassifiers
@@ -1123,12 +1338,52 @@ alter table ODM2.Results add constraint fk_Results_Variables
 foreign key (VariableID) References ODM2.Variables (VariableID)
 on update no Action on delete cascade;
 
+alter table ODM2.SamplingFeatures add constraint fk_SamplingFeatures_CV_ElevationDatum
+foreign key (ElevationDatumCV) References ODM2.CV_ElevationDatum (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.SamplingFeatures add constraint fk_SamplingFeatures_CV_SamplingFeatureGeoType
+foreign key (SamplingFeatureGeotypeCV) References ODM2.CV_SamplingFeatureGeoType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.SamplingFeatures add constraint fk_SamplingFeatures_CV_SamplingFeatureType
+foreign key (SamplingFeatureTypeCV) References ODM2.CV_SamplingFeatureType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.TaxonomicClassifiers add constraint fk_ParentTaxon_Taxon
 foreign key (ParentTaxonomicClassifierID) References ODM2.TaxonomicClassifiers (TaxonomicClassifierID)
 on update no Action on delete cascade;
 
+alter table ODM2.TaxonomicClassifiers add constraint fk_TaxonomicClassifiers_CV_TaxonomicClassifierType
+foreign key (TaxonomicClassifierTypeCV) References ODM2.CV_TaxonomicClassifierType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Units add constraint fk_Units_CV_UnitsType
+foreign key (UnitsTypeCV) References ODM2.CV_UnitsType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Variables add constraint fk_Variables_CV_Speciation
+foreign key (SpeciationCV) References ODM2.CV_Speciation (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Variables add constraint fk_Variables_CV_VariableName
+foreign key (VariableNameCV) References ODM2.CV_VariableName (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Variables add constraint fk_Variables_CV_VariableType
+foreign key (VariableTypeCV) References ODM2.CV_VariableType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.DataQuality add constraint fk_DataQuality_CV_DataQualityType
+foreign key (DataQualityTypeCV) References ODM2.CV_DataQualityType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.DataQuality add constraint fk_DataQuality_Units
 foreign key (DataQualityValueUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.ReferenceMaterials add constraint fk_ReferenceMaterials_CV_ReferenceMaterialMedium
+foreign key (ReferenceMaterialMediumCV) References ODM2.CV_ReferenceMaterialMedium (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.ReferenceMaterials add constraint fk_ReferenceMaterials_Organizations
@@ -1195,6 +1450,10 @@ alter table ODM2.CalibrationStandards add constraint fk_FieldCalibrationStandard
 foreign key (ReferenceMaterialID) References ODM2.ReferenceMaterials (ReferenceMaterialID)
 on update no Action on delete cascade;
 
+alter table ODM2.DataloggerFileColumns add constraint fk_DataloggerFileColumns_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.DataloggerFileColumns add constraint fk_DataloggerFileColumns_DataLoggerFiles
 foreign key (DataLoggerFileID) References ODM2.DataLoggerFiles (DataLoggerFileID)
 on update no Action on delete cascade;
@@ -1221,6 +1480,10 @@ on update no Action on delete cascade;
 
 alter table ODM2.DataloggerProgramFiles add constraint fk_DataloggerProgramFiles_Affiliations
 foreign key (AffiliationID) References ODM2.Affiliations (AffiliationID)
+on update no Action on delete cascade;
+
+alter table ODM2.Equipment add constraint fk_Equipment_CV_EquipmentType
+foreign key (EquipmentTypeCV) References ODM2.CV_EquipmentType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.Equipment add constraint fk_Equipment_EquipmentModels
@@ -1267,6 +1530,10 @@ alter table ODM2.MaintenanceActions add constraint fk_MaintenanceActions_Actions
 foreign key (ActionID) References ODM2.Actions (ActionID)
 on update no Action on delete cascade;
 
+alter table ODM2.RelatedEquipment add constraint fk_RelatedEquipment_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.RelatedEquipment add constraint fk_RelatedEquipment_Equipment
 foreign key (EquipmentID) References ODM2.Equipment (EquipmentID)
 on update no Action on delete cascade;
@@ -1289,6 +1556,10 @@ on update no Action on delete cascade;
 
 alter table ODM2.CitationExtensionPropertyValues add constraint fk_CitationExtensionPropertyValues_ExtensionProperties
 foreign key (PropertyID) References ODM2.ExtensionProperties (PropertyID)
+on update no Action on delete cascade;
+
+alter table ODM2.ExtensionProperties add constraint fk_ExtensionProperties_CV_PropertyDataType
+foreign key (PropertyDataTypeCV) References ODM2.CV_PropertyDataType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.ExtensionProperties add constraint fk_ExtensionProperties_Units
@@ -1403,6 +1674,10 @@ alter table ODM2.ActionDirectives add constraint fk_ActionDirectives_Directives
 foreign key (DirectiveID) References ODM2.Directives (DirectiveID)
 on update no Action on delete cascade;
 
+alter table ODM2.Directives add constraint fk_Directives_CV_DirectiveType
+foreign key (DirectiveTypeCV) References ODM2.CV_DirectiveType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.SpecimenBatchPostions add constraint fk_SpecimenBatchPostions_FeatureActions
 foreign key (FeatureActionID) References ODM2.FeatureActions (FeatureActionID)
 on update no Action on delete cascade;
@@ -1415,16 +1690,24 @@ alter table ODM2.AuthorLists add constraint fk_AuthorLists_People
 foreign key (PersonID) References ODM2.People (PersonID)
 on update no Action on delete cascade;
 
-alter table ODM2.DataSetCitations add constraint fk_DataSetCitations_Citations
+alter table ODM2.DatasetCitations add constraint fk_DataSetCitations_Citations
 foreign key (CitationID) References ODM2.Citations (CitationID)
 on update no Action on delete cascade;
 
-alter table ODM2.DataSetCitations add constraint fk_DataSetCitations_DataSets
-foreign key (DataSetID) References ODM2.DataSets (DataSetID)
+alter table ODM2.DatasetCitations add constraint fk_DatasetCitations_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.DatasetCitations add constraint fk_DataSetCitations_DataSets
+foreign key (DataSetID) References ODM2.Datasets (DataSetID)
 on update no Action on delete cascade;
 
 alter table ODM2.MethodCitations add constraint fk_MethodCitations_Citations
 foreign key (CitationID) References ODM2.Citations (CitationID)
+on update no Action on delete cascade;
+
+alter table ODM2.MethodCitations add constraint fk_MethodCitations_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.MethodCitations add constraint fk_MethodCitations_Methods
@@ -1439,6 +1722,10 @@ alter table ODM2.RelatedAnnotations add constraint fk_RelatedAnnotations_Annotat
 foreign key (RelatedAnnotationID) References ODM2.Annotations (AnnotationID)
 on update no Action on delete cascade;
 
+alter table ODM2.RelatedAnnotations add constraint fk_RelatedAnnotations_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.RelatedCitations add constraint fk_RelatedCitations_Citations
 foreign key (CitationID) References ODM2.Citations (CitationID)
 on update no Action on delete cascade;
@@ -1447,12 +1734,24 @@ alter table ODM2.RelatedCitations add constraint fk_RelatedCitations_Citations_A
 foreign key (RelatedCitationID) References ODM2.Citations (CitationID)
 on update no Action on delete cascade;
 
+alter table ODM2.RelatedCitations add constraint fk_RelatedCitations_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.RelatedDatasets add constraint fk_RelatedDatasets_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.RelatedDatasets add constraint fk_RelatedDatasets_DataSets
-foreign key (DataSetID) References ODM2.DataSets (DataSetID)
+foreign key (DataSetID) References ODM2.Datasets (DataSetID)
 on update no Action on delete cascade;
 
 alter table ODM2.RelatedDatasets add constraint fk_RelatedDatasets_DataSets_AreRelated
-foreign key (RelatedDatasetID) References ODM2.DataSets (DataSetID)
+foreign key (RelatedDatasetID) References ODM2.Datasets (DataSetID)
+on update no Action on delete cascade;
+
+alter table ODM2.RelatedResults add constraint fk_RelatedResults_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.RelatedResults add constraint fk_RelatedResults_Results
@@ -1471,6 +1770,10 @@ alter table ODM2.ResultDerivationEquations add constraint fk_ResultDerivationEqu
 foreign key (ResultID) References ODM2.Results (ResultID)
 on update no Action on delete cascade;
 
+alter table ODM2.CategoricalResults add constraint fk_CategoricalResults_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.CategoricalResults add constraint fk_CategoricalResults_Results
 foreign key (ResultID) References ODM2.Results (ResultID)
 on update no Action on delete cascade;
@@ -1485,6 +1788,18 @@ on update no Action on delete cascade;
 
 alter table ODM2.MeasurementResults add constraint fk_MeasurementResults_AIUnits
 foreign key (TimeAggregationIntervalUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.MeasurementResults add constraint fk_MeasurementResults_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.MeasurementResults add constraint fk_MeasurementResults_CV_CensorCode
+foreign key (CensorCodeCV) References ODM2.CV_CensorCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.MeasurementResults add constraint fk_MeasurementResults_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.MeasurementResults add constraint fk_MeasurementResults_Results
@@ -1511,6 +1826,10 @@ alter table ODM2.MeasurementResultValues add constraint fk_MeasurementResultValu
 foreign key (ResultID) References ODM2.MeasurementResults (ResultID)
 on update no Action on delete cascade;
 
+alter table ODM2.PointCoverageResults add constraint fk_PointCoverageResults_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.PointCoverageResults add constraint fk_PointCoverageResults_Results
 foreign key (ResultID) References ODM2.Results (ResultID)
 on update no Action on delete cascade;
@@ -1531,6 +1850,14 @@ alter table ODM2.PointCoverageResults add constraint fk_PointCoverageResults_ZUn
 foreign key (ZLocationUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
+alter table ODM2.PointCoverageResultValues add constraint fk_PointCoverageResultValues_CV_CensorCode
+foreign key (CensorCodeCV) References ODM2.CV_CensorCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.PointCoverageResultValues add constraint fk_PointCoverageResultValues_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.PointCoverageResultValues add constraint fk_PointCoverageResultValues_PointCoverageResults
 foreign key (ResultID) References ODM2.PointCoverageResults (ResultID)
 on update no Action on delete cascade;
@@ -1541,6 +1868,10 @@ on update no Action on delete cascade;
 
 alter table ODM2.PointCoverageResultValues add constraint fk_PointCoverageResultValues_YUnits
 foreign key (YLocationUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.ProfileResults add constraint fk_ProfileResults_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.ProfileResults add constraint fk_ProfileResults_DUnits
@@ -1571,12 +1902,24 @@ alter table ODM2.ProfileResultValues add constraint fk_ProfileResultValues_AIUni
 foreign key (TimeAggregationIntervalUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
+alter table ODM2.ProfileResultValues add constraint fk_ProfileResultValues_CV_CensorCode
+foreign key (CensorCodeCV) References ODM2.CV_CensorCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.ProfileResultValues add constraint fk_ProfileResultValues_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.ProfileResultValues add constraint fk_ProfileResultValues_DUnits
 foreign key (ZLocationUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
 alter table ODM2.ProfileResultValues add constraint fk_ProfileResultValues_ProfileResults
 foreign key (ResultID) References ODM2.ProfileResults (ResultID)
+on update no Action on delete cascade;
+
+alter table ODM2.SectionResults add constraint fk_SectionResults_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.SectionResults add constraint fk_SectionResults_Results
@@ -1607,6 +1950,18 @@ alter table ODM2.SectionResultValues add constraint fk_SectionResultValues_AIUni
 foreign key (TimeAggregationIntervalUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
+alter table ODM2.SectionResultValues add constraint fk_SectionResultValues_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.SectionResultValues add constraint fk_SectionResultValues_CV_CensorCode
+foreign key (CensorCodeCV) References ODM2.CV_CensorCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.SectionResultValues add constraint fk_SectionResultValues_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.SectionResultValues add constraint fk_SectionResultValues_SectionResults
 foreign key (ResultID) References ODM2.SectionResults (ResultID)
 on update no Action on delete cascade;
@@ -1617,6 +1972,10 @@ on update no Action on delete cascade;
 
 alter table ODM2.SectionResultValues add constraint fk_SectionResultValues_ZUnits
 foreign key (ZLocationUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.SpectraResults add constraint fk_SpectraResults_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.SpectraResults add constraint fk_SpectraResults_Results
@@ -1647,12 +2006,24 @@ alter table ODM2.SpectraResultValues add constraint fk_SpectraResultValues_AIUni
 foreign key (TimeAggregationIntervalUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
+alter table ODM2.SpectraResultValues add constraint fk_SpectraResultValues_CV_CensorCode
+foreign key (CensorCodeCV) References ODM2.CV_CensorCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.SpectraResultValues add constraint fk_SpectraResultValues_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.SpectraResultValues add constraint fk_SpectraResultValues_SpectraResults
 foreign key (ResultID) References ODM2.SpectraResults (ResultID)
 on update no Action on delete cascade;
 
 alter table ODM2.SpectraResultValues add constraint fk_SpectraResultValues_WUnits
 foreign key (WavelengthUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.TimeSeriesResults add constraint fk_TimeSeriesResults_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.TimeSeriesResults add constraint fk_TimeSeriesResults_Results
@@ -1679,12 +2050,24 @@ alter table ODM2.TimeSeriesResults add constraint fk_TimeSeriesResults_ZUnits
 foreign key (ZLocationUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
+alter table ODM2.TimeSeriesResultValues add constraint fk_TimeSeriesResultValues_AIUnits
+foreign key (TimeAggregationIntervalUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.TimeSeriesResultValues add constraint fk_TimeSeriesResultValues_CV_CensorCode
+foreign key (CensorCodeCV) References ODM2.CV_CensorCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.TimeSeriesResultValues add constraint fk_TimeSeriesResultValues_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.TimeSeriesResultValues add constraint fk_TimeSeriesResultValues_TimeSeriesResults
 foreign key (ResultID) References ODM2.TimeSeriesResults (ResultID)
 on update no Action on delete cascade;
 
-alter table ODM2.TimeSeriesResultValues add constraint fk_TimeSeriesResultValues_Units
-foreign key (TimeAggregationIntervalUnitsID) References ODM2.Units (UnitsID)
+alter table ODM2.TrajectoryResults add constraint fk_TrajectoryResults_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.TrajectoryResults add constraint fk_TrajectoryResults_Results
@@ -1707,6 +2090,18 @@ alter table ODM2.TrajectoryResultValues add constraint fk_TrajectoryResultValues
 foreign key (TimeAggregationIntervalUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
+alter table ODM2.TrajectoryResultValues add constraint fk_TrajectoryResultValues_CV_CensorCode
+foreign key (CensorCodeCV) References ODM2.CV_CensorCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.TrajectoryResultValues add constraint fk_TrajectoryResultValues_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.TrajectoryResultValues add constraint fk_TrajectoryResultValues_DistanceUnits
+foreign key (TrajectoryDistanceUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
 alter table ODM2.TrajectoryResultValues add constraint fk_TrajectoryResultValues_TrajectoryResults
 foreign key (ResultID) References ODM2.TrajectoryResults (ResultID)
 on update no Action on delete cascade;
@@ -1721,6 +2116,10 @@ on update no Action on delete cascade;
 
 alter table ODM2.TrajectoryResultValues add constraint fk_TrajectoryResultValues_ZUnits
 foreign key (ZLocationUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.TransectResults add constraint fk_TransectResults_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.TransectResults add constraint fk_TransectResults_Results
@@ -1743,8 +2142,36 @@ alter table ODM2.TransectResults add constraint fk_TransectResults_Units
 foreign key (ZLocationUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
+alter table ODM2.TransectResultValues add constraint fk_TransectResultValues_AIUnits
+foreign key (TimeAggregationIntervalUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.TransectResultValues add constraint fk_TransectResultValues_CV_AggregationStatistic
+foreign key (AggregationStatisticCV) References ODM2.CV_AggregationStatistic (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.TransectResultValues add constraint fk_TransectResultValues_CV_CensorCode
+foreign key (CensorCodeCV) References ODM2.CV_CensorCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.TransectResultValues add constraint fk_TransectResultValues_CV_QualityCode
+foreign key (QualityCodeCV) References ODM2.CV_QualityCode (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.TransectResultValues add constraint fk_TransectResultValues_DistanceUnits
+foreign key (TransectDistanceUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
 alter table ODM2.TransectResultValues add constraint fk_TransectResultValues_TransectResults
 foreign key (ResultID) References ODM2.TransectResults (ResultID)
+on update no Action on delete cascade;
+
+alter table ODM2.TransectResultValues add constraint fk_TransectResultValues_XUnits
+foreign key (XLocationUnitsID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.TransectResultValues add constraint fk_TransectResultValues_YUnits
+foreign key (YLocationUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
 alter table ODM2.RelatedFeatures add constraint fk_FeatureParents_FeaturesParent
@@ -1759,6 +2186,14 @@ alter table ODM2.RelatedFeatures add constraint fk_FeatureParents_SpatialOffsets
 foreign key (SpatialOffsetID) References ODM2.SpatialOffsets (SpatialOffsetID)
 on update no Action on delete cascade;
 
+alter table ODM2.RelatedFeatures add constraint fk_RelatedFeatures_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Sites add constraint fk_Sites_CV_SiteType
+foreign key (SiteTypeCV) References ODM2.CV_SiteType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.Sites add constraint fk_Sites_SamplingFeatures
 foreign key (SamplingFeatureID) References ODM2.SamplingFeatures (SamplingFeatureID)
 on update no Action on delete cascade;
@@ -1767,8 +2202,36 @@ alter table ODM2.Sites add constraint fk_Sites_SpatialReferences
 foreign key (SpatialReferenceID) References ODM2.SpatialReferences (SpatialReferenceID)
 on update no Action on delete cascade;
 
+alter table ODM2.SpatialOffsets add constraint fk_SpatialOffsets_CV_SpatialOffsetType
+foreign key (SpatialOffsetTypeCV) References ODM2.CV_SpatialOffsetType (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.SpatialOffsets add constraint fk_SpatialOffsets_Offset1Units
+foreign key (Offset1UnitID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.SpatialOffsets add constraint fk_SpatialOffsets_Offset2Units
+foreign key (Offset2UnitID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.SpatialOffsets add constraint fk_SpatialOffsets_Offset3Units
+foreign key (Offset3UnitID) References ODM2.Units (UnitsID)
+on update no Action on delete cascade;
+
+alter table ODM2.Specimens add constraint fk_Specimens_CV_SpecimenMedium
+foreign key (SpecimenMediumCV) References ODM2.CV_SpecimenMedium (Name)
+on update no Action on delete cascade;
+
+alter table ODM2.Specimens add constraint fk_Specimens_CV_SpecimenType
+foreign key (SpecimenTypeCV) References ODM2.CV_SpecimenType (Name)
+on update no Action on delete cascade;
+
 alter table ODM2.Specimens add constraint fk_Specimens_SamplingFeatures
 foreign key (SamplingFeatureID) References ODM2.SamplingFeatures (SamplingFeatureID)
+on update no Action on delete cascade;
+
+alter table ODM2.SpecimenTaxonomicClassifiers add constraint fk_SpecimenTaxonomicClassifiers_Citations
+foreign key (CitationID) References ODM2.Citations (CitationID)
 on update no Action on delete cascade;
 
 alter table ODM2.SpecimenTaxonomicClassifiers add constraint fk_SpecimenTaxonomicClassifiers_Specimens
@@ -1785,6 +2248,10 @@ on update no Action on delete cascade;
 
 alter table ODM2.ModelAffiliations add constraint fk_ModelAffiliations_Models
 foreign key (ModelID) References ODM2.Models (ModelID)
+on update no Action on delete cascade;
+
+alter table ODM2.RelatedModels add constraint fk_RelatedModels_CV_RelationshipType
+foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.RelatedModels add constraint fk_RelatedModels_Models

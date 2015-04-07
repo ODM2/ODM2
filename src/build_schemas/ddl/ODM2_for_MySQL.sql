@@ -144,7 +144,7 @@ CREATE TABLE Affiliations (
 	PersonLink VARCHAR (255)  NULL
 );
 
-CREATE TABLE DataSets (
+CREATE TABLE Datasets (
 	DataSetID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	DataSetUUID VARCHAR(36)   NOT NULL,
 	DataSetTypeCV VARCHAR (255)  NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE DataSets (
 	DataSetAbstract VARCHAR (500)  NOT NULL
 );
 
-CREATE TABLE DataSetsResults (
+CREATE TABLE DatasetsResults (
 	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	DataSetID INT   NOT NULL,
 	ResultID BIGINT   NOT NULL
@@ -269,13 +269,235 @@ CREATE TABLE Variables (
 /***************************************************************************/
 USE ODM2;
 
-CREATE TABLE CVTerms (
-	TermID INT   NOT NULL PRIMARY KEY,
+CREATE TABLE CV_ActionType (
 	Term VARCHAR (255)  NOT NULL,
-	Name VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
 	Definition VARCHAR (500)  NULL,
 	Category VARCHAR (255)  NULL,
-	ODM2Vocabulary VARCHAR (255)  NOT NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_AggregationStatistic (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_AnnotationType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_CensorCode (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_DataQualityType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_DatasetTypeCV (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_DirectiveType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_ElevationDatum (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_EquipmentType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_MethodType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_OrganizationType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_PropertyDataType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_QualityCode (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_ReferenceMaterialMedium (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_RelationshipType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_ResultType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SampledMedium (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SamplingFeatureGeoType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SamplingFeatureType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SiteType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SpatialOffsetType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_Speciation (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SpecimenMedium (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_SpecimenType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_Status (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_TaxonomicClassifierType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_UnitsType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_VariableName (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
+CREATE TABLE CV_VariableType (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (500)  NULL,
+	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
 
@@ -532,7 +754,7 @@ CREATE TABLE PersonExternalIdentifiers (
 	PersonID INT   NOT NULL,
 	ExternalIdentifierSystemID INT   NOT NULL,
 	PersonExternalIdentifier VARCHAR (255)  NOT NULL,
-	PersonExternalIdenifierURI VARCHAR (255)  NULL
+	PersonExternalIdentifierURI VARCHAR (255)  NULL
 );
 
 CREATE TABLE ReferenceMaterialExternalIdentifiers (
@@ -618,7 +840,7 @@ CREATE TABLE Citations (
 	CitationLink VARCHAR (255)  NULL
 );
 
-CREATE TABLE DataSetCitations (
+CREATE TABLE DatasetCitations (
 	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	DataSetID INT   NOT NULL,
 	RelationshipTypeCV VARCHAR (255)  NOT NULL,
@@ -647,7 +869,7 @@ CREATE TABLE RelatedAnnotations (
 CREATE TABLE RelatedCitations (
 	RelationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	CitationID INT   NOT NULL,
-	RelationshipTypeCV INT   NOT NULL,
+	RelationshipTypeCV VARCHAR (255)  NOT NULL,
 	RelatedCitationID INT   NOT NULL
 );
 
@@ -687,7 +909,7 @@ CREATE TABLE CategoricalResults (
 	ZLocation FLOAT   NULL,
 	ZLocationUnitsID INT   NULL,
 	SpatialReferenceID INT   NULL,
-	QualityCodeCV BIGINT   NOT NULL
+	QualityCodeCV VARCHAR (255)  NOT NULL
 );
 
 CREATE TABLE CategoricalResultValues (
@@ -777,18 +999,6 @@ CREATE TABLE ProfileResultValues (
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
 	TimeAggregationIntervalUnitsID INT   NOT NULL
-);
-
-CREATE TABLE ResultTypeCV (
-	ResultTypeCV VARCHAR (255)  NOT NULL PRIMARY KEY,
-	ResultTypeCategory VARCHAR (255)  NOT NULL,
-	DataType VARCHAR (255)  NOT NULL,
-	ResultTypeDefinition VARCHAR (500)  NOT NULL,
-	FixedDimensions VARCHAR (255)  NOT NULL,
-	VaryingDimensions VARCHAR (255)  NOT NULL,
-	SpaceMeasurementFramework VARCHAR (255)  NOT NULL,
-	TimeMeasurementFramework VARCHAR (255)  NOT NULL,
-	VariableMeasurementFramework VARCHAR (255)  NOT NULL
 );
 
 CREATE TABLE SectionResults (
@@ -1053,6 +1263,10 @@ ALTER TABLE Annotations ADD CONSTRAINT fk_Annotations_Citations
 FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE Annotations ADD CONSTRAINT fk_Annotations_CV_AnnotationType
+FOREIGN KEY (AnnotationTypeCV) REFERENCES CV_AnnotationType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE Annotations ADD CONSTRAINT fk_Annotations_People
 FOREIGN KEY (AnnotatorID) REFERENCES People (PersonID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1169,6 +1383,10 @@ ALTER TABLE ActionBy ADD CONSTRAINT fk_ActionPeople_Affiliations
 FOREIGN KEY (AffiliationID) REFERENCES Affiliations (AffiliationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE Actions ADD CONSTRAINT fk_Actions_CV_ActionType
+FOREIGN KEY (ActionTypeCV) REFERENCES CV_ActionType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE Actions ADD CONSTRAINT fk_Actions_Methods
 FOREIGN KEY (MethodID) REFERENCES Methods (MethodID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1181,11 +1399,15 @@ ALTER TABLE Affiliations ADD CONSTRAINT fk_Affiliations_People
 FOREIGN KEY (PersonID) REFERENCES People (PersonID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE DataSetsResults ADD CONSTRAINT fk_DataSetsResults_DataSets
-FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
+ALTER TABLE Datasets ADD CONSTRAINT fk_Datasets_CV_DatasetTypeCV
+FOREIGN KEY (DataSetTypeCV) REFERENCES CV_DatasetTypeCV (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE DataSetsResults ADD CONSTRAINT fk_DataSetsResults_Results
+ALTER TABLE DatasetsResults ADD CONSTRAINT fk_DataSetsResults_DataSets
+FOREIGN KEY (DataSetID) REFERENCES Datasets (DataSetID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE DatasetsResults ADD CONSTRAINT fk_DataSetsResults_Results
 FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
@@ -1197,8 +1419,16 @@ ALTER TABLE FeatureActions ADD CONSTRAINT fk_FeatureActions_SamplingFeatures
 FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE Methods ADD CONSTRAINT fk_Methods_CV_MethodType
+FOREIGN KEY (MethodTypeCV) REFERENCES CV_MethodType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE Methods ADD CONSTRAINT fk_Methods_Organizations
 FOREIGN KEY (OrganizationID) REFERENCES Organizations (OrganizationID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Organizations ADD CONSTRAINT fk_Organizations_CV_OrganizationType
+FOREIGN KEY (OrganizationTypeCV) REFERENCES CV_OrganizationType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE Organizations ADD CONSTRAINT fk_Organizations_Organizations
@@ -1213,16 +1443,28 @@ ALTER TABLE RelatedActions ADD CONSTRAINT fk_RelatedActions_Actions_AreRelated
 FOREIGN KEY (RelatedActionID) REFERENCES Actions (ActionID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE RelatedActions ADD CONSTRAINT fk_RelatedActions_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Results ADD CONSTRAINT fk_Results_CV_ResultType
+FOREIGN KEY (ResultTypeCV) REFERENCES CV_ResultType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Results ADD CONSTRAINT fk_Results_CV_SampledMedium
+FOREIGN KEY (SampledMediumCV) REFERENCES CV_SampledMedium (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Results ADD CONSTRAINT fk_Results_CV_Status
+FOREIGN KEY (StatusCV) REFERENCES CV_Status (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE Results ADD CONSTRAINT fk_Results_FeatureActions
 FOREIGN KEY (FeatureActionID) REFERENCES FeatureActions (FeatureActionID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE Results ADD CONSTRAINT fk_Results_ProcessingLevels
 FOREIGN KEY (ProcessingLevelID) REFERENCES ProcessingLevels (ProcessingLevelID)
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-
-ALTER TABLE Results ADD CONSTRAINT fk_Results_ResultTypeCV
-FOREIGN KEY (ResultTypeCV) REFERENCES ResultTypeCV (ResultTypeCV)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE Results ADD CONSTRAINT fk_Results_TaxonomicClassifiers
@@ -1237,12 +1479,52 @@ ALTER TABLE Results ADD CONSTRAINT fk_Results_Variables
 FOREIGN KEY (VariableID) REFERENCES Variables (VariableID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE SamplingFeatures ADD CONSTRAINT fk_SamplingFeatures_CV_ElevationDatum
+FOREIGN KEY (ElevationDatumCV) REFERENCES CV_ElevationDatum (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SamplingFeatures ADD CONSTRAINT fk_SamplingFeatures_CV_SamplingFeatureGeoType
+FOREIGN KEY (SamplingFeatureGeotypeCV) REFERENCES CV_SamplingFeatureGeoType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SamplingFeatures ADD CONSTRAINT fk_SamplingFeatures_CV_SamplingFeatureType
+FOREIGN KEY (SamplingFeatureTypeCV) REFERENCES CV_SamplingFeatureType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE TaxonomicClassifiers ADD CONSTRAINT fk_ParentTaxon_Taxon
 FOREIGN KEY (ParentTaxonomicClassifierID) REFERENCES TaxonomicClassifiers (TaxonomicClassifierID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE TaxonomicClassifiers ADD CONSTRAINT fk_TaxonomicClassifiers_CV_TaxonomicClassifierType
+FOREIGN KEY (TaxonomicClassifierTypeCV) REFERENCES CV_TaxonomicClassifierType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Units ADD CONSTRAINT fk_Units_CV_UnitsType
+FOREIGN KEY (UnitsTypeCV) REFERENCES CV_UnitsType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Variables ADD CONSTRAINT fk_Variables_CV_Speciation
+FOREIGN KEY (SpeciationCV) REFERENCES CV_Speciation (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Variables ADD CONSTRAINT fk_Variables_CV_VariableName
+FOREIGN KEY (VariableNameCV) REFERENCES CV_VariableName (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Variables ADD CONSTRAINT fk_Variables_CV_VariableType
+FOREIGN KEY (VariableTypeCV) REFERENCES CV_VariableType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE DataQuality ADD CONSTRAINT fk_DataQuality_CV_DataQualityType
+FOREIGN KEY (DataQualityTypeCV) REFERENCES CV_DataQualityType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE DataQuality ADD CONSTRAINT fk_DataQuality_Units
 FOREIGN KEY (DataQualityValueUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE ReferenceMaterials ADD CONSTRAINT fk_ReferenceMaterials_CV_ReferenceMaterialMedium
+FOREIGN KEY (ReferenceMaterialMediumCV) REFERENCES CV_ReferenceMaterialMedium (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE ReferenceMaterials ADD CONSTRAINT fk_ReferenceMaterials_Organizations
@@ -1309,6 +1591,10 @@ ALTER TABLE CalibrationStandards ADD CONSTRAINT fk_FieldCalibrationStandards_Ref
 FOREIGN KEY (ReferenceMaterialID) REFERENCES ReferenceMaterials (ReferenceMaterialID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE DataloggerFileColumns ADD CONSTRAINT fk_DataloggerFileColumns_DataLoggerFiles
 FOREIGN KEY (DataLoggerFileID) REFERENCES DataLoggerFiles (DataLoggerFileID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1335,6 +1621,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE DataloggerProgramFiles ADD CONSTRAINT fk_DataloggerProgramFiles_Affiliations
 FOREIGN KEY (AffiliationID) REFERENCES Affiliations (AffiliationID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Equipment ADD CONSTRAINT fk_Equipment_CV_EquipmentType
+FOREIGN KEY (EquipmentTypeCV) REFERENCES CV_EquipmentType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE Equipment ADD CONSTRAINT fk_Equipment_EquipmentModels
@@ -1381,6 +1671,10 @@ ALTER TABLE MaintenanceActions ADD CONSTRAINT fk_MaintenanceActions_Actions
 FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE RelatedEquipment ADD CONSTRAINT fk_RelatedEquipment_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE RelatedEquipment ADD CONSTRAINT fk_RelatedEquipment_Equipment
 FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1403,6 +1697,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE CitationExtensionPropertyValues ADD CONSTRAINT fk_CitationExtensionPropertyValues_ExtensionProperties
 FOREIGN KEY (PropertyID) REFERENCES ExtensionProperties (PropertyID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE ExtensionProperties ADD CONSTRAINT fk_ExtensionProperties_CV_PropertyDataType
+FOREIGN KEY (PropertyDataTypeCV) REFERENCES CV_PropertyDataType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE ExtensionProperties ADD CONSTRAINT fk_ExtensionProperties_Units
@@ -1517,6 +1815,10 @@ ALTER TABLE ActionDirectives ADD CONSTRAINT fk_ActionDirectives_Directives
 FOREIGN KEY (DirectiveID) REFERENCES Directives (DirectiveID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE Directives ADD CONSTRAINT fk_Directives_CV_DirectiveType
+FOREIGN KEY (DirectiveTypeCV) REFERENCES CV_DirectiveType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE SpecimenBatchPostions ADD CONSTRAINT fk_SpecimenBatchPostions_FeatureActions
 FOREIGN KEY (FeatureActionID) REFERENCES FeatureActions (FeatureActionID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1529,16 +1831,24 @@ ALTER TABLE AuthorLists ADD CONSTRAINT fk_AuthorLists_People
 FOREIGN KEY (PersonID) REFERENCES People (PersonID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE DataSetCitations ADD CONSTRAINT fk_DataSetCitations_Citations
+ALTER TABLE DatasetCitations ADD CONSTRAINT fk_DataSetCitations_Citations
 FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE DataSetCitations ADD CONSTRAINT fk_DataSetCitations_DataSets
-FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
+ALTER TABLE DatasetCitations ADD CONSTRAINT fk_DatasetCitations_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE DatasetCitations ADD CONSTRAINT fk_DataSetCitations_DataSets
+FOREIGN KEY (DataSetID) REFERENCES Datasets (DataSetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE MethodCitations ADD CONSTRAINT fk_MethodCitations_Citations
 FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE MethodCitations ADD CONSTRAINT fk_MethodCitations_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE MethodCitations ADD CONSTRAINT fk_MethodCitations_Methods
@@ -1553,6 +1863,10 @@ ALTER TABLE RelatedAnnotations ADD CONSTRAINT fk_RelatedAnnotations_Annotations_
 FOREIGN KEY (RelatedAnnotationID) REFERENCES Annotations (AnnotationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE RelatedAnnotations ADD CONSTRAINT fk_RelatedAnnotations_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE RelatedCitations ADD CONSTRAINT fk_RelatedCitations_Citations
 FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1561,12 +1875,24 @@ ALTER TABLE RelatedCitations ADD CONSTRAINT fk_RelatedCitations_Citations_AreRel
 FOREIGN KEY (RelatedCitationID) REFERENCES Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE RelatedCitations ADD CONSTRAINT fk_RelatedCitations_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE RelatedDatasets ADD CONSTRAINT fk_RelatedDatasets_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE RelatedDatasets ADD CONSTRAINT fk_RelatedDatasets_DataSets
-FOREIGN KEY (DataSetID) REFERENCES DataSets (DataSetID)
+FOREIGN KEY (DataSetID) REFERENCES Datasets (DataSetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE RelatedDatasets ADD CONSTRAINT fk_RelatedDatasets_DataSets_AreRelated
-FOREIGN KEY (RelatedDatasetID) REFERENCES DataSets (DataSetID)
+FOREIGN KEY (RelatedDatasetID) REFERENCES Datasets (DataSetID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE RelatedResults ADD CONSTRAINT fk_RelatedResults_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE RelatedResults ADD CONSTRAINT fk_RelatedResults_Results
@@ -1585,6 +1911,10 @@ ALTER TABLE ResultDerivationEquations ADD CONSTRAINT fk_ResultDerivationEquation
 FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE CategoricalResults ADD CONSTRAINT fk_CategoricalResults_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE CategoricalResults ADD CONSTRAINT fk_CategoricalResults_Results
 FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1599,6 +1929,18 @@ ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE MeasurementResults ADD CONSTRAINT fk_MeasurementResults_AIUnits
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE MeasurementResults ADD CONSTRAINT fk_MeasurementResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE MeasurementResults ADD CONSTRAINT fk_MeasurementResults_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE MeasurementResults ADD CONSTRAINT fk_MeasurementResults_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE MeasurementResults ADD CONSTRAINT fk_MeasurementResults_Results
@@ -1625,6 +1967,10 @@ ALTER TABLE MeasurementResultValues ADD CONSTRAINT fk_MeasurementResultValues_Me
 FOREIGN KEY (ResultID) REFERENCES MeasurementResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE PointCoverageResults ADD CONSTRAINT fk_PointCoverageResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE PointCoverageResults ADD CONSTRAINT fk_PointCoverageResults_Results
 FOREIGN KEY (ResultID) REFERENCES Results (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1645,6 +1991,14 @@ ALTER TABLE PointCoverageResults ADD CONSTRAINT fk_PointCoverageResults_ZUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE PointCoverageResultValues ADD CONSTRAINT fk_PointCoverageResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE PointCoverageResultValues ADD CONSTRAINT fk_PointCoverageResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE PointCoverageResultValues ADD CONSTRAINT fk_PointCoverageResultValues_PointCoverageResults
 FOREIGN KEY (ResultID) REFERENCES PointCoverageResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1655,6 +2009,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE PointCoverageResultValues ADD CONSTRAINT fk_PointCoverageResultValues_YUnits
 FOREIGN KEY (YLocationUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE ProfileResults ADD CONSTRAINT fk_ProfileResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE ProfileResults ADD CONSTRAINT fk_ProfileResults_DUnits
@@ -1685,12 +2043,24 @@ ALTER TABLE ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_AIUnits
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_DUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE ProfileResultValues ADD CONSTRAINT fk_ProfileResultValues_ProfileResults
 FOREIGN KEY (ResultID) REFERENCES ProfileResults (ResultID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SectionResults ADD CONSTRAINT fk_SectionResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE SectionResults ADD CONSTRAINT fk_SectionResults_Results
@@ -1721,6 +2091,18 @@ ALTER TABLE SectionResultValues ADD CONSTRAINT fk_SectionResultValues_AIUnits
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE SectionResultValues ADD CONSTRAINT fk_SectionResultValues_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SectionResultValues ADD CONSTRAINT fk_SectionResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SectionResultValues ADD CONSTRAINT fk_SectionResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE SectionResultValues ADD CONSTRAINT fk_SectionResultValues_SectionResults
 FOREIGN KEY (ResultID) REFERENCES SectionResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1731,6 +2113,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE SectionResultValues ADD CONSTRAINT fk_SectionResultValues_ZUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SpectraResults ADD CONSTRAINT fk_SpectraResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE SpectraResults ADD CONSTRAINT fk_SpectraResults_Results
@@ -1761,12 +2147,24 @@ ALTER TABLE SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_AIUnits
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_SpectraResults
 FOREIGN KEY (ResultID) REFERENCES SpectraResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE SpectraResultValues ADD CONSTRAINT fk_SpectraResultValues_WUnits
 FOREIGN KEY (WavelengthUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TimeSeriesResults ADD CONSTRAINT fk_TimeSeriesResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE TimeSeriesResults ADD CONSTRAINT fk_TimeSeriesResults_Results
@@ -1793,12 +2191,24 @@ ALTER TABLE TimeSeriesResults ADD CONSTRAINT fk_TimeSeriesResults_ZUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_AIUnits
+FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_TimeSeriesResults
 FOREIGN KEY (ResultID) REFERENCES TimeSeriesResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE TimeSeriesResultValues ADD CONSTRAINT fk_TimeSeriesResultValues_Units
-FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
+ALTER TABLE TrajectoryResults ADD CONSTRAINT fk_TrajectoryResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE TrajectoryResults ADD CONSTRAINT fk_TrajectoryResults_Results
@@ -1821,6 +2231,18 @@ ALTER TABLE TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_AIUn
 FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_DistanceUnits
+FOREIGN KEY (TrajectoryDistanceUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_TrajectoryResults
 FOREIGN KEY (ResultID) REFERENCES TrajectoryResults (ResultID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1835,6 +2257,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE TrajectoryResultValues ADD CONSTRAINT fk_TrajectoryResultValues_ZUnits
 FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TransectResults ADD CONSTRAINT fk_TransectResults_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE TransectResults ADD CONSTRAINT fk_TransectResults_Results
@@ -1857,8 +2283,36 @@ ALTER TABLE TransectResults ADD CONSTRAINT fk_TransectResults_Units
 FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE TransectResultValues ADD CONSTRAINT fk_TransectResultValues_AIUnits
+FOREIGN KEY (TimeAggregationIntervalUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TransectResultValues ADD CONSTRAINT fk_TransectResultValues_CV_AggregationStatistic
+FOREIGN KEY (AggregationStatisticCV) REFERENCES CV_AggregationStatistic (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TransectResultValues ADD CONSTRAINT fk_TransectResultValues_CV_CensorCode
+FOREIGN KEY (CensorCodeCV) REFERENCES CV_CensorCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TransectResultValues ADD CONSTRAINT fk_TransectResultValues_CV_QualityCode
+FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TransectResultValues ADD CONSTRAINT fk_TransectResultValues_DistanceUnits
+FOREIGN KEY (TransectDistanceUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE TransectResultValues ADD CONSTRAINT fk_TransectResultValues_TransectResults
 FOREIGN KEY (ResultID) REFERENCES TransectResults (ResultID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TransectResultValues ADD CONSTRAINT fk_TransectResultValues_XUnits
+FOREIGN KEY (XLocationUnitsID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE TransectResultValues ADD CONSTRAINT fk_TransectResultValues_YUnits
+FOREIGN KEY (YLocationUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE RelatedFeatures ADD CONSTRAINT fk_FeatureParents_FeaturesParent
@@ -1873,6 +2327,14 @@ ALTER TABLE RelatedFeatures ADD CONSTRAINT fk_FeatureParents_SpatialOffsets
 FOREIGN KEY (SpatialOffsetID) REFERENCES SpatialOffsets (SpatialOffsetID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE RelatedFeatures ADD CONSTRAINT fk_RelatedFeatures_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Sites ADD CONSTRAINT fk_Sites_CV_SiteType
+FOREIGN KEY (SiteTypeCV) REFERENCES CV_SiteType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE Sites ADD CONSTRAINT fk_Sites_SamplingFeatures
 FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -1881,8 +2343,36 @@ ALTER TABLE Sites ADD CONSTRAINT fk_Sites_SpatialReferences
 FOREIGN KEY (SpatialReferenceID) REFERENCES SpatialReferences (SpatialReferenceID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
+ALTER TABLE SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_CV_SpatialOffsetType
+FOREIGN KEY (SpatialOffsetTypeCV) REFERENCES CV_SpatialOffsetType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_Offset1Units
+FOREIGN KEY (Offset1UnitID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_Offset2Units
+FOREIGN KEY (Offset2UnitID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_Offset3Units
+FOREIGN KEY (Offset3UnitID) REFERENCES Units (UnitsID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Specimens ADD CONSTRAINT fk_Specimens_CV_SpecimenMedium
+FOREIGN KEY (SpecimenMediumCV) REFERENCES CV_SpecimenMedium (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Specimens ADD CONSTRAINT fk_Specimens_CV_SpecimenType
+FOREIGN KEY (SpecimenTypeCV) REFERENCES CV_SpecimenType (Name)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE Specimens ADD CONSTRAINT fk_Specimens_SamplingFeatures
 FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE SpecimenTaxonomicClassifiers ADD CONSTRAINT fk_SpecimenTaxonomicClassifiers_Citations
+FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE SpecimenTaxonomicClassifiers ADD CONSTRAINT fk_SpecimenTaxonomicClassifiers_Specimens
@@ -1899,6 +2389,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE ModelAffiliations ADD CONSTRAINT fk_ModelAffiliations_Models
 FOREIGN KEY (ModelID) REFERENCES Models (ModelID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE RelatedModels ADD CONSTRAINT fk_RelatedModels_CV_RelationshipType
+FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE RelatedModels ADD CONSTRAINT fk_RelatedModels_Models

@@ -1163,11 +1163,7 @@
     <Tbl UsSo="1" nm="CV_ActionType">
       <Cm>Table containing terms used in the ActionType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_ActionType"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_ActionType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1194,11 +1190,7 @@
     <Tbl UsSo="1" nm="CV_AggregationStatistic">
       <Cm>Table containing terms used in the AggregationStatistic controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_ActionType_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_AggregationStatistic"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1225,11 +1217,7 @@
     <Tbl UsSo="1" nm="CV_AnnotationType">
       <Cm>Table containing terms used in the AnnotationType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_AnnotationType"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_AnnotationType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1256,11 +1244,7 @@
     <Tbl UsSo="1" nm="CV_CensorCode">
       <Cm>Table containing terms used in the CensorCode controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_AnnotationType_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_CensorCode"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1287,11 +1271,7 @@
     <Tbl UsSo="1" nm="CV_DataQualityType">
       <Cm>Table containing terms used in the DataQualityType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_AnnotationType_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_DataQualityType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1318,11 +1298,7 @@
     <Tbl UsSo="1" nm="CV_DatasetTypeCV">
       <Cm>Table containing terms used in the DatasetType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_AnnotationType_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_DatasetTypeCV"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1349,11 +1325,7 @@
     <Tbl UsSo="1" nm="CV_DirectiveType">
       <Cm>Table containing terms used in the DirectiveType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_AnnotationType_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_DirectiveType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1380,11 +1352,7 @@
     <Tbl UsSo="1" nm="CV_ElevationDatum">
       <Cm>Table containing terms used in the ElevationDatum controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_AnnotationType_dup_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_ElevationDatum"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1411,11 +1379,7 @@
     <Tbl UsSo="1" nm="CV_EquipmentType">
       <Cm>Table containing terms used in the EquipmentType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_EquipmentType"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_EquipmentType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1442,11 +1406,7 @@
     <Tbl UsSo="1" nm="CV_MethodType">
       <Cm>Table containing terms used in the MethodType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_EquipmentType_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_MethodType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1473,11 +1433,7 @@
     <Tbl UsSo="1" nm="CV_OrganizationType">
       <Cm>Table containing terms used in the OrganizationType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_EquipmentType_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_OrganizationType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1504,11 +1460,7 @@
     <Tbl UsSo="1" nm="CV_PropertyDataType">
       <Cm>Table containing terms used in the PropertyDataType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_EquipmentType_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_PropertyDataType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1535,11 +1487,7 @@
     <Tbl UsSo="1" nm="CV_QualityCode">
       <Cm>Table containing terms used in the QualityCode controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_QualityCode"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1566,11 +1514,7 @@
     <Tbl UsSo="1" nm="CV_ReferenceMaterialMedium">
       <Cm>Table containing terms used in the ReferenceMaterialMedium controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_ReferenceMaterialMedium"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1597,11 +1541,7 @@
     <Tbl UsSo="1" nm="CV_RelationshipType">
       <Cm>Table containing terms used in the RelationshipType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_RelationshipType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1628,11 +1568,7 @@
     <Tbl UsSo="1" nm="CV_ResultType">
       <Cm>Table containing terms used in the ResultType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_ResultType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1659,11 +1595,7 @@
     <Tbl UsSo="1" nm="CV_SampledMedium">
       <Cm>Table containing terms used in the SampledMedium controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_SampledMedium"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1690,11 +1622,7 @@
     <Tbl UsSo="1" nm="CV_SamplingFeatureGeoType">
       <Cm>Table containing terms used in the SamplingFeatureGeoType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_SamplingFeatureGeoType"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_SamplingFeatureGeoType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1721,11 +1649,7 @@
     <Tbl UsSo="1" nm="CV_SamplingFeatureType">
       <Cm>Table containing terms used in the SamplingFeatureType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_SamplingFeatureGeoType_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_SamplingFeatureType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1752,11 +1676,7 @@
     <Tbl UsSo="1" nm="CV_SiteType">
       <Cm>Table containing terms used in the SiteType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_SamplingFeatureGeoType_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_SiteType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1783,11 +1703,7 @@
     <Tbl UsSo="1" nm="CV_SpatialOffsetType">
       <Cm>Table containing terms used in the SpatialOffsetType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_SpatialOffsetType"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_SpatialOffsetType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1814,11 +1730,7 @@
     <Tbl UsSo="1" nm="CV_Speciation">
       <Cm>Table containing terms used in the Speciation controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_Speciation"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1845,11 +1757,7 @@
     <Tbl UsSo="1" nm="CV_SpecimenMedium">
       <Cm>Table containing terms used in the SpecimenMedium controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_SpecimenMedium"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1876,11 +1784,7 @@
     <Tbl UsSo="1" nm="CV_SpecimenType">
       <Cm>Table containing terms used in the SpecimenType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_SpecimenType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1907,11 +1811,7 @@
     <Tbl UsSo="1" nm="CV_Status">
       <Cm>Table containing terms used in the Status controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_Status"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1938,11 +1838,7 @@
     <Tbl UsSo="1" nm="CV_TaxonomicClassifierType">
       <Cm>Table containing terms used in the TaxonomicClassifierType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_TaxonomicClassifierType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1969,11 +1865,7 @@
     <Tbl UsSo="1" nm="CV_UnitsType">
       <Cm>Table containing terms used in the UnitsType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup_dup_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_UnitsType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -2000,11 +1892,7 @@
     <Tbl UsSo="1" nm="CV_VariableName">
       <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup_dup_dup_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_VariableName"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -2031,11 +1919,7 @@
     <Tbl UsSo="1" nm="CV_VariableType">
       <Cm>Table containing terms used in the VariableType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="TermID" nm="pkCV_QualityCode_dup_dup_dup_dup_dup_dup_dup_dup_dup_dup"/>
-      <Cl au="0" df="" nm="TermID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key</Cm>
-      </Cl>
+      <Pk ClNs="Name" nm="pkCV_VariableType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -5653,7 +5537,7 @@
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -7783,7 +7667,8 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
