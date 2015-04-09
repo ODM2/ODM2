@@ -1,6 +1,6 @@
 from sqlalchemy import func
 from ..models import Variables, People, Methods, ProcessingLevels, SamplingFeatures, Units, Organizations, Results, \
-    DataSets, Affiliations, FeatureActions, Actions, DataQuality, Equipment, TimeSeriesResults, TimeSeriesResultValues, \
+    Datasets, Affiliations, FeatureActions, Actions, DataQuality, Equipment, TimeSeriesResults, TimeSeriesResultValues, \
     Sites, DeploymentActions, SpatialReferences, Models, Simulations, RelatedModels
 
 import pandas as pd
@@ -415,16 +415,16 @@ class readCore(object):
     Datasets
     """
 
-    def getDataSets(self):
+    def getDatasets(self):
         try:
             return self._session.query(Datasets).all()
         except:
             return None
 
-    def getDataSetByCode(self, dscode):
+    def getDatasetByCode(self, dscode):
 
         try:
-            return self._session.query(Datasets).filer(Datasets.DataSetCode.ilike(dscode)).first()
+            return self._session.query(Datasets).filer(Datasets.DatasetCode.ilike(dscode)).first()
         except:
             return None
 

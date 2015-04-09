@@ -6,7 +6,7 @@ from ..models import Models
 from ..models import RelatedModels
 from ..models import Simulations
 from ..models import Actions
-from ..models import DataSetsResults
+from ..models import DatasetsResults
 from ..models import ActionBy
 from ..models import FeatureActions
 from ..models import Results
@@ -18,7 +18,7 @@ from ..models import Units
 from ..models import Organizations
 from ..models import People
 from ..models import Affiliations
-from ..models import DataSets
+from ..models import Datasets
 #from src.api.ODM1_1_1 import Site
 
 __author__ = 'jmeline'
@@ -283,26 +283,26 @@ class createCore(serviceBase):
 
         return a
 
-    def createDataSet(self, dstype, dscode, dstitle, dsabstract):
-        ds = DataSets()
+    def createDataset(self, dstype, dscode, dstitle, dsabstract):
+        ds = Datasets()
 
         # create the dataset
-        ds.DataSetTypeCV = dstype
-        ds.DataSetCode = dscode
-        ds.DataSetTitle = dstitle
-        ds.DataSetAbstract = dsabstract
-        ds.DataSetUUID = uuid.uuid4().hex
+        ds.DatasetTypeCV = dstype
+        ds.DatasetCode = dscode
+        ds.DatasetTitle = dstitle
+        ds.DatasetAbstract = dsabstract
+        ds.DatasetUUID = uuid.uuid4().hex
 
         self._session.add(ds)
         self._session.commit()
 
         return ds
 
-    def createDataSetResults(self, dsid, resultid):
-        dsr = DataSetsResults()
+    def createDatasetResults(self, dsid, resultid):
+        dsr = DatasetsResults()
 
         # link dataset to results
-        dsr.DataSetID = dsid
+        dsr.DatasetID = dsid
         dsr.ResultID = resultid
 
         self._session.add(dsr)
@@ -621,7 +621,7 @@ class createSimulation(serviceBase):
         sim.SimulationEndDateTimeUTCOffset = simulationEndOffset
         sim.TimeStepValue = timeStepValue
         sim.TimeStepUnitsID = timeStepUnitID
-        sim.InputDataSetID = inputDatasetID
+        sim.InputDatasetID = inputDatasetID
 
         self._session.add(sim)
         self._session.commit()

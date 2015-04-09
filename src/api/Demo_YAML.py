@@ -82,7 +82,7 @@ _session.autoflush = False
 # yaml_load._session.autoflush = False
 _session.flush()
 persons = _session.query(People).all()
-datasets = _session.query(DataSets).all()
+datasets = _session.query(Datasets).all()
 citations = _session.query(Citations).all()
 authorlists = _session.query(AuthorLists).all()
 spatial_references = _session.query(SpatialReferences).all()
