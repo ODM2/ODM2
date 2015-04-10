@@ -202,8 +202,30 @@ class CVSamplingFeatureType(Base):
     SourceVocabularyURI = Column(String(255))
 
 
+class CVSpatialOffsetType(Base):
+    __tablename__ = 'CV_SpatialOffsetType'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
 class CVSpeciation(Base):
     __tablename__ = 'CV_Speciation'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
+class CVSpecimenMedium(Base):
+    __tablename__ = 'CV_SpecimenMedium'
     __table_args__ = {u'schema': 'ODM2'}
 
     Term = Column(String(255), nullable=False)
@@ -223,6 +245,15 @@ class CVSpecimenType(Base):
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
 
+class CVReferenceMaterialMedium(Base):
+    __tablename__ = 'CV_ReferenceMaterialMedium'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
 
 class CVSiteType(Base):
     __tablename__ = 'CV_SiteType'
