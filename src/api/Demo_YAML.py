@@ -31,7 +31,9 @@ session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'od
 # connection but it will be changed to all the services sharing a connection
 # ----------------------------------------------------------------------------------------
 
+
 _session = session_factory.getSession()
+_engine = session_factory.engine
 
 
 
@@ -58,26 +60,37 @@ files.append(os.path.join('.', 'ODM2/YAML/Examples/test.yaml'))
 # files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml'))
 
 
+# Demonstrate loading a yaml file into an ODM2 database
+print
+print "---------------------------------------------------------------------"
+print "---------                                                  ----------"
+print "-------- \tExample of Loading yaml file into SQLAlchemy \t---------"
+print "---------                                                  ----------"
+print "---------------------------------------------------------------------"
 
+files = []
+# files.append(os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader2.yaml'))
+# files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_SpecimenTimeSeriesExample_CompactHeader.yaml'))
+# files.append(os.path.join('.', 'ODM2/YAML/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml'))
+# files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_LongHeader+AKA.yaml'))
+# files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_LongHeader.yaml'))
+# files.append(os.path.join('.', 'ODM2/YAML/Examples/test.yaml'))
+
+## Working files
+files.append(os.path.join('.', 'ODM2/YAML/Examples/iUTAH_MultiTimeSeriesExample_CompactHeader.yaml'))
+
+_session.autoflush = False
 
 import timeit
+
 start = timeit.default_timer()
-yaml_load = YamlFunctions(_session)
-
-# d = {}
-# for i in files:
-#     d[i] = yaml_load.extractYaml(i)
-
+yaml_load = YamlFunctions(_session, _engine)
 
 yaml_load.loadFromFile(files[0])
 
 print
 print "-------- Performance Results using python module: timeit --------"
 print "Loaded YAML file in ", timeit.default_timer() - start, " seconds"
-
-# citation =
-
-_session.autoflush = False
 
 # yaml_load._session.autoflush = False
 _session.flush()
@@ -87,16 +100,17 @@ citations = _session.query(Citations).all()
 authorlists = _session.query(AuthorLists).all()
 spatial_references = _session.query(SpatialReferences).all()
 
-# sampling_features = _session.query(SamplingFeatures).all()
-sampling_features = []
-# sites = _session.query(Sites).all()
-sites = []
+sampling_features = _session.query(SamplingFeatures).all()
+sites = _session.query(Sites).all()
 
 methods = _session.query(Methods).all()
 variables = _session.query(Variables).all()
 units = _session.query(Units).all()
 processing_levels = _session.query(ProcessingLevels).all()
 actions = _session.query(Actions).all()
+results = _session.query(Results).all()
+# noinspection PyUnboundLocalVariable
+time_series_results = _session.query(TimeSeriesResults).all()
 
 # yaml_load._session.commit()
 
@@ -138,6 +152,16 @@ print
 pp.pprint("---Example YAML reading <Actions>---")
 pp.pprint(actions)
 print
+
+pp.pprint("---Example YAML reading <Results>---")
+pp.pprint(results)
+print
+
+pp.pprint("---Example YAML reading <TimeSeriesResults>---")
+pp.pprint(time_series_results)
+print
+
+
 
 
 
