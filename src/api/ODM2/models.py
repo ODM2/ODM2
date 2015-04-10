@@ -426,11 +426,6 @@ class Units(Base):
     __table_args__ = {u'schema': 'ODM2'}
 
     UnitsID = Column(Integer, primary_key=True, nullable=False)
-    '''
-    UnitsTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    UnitsAbbreviation = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    UnitsName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    '''
     UnitsTypeCV = Column(ForeignKey(u'ODM2.CV_UnitsType.Name'), nullable=False, index=True)
     UnitsAbbreviation = Column(String(255), nullable=False)
     UnitsName = Column(String, nullable=False)
@@ -459,7 +454,7 @@ class Variables(Base):
     def __repr__(self):
         return "<Variables('%s', '%s', '%s')>" % (self.VariableID, self.VariableCode, self.VariableNameCV)
 
-
+'''
 class ResultTypeCV(Base):
     __tablename__ = u'ResultTypeCV'
     __table_args__ = {u'schema': u'ODM2'}
@@ -473,6 +468,7 @@ class ResultTypeCV(Base):
     SpaceMeasurementFramework = Column(String(255), nullable=False)
     TimeMeasurementFramework = Column(String(255), nullable=False)
     VariableMeasurementFramework = Column(String(255), nullable=False)
+'''
 
 class Results(Base):
     __tablename__ = u'Results'
@@ -505,7 +501,6 @@ class Results(Base):
     TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
     UnitsObj = relationship(Units)
     VariableObj = relationship(Variables)
-
 
 
     def __repr__(self):
@@ -557,6 +552,7 @@ class Equipment(Base):
     PersonObj = relationship(People)
     OrganizationObj = relationship(Organizations)
     EquipmentModelObj = relationship(EquipmentModels)
+
     parent = relationship(u'Equipment', remote_side=[EquipmentID])
 
 
@@ -619,20 +615,11 @@ class ActionDirectives(Base):
     DirectiveObj = relationship(Directives)
 
 
-# ################################################################################
-# Like ODM 1
-# ################################################################################
-
-## TODO add ODM 1
-
-
 
 
 # ################################################################################
 # Sampling Features
 # ################################################################################
-
-
 
 class SpatialReferences(Base):
     __tablename__ = u'SpatialReferences'
@@ -647,9 +634,6 @@ class SpatialReferences(Base):
     def __repr__(self):
         return "<SpatialReferences('%s', '%s', '%s', '%s', '%s')>" \
                % (self.SpatialReferenceID, self.SRSCode, self.SRSName, self.SRSDescription, self.SRSLink)
-
-
-
 
 
 class Specimen(Base):
@@ -821,6 +805,7 @@ class Simulations(Base):
     Model = relationship(Models)
     Unit = relationship(Units)
 
+
 # Part of the Provenance table, needed here to meet dependancies
 class Citations(Base):
     __tablename__ = u'Citations'
@@ -904,7 +889,7 @@ class ResultValueAnnotations(Base):
     ValueID = Column(BigInteger, nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
-    Annotation = relationship(Annotations)
+    AnnotationObj = relationship(Annotations)
 
 
 class SamplingFeatureAnnotations(Base):
@@ -964,7 +949,7 @@ class ReferenceMaterials(Base):
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'))
 
     OrganizationObj = relationship(Organizations)
-    SamplingFeature = relationship(SamplingFeatures)
+    SamplingFeatureObj = relationship(SamplingFeatures)
 
 
 ResultNormalizationValues = Table(
@@ -1261,8 +1246,6 @@ class AuthorLists(Base):
                % (self.BridgeID, self.CitationID, self.PersonID, self.AuthorOrder, self.CitationObj, self.PersonObj)
 
 
-
-
 class DatasetCitations(Base):
     __tablename__ = u'DatasetCitations'
     __table_args__ = {u'schema': 'ODM2'}
@@ -1380,7 +1363,7 @@ class PointCoverageResults(Base):
     IntendedXSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     IntendedYSpacing = Column(Float(53))
     IntendedYSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
 
@@ -1406,7 +1389,8 @@ class ProfileResults(Base):
     IntendedZSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     IntendedTimeSpacing = Column(Float(53))
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
+
 
     TimeUnitObj = relationship(Units, primaryjoin='ProfileResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     ZUnitObj = relationship(Units, primaryjoin='ProfileResults.IntendedZSpacingUnitsID == Units.UnitsID')
@@ -1448,7 +1432,8 @@ class TransectResults(Base):
     IntendedTransectSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     IntendedTimeSpacing = Column(Float(53))
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
+
 
     TimeUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     TransectUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTransectSpacingUnitsID == Units.UnitsID')
@@ -1471,7 +1456,8 @@ class SpectraResults(Base):
     SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'))
     IntendedWavelengthSpacing = Column(Float(53))
     IntendedWavelengthSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
+
 
     WaveUnitObj = relationship(Units, primaryjoin='SpectraResults.IntendedWavelengthSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
@@ -1525,7 +1511,7 @@ class SectionResults(Base):
     IntendedZSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     IntendedTimeSpacing = Column(Float(53))
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
 
     TimeUnitObj = relationship(Units, primaryjoin='SectionResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     XUnitObj = relationship(Units, primaryjoin='SectionResults.IntendedXSpacingUnitsID == Units.UnitsID')
@@ -1546,7 +1532,7 @@ class TrajectoryResults(Base):
     IntendedTrajectorySpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     IntendedTimeSpacing = Column(Float(53))
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
 
     TimeUnitObj = relationship(Units, primaryjoin='TrajectoryResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     TrajectoryUnitObj = relationship(Units,
@@ -1570,7 +1556,7 @@ class MeasurementResults(Base):
     SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'))
     CensorCodeCV = Column(String(255), nullable=False)
     QualityCodeCV = Column(String(255), nullable=False)
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
@@ -1669,7 +1655,7 @@ class SectionResultValues(Base):
     ZLocationUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
     CensorCodeCV = Column(String(255), nullable=False)
     QualityCodeCV = Column(String(255), nullable=False)
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
@@ -1779,7 +1765,7 @@ class TransectResultValues(Base):
     TransectDistanceUnitsID = Column(Integer, nullable=False)
     CensorCodeCV = Column(String(255), nullable=False)
     QualityCodeCV = Column(String(255), nullable=False)
-    AggregationStatisticCV = Column(String(255), nullable=False)
+    AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
 
