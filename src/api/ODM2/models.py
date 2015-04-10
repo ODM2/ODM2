@@ -48,6 +48,17 @@ class CVAggregationStatistic(Base):
     SourceVocabularyURI = Column(String(255))
 
 
+class CVAnnotationType(Base):
+    __tablename__ = 'CV_AnnotationType'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
 class CVCensorCode(Base):
     __tablename__ = 'CV_CensorCode'
     __table_args__ = {u'schema': 'ODM2'}
@@ -59,8 +70,41 @@ class CVCensorCode(Base):
     SourceVocabularyURI = Column(String(255))
 
 
+class CVDatasetType(Base):
+    __tablename__ = 'CV_DatasetType'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
+class CVDirectiveType(Base):
+    __tablename__ = 'CV_DirectiveType'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
 class CVElevationDatum(Base):
     __tablename__ = 'CV_ElevationDatum'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
+class CVEquipmentType(Base):
+    __tablename__ = 'CV_EquipmentType'
     __table_args__ = {u'schema': 'ODM2'}
 
     Term = Column(String(255), nullable=False)
@@ -83,6 +127,17 @@ class CVMethodType(Base):
 
 class CVOrganizationType(Base):
     __tablename__ = 'CV_OrganizationType'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
+class CVPropertyDataType(Base):
+    __tablename__ = 'CV_'
     __table_args__ = {u'schema': 'ODM2'}
 
     Term = Column(String(255), nullable=False)
@@ -158,6 +213,28 @@ class CVSpeciation(Base):
     SourceVocabularyURI = Column(String(255))
 
 
+class CVSpecimenType(Base):
+    __tablename__ = 'CV_SpecimenType'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
+class CVSiteType(Base):
+    __tablename__ = 'CV_SiteType'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(500))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+
+
 class CVStatus(Base):
     __tablename__ = 'CV_Status'
     __table_args__ = {u'schema': 'ODM2'}
@@ -217,9 +294,6 @@ class CVVariableType(Base):
 # ################################################################################
 # Core
 # ################################################################################
-
-
-
 class People(Base):
     __tablename__ = u'People'
     __table_args__ = {u'schema': u'ODM2'}
@@ -447,9 +521,6 @@ class Variables(Base):
     SpeciationCV = Column(ForeignKey(u'ODM2.CV_Speciation.Name'), index=True)
     NoDataValue = Column(Float(asdecimal=True), nullable=False)
 
-    SpeciationCVObj = relationship(u'CVSpeciation')
-    VariableNameCVObj = relationship(u'CVVariableName')
-    VariableTypeCVObj = relationship(u'CVVariableType')
 
     def __repr__(self):
         return "<Variables('%s', '%s', '%s')>" % (self.VariableID, self.VariableCode, self.VariableNameCV)
@@ -508,12 +579,9 @@ class Results(Base):
             self.ResultID, self.ResultUUID , self.ResultTypeCV, self.ProcessingLevelID, self.ValueCount)
 
 
-
 # ################################################################################
 # Equipment
 # ################################################################################
-
-
 class EquipmentModels(Base):
     __tablename__ = u'EquipmentModels'
     __table_args__ = {u'schema': u'ODM2'}
@@ -586,14 +654,9 @@ class InstrumentOutputVariables(Base):
     VariableObj = relationship(Variables)
 
 
-
-
-
-
 # ################################################################################
 # Lab Analyses
 # ################################################################################
-
 class Directives(Base):
     __tablename__ = u'Directives'
     __table_args__ = {u'schema': u'ODM2'}
@@ -615,12 +678,9 @@ class ActionDirectives(Base):
     DirectiveObj = relationship(Directives)
 
 
-
-
 # ################################################################################
 # Sampling Features
 # ################################################################################
-
 class SpatialReferences(Base):
     __tablename__ = u'SpatialReferences'
     __table_args__ = {u'schema': u'ODM2'}
@@ -713,7 +773,6 @@ class SpecimenTaxonomicClassifiers(Base):
 # ################################################################################
 # Sensors
 # ################################################################################
-
 class DeploymentActions(Base):
     __tablename__ = u'DeploymentActions'
     __table_args__ = {u'schema': u'ODM2'}
@@ -757,8 +816,6 @@ class Photos(Base):
 # ################################################################################
 # Simulation
 # ################################################################################
-
-
 class Models(Base):
     __tablename__ = 'Models'
     __table_args__ = {u'schema': 'ODM2'}
@@ -906,7 +963,6 @@ class SamplingFeatureAnnotations(Base):
 # ################################################################################
 # Data Quality
 # ################################################################################
-
 class DatasetsResults(Base):
     __tablename__ = u'DatasetsResults'
     __table_args__ = {u'schema': 'ODM2'}
@@ -991,11 +1047,10 @@ class ResultsDataQuality(Base):
     DataQualityObj = relationship(DataQuality)
     ResultObj = relationship(Results)
 
+
 # ################################################################################
 # Extension Properties
 # ################################################################################
-
-
 class ExtensionProperties(Base):
     __tablename__ = u'ExtensionProperties'
     __table_args__ = {u'schema': u'ODM2'}
@@ -1086,11 +1141,10 @@ class VariableExtensionPropertyValues(Base):
     ExtensionPropertyObj = relationship(ExtensionProperties)
     VariableObj = relationship(Variables)
 
+
 # ################################################################################
 # Extension Identifiers
 # ################################################################################
-
-
 class ExternalIdentifierSystems(Base):
     __tablename__ = u'ExternalIdentifierSystems'
     __table_args__ = {u'schema': u'ODM2'}
@@ -1374,7 +1428,6 @@ class PointCoverageResults(Base):
     ResultObj = relationship(Results, primaryjoin='PointCoverageResults.ResultID == Results.ResultID')
 
 
-
 class ProfileResults(Base):
     __tablename__ = u'ProfileResults'
     __table_args__ = {u'schema': 'ODM2'}
@@ -1391,14 +1444,12 @@ class ProfileResults(Base):
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
 
-
     TimeUnitObj = relationship(Units, primaryjoin='ProfileResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     ZUnitObj = relationship(Units, primaryjoin='ProfileResults.IntendedZSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
     XUnitObj = relationship(Units, primaryjoin='ProfileResults.XLocationUnitsID == Units.UnitsID')
     YUnitObj = relationship(Units, primaryjoin='ProfileResults.YLocationUnitsID == Units.UnitsID')
     ResultObj = relationship(Results, primaryjoin='ProfileResults.ResultID == Results.ResultID')
-
 
 
 class CategoricalResults(Base):
@@ -1419,7 +1470,6 @@ class CategoricalResults(Base):
     ResultObj = relationship(Results, primaryjoin='CategoricalResults.ResultID == Results.ResultID')
 
 
-
 class TransectResults(Base):
     __tablename__ = u'TransectResults'
     __table_args__ = {u'schema': 'ODM2'}
@@ -1433,7 +1483,6 @@ class TransectResults(Base):
     IntendedTimeSpacing = Column(Float(53))
     IntendedTimeSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
-
 
     TimeUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     TransectUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTransectSpacingUnitsID == Units.UnitsID')
@@ -1458,14 +1507,12 @@ class SpectraResults(Base):
     IntendedWavelengthSpacingUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
 
-
     WaveUnitObj = relationship(Units, primaryjoin='SpectraResults.IntendedWavelengthSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
     XUnitObj = relationship(Units, primaryjoin='SpectraResults.XLocationUnitsID == Units.UnitsID')
     YUnitObj = relationship(Units, primaryjoin='SpectraResults.YLocationUnitsID == Units.UnitsID')
     ZUnitObj = relationship(Units, primaryjoin='SpectraResults.ZLocationUnitsID == Units.UnitsID')
     ResultObj = relationship(Results, primaryjoin='SpectraResults.ResultID == Results.ResultID')
-
 
 
 class TimeSeriesResults(Base):
@@ -1497,6 +1544,7 @@ class TimeSeriesResults(Base):
              self.ResultObj,  self.XLocationUnitsObj, self.SpatialReferenceObj,
              self.IntendedTimeSpacing, self.AggregationStatisticCV )
 
+
 class SectionResults(Base):
     __tablename__ = u'SectionResults'
     __table_args__ = {u'schema': 'ODM2'}
@@ -1521,7 +1569,6 @@ class SectionResults(Base):
     ResultObj = relationship(Results, primaryjoin='SectionResults.ResultID == Results.ResultID')
 
 
-
 class TrajectoryResults(Base):
     __tablename__ = u'TrajectoryResults'
     __table_args__ = {u'schema': 'ODM2'}
@@ -1539,7 +1586,6 @@ class TrajectoryResults(Base):
                                      primaryjoin='TrajectoryResults.IntendedTrajectorySpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
     ResultObj = relationship(Results, primaryjoin='TrajectoryResults.ResultID == Results.ResultID')
-
 
 
 class MeasurementResults(Base):
@@ -1566,7 +1612,6 @@ class MeasurementResults(Base):
     YUnitObj = relationship(Units, primaryjoin='MeasurementResults.YLocationUnitsID == Units.UnitsID')
     ZUnitObj = relationship(Units, primaryjoin='MeasurementResults.ZLocationUnitsID == Units.UnitsID')
     ResultObj = relationship(Results, primaryjoin='MeasurementResults.ResultID == Results.ResultID')
-
 
 
 class CategoricalResultValues(Base):
@@ -1770,4 +1815,3 @@ class TransectResultValues(Base):
     TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
 
     TransectResultObj = relationship(TransectResults)
-

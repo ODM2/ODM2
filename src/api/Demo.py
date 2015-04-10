@@ -18,13 +18,11 @@ sys.path.insert(0, directory)
 # ----------------------------------------
 
 
-
 #session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 #session_factory = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 #session_factory = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
 
 session_factory = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'odm')
-
 
 
 # Create a connection for each of the schemas. Currently the schemas each have a different
