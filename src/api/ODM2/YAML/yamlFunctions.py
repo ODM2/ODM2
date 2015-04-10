@@ -75,7 +75,6 @@ class YamlFunctions(object):
         if "TimeSeriesResultValues" in s:
             print "Found TimeSeriesResults"
             timeSeries = s.pop('TimeSeriesResultValues')
-            # columnDefinitions = timeSeries.pop('ColumnDefinitions')
 
         # debugging information
         # self.printValues(s)
@@ -84,7 +83,7 @@ class YamlFunctions(object):
         yl.from_list(self._session, [s])
 
         # load the Time Series Result information
-        yl.loadTimeSeriesResults(self._session, self._engine, timeSeries)
+        # yl.loadTimeSeriesResults(self._session, self._engine, timeSeries)
 
     def loadFromFiles(self, files):
         """

@@ -4,7 +4,8 @@ import logging
 from pprint import pformat
 from converters import timestamp, timeonly
 from sqlalchemy.orm import class_mapper
-from sqlalchemy import Unicode, Date, DateTime, Time, Integer, Float, Boolean, String, Binary
+from sqlalchemy import Unicode, Date, DateTime, Time, Integer, Float, Boolean, String, Binary, inspect
+
 try:
     from sqlalchemy.exc import IntegrityError
 except ImportError:
@@ -319,10 +320,16 @@ class Loader(object):
         try:
 
             ref = self._references[value[1:]]
-            if not 'UnitsID' in key:
-                value = getattr(ref, key)
-            else:
-                value = getattr(ref, "UnitsID")
+
+            if key.endswith("ID"):
+                # obtain the primary key value
+                value = inspect(ref).identity[0]
+            #     if not 'UnitsID' in key:
+            #         value = getattr(ref, key)
+            #     else:
+            #         value = getattr(ref, "UnitsID")
+            elif key.endswith("Obj"):
+                value = ref
 
             return value
         except Exception as e:
@@ -405,7 +412,10 @@ class Loader(object):
         """
         self.session = session
         self.engine = engine
-        data_values = timeSeries.pop('Data')
+        try:
+            data_values = timeSeries.pop('Data')
+        except:
+            return
         data = self.obtain_time_series(timeSeries)
 
         import pandas as pd
@@ -469,9 +479,6 @@ class Loader(object):
             obj = self.create_obj(klass, resolved_values)
             self.session.add(obj)
 
-        # AVGDataFrame.to_sql("self.engine)
-        self.session = None
-        self.engine = None
 
     def add_klasses(self, klass, items):
         """

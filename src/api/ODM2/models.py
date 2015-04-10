@@ -419,7 +419,7 @@ class Organizations(Base):
     OrganizationLink = Column(String(255))
     ParentOrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'))
 
-    parent = relationship(u'Organizations', remote_side=[OrganizationID])
+    OrganizationObj = relationship(u'Organizations', remote_side=[OrganizationID])
 
 
 class Affiliations(Base):
@@ -1255,7 +1255,7 @@ class ExternalIdentifierSystems(Base):
     ExternalIdentifierSystemDescription = Column(String(500))
     ExternalIdentifierSystemURL = Column(String(255))
 
-    OrganizationObj = relationship(Organizations)
+    IdentifierSystemOrganizationObj = relationship(Organizations)
 
 
 class CitationExternalIdentifiers(Base):
@@ -1297,7 +1297,7 @@ class PersonExternalIdentifiers(Base):
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
     PersonExternalIdentifier = Column(String(255), nullable=False)
-    PersonExternalIdenifierURI = Column(String(255))
+    PersonExternalIdentifierURI = Column(String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     PersonObj = relationship(People)

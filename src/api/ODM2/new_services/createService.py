@@ -20,6 +20,7 @@ from ..models import People
 from ..models import Affiliations
 from ..models import Datasets
 #from src.api.ODM1_1_1 import Site
+from src.api.ODM2.LikeODM1.model import Site
 
 __author__ = 'jmeline'
 
