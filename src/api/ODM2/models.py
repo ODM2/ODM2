@@ -137,7 +137,7 @@ class CVOrganizationType(Base):
 
 
 class CVPropertyDataType(Base):
-    __tablename__ = 'CV_'
+    __tablename__ = 'CV_PropertyDataType'
     __table_args__ = {u'schema': 'ODM2'}
 
     Term = Column(String(255), nullable=False)
@@ -396,7 +396,7 @@ class Actions(Base):
     __table_args__ = {u'schema': u'ODM2'}
 
     ActionID = Column(Integer, primary_key=True, nullable=False)
-    ActionTypeCV = Column(String(255), nullable=False)
+    ActionTypeCV = Column(ForeignKey(u'ODM2.CV_ActionType.Name'), nullable=False, index=True)
     MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
     BeginDateTime = Column(DateTime, nullable=False)
     BeginDateTimeUTCOffset = Column(Integer, nullable=False)
@@ -472,7 +472,7 @@ class Datasets(Base):
     # This has been changed to String to support multiple database uuid types
 
     DatasetUUID = Column(String(255), nullable=False)
-    DatasetTypeCV = Column(String(255), nullable=False)
+    DatasetTypeCV = Column(ForeignKey(u'ODM2.CV_DatasetTypeCV.Name'), nullable=False, index=True)
     DatasetCode = Column(String(50), nullable=False)
     DatasetTitle = Column(String(255), nullable=False)
     DatasetAbstract = Column(String(500), nullable=False)
@@ -636,7 +636,7 @@ class Equipment(Base):
     EquipmentID = Column(Integer, primary_key=True, nullable=False)
     EquipmentCode = Column(String(50), nullable=False)
     EquipmentName = Column(String(255), nullable=False)
-    EquipmentTypeCV = Column(String(255), nullable=False)
+    EquipmentTypeCV = Column(ForeignKey(u'ODM2.CV_EquipmentType.Name'), nullable=False, index=True)
     ModelID = Column(ForeignKey('ODM2.EquipmentModels.ModelID'), nullable=False)
     EquipmentSerialNumber = Column(String(50), nullable=False)
     EquipmentInventoryNumber = Column(String(50))
@@ -693,7 +693,7 @@ class Directives(Base):
     __table_args__ = {u'schema': u'ODM2'}
 
     DirectiveID = Column(Integer, primary_key=True, nullable=False)
-    DirectiveTypeCV = Column(String(255), nullable=False)
+    DirectiveTypeCV = Column(ForeignKey(u'ODM2.CV_DirectiveType.Name'), nullable=False, index=True)
     DirectiveDescription = Column(String(500), nullable=False)
 
 
@@ -732,8 +732,8 @@ class Specimen(Base):
     __table_args__ = {u'schema': 'ODM2'}
 
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), primary_key=True)
-    SpecimenTypeCV = Column(String(255), nullable=False)
-    SpecimenMediumCV = Column(String(255), nullable=False)
+    SpecimenTypeCV = Column(ForeignKey(u'ODM2.CV_SpecimenType.Name'), nullable=False, index=True)
+    SpecimenMediumCV = Column(ForeignKey(u'ODM2.CV_SpecimenMedium.Name'), nullable=False, index=True)
     IsFieldSpecimen = Column(BIT, nullable=False)
 
 
@@ -742,7 +742,7 @@ class Spatialoffset(Base):
     __table_args__ = {u'schema': u'ODM2'}
 
     SpatialOffsetID = Column(Integer, primary_key=True, nullable=False)
-    SpatialOffsetTypeCV = Column(String(255), nullable=False)
+    SpatialOffsetTypeCV = Column(ForeignKey(u'ODM2.CV_SpatialOffsetType.Name'), nullable=False, index=True)
     Offset1Value = Column(Float(53), nullable=False)
     Offset1UnitID = Column(Integer, nullable=False)
     Offset2Value = Column(Float(53))
@@ -757,7 +757,7 @@ class Sites(Base):
 
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), primary_key=True)
     SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
-    SiteTypeCV = Column(String(255), nullable=False)
+    SiteTypeCV = Column(ForeignKey(u'ODM2.CV_SiteType.Name'), nullable=False, index=True)
     Latitude = Column(Float(53), nullable=False)
     Longitude = Column(Float(53), nullable=False)
     # LatLonDatumID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'), nullable=False)
@@ -777,7 +777,7 @@ class RelatedFeatures(Base):
 
     RelationID = Column(Integer, primary_key=True, nullable=False)
     SamplingFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelationshipTypeCV = Column(ForeignKey(u'ODM2.CV_RelationshipType.Name'), nullable=False, index=True)
     RelatedFeatureID = Column(ForeignKey('ODM2.SamplingFeatures.SamplingFeatureID'), nullable=False)
     SpatialOffsetID = Column(ForeignKey('ODM2.SpatialOffsets.SpatialOffsetID'))
 
@@ -810,7 +810,7 @@ class DeploymentActions(Base):
 
     DeploymentActionID = Column(Integer, primary_key=True, nullable=False)
     ActionID = Column(ForeignKey('ODM2.Actions.ActionID'), nullable=False)
-    DeploymentTypeCV = Column(String(255), nullable=False)
+    DeploymentTypeCV = Column(ForeignKey(u'ODM2.CV_DeploymentType.Name'), nullable=False, index=True)
     DeploymentDescription = Column(String(500))
     ConfigurationActionID = Column(Integer, nullable=False)
     CalibrationActionID = Column(Integer, nullable=False)
@@ -863,7 +863,7 @@ class RelatedModels(Base):
 
     RelationID = Column(Integer, primary_key=True, nullable=False)
     ModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelationshipTypeCV = Column(ForeignKey(u'ODM2.CV_RelationshipType.Name'), nullable=False, index=True)
     RelatedModelID = Column(ForeignKey('ODM2.Models.ModelID'), nullable=False)
 
     ModelObj = relationship(Models, primaryjoin='RelatedModels.ModelID == Models.ModelID')
@@ -918,7 +918,7 @@ class Annotations(Base):
     __table_args__ = {u'schema': u'ODM2'}
 
     AnnotationID = Column(Integer, primary_key=True, nullable=False)
-    AnnotationTypeCV = Column(String(255), nullable=False)
+    AnnotationTypeCV = Column(ForeignKey(u'ODM2.CV_AnnotationType.Name'), nullable=False, index=True)
     AnnotationCode = Column(String(50))
     AnnotationText = Column(String(500), nullable=False)
     AnnotationDateTime = Column(DateTime)
@@ -1011,7 +1011,7 @@ class DataQuality(Base):
     __table_args__ = {u'schema': 'ODM2'}
 
     DataQualityID = Column(Integer, primary_key=True, nullable=False)
-    DataQualityTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    DataQualityTypeCV = Column(ForeignKey(u'ODM2.CV_DataQualityType.Name'), nullable=False, index=True)
     DataQualityCode = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     DataQualityValue = Column(Float(53))
     DataQualityValueUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
@@ -1026,7 +1026,7 @@ class ReferenceMaterials(Base):
     __table_args__ = {u'schema': 'ODM2'}
 
     ReferenceMaterialID = Column(Integer, primary_key=True, nullable=False)
-    ReferenceMaterialMediumCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    ReferenceMaterialMediumCV = Column(ForeignKey(u'ODM2.CV_ReferenceMaterialMedium.Name'), nullable=False, index=True)
     ReferenceMaterialOrganizationID = Column(ForeignKey('ODM2.Organizations.OrganizationID'), nullable=False)
     ReferenceMaterialCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
     ReferenceMaterialLotCode = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
@@ -1089,7 +1089,7 @@ class ExtensionProperties(Base):
     PropertyID = Column(Integer, primary_key=True, nullable=False)
     PropertyName = Column(String(255), nullable=False)
     PropertyDescription = Column(String(500))
-    PropertyDataTypeCV = Column(String(255), nullable=False)
+    PropertyDataTypeCV = Column(ForeignKey(u'ODM2.CV_PropertyDataType.Name'), nullable=False, index=True)
     PropertyUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
 
     UnitObj = relationship(Units)
@@ -1337,7 +1337,7 @@ class DatasetCitations(Base):
 
     BridgeID = Column(Integer, primary_key=True, nullable=False)
     DatasetID = Column(ForeignKey('ODM2.Datasets.DatasetID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelationshipTypeCV = Column(ForeignKey(u'ODM2.CV_RelationshipType.Name'), nullable=False, index=True)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj = relationship(Citations)
@@ -1368,7 +1368,7 @@ class MethodCitations(Base):
 
     BridgeID = Column(Integer, primary_key=True, nullable=False)
     MethodID = Column(ForeignKey('ODM2.Methods.MethodID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelationshipTypeCV = Column(ForeignKey(u'ODM2.CV_RelationshipType.Name'), nullable=False, index=True)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj = relationship(Citations)
@@ -1382,7 +1382,7 @@ class RelatedAnnotations(Base):
 
     RelationID = Column(Integer, primary_key=True, nullable=False)
     AnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelationshipTypeCV = Column(ForeignKey(u'ODM2.CV_RelationshipType.Name'), nullable=False, index=True)
     RelatedAnnotationID = Column(ForeignKey('ODM2.Annotations.AnnotationID'), nullable=False)
 
     AnnotationObj = relationship(Annotations, primaryjoin='RelatedAnnotations.AnnotationID == Annotations.AnnotationID')
@@ -1396,7 +1396,7 @@ class RelatedCitations(Base):
 
     RelationID = Column(Integer, primary_key=True, nullable=False)
     CitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
-    RelationshipTypeCV = Column(Integer, nullable=False)
+    RelationshipTypeCV = Column(ForeignKey(u'ODM2.CV_RelationshipType.Name'), nullable=False, index=True)
     RelatedCitationID = Column(ForeignKey('ODM2.Citations.CitationID'), nullable=False)
 
     CitationObj = relationship(Citations, primaryjoin='RelatedCitations.CitationID == Citations.CitationID')
@@ -1409,7 +1409,7 @@ class RelatedDatasets(Base):
 
     RelationID = Column(Integer, primary_key=True, nullable=False)
     DatasetID = Column(ForeignKey('ODM2.Datasets.DatasetID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelationshipTypeCV = Column(ForeignKey(u'ODM2.CV_RelationshipType.Name'), nullable=False, index=True)
     RelatedDatasetID = Column(ForeignKey('ODM2.Datasets.DatasetID'), nullable=False)
     VersionCode = Column(String(50))
 
@@ -1423,7 +1423,7 @@ class RelatedResults(Base):
 
     RelationID = Column(Integer, primary_key=True, nullable=False)
     ResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
-    RelationshipTypeCV = Column(String(255), nullable=False)
+    RelationshipTypeCV = Column(ForeignKey(u'ODM2.CV_RelationshipType.Name'), nullable=False, index=True)
     RelatedResultID = Column(ForeignKey('ODM2.Results.ResultID'), nullable=False)
     VersionCode = Column(String(50))
     RelatedResultSequenceNumber = Column(Integer)
@@ -1495,7 +1495,7 @@ class CategoricalResults(Base):
     ZLocation = Column(Float(53))
     ZLocationUnitsID = Column(Integer)
     SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'))
-    QualityCodeCV = Column(BigInteger, nullable=False)
+    QualityCodeCV = Column(ForeignKey(u'ODM2.CV_QualityCode.Name'), nullable=False, index=True)
 
     SpatialReferenceObj = relationship(SpatialReferences)
     ResultObj = relationship(Results, primaryjoin='CategoricalResults.ResultID == Results.ResultID')
@@ -1631,8 +1631,8 @@ class MeasurementResults(Base):
     ZLocation = Column(Float(53))
     ZLocationUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'))
     SpatialReferenceID = Column(ForeignKey('ODM2.SpatialReferences.SpatialReferenceID'))
-    CensorCodeCV = Column(String(255), nullable=False)
-    QualityCodeCV = Column(String(255), nullable=False)
+    CensorCodeCV = Column(ForeignKey(u'ODM2.CV_CensorCode.Name'), nullable=False, index=True)
+    QualityCodeCV = Column(ForeignKey(u'ODM2.CV_QualityCode.Name'), nullable=False, index=True)
     AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
@@ -1684,8 +1684,8 @@ class PointCoverageResultValues(Base):
     XLocationUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
     YLocation = Column(Float(53), nullable=False)
     YLocationUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
-    CensorCodeCV = Column(String(255), nullable=False)
-    QualityCodeCV = Column(String(255), nullable=False)
+    CensorCodeCV = Column(ForeignKey(u'ODM2.CV_CensorCode.Name'), nullable=False, index=True)
+    QualityCodeCV = Column(ForeignKey(u'ODM2.CV_QualityCode.Name'), nullable=False, index=True)
 
     PointCoverageResultObj = relationship(PointCoverageResults)
     XUnitObj = relationship(Units, primaryjoin='PointCoverageResultValues.XLocationUnitsID == Units.UnitsID')
@@ -1704,8 +1704,8 @@ class ProfileResultValues(Base):
     ZLocation = Column(Float(53), nullable=False)
     ZAggregationInterval = Column(Float(53), nullable=False)
     ZLocationUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
-    CensorCodeCV = Column(String(255), nullable=False)
-    QualityCodeCV = Column(String(255), nullable=False)
+    CensorCodeCV = Column(ForeignKey(u'ODM2.CV_CensorCode.Name'), nullable=False, index=True)
+    QualityCodeCV = Column(ForeignKey(u'ODM2.CV_QualityCode.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
@@ -1729,8 +1729,8 @@ class SectionResultValues(Base):
     ZLocation = Column(BigInteger, nullable=False)
     ZAggregationInterval = Column(Float(53), nullable=False)
     ZLocationUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
-    CensorCodeCV = Column(String(255), nullable=False)
-    QualityCodeCV = Column(String(255), nullable=False)
+    CensorCodeCV = Column(ForeignKey(u'ODM2.CV_CensorCode.Name'), nullable=False, index=True)
+    QualityCodeCV = Column(ForeignKey(u'ODM2.CV_QualityCode.Name'), nullable=False, index=True)
     AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
@@ -1753,8 +1753,8 @@ class SpectraResultValues(Base):
     ExcitationWavelength = Column(Float(53), nullable=False)
     EmissionWavelength = Column(Float(53), nullable=False)
     WavelengthUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
-    CensorCodeCV = Column(String(255), nullable=False)
-    QualityCodeCV = Column(String(255), nullable=False)
+    CensorCodeCV = Column(ForeignKey(u'ODM2.CV_CensorCode.Name'), nullable=False, index=True)
+    QualityCodeCV = Column(ForeignKey(u'ODM2.CV_QualityCode.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
@@ -1811,8 +1811,8 @@ class TrajectoryResultValues(Base):
     TrajectoryDistance = Column(Float(53), nullable=False)
     TrajectoryDistanceAggregationInterval = Column(Float(53), nullable=False)
     TrajectoryDistanceUnitsID = Column(Integer, nullable=False)
-    CensorCode = Column(String(255), nullable=False)
-    QualityCodeCV = Column(String(255), nullable=False)
+    CensorCodeCV = Column(ForeignKey(u'ODM2.CV_CensorCode.Name'), nullable=False, index=True)
+    QualityCodeCV = Column(ForeignKey(u'ODM2.CV_QualityCode.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(ForeignKey('ODM2.Units.UnitsID'), nullable=False)
 
@@ -1839,8 +1839,8 @@ class TransectResultValues(Base):
     TransectDistance = Column(Float(53), nullable=False)
     TransectDistanceAggregationInterval = Column(Float(53), nullable=False)
     TransectDistanceUnitsID = Column(Integer, nullable=False)
-    CensorCodeCV = Column(String(255), nullable=False)
-    QualityCodeCV = Column(String(255), nullable=False)
+    CensorCodeCV = Column(ForeignKey(u'ODM2.CV_CensorCode.Name'), nullable=False, index=True)
+    QualityCodeCV = Column(ForeignKey(u'ODM2.CV_QualityCode.Name'), nullable=False, index=True)
     AggregationStatisticCV = Column(ForeignKey(u'ODM2.CV_AggregationStatistic.Name'), nullable=False, index=True)
     TimeAggregationInterval = Column(Float(53), nullable=False)
     TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
