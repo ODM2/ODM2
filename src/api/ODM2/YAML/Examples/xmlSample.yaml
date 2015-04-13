@@ -2,70 +2,75 @@
 YODA:
   - {Version: "1.0.0", Profile: "TimeSeries", CreationTool: "Excel Template v1.0.0", DateCreated: "2015-03-30", DateUpdated: "2015-03-30"}
 Datasets:
-  - &DataSetID0001 {DataSetUUID:  NULL,  DataSetTypeCV:  "Multi-time series",  DataSetCode:  "TWDEF_AirTemp",  DataSetTitle:  "Air temperature at the TW Daniels Experimental Forest Climate Station",  DataSetAbstract:  "Air temperature at the TW Daniels Experimental Forest Climate Station. The data were measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Measurements represent the average over the 15 minute recording period."}
+  - &DataSetID0001 {DatasetUUID:  NULL,  DatasetTypeCV:  "Multi-time series",  DatasetCode:  "TWDEF_AirTemp",  DatasetTitle:  "Air temperature at the TW Daniels Experimental Forest Climate Station",  DatasetAbstract:  "Air temperature at the TW Daniels Experimental Forest Climate Station. The data were measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Measurements represent the average over the 15 minute recording period."}
+## Problems
+  #
 Organizations:
-  - &OrganizationID0001 {OrganizationTypeCV:  "University", OrganizationCode:  "USU", OrganizationName:  "Utah State University", OrganizationDescription:  NULL, OrganizationLink:  NULL}
+  - &OrganizationID0001 {OrganizationTypeCV:  "Research institute", OrganizationCode:  "USU", OrganizationName:  "Utah State University", OrganizationDescription:  NULL, OrganizationLink:  NULL}
   - &OrganizationID0002 {OrganizationTypeCV:  "Research institute", OrganizationCode:  "SWRC", OrganizationName:  "Stroud Water Research Center", OrganizationDescription:  NULL, OrganizationLink:  "www.stroudcenter.org"}
   - &OrganizationID0003 {OrganizationTypeCV:  "Consortium", OrganizationCode:  "ORCID", OrganizationName:  "ORCID", OrganizationDescription:  "ORCID is an open, non-profit, community-driven effort to create and maintain a registry of unique researcher identifiers and a transparent method of linking research activities and outputs to these identifiers.", OrganizationLink:  "http://orcid.org/"}
   - &OrganizationID0004 {OrganizationTypeCV:  "Consortium", OrganizationCode:  "IDF", OrganizationName:  "International DOI Foundation", OrganizationDescription:  "The International DOI Foundation (IDF) is a not-for-profit membership organization that is the governance and management body for the federation of Registration Agencies providing DOI services and registration, and is the registration authority for the ISO standard (ISO 26324) for the DOI system. The DOI system provides a technical and social infrastructure for the registration and use of persistent interoperable identifiers, called DOIs, for use on digital networks.", OrganizationLink:  "http://www.doi.org/index.html"}
   - &OrganizationID0005 {OrganizationTypeCV:  "Consortium", OrganizationCode:  "SESAR", OrganizationName:  "System for Earth Sample Registration", OrganizationDescription:  "SESAR operates the registry that distributes the International Geo Sample Number IGSN. SESAR catalogs and preserves sample metadata profiles, and provides access to the sample catalog via the Global Sample Search.", OrganizationLink:  "http://www.geosamples.org/"}
-#ExternalIdentifierSystems:
-#  - &ExternalIdentifierSystemID0001 {ExternalIdentifierSystemName:  "ORCID", IdentifierSystemOrganizationObj:  *OrganizationID0003, ExternalIdentifierSystemDescription:  "ORCID provides a persistent digital identifier that distinguishes you from every other researcher and, through integration in key research workflows such as manuscript and grant submission, supports automated linkages between you and your professional activities ensuring that your work is recognized.", ExternalIdentifierSystemURL:  "http://orcid.org/"}
-##  - &ExternalIdentifierSystemID0002 {ExternalIdentifierSystemName:  "Digital Object Identifier (DOI)", IdentifierSystemOrganizationObj:  *OrganizationID0004, ExternalIdentifierSystemDescription:  "A Digital Identifier of an Object that provides an actionable, interoperable, persistent link to that object", ExternalIdentifierSystemURL:  "http://www.doi.org/"}
-##  - &ExternalIdentifierSystemID0003 {ExternalIdentifierSystemName:  "International Geo Sample Number (IGSN)", IdentifierSystemOrganizationObj:  *OrganizationID0005, ExternalIdentifierSystemDescription:  "IGSN stands for International Geo Sample Number. The IGSN is 9-digit alphanumeric code that uniquely identifies samples from our natural environment and related sampling features. You can get an IGSN for your sample by registering it in the System for Earth Sample Registration SESAR.", ExternalIdentifierSystemURL:  "http://www.geosamples.org/"}
-#People:
-#  - &PersonID0001 {PersonFirstName:  "Jeffrey", PersonMiddleName:  "S.", PersonLastName:  "Horsburgh"}
-#  - &PersonID0002 {PersonFirstName:  "Amber", PersonMiddleName:  NULL, PersonLastName:  "Spackman Jones"}
-#  - &PersonID0003 {PersonFirstName:  "Sara", PersonMiddleName:  "Geleskie", PersonLastName:  "Damiano"}
-#PersonExternalIdentifiers:
-#  - {PersonObj:  *PersonID0003, ExternalIdentifierSystemObj:  *ExternalIdentifierSystemID0001, PersonExternalIdentifier:  "0000-0003-2751-9358", PersonExternalIdentifierURI:  "http://orcid.org/0000-0003-2751-9358"}
+ExternalIdentifierSystems:
+  - &ExternalIdentifierSystemID0001 {ExternalIdentifierSystemName:  "ORCID", IdentifierSystemOrganizationObj:  *OrganizationID0003, ExternalIdentifierSystemDescription:  "ORCID provides a persistent digital identifier that distinguishes you from every other researcher and, through integration in key research workflows such as manuscript and grant submission, supports automated linkages between you and your professional activities ensuring that your work is recognized.", ExternalIdentifierSystemURL:  "http://orcid.org/"}
+#  - &ExternalIdentifierSystemID0002 {ExternalIdentifierSystemName:  "Digital Object Identifier (DOI)", IdentifierSystemOrganizationObj:  *OrganizationID0004, ExternalIdentifierSystemDescription:  "A Digital Identifier of an Object that provides an actionable, interoperable, persistent link to that object", ExternalIdentifierSystemURL:  "http://www.doi.org/"}
+#  - &ExternalIdentifierSystemID0003 {ExternalIdentifierSystemName:  "International Geo Sample Number (IGSN)", IdentifierSystemOrganizationObj:  *OrganizationID0005, ExternalIdentifierSystemDescription:  "IGSN stands for International Geo Sample Number. The IGSN is 9-digit alphanumeric code that uniquely identifies samples from our natural environment and related sampling features. You can get an IGSN for your sample by registering it in the System for Earth Sample Registration SESAR.", ExternalIdentifierSystemURL:  "http://www.geosamples.org/"}
+People:
+  - &PersonID0001 {PersonFirstName:  "Jeffrey", PersonMiddleName:  "S.", PersonLastName:  "Horsburgh"}
+  - &PersonID0002 {PersonFirstName:  "Amber", PersonMiddleName:  NULL, PersonLastName:  "Spackman Jones"}
+  - &PersonID0003 {PersonFirstName:  "Sara", PersonMiddleName:  "Geleskie", PersonLastName:  "Damiano"}
+PersonExternalIdentifiers:
+  - {PersonObj:  *PersonID0003, ExternalIdentifierSystemObj:  *ExternalIdentifierSystemID0001, PersonExternalIdentifier:  "0000-0003-2751-9358", PersonExternalIdentifierURI:  "http://orcid.org/0000-0003-2751-9358"}
 #Affiliations:
 #  - &AffiliationID0001 {PersonObj: *PersonID0001, OrganizationObj: *OrganizationID0001, IsPrimaryOrganizationContact: NULL, AffiliationStartDate: NULL, AffiliationEndDate: NULL, PrimaryPhone: NULL, PrimaryEmail: "jeff.horsburgh@usu.edu", PrimaryAddress: "Civil and Environmental Engineering, Utah Water Research Laboratory, 8200 Old Main Hill, Logan, UT 84322-8200", PersonLink: NULL}
 #  - &AffiliationID0002 {PersonObj: *PersonID0002, OrganizationObj: *OrganizationID0001, IsPrimaryOrganizationContact: NULL, AffiliationStartDate: NULL, AffiliationEndDate: NULL, PrimaryPhone: NULL, PrimaryEmail: "amber.jones@usu.edu", PrimaryAddress: "Civil and Environmental Engineering, Utah Water Research Laboratory, 8200 Old Main Hill, Logan, UT 84322-8200", PersonLink: NULL}
 #  - &AffiliationID0003 {PersonObj: *PersonID0003, OrganizationObj: *OrganizationID0002, IsPrimaryOrganizationContact: NULL, AffiliationStartDate: NULL, AffiliationEndDate: NULL, PrimaryPhone: NULL, PrimaryEmail: "sdamiano@stroudcenter.org", PrimaryAddress: "Stroud Water Research Center, 970 Spencer Road, Avondale, PA 19311", PersonLink: NULL}
-#Citations:
-#  - &CitationID0001 {Title: "Air temperature at the TW Daniels Experimental Forest Climate Station", Publisher: "iUTAH Modeling and Data Federation", PublicationYear: "2015", CitationLink: "http://repository.iutahepscor.org/dataset/iutah-gamut-network-raw-data-at-tw-daniels-forest-climate-site-lr-twdef-c"}
-#AuthorLists:
-#  - &AuthorListID0001  {CitationObj: *CitationID0001, PersonObj: *PersonID0001, AuthorOrder: 1}
-#  - &AuthorListID0002  {CitationObj: *CitationID0001, PersonObj: *PersonID0002, AuthorOrder: 2}
-#DataSetCitations:
-#  - {DataSetObj: *DataSetID0001, CitationObj: *CitationID0001, RelationshipTypeCV: IsAllOf}
-#SpatialReferences:
-#  - &SRSID0001 {SRSCode: "EPSG:4326", SRSName: "WGS84", SRSDescription: "Horizontal component of 3D system. Used by the GPS satellite navigation system and for NATO military geodetic surveying.", SRSLink: "http://www.epsg-registry.org/export.htm?wkt=urn:ogc:def:crs:EPSG::4326"}
-#SamplingFeatures:
-#  - &SamplingFeatureID0001 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Site", SamplingFeatureCode:  "RB_KF_BA", SamplingFeatureName:  "Knowlton Fork at Knowlton Fork Basic Aquatic", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Point", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
-#  - &SamplingFeatureID0002 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Site", SamplingFeatureCode:  "RB_RBG_BA", SamplingFeatureName:  "Red Butte Creek at Red Butte Gate Basic Aquatic", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Point", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
-#  - &SamplingFeatureID0003 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "D101", SamplingFeatureName:  "Specimen D101", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
-#  - &SamplingFeatureID0004 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "D102", SamplingFeatureName:  "Specimen D102", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
-#  - &SamplingFeatureID0005 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "D3236", SamplingFeatureName:  "Specimen D3236", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
-#  - &SamplingFeatureID0006 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "524", SamplingFeatureName:  "Specimen 524", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
-#  - &SamplingFeatureID0007 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Site", SamplingFeatureCode:  "LR_TWDEF_C", SamplingFeatureName:  "Climate Station at TW Daniels Experimental Forest", SamplingFeatureDescription:  "This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network.", SamplingFeatureGeotypeCV:  "Point", FeatureGeometry:  NULL, Elevation_m:  "2629.2", ElevationDatumCV:  "MSL"}
-#  - &SamplingFeatureID0008 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "ald-10-158", SamplingFeatureName:  "ald-10-158", SamplingFeatureDescription:  "Whipple Dam State Park, PA, shale rock from bottom of Tyler's pit ", SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  "297", ElevationDatumCV:  "MSL"}
-#SamplingFeaturesExternalIdentifiers:
-#  - {SamplingFeatureObj:  *SamplingFeatureID0008, ExternalIdentifierSystemObj:  *ExternalIdentifierSystemID0003, SamplingFeatureExternalIdentifier:  "SSH000SUA", SamplingFeatureExternalIdentifierURI:  "http://app.geosamples.org/sample/igsn/SSH000SUA"}
-#Sites:
-#  - {SamplingFeatureObj:  *SamplingFeatureID0001, SiteTypeCV:  "Stream", Latitude:  40.809522, Longitude:  -111.765472, SpatialReferenceObj:  *SRSID0001}
-#  - {SamplingFeatureObj:  *SamplingFeatureID0002, SiteTypeCV:  "Stream", Latitude:  40.774228, Longitude:  -111.817025, SpatialReferenceObj:  *SRSID0001}
-#  - {SamplingFeatureObj:  *SamplingFeatureID0007, SiteTypeCV:  "Atmosphere", Latitude:  41.864805, Longitude:  -111.507494, SpatialReferenceObj:  *SRSID0001}
-#Specimens:
-#  - {SamplingFeatureObj:  *SamplingFeatureID0003, SpecimenTypeCV:  "Grab", SpecimenMediumCV:  Liquid aqueous, IsFieldSpecimen:  "TRUE"}
-#  - {SamplingFeatureObj:  *SamplingFeatureID0004, SpecimenTypeCV:  "Grab", SpecimenMediumCV:  Liquid aqueous, IsFieldSpecimen:  "TRUE"}
-#  - {SamplingFeatureObj:  *SamplingFeatureID0005, SpecimenTypeCV:  "Grab", SpecimenMediumCV:  Liquid aqueous, IsFieldSpecimen:  "TRUE"}
-#  - {SamplingFeatureObj:  *SamplingFeatureID0006, SpecimenTypeCV:  "Grab", SpecimenMediumCV:  Liquid aqueous, IsFieldSpecimen:  "TRUE"}
-#  - {SamplingFeatureObj:  *SamplingFeatureID0008, SpecimenTypeCV:  "Individual sample", SpecimenMediumCV:  Rock, IsFieldSpecimen:  "TRUE"}
-#Spatialoffsets:
+Citations:
+  - &CitationID0001 {Title: "Air temperature at the TW Daniels Experimental Forest Climate Station", Publisher: "iUTAH Modeling and Data Federation", PublicationYear: "2015", CitationLink: "http://repository.iutahepscor.org/dataset/iutah-gamut-network-raw-data-at-tw-daniels-forest-climate-site-lr-twdef-c"}
+AuthorLists:
+  - &AuthorListID0001  {CitationObj: *CitationID0001, PersonObj: *PersonID0001, AuthorOrder: 1}
+  - &AuthorListID0002  {CitationObj: *CitationID0001, PersonObj: *PersonID0002, AuthorOrder: 2}
+# Relationship type CV has no data
+#DatasetCitations:
+#  - {DatasetObj: *DataSetID0001, CitationObj: *CitationID0001, RelationshipTypeCV: IsAllOf}
+SpatialReferences:
+  - &SRSID0001 {SRSCode: "EPSG:4326", SRSName: "WGS84", SRSDescription: "Horizontal component of 3D system. Used by the GPS satellite navigation system and for NATO military geodetic surveying.", SRSLink: "http://www.epsg-registry.org/export.htm?wkt=urn:ogc:def:crs:EPSG::4326"}
+SamplingFeatures:
+  - &SamplingFeatureID0001 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Site", SamplingFeatureCode:  "RB_KF_BA", SamplingFeatureName:  "Knowlton Fork at Knowlton Fork Basic Aquatic", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Point", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
+  - &SamplingFeatureID0002 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Site", SamplingFeatureCode:  "RB_RBG_BA", SamplingFeatureName:  "Red Butte Creek at Red Butte Gate Basic Aquatic", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Point", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
+  - &SamplingFeatureID0003 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "D101", SamplingFeatureName:  "Specimen D101", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
+  - &SamplingFeatureID0004 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "D102", SamplingFeatureName:  "Specimen D102", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
+  - &SamplingFeatureID0005 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "D3236", SamplingFeatureName:  "Specimen D3236", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
+  - &SamplingFeatureID0006 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "524", SamplingFeatureName:  "Specimen 524", SamplingFeatureDescription:  NULL, SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  NULL, ElevationDatumCV:  "MSL"}
+  - &SamplingFeatureID0007 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Site", SamplingFeatureCode:  "LR_TWDEF_C", SamplingFeatureName:  "Climate Station at TW Daniels Experimental Forest", SamplingFeatureDescription:  "This is a continuous atmospheric monitoring site that is part of the Gradients Along Mountain to Urban Transitions (GAMUT) monitoring network.", SamplingFeatureGeotypeCV:  "Point", FeatureGeometry:  NULL, Elevation_m:  "2629.2", ElevationDatumCV:  "MSL"}
+  - &SamplingFeatureID0008 {SamplingFeatureUUID:  NULL, SamplingFeatureTypeCV:  "Specimen", SamplingFeatureCode:  "ald-10-158", SamplingFeatureName:  "ald-10-158", SamplingFeatureDescription:  "Whipple Dam State Park, PA, shale rock from bottom of Tyler's pit ", SamplingFeatureGeotypeCV:  "Not applicable", FeatureGeometry:  NULL, Elevation_m:  "297", ElevationDatumCV:  "MSL"}
+## There is no 's' in samplingfeaturesexternalidentifiers
+SamplingFeatureExternalIdentifiers:
+  - {SamplingFeatureObj:  *SamplingFeatureID0008, ExternalIdentifierSystemObj:  *ExternalIdentifierSystemID0001, SamplingFeatureExternalIdentifier:  "SSH000SUA", SamplingFeatureExternalIdentifierURI:  "http://app.geosamples.org/sample/igsn/SSH000SUA"}
+## "SiteTypeCV: Stream" isn't in the current database of acceptable terms
+Sites:
+  - {SamplingFeatureObj:  *SamplingFeatureID0001, SiteTypeCV:  "Atmosphere", Latitude:  40.809522, Longitude:  -111.765472, SpatialReferenceObj:  *SRSID0001}
+  - {SamplingFeatureObj:  *SamplingFeatureID0002, SiteTypeCV:  "Atmosphere", Latitude:  40.774228, Longitude:  -111.817025, SpatialReferenceObj:  *SRSID0001}
+  - {SamplingFeatureObj:  *SamplingFeatureID0007, SiteTypeCV:  "Atmosphere", Latitude:  41.864805, Longitude:  -111.507494, SpatialReferenceObj:  *SRSID0001}
+Specimens:
+  - {SamplingFeatureObj:  *SamplingFeatureID0003, SpecimenTypeCV:  "Grab", SpecimenMediumCV:  Liquid aqueous, IsFieldSpecimen:  "TRUE"}
+  - {SamplingFeatureObj:  *SamplingFeatureID0004, SpecimenTypeCV:  "Grab", SpecimenMediumCV:  Liquid aqueous, IsFieldSpecimen:  "TRUE"}
+  - {SamplingFeatureObj:  *SamplingFeatureID0005, SpecimenTypeCV:  "Grab", SpecimenMediumCV:  Liquid aqueous, IsFieldSpecimen:  "TRUE"}
+  - {SamplingFeatureObj:  *SamplingFeatureID0006, SpecimenTypeCV:  "Grab", SpecimenMediumCV:  Liquid aqueous, IsFieldSpecimen:  "TRUE"}
+  - {SamplingFeatureObj:  *SamplingFeatureID0008, SpecimenTypeCV:  "Individual sample", SpecimenMediumCV:  Rock, IsFieldSpecimen:  "TRUE"}
+#SpatialOffsets:
 #  - &SpatialOffsetID0001 {SpatialOffsetTypeCV:  "Depth", Offset1Value:  10, Offset1UnitObj:  "meters", Offset2Value:  NULL, Offset2UnitObj:  NULL, Offset3Value:  NULL, Offset3UnitObj:  NULL}
 #RelatedFeatures:
-#  - &RelationID0001 {SamplingFeatureObj:  *SamplingFeatureID0003, RelationshipTypeCV:  "wasCollectedAt", RelatedFeatureObj: *SamplingFeatureID0001, SpatialOffsetObj:  *SpatialOffsetID0001}
+##  - &RelationID0001 {SamplingFeatureObj:  *SamplingFeatureID0003, RelationshipTypeCV:  "wasCollectedAt", RelatedFeatureObj: *SamplingFeatureID0001, SpatialOffsetObj:  *SpatialOffsetID0001}
 #  - &RelationID0002 {SamplingFeatureObj:  *SamplingFeatureID0004, RelationshipTypeCV:  "wasCollectedAt", RelatedFeatureObj: *SamplingFeatureID0002, SpatialOffsetObj:  NULL}
 #  - &RelationID0003 {SamplingFeatureObj:  *SamplingFeatureID0005, RelationshipTypeCV:  "wasCollectedAt", RelatedFeatureObj: *SamplingFeatureID0002, SpatialOffsetObj:  NULL}
 #  - &RelationID0004 {SamplingFeatureObj:  *SamplingFeatureID0006, RelationshipTypeCV:  "wasCollectedAt", RelatedFeatureObj: *SamplingFeatureID0002, SpatialOffsetObj:  NULL}
-#Methods:
-#  - &MethodID0001 {MethodTypeCV:  "Instrument deployment", MethodCode:  "Air_Temp_HC2S3", MethodName:  "HC2S3 Air Temperature", MethodDescription:  "Air temperature measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Average over 15 minutes.", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
-#  - &MethodID0002 {MethodTypeCV:  "Specimen collection", MethodCode:  "Grab_Sampling", MethodName:  "Grab samples collected in the field with acid-washed bottles for TN and TP analysis.", MethodDescription:  "Grab samples collected in the field with acid-washed bottles for TN and TP analysis.", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
-#  - &MethodID0003 {MethodTypeCV:  "Specimen analysis", MethodCode:  "EPA353.2", MethodName:  "Nitrate-Nitrite Colorometric Automated Cadmium Reduction", MethodDescription:  "Nitrate-Nitrite Colorometric Automated Cadmium Reduction", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
-#  - &MethodID0004 {MethodTypeCV:  "Specimen analysis", MethodCode:  "TotalNitrogen", MethodName:  "Astoria Total Nitrogen", MethodDescription:  "Determination of total Nitrogen by persulphate oxidation digestion and cadmium reduction method", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
-#  - &MethodID0005 {MethodTypeCV:  "Specimen analysis", MethodCode:  "TotalPhosphorus", MethodName:  "Astoria Total Phosphorus", MethodDescription:  "Determination of total phosphorus by persulphate oxidation digestion and ascorbic acid method", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
+Methods:
+  - &MethodID0001 {MethodTypeCV:  "Instrument deployment", MethodCode:  "Air_Temp_HC2S3", MethodName:  "HC2S3 Air Temperature", MethodDescription:  "Air temperature measured using a Campbell Scientific HC2S3 temperature and relative humidity sensor. Average over 15 minutes.", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
+  - &MethodID0002 {MethodTypeCV:  "Specimen collection", MethodCode:  "Grab_Sampling", MethodName:  "Grab samples collected in the field with acid-washed bottles for TN and TP analysis.", MethodDescription:  "Grab samples collected in the field with acid-washed bottles for TN and TP analysis.", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
+  - &MethodID0003 {MethodTypeCV:  "Specimen analysis", MethodCode:  "EPA353.2", MethodName:  "Nitrate-Nitrite Colorometric Automated Cadmium Reduction", MethodDescription:  "Nitrate-Nitrite Colorometric Automated Cadmium Reduction", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
+  - &MethodID0004 {MethodTypeCV:  "Specimen analysis", MethodCode:  "TotalNitrogen", MethodName:  "Astoria Total Nitrogen", MethodDescription:  "Determination of total Nitrogen by persulphate oxidation digestion and cadmium reduction method", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
+  - &MethodID0005 {MethodTypeCV:  "Specimen analysis", MethodCode:  "TotalPhosphorus", MethodName:  "Astoria Total Phosphorus", MethodDescription:  "Determination of total phosphorus by persulphate oxidation digestion and ascorbic acid method", MethodLink:  "http://data.iutahepscor.org", OrganizationObj: *OrganizationID0001}
 #Variables:
 #  - &VariableID0001 {VariableTypeCV:  "Chemistry", VariableCode:  "TN", VariableNameCV:  "Nitrogen, total", VariableDefinition:  NULL, SpeciationCV:  "N", NoDataValue:  "-9999"}
 #  - &VariableID0002 {VariableTypeCV:  "Chemistry", VariableCode:  "TP", VariableNameCV:  "Phosphorus, total", VariableDefinition:  NULL, SpeciationCV:  "P", NoDataValue:  "-9999"}

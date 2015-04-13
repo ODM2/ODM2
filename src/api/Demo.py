@@ -19,11 +19,12 @@ sys.path.insert(0, directory)
 # ----------------------------------------
 
 
-#session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
+# session_factory = dbconnection.createConnection('mysql', 'jws.uwrl.usu.edu', 'odm2', 'ODM', 'ODM123!!')
 #session_factory = dbconnection.createConnection('mssql', '(local)', 'ODM2SS', 'ODM', 'odm')
 #session_factory = dbconnection.createConnection('postgresql', 'arroyo.uwrl.usu.edu:5432', 'ODMSS', 'Stephanie', 'odm')
 
-session_factory = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'odm')
+# session_factory = dbconnection.createConnection('mysql', 'localhost', 'odm2', 'ODM', 'odm')
+session_factory = dbconnection.createConnection('mysql', 'localhost', 'ODM2', 'root', 'zxc')
 
 
 # Create a connection for each of the schemas. Currently the schemas each have a different
@@ -198,6 +199,8 @@ print "Loaded YAML file in ", timeit.default_timer() - start, " seconds"
 
 # yaml_load._session.autoflush = False
 _session.flush()
+organizations = _session.query(Organizations).all()
+external_identifier_systems = _session.query(ExternalIdentifierSystems).all()
 persons = _session.query(People).all()
 datasets = _session.query(Datasets).all()
 citations = _session.query(Citations).all()
@@ -223,6 +226,12 @@ person_read = core_read.getPeople()
 print
 pp.pprint("---Example YAML reading <People>---")
 pp.pprint(person_read)
+print
+pp.pprint("---Example YAML reading <Organizations>---")
+pp.pprint(organizations)
+print
+pp.pprint("---Example YAML reading <ExternalIdentifierSystems>---")
+pp.pprint(external_identifier_systems)
 print
 pp.pprint("---Example YAML reading <Citation>---")
 pp.pprint(citations)

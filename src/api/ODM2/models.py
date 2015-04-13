@@ -421,6 +421,12 @@ class Organizations(Base):
 
     OrganizationObj = relationship(u'Organizations', remote_side=[OrganizationID])
 
+    def __repr__(self):
+        return "<Organizations('%s', '%s', '%s', '%s', '%s', '%s')>" % (
+            self.OrganizationID, self.OrganizationTypeCV, self.OrganizationCode,
+            self.OrganizationName, self.OrganizationDescription, self.OrganizationLink
+        )
+
 
 class Affiliations(Base):
     __tablename__ = 'Affiliations'
@@ -548,7 +554,7 @@ class Datasets(Base):
 
     def __repr__(self):
         return "<Datasets('%s', '%s', '%s', '%s', '%s')>" % (
-            self.DatasetUUID, self.DatasetTypeCV, self.DatasetCode, self.DatasetTitle, self.DatasetAbstract)
+            self.DatasetID, self.DatasetTypeCV, self.DatasetCode, self.DatasetTitle, self.DatasetAbstract)
 
 
 class ProcessingLevels(Base):
@@ -796,7 +802,7 @@ class SpatialReferences(Base):
                % (self.SpatialReferenceID, self.SRSCode, self.SRSName, self.SRSDescription, self.SRSLink)
 
 
-class Specimen(Base):
+class Specimens(Base):
     __tablename__ = u'Specimens'
     __table_args__ = {u'schema': 'ODM2'}
 
@@ -805,8 +811,10 @@ class Specimen(Base):
     SpecimenMediumCV = Column(ForeignKey(u'ODM2.CV_SpecimenMedium.Name'), nullable=False, index=True)
     IsFieldSpecimen = Column(BIT, nullable=False)
 
+    SamplingFeatureObj = relationship(SamplingFeatures)
 
-class Spatialoffset(Base):
+
+class SpatialOffsets(Base):
     __tablename__ = u'SpatialOffsets'
     __table_args__ = {u'schema': u'ODM2'}
 
@@ -854,7 +862,7 @@ class RelatedFeatures(Base):
                                       primaryjoin='RelatedFeatures.RelatedFeatureID == SamplingFeatures.SamplingFeatureID')
     RelatedFeatureObj = relationship(SamplingFeatures,
                                      primaryjoin='RelatedFeatures.SamplingFeatureID == SamplingFeatures.SamplingFeatureID')
-    SpatialOffsetObj = relationship(Spatialoffset)
+    SpatialOffsetObj = relationship(SpatialOffsets)
 
 
 class SpecimenTaxonomicClassifiers(Base):
@@ -866,7 +874,7 @@ class SpecimenTaxonomicClassifiers(Base):
     TaxonomicClassifierID = Column(ForeignKey('ODM2.TaxonomicClassifiers.TaxonomicClassifierID'), nullable=False)
     CitationID = Column(Integer)
 
-    SpecimenObj = relationship(Specimen)
+    SpecimenObj = relationship(Specimens)
     TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
 
 
@@ -1257,6 +1265,13 @@ class ExternalIdentifierSystems(Base):
 
     IdentifierSystemOrganizationObj = relationship(Organizations)
 
+    def __repr__(self):
+        return "<ExternalIdentifierSystems('%s', '%s', '%s', '%s', '%s')>" % (
+            self.ExternalIdentifierSystemID, self.ExternalIdentifierSystemName,
+            self.IdentifierSystemOrganizationID, self.ExternalIdentifierSystemDescription,
+            self.ExternalIdentifierSystemURL)
+
+
 
 class CitationExternalIdentifiers(Base):
     __tablename__ = u'CitationExternalIdentifiers'
@@ -1327,7 +1342,7 @@ class SamplingFeatureExternalIdentifiers(Base):
     ExternalIdentifierSystemID = Column(ForeignKey('ODM2.ExternalIdentifierSystems.ExternalIdentifierSystemID'),
                                         nullable=False)
     SamplingFeatureExternalIdentifier = Column(String(255), nullable=False)
-    SamplingFeatureExternalIdentiferURI = Column(String(255))
+    SamplingFeatureExternalIdentifierURI = Column(String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     SamplingFeatureObj = relationship(SamplingFeatures)
