@@ -397,7 +397,7 @@ CREATE TABLE Variables (
 CREATE TABLE CV_ActionType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -405,7 +405,7 @@ CREATE TABLE CV_ActionType (
 CREATE TABLE CV_AggregationStatistic (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -413,7 +413,7 @@ CREATE TABLE CV_AggregationStatistic (
 CREATE TABLE CV_AnnotationType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -421,7 +421,7 @@ CREATE TABLE CV_AnnotationType (
 CREATE TABLE CV_CensorCode (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -429,7 +429,7 @@ CREATE TABLE CV_CensorCode (
 CREATE TABLE CV_DataQualityType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -437,7 +437,7 @@ CREATE TABLE CV_DataQualityType (
 CREATE TABLE CV_DatasetTypeCV (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -445,7 +445,7 @@ CREATE TABLE CV_DatasetTypeCV (
 CREATE TABLE CV_DirectiveType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -453,7 +453,7 @@ CREATE TABLE CV_DirectiveType (
 CREATE TABLE CV_ElevationDatum (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -461,7 +461,7 @@ CREATE TABLE CV_ElevationDatum (
 CREATE TABLE CV_EquipmentType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -469,7 +469,7 @@ CREATE TABLE CV_EquipmentType (
 CREATE TABLE CV_MethodType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -477,7 +477,7 @@ CREATE TABLE CV_MethodType (
 CREATE TABLE CV_OrganizationType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -485,7 +485,7 @@ CREATE TABLE CV_OrganizationType (
 CREATE TABLE CV_PropertyDataType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -493,7 +493,7 @@ CREATE TABLE CV_PropertyDataType (
 CREATE TABLE CV_QualityCode (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -501,7 +501,7 @@ CREATE TABLE CV_QualityCode (
 CREATE TABLE CV_ReferenceMaterialMedium (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -509,7 +509,7 @@ CREATE TABLE CV_ReferenceMaterialMedium (
 CREATE TABLE CV_RelationshipType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -517,7 +517,7 @@ CREATE TABLE CV_RelationshipType (
 CREATE TABLE CV_ResultType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -525,7 +525,7 @@ CREATE TABLE CV_ResultType (
 CREATE TABLE CV_SampledMedium (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -533,7 +533,7 @@ CREATE TABLE CV_SampledMedium (
 CREATE TABLE CV_SamplingFeatureGeoType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -541,7 +541,7 @@ CREATE TABLE CV_SamplingFeatureGeoType (
 CREATE TABLE CV_SamplingFeatureType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -549,7 +549,7 @@ CREATE TABLE CV_SamplingFeatureType (
 CREATE TABLE CV_SiteType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -557,7 +557,7 @@ CREATE TABLE CV_SiteType (
 CREATE TABLE CV_SpatialOffsetType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -565,7 +565,7 @@ CREATE TABLE CV_SpatialOffsetType (
 CREATE TABLE CV_Speciation (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -573,7 +573,7 @@ CREATE TABLE CV_Speciation (
 CREATE TABLE CV_SpecimenMedium (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -581,7 +581,7 @@ CREATE TABLE CV_SpecimenMedium (
 CREATE TABLE CV_SpecimenType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -589,7 +589,7 @@ CREATE TABLE CV_SpecimenType (
 CREATE TABLE CV_Status (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -597,7 +597,7 @@ CREATE TABLE CV_Status (
 CREATE TABLE CV_TaxonomicClassifierType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -605,7 +605,7 @@ CREATE TABLE CV_TaxonomicClassifierType (
 CREATE TABLE CV_UnitsType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -613,7 +613,7 @@ CREATE TABLE CV_UnitsType (
 CREATE TABLE CV_VariableName (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
@@ -621,7 +621,7 @@ CREATE TABLE CV_VariableName (
 CREATE TABLE CV_VariableType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (500)  NULL,
+	Definition VARCHAR (1000)  NULL,
 	Category VARCHAR (255)  NULL,
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
