@@ -11,6 +11,16 @@ Base = declarative_base()
 metadata = Base.metadata
 
 
+from sqlalchemy import BigInteger, Column, Date, DateTime, Float, ForeignKey, Integer, String, Boolean
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+
+
+
+Base = declarative_base()
+metadata = Base.metadata
+
+
 
 # ################################################################################
 # CV
@@ -22,9 +32,10 @@ class CVTerms(Base):
 
     TermID = Column(Integer, primary_key=True, nullable=False)
     Term = Column(String(255), nullable=False)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     ODMVocabulary = Column(String(255), nullable=False)
     SourceVocabulary = Column(String(255))
+
 
 class CVActionType(Base):
     __tablename__ = 'CV_ActionType'
@@ -32,10 +43,12 @@ class CVActionType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
 
+    def __repr__(self):
+        return "<CVActionType('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 class CVAggregationStatistic(Base):
     __tablename__ = 'CV_AggregationStatistic'
@@ -43,9 +56,13 @@ class CVAggregationStatistic(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CVAggregationStatisticsType('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+
+
 
 
 class CVAnnotationType(Base):
@@ -54,9 +71,11 @@ class CVAnnotationType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CVAnnotationType('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVCensorCode(Base):
@@ -65,20 +84,25 @@ class CVCensorCode(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CVActionType('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVDatasetType(Base):
-    __tablename__ = 'CV_DatasetType'
+    __tablename__ = 'CV_DatasetTypeCV'
     __table_args__ = {u'schema': 'ODM2'}
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+
 
 
 class CVDirectiveType(Base):
@@ -87,9 +111,11 @@ class CVDirectiveType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVElevationDatum(Base):
@@ -98,9 +124,11 @@ class CVElevationDatum(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVEquipmentType(Base):
@@ -109,9 +137,11 @@ class CVEquipmentType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVMethodType(Base):
@@ -120,9 +150,11 @@ class CVMethodType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVOrganizationType(Base):
@@ -131,9 +163,11 @@ class CVOrganizationType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVPropertyDataType(Base):
@@ -142,9 +176,11 @@ class CVPropertyDataType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(100))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVQualityCode(Base):
@@ -153,9 +189,11 @@ class CVQualityCode(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVResultType(Base):
@@ -164,9 +202,11 @@ class CVResultType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVSampledMedium(Base):
@@ -175,9 +215,11 @@ class CVSampledMedium(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVSamplingFeatureGeoType(Base):
@@ -186,9 +228,11 @@ class CVSamplingFeatureGeoType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVSamplingFeatureType(Base):
@@ -197,9 +241,11 @@ class CVSamplingFeatureType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVSpatialOffsetType(Base):
@@ -208,9 +254,11 @@ class CVSpatialOffsetType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVSpeciation(Base):
@@ -219,9 +267,11 @@ class CVSpeciation(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVSpecimenMedium(Base):
@@ -230,10 +280,11 @@ class CVSpecimenMedium(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
-
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 class CVSpecimenType(Base):
     __tablename__ = 'CV_SpecimenType'
@@ -241,19 +292,12 @@ class CVSpecimenType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
-class CVReferenceMaterialMedium(Base):
-    __tablename__ = 'CV_ReferenceMaterialMedium'
-    __table_args__ = {u'schema': 'ODM2'}
-
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
-    Category = Column(String(255))
-    SourceVocabularyURI = Column(String(255))
 
 class CVSiteType(Base):
     __tablename__ = 'CV_SiteType'
@@ -261,9 +305,24 @@ class CVSiteType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+
+
+class CVReferenceMaterialMedium(Base):
+    __tablename__ = 'CV_ReferenceMaterialMedium'
+    __table_args__ = {u'schema': 'ODM2'}
+
+    Term = Column(String(255), nullable=False)
+    Name = Column(String(255), primary_key=True)
+    Definition = Column(String(1000))
+    Category = Column(String(255))
+    SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVStatus(Base):
@@ -272,9 +331,11 @@ class CVStatus(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVTaxonomicClassifierType(Base):
@@ -283,9 +344,11 @@ class CVTaxonomicClassifierType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVUnitsType(Base):
@@ -294,9 +357,11 @@ class CVUnitsType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVVariableName(Base):
@@ -305,9 +370,11 @@ class CVVariableName(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 class CVVariableType(Base):
@@ -316,9 +383,11 @@ class CVVariableType(Base):
 
     Term = Column(String(255), nullable=False)
     Name = Column(String(255), primary_key=True)
-    Definition = Column(String(500))
+    Definition = Column(String(1000))
     Category = Column(String(255))
     SourceVocabularyURI = Column(String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 
 
