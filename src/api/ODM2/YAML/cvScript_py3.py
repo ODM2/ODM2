@@ -14,6 +14,7 @@ pp = pprint.PrettyPrinter(indent=8)
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from progressbar import ProgressBar, Percentage, Bar, RotatingMarker
 try:
     # python 3
     import urllib.request as request
@@ -23,6 +24,8 @@ except:
     # python 2
     import urllib as request
 
+
+conn_string = 'mysql+pymysql://root:zxc@localhost/ODM2'
 ####################################
 #       Custom object to hold the values
 ####################################
@@ -79,7 +82,6 @@ rdf="{http://www.w3.org/1999/02/22-rdf-syntax-ns#}%s"
 skos="{http://www.w3.org/2004/02/skos/core#}%s"
 odm2="{http://vocabulary.odm2.org/ODM2/ODM2Terms/}%s"
 
-conn_string = 'mysql+pymysql://root:zxc@localhost/ODM2'
 engine = create_engine(conn_string,echo=False, encoding='utf-8')
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -115,7 +117,7 @@ def obtain_url(vocab):
     try:
         xml_data = request.urlopen(vocab_site).read()
         return xml_data
-    except HTTPError as e:
+    except Exception as e:
         print ("There was an error with connecting to the site: ", e)
 
 #####################################
@@ -148,8 +150,10 @@ def build_cv_object(item):
 #####################################
 #       Loads sql_objects into SQLAlchemy session
 #####################################
+import sys
 def load_up_objects():
-    for vocab, obj in dictionary:
+    pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(dictionary)).start()
+    for i, (vocab, obj) in enumerate(dictionary):
         objs = []
         xml_data = obtain_url(vocab)
         root = ET.fromstring(xml_data)
@@ -164,11 +168,15 @@ def load_up_objects():
 
         try:
             output = session.new
-            session.commit()
-            print ("Session: ", output)
+            # session.commit()
+            #pp.pprint(output)
         except Exception as e:
             session.rollback()
             pass
+        sys.stdout.write('%s\n' % vocab)
+        sys.stdout.flush()
+        pbar.update(i)
+    pbar.finish()
 
 if __name__ == '__main__':
     load_up_cvmodels()
