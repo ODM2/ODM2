@@ -770,7 +770,7 @@ CREATE TABLE SamplingFeatureExternalIdentifiers (
 	SamplingFeatureID INT   NOT NULL,
 	ExternalIdentifierSystemID INT   NOT NULL,
 	SamplingFeatureExternalIdentifier VARCHAR (255)  NOT NULL,
-	SamplingFeatureExternalIdentiferURI VARCHAR (255)  NULL
+	SamplingFeatureExternalIdentifierURI VARCHAR (255)  NULL
 );
 
 CREATE TABLE SpatialReferenceExternalIdentifiers (

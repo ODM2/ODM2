@@ -775,7 +775,7 @@ CREATE TABLE ODM2.SamplingFeatureExternalIdentifiers (
 	SamplingFeatureID int   NOT NULL,
 	ExternalIdentifierSystemID int   NOT NULL,
 	SamplingFeatureExternalIdentifier varchar (255)  NOT NULL,
-	SamplingFeatureExternalIdentiferURI varchar (255)  NULL,
+	SamplingFeatureExternalIdentifierURI varchar (255)  NULL,
 	PRIMARY KEY (BridgeID)
 )
 CREATE TABLE ODM2.SpatialReferenceExternalIdentifiers (

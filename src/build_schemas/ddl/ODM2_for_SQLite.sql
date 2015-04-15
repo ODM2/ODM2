@@ -1021,7 +1021,7 @@ CREATE TABLE SamplingFeatureExternalIdentifiers (
 	SamplingFeatureID INTEGER   NOT NULL,
 	ExternalIdentifierSystemID INTEGER   NOT NULL,
 	SamplingFeatureExternalIdentifier VARCHAR (255)  NOT NULL,
-	SamplingFeatureExternalIdentiferURI VARCHAR (255)  NULL,
+	SamplingFeatureExternalIdentifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)

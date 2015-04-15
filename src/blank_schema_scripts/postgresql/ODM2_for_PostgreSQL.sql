@@ -679,7 +679,7 @@ create table ODM2."SamplingFeatureExternalIdentifiers" (
 	samplingfeatureid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
 	samplingfeatureexternalidentifier varchar (255) NOT NULL,
-	samplingfeatureexternalidentiferuri varchar (255) NULL
+	samplingfeatureexternalidentifieruri varchar (255) NULL
 );
 create table ODM2."SpatialReferenceExternalIdentifiers" (
 	bridgeid serial  NOT NULL primary key,
