@@ -3135,7 +3135,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique ID, such as an IGSN; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SamplingFeatureExternalIdentiferURI" nu="1">
+      <Cl au="0" df="" nm="SamplingFeatureExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting.</Cm>
       </Cl>
@@ -6465,7 +6465,7 @@
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="497">
+  <RnmMgr NxRnmId="498">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7243,6 +7243,7 @@
       <Rnm id="327" nNm="ExternalIdentifierSystemURNResolverURL" oNm="ExternalIdentifierSystemURNresolverURL"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatureExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="497" nNm="SamplingFeatureExternalIdentifierURI" oNm="SamplingFeatureExternalIdentiferURI"/>
       <Rnm id="328" nNm="SamplingFeatureExternalIdentiferURI" oNm="SamplingFeatureExternalIdentiferURN"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
