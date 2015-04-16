@@ -14,7 +14,7 @@ pp = pprint.PrettyPrinter(indent=8)
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from progressbar import ProgressBar, Percentage, Bar, RotatingMarker
+from progressbar import ProgressBar, Percentage, Bar, RotatingMarker, FormatLabel, ReverseBar
 try:
     # python 3
     import urllib.request as request
@@ -150,14 +150,16 @@ def build_cv_object(item):
 #####################################
 #       Loads sql_objects into SQLAlchemy session
 #####################################
-import sys
 def load_up_objects():
-    pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(dictionary)).start()
+    widgets=[FormatLabel("Loading CV_Terms"), ':', Percentage(), " <<<", Bar(), ">>>"]
+    pbar = ProgressBar(widgets=widgets, maxval=len(dictionary)).start()
+    objs = []
     for i, (vocab, obj) in enumerate(dictionary):
-        objs = []
         xml_data = obtain_url(vocab)
         root = ET.fromstring(xml_data)
-        for item in root.findall(rdf % 'Description'):
+        skos_items = root.findall(rdf % 'Description')
+
+        for item in skos_items:
             cv_obj = build_cv_object(item)
             if not cv_obj:
                 continue
@@ -168,18 +170,16 @@ def load_up_objects():
 
         try:
             output = session.new
-            # session.commit()
-            #pp.pprint(output)
+            session.commit()
         except Exception as e:
             session.rollback()
             pass
-        sys.stdout.write('%s\n' % vocab)
-        sys.stdout.flush()
         pbar.update(i)
     pbar.finish()
+
+    print ("Finished Loading Terms: ")
 
 if __name__ == '__main__':
     load_up_cvmodels()
     assert len(modules) > 0
-
     load_up_objects()
