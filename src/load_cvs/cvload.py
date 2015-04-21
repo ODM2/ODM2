@@ -1,7 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import sys
-import urllib as request
+
+# Supporting Python3
+try:
+    import urllib.request as request
+except ImportError:
+    import urllib as request
 import xml.etree.ElementTree as ET
 import argparse
 
@@ -389,18 +394,11 @@ parser.add_argument(
         "mssql+pyodbc://ODM:123@localhost/odm2\n"
         "postgresql+psycopg2://ODM:odm@test.uwrl.usu.edu/odm2\n",
         default=True, type=str, dest='conn_string')
+parser.add_argument('-d', '--debug', 
+        help="Debugging program without commiting anything to" 
+        " remote database",
+        action="store_true")
 args = parser.parse_args()
-# ------------------------------------------------------------------------------
-
-if len(sys.argv)<2:
-    sys.exit(0)
-
-
-# ------------------------------------------------------------------------------
-#                                  Progress bar 
-# ------------------------------------------------------------------------------
-
-
 
 # ------------------------------------------------------------------------------
 #                                   Script Begin
@@ -413,38 +411,38 @@ try:
     engine = create_engine(conn_string, encoding='utf-8')
     session = sessionmaker(bind=engine)()
 except Exception as e:
-    print e
+    print (e)
     sys.exit(0)
 
-print "Loading CVs using connection string: %s" % conn_string
+print ("Loading CVs using connection string: %s" % conn_string)
 
 
-vocab= {"actiontype": CVActionType,
-        "qualitycode": CVQualityCode,
-        "samplingfeaturegeotype": CVSamplingFeatureGeoType,
-        "elevationdatum": CVElevationDatum,
-        "resulttype": CVResultType,
-        "sampledmedium": CVSampledMedium,
-        "speciation": CVSpeciation,
-        "aggregationstatistic": CVAggregationStatistic,
-        "methodtype": CVMethodType,
-        "taxonomicclassifiertype": CVTaxonomicClassifierType,
-        "sitetype": CVSiteType,
-        "censorcode": CVCensorCode,
-        "directivetype": CVDirectiveType,
-        "datasettype":CVDatasetType,
-        "organizationtype": CVOrganizationType,
-        "status": CVStatus,
-        "annotationtype": CVAnnotationType,
-        "samplingfeaturetype": CVSamplingFeatureType,
-        "equipmenttype": CVEquipmentType,
-        "specimenmedium": CVSpecimenMedium,
-        "spatialoffsettype": CVSpatialOffsetType,
-        "referencematerialmedium": CVReferenceMaterialMedium,
-        "specimentype": CVSpecimenType,
-        "variabletype": CVVariableType,
-        "variablename": CVVariableName,
-        "propertydatatype": CVPropertyDataType}
+vocab= [("actiontype", CVActionType),
+        ("qualitycode", CVQualityCode),
+        ("samplingfeaturegeotype", CVSamplingFeatureGeoType),
+        ("elevationdatum", CVElevationDatum),
+        ("resulttype", CVResultType),
+        ("sampledmedium", CVSampledMedium),
+        ("speciation", CVSpeciation),
+        ("aggregationstatistic", CVAggregationStatistic),
+        ("methodtype", CVMethodType),
+        ("taxonomicclassifiertype", CVTaxonomicClassifierType),
+        ("sitetype", CVSiteType),
+        ("censorcode", CVCensorCode),
+        ("directivetype", CVDirectiveType),
+        ("datasettype",CVDatasetType),
+        ("organizationtype", CVOrganizationType),
+        ("status", CVStatus),
+        ("annotationtype", CVAnnotationType),
+        ("samplingfeaturetype", CVSamplingFeatureType),
+        ("equipmenttype", CVEquipmentType),
+        ("specimenmedium", CVSpecimenMedium),
+        ("spatialoffsettype", CVSpatialOffsetType),
+        ("referencematerialmedium", CVReferenceMaterialMedium),
+        ("specimentype", CVSpecimenType),
+        ("variabletype", CVVariableType),
+        ("variablename", CVVariableName),
+        ("propertydatatype", CVPropertyDataType)]
 
 url = "http://vocabulary.odm2.org/api/v1/%s/?format=skos"
 
@@ -454,10 +452,21 @@ rdf = "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}%s"
 skos = "{http://www.w3.org/2004/02/skos/core#}%s"
 odm2 = "{http://vocabulary.odm2.org/ODM2/ODM2Terms/}%s"
 
-for key, value in vocab.iteritems():
-    print ("\tLoading %s" % key)
-    try:
+# ------------------------------------------------------------------------------
+#                                  Progress bar 
+# ------------------------------------------------------------------------------
+def update_progress(count, value):
+    sys.stdout.write("\033[K\r")
+    sys.stdout.flush()
+    sys.stdout.write("[%-26s] %d%% %s Loaded\r" % 
+                     ('='*count, (count+0.0)/len(vocab)*100, str(value)))
+    sys.stdout.flush()
 
+for count, (key, value) in enumerate(vocab):
+    # print (count, key, value)
+    # print ("\tLoading %s" % key)
+    update_progress(count, value)                
+    try:
         data = request.urlopen(url % key).read()
         root = ET.fromstring(data)
         CVObject = value
@@ -471,15 +480,18 @@ for key, value in vocab.iteritems():
                 obj.Category = category = voc.find(odm2%"category").text if voc.find(odm2 % "category") is not None else None
                 obj.SourceVocabularyURI = voc.attrib[rdf%"about"]
                 objs.append(obj)
-
             except:
                 pass
-
         session.add_all(objs)
-        session.commit()
+        if not args.debug:
+           session.commit()
     except Exception as e:
         session.rollback()
         print ("\t...Load was unsuccesful: \n%s" % e)
+        sys.stdout.write("\n\n...Load was unsuccessful: %s\r"%e)
+        sys.stdout.flush()
 
-print ("CV Load has completed")
+update_progress(len(vocab), "CV_Terms")
+sys.stdout.write("\nCV Load has completed\r\n")
+sys.stdout.flush()
 
