@@ -20,7 +20,7 @@ action_table = Actions()
 
 class SpatialReference(Base):
     __tablename__ = 'SpatialReferences'
-    __table_args__ = {u'schema': 'ODM2'}
+    __table_args__ = {u'schema': 'odm2'}
 
     id = Column('SpatialReferenceID', Integer, primary_key=True)
     srs_id = Column('SRSID', String)
@@ -75,7 +75,7 @@ class Site(Base):
 
 class Unit(Base):
     __tablename__ = u'Units'
-    __table_args__ = {u'schema': 'ODM2'}
+    __table_args__ = {u'schema': 'odm2'}
 
     id = Column('UnitsID', Integer, primary_key=True)
     name = Column('UnitsName', String)
@@ -157,7 +157,7 @@ source_join = affiliation_join.join(organization_table, affiliation_join.c.ODM2_
 class Source(Base):
     __table__ = source_join
     __tablename__ = u'Data Sources'
-    __table_args__ = {u'schema': u'ODM2'}
+    __table_args__ = {u'schema': u'odm2'}
 
     id = source_join.c.ODM2_Affiliations_AffiliationID                      # Column('OrganizationID', Integer, primary_key=True)
     organization = source_join.c.ODM2_Affiliations_OrganizationID           # Column('OrganizationName', String, nullable=False)

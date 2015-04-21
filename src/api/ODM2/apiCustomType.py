@@ -30,7 +30,7 @@ def compiles_as_bound(cls):
 
         else:
             el = element.name
-            path = '"ODM2"."SamplingFeatures"."FeatureGeometry"'
+            path = '"odm2"."samplingfeatures"."FeatureGeometry"'
             format = "%s(%s)"
             return format % (el, path)
 
