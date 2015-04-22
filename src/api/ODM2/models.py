@@ -30,355 +30,362 @@ class CVActionType(Base):
     __tablename__ = 'cv_actiontype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
 
     def __repr__(self):
-        return "<CVActionType('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CVActionType('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVAggregationStatistic(Base):
     __tablename__ = 'cv_aggregationstatistic'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CVAggregationStatisticsType('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CVAggregationStatisticsType('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVAnnotationType(Base):
     __tablename__ = 'cv_annotationtype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CVAnnotationType('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CVAnnotationType('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVCensorCode(Base):
     __tablename__ = 'cv_censorcode'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CVActionType('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CVActionType('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVDatasetType(Base):
     __tablename__ = 'cv_datasettypecv'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVDirectiveType(Base):
     __tablename__ = 'cv_directivetype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVElevationDatum(Base):
     __tablename__ = 'cv_elevationdatum'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVEquipmentType(Base):
     __tablename__ = 'cv_equipmenttype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVMethodType(Base):
     __tablename__ = 'cv_methodtype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVOrganizationType(Base):
     __tablename__ = 'cv_organizationtype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVPropertyDataType(Base):
     __tablename__ = 'cv_propertydatatype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVQualityCode(Base):
      __tablename__ = 'cv_qualitycode'
      __table_args__ = {u'schema': 'odm2'}
 
-     Term = Column(String(255), nullable=False)
-     Name = Column(String(255), primary_key=True)
-     Definition = Column(String(1000))
-     Category = Column(String(255))
-     SourceVocabularyUri = Column(String(255))
+     Term = Column('term', String(255), nullable=False)
+     Name = Column('name', String(255), primary_key=True)
+     Definition = Column('definition', String(1000))
+     Category = Column('category', String(255))
+     SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
 
      def __repr__(self):
-         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVResultType(Base):
     __tablename__ = 'cv_resulttype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVSampledMedium(Base):
     __tablename__ = 'cv_sampledmedium'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
 
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVSamplingFeatureGeoType(Base):
     __tablename__ = 'cv_samplingfeaturegeotype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
 
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVSamplingFeatureType(Base):
     __tablename__ = 'cv_samplingfeaturetype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVSpatialOffsetType(Base):
     __tablename__ = 'cv_spatialoffsettype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVSpeciation(Base):
     __tablename__ = 'cv_speciation'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVSpecimenMedium(Base):
     __tablename__ = 'cv_specimenmedium'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVSpecimenType(Base):
     __tablename__ = 'cv_specimentype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVSiteType(Base):
     __tablename__ = 'cv_sitetype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVReferenceMaterialMedium(Base):
     __tablename__ = 'cv_referencematerialmedium'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVStatus(Base):
     __tablename__ = 'cv_status'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVTaxonomicClassifierType(Base):
     __tablename__ = 'cv_taxonomicclassifiertype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVUnitsType(Base):
     __tablename__ = 'cv_unitstype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVVariableName(Base):
     __tablename__ = 'cv_variablename'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 class CVVariableType(Base):
     __tablename__ = 'cv_variabletype'
     __table_args__ = {u'schema': 'odm2'}
 
-    Term = Column(String(255), nullable=False)
-    Name = Column(String(255), primary_key=True)
-    Definition = Column(String(1000))
-    Category = Column(String(255))
-    SourceVocabularyUri = Column(String(255))
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
 
@@ -390,32 +397,32 @@ class People(Base):
     __tablename__ = u'people'
     __table_args__ = {u'schema': u'odm2'}
 
-    PersonID = Column(Integer, primary_key=True, nullable=False)
-    PersonFirstName = Column(String(255), nullable=False)
-    PersonMiddleName = Column(String(255))
-    PersonLastName = Column(String(255), nullable=False)
+    PersonID = Column('personid', Integer, primary_key=True, nullable=False)
+    PersonFirstName = Column('personfirstname', String(255), nullable=False)
+    PersonMiddleName = Column('personmiddlename', String(255))
+    PersonLastName = Column('personlastname', String(255), nullable=False)
 
     def __repr__(self):
-        return "<Person('%s', '%s', '%s')>" % (self.PersonID, self.PersonFirstName,
+        return "<Person('%s', '%s', '%s')>" % (self.personid, self.PersonFirstName,
                                                self.PersonLastName)
 
 class Organizations(Base):
     __tablename__ = u'organizations'
     __table_args__ = {u'schema': u'odm2'}
 
-    OrganizationID = Column(Integer, primary_key=True, nullable=False)
-    OrganizationTypeCV = Column(ForeignKey('odm2.cv_organizationtype.Name'), nullable=False, index=True)
-    OrganizationCode = Column(String(50), nullable=False)
-    OrganizationName = Column(String(255), nullable=False)
-    OrganizationDescription = Column(String(500))
-    OrganizationLink = Column(String(255))
-    ParentOrganizationID = Column(ForeignKey('odm2.organizations.OrganizationID'))
+    OrganizationID = Column('organizationid', Integer, primary_key=True, nullable=False)
+    OrganizationTypeCV = Column('organizationtypecv',  ForeignKey('odm2.cv_organizationtype.name'), nullable=False, index=True)
+    OrganizationCode = Column('organizationcode', String(50), nullable=False)
+    OrganizationName = Column('organizationname', String(255), nullable=False)
+    OrganizationDescription = Column('organizationsdescription', String(500))
+    OrganizationLink = Column('organizationlink',String(255))
+    ParentOrganizationID = Column('parentorganizationid',  ForeignKey('odm2.organizations.organizationid'))
 
     OrganizationObj = relationship(u'Organizations', remote_side=[OrganizationID])
 
     def __repr__(self):
         return "<Organizations('%s', '%s', '%s', '%s', '%s', '%s')>" % (
-            self.OrganizationID, self.OrganizationTypeCV, self.OrganizationCode,
+            self.organizationid, self.OrganizationTypeCV, self.OrganizationCode,
             self.OrganizationName, self.OrganizationDescription, self.OrganizationLink
         )
 
@@ -424,16 +431,16 @@ class Affiliations(Base):
     __tablename__ = 'affiliations'
     __table_args__ = {u'schema': u'odm2'}
 
-    AffiliationID = Column(Integer, primary_key=True, nullable=False)
-    PersonID = Column(ForeignKey('odm2.people.PersonID'), nullable=False)
-    OrganizationID = Column(ForeignKey('odm2.organizations.OrganizationID'))
-    IsPrimaryOrganizationContact = Column(Boolean)
-    AffiliationStartDate = Column(Date, nullable=False)
-    AffiliationEndDate = Column(Date)
-    PrimaryPhone = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'))
-    PrimaryEmail = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    PrimaryAddress = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
-    PersonLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    AffiliationID = Column('affiliationid', Integer, primary_key=True, nullable=False)
+    PersonID = Column('personid',  ForeignKey('odm2.people.personid'), nullable=False)
+    OrganizationID = Column('organizationid', ForeignKey('odm2.organizations.organizationid'))
+    IsPrimaryOrganizationContact = Column('isprimaryorganizationcontact', Boolean)
+    AffiliationStartDate = Column('affiliationstartdate', Date, nullable=False)
+    AffiliationEndDate = Column('affiliationenddate', Date)
+    PrimaryPhone = Column('primaryphone', String(50, u'SQL_Latin1_General_CP1_CI_AS'))
+    PrimaryEmail = Column('primaryemail', String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    PrimaryAddress = Column('primaryaddress', String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    PersonLink = Column('personlink', String(255, u'SQL_Latin1_General_CP1_CI_AS'))
 
     OrganizationObj = relationship(Organizations)
     PersonObj = relationship(People)
@@ -443,52 +450,52 @@ class Methods(Base):
     __tablename__ = 'methods'
     __table_args__ = {u'schema': u'odm2'}
 
-    MethodID = Column(Integer, primary_key=True, nullable=False)
-    MethodTypeCV = Column(ForeignKey('odm2.cv_methodtype.Name'), nullable=False, index=True)
-    MethodCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    MethodName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    MethodDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
-    MethodLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
-    OrganizationID = Column(ForeignKey('odm2.organizations.OrganizationID'))
+    MethodID = Column('methodid', Integer, primary_key=True, nullable=False)
+    MethodTypeCV = Column('methodtypecv', ForeignKey('odm2.cv_methodtype.name'), nullable=False, index=True)
+    MethodCode = Column('methodcode', String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    MethodName = Column('methodname', String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    MethodDescription = Column('methoddescription', String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    MethodLink = Column('methodlink', String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    OrganizationID = Column('organizationid',Integer, ForeignKey('odm2.organizations.organizationid'))
 
     OrganizationObj = relationship(Organizations)
 
     def __repr__(self):
         return "<Methods('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" \
-               % (self.MethodID, self.MethodTypeCV, self.MethodCode, self.MethodName, self.MethodDescription, self.MethodLink, self.OrganizationID)
+               % (self.methodid, self.MethodTypeCV, self.MethodCode, self.MethodName, self.MethodDescription, self.MethodLink, self.organizationid)
 
 
 class Actions(Base):
     __tablename__ = u'actions'
     __table_args__ = {u'schema': u'odm2'}
 
-    ActionID = Column(Integer, primary_key=True, nullable=False)
-    ActionTypeCV = Column(ForeignKey('odm2.cv_actiontype.Name'), nullable=False, index=True)
-    MethodID = Column(ForeignKey('odm2.methods.MethodID'), nullable=False)
-    BeginDateTime = Column(DateTime, nullable=False)
-    BeginDateTimeUTCOffset = Column(Integer, nullable=False)
-    EndDateTime = Column(DateTime)
-    EndDateTimeUTCOffset = Column(Integer)
-    ActionDescription = Column(String(500))
-    ActionFileLink = Column(String(255))
+    ActionID = Column('actionid', Integer, primary_key=True, nullable=False)
+    ActionTypeCV = Column('actiontypecv', ForeignKey('odm2.cv_actiontype.name'), nullable=False, index=True)
+    MethodID = Column('methodid', ForeignKey('odm2.methods.methodid'), nullable=False)
+    BeginDateTime = Column('begindatetime', DateTime, nullable=False)
+    BeginDateTimeUTCOffset = Column('begindatetimeutcoffset', Integer, nullable=False)
+    EndDateTime = Column('enddatetime', DateTime)
+    EndDateTimeUTCOffset = Column('enddatetimeutcoffset', Integer)
+    ActionDescription = Column('actiondescription', String(500))
+    ActionFileLink = Column('actionfilelink', String(255))
 
     MethodObj = relationship(Methods)
 
 
     def __repr__(self):
         return "<Actions('%s', '%s', '%s', '%s')>" % (
-            self.ActionID, self.ActionTypeCV, self.BeginDateTime, self.ActionDescription)
+            self.actionid, self.ActionTypeCV, self.BeginDateTime, self.ActionDescription)
 
 
 class ActionBy(Base):
     __tablename__ = u'actionby'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
-    AffiliationID = Column(ForeignKey('odm2.affiliations.AffiliationID'), nullable=False)
-    IsActionLead = Column(Boolean, nullable=False)
-    RoleDescription = Column(String(500))
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ActionID = Column('actionid', Integer, ForeignKey('odm2.actions.actionid'), nullable=False)
+    AffiliationID = Column('affiliationid', ForeignKey('odm2.affiliations.affiliationid'), nullable=False)
+    IsActionLead = Column('isactionlead', Boolean, nullable=False)
+    RoleDescription = Column('roledescription', String(500))
 
     ActionObj = relationship(Actions)
     AffiliationObj = relationship(Affiliations)
@@ -498,16 +505,16 @@ class SamplingFeatures(Base):
     __tablename__ = u'samplingfeatures'
     __table_args__ = {u'schema': u'odm2'}
 
-    SamplingFeatureID = Column(Integer, primary_key=True, nullable=False)
-    SamplingFeatureUUID = Column(String(36), nullable=False)
-    SamplingFeatureTypeCV = Column(ForeignKey('odm2.cv_samplingfeaturetype.Name'), nullable=False, index=True)
-    SamplingFeatureCode = Column(String(50), nullable=False)
-    SamplingFeatureName = Column(String(255))
-    SamplingFeatureDescription = Column(String(500))
-    SamplingFeatureGeotypeCV = Column(ForeignKey('odm2.cv_samplingfeaturegeotype.Name'), index=True)
-    Elevation_m = Column(Float(53))
-    ElevationDatumCV = Column(ForeignKey('odm2.cv_elevationdatum.Name'), index=True)
-    FeatureGeometry = Column(Geometry)
+    SamplingFeatureID = Column('samplingfeatureid', Integer, primary_key=True, nullable=False)
+    SamplingFeatureUUID = Column('samplingfeatureuuid', String(36), nullable=False)
+    SamplingFeatureTypeCV = Column('samplingfeaturetypecv', ForeignKey('odm2.cv_samplingfeaturetype.name'), nullable=False, index=True)
+    SamplingFeatureCode = Column('samplingfeaturecode', String(50), nullable=False)
+    SamplingFeatureName = Column('samplingfeaturename', String(255))
+    SamplingFeatureDescription = Column('samplingfeaturedescription', String(500))
+    SamplingFeatureGeotypeCV = Column('samplingfeaturegeotypecv',  ForeignKey('odm2.cv_samplingfeaturegeotype.name'), index=True)
+    Elevation_m = Column('elevation_m', Float(53))
+    ElevationDatumCV = Column('elevationdatumcv',  ForeignKey('odm2.cv_elevationdatum.name'), index=True)
+    FeatureGeometry = Column('featuregeometry', Geometry)
 
     def __repr__(self):
         return "<SamplingFeatures('%s', '%s', '%s', '%s')>" % (
@@ -518,31 +525,30 @@ class FeatureActions(Base):
     __tablename__ = u'featureactions'
     __table_args__ = {u'schema': u'odm2'}
 
-    FeatureActionID = Column(Integer, primary_key=True, nullable=False)
-    SamplingFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'), nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
+    FeatureActionID = Column('featureactionid', Integer, primary_key=True, nullable=False)
+    SamplingFeatureID = Column('samplingfeatureid',  ForeignKey('odm2.samplingfeatures.samplingfeatureid'), nullable=False)
+    ActionID = Column('actionid', ForeignKey('odm2.actions.actionid'), nullable=False)
 
     ActionObj = relationship(Actions)
     SamplingFeatureObj = relationship(SamplingFeatures)
 
 
     def __repr__(self):
-        return "<FeatureActions('%s', '%s', '%s', )>" % (self.FeatureActionID, self.SamplingFeatureID, self.ActionID)
+        return "<FeatureActions('%s', '%s', '%s', )>" % (self.FeatureActionID, self.SamplingFeatureID, self.actionid)
 
 
 class Datasets(Base):
     __tablename__ = u'datasets'
     __table_args__ = {u'schema': u'odm2'}
 
-    DatasetID = Column(Integer, primary_key=True, nullable=False)
+    DatasetID = Column('datasetid', Integer, primary_key=True, nullable=False)
 
     # This has been changed to String to support multiple database uuid types
-
-    DatasetUUID = Column(String(255), nullable=False)
-    DatasetTypeCV = Column(ForeignKey('odm2.cv_datasettypecv.Name'), nullable=False, index=True)
-    DatasetCode = Column(String(50), nullable=False)
-    DatasetTitle = Column(String(255), nullable=False)
-    DatasetAbstract = Column(String(500), nullable=False)
+    DatasetUUID = Column('datasetuuid',String(255), nullable=False)
+    DatasetTypeCV = Column('datasettypecv',  ForeignKey('odm2.cv_datasettypecv.name'), nullable=False, index=True)
+    DatasetCode = Column('datasetcode', String(50), nullable=False)
+    DatasetTitle = Column('datasettitle', String(255), nullable=False)
+    DatasetAbstract = Column('datasetabstract', String(500), nullable=False)
 
     def __repr__(self):
         return "<Datasets('%s', '%s', '%s', '%s', '%s')>" % (
@@ -553,10 +559,10 @@ class ProcessingLevels(Base):
     __tablename__ = u'processinglevels'
     __table_args__ = {u'schema': u'odm2'}
 
-    ProcessingLevelID = Column(Integer, primary_key=True, nullable=False)
-    ProcessingLevelCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    Definition = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
-    Explanation = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    ProcessingLevelID = Column('processinglevelid', Integer, primary_key=True, nullable=False)
+    ProcessingLevelCode = Column('processinglevelcode', String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    Definition = Column('definition', String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    Explanation = Column('explanation', String(500, u'SQL_Latin1_General_CP1_CI_AS'))
 
     def __repr__(self):
         return "<ProcessingLevels('%s', '%s', '%s', '%s')>" \
@@ -567,11 +573,11 @@ class RelatedActions(Base):
     __tablename__ = u'relatedactions'
     __table_args__ = {u'schema': u'odm2'}
 
-    RelationID = Column(Integer, primary_key=True, nullable=False)
-    ActionTypeCV = Column(ForeignKey('odm2.cv_actiontype.Name'), nullable=False, index=True)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
-    RelationshipTypeCV = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    RelatedActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
+    RelationID = Column('relationid',Integer, primary_key=True, nullable=False)
+    ActionTypeCV = Column('actiontypecv', ForeignKey('odm2.cv_actiontype.name'), nullable=False, index=True)
+    ActionID = Column('actionid',  ForeignKey('odm2.actions.actionid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv',  ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    RelatedActionID = Column('relatedactionid',  ForeignKey('odm2.actions.actionid'), nullable=False)
 
     ActionObj = relationship(Actions, primaryjoin='RelatedActions.ActionID == Actions.ActionID')
     RelatedActionObj = relationship(Actions, primaryjoin='RelatedActions.RelatedActionID == Actions.ActionID')
@@ -581,12 +587,12 @@ class TaxonomicClassifiers(Base):
     __tablename__ = u'taxonomicclassifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    TaxonomicClassifierID = Column(Integer, primary_key=True, nullable=False)
-    TaxonomicClassifierTypeCV = Column(ForeignKey('odm2.cv_taxonomicclassifiertype.Name'), nullable=False, index=True)
-    TaxonomicClassifierName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    TaxonomicClassifierCommonName = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
-    TaxonomicClassifierDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
-    ParentTaxonomicClassifierID = Column(ForeignKey('odm2.taxonomicclassifiers.TaxonomicClassifierID'))
+    TaxonomicClassifierID = Column('taxonomicclassifierid', Integer, primary_key=True, nullable=False)
+    TaxonomicClassifierTypeCV = Column('taxonomicclassifiertypcv', ForeignKey('odm2.cv_taxonomicclassifiertype.name'), nullable=False, index=True)
+    TaxonomicClassifierName = Column('taxonomicclassifiername', String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    TaxonomicClassifierCommonName = Column('taxonomicclassifiercommonname', String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    TaxonomicClassifierDescription = Column('taxonomicclassifierdescription', String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    ParentTaxonomicClassifierID = Column('parenttaxonomicclassifierid', ForeignKey('odm2.taxonomicclassifiers.taxonomicclassifierid'))
 
     parent = relationship(u'TaxonomicClassifiers', remote_side=[TaxonomicClassifierID])
 
@@ -595,11 +601,11 @@ class Units(Base):
     __tablename__ = u'units'
     __table_args__ = {u'schema': u'odm2'}
 
-    UnitsID = Column(Integer, primary_key=True, nullable=False)
-    UnitsTypeCV = Column(ForeignKey('odm2.cv_unitstype.Name'), nullable=False, index=True)
-    UnitsAbbreviation = Column(String(255), nullable=False)
-    UnitsName = Column(String, nullable=False)
-    UnitsLink = Column(String(255))
+    UnitsID = Column('unitsid', Integer, primary_key=True, nullable=False)
+    UnitsTypeCV = Column('unitstypecv',ForeignKey('odm2.cv_unitstype.name'), nullable=False, index=True)
+    UnitsAbbreviation = Column('unitsabbreviation', String(255), nullable=False)
+    UnitsName = Column('unitsname',String, nullable=False)
+    UnitsLink = Column('unitslink', String(255))
 
     def __repr__(self):
         return "<Units('%s', '%s', '%s', '%s')>" % (self.UnitsID, self.UnitsTypeCV, self.UnitsAbbreviation, self.UnitsName)
@@ -609,17 +615,16 @@ class Variables(Base):
     __tablename__ = u'variables'
     __table_args__ = {u'schema': u'odm2'}
 
-    VariableID = Column(Integer, primary_key=True, nullable=False)
-    VariableTypeCV = Column(ForeignKey('odm2.cv_variabletype.Name'), nullable=False, index=True)
-    VariableCode = Column(String(50), nullable=False)
-    VariableNameCV = Column(ForeignKey('odm2.cv_variablename.Name'), nullable=False, index=True)
-    VariableDefinition = Column(String(500))
-    SpeciationCV = Column(ForeignKey('odm2.cv_speciation.Name'), index=True)
-    NoDataValue = Column(Float(asdecimal=True), nullable=False)
-
+    VariableID = Column('variableid', Integer, primary_key=True, nullable=False)
+    VariableTypeCV = Column('variabletypecv', ForeignKey('odm2.cv_variabletype.name'), nullable=False, index=True)
+    VariableCode = Column('variablecode', String(50), nullable=False)
+    VariableNameCV = Column('variablenamecv', ForeignKey('odm2.cv_variablename.name'), nullable=False, index=True)
+    VariableDefinition = Column('variabledefinition', String(500))
+    SpeciationCV = Column('speciationcv', ForeignKey('odm2.cv_speciation.name'), index=True)
+    NoDataValue = Column('nodatavalue', Float(asdecimal=True), nullable=False)
 
     def __repr__(self):
-        return "<Variables('%s', '%s', '%s')>" % (self.VariableID, self.VariableCode, self.VariableNameCV)
+        return "<Variables('%s', '%s', '%s')>" % (self.variableid, self.VariableCode, self.VariableNameCV)
 
 '''
 class ResultTypeCV(Base):
@@ -641,24 +646,24 @@ class Results(Base):
     __tablename__ = u'results'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(BigInteger, primary_key=True)
+    ResultID = Column('resultid', BigInteger, primary_key=True)
 
     # This has been changed to String to support multiple database uuid types
     # ResultUUID = Column(UNIQUEIDENTIFIER, nullable=False)
-    ResultUUID = Column(String(36), nullable=False)
-    FeatureActionID = Column(ForeignKey('odm2.featureactions.FeatureActionID'), nullable=False)
-    ResultTypeCV = Column(ForeignKey('odm2.cv_resulttype.Name'), nullable=False, index=True)
-    VariableID = Column(ForeignKey('odm2.variables.VariableID'), nullable=False)
-    UnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    TaxonomicClassifierID = Column(ForeignKey('odm2.taxonomicclassifiers.TaxonomicClassifierID'))
-    ProcessingLevelID = Column(ForeignKey('odm2.processinglevels.ProcessingLevelID'), nullable=False)
-    ResultDateTime = Column(DateTime)
-    ResultDateTimeUTCOffset = Column(BigInteger)
-    ValidDateTime = Column(DateTime)
-    ValidDateTimeUTCOffset = Column(BigInteger)
-    StatusCV = Column(ForeignKey('odm2.cv_status.Name'), index=True)
-    SampledMediumCV = Column(ForeignKey('odm2.cv_sampledmedium.Name'), nullable=False, index=True)
-    ValueCount = Column(Integer, nullable=False)
+    ResultUUID = Column('resultuuid', String(36), nullable=False)
+    FeatureActionID = Column('featureactionid', ForeignKey('odm2.featureactions.featureactionid'), nullable=False)
+    ResultTypeCV = Column(ForeignKey('odm2.cv_resulttype.name'), nullable=False, index=True)
+    VariableID = Column('variableid', ForeignKey('odm2.variables.variableid'), nullable=False)
+    UnitsID = Column('unitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    TaxonomicClassifierID = Column('taxonomicclassifierid', ForeignKey('odm2.taxonomicclassifiers.taxonomicclassifierid'))
+    ProcessingLevelID = Column('processinglevelid', ForeignKey('odm2.processinglevels.processinglevelid'), nullable=False)
+    ResultDateTime = Column('resultdatetime', DateTime)
+    ResultDateTimeUTCOfffset = Column('resultdatetimeutcoffset', BigInteger)
+    ValidDateTime = Column('validdatetime', DateTime)
+    ValidDateTimeUTCOffset = Column('validdatetimeutcoffset',BigInteger)
+    StatusCV = Column('statuscv',ForeignKey('odm2.cv_status.name'), index=True)
+    SampledMediumCV = Column('sampledmediumcv',ForeignKey('odm2.cv_sampledmedium.name'), nullable=False, index=True)
+    ValueCount = Column('valuecount',Integer, nullable=False)
 
     # IntendedObservationSpacing = Column(String(255))
 
@@ -672,7 +677,7 @@ class Results(Base):
 
     def __repr__(self):
         return "<Results('%s', '%s', '%s', '%s', '%s')>" % (
-            self.ResultID, self.ResultUUID , self.ResultTypeCV, self.ProcessingLevelID, self.ValueCount)
+            self.resultid, self.ResultUUID , self.ResultTypeCV, self.ProcessingLevelID, self.ValueCount)
 
 
 # ################################################################################
@@ -682,14 +687,14 @@ class EquipmentModels(Base):
     __tablename__ = u'equipmentmodels'
     __table_args__ = {u'schema': u'odm2'}
 
-    ModelID = Column(Integer, primary_key=True, nullable=False)
-    ModelManufacturerID = Column(ForeignKey('odm2.organizations.OrganizationID'), nullable=False)
-    ModelPartNumber = Column(String(50))
-    ModelName = Column(String(255), nullable=False)
-    ModelDescription = Column(String(500))
-    ModelSpecificationsFileLink = Column(String(255))
-    ModelLink = Column(String(255))
-    IsInstrument = Column(BIT, nullable=False)
+    ModelID = Column('modelid', Integer, primary_key=True, nullable=False)
+    ModelManufacturerID = Column('modelmanufacturerid', ForeignKey('odm2.organizations.organizationid'), nullable=False)
+    ModelPartNumber = Column('modelpartnumber', String(50))
+    ModelName = Column('modelname', String(255), nullable=False)
+    ModelDescription = Column('modeldescription', String(500))
+    ModelSpecificationsFileLink = Column('modelspecificationsfilelink', String(255))
+    ModelLink = Column('modellink', String(255))
+    IsInstrument = Column('isinstrument', BIT, nullable=False)
 
     OrganizationObj = relationship(Organizations)
 
@@ -698,20 +703,20 @@ class Equipment(Base):
     __tablename__ = u'equipment'
     __table_args__ = {u'schema': u'odm2'}
 
-    EquipmentID = Column(Integer, primary_key=True, nullable=False)
-    EquipmentCode = Column(String(50), nullable=False)
-    EquipmentName = Column(String(255), nullable=False)
-    EquipmentTypeCV = Column(ForeignKey('odm2.cv_equipmenttype.Name'), nullable=False, index=True)
-    ModelID = Column(ForeignKey('odm2.equipmentmodels.ModelID'), nullable=False)
-    EquipmentSerialNumber = Column(String(50), nullable=False)
-    EquipmentInventoryNumber = Column(String(50))
-    EquipmentOwnerID = Column(ForeignKey('odm2.people.PersonID'), nullable=False)
-    EquipmentVendorID = Column(ForeignKey('odm2.organizations.OrganizationID'), nullable=False)
-    EquipmentPurchaseDate = Column(DateTime, nullable=False)
-    EquipmentPurchaseOrderNumber = Column(String(50))
-    EquipmentPhotoFileLink = Column(String(255))
-    EquipmentDescription = Column(String(500))
-    ParentEquipmentID = Column(ForeignKey('odm2.equipment.EquipmentID'))
+    EquipmentID = Column('equipmentid', Integer, primary_key=True, nullable=False)
+    EquipmentCode = Column('equipmentcode', String(50), nullable=False)
+    EquipmentName = Column('equipmentname', String(255), nullable=False)
+    EquipmentTypeCV = Column('equipmenttypecv', ForeignKey('odm2.cv_equipmenttype.name'), nullable=False, index=True)
+    ModelID = Column('modelid', ForeignKey('odm2.equipmentmodels.modelid'), nullable=False)
+    EquipmentSerialNumber = Column('equipmentseriealnumber', String(50), nullable=False)
+    EquipmentInventoryNumber = Column('equipmentinventorynumber', String(50))
+    EquipmentOwnerID = Column('equipmentownerid',ForeignKey('odm2.people.personid'), nullable=False)
+    EquipmentVendorID = Column('equipmentvendorid',ForeignKey('odm2.organizations.organizationid'), nullable=False)
+    EquipmentPurchaseDate = Column('equipmentpurchasedate', DateTime, nullable=False)
+    EquipmentPurchaseOrderNumber = Column('equipmentpurchaseordernumber', String(50))
+    EquipmentPhotoFileLink = Column('equipmentphotofilelink', String(255))
+    EquipmentDescription = Column('equipmentdescription', String(500))
+    ParentEquipmentID = Column('parentequipmentid', ForeignKey('odm2.equipment.equipmentid'))
 
     PersonObj = relationship(People)
     OrganizationObj = relationship(Organizations)
@@ -724,9 +729,9 @@ class EquipmentActions(Base):
     __tablename__ = u'equipmentactions'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    EquipmentID = Column(ForeignKey('odm2.equipment.EquipmentID'), nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    EquipmentID = Column('equipmentid', ForeignKey('odm2.equipment.equipmentid'), nullable=False)
+    ActionID = Column('actionid', ForeignKey('odm2.actions.actionid'), nullable=False)
 
     ActionObj = relationship(Actions)
     EquipmentObj = relationship(Equipment)
@@ -736,13 +741,13 @@ class InstrumentOutputVariables(Base):
     __tablename__ = u'instrumentoutputvariables'
     __table_args__ = {u'schema': u'odm2'}
 
-    InstrumentOutputVariableID = Column(Integer, primary_key=True, nullable=False)
-    ModelID = Column(ForeignKey('odm2.equipmentmodels.ModelID'), nullable=False)
-    VariableID = Column(ForeignKey('odm2.variables.VariableID'), nullable=False)
-    InstrumentMethodID = Column(ForeignKey('odm2.methods.MethodID'), nullable=False)
-    InstrumentResolution = Column(String(255))
-    InstrumentAccuracy = Column(String(255))
-    InstrumentRawOutputUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
+    InstrumentOutputVariableID = Column('instrumentoutputvariableid', Integer, primary_key=True, nullable=False)
+    ModelID = Column('modelid', ForeignKey('odm2.equipmentmodels.modelid'), nullable=False)
+    VariableID = Column('variableid', ForeignKey('odm2.variables.variableid'), nullable=False)
+    InstrumentMethodID = Column('instrumentmethodid', ForeignKey('odm2.methods.methodid'), nullable=False)
+    InstrumentResolution = Column('instrumentresolution', String(255))
+    InstrumentAccuracy = Column('instrumentaccuracy', String(255))
+    InstrumentRawOutputUnitsID = Column('instrumentrawoutputunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
 
     MethodObj = relationship(Methods)
     OutputUnitObj = relationship(Units)
@@ -757,18 +762,18 @@ class Directives(Base):
     __tablename__ = u'directives'
     __table_args__ = {u'schema': u'odm2'}
 
-    DirectiveID = Column(Integer, primary_key=True, nullable=False)
-    DirectiveTypeCV = Column(ForeignKey('odm2.cv_directivetype.Name'), nullable=False, index=True)
-    DirectiveDescription = Column(String(500), nullable=False)
+    DirectiveID = Column('directiveid', Integer, primary_key=True, nullable=False)
+    DirectiveTypeCV = Column('directivetypecv', ForeignKey('odm2.cv_directivetype.name'), nullable=False, index=True)
+    DirectiveDescription = Column('directivedescription', String(500), nullable=False)
 
 
 class ActionDirectives(Base):
     __tablename__ = u'actiondirectives'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
-    DirectiveID = Column(ForeignKey('odm2.directives.DirectiveID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ActionID = Column('actionid', ForeignKey('odm2.actions.actionid'), nullable=False)
+    DirectiveID = Column('directiveid',ForeignKey('odm2.directives.directiveid'), nullable=False)
 
     ActionObj = relationship(Actions)
     DirectiveObj = relationship(Directives)
@@ -781,11 +786,11 @@ class SpatialReferences(Base):
     __tablename__ = u'spatialreferences'
     __table_args__ = {u'schema': u'odm2'}
 
-    SpatialReferenceID = Column(Integer, primary_key=True, nullable=False)
-    SRSCode = Column(String(50))
-    SRSName = Column(String(255), nullable=False)
-    SRSDescription = Column(String(500))
-    SRSLink = Column(String(255))
+    SpatialReferenceID = Column('spatialreferenceid',Integer, primary_key=True, nullable=False)
+    SRSCode = Column('srscode', String(50))
+    SRSName = Column('srsname', String(255), nullable=False)
+    SRSDescription = Column('srsdescription', String(500))
+    SRSLink = Column('srslink', String(255))
 
     def __repr__(self):
         return "<SpatialReferences('%s', '%s', '%s', '%s', '%s')>" \
@@ -797,10 +802,10 @@ class Specimens(Base):
     __tablename__ = u'specimens'
     __table_args__ = {u'schema': u'odm2'}
 
-    SamplingFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'), primary_key=True)
-    SpecimenTypeCV = Column(ForeignKey('odm2.cv_specimentype.Name'), nullable=False, index=True)
-    SpecimenMediumCV = Column(ForeignKey('odm2.cv_specimenmedium.Name'), nullable=False, index=True)
-    IsFieldSpecimen = Column(BIT, nullable=False)
+    SamplingFeatureID = Column('samplingfeatureid', ForeignKey('odm2.samplingfeatures.samplingfeatureid'), primary_key=True)
+    SpecimenTypeCV = Column('specimentypecv', ForeignKey('odm2.cv_specimentype.name'), nullable=False, index=True)
+    SpecimenMediumCV = Column('specimenmediumcv', ForeignKey('odm2.cv_specimenmedium.name'), nullable=False, index=True)
+    IsFieldSpecimen = Column('isfieldspecimen', BIT, nullable=False)
 
     SamplingFeatureObj = relationship(SamplingFeatures)
 
@@ -810,33 +815,32 @@ class SpatialOffsets(Base):
     __tablename__ = u'spatialoffsets'
     __table_args__ = {u'schema': u'odm2'}
 
-    SpatialOffsetID = Column(Integer, primary_key=True, nullable=False)
-    SpatialOffsetTypeCV = Column(ForeignKey('odm2.cv_spatialoffsettype.Name'), nullable=False, index=True)
-    Offset1Value = Column(Float(53), nullable=False)
-    Offset1UnitID = Column(Integer, nullable=False)
-    Offset2Value = Column(Float(53))
-    Offset2UnitID = Column(Integer)
-    Offset3Value = Column(Float(53))
-    Offset3UnitID = Column(Integer)
+    SpatialOffsetID = Column('spatialoffsetid', Integer, primary_key=True, nullable=False)
+    SpatialOffsetTypeCV = Column('spatialoffsettypecv', ForeignKey('odm2.cv_spatialoffsettype.name'), nullable=False, index=True)
+    Offset1Value = Column('offset1value', Float(53), nullable=False)
+    Offset1UnitID = Column('offset1unitid', Integer, nullable=False)
+    Offset2Value = Column('offset2value', Float(53))
+    Offset2UnitID = Column('offset2unitid', Integer)
+    Offset3Value = Column('offset3value', Float(53))
+    Offset3UnitID = Column('offset3unitid', Integer)
 
 
 class Sites(Base):
     __tablename__ = u'sites'
     __table_args__ = {u'schema': u'odm2'}
 
-    SamplingFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'), primary_key=True)
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'), nullable=False)
-    SiteTypeCV = Column(ForeignKey('odm2.cv_sitetype.Name'), nullable=False, index=True)
-    Latitude = Column(Float(53), nullable=False)
-    Longitude = Column(Float(53), nullable=False)
-    # LatLonDatumID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'), nullable=False)
+    SamplingFeatureID = Column('samplingfeatureid', ForeignKey('odm2.samplingfeatures.samplingfeatureid'), primary_key=True)
+    SpatialReferenceID = Column('spatialreferenceid',ForeignKey('odm2.spatialreferences.spatialreferenceid'), nullable=False)
+    SiteTypeCV = Column('sitetypecv', ForeignKey('odm2.cv_sitetype.name'), nullable=False, index=True)
+    Latitude = Column('latitude', Float(53), nullable=False)
+    Longitude = Column('longitude', Float(53), nullable=False)
 
     SpatialReferenceObj = relationship(SpatialReferences)
     SamplingFeatureObj = relationship(SamplingFeatures)
 
     def __repr__(self):
         return "<Sites('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" \
-               % (self.SamplingFeatureID, self.SpatialReferenceID, self.SiteTypeCV, self.Latitude, self.Longitude,
+               % (self.samplingfeatureid, self.SpatialReferenceID, self.SiteTypeCV, self.Latitude, self.Longitude,
                   self.SpatialReferenceObj, self.SamplingFeatureObj)
 
 
@@ -844,11 +848,11 @@ class RelatedFeatures(Base):
     __tablename__ = u'relatedfeatures'
     __table_args__ = {u'schema': u'odm2'}
 
-    RelationID = Column(Integer, primary_key=True, nullable=False)
-    SamplingFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'), nullable=False)
-    RelationshipTypeCV = Column(ForeignKey('odm2.cv_relationshiptype.Name'), nullable=False, index=True)
-    RelatedFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'), nullable=False)
-    SpatialOffsetID = Column(ForeignKey('odm2.spatialoffsets.SpatialOffsetID'))
+    RelationID = Column('relationid', Integer, primary_key=True, nullable=False)
+    SamplingFeatureID = Column('samplingfeatureid', ForeignKey('odm2.samplingfeatures.samplingfeatureid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv', ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    RelatedFeatureID = Column('relatedfeatureid', ForeignKey('odm2.samplingfeatures.samplingfeatureid'), nullable=False)
+    SpatialOffsetID = Column('spatialoffsetid', ForeignKey('odm2.spatialoffsets.spatialoffsetid'))
 
     SamplingFeatureObj = relationship(SamplingFeatures,
                                       primaryjoin='RelatedFeatures.RelatedFeatureID == SamplingFeatures.SamplingFeatureID')
@@ -861,10 +865,10 @@ class SpecimenTaxonomicClassifiers(Base):
     __tablename__ = u'specimentaxonomicclassifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    SamplingFeatureID = Column(ForeignKey('odm2.specimens.SamplingFeatureID'), nullable=False)
-    TaxonomicClassifierID = Column(ForeignKey('odm2.taxonomicclassifiers.TaxonomicClassifierID'), nullable=False)
-    CitationID = Column(Integer)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    SamplingFeatureID = Column('samplingfeatureid', ForeignKey('odm2.specimens.samplingfeatureid'), nullable=False)
+    TaxonomicClassifierID = Column('taxonomicclassifierid', ForeignKey('odm2.taxonomicclassifiers.taxonomicclassifierid'), nullable=False)
+    CitationID = Column('citationid', Integer)
 
     SpecimenObj = relationship(Specimens)
     TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
@@ -877,14 +881,14 @@ class DeploymentActions(Base):
     __tablename__ = u'deploymentactions'
     __table_args__ = {u'schema': u'odm2'}
 
-    DeploymentActionID = Column(Integer, primary_key=True, nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
-    DeploymentTypeCV = Column(ForeignKey(u'odm2.cv_deploymenttype.Name'), nullable=False, index=True)
-    DeploymentDescription = Column(String(500))
-    ConfigurationActionID = Column(Integer, nullable=False)
-    CalibrationActionID = Column(Integer, nullable=False)
-    SpatialOffsetID = Column(Integer)
-    DeploymentSchematicLink = Column(String(255))
+    DeploymentActionID = Column('deploymentactionid', Integer, primary_key=True, nullable=False)
+    ActionID = Column('actionid', ForeignKey('odm2.actions.actionid'), nullable=False)
+    DeploymentTypeCV = Column('deploymenttypecv', ForeignKey('odm2.cv_deploymenttype.name'), nullable=False, index=True)
+    DeploymentDescription = Column('deploymentdescription', String(500))
+    ConfigurationActionID = Column('configurationactionid', Integer, nullable=False)
+    CalibrationActionID = Column('calibrationactionid', Integer, nullable=False)
+    SpatialOffsetID = Column('spatialoffsetid', Integer)
+    DeploymentSchematicLink = Column('deploymentschematiclink', String(255))
 
     ActionObj = relationship(Actions)
 
@@ -893,10 +897,10 @@ class DataLoggerFiles(Base):
     __tablename__ = u'dataloggerfiles'
     __table_args__ = {u'schema': u'odm2'}
 
-    DataLoggerFileID = Column(Integer, primary_key=True, nullable=False)
-    DeploymentActionID = Column(ForeignKey('odm2.deploymentactions.DeploymentActionID'), nullable=False)
-    DataLoggerOutputFileLink = Column(String(255), nullable=False)
-    DataLoggerOutputFileDescription = Column(String(500))
+    DataLoggerFileID = Column('dataloggerfileid', Integer, primary_key=True, nullable=False)
+    DeploymentActionID = Column('actionid', ForeignKey('odm2.deploymentactions.deploymentactionid'), nullable=False)
+    DataLoggerOutputFileLink = Column('dataloggeroutputfilelink', String(255), nullable=False)
+    DataLoggerOutputFileDescription = Column('dataloggeroutputfiledescription', String(500))
 
     DeploymentActionObj = relationship(DeploymentActions)
 
@@ -905,10 +909,10 @@ class Photos(Base):
     __tablename__ = u'photos'
     __table_args__ = {u'schema': u'odm2'}
 
-    PhotoID = Column(Integer, primary_key=True, nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
-    PhotoFileLink = Column(String(255), nullable=False)
-    PhotoDescription = Column(String(500))
+    PhotoID = Column('photoid', Integer, primary_key=True, nullable=False)
+    ActionID = Column('actionid', ForeignKey('odm2.actions.actionid'), nullable=False)
+    PhotoFileLink = Column('photofilelink', String(255), nullable=False)
+    PhotoDescription = Column('photodescription', String(500))
 
     ActionObj = relationship(Actions)
 
@@ -920,20 +924,20 @@ class Models(Base):
     __tablename__ = 'models'
     __table_args__ = {u'schema': u'odm2'}
 
-    ModelID = Column(Integer, primary_key=True, nullable=False)
-    ModelCode = Column(String(255), nullable=False)
-    ModelName = Column(String(255), nullable=False)
-    ModelDescription = Column(String(500))
+    ModelID = Column('modelid', Integer, primary_key=True, nullable=False)
+    ModelCode = Column('modelcode', String(255), nullable=False)
+    ModelName = Column('modelname', String(255), nullable=False)
+    ModelDescription = Column('modeldescription', String(500))
 
 
 class RelatedModels(Base):
     __tablename__ = 'relatedmodels'
     __table_args__ = {u'schema': u'odm2'}
 
-    RelationID = Column(Integer, primary_key=True, nullable=False)
-    ModelID = Column(ForeignKey('odm2.models.ModelID'), nullable=False)
-    RelationshipTypeCV = Column(ForeignKey('odm2.cv_relationshiptype.Name'), nullable=False, index=True)
-    RelatedModelID = Column(ForeignKey('odm2.models.ModelID'), nullable=False)
+    RelationID = Column('relationid', Integer, primary_key=True, nullable=False)
+    ModelID = Column('modelid', ForeignKey('odm2.models.modelid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv', ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    RelatedModelID = Column('relatedmodelid', ForeignKey('odm2.models.modelid'), nullable=False)
 
     ModelObj = relationship(Models, primaryjoin='RelatedModels.ModelID == Models.ModelID')
     RelatedModelObj = relationship(Models, primaryjoin='RelatedModels.RelatedModelID == Models.ModelID')
@@ -943,19 +947,19 @@ class Simulations(Base):
     __tablename__ = 'simulations'
     __table_args__ = {u'schema': u'odm2'}
 
-    SimulationID = Column(Integer, primary_key=True, nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
-    SimulationName = Column(String(255), nullable=False)
-    SimulationDescription = Column(String(500))
-    SimulationStartDateTime = Column(Date, nullable=False)
-    SimulationStartDateTimeUTCOffset = Column(Integer, nullable=False)
-    SimulationEndDateTime = Column(Date, nullable=False)
-    SimulationEndDateTimeUTCOffset = Column(Integer, nullable=False)
-    TimeStepValue = Column(Float(53), nullable=False)
-    TimeStepUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    InputDatasetID = Column(ForeignKey('odm2.datasets.DatasetID'))
-    OutputDatasetID = Column(Integer)
-    ModelID = Column(ForeignKey('odm2.models.ModelID'), nullable=False)
+    SimulationID = Column('simulationid', Integer, primary_key=True, nullable=False)
+    ActionID = Column('actionid', ForeignKey('odm2.actions.actionid'), nullable=False)
+    SimulationName = Column('simulationname', String(255), nullable=False)
+    SimulationDescription = Column('simulationdescription', String(500))
+    SimulationStartDateTime = Column('simulationstartdatetime', Date, nullable=False)
+    SimulationStartDateTimeUTCOffset = Column('simulationstartdatetimeutcoffset', Integer, nullable=False)
+    SimulationEndDateTime = Column('simulationenddatetime', Date, nullable=False)
+    SimulationEndDateTimeUTCOffset = Column('simulationenddatetimeutcoffset', Integer, nullable=False)
+    TimeStepValue = Column('timestepvalue', Float(53), nullable=False)
+    TimeStepUnitsID = Column('timestepunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    InputDatasetID = Column('inputdatasetid', ForeignKey('odm2.datasets.datasetid'))
+    OutputDatasetID = Column('outputdatasetid', Integer)
+    ModelID = Column('modelid', ForeignKey('odm2.models.modelid'), nullable=False)
 
     Action = relationship(Actions)
     Dataset = relationship(Datasets)
@@ -968,14 +972,14 @@ class Citations(Base):
     __tablename__ = u'citations'
     __table_args__ = {u'schema': u'odm2'}
 
-    CitationID = Column(Integer, primary_key=True, nullable=False)
-    Title = Column(String(255), nullable=False)
-    Publisher = Column(String(255), nullable=False)
-    PublicationYear = Column(Integer, nullable=False)
-    CitationLink = Column(String(255))
+    CitationID = Column('citationid', Integer, primary_key=True, nullable=False)
+    Title = Column('title', String(255), nullable=False)
+    Publisher = Column('publisher', String(255), nullable=False)
+    PublicationYear = Column('publicationyear', Integer, nullable=False)
+    CitationLink = Column('citationlink', String(255))
 
     def __repr__(self):
-        return "<Citations('%s', '%s', '%s', '%s', '%s')>" % (self.CitationID, self.Title, self.Publisher, self.PublicationYear, self.CitationLink)
+        return "<Citations('%s', '%s', '%s', '%s', '%s')>" % (self.citationid, self.Title, self.Publisher, self.PublicationYear, self.CitationLink)
 
 
 # ################################################################################
@@ -986,15 +990,15 @@ class Annotations(Base):
 
     __table_args__ = {u'schema': u'odm2'}
 
-    AnnotationID = Column(Integer, primary_key=True, nullable=False)
-    AnnotationTypeCV = Column(ForeignKey('odm2.cv_annotationtype.Name'), nullable=False, index=True)
-    AnnotationCode = Column(String(50))
-    AnnotationText = Column(String(500), nullable=False)
-    AnnotationDateTime = Column(DateTime)
-    AnnotationUTCOffset = Column(Integer)
-    AnnotationLink = Column(String(255))
-    AnnotatorID = Column(ForeignKey('odm2.people.PersonID'))
-    CitationID = Column(ForeignKey('odm2.citations.CitationID'))
+    AnnotationID = Column('annotationid', Integer, primary_key=True, nullable=False)
+    AnnotationTypeCV = Column('annotationtypecv', ForeignKey('odm2.cv_annotationtype.name'), nullable=False, index=True)
+    AnnotationCode = Column('annotationcode', String(50))
+    AnnotationText = Column('annotationtext', String(500), nullable=False)
+    AnnotationDateTime = Column('annotationdatetime', DateTime)
+    AnnotationUTCOffset = Column('annotationutcoffset', Integer)
+    AnnotationLink = Column('annotationlink', String(255))
+    AnnotatorID = Column('annotatorid', ForeignKey('odm2.people.personid'))
+    CitationID = Column('citationid', ForeignKey('odm2.citations.citationid'))
 
     PersonObj = relationship(People)
     CitationObj = relationship(Citations)
@@ -1004,9 +1008,9 @@ class ActionAnnotations(Base):
     __tablename__ = u'actionannotations'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
-    AnnotationID = Column(ForeignKey('odm2.annotations.AnnotationID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ActionID = Column('actionid', ForeignKey('odm2.actions.actionid'), nullable=False)
+    AnnotationID = Column('annotationid', ForeignKey('odm2.annotations.annotationid'), nullable=False)
 
     ActionObj = relationship(Actions)
     AnnotationObj = relationship(Annotations)
@@ -1016,9 +1020,9 @@ class MethodAnnotations(Base):
     __tablename__ = u'methodannotations'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    MethodID = Column(ForeignKey('odm2.methods.MethodID'), nullable=False)
-    AnnotationID = Column(ForeignKey('odm2.annotations.AnnotationID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    MethodID = Column('methodid', ForeignKey('odm2.methods.methodid'), nullable=False)
+    AnnotationID = Column('annotationid', ForeignKey('odm2.annotations.annotationid'), nullable=False)
 
     AnnotationObj = relationship(Annotations)
     MethodObj = relationship(Methods)
@@ -1028,11 +1032,11 @@ class ResultAnnotations(Base):
     __tablename__ = u'resultannotations'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), nullable=False)
-    AnnotationID = Column(ForeignKey('odm2.annotations.AnnotationID'), nullable=False)
-    BeginDateTime = Column(DateTime, nullable=False)
-    EndDateTime = Column(DateTime, nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), nullable=False)
+    AnnotationID = Column('annotationid', ForeignKey('odm2.annotations.annotationid'), nullable=False)
+    BeginDateTime = Column('begindatetime', DateTime, nullable=False)
+    EndDateTime = Column('enddatetime', DateTime, nullable=False)
 
     AnnotationObj = relationship(Annotations)
     ResultObj = relationship(Results)
@@ -1042,9 +1046,9 @@ class ResultValueAnnotations(Base):
     __tablename__ = u'resultvalueannotations'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ValueID = Column(BigInteger, nullable=False)
-    AnnotationID = Column(ForeignKey('odm2.annotations.AnnotationID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ValueID = Column('valueid', BigInteger, nullable=False)
+    AnnotationID = Column('annotationid', ForeignKey('odm2.annotations.annotationid'), nullable=False)
 
     AnnotationObj = relationship(Annotations)
 
@@ -1053,9 +1057,9 @@ class SamplingFeatureAnnotations(Base):
     __tablename__ = u'samplingfeatureannotations'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    SamplingFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'), nullable=False)
-    AnnotationID = Column(ForeignKey('odm2.annotations.AnnotationID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    SamplingFeatureID = Column('samplingfeatureid', ForeignKey('odm2.samplingfeatures.samplingfeatureid'), nullable=False)
+    AnnotationID = Column('annotationid', ForeignKey('odm2.annotations.annotationid'), nullable=False)
 
     AnnotationObj = relationship(Annotations)
     SamplingFeatureObj = relationship(SamplingFeatures)
@@ -1067,9 +1071,9 @@ class DatasetsResults(Base):
     __tablename__ = u'datasetsresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    DatasetID = Column(ForeignKey('odm2.datasets.DatasetID'), nullable=False)
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    DatasetID = Column('datasetid', ForeignKey('odm2.datasets.datasetid'), nullable=False)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), nullable=False)
 
     DatasetObj = relationship(Datasets)
     ResultObj = relationship(Results)
@@ -1079,13 +1083,13 @@ class DataQuality(Base):
     __tablename__ = 'dataquality'
     __table_args__ = {u'schema': u'odm2'}
 
-    DataQualityID = Column(Integer, primary_key=True, nullable=False)
-    DataQualityTypeCV = Column(ForeignKey('odm2.cv_dataqualitytype.Name'), nullable=False, index=True)
-    DataQualityCode = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    DataQualityValue = Column(Float(53))
-    DataQualityValueUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    DataQualityDescription = Column(String(500, u'SQL_Latin1_General_CP1_CI_AS'))
-    DataQualityLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    DataQualityID = Column('dataqualityid', Integer, primary_key=True, nullable=False)
+    DataQualityTypeCV = Column('dataqualitytypecv', ForeignKey('odm2.cv_dataqualitytype.name'), nullable=False, index=True)
+    DataQualityCode = Column('dataqualitycode', String(255, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    DataQualityValue = Column('dataqualityvalue', Float(53))
+    DataQualityValueUnitsID = Column('dataqualityvalueunitsid', ForeignKey('odm2.units.unitsid'))
+    DataQualityDescription = Column('dataqualitydescription', String(500, u'SQL_Latin1_General_CP1_CI_AS'))
+    DataQualityLink = Column('dataqualitylink', String(255, u'SQL_Latin1_General_CP1_CI_AS'))
 
     UnitObj = relationship(Units)
 
@@ -1094,15 +1098,15 @@ class ReferenceMaterials(Base):
     __tablename__ = 'referencematerials'
     __table_args__ = {u'schema': u'odm2'}
 
-    ReferenceMaterialID = Column(Integer, primary_key=True, nullable=False)
-    ReferenceMaterialMediumCV = Column(ForeignKey('odm2.cv_referencematerialmedium.Name'), nullable=False, index=True)
-    ReferenceMaterialOrganizationID = Column(ForeignKey('odm2.organizations.OrganizationID'), nullable=False)
-    ReferenceMaterialCode = Column(String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
-    ReferenceMaterialLotCode = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
-    ReferenceMaterialPurchaseDate = Column(DateTime)
-    ReferenceMaterialExpirationDate = Column(DateTime)
-    ReferenceMaterialCertificateLink = Column(String(255, u'SQL_Latin1_General_CP1_CI_AS'))
-    SamplingFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'))
+    ReferenceMaterialID = Column('referencematerialid', Integer, primary_key=True, nullable=False)
+    ReferenceMaterialMediumCV = Column('referencematerialmediumcv', ForeignKey('odm2.cv_referencematerialmedium.name'), nullable=False, index=True)
+    ReferenceMaterialOrganizationID = Column('referencematerialoranizationid', ForeignKey('odm2.organizations.organizationid'), nullable=False)
+    ReferenceMaterialCode = Column('referencematerialcode', String(50, u'SQL_Latin1_General_CP1_CI_AS'), nullable=False)
+    ReferenceMaterialLotCode = Column('referencemateriallotcode', String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    ReferenceMaterialPurchaseDate = Column('referencematerialpurchasedate', DateTime)
+    ReferenceMaterialExpirationDate = Column('referencematerialexpirationdate', DateTime)
+    ReferenceMaterialCertificateLink = Column('referencematerialcertificatelink', String(255, u'SQL_Latin1_General_CP1_CI_AS'))
+    SamplingFeatureID = Column('samplingfeatureid', ForeignKey('odm2.samplingfeatures.samplingfeatureid'))
 
     OrganizationObj = relationship(Organizations)
     SamplingFeatureObj = relationship(SamplingFeatures)
@@ -1110,24 +1114,24 @@ class ReferenceMaterials(Base):
 
 ResultNormalizationValues = Table(
     u'resultnormalizationvalues', Base.metadata,
-    Column(u'ResultID', ForeignKey('odm2.results.ResultID'), primary_key=True),
-    Column(u'NormalizedByReferenceMaterialValueID', ForeignKey('odm2.referencematerialvalues.ReferenceMaterialValueID'),
+    Column(u'resultid', ForeignKey('odm2.results.resultid'), primary_key=True),
+    Column(u'normalizedbyreferencematerialvalueid', ForeignKey('odm2.referencematerialvalues.referencematerialvalueid'),
            nullable=False),
-    schema='ODM2'
+    schema='odm2'
 )
 
 
-class Referencematerialvalue(Base):
+class ReferenceMaterialValue(Base):
     __tablename__ = u'referencematerialvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ReferenceMaterialValueID = Column(Integer, primary_key=True, nullable=False)
-    ReferenceMaterialID = Column(ForeignKey('odm2.referencematerials.ReferenceMaterialID'), nullable=False)
-    ReferenceMaterialValue = Column(Float(53), nullable=False)
-    ReferenceMaterialAccuracy = Column(Float(53))
-    VariableID = Column(ForeignKey('odm2.variables.VariableID'), nullable=False)
-    UnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    CitationID = Column(ForeignKey('odm2.citations.CitationID'), nullable=False)
+    ReferenceMaterialValueID = Column('referencematerialvalueid', Integer, primary_key=True, nullable=False)
+    ReferenceMaterialID = Column('referencematerialid', ForeignKey('odm2.referencematerials.referencematerialid'), nullable=False)
+    ReferenceMaterialValue = Column('referencematerialvalue', Float(53), nullable=False)
+    ReferenceMaterialAccuracy = Column('referencematerialaccuracy', Float(53))
+    VariableID = Column('variableid', ForeignKey('odm2.variables.variableid'), nullable=False)
+    UnitsID = Column('unitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    CitationID = Column('citationid', ForeignKey('odm2.citations.citationid'), nullable=False)
 
     CitationObj = relationship(Citations)
     ReferenceMaterialObj = relationship(ReferenceMaterials)
@@ -1140,9 +1144,9 @@ class ResultsDataQuality(Base):
     __tablename__ = 'resultsdataquality'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), nullable=False)
-    DataQualityID = Column(ForeignKey('odm2.dataquality.DataQualityID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), nullable=False)
+    DataQualityID = Column('dataqualityid', ForeignKey('odm2.dataquality.dataqualityid'), nullable=False)
 
     DataQualityObj = relationship(DataQuality)
     ResultObj = relationship(Results)
@@ -1155,11 +1159,11 @@ class ExtensionProperties(Base):
     __tablename__ = u'extensionproperties'
     __table_args__ = {u'schema': u'odm2'}
 
-    PropertyID = Column(Integer, primary_key=True, nullable=False)
-    PropertyName = Column(String(255), nullable=False)
-    PropertyDescription = Column(String(500))
-    PropertyDataTypeCV = Column(ForeignKey('odm2.cv_propertydatatype.Name'), nullable=False, index=True)
-    PropertyUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
+    PropertyID = Column('propertyid', Integer, primary_key=True, nullable=False)
+    PropertyName = Column('propertyname', String(255), nullable=False)
+    PropertyDescription = Column('propertydescription', String(500))
+    PropertyDataTypeCV = Column('propertydatatypecv', ForeignKey('odm2.cv_propertydatatype.name'), nullable=False, index=True)
+    PropertyUnitsID = Column('propertyunitsid', ForeignKey('odm2.units.unitsid'))
 
     UnitObj = relationship(Units)
 
@@ -1168,10 +1172,10 @@ class ActionExtensionPropertyValues(Base):
     __tablename__ = u'actionextensionpropertyvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ActionID = Column(ForeignKey('odm2.actions.ActionID'), nullable=False)
-    PropertyID = Column(ForeignKey('odm2.extensionproperties.PropertyID'), nullable=False)
-    PropertyValue = Column(String(255), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ActionID = Column('actionid', ForeignKey('odm2.actions.actionid'), nullable=False)
+    PropertyID = Column('propertyid', ForeignKey('odm2.extensionproperties.propertyid'), nullable=False)
+    PropertyValue = Column('propertyvalue', String(255), nullable=False)
 
     ActionObj = relationship(Actions)
     ExtensionPropertyObj = relationship(ExtensionProperties)
@@ -1181,10 +1185,10 @@ class CitationExtensionPropertyValues(Base):
     __tablename__ = u'citationextensionpropertyvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    CitationID = Column(ForeignKey('odm2.citations.CitationID'), nullable=False)
-    PropertyID = Column(ForeignKey('odm2.extensionproperties.PropertyID'), nullable=False)
-    PropertyValue = Column(String(255), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    CitationID = Column('citationid', ForeignKey('odm2.citations.citationid'), nullable=False)
+    PropertyID = Column('propertyid', ForeignKey('odm2.extensionproperties.propertyid'), nullable=False)
+    PropertyValue = Column('propertyvalue', String(255), nullable=False)
 
     CitationObj = relationship(Citations)
     ExtensionPropertyObj = relationship(ExtensionProperties)
@@ -1194,10 +1198,10 @@ class MethodExtensionPropertyValues(Base):
     __tablename__ = u'methodextensionpropertyvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    MethodID = Column(ForeignKey('odm2.methods.MethodID'), nullable=False)
-    PropertyID = Column(ForeignKey('odm2.extensionproperties.PropertyID'), nullable=False)
-    PropertyValue = Column(String(255), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    MethodID = Column('methodid', ForeignKey('odm2.methods.methodid'), nullable=False)
+    PropertyID = Column('propertyid', ForeignKey('odm2.extensionproperties.propertyid'), nullable=False)
+    PropertyValue = Column('propertyvalue', String(255), nullable=False)
 
     MethodObj = relationship(Methods)
     ExtensionPropertyObj = relationship(ExtensionProperties)
@@ -1207,10 +1211,10 @@ class ResultExtensionPropertyValues(Base):
     __tablename__ = u'resultextensionpropertyvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), nullable=False)
-    PropertyID = Column(ForeignKey('odm2.extensionproperties.PropertyID'), nullable=False)
-    PropertyValue = Column(String(255), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), nullable=False)
+    PropertyID = Column('propertyid', ForeignKey('odm2.extensionproperties.propertyid'), nullable=False)
+    PropertyValue = Column('propertyvalue', String(255), nullable=False)
 
     ExtensionPropertyObj = relationship(ExtensionProperties)
     ResultObj = relationship(Results)
@@ -1220,10 +1224,10 @@ class SamplingFeatureExtensionPropertyValues(Base):
     __tablename__ = u'samplingfeatureextensionpropertyvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    SamplingFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'), nullable=False)
-    PropertyID = Column(ForeignKey('odm2.extensionproperties.PropertyID'), nullable=False)
-    PropertyValue = Column(String(255), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    SamplingFeatureID = Column('samplingfeatureid', ForeignKey('odm2.samplingfeatures.samplingfeatureid'), nullable=False)
+    PropertyID = Column('propertyid', ForeignKey('odm2.extensionproperties.propertyid'), nullable=False)
+    PropertyValue = Column('propertyvalue', String(255), nullable=False)
 
     ExtensionPropertyObj = relationship(ExtensionProperties)
     SamplingFeatureObj = relationship(SamplingFeatures)
@@ -1233,10 +1237,10 @@ class VariableExtensionPropertyValues(Base):
     __tablename__ = u'variableextensionpropertyvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    VariableID = Column(ForeignKey('odm2.variables.VariableID'), nullable=False)
-    PropertyID = Column(ForeignKey('odm2.extensionproperties.PropertyID'), nullable=False)
-    PropertyValue = Column(String(255), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    VariableID = Column('variableid', ForeignKey('odm2.variables.variableid'), nullable=False)
+    PropertyID = Column('propertyid', ForeignKey('odm2.extensionproperties.propertyid'), nullable=False)
+    PropertyValue = Column('propertyvalue', String(255), nullable=False)
 
     ExtensionPropertyObj = relationship(ExtensionProperties)
     VariableObj = relationship(Variables)
@@ -1249,11 +1253,11 @@ class ExternalIdentifierSystems(Base):
     __tablename__ = u'externalidentifiersystems'
     __table_args__ = {u'schema': u'odm2'}
 
-    ExternalIdentifierSystemID = Column(Integer, primary_key=True, nullable=False)
-    ExternalIdentifierSystemName = Column(String(255), nullable=False)
-    IdentifierSystemOrganizationID = Column(ForeignKey('odm2.organizations.OrganizationID'), nullable=False)
-    ExternalIdentifierSystemDescription = Column(String(500))
-    ExternalIdentifierSystemURL = Column(String(255))
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', Integer, primary_key=True, nullable=False)
+    ExternalIdentifierSystemName = Column('externalidentifiersystemname', String(255), nullable=False)
+    IdentifierSystemOrganizationID = Column('identifiersystemorganizationid', ForeignKey('odm2.organizations.organizationid'), nullable=False)
+    ExternalIdentifierSystemDescription = Column('externalidentifiersystemdescription', String(500))
+    ExternalIdentifierSystemURL = Column('externalidentifiersystemurl', String(255))
 
     IdentifierSystemOrganizationObj = relationship(Organizations)
 
@@ -1269,12 +1273,12 @@ class CitationExternalIdentifiers(Base):
     __tablename__ = u'citationexternalidentifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    CitationID = Column(ForeignKey('odm2.citations.CitationID'), nullable=False)
-    ExternalIdentifierSystemID = Column(ForeignKey('odm2.externalidentifiersystems.ExternalIdentifierSystemID'),
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    CitationID = Column('citationid', ForeignKey('odm2.citations.citationid'), nullable=False)
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', ForeignKey('odm2.externalidentifiersystems.externalidentifiersystemid'),
                                         nullable=False)
-    CitationExternalIdentifer = Column(String(255), nullable=False)
-    CitationExternalIdentiferURI = Column(String(255))
+    CitationExternalIdentifier = Column('citationexternalidentifier', String(255), nullable=False)
+    CitationExternalIdentifierURI = Column('citationexternalidentifieruri', String(255))
 
     CitationObj = relationship(Citations)
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
@@ -1284,12 +1288,12 @@ class MethodExternalIdentifiers(Base):
     __tablename__ = u'methodexternalidentifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    MethodID = Column(ForeignKey('odm2.methods.MethodID'), nullable=False)
-    ExternalIdentifierSystemID = Column(ForeignKey('odm2.externalidentifiersystems.ExternalIdentifierSystemID'),
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    MethodID = Column('methodid', ForeignKey('odm2.methods.methodid'), nullable=False)
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', ForeignKey('odm2.externalidentifiersystems.externalidentifiersystemid'),
                                         nullable=False)
-    MethodExternalIdentifier = Column(String(255), nullable=False)
-    MethodExternalIdentifierURI = Column(String(255))
+    MethodExternalIdentifier = Column('methodexternalidentifier', String(255), nullable=False)
+    MethodExternalIdentifierURI = Column('methodexternalidentifieruri', String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     MethodObj = relationship(Methods)
@@ -1299,12 +1303,12 @@ class PersonExternalIdentifiers(Base):
     __tablename__ = u'personexternalidentifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    PersonID = Column(ForeignKey('odm2.people.PersonID'), nullable=False)
-    ExternalIdentifierSystemID = Column(ForeignKey('odm2.externalidentifiersystems.ExternalIdentifierSystemID'),
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    PersonID = Column('personid', ForeignKey('odm2.people.personid'), nullable=False)
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', ForeignKey('odm2.externalidentifiersystems.externalidentifiersystemid'),
                                         nullable=False)
-    PersonExternalIdentifier = Column(String(255), nullable=False)
-    PersonExternalIdentifierURI = Column(String(255))
+    PersonExternalIdentifier = Column('personexternalidentifier', String(255), nullable=False)
+    PersonExternalIdentifierURI = Column('personexternalidentifieruri', String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     PersonObj = relationship(People)
@@ -1314,12 +1318,12 @@ class ReferenceMaterialExternalIdentifiers(Base):
     __tablename__ = u'referencematerialexternalidentifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    ReferenceMaterialID = Column(ForeignKey('odm2.referencematerials.ReferenceMaterialID'), nullable=False)
-    ExternalIdentifierSystemID = Column(ForeignKey('odm2.externalidentifiersystems.ExternalIdentifierSystemID'),
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    ReferenceMaterialID = Column(ForeignKey('odm2.referencematerials.referencematerialid'), nullable=False)
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', ForeignKey('odm2.externalidentifiersystems.externalidentifiersystemid'),
                                         nullable=False)
-    ReferenceMaterialExternalIdentifier = Column(String(255), nullable=False)
-    ReferenceMaterialExternalIdentifierURI = Column(String(255))
+    ReferenceMaterialExternalIdentifier = Column('referencematerialexternalidentifier', String(255), nullable=False)
+    ReferenceMaterialExternalIdentifierURI = Column('referencematerialexternalidentifieruri', String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     ReferenceMaterialObj = relationship(ReferenceMaterials)
@@ -1329,12 +1333,12 @@ class SamplingFeatureExternalIdentifiers(Base):
     __tablename__ = u'samplingfeatureexternalidentifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    SamplingFeatureID = Column(ForeignKey('odm2.samplingfeatures.SamplingFeatureID'), nullable=False)
-    ExternalIdentifierSystemID = Column(ForeignKey('odm2.externalidentifiersystems.ExternalIdentifierSystemID'),
+    BridgeID = Column('bridgeid',  primary_key=True, nullable=False)
+    SamplingFeatureID  = Column('samplingfeatureid', ForeignKey('odm2.samplingfeatures.samplingfeatureid'), nullable=False)
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', ForeignKey('odm2.externalidentifiersystems.externalidentifiersystemid'),
                                         nullable=False)
-    SamplingFeatureExternalIdentifier = Column(String(255), nullable=False)
-    SamplingFeatureExternalIdentifierURI = Column(String(255))
+    SamplingFeatureExternalIdentifier = Column('samplingfeatureexternalidentifier', String(255), nullable=False)
+    SamplingFeatureExternalIdentifierURI = Column('samplingfeatureexternalidentifieruri', String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     SamplingFeatureObj = relationship(SamplingFeatures)
@@ -1344,12 +1348,12 @@ class SpatialReferenceExternalIdentifiers(Base):
     __tablename__ = u'spatialreferenceexternaledentifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'), nullable=False)
-    ExternalIdentifierSystemID = Column(ForeignKey('odm2.externalidentifiersystems.ExternalIdentifierSystemID'),
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    SpatialReferenceID = Column('spatialreferenceid',ForeignKey('odm2.spatialreferences.spatialreferenceid'), nullable=False)
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', ForeignKey('odm2.externalidentifiersystems.externalidentifiersystemid'),
                                         nullable=False)
-    SpatialReferenceExternalIdentifier = Column(String(255), nullable=False)
-    SpatialReferenceExternalIdentifierURI = Column(String(255))
+    SpatialReferenceExternalIdentifier = Column('spatialreferenceexternalidentifier', String(255), nullable=False)
+    SpatialReferenceExternalIdentifierURI = Column('spatialreferenceexternalidentifieruri', String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     SpatialReferenceObj = relationship(SpatialReferences)
@@ -1359,12 +1363,12 @@ class TaxonomicClassifierExternalIdentifiers(Base):
     __tablename__ = u'taxonomicclassifierexternalidentifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    TaxonomicClassifierID = Column(ForeignKey('odm2.taxonomicclassifiers.TaxonomicClassifierID'), nullable=False)
-    ExternalIdentifierSystemID = Column(ForeignKey('odm2.externalidentifiersystems.ExternalIdentifierSystemID'),
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    TaxonomicClassifierID = Column('taxonomicclassifierid', ForeignKey('odm2.taxonomicclassifiers.taxonomicclassifierid'), nullable=False)
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', ForeignKey('odm2.externalidentifiersystems.externalidentifiersystemid'),
                                         nullable=False)
-    TaxonomicClassifierExternalIdentifier = Column(String(255), nullable=False)
-    TaxonomicClassifierExternalIdentifierURI = Column(String(255))
+    TaxonomicClassifierExternalIdentifier = Column('taxonomicclassifierexternalidentifier', String(255), nullable=False)
+    TaxonomicClassifierExternalIdentifierURI = Column('taxonomicclassifierexternalidentifieruri', String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     TaxonomicClassifierObj = relationship(TaxonomicClassifiers)
@@ -1374,47 +1378,48 @@ class VariableExternalIdentifiers(Base):
     __tablename__ = u'variableexternalidentifiers'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    VariableID = Column(ForeignKey('odm2.variables.VariableID'), nullable=False)
-    ExternalIdentifierSystemID = Column(ForeignKey('odm2.externalidentifiersystems.ExternalIdentifierSystemID'),
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    VariableID = Column('variableid', ForeignKey('odm2.variables.variableid'), nullable=False)
+    ExternalIdentifierSystemID = Column('externalidentifiersystemid', ForeignKey('odm2.externalidentifiersystems.externalidentifiersystemid'),
                                         nullable=False)
-    VariableExternalIdentifer = Column(String(255), nullable=False)
-    VariableExternalIdentifierURI = Column(String(255))
+    VariableExternalIdentifier = Column('variableexternalidentifer', String(255), nullable=False)
+    VariableExternalIdentifierURI = Column('variableexternalidentifieruri', String(255))
 
     ExternalIdentifierSystemObj = relationship(ExternalIdentifierSystems)
     VariableObj = relationship(Variables)
+
+
+
 
 # ################################################################################
 # Provenance
 # ################################################################################
 
-
-
 class AuthorLists(Base):
     __tablename__ = u'authorlists'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    CitationID = Column(ForeignKey('odm2.citations.CitationID'), nullable=False)
-    PersonID = Column(ForeignKey('odm2.people.PersonID'), nullable=False)
-    AuthorOrder = Column(Integer, nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    CitationID = Column('citationid', ForeignKey('odm2.citations.citationid'), nullable=False)
+    PersonID = Column('personid', ForeignKey('odm2.people.personid'), nullable=False)
+    AuthorOrder = Column('authororder', Integer, nullable=False)
 
     CitationObj = relationship(Citations, primaryjoin='AuthorLists.CitationID == Citations.CitationID')
     PersonObj = relationship(People, primaryjoin='AuthorLists.PersonID == People.PersonID')
 
     def __repr__(self):
         return "<AuthorLists('%s', '%s', '%s', '%s', '%s', '%s')>" \
-               % (self.BridgeID, self.CitationID, self.PersonID, self.AuthorOrder, self.CitationObj, self.PersonObj)
+               % (self.BridgeID, self.citationid, self.personid, self.AuthorOrder, self.CitationObj, self.PersonObj)
 
 
 class DatasetCitations(Base):
     __tablename__ = u'datasetcitations'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    DatasetID = Column(ForeignKey('odm2.datasets.DatasetID'), nullable=False)
-    RelationshipTypeCV = Column(ForeignKey('odm2.cv_relationshiptype.Name'), nullable=False, index=True)
-    CitationID = Column(ForeignKey('odm2.citations.CitationID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    DatasetID = Column('datasetid', ForeignKey('odm2.datasets.datasetid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv', ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    CitationID = Column('citationid', ForeignKey('odm2.citations.citationid'), nullable=False)
 
     CitationObj = relationship(Citations)
     DatasetObj = relationship(Datasets)
@@ -1422,9 +1427,9 @@ class DatasetCitations(Base):
 
 ResultDerivationEquations = Table(
     u'resultderivationequations', Base.metadata,
-    Column(u'ResultID', ForeignKey('odm2.results.ResultID'), primary_key=True),
-    Column(u'DerivationEquationID', ForeignKey('odm2.derivationequations.DerivationEquationID'), nullable=False),
-    schema='ODM2'
+    Column(u'resultid', ForeignKey('odm2.results.resultid'), primary_key=True),
+    Column(u'derivationequationid', ForeignKey('odm2.derivationequations.derivationequationid'), nullable=False),
+    schema='odm2'
 )
 
 
@@ -1432,8 +1437,8 @@ class DerivationEquations(Base):
     __tablename__ = u'derivationequations'
     __table_args__ = {u'schema': u'odm2'}
 
-    DerivationEquationID = Column(Integer, primary_key=True, nullable=False)
-    DerivationEquation = Column(String(255), nullable=False)
+    DerivationEquationID = Column('derivationequationid', Integer, primary_key=True, nullable=False)
+    DerivationEquation = Column('derivationequation', String(255), nullable=False)
 
     ResultsObj = relationship(Results, secondary=ResultDerivationEquations)
 
@@ -1442,10 +1447,10 @@ class MethodCitations(Base):
     __tablename__ = u'methodcitations'
     __table_args__ = {u'schema': u'odm2'}
 
-    BridgeID = Column(Integer, primary_key=True, nullable=False)
-    MethodID = Column(ForeignKey('odm2.methods.MethodID'), nullable=False)
-    RelationshipTypeCV = Column(ForeignKey('odm2.cv_relationshiptype.Name'), nullable=False, index=True)
-    CitationID = Column(ForeignKey('odm2.citations.CitationID'), nullable=False)
+    BridgeID = Column('bridgeid', Integer, primary_key=True, nullable=False)
+    MethodID = Column('methodid', ForeignKey('odm2.methods.methodid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv', ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    CitationID = Column('citationid', ForeignKey('odm2.citations.citationid'), nullable=False)
 
     CitationObj = relationship(Citations)
     MethodObj = relationship(Methods)
@@ -1456,10 +1461,10 @@ class RelatedAnnotations(Base):
     __tablename__ = u'relatedannotations'
     __table_args__ = {u'schema': u'odm2'}
 
-    RelationID = Column(Integer, primary_key=True, nullable=False)
-    AnnotationID = Column(ForeignKey('odm2.annotations.AnnotationID'), nullable=False)
-    RelationshipTypeCV = Column(ForeignKey('odm2.cv_relationshiptype.Name'), nullable=False, index=True)
-    RelatedAnnotationID = Column(ForeignKey('odm2.annotations.AnnotationID'), nullable=False)
+    RelationID = Column('relationid', Integer, primary_key=True, nullable=False)
+    AnnotationID = Column('annotationid', ForeignKey('odm2.annotations.annotationid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv', ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    RelatedAnnotationID = Column('relatedannotationid', ForeignKey('odm2.annotations.annotationid'), nullable=False)
 
     AnnotationObj = relationship(Annotations, primaryjoin='RelatedAnnotations.AnnotationID == Annotations.AnnotationID')
     RelatedAnnotationObj = relationship(Annotations,
@@ -1470,10 +1475,10 @@ class RelatedCitations(Base):
     __tablename__ = u'relatedcitations'
     __table_args__ = {u'schema': u'odm2'}
 
-    RelationID = Column(Integer, primary_key=True, nullable=False)
-    CitationID = Column(ForeignKey('odm2.citations.CitationID'), nullable=False)
-    RelationshipTypeCV = Column(ForeignKey('odm2.cv_relationshiptype.Name'), nullable=False, index=True)
-    RelatedCitationID = Column(ForeignKey('odm2.citations.CitationID'), nullable=False)
+    RelationID = Column('relationid', Integer, primary_key=True, nullable=False)
+    CitationID = Column('citationid', ForeignKey('odm2.citations.citationid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv', ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    RelatedCitationID = Column('relatedcitationid', ForeignKey('odm2.citations.citationid'), nullable=False)
 
     CitationObj = relationship(Citations, primaryjoin='RelatedCitations.CitationID == Citations.CitationID')
     RelatedCitationObj = relationship(Citations, primaryjoin='RelatedCitations.RelatedCitationID == Citations.CitationID')
@@ -1483,11 +1488,11 @@ class RelatedDatasets(Base):
     __tablename__ = u'relateddatasets'
     __table_args__ = {u'schema': u'odm2'}
 
-    RelationID = Column(Integer, primary_key=True, nullable=False)
-    DatasetID = Column(ForeignKey('odm2.datasets.DatasetID'), nullable=False)
-    RelationshipTypeCV = Column(ForeignKey('odm2.cv_relationshiptype.Name'), nullable=False, index=True)
-    RelatedDatasetID = Column(ForeignKey('odm2.datasets.DatasetID'), nullable=False)
-    VersionCode = Column(String(50))
+    RelationID = Column('relationid', Integer, primary_key=True, nullable=False)
+    DatasetID = Column('datasetid', ForeignKey('odm2.datasets.datasetid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv', ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    RelatedDatasetID = Column('relateddatasetid', ForeignKey('odm2.datasets.datasetid'), nullable=False)
+    VersionCode = Column('versioncode', String(50))
 
     DatasetObj = relationship(Datasets, primaryjoin='RelatedDatasets.DatasetID == Datasets.DatasetID')
     RelatedDatasetObj = relationship(Datasets, primaryjoin='RelatedDatasets.RelatedDatasetID == Datasets.DatasetID')
@@ -1497,12 +1502,12 @@ class RelatedResults(Base):
     __tablename__ = u'relatedresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    RelationID = Column(Integer, primary_key=True, nullable=False)
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), nullable=False)
-    RelationshipTypeCV = Column(ForeignKey('odm2.cv_relationshiptype.Name'), nullable=False, index=True)
-    RelatedResultID = Column(ForeignKey('odm2.results.ResultID'), nullable=False)
-    VersionCode = Column(String(50))
-    RelatedResultSequenceNumber = Column(Integer)
+    RelationID = Column('relationid', Integer, primary_key=True, nullable=False)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), nullable=False)
+    RelationshipTypeCV = Column('relationshiptypecv', ForeignKey('odm2.cv_relationshiptype.name'), nullable=False, index=True)
+    RelatedResultID = Column('relatedresultid', ForeignKey('odm2.results.resultid'), nullable=False)
+    VersionCode = Column('versioncode', String(50))
+    RelatedResultSequenceNumber = Column('relatedresultsequencenumber', Integer)
 
     ResultObj = relationship(Results, primaryjoin='RelatedResults.RelatedResultID == Results.ResultID')
     RelatedResultObj = relationship(Results, primaryjoin='RelatedResults.ResultID == Results.ResultID')
@@ -1516,17 +1521,17 @@ class PointCoverageResults(Base):
     __tablename__ = u'pointcoverageresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    ZLocation = Column(Float(53))
-    ZLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    IntendedXSpacing = Column(Float(53))
-    IntendedXSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    IntendedYSpacing = Column(Float(53))
-    IntendedYSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
-    TimeAggregationInterval = Column(Float(53), nullable=False)
-    TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    ZLocation = Column('zlocation', Float(53))
+    ZLocationUnitsID = Column('zlocationunitsid', ForeignKey('odm2.units.unitsid'))
+    SpatialReferenceID = Column('spatialreferenceid', ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    IntendedXSpacing = Column('intendedxspacing', Float(53))
+    IntendedXSpacingUnitsID = Column('intendedxspacingunitsid', ForeignKey('odm2.units.unitsid'))
+    IntendedYSpacing = Column('intendedyspacing', Float(53))
+    IntendedYSpacingUnitsID = Column('intendedyspacingunitsid', ForeignKey('odm2.units.unitsid'))
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
+    TimeAggregationInterval = Column('timeaggregationinterval', Float(53), nullable=False)
+    TimeAggregationIntervalUnitsID = Column('timeaggregationintervalunitsid', Integer, nullable=False)
 
     XUnitObj = relationship(Units, primaryjoin='PointCoverageResults.IntendedXSpacingUnitsID == Units.UnitsID')
     YUnitObj = relationship(Units, primaryjoin='PointCoverageResults.IntendedYSpacingUnitsID == Units.UnitsID')
@@ -1539,17 +1544,17 @@ class ProfileResults(Base):
     __tablename__ = u'profileresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    XLocation = Column(Float(53))
-    XLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    YLocation = Column(Float(53))
-    YLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    IntendedZSpacing = Column(Float(53))
-    IntendedZSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    IntendedTimeSpacing = Column(Float(53))
-    IntendedTimeSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    XLocation = Column('xlocation', Float(53))
+    XLocationUnitsID = Column('xlocationunitsid',ForeignKey('odm2.units.unitsid'))
+    YLocation = Column('ylocation', Float(53))
+    YLocationUnitsID = Column('ylocationunitsid', ForeignKey('odm2.units.unitsid'))
+    SpatialReferenceID = Column('spatialreferenceid', ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    IntendedZSpacing = Column('intendedzspacing', Float(53))
+    IntendedZSpacingUnitsID = Column('intendedzspacingunitsid', ForeignKey('odm2.units.unitsid'))
+    IntendedTimeSpacing = Column('intendedtimespacing', Float(53))
+    IntendedTimeSpacingUnitsID = Column('intendedtimespacingunitsid', ForeignKey('odm2.units.unitsid'))
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
 
     TimeUnitObj = relationship(Units, primaryjoin='ProfileResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     ZUnitObj = relationship(Units, primaryjoin='ProfileResults.IntendedZSpacingUnitsID == Units.UnitsID')
@@ -1563,15 +1568,15 @@ class CategoricalResults(Base):
     __tablename__ = u'categoricalresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    XLocation = Column(Float(53))
-    XLocationUnitsID = Column(Integer)
-    YLocation = Column(Float(53))
-    YLocationUnitsID = Column(Integer)
-    ZLocation = Column(Float(53))
-    ZLocationUnitsID = Column(Integer)
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    XLocation = Column('xlocation', Float(53))
+    XLocationUnitsID = Column('xlocationunitsid',Integer)
+    YLocation = Column('ylocation', Float(53))
+    YLocationUnitsID = Column('ylocationunitsid', Integer)
+    ZLocation = Column('zlocation', Float(53))
+    ZLocationUnitsID = Column('zlocationunitsid', Integer)
+    SpatialReferenceID = Column('spatialreferenceid',ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
 
     SpatialReferenceObj = relationship(SpatialReferences)
     ResultObj = relationship(Results, primaryjoin='CategoricalResults.ResultID == Results.ResultID')
@@ -1581,15 +1586,15 @@ class TransectResults(Base):
     __tablename__ = u'transectresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    ZLocation = Column(Float(53))
-    ZLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    IntendedTransectSpacing = Column(Float(53))
-    IntendedTransectSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    IntendedTimeSpacing = Column(Float(53))
-    IntendedTimeSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    ZLocation = Column('zlocation', Float(53))
+    ZLocationUnitsID = Column('zlocationunitsid', ForeignKey('odm2.units.unitsid'))
+    SpatialReferenceID = Column('spatialreferenceid', ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    IntendedTransectSpacing = Column('intendedtransectspacing', Float(53))
+    IntendedTransectSpacingUnitsID = Column('intendedtransectspacingunitsid', ForeignKey('odm2.units.unitsid'))
+    IntendedTimeSpacing = Column('intendedtimespacing', Float(53))
+    IntendedTimeSpacingUnitsID = Column('intendedtimespacingunitsid', ForeignKey('odm2.units.unitsid'))
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
 
     TimeUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     TransectUnitObj = relationship(Units, primaryjoin='TransectResults.IntendedTransectSpacingUnitsID == Units.UnitsID')
@@ -1602,17 +1607,17 @@ class SpectraResults(Base):
     __tablename__ = u'spectraresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    XLocation = Column(Float(53))
-    XLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    YLocation = Column(Float(53))
-    YLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    ZLocation = Column(Float(53))
-    ZLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    IntendedWavelengthSpacing = Column(Float(53))
-    IntendedWavelengthSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    XLocation = Column('xlocation', Float(53))
+    XLocationUnitsID = Column('xlocationunitsid',ForeignKey('odm2.units.unitsid'))
+    YLocation = Column('ylocation', Float(53))
+    YLocationUnitsID = Column('ylocationunitsid', ForeignKey('odm2.units.unitsid'))
+    ZLocation = Column('zlocation', Float(53))
+    ZLocationUnitsID = Column('zlocationunitsid', ForeignKey('odm2.units.unitsid'))
+    SpatialReferenceID = Column('spatialreferenceid', ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    IntendedWavelengthSpacing = Column('intendedwavelengthspacing', Float(53))
+    IntendedWavelengthSpacingUnitsID = Column('intendedwavelengthspacingunitsid', ForeignKey('odm2.units.unitsid'))
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
 
     WaveUnitObj = relationship(Units, primaryjoin='SpectraResults.IntendedWavelengthSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
@@ -1626,17 +1631,17 @@ class TimeSeriesResults(Base):
     __tablename__ = u'timeseriesresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    XLocation = Column(Float(53))
-    XLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    YLocation = Column(Float(53))
-    YLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    ZLocation = Column(Float(53))
-    ZLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    IntendedTimeSpacing = Column(Float(53))
-    IntendedTimeSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    XLocation = Column('xlocation', Float(53))
+    XLocationUnitsID = Column('xlocationunitsid', ForeignKey('odm2.units.unitsid'))
+    YLocation = Column('ylocation', Float(53))
+    YLocationUnitsID = Column('ylocationunitsid', ForeignKey('odm2.units.unitsid'))
+    ZLocation = Column('zlocation', Float(53))
+    ZLocationUnitsID = Column('zlocationunitsid', ForeignKey('odm2.units.unitsid'))
+    SpatialReferenceID = Column('spatialreferenceid', ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    IntendedTimeSpacing = Column('intendedtimespacing', Float(53))
+    IntendedTimeSpacingUnitsID = Column('intendedtimespacingunitsid', ForeignKey('odm2.units.unitsid'))
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
 
     IntendedTimeSpacingUnitsObj = relationship(Units, primaryjoin='TimeSeriesResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     SpatialReferenceObj = relationship(SpatialReferences)
@@ -1647,7 +1652,7 @@ class TimeSeriesResults(Base):
 
     def __repr__(self):
         return "<TimeSeriesResults('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % \
-            (self.ResultID, self.XLocation, self.YLocation, self.XLocation,
+            (self.resultid, self.XLocation, self.YLocation, self.XLocation,
              self.ResultObj,  self.XLocationUnitsObj, self.SpatialReferenceObj,
              self.IntendedTimeSpacing, self.AggregationStatisticCV )
 
@@ -1656,17 +1661,17 @@ class SectionResults(Base):
     __tablename__ = u'sectionresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    YLocation = Column(Float(53))
-    YLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    IntendedXSpacing = Column(Float(53))
-    IntendedXSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    IntendedZSpacing = Column(Float(53))
-    IntendedZSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    IntendedTimeSpacing = Column(Float(53))
-    IntendedTimeSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    YLocation = Column('ylocation', Float(53))
+    YLocationUnitsID = Column('ylocationunitsid', ForeignKey('odm2.units.unitsid'))
+    SpatialReferenceID = Column('spatialreferenceid', ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    IntendedXSpacing = Column('intendedxspacing', Float(53))
+    IntendedXSpacingUnitsID = Column('intendedxpacingunitsid', ForeignKey('odm2.units.unitsid'))
+    IntendedZSpacing = Column('intendedzspacing', Float(53))
+    IntendedZSpacingUnitsID = Column('intendedzspacingunitsid', ForeignKey('odm2.units.unitsid'))
+    IntendedTimeSpacing = Column('intendedtimespacing', Float(53))
+    IntendedTimeSpacingUnitsID = Column('intendedtimespacingunitsid', ForeignKey('odm2.units.unitsid'))
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
 
     TimeUnitObj = relationship(Units, primaryjoin='SectionResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     XUnitObj = relationship(Units, primaryjoin='SectionResults.IntendedXSpacingUnitsID == Units.UnitsID')
@@ -1680,13 +1685,13 @@ class TrajectoryResults(Base):
     __tablename__ = u'trajectoryresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    IntendedTrajectorySpacing = Column(Float(53))
-    IntendedTrajectorySpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    IntendedTimeSpacing = Column(Float(53))
-    IntendedTimeSpacingUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    SpatialReferenceID = Column('spatialreferenceid', ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    IntendedTrajectorySpacing = Column('intendedtrajectoryspacing', Float(53))
+    IntendedTrajectorySpacingUnitsID = Column('intendedtrajectoryspacingunitsid', ForeignKey('odm2.units.unitsid'))
+    IntendedTimeSpacing = Column('intendedtimespacing', Float(53))
+    IntendedTimeSpacingUnitsID = Column('intendedtimespacingunitsid', ForeignKey('odm2.units.unitsid'))
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
 
     TimeUnitObj = relationship(Units, primaryjoin='TrajectoryResults.IntendedTimeSpacingUnitsID == Units.UnitsID')
     TrajectoryUnitObj = relationship(Units,
@@ -1699,19 +1704,19 @@ class MeasurementResults(Base):
     __tablename__ = u'measurementresults'
     __table_args__ = {u'schema': u'odm2'}
 
-    ResultID = Column(ForeignKey('odm2.results.ResultID'), primary_key=True)
-    XLocation = Column(Float(53))
-    XLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    YLocation = Column(Float(53))
-    YLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    ZLocation = Column(Float(53))
-    ZLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'))
-    SpatialReferenceID = Column(ForeignKey('odm2.spatialreferences.SpatialReferenceID'))
-    CensorCodeCV = Column(ForeignKey('odm2.cv_censorcode.Name'), nullable=False, index=True)
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
-    TimeAggregationInterval = Column(Float(53), nullable=False)
-    TimeAggregationIntervalUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
+    ResultID = Column('resultid', ForeignKey('odm2.results.resultid'), primary_key=True)
+    XLocation = Column('xlocation', Float(53))
+    XLocationUnitsID = Column('xlocationunitsid',ForeignKey('odm2.units.unitsid'))
+    YLocation = Column('ylocation', Float(53))
+    YLocationUnitsID = Column('ylocationunitsid', ForeignKey('odm2.units.unitsid'))
+    ZLocation = Column('zlocation', Float(53))
+    ZLocationUnitsID = Column('zlocationunitsid', ForeignKey('odm2.units.unitsid'))
+    SpatialReferenceID = Column('spatialreferenceid', ForeignKey('odm2.spatialreferences.spatialreferenceid'))
+    CensorCodeCV = Column('censorcodecv', ForeignKey('odm2.cv_censorcode.name'), nullable=False, index=True)
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
+    TimeAggregationInterval = Column('timeaggregationinterval', Float(53), nullable=False)
+    TimeAggregationIntervalUnitsID = Column('timeaggregationintervalunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
 
     SpatialReferenceObj = relationship(SpatialReferences)
     TimeUnitObj = relationship(Units, primaryjoin='MeasurementResults.TimeAggregationIntervalUnitsID == Units.UnitsID')
@@ -1725,11 +1730,11 @@ class CategoricalResultValues(Base):
     __tablename__ = u'categoricalresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.categoricalresults.ResultID'), nullable=False)
-    DataValue = Column(String(255), nullable=False)
-    ValueDateTime = Column(DateTime, nullable=False)
-    ValueDateTimeUTCOffset = Column(Integer, nullable=False)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.categoricalresults.resultid'), nullable=False)
+    DataValue = Column('datavalue', String(255), nullable=False)
+    ValueDateTime = Column('valuedatetime', DateTime, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', Integer, nullable=False)
 
     CategoricalResultObj = relationship(CategoricalResults)
 
@@ -1738,11 +1743,11 @@ class MeasurementResultValues(Base):
     __tablename__ = u'measurementresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.measurementresults.ResultID'), nullable=False)
-    DataValue = Column(Float(53), nullable=False)
-    ValueDateTime = Column(DateTime, nullable=False)
-    ValueDateTimeUTCOffset = Column(Integer, nullable=False)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.measurementresults.resultid'), nullable=False)
+    DataValue = Column('datavalue', Float(53), nullable=False)
+    ValueDateTime = Column('valuedatetime', DateTime, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', Integer, nullable=False)
 
     MeasurementResultObj = relationship(MeasurementResults)
 
@@ -1751,17 +1756,17 @@ class PointCoverageResultValues(Base):
     __tablename__ = u'pointcoverageresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.pointcoverageresults.ResultID'), nullable=False)
-    DataValue = Column(BigInteger, nullable=False)
-    ValueDateTime = Column(DateTime, nullable=False)
-    ValueDateTimeUTCOffset = Column(Integer, nullable=False)
-    XLocation = Column(Float(53), nullable=False)
-    XLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    YLocation = Column(Float(53), nullable=False)
-    YLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    CensorCodeCV = Column(ForeignKey('odm2.cv_censorcode.Name'), nullable=False, index=True)
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.pointcoverageresults.resultid'), nullable=False)
+    DataValue = Column('datavalue', BigInteger, nullable=False)
+    ValueDateTime = Column('valuedatetime', DateTime, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', Integer, nullable=False)
+    XLocation = Column('xlocation', Float(53), nullable=False)
+    XLocationUnitsID = Column('xlocationunitsid',ForeignKey('odm2.units.unitsid'), nullable=False)
+    YLocation = Column('ylocation', Float(53), nullable=False)
+    YLocationUnitsID = Column('ylocationunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    CensorCodeCV = Column('censorcodecv', ForeignKey('odm2.cv_censorcode.name'), nullable=False, index=True)
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
 
     PointCoverageResultObj = relationship(PointCoverageResults)
     XUnitObj = relationship(Units, primaryjoin='PointCoverageResultValues.XLocationUnitsID == Units.UnitsID')
@@ -1772,18 +1777,18 @@ class ProfileResultValues(Base):
     __tablename__ = u'profileresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.profileresults.ResultID'), nullable=False)
-    DataValue = Column(Float(53), nullable=False)
-    ValueDateTime = Column(DateTime, nullable=False)
-    ValueDateTimeUTCOffset = Column(Integer, nullable=False)
-    ZLocation = Column(Float(53), nullable=False)
-    ZAggregationInterval = Column(Float(53), nullable=False)
-    ZLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    CensorCodeCV = Column(ForeignKey('odm2.cv_censorcode.Name'), nullable=False, index=True)
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
-    TimeAggregationInterval = Column(Float(53), nullable=False)
-    TimeAggregationIntervalUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.profileresults.resultid'), nullable=False)
+    DataValue = Column('datavalue', Float(53), nullable=False)
+    ValueDateTime = Column('valuedatetime', DateTime, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', Integer, nullable=False)
+    ZLocation = Column('zlocation', Float(53), nullable=False)
+    ZAggregationInterval = Column('zaggregationinterval', Float(53), nullable=False)
+    ZLocationUnitsID = Column('zlocationunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    CensorCodeCV = Column('censorcodecv', ForeignKey('odm2.cv_censorcode.name'), nullable=False, index=True)
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
+    TimeAggregationInterval = Column('timeaggregationinterval', Float(53), nullable=False)
+    TimeAggregationIntervalUnitsID = Column('timeaggregationintervalunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
 
     ProfileResultObj = relationship(ProfileResults)
     TimeUnitObj = relationship(Units, primaryjoin='ProfileResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
@@ -1794,22 +1799,22 @@ class SectionResultValues(Base):
     __tablename__ = u'sectionresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.sectionresults.ResultID'), nullable=False)
-    DataValue = Column(Float(53), nullable=False)
-    ValueDateTime = Column(BigInteger, nullable=False)
-    ValueDateTimeUTCOffset = Column(BigInteger, nullable=False)
-    XLocation = Column(Float(53), nullable=False)
-    XAggregationInterval = Column(Float(53), nullable=False)
-    XLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    ZLocation = Column(BigInteger, nullable=False)
-    ZAggregationInterval = Column(Float(53), nullable=False)
-    ZLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    CensorCodeCV = Column(ForeignKey('odm2.cv_censorcode.Name'), nullable=False, index=True)
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
-    TimeAggregationInterval = Column(Float(53), nullable=False)
-    TimeAggregationIntervalUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.sectionresults.resultid'), nullable=False)
+    DataValue = Column('datavalue',  Float(53), nullable=False)
+    ValueDateTime = Column('valuedatetime', BigInteger, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', BigInteger, nullable=False)
+    XLocation = Column('xlocation', Float(53), nullable=False)
+    XAggregationInterval = Column('xaggregationinterval', Float(53), nullable=False)
+    XLocationUnitsID = Column('xlocationunitsid',ForeignKey('odm2.units.unitsid'), nullable=False)
+    ZLocation = Column('zlocation', BigInteger, nullable=False)
+    ZAggregationInterval = Column('zaggregationinterval', Float(53), nullable=False)
+    ZLocationUnitsID = Column('zlocationunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    CensorCodeCV = Column('censorcodecv', ForeignKey('odm2.cv_censorcode.name'), nullable=False, index=True)
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
+    TimeAggregationInterval = Column('timeaggregationinterval', Float(53), nullable=False)
+    TimeAggregationIntervalUnitsID = Column('timeaggregationintervalunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
 
     SectionResultObj = relationship(SectionResults)
     TimeUnitObj = relationship(Units, primaryjoin='SectionResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
@@ -1821,18 +1826,18 @@ class SpectraResultValues(Base):
     __tablename__ = u'spectraresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.spectraresults.ResultID'), nullable=False)
-    DataValue = Column(Float(53), nullable=False)
-    ValueDateTime = Column(DateTime, nullable=False)
-    ValueDateTimeUTCOffset = Column(Integer, nullable=False)
-    ExcitationWavelength = Column(Float(53), nullable=False)
-    EmissionWavelength = Column(Float(53), nullable=False)
-    WavelengthUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    CensorCodeCV = Column(ForeignKey('odm2.cv_censorcode.Name'), nullable=False, index=True)
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
-    TimeAggregationInterval = Column(Float(53), nullable=False)
-    TimeAggregationIntervalUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.spectraresults.resultid'), nullable=False)
+    DataValue = Column('datavalue',  Float(53), nullable=False)
+    ValueDateTime = Column('valuedatetime', DateTime, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', Integer, nullable=False)
+    ExcitationWavelength = Column('excitationwavelength', Float(53), nullable=False)
+    EmissionWavelength = Column('emmistionwavelength', Float(53), nullable=False)
+    WavelengthUnitsID = Column('wavelengthunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    CensorCodeCV = Column('censorcodecv', ForeignKey('odm2.cv_censorcode.name'), nullable=False, index=True)
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
+    TimeAggregationInterval = Column('timeaggregationinterval', Float(53), nullable=False)
+    TimeAggregationIntervalUnitsID = Column('timeaggregationintervalunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
 
     SpectraResultObj = relationship(SpectraResults)
     TimeUnitObj = relationship(Units, primaryjoin='SpectraResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
@@ -1843,15 +1848,15 @@ class TimeSeriesResultValues(Base):
     __tablename__ = u'timeseriesresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.timeseriesresults.ResultID'), nullable=False)
-    DataValue = Column(Float(53), nullable=False)
-    ValueDateTime = Column(DateTime, nullable=False)
-    ValueDateTimeUTCOffset = Column(Integer, nullable=False)
-    CensorCodeCV = Column(ForeignKey('odm2.cv_censorcode.Name'), nullable=False, index=True)
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
-    TimeAggregationInterval = Column(Float(53), nullable=False)
-    TimeAggregationIntervalUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.timeseriesresults.resultid'), nullable=False)
+    DataValue = Column('datavalue',  Float(53), nullable=False)
+    ValueDateTime = Column('valuedatetime', DateTime, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', Integer, nullable=False)
+    CensorCodeCV = Column('censorcodecv', ForeignKey('odm2.cv_censorcode.name'), nullable=False, index=True)
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
+    TimeAggregationInterval = Column('timeaggregationinterval', Float(53), nullable=False)
+    TimeAggregationIntervalUnitsID = Column('timeaggregationintervalunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
 
     TimeSeriesResultObj = relationship(TimeSeriesResults)
     TimeUnitObj = relationship(Units)
@@ -1861,7 +1866,7 @@ class TimeSeriesResultValues(Base):
                 "CensorCodeCV", "QualityCodeCV", "TimeAggregationInterval", "TimeAggregationIntervalUnitsID"]
 
     def list_repr(self):
-        return [self.ValueID, self.ResultID, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset,
+        return [self.ValueID, self.resultid, self.DataValue, self.ValueDateTime, self.ValueDateTimeUTCOffset,
                 self.CensorCodeCV, self.QualityCodeCV, self.TimeAggregationInterval,
                 self.TimeAggregationIntervalUnitsID]
 
@@ -1873,24 +1878,24 @@ class TrajectoryResultValues(Base):
     __tablename__ = u'trajectoryresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.trajectoryresults.ResultID'), nullable=False)
-    DataValue = Column(Float(53), nullable=False)
-    ValueDateTime = Column(DateTime, nullable=False)
-    ValueDateTimeUTCOffset = Column(Integer, nullable=False)
-    XLocation = Column(Float(53), nullable=False)
-    XLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    YLocation = Column(Float(53), nullable=False)
-    YLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    ZLocation = Column(Float(53), nullable=False)
-    ZLocationUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
-    TrajectoryDistance = Column(Float(53), nullable=False)
-    TrajectoryDistanceAggregationInterval = Column(Float(53), nullable=False)
-    TrajectoryDistanceUnitsID = Column(Integer, nullable=False)
-    CensorCodeCV = Column(ForeignKey('odm2.cv_censorcode.Name'), nullable=False, index=True)
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
-    TimeAggregationInterval = Column(Float(53), nullable=False)
-    TimeAggregationIntervalUnitsID = Column(ForeignKey('odm2.units.UnitsID'), nullable=False)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.trajectoryresults.resultid'), nullable=False)
+    DataValue = Column('datavalue',  Float(53), nullable=False)
+    ValueDateTime = Column('valuedatetime',  DateTime, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', Integer, nullable=False)
+    XLocation = Column('xlocation', Float(53), nullable=False)
+    XLocationUnitsID = Column('xlocationunitsid',ForeignKey('odm2.units.unitsid'), nullable=False)
+    YLocation = Column('ylocation', Float(53), nullable=False)
+    YLocationUnitsID = Column('ylocationunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    ZLocation = Column('zlocation', Float(53), nullable=False)
+    ZLocationUnitsID = Column('zlocationunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
+    TrajectoryDistance = Column('trajectorydistance', Float(53), nullable=False)
+    TrajectoryDistanceAggregationInterval = Column('trajectorydistanceaggregationinterval', Float(53), nullable=False)
+    TrajectoryDistanceUnitsID = Column('trajectorydistanceunitsid', Integer, nullable=False)
+    CensorCodeCV = Column('censorcodecv', ForeignKey('odm2.cv_censorcode.name'), nullable=False, index=True)
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
+    TimeAggregationInterval = Column('timeaggregationinterval', Float(53), nullable=False)
+    TimeAggregationIntervalUnitsID = Column('timeaggregationintervalunitsid', ForeignKey('odm2.units.unitsid'), nullable=False)
 
     TrajectoryResultObj = relationship(TrajectoryResults)
     TimeUnitObj = relationship(Units, primaryjoin='TrajectoryResultValues.TimeAggregationIntervalUnitsID == Units.UnitsID')
@@ -1903,22 +1908,22 @@ class TransectResultValues(Base):
     __tablename__ = u'transectresultvalues'
     __table_args__ = {u'schema': u'odm2'}
 
-    ValueID = Column(BigInteger, primary_key=True)
-    ResultID = Column(ForeignKey('odm2.transectresults.ResultID'), nullable=False)
-    DataValue = Column(Float(53), nullable=False)
-    ValueDateTime = Column(DateTime, nullable=False)
-    ValueDateTimeUTCOffset = Column(DateTime, nullable=False)
-    XLocation = Column(Float(53), nullable=False)
-    XLocationUnitsID = Column(Integer, nullable=False)
-    YLocation = Column(Float(53), nullable=False)
-    YLocationUnitsID = Column(Integer, nullable=False)
-    TransectDistance = Column(Float(53), nullable=False)
-    TransectDistanceAggregationInterval = Column(Float(53), nullable=False)
-    TransectDistanceUnitsID = Column(Integer, nullable=False)
-    CensorCodeCV = Column(ForeignKey('odm2.cv_censorcode.Name'), nullable=False, index=True)
-    QualityCodeCV = Column(ForeignKey('odm2.cv_qualitycode.Name'), nullable=False, index=True)
-    AggregationStatisticCV = Column(ForeignKey('odm2.cv_aggregationstatistic.Name'), nullable=False, index=True)
-    TimeAggregationInterval = Column(Float(53), nullable=False)
-    TimeAggregationIntervalUnitsID = Column(Integer, nullable=False)
+    ValueID = Column('valueid', BigInteger, primary_key=True)
+    ResultID = Column('resultid', ForeignKey('odm2.transectresults.resultid'), nullable=False)
+    DataValue = Column('datavalue',  Float(53), nullable=False)
+    ValueDateTime = Column('valuedatetime',  DateTime, nullable=False)
+    ValueDateTimeUTCOffset = Column('valuedatetimeutcoffset', DateTime, nullable=False)
+    XLocation = Column('xlocation', Float(53), nullable=False)
+    XLocationUnitsID = Column('xlocationunitsid',Integer, nullable=False)
+    YLocation = Column('ylocation', Float(53), nullable=False)
+    YLocationUnitsID = Column('ylocationunitsid', Integer, nullable=False)
+    TransectDistance = Column('transectdistance', Float(53), nullable=False)
+    TransectDistanceAggregationInterval = Column('transectdistanceaggregationinterval', Float(53), nullable=False)
+    TransectDistanceUnitsID = Column('transectdistanceunitsid', Integer, nullable=False)
+    CensorCodeCV = Column('censorcodecv', ForeignKey('odm2.cv_censorcode.name'), nullable=False, index=True)
+    QualityCodeCV = Column('qualitycodecv', ForeignKey('odm2.cv_qualitycode.name'), nullable=False, index=True)
+    AggregationStatisticCV = Column('aggregationstatisticcv', ForeignKey('odm2.cv_aggregationstatistic.name'), nullable=False, index=True)
+    TimeAggregationInterval = Column('timeaggregationinterval', Float(53), nullable=False)
+    TimeAggregationIntervalUnitsID = Column('timeaggregationintervalunitsid', Integer, nullable=False)
 
     TransectResultObj = relationship(TransectResults)
