@@ -7,13 +7,19 @@ Base = declarative_base()
 metadata = MetaData()
 
 ################ODM 2 Tables###########
+<<<<<<< HEAD
 from ODM2.Core.model import Action, Organization, Affiliation, Person, \
     Samplingfeature, Result, Variable as Variable2, Method as Method2
 from ODM2.Results.model import Timeseriesresult, Timeseriesresultvalue
 from ODM2.SamplingFeatures.model import Site as Site2, Spatialreference
 from ODM2.CV.model import Cvterm
+=======
+from ..models import Actions, ActionBy, Organizations, Affiliations, People, \
+    SamplingFeatures, Results, Variables, Methods, TimeSeriesResults, \
+    TimeSeriesResultValues, Sites, SpatialReferences, FeatureActions, ProcessingLevels
+>>>>>>> no_schema
 
-action_table = Action()
+action_table = Actions()
 
 # ###################################################################################
 #                           Monitoring Site Locations
@@ -21,35 +27,42 @@ action_table = Action()
 
 
 class SpatialReference(Base):
-    __tablename__ = 'SpatialReferences'
-    __table_args__ = {u'schema': 'ODM2'}
+    __tablename__ = u'spatialreferences'
+    __table_args__ = {u'schema': 'odm2'}
 
-    id = Column('SpatialReferenceID', Integer, primary_key=True)
-    srs_id = Column('SRSID', String)
-    srs_name = Column('SRSName', String)
+    id = Column('spatialreferenceid', Integer, primary_key=True)
+    srs_id = Column('srsid', String)
+    srs_name = Column('srsName', String)
     is_geographic = None
     #is_geographic = Column('IsGeographic', Boolean)
-    notes = Column('Description', String)
+    notes = Column('description', String)
 
     def __repr__(self):
         return "<SpatialReference('%s', '%s')>" % (self.id, self.srs_name)
 
+<<<<<<< HEAD
 sf_table = Samplingfeature().__table__
 site_table = Site2().__table__
 site_join = site_table.join(sf_table, site_table.c.SamplingFeatureID == sf_table.c.SamplingFeatureID)
 class Site(Base):
     __tablename__ = u'Sites'
+=======
+sf_table = SamplingFeatures().__table__
+site_table = Sites().__table__
+site_join = site_table.join(sf_table, site_table.c.samplingfeatureid == sf_table.c.samplingfeatureid)
+class Site(Base):
+    __tablename__ = u'sites'
+>>>>>>> no_schema
     __table__ = site_join
 
-
-    id = site_join.c.ODM2_Sites_SamplingFeatureID
-    code = site_join.c.ODM2_SamplingFeatures_SamplingFeatureCode
-    name = site_join.c.ODM2_SamplingFeatures_SamplingFeatureName
-    latitude = site_join.c.ODM2_Sites_Latitude
-    longitude = site_join.c.ODM2_Sites_Longitude
-    lat_long_datum_id = site_join.c.ODM2_Sites_LatLonDatumID._clone().foreign_keys = ForeignKey("SpatialReference.id")#, Integer, ForeignKey("SpatialReference.id"))#column_property(site_table.c.LatLonDatumID, ForeignKey('SpatialReference.id'))
-    elevation_m = site_join.c.ODM2_SamplingFeatures_Elevation_m
-    vertical_datum_id = site_join.c.ODM2_SamplingFeatures_ElevationDatumCV
+    id = site_join.c.odm2_sites_samplingfeatureid
+    code = site_join.c.odm2_samplingfeatures_samplingfeaturecode
+    name = site_join.c.odm2_samplingfeatures_samplingfeaturename
+    latitude = site_join.c.odm2_sites_latitude
+    longitude = site_join.c.odm2_sites_longitude
+    lat_long_datum_id = site_join.c.odm2_sites_spatialreferenceid # ._clone().foreign_keys = ForeignKey("SpatialReference.id")#, Integer, ForeignKey("SpatialReference.id"))#column_property(site_table.c.LatLonDatumID, ForeignKey('SpatialReference.id'))
+    elevation_m = site_join.c.odm2_samplingfeatures_elevation_m
+    vertical_datum_id = site_join.c.odm2_samplingfeatures_elevationdatumcv
 
     local_x = None
     local_y = None
@@ -77,13 +90,13 @@ class Site(Base):
 # ###################################################################################
 
 class Unit(Base):
-    __tablename__ = u'Units'
-    __table_args__ = {u'schema': 'ODM2'}
+    __tablename__ = u'units'
+    __table_args__ = {u'schema': 'odm2'}
 
-    id = Column('UnitsID', Integer, primary_key=True)
-    name = Column('UnitsName', String)
-    type = Column('UnitsTypeCV', String)
-    abbreviation = Column('UnitsAbbreviation', String)
+    id = Column('unitsid', Integer, primary_key=True)
+    name = Column('unitsname', String)
+    type = Column('unitstypecv', String)
+    abbreviation = Column('unitsabbreviation', String)
 
     def __repr__(self):
         return "<Unit('%s', '%s', '%s', '%s')>" % (self.id, self.name, self.type, self.abbreviation)
@@ -93,6 +106,7 @@ class Unit(Base):
 # ###################################################################################
 
 """Requires joining with Variable, Result, and Timeseriesresult to build Variable for ODM1_1_1"""
+<<<<<<< HEAD
 variables_table = Variable2().__table__
 ts_table = Timeseriesresult().__table__
 
@@ -102,28 +116,40 @@ aliased_table = select([
     result_table.c.UnitsID,
     result_table.c.VariableID,
     result_table.c.SampledMediumCV,
+=======
+variables_table = Variables().__table__
+ts_table = TimeSeriesResults().__table__
+
+result_table = Results().__table__
+result_aliased_table = select([
+    result_table.c.resultid.label("RID"),
+    result_table.c.unitsid,
+    result_table.c.variableid,
+    result_table.c.sampledmediumcv,
+
+>>>>>>> no_schema
 ]).alias("ODM2_Aliased")
 
-ts_join = aliased_table.join(ts_table, aliased_table.c.RID == ts_table.c.ResultID)
-results = ts_join.join(variables_table, variables_table.c.VariableID == ts_join.c.ODM2_Aliased_RID)
+ts_join = result_aliased_table.join(ts_table, result_aliased_table.c.RID == ts_table.c.resultid)
+variable_join = ts_join.join(variables_table, variables_table.c.variableid == ts_join.c.ODM2_Aliased_RID)
 
 class Variable(Base):
-    __table__ = results
-    __tablename__ = u'Variables'
+    __table__ = variable_join
+    __tablename__ = u'variables'
 
-    id = results.c.ODM2_Variables_VariableID                                            # Column('VariableID', Integer, primary_key=True)
-    code = results.c.ODM2_Variables_VariableCode                                        # Column('VariableCode', String, nullable=False)
-    name = results.c.ODM2_Variables_VariableNameCV                                      # Column('VariableNameCV', String, nullable=False)
-    speciation = results.c.ODM2_Variables_SpeciationCV                                  # Column('SpeciationCV', String, nullable=False)
-    no_data_value = results.c.ODM2_Variables_NoDataValue                                # Column('NoDataValue', Float, nullable=False)
+    id = variable_join.c.odm2_variables_variableid                                            # Column('VariableID', Integer, primary_key=True)
+    code = variable_join.c.odm2_variables_variablecode                                        # Column('VariableCode', String, nullable=False)
+    name = variable_join.c.odm2_variables_variablenamecv                                      # Column('VariableNameCV', String, nullable=False)
+    speciation = variable_join.c.odm2_variables_speciationcv                                  # Column('SpeciationCV', String, nullable=False)
+    no_data_value = variable_join.c.odm2_variables_nodatavalue                                # Column('NoDataValue', Float, nullable=False)
 
-    variable_unit_id = results.c.ODM2_Aliased_UnitsID                                   # Column('VariableUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
-    sample_medium = results.c.ODM2_Aliased_SampledMediumCV                              # Column('ODM2_Results_UnitsID', String, nullable=False)
-    value_type = results.c.ODM2_Variables_VariableTypeCV                                # Column('ValueType', String, nullable=False)
+    variable_unit_id = variable_join.c.ODM2_Aliased_unitsid                                   # Column('VariableUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+    sample_medium = variable_join.c.ODM2_Aliased_sampledmediumcv                            # Column('ODM2_Results_UnitsID', String, nullable=False)
+    value_type = variable_join.c.odm2_variables_variabletypecv                                # Column('ValueType', String, nullable=False)
     is_regular = None                                                                   # Column('IsRegular', Boolean, nullable=False)
-    time_support = results.c.ODM2_TimeSeriesResults_IntendedTimeSpacing                 # Column('TimeSupport', Float, nullable=False)
-    time_unit_id = results.c.ODM2_TimeSeriesResults_IntendedTimeSpacingUnitsID          # Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
-    data_type = results.c.ODM2_TimeSeriesResults_AggregationStatisticCV                 # Column('DataType', String, nullable=False)
+    time_support = variable_join.c.odm2_timeseriesresults_intendedtimespacing                 # Column('TimeSupport', Float, nullable=False)
+    time_unit_id = variable_join.c.odm2_timeseriesresults_intendedtimespacingunitsid          # Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+    data_type = variable_join.c.odm2_timeseriesresults_aggregationstatisticcv                 # Column('DataType', String, nullable=False)
     general_category = None                                                             # Column('GeneralCategory', String, nullable=False)
 
     """
@@ -142,45 +168,45 @@ class Variable(Base):
 #                            Data Sources
 # ###################################################################################
 
-people_table = Person().__table__
-affiliation_table = Affiliation().__table__
-organization_table = Organization().__table__
+people_table = People().__table__
+affiliation_table = Affiliations().__table__
+organization_table = Organizations().__table__
 
-aliased_table = select([
-    people_table.c.PersonID.label("PID"),
-    people_table.c.PersonFirstName,
-    people_table.c.PersonMiddleName,
-    people_table.c.PersonLastName,
+result_aliased_table = select([
+    people_table.c.personid.label("PID"),
+    people_table.c.personfirstname,
+    people_table.c.personmiddlename,
+    people_table.c.personlastname,
 ]).alias("ODM2_Aliased")
 
-affiliation_join = aliased_table.join(affiliation_table, affiliation_table.c.AffiliationID == aliased_table.c.PID)
-results = affiliation_join.join(organization_table, affiliation_join.c.ODM2_Affiliations_OrganizationID == organization_table.c.OrganizationID)
+affiliation_join = result_aliased_table.join(affiliation_table, affiliation_table.c.affiliationid == result_aliased_table.c.PID)
+source_join = affiliation_join.join(organization_table, affiliation_join.c.odm2_affiliations_organizationid == organization_table.c.organizationid)
 
 class Source(Base):
-    __table__ = results
-    __tablename__ = u'Data Sources'
-    __table_args__ = {u'schema': u'ODM2'}
+    __table__ = source_join
+    __tablename__ = u'datasources'
+    __table_args__ = {u'schema': u'odm2'}
 
-    id = results.c.ODM2_Affiliations_AffiliationID                      # Column('OrganizationID', Integer, primary_key=True)
-    organization = results.c.ODM2_Affiliations_OrganizationID           # Column('OrganizationName', String, nullable=False)
-    description = results.c.ODM2_Organizations_OrganizationDescription  # Column('OrganizationDescription', String, nullable=False)
-    link = results.c.ODM2_Organizations_OrganizationLink                # Column('OrganizationLink', String)
+    id = source_join.c.odm2_affiliations_affiliationid                      # Column('OrganizationID', Integer, primary_key=True)
+    organization = source_join.c.odm2_affiliations_organizationid           # Column('OrganizationName', String, nullable=False)
+    description = source_join.c.odm2_organizations_organizationdescription  # Column('OrganizationDescription', String, nullable=False)
+    link = source_join.c.odm2_organizations_organizationlink                # Column('OrganizationLink', String)
 
-    first_name = results.c.ODM2_Aliased_PersonFirstName
-    middle_name = results.c.ODM2_Aliased_PersonMiddleName
-    last_name = results.c.ODM2_Aliased_PersonLastName
+    first_name = source_join.c.ODM2_Aliased_personfirstname
+    middle_name = source_join.c.ODM2_Aliased_personmiddlename
+    last_name = source_join.c.ODM2_Aliased_personlastname
     # this doesnt work...
     # contact_name = column_property(first_name + " " + middle_name + " " + last_name)
     contact_name = column_property(first_name + " " + last_name)
 
-    phone = results.c.ODM2_Affiliations_PrimaryPhone                    # Column('Phone', String, nullable=False)
-    email = results.c.ODM2_Affiliations_PrimaryEmail                    # Column('Email', String, nullable=False)
-    address = results.c.ODM2_Affiliations_PrimaryAddress                # Column('Address', String, nullable=False)
+    phone = source_join.c.odm2_affiliations_primaryphone                    # Column('Phone', String, nullable=False)
+    email = source_join.c.odm2_affiliations_primaryemail                    # Column('Email', String, nullable=False)
+    address = source_join.c.odm2_affiliations_primaryaddress                # Column('Address', String, nullable=False)
     city = "Unknown"                                                   # Column('City', String, nullable=False)
     state = "Unknown"                                                  # Column('State', String, nullable=False)
     zip_code = "Unknown"                                               # Column('ZipCode', String, nullable=False)
     citation = "Not specified"
-    #iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ODM2.ISOMetadata.MetadataID'), nullable=False)
+    #iso_metadata_id = Column('MetadataID', Integer, ForeignKey('ODM2.ISOMetadata.Metadataid'), nullable=False)
 
     # relationships
     #iso_metadata = relationship(ISOMetadata)
@@ -191,14 +217,15 @@ class Source(Base):
                 self.phone, self.organization, self.description)
 
 class ISOMetadata(Base):
-    __tablename__ = 'ISOMetadata'
+    __tablename__ = 'isometadata'
+    __table_args__ = {u'schema': u'odm2'}
 
-    id = Column('MetadataID', Integer, primary_key=True)
-    topic_category = Column('TopicCategory', String, nullable=False)
-    title = Column('Title', String, nullable=False)
-    abstract = Column('Abstract', String, nullable=False)
-    profile_version = Column('ProfileVersion', String, nullable=False)
-    metadata_link = Column('MetadataLink', String)
+    id = Column('metadataid', Integer, primary_key=True)
+    topic_category = Column('topiccategory', String, nullable=False)
+    title = Column('title', String, nullable=False)
+    abstract = Column('abstract', String, nullable=False)
+    profile_version = Column('profileversion', String, nullable=False)
+    metadata_link = Column('metadatalink', String)
 
     def __repr__(self):
         return "<ISOMetadata('%s', '%s', '%s')>" % (self.id, self.topic_category, self.title)
@@ -207,29 +234,33 @@ class ISOMetadata(Base):
 #                            Data Collection Methods
 # ###################################################################################
 
+<<<<<<< HEAD
 method_table = Method2().__table__
 
+=======
+>>>>>>> no_schema
 class LabMethod(Base):
-    __tablename__ = 'LabMethods'
+    __tablename__ = 'labmethods'
+    __table_args__ = {u'schema': u'odm2'}
 
-    id = Column('LabMethodID', Integer, primary_key=True)
-    name = Column('LabName', String, nullable=False)
-    organization = Column('LabOrganization', String, nullable=False)
-    method_name = Column('LabMethodName', String, nullable=False)
-    method_description = Column('LabMethodDescription', String, nullable=False)
-    method_link = Column('LabMethodLink', String)
+    id = Column('labmethodid', Integer, primary_key=True)
+    name = Column('labname', String, nullable=False)
+    organization = Column('laborganization', String, nullable=False)
+    method_name = Column('labmethodname', String, nullable=False)
+    method_description = Column('labmethoddescription', String, nullable=False)
+    method_link = Column('labmethodlink', String)
 
     def __repr__(self):
         return "<LabMethod('%s', '%s', '%s', '%s')>" % (self.id, self.name, self.organization, self.method_name)
 
 class Method(Base):
-    __table__ = method_table
-    __tablename__ = u'Methods'
-    __table_args__ = {u'schema': u'ODM2'}
+    # __table__ = method_tabl
+    __tablename__ = 'methods'
+    __table_args__ = {u'schema': u'odm2'}
 
-    id = method_table.c.MethodID                            # Column('MethodID', Integer, primary_key=True)
-    description = method_table.c.MethodDescription          # Column('MethodDescription', String, nullable=False)
-    link = method_table.c.MethodLink                        # Column('MethodLink', String)
+    id=Column('methodid', Integer, primary_key=True)
+    description= Column('methoddescription', String, nullable=False)
+    link=Column('methodlink', String)
 
     def __repr__(self):
         return "<Method('%s', '%s', '%s')>" % (self.id, self.description, self.link)
@@ -347,12 +378,13 @@ class VerticalDatumCV(Base):
         return "<VerticalDatumCV('%s', '%s')>" % (self.term, self.definition)
 '''
 class Sample(Base):
-    __tablename__ = 'Samples'
+    __tablename__ = 'samples'
+    __table_args__ = {u'schema': u'odm2'}
 
-    id = Column('SampleID', Integer, primary_key=True)
-    type = Column('SampleType', String, nullable=False)
-    lab_sample_code = Column('LabSampleCode', String, nullable=False)
-    lab_method_id = Column('LabMethodID', Integer, ForeignKey('ODM2.LabMethods.LabMethodID'), nullable=False)
+    id = Column('sampleid', Integer, primary_key=True)
+    type = Column('sampletype', String, nullable=False)
+    lab_sample_code = Column('labsamplecode', String, nullable=False)
+    lab_method_id = Column('labmethodid', Integer, ForeignKey('odm2.labmethods.labmethodid'), nullable=False)
 
     # relationships
     #lab_method = relationship(LabMethod)
@@ -361,12 +393,12 @@ class Sample(Base):
         return "<Sample('%s', '%s', '%s', '%s')>" % (self.id, self.type, self.lab_sample_code, self.lab_method_id)
 
 class Qualifier(Base):
-    __tablename__ = u'Annotations'
-    __table_args__ = {u'schema': u'ODM2'}
+    __tablename__ = u'annotations'
+    __table_args__ = {u'schema': u'odm2'}
 
-    id = Column('AnnotationID', Integer, primary_key=True)
-    code = Column('AnnotationCode', String, nullable=False)
-    description = Column('AnnotationText', String, nullable=False)
+    id = Column('annotationid', Integer, primary_key=True)
+    code = Column('annotationcode', String, nullable=False)
+    description = Column('annotationtext', String, nullable=False)
 
     def __repr__(self):
         return "<Qualifier('%s', '%s', '%s')>" % (self.id, self.code, self.description)
@@ -374,12 +406,12 @@ class Qualifier(Base):
 #TODO Table no longer exists
 class OffsetType(Base):
     
-    __tablename__ = u'TimeSeriesResults'
+    __tablename__ = u'timeseriesresults'
     __table_args__ = {u'schema': 'ODM2'}
 
-    id = Column('OffsetTypeID', Integer, primary_key=True)
-    unit_id = Column('ZLocationUnitsID', Integer, ForeignKey('ODM2.Units.UnitsID'), nullable=False)
-    description = Column('OffsetDescription', String)
+    id = Column('offsettypeid', Integer, primary_key=True)
+    unit_id = Column('zlocationunitsid', Integer, ForeignKey('odm2.units.unitsid'), nullable=False)
+    description = Column('offsetdescription', String)
 
     # relationships
     unit = relationship(Unit)
@@ -389,10 +421,10 @@ class OffsetType(Base):
 
 
 class QualityControlLevel(Base):
-    __tablename__ = u'ProcessingLevels'
+    __tablename__ = u'processinglevels'
     __table_args__ = {u'schema': u'ODM2'}
 
-    id = Column('ProcessingLevelID', Integer, primary_key=True)
+    id = Column('ProcessingLevelid', Integer, primary_key=True)
     code = Column('ProcessingLevelCode', String, nullable=False)
     definition = Column('Definition', String, nullable=False)
     explanation = Column('Explanation', String, nullable=False)
@@ -401,60 +433,76 @@ class QualityControlLevel(Base):
         return "<QualityControlLevel('%s', '%s', '%s', '%s')>" % (self.id, self.code, self.definition, self.explanation)
 
 
-'''
-def copy_data_value(from_dv):
-    new = DataValue()
-    new.data_value = from_dv.data_value
-    new.value_accuracy = from_dv.value_accuracy
-    new.local_date_time = from_dv.local_date_time
-    new.utc_offset = from_dv.utc_offset
-    new.date_time_utc = from_dv.date_time_utc
-    new.site_id = from_dv.site_id
-    new.variable_id = from_dv.variable_id
-    new.offset_value = from_dv.offset_value
-    new.offset_type_id = from_dv.offset_type_id
-    new.censor_code = from_dv.censor_code
-    new.qualifier_id = from_dv.qualifier_id
-    new.method_id = from_dv.method_id
-    new.source_id = from_dv.source_id
-    new.sample_id = from_dv.sample_id
-    new.derived_from_id = from_dv.derived_from_id
-    new.quality_control_level_id = from_dv.quality_control_level_id
-    return new
-'''
-'''
-class DataValue(Base):
-    __tablename__ = 'DataValues'
+timeseriesresultvalues_table = TimeSeriesResultValues.__table__
+# timeseriesresults_table = TimeSeriesResults.__table__
+feature_action_table = FeatureActions.__table__
+result_table = Results.__table__
+action_table = Actions.__table__
+action_by_table = ActionBy.__table__
 
-    id = Column('ValueID', Integer, primary_key=True)
-    data_value = Column('DataValue', Float)
-    value_accuracy = Column('ValueAccuracy', Float)
-    local_date_time = Column('LocalDateTime', DateTime)
-    utc_offset = Column('UTCOffset', Float)
-    date_time_utc = Column('DateTimeUTC', DateTime)
-    site_id = Column('SiteID', Integer, ForeignKey('Sites.SiteID'), nullable=False)
-    variable_id = Column('VariableID', Integer, ForeignKey('Variables.VariableID'), nullable=False)
-    offset_value = Column('OffsetValue', Float)
-    offset_type_id = Column('OffsetTypeID', Integer, ForeignKey('OffsetTypes.OffsetTypeID'))
-    censor_code = Column('CensorCode', String)
-    qualifier_id = Column('QualifierID', Integer, ForeignKey('Qualifiers.QualifierID'))
-    method_id = Column('MethodID', Integer, ForeignKey('Methods.MethodID'), nullable=False)
-    source_id = Column('SourceID', Integer, ForeignKey('Sources.SourceID'), nullable=False)
-    sample_id = Column('SampleID', Integer, ForeignKey('Samples.SampleID'))
-    derived_from_id = Column('DerivedFromID', Integer)
-    quality_control_level_id = Column('QualityControlLevelID', Integer,
-                                      ForeignKey('QualityControlLevels.QualityControlLevelID'), nullable=False)
+result_aliased_table = select([
+    result_table.c.resultid.label("RID"),
+    result_table.c.unitsid,
+    result_table.c.variableid,
+    result_table.c.sampledmediumcv,
+    result_table.c.featureactionid.label("FAID"),
+    result_table.c.processinglevelid,
+    result_table.c.valuecount,
+
+
+]).alias("ODM2_RESULT_Aliased")
+
+action_aliased_table = select([
+    action_table.c.actionid.label("AID"),
+    action_table.c.methodid,
+
+]).alias("ODM2_ACTION_ALIASED")
+
+action_by_aliased_table = select([
+    action_by_table.c.actionid.label("ABID"),
+    action_by_table.c.affiliationid,
+
+]).alias("ODM2_ACTION_BY_ALIASED")
+
+joined_table = timeseriesresultvalues_table.join(result_aliased_table, timeseriesresultvalues_table.c.resultid ==
+                                                 result_aliased_table.c.RID)
+joined_table = joined_table.join(feature_action_table, feature_action_table.c.featureactionid == result_aliased_table.c.FAID)
+joined_table = joined_table.join(action_aliased_table, feature_action_table.c.actionid == action_aliased_table.c.AID)
+joined_table = joined_table.join(action_by_aliased_table, action_aliased_table.c.AID == action_by_aliased_table.c.ABID)
+
+
+class DataValue(Base):
+    # __tablename__ = 'DataValues'
+    __table__ = joined_table
+
+    id = joined_table.c.odm2_timeseriesresultvalues_valueid
+    data_value = joined_table.c.odm2_timeseriesresultvalues_datavalue
+    value_accuracy = None ## question for jeff
+    local_date_time = joined_table.c.odm2_timeseriesresultvalues_valuedatetime
+    utc_offset = joined_table.c.odm2_timeseriesresultvalues_valuedatetimeutcoffset
+    date_time_utc = None ## column propertly datetimeutcoffset
+    site_id = joined_table.c.odm2_featureactions_samplingfeatureid
+    variable_id = joined_table.c.ODM2_RESULT_Aliased_variableid
+    offset_value = None ## Question for jeff
+    offset_type_id = None ## Question for Jeff
+    censor_code = joined_table.c.odm2_timeseriesresultvalues_censorcodecv
+    qualifier_id = None ## Join with annotations..
+    method_id = joined_table.c.ODM2_ACTION_ALIASED_methodid
+    source_id = joined_table.c.ODM2_ACTION_BY_ALIASED_affiliationid
+    sample_id = site_id ## Question for jeff
+    derived_from_id = None
+    quality_control_level_id = joined_table.c.odm2_timeseriesresultvalues_qualitycodecv
 
     # relationships
-    site = relationship(Site)
-    variable = relationship(Variable)
-    method = relationship(Method)
-    source = relationship(Source)
-    quality_control_level = relationship(QualityControlLevel)
-
-    qualifier = relationship(Qualifier)
-    offset_type = relationship(OffsetType)
-    sample = relationship(Sample)
+    # site = relationship(Site)
+    # variable = relationship(Variable)
+    # method = relationship(Method)
+    # source = relationship(Source)
+    # quality_control_level = relationship(QualityControlLevel)
+    #
+    # qualifier = relationship(Qualifier)
+    # offset_type = relationship(OffsetType)
+    # sample = relationship(Sample)
 
     def list_repr(self):
         return [self.id, self.data_value, self.value_accuracy, self.local_date_time,
@@ -463,97 +511,93 @@ class DataValue(Base):
                 self.method_id, self.source_id, self.sample_id, self.derived_from_id,
                 self.quality_control_level_id]
 
+    # def __repr__(self):
+    #     return "<DataValue('%s', '%s', '%s')>" % (self.id, self.data_value, self.local_date_time, self.value_accuracy)
+    #
     def __repr__(self):
-        return "<DataValue('%s', '%s', '%s')>" % (self.data_value, self.local_date_time, self.value_accuracy)
+        return "<DataValue(%s)>" % ', '.join([str(x) for x in self.list_repr()])
 
-def copy_series(from_series):
-    new = Series()
-    new.site_id = from_series.site_id
-    new.site_code = from_series.site_code
-    new.site_name = from_series.site_name
-    new.variable_id = from_series.variable_id
-    new.variable_code = from_series.variable_code
-    new.variable_name = from_series.variable_name
-    new.speciation = from_series.speciation
-    new.variable_units_id = from_series.variable_units_id
-    new.variable_units_name = from_series.variable_units_name
-    new.sample_medium = from_series.sample_medium
-    new.value_type = from_series.value_type
-    new.time_support = from_series.time_support
-    new.time_units_id = from_series.time_units_id
-    new.time_units_name = from_series.time_units_name
-    new.data_type = from_series.data_type
-    new.general_category = from_series.general_category
-    new.method_id = from_series.method_id
-    new.method_description = from_series.method_description
-    new.source_id = from_series.source_id
-    new.organization = from_series.organization
-    new.citation = from_series.citation
-    new.quality_control_level_id = from_series.quality_control_level_id
-    new.quality_control_level_code = from_series.quality_control_level_code
-    new.begin_date_time = from_series.begin_date_time
-    new.begin_date_time_utc = from_series.begin_date_time_utc
-    new.end_date_time_utc = from_series.end_date_time_utc
-    new.value_count = from_series.value_count
-    return new
-'''
-'''
-class SeriesCatalog(Base):
-    __tablename__ = 'SeriesCatalog'
 
-    id = Column('SeriesID', Integer, primary_key=True)
-    site_id = Column('SiteID', Integer, ForeignKey('Sites.SiteID'), nullable=False)
-    site_code = Column('SiteCode', String)
-    site_name = Column('SiteName', String)
-    variable_id = Column('VariableID', Integer, ForeignKey('Variables.VariableID'), nullable=False)
-    variable_code = Column('VariableCode', String)
-    variable_name = Column('VariableName', String)
-    speciation = Column('Speciation', String)
-    variable_units_id = Column('VariableUnitsID', Integer)
-    variable_units_name = Column('VariableUnitsName', String)
-    sample_medium = Column('SampleMedium', String)
-    value_type = Column('ValueType', String)
-    time_support = Column('TimeSupport', Float)
-    time_units_id = Column('TimeUnitsID', Integer)
-    time_units_name = Column('TimeUnitsName', String)
-    data_type = Column('DataType', String)
-    general_category = Column('GeneralCategory', String)
-    method_id = Column('MethodID', Integer, ForeignKey('Methods.MethodID'), nullable=False)
-    method_description = Column('MethodDescription', String)
-    source_id = Column('SourceID', Integer, ForeignKey('Sources.SourceID'), nullable=False)
-    source_description = Column('SourceDescription', String)
-    organization = Column('Organization', String)
-    citation = Column('Citation', String)
-    quality_control_level_id = Column('QualityControlLevelID', Integer,
-                                      ForeignKey('QualityControlLevels.QualityControlLevelID'), nullable=False)
-    quality_control_level_code = Column('QualityControlLevelCode', String)
-    begin_date_time = Column('BeginDateTime', DateTime)
-    end_date_time = Column('EndDateTime', DateTime)
-    begin_date_time_utc = Column('BeginDateTimeUTC', DateTime)
-    end_date_time_utc = Column('EndDateTimeUTC', DateTime)
-    value_count = Column('ValueCount', Integer)
+method_table = Methods().__table__
+processing_levels_table = ProcessingLevels().__table__
 
-    data_values = relationship("DataValue",
-                               primaryjoin="and_(DataValue.site_id == Series.site_id, "
-                                           "DataValue.variable_id == Series.variable_id, "
-                                           "DataValue.method_id == Series.method_id, "
-                                           "DataValue.source_id == Series.source_id, "
-                                           "DataValue.quality_control_level_id == Series.quality_control_level_id)",
-                               foreign_keys="[DataValue.site_id, DataValue.variable_id, DataValue.method_id, DataValue.source_id, DataValue.quality_control_level_id]",
-                               order_by="DataValue.local_date_time",
-                               backref="series")
 
-    site = relationship(Site)
-    variable = relationship(Variable)
-    method = relationship(Method)
-    source = relationship(Source)
-    quality_control_level = relationship(QualityControlLevel)
+joined_table = feature_action_table.join(result_aliased_table, result_table.c.featureactionid == feature_action_table.c.featureactionid)
+joined_table = joined_table.join(site_join, site_join.c.odm2_sites_samplingfeatureid == joined_table.c.odm2_featureactions_samplingfeatureid)
+joined_table = joined_table.join(variable_join, joined_table.c.ODM2_RESULT_Aliased_RID == variable_join.c.ODM2_Aliased_RID)
 
-    # TODO add all to repr
-    def __repr__(self):
-        return "<Series('%s')>" % (self.id)
+# Obtaining Action
+joined_table = joined_table.join(action_table, joined_table.c.odm2_featureactions_actionid == action_table.c.actionid)
 
-    def get_table_columns(self):
-        return self.__table__.columns.keys()
+# Obtaining Method
+joined_table = joined_table.join(method_table, joined_table.c.odm2_actions_methodid == method_table.c.methodid)
 
-'''
+# Obtaining Source
+joined_table = joined_table.join(action_by_table, joined_table.c.odm2_actions_actionid == action_by_table.c.actionid)
+joined_table = joined_table.join(source_join, joined_table.c.odm2_actionby_affiliationid == source_join.c.odm2_affiliations_affiliationid)
+
+# Obtaining Processing Level
+joined_table = joined_table.join(processing_levels_table, joined_table.c.ODM2_RESULT_Aliased_processinglevelid == processing_levels_table.c.processinglevelid)
+
+
+class Series:
+    pass
+#
+# class Series(Base):
+#     # __tablename__ = 'SeriesCatalog'
+#     __table__ = joined_table
+#
+#     id = joined_table.c.ODM2_RESULT_Aliased_RID
+#     site_id = joined_table.c.odm2_sites_samplingfeatureid
+#     site_code = joined_table.c.odm2_samplingfeatuers_samplingfeaturecode
+#     site_name = joined_table.c.odm2_samplingfeatuers_samplingfeaturename
+#     variable_id = joined_table.c.ODM2_RESULT_Aliased_variableid
+#     variable_code = joined_table.c.odm2_variables_variablecode
+#     variable_name = joined_table.c.odm2_variables_variablenamecv
+#     speciation = joined_table.c.odm2_variables_speciationcv
+#     variable_units_id = joined_table.c.ODM2_Aliased_unitsid
+#     variable_units_name = None #joined_table.c.
+#     sample_medium = joined_table.c.ODM2_RESULT_Aliased_sampledmediumcv
+#     value_type = joined_table.c.odm2_variables_variabletypecv
+#     time_support = joined_table.c.odm2_timeseriesresults_intendedtimespacing                 # Column('TimeSupport', Float, nullable=False)
+#     time_unit_id = joined_table.c.odm2_timeseriesresults_intendedtimespacingunitsid          # Column('TimeUnitsID', Integer, ForeignKey('Units.UnitsID'), nullable=False)
+#     data_type = joined_table.c.odm2_timeseriesresults_aggregationstatisticcv
+#     time_units_name = None # join with units
+#     general_category = None
+#     method_id = joined_table.c.odm2_methods_methodid
+#     method_description = joined_table.c.odm2_methods_methoddescription
+#     source_id = joined_table.c.odm2_affiliations_affiliationid
+#     description = joined_table.c.odm2_organizations_organizationdescription  # Column('OrganizationDescription', String, nullable=False)
+#     link = joined_table.c.odm2_organizations_organizationlink
+#     citation = None # please calculate
+#     quality_control_level_id = joined_table.c.odm2_processingLevels_processinglevelid
+#     quality_control_level_code = joined_table.c.odm2_processingLevels_processinglevelcode
+#     begin_date_time = joined_table.c.odm2_actions_begindatetime
+#     end_date_time = joined_table.c.odm2_actions_enddatetime
+#     begin_date_time_utc = None #Column('BeginDateTimeUTC', DateTime)
+#     end_date_time_utc = None #Column('EndDateTimeUTC', DateTime)
+#     value_count = joined_table.c.ODM2_RESULT_Aliased_valuecount
+#
+#     # data_values = relationship("DataValue",
+#     #                            primaryjoin="and_(DataValue.site_id == Series.site_id, "
+#     #                                        "DataValue.variable_id == Series.variable_id, "
+#     #                                        "DataValue.method_id == Series.method_id, "
+#     #                                        "DataValue.source_id == Series.source_id, "
+#     #                                        "DataValue.quality_control_level_id == Series.quality_control_level_id)",
+#     #                            foreign_keys="[DataValue.site_id, DataValue.variable_id, DataValue.method_id, DataValue.source_id, DataValue.quality_control_level_id]",
+#     #                            order_by="DataValue.local_date_time",
+#     #                            backref="series")
+#     #
+#     # site = relationship(Site)
+#     # variable = relationship(Variable)
+#     # method = relationship(Method)
+#     # source = relationship(Source)
+#     # quality_control_level = relationship(QualityControlLevel)
+#
+#     # TODO add all to repr
+#     def __repr__(self):
+#         return "<Series('%s')>" % (self.id)
+#
+#     def get_table_columns(self):
+#         return self.__table__.columns.keys()
+#

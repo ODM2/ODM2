@@ -4,13 +4,27 @@
 
 from sqlalchemy.ext.declarative import declarative_base
 
+class Singleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+            print "Singleton", cls._instances[cls]
+        return cls._instances[cls]
 
 class serviceBase(object):
 
-    def __init__(self,  connection, debug=False):
+    __metaclass__ = Singleton
 
-        self._session_factory = connection
-        self._session = connection.getSession()
+    def __init__(self,  session_factory, debug=False):
+
+        self._session_factory = session_factory
+        self._session = session_factory.getSession()
+        # self._session.autoflush = False
+        print "Session ", self._session
+
+        # print "ServiceBase Called!", self._session
 
 
         self._debug = debug
@@ -18,6 +32,8 @@ class serviceBase(object):
 
     #self._session_factory=""
    # def getSessionFactory( session = None):
+    def getSession(self):
+        return self._session
 
 
 class modelBase():
