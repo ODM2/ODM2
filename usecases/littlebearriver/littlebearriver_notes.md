@@ -1,7 +1,7 @@
 ODM2 Data Use Case:  Little Bear River
 ======================================
 
-The Little Bear River data are currently stored in a CUAHSI Hydrologic Information System (HIS) ODM Version 1.1.1 database in Microsoft SQL Server. The data consist of time series of hydrologic observations collected at aquatic and weather monitoring sites in the Little Bear River of Northern Utah, USA. Also included are water quality samples collected in the Little Bear River and analyzed for constutents such as sediment and nutrient concentrations.
+The Little Bear River data are currently stored in a CUAHSI Hydrologic Information System (HIS) ODM Version 1.1.1 database in Microsoft SQL Server. The data consist of time series of hydrologic observations collected at aquatic and weather monitoring sites in the Little Bear River of Northern Utah, USA. Also included are water quality samples collected in the Little Bear River and analyzed for constituents such as sediment and nutrient concentrations.
 
 [Documentation for ODM 1.1.1](http://hydroserver.codeplex.com/wikipage?title=Observations%20Data%20Model&referringTitle=Documentation) is available online. More information about the Little Bear River data is available [here](http://littlebearriver.usu.edu). This implementation exercise is development of a script to map and copy the Little Bear River data from an ODM 1.1.1 database to to an ODM2 database.
 
@@ -13,14 +13,14 @@ The following ODM2 schemas are required for the Little Bear River data use case:
 2. ODM2SamplingFeatures
 3. ODM2Results
 4. ODM2Annotations
-5. ODMCV (or it will when we implement it)
+5. ODMCV
 
-Eventually I could add the ODM2Equipment, ODM2Sensors, and ODM2DataQuality schemas because I have all of the information needed, there was just no place for it in my ODM1 database.
+Eventually I could add the ODM2Equipment and ODM2DataQuality schemas because I have all of the information needed, there was just no place for it in my ODM1 database.  For now, I have focused on moving what is already in my ODM 1.1.1 database into an ODM2 database.
 
 ## Implementation Notes for Sensor-Based Data ##
 
 #### SpatialReferences
-SpatialReferences in ODM2 are mostly the same as in ODM1.  Basically copied them straight across.
+SpatialReferences in ODM2 are mostly the same as in ODM1 except that they are not treated as a Controlled Vocabulary.  So, I basically copied them straight across.
 
 1. Set ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID = ODM1.SpatialReferences.SpatialReferenceID
 2. Set ODM2SamplingFeatures.SpatialReferences.SRSID = "CUAHSI:" & ODM1.SpatialReferences.SRSID - had to concatenate the CUAHSI string and cast this to VARCHAR(50) to be consistent with ODM2

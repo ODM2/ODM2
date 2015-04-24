@@ -7,7 +7,7 @@
 -- 3.  Right now it is hard-coded to an ODM 1.1.1 database called "LittleBearRiverODM" and
 -- an ODM2 database called "ODM2" - these names would need to be changed for running on 
 -- other database names
--- 4.  No other processes adding data to the database while this is being run
+-- 4.  No other processes adding data to the ODM2 database while this is being run
 --------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------
