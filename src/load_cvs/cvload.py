@@ -487,7 +487,7 @@ for count, (key, value) in enumerate(vocab):
                 obj.Name = voc.find(skos%"prefLabel").text
                 obj.Definition = voc.find(skos%"definition").text
                 obj.Category = category = voc.find(odm2%"category").text if voc.find(odm2 % "category") is not None else None
-                obj.SourceVocabularyURI = voc.attrib[rdf%"about"]
+                obj.SourceVocabularyUri = voc.attrib[rdf%"about"]
                 objs.append(obj)
             except:
                 pass
