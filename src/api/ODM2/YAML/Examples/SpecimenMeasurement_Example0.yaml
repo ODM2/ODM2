@@ -1,0 +1,37 @@
+---
+CZO Display File: {Version: 2.0.0, Profile: SpecimenMeasurement, CZODisplayFileSpecificationLink: http://criticalzone.org/images/national/associated-files/1National/CZO_Display_File_Format_Specifications_2011-01-31.pdf}
+
+
+
+
+MeasurementResultValues:
+  Column_Definitions:
+    - {ColumnNumber: 1, ColumnLabel: SpecimenCode, ODM2Field: SpecimenCode}
+    - {ColumnNumber: 2, ColumnLabel: ??, ODM2Field: ??}
+    - {ColumnNumber: 3, ColumnLabel: Var1, Result: *ResultID001, ODM2Field: DataValue, CensorCodeCV: NC}
+    - {ColumnNumber: 4, ColumnLabel: Var2, Result: *ResultID002, ODM2Field: DataValue}
+    - {ColumnNumber: 5, ColumnLabel: Var3, Result: *ResultID003, ODM2Field: DataValue}
+  Data_Table: [[
+SpecimenCode, ??, Var1, Var2, Var3,],[
+"XYZ1",-7.0,-9.56,-9.31,-9.87,],[
+"XYZ2",-7.0,-10.1,-9.19,-11.73,],[
+"XYZ3",-7.0,-10.19,-9.13,-11.25,],[
+"XYZ4",-7.0,-9.74,-9.13,-11.15,],[
+"XYZ5",-7.0,-9.37,-8.94,-10.29,],[
+"XYZ6",-7.0,-10.65,-8.65,-13.52,],[
+]]
+
+  ResultUUID_Table: [[
+SpecimenCode, ??, Var1, Var2, Var3,],[
+"XYZ1",-7.0,-9.56,-9.31,-9.87,],[
+"XYZ2",-7.0,-10.1,-9.19,-11.73,],[
+"XYZ3",-7.0,-10.19,-9.13,-11.25,],[
+"XYZ4",-7.0,-9.74,-9.13,-11.15,],[
+"XYZ5",-7.0,-9.37,-8.94,-10.29,],[
+"XYZ6",-7.0,-10.65,-8.65,-13.52,],[
+]]
+
+
+
+
+...

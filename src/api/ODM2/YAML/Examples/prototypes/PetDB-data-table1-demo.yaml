@@ -1,0 +1,188 @@
+---
+EarthChem YODA (YAML ODM2 Data Archive) File: {Version: 2.0.0, Profile: IEDA EarthChem}
+
+Dataset: # [Required] Applies to entire file
+  DataSetUUID: "000000000000000000001"
+  DataSetTypeCV: TableInReference
+  DataSetCode: 2455-EA 5
+  DataSetTitle: ELEMENTAL FLUX FROM THE SUBDUCTED COMPONENTS AND THE MANTLE WEDGE
+  DataSetAbstract:
+  
+Citation: # [Required] Applies to entire file
+  DataSetCitations.RelationshipTypeCV: IsPartOf       # DataSet is [RelationshipType] of Citation
+  Title:    HAFNIUM ISOTOPE EVIDENCE FOR SLAB MELT CONTRIBUTIONS IN THE CENTRAL MEXICAN VOLCANIC BELT AND IMPLICATIONS FOR SLAB MELTING IN HOT AND COLD SLAB ARCS
+  Publisher: 
+  Journal:    "CHEMICAL GEOLOGY; Vol: 377; pg: 45-55" # Example of adding an extension property
+  PubliationYear: 2014
+  CitationLink:   http://dx.doi.org/10.1016/j.chemgeo.2014.04.002
+
+Authors: # [Required] Applies to entire file
+- {PersonFirstName: Y, PersonMiddleName: "", PersonLastName:  CAI, AuthorOrder: 1}
+- {PersonFirstName: S, PersonMiddleName: L, PersonLastName:   GOLDSTEIN, AuthorOrder: 2}
+- {PersonFirstName: C, PersonMiddleName: H, PersonLastName:   LANGMUIR, AuthorOrder: 3}
+- {PersonFirstName: A, PersonMiddleName: "", PersonLastName:  GOMEZ-TUENA, AuthorOrder: 4}
+- {PersonFirstName: A, PersonMiddleName: L, PersonLastName:  MARTIN-DEL POZZO, AuthorOrder: 5}
+- {PersonFirstName: G, PersonMiddleName: "", PersonLastName:  CARRASCO-NUNEZ, AuthorOrder: 6}
+
+SpatialReferences:
+- &SRSID001 {SpatialReferenceID: 2, SRSCode: EPSG4269, SRSName: NAD83, SRSDescription: ""}
+- &SRSID002 {SpatialReferenceID: 340, SRSCode: "", SRSName: Local Coordinate System, SRSDescription: Coordinates are expressed in meters from the local site datum.}
+
+SamplingFeatures:
+#Expeditions/Cruises
+- &SamplingFeatureID001 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: ShipTrack, SamplingFeatureCode: SomeCodeForShiptrack, SamplingFeatureName: SomeNameForShiptrack, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: PolyLine, FeatureGeometry: Well known text here}
+- &SamplingFeatureID002 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: ShipTrack, SamplingFeatureCode: SomeCodeForShiptrack, SamplingFeatureName: SomeNameForShiptrack, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: PolyLine, FeatureGeometry: Well known text here}
+- &SamplingFeatureID003 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: ShipTrack, SamplingFeatureCode: SomeCodeForShiptrack, SamplingFeatureName: SomeNameForShiptrack, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: PolyLine, FeatureGeometry: Well known text here}
+- &SamplingFeatureID004 {SamplingFeatureUUID: "000000000000000000000", SamplingFeatureTypeCV: ShipTrack, SamplingFeatureCode: SomeCodeForShiptrack, SamplingFeatureName: SomeNameForShiptrack, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: PolyLine, FeatureGeometry: Well known text here}
+#Stations
+- &SamplingFeatureID005 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:   *SamplingFeatureID001, SamplingFeature.RelationshipTypeCV: ChildOf, SamplingFeatureTypeCV: Station, SamplingFeatureCode: PETDB-2455-NEVADO DE TOLUCA, SamplingFeatureName: SomeStationCode1, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID006 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:   *SamplingFeatureID001, SamplingFeature.RelationshipTypeCV: ChildOf, SamplingFeatureTypeCV: Station, SamplingFeatureCode: PETDB-2455-POPOCATEPETL, SamplingFeatureName: SomeStationCode2, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID007 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:   *SamplingFeatureID001, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Station, SamplingFeatureCode: PETDB-2455-PICO DE ORIZABA, SamplingFeatureName: SomeStationCode3, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID008 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:   *SamplingFeatureID001, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Station, SamplingFeatureCode: PETDB-2455-SIERRA CHICHINAUTZIN VOLCANIC FIELD, SamplingFeatureName: SomeStationCode4, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID009 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:   *SamplingFeatureID001, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Station, SamplingFeatureCode: PETDB-2455-COFRE DE PEROTE, SamplingFeatureName: SomeStationCode5, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0010 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID002, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Station, SamplingFeatureCode: DSDP066-0487, SamplingFeatureName: SomeStationCode6, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0011 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID003, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Station, SamplingFeatureCode: CON0010-244, SamplingFeatureName: SomeStationCode7, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0012 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID004, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Station, SamplingFeatureCode: VEM0018-329, SamplingFeatureName: SomeStationCode8, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+#Specimens -- Whole Rock
+- &SamplingFeatureID0013 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID005, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: SomeSpecimenName1, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0014 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID005, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode2, SamplingFeatureName: SomeSpecimenName2, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0015 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID006, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode3, SamplingFeatureName: SomeSpecimenName3, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0016 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID006, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode4, SamplingFeatureName: SomeSpecimenName4, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0017 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID007, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode5, SamplingFeatureName: SomeSpecimenName5, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0018 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID007, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode6, SamplingFeatureName: SomeSpecimenName6, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0019 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID008, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode7, SamplingFeatureName: SomeSpecimenName7, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0020 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID008, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode8, SamplingFeatureName: SomeSpecimenName8, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0021 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID009, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode9, SamplingFeatureName: SomeSpecimenName1, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0022 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID009, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode10, SamplingFeatureName: SomeSpecimenName2, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0023 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0010, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode11, SamplingFeatureName: SomeSpecimenName3, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0024 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0010, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode12, SamplingFeatureName: SomeSpecimenName4, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0025 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0011, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode13, SamplingFeatureName: SomeSpecimenName5, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0026 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0011, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode14, SamplingFeatureName: SomeSpecimenName6, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0027 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0012, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode15, SamplingFeatureName: SomeSpecimenName7, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0028 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0012, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode16, SamplingFeatureName: SomeSpecimenName8, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+
+#Specimens -- Minerals
+- &SamplingFeatureID0029 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0013, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: SomeSpecimenCode1, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0030 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0013, SamplingFeature.RelationshipTypeCV: ChildOf,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: SomeSpecimenCode2, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+## NEED TO: create separate RelatedFeatures & SpatialOffsets blocks
+- &SamplingFeatureID0031 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0013,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: SomeSpecimenCode3, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0032 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0013,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: SomeSpecimenCode4, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0033 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0013,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: SomeSpecimenCode5, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0034 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0013,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode1, SamplingFeatureName: SomeSpecimenCode6, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0035 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0014,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode2, SamplingFeatureName: SomeSpecimenCode7, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0036 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0014,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode2, SamplingFeatureName: SomeSpecimenCode8, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0037 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0015,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode3, SamplingFeatureName: SomeSpecimenCode1, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0038 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0015,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode3, SamplingFeatureName: SomeSpecimenCode2, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0039 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0016,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode4, SamplingFeatureName: SomeSpecimenCode3, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0040 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0016,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode4, SamplingFeatureName: SomeSpecimenCode4, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0041 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0017,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode5, SamplingFeatureName: SomeSpecimenCode5, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0042 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0017,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode5, SamplingFeatureName: SomeSpecimenCode6, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0043 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0018,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode6, SamplingFeatureName: SomeSpecimenCode7, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0044 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0018,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode6, SamplingFeatureName: SomeSpecimenCode8, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+
+#Specimens -- Inclusions
+- &SamplingFeatureID0045 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0029,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode2, SamplingFeatureName: SomeSpecimenCode7, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0046 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0029,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode2, SamplingFeatureName: SomeSpecimenCode8, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0047 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0029,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode3, SamplingFeatureName: SomeSpecimenCode1, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0048 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0030,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode3, SamplingFeatureName: SomeSpecimenCode2, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0049 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0030,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode4, SamplingFeatureName: SomeSpecimenCode3, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+- &SamplingFeatureID0050 {SamplingFeatureUUID: "000000000000000000000", RelatedFeatureID:  *SamplingFeatureID0030,  SamplingFeatureTypeCV: Specimen, SamplingFeatureCode: SpecimenCode4, SamplingFeatureName: SomeSpecimenCode4, SamplingFeatureDescription: , SamplingFeatureGeoTypeCV: Point, FeatureGeometry: Well known text here, Elevation_m: 2629.2, ElevationDatumCV: EGM96}
+
+Specimens:
+  Specimen:
+  #- {SamplingFeatureID: *SamplingFeatureID001, SiteTypeCV: Atmosphere, Latitude: 41.864805, Longitude: -111.507494, LatLonDatumID: *SRSID001}
+
+  ColumnDefinitions:
+   - {ColumnNumber: 1, ColumnLabel: SamplingFeatureID, ODM2Field: SamplingFeatureID }
+   - {ColumnNumber: 2, ColumnLabel: SpecimenTypeCV, ODM2Field: SpecimenTypeCV}
+   - {ColumnNumber: 3, ColumnLabel: IsFieldSpecimen, ODM2Field: IsFieldSpecimen}
+   - {ColumnNumber: 4, ColumnLabel: MineralType, ODM2Field: TaxonomicClassifierName, TaxonomicClassifierTypeCV: Mineral}
+   - {ColumnNumber: 5, ColumnLabel: OtherType, ODM2Field: TaxonomicClassifierName, TaxonomicClassifierTypeCV: OtherType}
+     
+  Specimen_Table: [[
+    SamplingFeatureID, SpecimenTypeCV,IsFieldSpecimen,MineralType,],[
+    *SamplingFeatureID0013,Whole Rock,False,~ ,~ ],[
+    *SamplingFeatureID0014,Whole Rock,False,null  ,null  ],[
+    *SamplingFeatureID0015,Whole Rock,False,'',''],[
+    *SamplingFeatureID0016,Whole Rock,False,'',''],[
+    *SamplingFeatureID0017,Whole Rock,False,'',''],[
+    *SamplingFeatureID0018,Whole Rock,False,'',''],[
+    *SamplingFeatureID0019,Whole Rock,False,'',''],[
+    *SamplingFeatureID0020,Whole Rock,False,'',''],[
+    *SamplingFeatureID0021,Whole Rock,False,'',''],[
+    *SamplingFeatureID0022,Whole Rock,False,'',''],[
+    *SamplingFeatureID0023,Whole Rock,False,'',''],[
+    *SamplingFeatureID0024,Whole Rock,False,'',''],[
+    *SamplingFeatureID0025,Whole Rock,False,'',''],[
+    *SamplingFeatureID0026,Whole Rock,False,'',''],[
+    *SamplingFeatureID0027,Whole Rock,False,'',''],[
+    *SamplingFeatureID0028,Whole Rock,False,'',''],[
+    *SamplingFeatureID0029,Mineral,False,PLAG,''],[
+    *SamplingFeatureID0030,Mineral,False,PLAG,''],[
+    *SamplingFeatureID0031,Mineral,False,OL,''],[
+    *SamplingFeatureID0032,Mineral,False,OL,''],[
+    *SamplingFeatureID0033,Mineral,False,OL,''],[
+    # below wrong number of columns
+    *SamplingFeatureID0034,Mineral,False,CPX,''],[
+    *SamplingFeatureID0035,Mineral,False,CPX,''],[
+    *SamplingFeatureID0036,Mineral,False,CPX,''],[
+    *SamplingFeatureID0037,Mineral,False,OPX,'',RIM,''],[
+    *SamplingFeatureID0038,Mineral,False,OPX,'',RIM,''],[
+    *SamplingFeatureID0039,Mineral,False,OPX,'',RIM,''],[
+    *SamplingFeatureID0040,Mineral,False,SP,'',RIM,''],[
+    *SamplingFeatureID0041,Mineral,False,SP,'',RIM,''],[
+    *SamplingFeatureID0042,Mineral,False,SP,'',RIM,''],[
+    *SamplingFeatureID0043,Mineral,False,AMPH,'',RIM,''],[
+    *SamplingFeatureID0044,Mineral,False,AMPH,'',RIM,''],[
+    *SamplingFeatureID0045,Mineral,False,PLAG,GLASS,RIM,''],[
+    *SamplingFeatureID0046,Mineral,False,PLAG,GLASS,RIM,''],[
+    *SamplingFeatureID0047,Mineral,False,PLAG,GLASS,RIM,''],[
+    *SamplingFeatureID0048,Mineral,False,PLAG,GLASS,RIM,''],[
+    *SamplingFeatureID0049,Mineral,False,PLAG,GLASS,RIM,''],[
+    *SamplingFeatureID0050,Mineral,False,PLAG,FLUID,RIM,'']]
+
+Methods:
+- &MethodID001 {MethodTypeCV: SpecimenCollection, MethodCode: Colect, MethodName: Name of Method 1, MethodDescription: 123x, MethodLink: "", OrganizationID: ""}
+- &MethodID002 {MethodTypeCV: Lab Analyses, MethodCode: EMP, MethodName: Name of Method 2, MethodDescription: VG SECTOR 54, MethodLink: "" , OrganizationID: ""}
+- &MethodID003 {MethodTypeCV: Lab Analyses, MethodCode: ICPMS, MethodName: Name of Method 3, MethodDescription: ICPMS, MethodLink: "", OrganizationID: ""}
+
+Actions:
+- &ActionID001 {ActionTypeCV: Collection, MethodID: *MethodID001, BeginDateTime: "", BeginDateTimeUTCOffset: , EndDateTime: "", EndDateTimeUTCOffset: , ActionDescription: Blabla., ActionFileLink: ""}
+- &ActionID002 {ActionTypeCV: Collection, MethodID: *MethodID001, BeginDateTime: "", BeginDateTimeUTCOffset: , EndDateTime: "", EndDateTimeUTCOffset: , ActionDescription: Blaba., ActionFileLink: ""}
+- &ActionID003 {ActionTypeCV: Collection, MethodID: *MethodID001, BeginDateTime: "", BeginDateTimeUTCOffset: , EndDateTime: "", EndDateTimeUTCOffset: , ActionDescription: Blaba., ActionFileLink: ""}
+- &ActionID004 {ActionTypeCV: Observation, MethodID: *MethodID002, BeginDateTime: "", BeginDateTimeUTCOffset: , EndDateTime: "", EndDateTimeUTCOffset: , ActionDescription: Blaba., ActionFileLink: ""}
+- &ActionID005 {ActionTypeCV: Observation, MethodID: *MethodID002, BeginDateTime: "", BeginDateTimeUTCOffset: , EndDateTime: "", EndDateTimeUTCOffset: , ActionDescription: Blaba., ActionFileLink: ""}
+- &ActionID006 {ActionTypeCV: Observation, MethodID: *MethodID003, BeginDateTime: "", BeginDateTimeUTCOffset: , EndDateTime: "", EndDateTimeUTCOffset: , ActionDescription: Blaba., ActionFileLink: ""}
+
+Variables:
+- &VariableID001 {VariableTypeCV: MAJ, VariableCode: SiO2, VariableNameCV: SiO2, VariableDefinition: ""}
+- &VariableID002 {VariableTypeCV: MAJ, VariableCode: AlO2, VariableNameCV: AlO2, VariableDefinition: ""}
+- &VariableID003 {VariableTypeCV: IR, VariableCode: Sr87_Sr86, VariableNameCV: Sr87_Sr86, VariableDefinition: ""}
+- &VariableID004 {VariableTypeCV: IR, VariableCode: Nd143_Nd144, VariableNameCV: Nd143_Nd144, VariableDefinition: ""}
+
+Units:
+- &UnitID001 {UnitsID: 1, UnitsName: wt%, UnitsTypeCV: "", UnitsAbbreviation: wt%}
+- &UnitID002 {UnitsID: 2, UnitsName: permil, UnitsTypeCV: "", UnitsAbbreviation: permil%}
+
+ProcessingLevels:
+- &ProcessingLevelID001 {ProcessingLevelCode: "?", Definition: "??", Explanation: "??"}
+
+# Results and ResultUUIDs are auto-generated by the unique combination of SamplingFeature x Actions x Variable/Units/ProcessingLevel
+
+ResultValues_Matrix:
+  ColumnDefinitions:
+    - {ColumnNumber: 1, ColumnLabel: SampleID, ODM2Field: SamplingFeatureID}
+    - {ColumnNumber: 2, ColumnLabel: SiO2, ODM2Field: MeasurementResultValues.DataValue, Method: *MethodID002, Variable: *VariableID001, Units: *UnitID001}
+    - {ColumnNumber: 3, ColumnLabel: AlO2, ODM2Field: MeasurementResultValues.DataValue, Method: *MethodID002, Variable: *VariableID002, Units: *UnitID001}
+    - {ColumnNumber: 4, ColumnLabel: Sr87_Sr86, ODM2Field: MeasurementResultValues.DataValue, Action: *ActionID006, Variable: *VariableID003, Units: *UnitID002, }
+    - {ColumnNumber: 5, ColumnLabel: Nd143_Nd144, ODM2Field: MeasurementResultValues.DataValue, Action: *ActionID006, Variable: *VariableID004, Units: *UnitID002}
+    - {ColumnNumber: 6, ColumnLabel: ActionID_for_AlO2, ODM2Field: ActionID}
+    - {ColumnNumber: 7, ColumnLabel: ActionID_for_AlO2, ODM2Field: ActionID}
+ 
+# For Demo, only show data for 4 specimen below      
+  Results_Table: [[
+SampleID,SiO2,AlO2,Sr87_Sr86,Nd143_Nd144,],[
+*SamplingFeatureID0013,-9.56,-9.31,0.5,0.8,],[
+*SamplingFeatureID0013,46.0,56.9,0.73,0.6,],[
+*SamplingFeatureID0029,42.5,43.8,0.25,0.7,],[
+*SamplingFeatureID0030,54.8,44.5,0.15,0.23,]]

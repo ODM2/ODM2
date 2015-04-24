@@ -1,0 +1,44 @@
+\doc
+TITLE,Christina Watershed Well Water Levels  
+ABSTRACT,Well Water Levels
+INVESTIGATOR, Denis Newbold, Stroud Water Research Center, 970 Spencer Road, Avondale, PA 19311, newbold@stroudcenter.org
+VARIABLES, Water Level
+KEYWORDS, well, groundwater, white clay creek, stroud water research center,christina river
+CITATION, Well Water Level data collected by Stroud Water Research Center
+PUBLICATIONS 
+COMMENTS 
+DEFAULT_PARAMETER. NoDataValue=-9999
+DEFAULT_PARAMETER. TimeSupport=0
+DEFAULT_PARAMETER. TimeSupportUnits=hr
+DEFAULT_PARAMETER. SampleMedium=Not Relevant
+DEFAULT_PARAMETER. SampleType=No Sample
+DEFAULT_PARAMETER. ValueType=Derived Value
+DEFAULT_PARAMETER. DataLevel=1
+DEFAULT_PARAMETER. UTCOffset=-5
+DEFAULT_PARAMETER. TimeZone=EST
+DEFAULT_PARAMETER. CensorCode=nc
+
+\header
+COL1,label=ValueAttribute,value=SiteCode
+COL2,label=ValueAttribute,value=dateTime,format = yyyyMMdd H:mm
+COL3,label=VariableName,value=Water level,units=m,method=manual_waterlevel,datatype=Sporadic
+COL4,label=VariableName,value=Water level,units=m,method=auto_waterlevel,datatype=Continuous
+\data
+WELL003,20110117 14:17,101.4,-9999
+WELL003,20110128 16:51,101.43,-9999
+WELL003,20110128 17:24,-9999,101.43
+WELL003,20110128 17:30,-9999,101.43
+WELL003,20110128 17:45,-9999,101.43
+WELL003,20110128 18:00,-9999,101.43
+WELL003,20110128 18:15,-9999,101.43
+WELL003,20110128 18:30,-9999,101.43
+WELL003,20110128 18:45,-9999,101.43
+WELL003,20110128 19:00,-9999,101.43
+WELL003,20110128 19:15,-9999,101.43
+WELL003,20110128 19:30,-9999,101.43
+WELL003,20110128 19:45,-9999,101.43
+WELL003,20110128 20:00,-9999,101.43
+WELL003,20110128 20:15,-9999,101.43
+WELL003,20110128 20:30,-9999,101.43
+WELL003,20110128 20:45,-9999,101.43
+WELL003,20110128 21:00,-9999,101.43

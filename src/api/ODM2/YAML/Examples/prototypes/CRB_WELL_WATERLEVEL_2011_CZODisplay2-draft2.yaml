@@ -1,0 +1,71 @@
+CZO Display File: {Profile: HydroTimeSeries, Version: 2.0}
+DataSet_Attributes:
+  CitationForDataset:
+    Authors:
+    - {OrcID: 0000-0002-1998-3479, Person: Denis Newbold}
+    - {OrcID: 0000-0002-1998-3479, Person: Anthony Aufdenkampe}
+    CitationLink: http://czo.stroudcenter.org/data/hydrology/CRB_WELL_WATERLEVEL_1988_2008.csv
+    PublicationYear: 2012
+    Publisher: Stroud Water Research Center
+  DataSetAnnotations: ''
+  DataSetType: TimeSeriesTable
+  DataSetUUID: abcdefg1234567
+  DatasetAbstract: Groundwater levels collected from wells in the Christina River
+    Basin by the Stroud Water Research Center.
+  DatasetCode: CRB_WellLevels2011
+  DatasetTitle: Christina Watershed Well Water Levels
+  Versions: {PriorVersionDataSetUUID: 'NULL', VersionCode: 0.1.1}
+Method_Attributes:
+  Method_DEFAULT_Attributes: {MethodType: Hydrological, MethodsFileLink: 'http://czo.stroudcenter.org/data/data-management-cyberinfrastructure/CZO_CRB_METHODS.csv'}
+  Method_Table:
+  - [MANUAL_WATERLEVEL, '', Water level determined from manual depth to water measurement
+      and well elevation, '']
+  - [AUTO_WATERLEVEL, '', Water level determined from continuous data logger water
+      depth measurements and well elevation, '']
+  Method_TableColumns: [MethodCode, MethodName, MethodDescription, '']
+Observation_Attributes:
+  Observation_DEFAULT_Attributes: {NoDataValue: -9999, ProcessingLevel: 1, ResultType: TimeSeries,
+    SampledMedium: groundwater, TimeAggregationInterval: 0, TimeAggregationIntervalUnits: hr,
+    UTCOffset: -5}
+  Observation_TableColumns:
+  - COLUMN_ATTRIBUTES:
+    - {label: SiteCode, position: 1, type: COLUMN_ATTRIBUTES, value: SiteCode}
+    - {format: 'yyyyMMdd H:mm', label: DateTime (EST), position: 2, type: COLUMN_ATTRIBUTES,
+      value: dateTime}
+    - {datatype: Sporadic, label: Water_level_m (manual), method: manual_waterlevel,
+      position: 3, type: COLUMN_ATTRIBUTES, units: m, value: Water level}
+    - {datatype: Continuous, label: 'Water_level_m (logger}', method: auto_waterlevel,
+      position: 4, type: COLUMN_ATTRIBUTES, units: m, value: Water level}
+    DATA:
+    - [WELL003, '20110117 14:17', 101.4, -9999, '']
+    - [WELL003, '20110128 16:51', 101.43, -9999, '']
+    - [WELL003, '20110128 17:24', -9999, 101.43, '']
+    - [WELL003, '20110128 17:30', -9999, 101.43, '']
+    - [WELL003, '20110128 17:45', -9999, 101.43, '']
+    - [WELL003, '20110128 18:00', -9999, 101.43, '']
+    - [WELL003, '20110128 18:15', -9999, 101.43, '']
+    - [WELL003, '20110128 18:30', -9999, 101.43, '']
+    - [WELL003, '20110128 18:45', -9999, 101.43, '']
+    - [WELL003, '20110128 19:00', -9999, 101.43, '']
+    - [WELL003, '20110128 19:15', -9999, 101.43, '']
+    - [WELL003, '20110128 19:30', -9999, 101.43, '']
+    - [WELL003, '20110128 19:45', -9999, 101.43, '']
+    - [WELL003, '20110128 20:00', -9999, 101.43, '']
+    - [WELL003, '20110128 20:15', -9999, 101.43, '']
+    - [WELL003, '20110128 20:30', -9999, 101.43, '']
+    - [WELL003, '20110128 20:45', -9999, 101.43, '']
+    - [WELL003, '20110128 21:00', -9999, 101.43, '']
+    - [WELL003, '20110128 21:15', -9999, 101.43, '']
+    VARIABLES:
+    - DEFAULTS: {CensorCode: nc, SampleType: No Sample, ValueType: Derived Value}
+      name: Water Level
+      type: variable
+SamplingFeature_Attributes:
+  SamplingFeature_DEFAULT_Attributes: {ElevationDatum: NAD83, LatLonDatum_SRSCode: WGS84,
+    SamplingFeatureType: Site, SiteType: Well, SitesFileLink: 'http://czo.stroudcenter.org/data/data-management-cyberinfrastructure/CRB_SITES.csv'}
+  SamplingFeature_Table:
+  - [WELL003, 39.86231721, -75.78329371, 102.95187, '']
+  - [WELL004, 39.86232285, -75.78329327, 102.970454, '']
+  - [WELL005, 39.86232964, -75.78329472, 102.941, '']
+  SamplingFeature_TableColumns: [SamplingFeatureCode, Latitude, Longitude, Elevation,
+    '']
