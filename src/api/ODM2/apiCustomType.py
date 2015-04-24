@@ -29,6 +29,7 @@ def compiles_as_bound(cls):
             return format % (el, path)
 
         else:
+            #postgres
             el = element.name
             path = '"odm2"."samplingfeatures"."FeatureGeometry"'
             format = "%s(%s)"

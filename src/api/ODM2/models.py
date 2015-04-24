@@ -414,7 +414,7 @@ class Organizations(Base):
     OrganizationTypeCV = Column('organizationtypecv',  ForeignKey('odm2.cv_organizationtype.name'), nullable=False, index=True)
     OrganizationCode = Column('organizationcode', String(50), nullable=False)
     OrganizationName = Column('organizationname', String(255), nullable=False)
-    OrganizationDescription = Column('organizationsdescription', String(500))
+    OrganizationDescription = Column('organizationdescription', String(500))
     OrganizationLink = Column('organizationlink',String(255))
     ParentOrganizationID = Column('parentorganizationid',  ForeignKey('odm2.organizations.organizationid'))
 
