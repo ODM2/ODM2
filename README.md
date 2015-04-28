@@ -39,3 +39,6 @@ We are working to develop a community information model to extend interoperabili
 
 ![ODM2 Schematic](/doc/images/odm2_schematic.jpg)
 
+### Credits
+
+This work was supported by National Science Foundation Grant [EAR-1224638](http://www.nsf.gov/awardsearch/showAward?AWD_ID=1224638). Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. 
