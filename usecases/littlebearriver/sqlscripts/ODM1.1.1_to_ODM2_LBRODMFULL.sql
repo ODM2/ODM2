@@ -7,7 +7,7 @@
 -- 3.  Right now it is hard-coded to an ODM 1.1.1 database called "LittleBearRiverODM" and
 -- an ODM2 database called "ODM2" - these names would need to be changed for running on 
 -- other database names
--- 4.  No other processes adding data to the database while this is being run
+-- 4.  No other processes adding data to the ODM2 database while this is being run
 --------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ FROM LittleBearRiverODM.dbo.OffsetTypes;
 ALTER TABLE ODM2.ODM2.SamplingFeatures ADD CONSTRAINT DF_SamplingFeatureUUID DEFAULT NEWSEQUENTIALID() FOR SamplingFeatureUUID;
 SET IDENTITY_INSERT ODM2.ODM2.SamplingFeatures ON; 
 INSERT INTO ODM2.ODM2.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureCode, SamplingFeatureName, SamplingFeatureDescription, SamplingFeatureGeoTypeCV, FeatureGeometry, Elevation_m, ElevationDatumCV)
-SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.SiteCode AS SamplingFeatureCode, s.SiteName AS SamplingFeatureName, s.Comments AS SamplingFeatureDescription, '2D-Point' AS SamplingFeatureGeoTypeCV,
+SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.SiteCode AS SamplingFeatureCode, s.SiteName AS SamplingFeatureName, s.Comments AS SamplingFeatureDescription, 'Point' AS SamplingFeatureGeoTypeCV,
 	geometry::Point(s.Longitude, s.Latitude, sr.SRSID) AS FeatureGeometry, s.Elevation_m, VerticalDatum AS ElevationDatumCV
 FROM LittleBearRiverODM.dbo.Sites s, LittleBearRiverODM.dbo.SpatialReferences sr
 WHERE s.LatLongDatumID = sr.SpatialReferenceID
@@ -67,6 +67,8 @@ SELECT UnitsID, UnitsType AS UnitsTypeCV, UnitsAbbreviation, UnitsName, 'http://
 FROM LittleBearRiverODM.dbo.Units 
 ORDER BY UnitsID;
 SET IDENTITY_INSERT ODM2.ODM2.Units OFF;
+
+--TODO:  Got stuck here on updating my script because UnitsTypeCv is incomplete.  Pick up here once the UnitsTypeCV is complete
 
 ------------------------------------------------------------------------------------------------
 --Populate the ODM2.ProcessingLevels table (Equivalent to QualityControlLevels in ODM 1.1)

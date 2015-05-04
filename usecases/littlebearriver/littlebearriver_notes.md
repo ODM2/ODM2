@@ -1,7 +1,7 @@
 ODM2 Data Use Case:  Little Bear River
 ======================================
 
-The Little Bear River data are currently stored in a CUAHSI Hydrologic Information System (HIS) ODM Version 1.1.1 database in Microsoft SQL Server. The data consist of time series of hydrologic observations collected at aquatic and weather monitoring sites in the Little Bear River of Northern Utah, USA. Also included are water quality samples collected in the Little Bear River and analyzed for constutents such as sediment and nutrient concentrations.
+The Little Bear River data are currently stored in a CUAHSI Hydrologic Information System (HIS) ODM Version 1.1.1 database in Microsoft SQL Server. The data consist of time series of hydrologic observations collected at aquatic and weather monitoring sites in the Little Bear River of Northern Utah, USA. Also included are water quality samples collected in the Little Bear River and analyzed for constituents such as sediment and nutrient concentrations.
 
 [Documentation for ODM 1.1.1](http://hydroserver.codeplex.com/wikipage?title=Observations%20Data%20Model&referringTitle=Documentation) is available online. More information about the Little Bear River data is available [here](http://littlebearriver.usu.edu). This implementation exercise is development of a script to map and copy the Little Bear River data from an ODM 1.1.1 database to to an ODM2 database.
 
@@ -13,14 +13,14 @@ The following ODM2 schemas are required for the Little Bear River data use case:
 2. ODM2SamplingFeatures
 3. ODM2Results
 4. ODM2Annotations
-5. ODMCV (or it will when we implement it)
+5. ODMCV
 
-Eventually I could add the ODM2Equipment, ODM2Sensors, and ODM2DataQuality schemas because I have all of the information needed, there was just no place for it in my ODM1 database.
+Eventually I could add the ODM2Equipment and ODM2DataQuality schemas because I have all of the information needed, there was just no place for it in my ODM1 database.  For now, I have focused on moving what is already in my ODM 1.1.1 database into an ODM2 database.
 
 ## Implementation Notes for Sensor-Based Data ##
 
 #### SpatialReferences
-SpatialReferences in ODM2 are mostly the same as in ODM1.  Basically copied them straight across.
+SpatialReferences in ODM2 are mostly the same as in ODM1 except that they are not treated as a Controlled Vocabulary.  So, I basically copied them straight across.
 
 1. Set ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID = ODM1.SpatialReferences.SpatialReferenceID
 2. Set ODM2SamplingFeatures.SpatialReferences.SRSID = "CUAHSI:" & ODM1.SpatialReferences.SRSID - had to concatenate the CUAHSI string and cast this to VARCHAR(50) to be consistent with ODM2
@@ -38,12 +38,12 @@ Sites in ODM2 are essentially the same as in ODM1 except that both Sites and Sam
 Adding records to **ODM2Core.SamplingFeatures**:
 
 1. Set ODM2Core.SamplingFeatures.SamplingFeatureID = ODM1.Sites.SiteID
-2. ODM2Core.SamplingFeatures.SamplingFeatureUUID = NEWSEQUENTIALID() - this is a SQL Server Function to generate a GUID, and I did this by setting the default value of the Attribute rather than creating a GUID on the fly (i.e., SQL Server generates the GUIS for me)
+2. ODM2Core.SamplingFeatures.SamplingFeatureUUID = NEWSEQUENTIALID() - this is a SQL Server Function to generate a GUID, and I did this by setting the default value of the Attribute rather than creating a GUID on the fly (i.e., SQL Server generates the GUIDS for me)
 3. Set ODM2Core.SamplingFeatures.SamplingFeatureTypeCV = 'Site'
 4. Set ODM2Core.SamplingFeatures.SamplingFeatureCode = ODM1.Sites.SiteCode
 5. Set ODM2Core.SamplingFeatures.SamplingFeatureName = ODM1.Sites.SiteName
 6. Set ODM2Core.SamplingFeatures.SamplingFeatureDescription =  ODM1.Sites.Comments
-7. Set ODM2Core.SamplingFeatures.SamplingFeatureGeoTypeCV = '2D-Point'
+7. Set ODM2Core.SamplingFeatures.SamplingFeatureGeoTypeCV = 'Point'
 8. Set ODM2Core.SamplingFeatures.FeatureGeometry = geometry::Point(ODM1.Sites.Longitude, ODM1.Sites.Latitude, ODM1.SpatialReferences.SRSID) 
 9. Set ODM2Core.SamplingFeatures.Elevation_m = ODM1.Sites.Elevation_m
 10. Set ODM2Core.SamplingFeautres.ElevationDatumCV = ODM1.Sites.VerticalDatum
@@ -57,7 +57,9 @@ Adding records to **ODM2SamplingFeatures.Sites**: Some of the ODM1 Site attribut
 5. Set ODM2SamplingFeatures.Sites.SpatialReferenceID = ODM1.Sites.LatLongDatumeID - I can do this because I moved all of the SpatialReferences from ODM1 and preserved the SpatialReferenceIDs
 
 #### Units
-Units are the same in ODM1 an ODM2.  The only change is the order in which the attributes appear in the table and ODM1.Units.UnitsType = ODM2.Units.UnitsTypeCV.  Copied Units straight across from ODM1, preserving the UnitsIDs.
+Units are the same in ODM1 an ODM2 except that they are not treated as a controlled vocabulary in ODM2.  The only change is the order in which the attributes appear in the table and ODM1.Units.UnitsType = ODM2.Units.UnitsTypeCV.  Copied Units straight across from ODM1, preserving the UnitsIDs.
+
+**TODO**:  This is where I'm stuck.  I need to get the UnitsTypeCV finished before I can move on.
 
 1. Set ODM2Core.Units.UnitsID = ODM1.Units.UnitsID
 2. Set ODM2Core.Units.UnitsTypeCV = ODM1.Units.UnitsType

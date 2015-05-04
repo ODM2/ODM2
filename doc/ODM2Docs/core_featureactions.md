@@ -1,7 +1,7 @@
 ODM2 Core: FeatureActions
 =========================
 
-The [**FeatureActions** entity](http://uchic.github.io/ODM2/schemas/ODM2_Current/tables/ODM2Core_FeatureActions.html) provides flexible linkage between **Actions** and the **SamplingFeatures** on which or at which they were performed. SamplingFeatureID and ActionID are required indicating that each **Action** that generates a **Result** must be performed on or at a **SamplingFeature**. This bridge accommodates **Actions** with differents kinds of outcomes:
+The [**FeatureActions** entity](http://ODM2.github.io/ODM2/schemas/ODM2_Current/tables/ODM2Core_FeatureActions.html) provides flexible linkage between **Actions** and the **SamplingFeatures** on which or at which they were performed. SamplingFeatureID and ActionID are required indicating that each **Action** that generates a **Result** must be performed on or at a **SamplingFeature**. This bridge accommodates **Actions** with differents kinds of outcomes:
 
 * Observation _Actions_ on one **SamplingFeature**, generating one **Result** (and therefore one **Variable** only). This case may be depicted as the most conventional **Action** type in ODM2.
 * Observation _Actions_ with **Methods** that produce many **Results** on many **SamplingFeatures**. For example, a lab analysis that uses a single instrument and a single **Method** to process many samples (**Specimens**), generating **Results** for many **Variables** on each sample.
