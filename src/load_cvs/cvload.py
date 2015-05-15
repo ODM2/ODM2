@@ -179,6 +179,19 @@ class CVQualityCode(Base):
          return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 
+class CVRelationshipType(Base):
+    __tablename__ = 'cv_relationshiptype'
+    __table_args__ = {u'schema': 'odm2'}
+
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
+
+
 class CVResultType(Base):
     __tablename__ = 'cv_resulttype'
     __table_args__ = {u'schema': 'odm2'}
@@ -451,7 +464,8 @@ vocab= [("actiontype", CVActionType),
         ("specimentype", CVSpecimenType),
         ("variabletype", CVVariableType),
         ("variablename", CVVariableName),
-        ("propertydatatype", CVPropertyDataType)]
+        ("propertydatatype", CVPropertyDataType),
+        ("relationshiptype", CVRelationshipType)]
 
 url = "http://vocabulary.odm2.org/api/v1/%s/?format=skos"
 
