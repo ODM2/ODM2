@@ -71,7 +71,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_Annotations_Citations" prLkCl="CitationID" upAc="3">
-        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="1"/>
         <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
@@ -81,7 +81,7 @@
         <ClPr cdCl="AnnotationTypeCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_Annotations_People" prLkCl="PersonID" upAc="3">
-        <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
         <ClPr cdCl="AnnotatorID" prCl="PersonID"/>
       </Fk>
@@ -584,7 +584,7 @@
         <Cm>A URL for the website for a person</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Affiliations_Organizations" prLkCl="OrganizationID" upAc="3">
-        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="Affiliations" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="OrganizationID" prCl="OrganizationID"/>
       </Fk>
@@ -727,7 +727,7 @@
         <ClPr cdCl="MethodTypeCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_Methods_Organizations" prLkCl="OrganizationID" upAc="3">
-        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="Methods" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="OrganizationID" prCl="OrganizationID"/>
       </Fk>
@@ -772,7 +772,7 @@
         <ClPr cdCl="OrganizationTypeCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_Organizations_Organizations" prLkCl="OrganizationID" upAc="3">
-        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="Organizations" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ParentOrganizationID" prCl="OrganizationID"/>
       </Fk>
@@ -941,7 +941,7 @@
         <ClPr cdCl="SampledMediumCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_CV_Status" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_Status" oe="1" sch="ODM2CV" zr="0"/>
+        <PrTb mn="0" nm="CV_Status" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="StatusCV" prCl="Name"/>
       </Fk>
@@ -956,7 +956,7 @@
         <ClPr cdCl="ProcessingLevelID" prCl="ProcessingLevelID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
-        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
       </Fk>
@@ -1018,12 +1018,12 @@
         <Cm>The code for the vertical geodetic datum that specifies the zero point for the Sampling Feature Elevation.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_CV_ElevationDatum" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_ElevationDatum" oe="1" sch="ODM2CV" zr="0"/>
+        <PrTb mn="0" nm="CV_ElevationDatum" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ElevationDatumCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_SamplingFeatures_CV_SamplingFeatureGeoType" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_SamplingFeatureGeoType" oe="1" sch="ODM2CV" zr="0"/>
+        <PrTb mn="0" nm="CV_SamplingFeatureGeoType" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SamplingFeatureGeotypeCV" prCl="Name"/>
       </Fk>
@@ -1063,7 +1063,7 @@
         <Cm>ID of the Classifier that is one higher level in the taxonomic hiearchy</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ParentTaxon_Taxon" prLkCl="TaxonomicClassifierID" upAc="3">
-        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TaxonomicClassifiers" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ParentTaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
       </Fk>
@@ -1140,7 +1140,7 @@
         <Cm>A numeric value indicating no data.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Variables_CV_Speciation" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_Speciation" oe="1" sch="ODM2CV" zr="0"/>
+        <PrTb mn="0" nm="CV_Speciation" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SpeciationCV" prCl="Name"/>
       </Fk>
@@ -1983,7 +1983,7 @@
         <ClPr cdCl="DataQualityTypeCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataQuality_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="DataQuality" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="DataQualityValueUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -2043,7 +2043,7 @@
         <ClPr cdCl="ReferenceMaterialOrganizationID" prCl="OrganizationID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ReferenceMaterials_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
-        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
@@ -2305,7 +2305,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_DataloggerFileColumns_CV_AggregationStatistic" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
+        <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
       </Fk>
@@ -2320,17 +2320,17 @@
         <ClPr cdCl="InstrumentOutputVariableID" prCl="InstrumentOutputVariableID"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataloggerFileColumns_RecordingUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="RecordingIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataloggerFileColumns_Results" prLkCl="ResultID" upAc="3">
-        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataloggerFileColumns_ScanUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ScanIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -2794,7 +2794,7 @@
         <ClPr cdCl="PropertyDataTypeCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_ExtensionProperties_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -2948,11 +2948,11 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to ExternalIdentifierSystems</Cm>
       </Cl>
-      <Cl au="0" df="" nm="CitationExternalIdentifer" nu="0">
+      <Cl au="0" df="" nm="CitationExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique ID, such as a DOI; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
-      <Cl au="0" df="" nm="CitationExternalIdentiferURI" nu="1">
+      <Cl au="0" df="" nm="CitationExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</Cm>
       </Cl>
@@ -2973,7 +2973,7 @@
       <Cm>A single table for connecting various primary keys with points to outside systems.</Cm>
       <TblOpts/>
       <Pk ClNs="ExternalIdentifierSystemID" nm="pkExternalIdentifierSystems"/>
-      <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
+      <Cl au="1" df="" nm="ExternalIdentifierSystemID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -3723,7 +3723,7 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_CategoricalResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="CategoricalResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
@@ -3824,22 +3824,22 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_MeasurementResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_MeasurementResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_MeasurementResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_MeasurementResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -3919,22 +3919,22 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_PointCoverageResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_PointCoverageResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedXSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_PointCoverageResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedYSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_PointCoverageResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -4048,7 +4048,7 @@
         <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResults_DUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedZSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -4058,22 +4058,22 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResults_TUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -4195,27 +4195,27 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SectionResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SectionResults_TMUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SectionResults_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SectionResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedXSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SectionResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedZSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -4358,27 +4358,27 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpectraResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpectraResults_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedWavelengthSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpectraResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpectraResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpectraResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -4499,27 +4499,27 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResults_TUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -4614,17 +4614,17 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TrajectoryResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TrajectoryResults_TSUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedTrajectorySpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TrajectoryResults_TUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -4772,22 +4772,22 @@
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TransectResults_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TransectResults_TMUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TransectResults_TSUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="IntendedTransectSpacingUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_TransectResults_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
@@ -4929,7 +4929,7 @@
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
       <Fk deAc="3" nm="fk_FeatureParents_SpatialOffsets" prLkCl="SpatialOffsetID" upAc="3">
-        <PrTb mn="0" nm="SpatialOffsets" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <PrTb mn="0" nm="SpatialOffsets" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="RelatedFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SpatialOffsetID" prCl="SpatialOffsetID"/>
       </Fk>
@@ -4989,7 +4989,7 @@
       <Cm>An explicit spatial relationship between a sampling feature relative to it's parent.</Cm>
       <TblOpts/>
       <Pk ClNs="SpatialOffsetID" nm="pkSpatialOffsets"/>
-      <Cl au="0" df="" nm="SpatialOffsetID" nu="0">
+      <Cl au="1" df="" nm="SpatialOffsetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary Key of SpatialOffset</Cm>
       </Cl>
@@ -5032,12 +5032,12 @@
         <ClPr cdCl="Offset1UnitID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpatialOffsets_Offset2Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SpatialOffsets" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="Offset2UnitID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpatialOffsets_Offset3Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="SpatialOffsets" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="Offset3UnitID" prCl="UnitsID"/>
       </Fk>
@@ -5130,7 +5130,7 @@
         <Cm>Foreign key to the attribution, or Citation, for the classification.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SpecimenTaxonomicClassifiers_Citations" prLkCl="CitationID" upAc="3">
-        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="1"/>
         <CdTb mn="1" nm="SpecimenTaxonomicClassifiers" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
@@ -6465,7 +6465,7 @@
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="498">
+  <RnmMgr NxRnmId="500">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7669,6 +7669,12 @@
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="DatasetsResults" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="496" nNm="DatasetID" oNm="DataSetID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="498" nNm="CitationExternalIdentifierURI" oNm="CitationExternalIdentiferURI"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="499" nNm="CitationExternalIdentifier" oNm="CitationExternalIdentifer"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
