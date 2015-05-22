@@ -33,28 +33,28 @@
 <td class="PkCol">
 <p class="boolImg">
 <img src="../images/pkb16.gif"></p>
-</td><td class="PkCol"><a href="../columns/ODM2Core_Datasets_DataSetID.html">DataSetID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+</td><td class="PkCol"><a href="../columns/ODM2Core_Datasets_DatasetID.html">DatasetID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td class="PkCol"> </td><td class="PkCol">Primary key identifier.</td><td class="PkCol"> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_Datasets_DataSetUUID.html">DataSetUUID</a></td><td>UniqueID</td><td> </td><td> </td><td> </td><td>A universally unique identifier for the dataset.</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Core_Datasets_DatasetUUID.html">DatasetUUID</a></td><td>UniqueID</td><td> </td><td> </td><td> </td><td>A universally unique identifier for the dataset.</td><td> </td>
 </tr>
 <tr>
-<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Datasets_DataSetTypeCV.html">DataSetTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV term(s) describing the Topic Category</td><td class="FkCol">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Datasets_DatasetTypeCV.html">DatasetTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV term(s) describing the Topic Category</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_Datasets_DataSetCode.html">DataSetCode</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>A short text code identifying the dataset</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Core_Datasets_DatasetCode.html">DatasetCode</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>A short text code identifying the dataset</td><td> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/ODM2Core_Datasets_DataSetTitle.html">DataSetTitle</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A text title for the dataset</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Core_Datasets_DatasetTitle.html">DatasetTitle</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A text title for the dataset</td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_Datasets_DataSetAbstract.html">DataSetAbstract</a></td><td>VarChar(500)</td><td> </td><td> </td><td> </td><td>A text abstract describing the dataset</td><td> </td>
+<td> </td><td><a href="../columns/ODM2Core_Datasets_DatasetAbstract.html">DatasetAbstract</a></td><td>VarChar(500)</td><td> </td><td> </td><td> </td><td>A text abstract describing the dataset</td><td> </td>
 </tr>
 </table>
 <br>
@@ -72,7 +72,7 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_Datasets_fk_Datasets_CV_DatasetTypeCV.html">fk_Datasets_CV_DatasetTypeCV</a></td><td><a href="../tables/ODM2CV_CV_DatasetTypeCV.html">ODM2CV.CV_DatasetTypeCV</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td>Name</td><td>DataSetTypeCV</td>
+<td><a href="../foreignKeys/ODM2Core_Datasets_fk_Datasets_CV_DatasetTypeCV.html">fk_Datasets_CV_DatasetTypeCV</a></td><td><a href="../tables/ODM2CV_CV_DatasetTypeCV.html">ODM2CV.CV_DatasetTypeCV</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td>Name</td><td>DatasetTypeCV</td>
 </tr>
 </table>
 <br>
@@ -84,16 +84,16 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_DatasetsResults_fk_DataSetsResults_DataSets.html">fk_DataSetsResults_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Core_DatasetsResults.html">ODM2Core.DatasetsResults</a></td><td>DataSetID</td><td>DataSetID</td>
+<td><a href="../foreignKeys/ODM2Core_DatasetsResults_fk_DataSetsResults_DataSets.html">fk_DataSetsResults_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Core_DatasetsResults.html">ODM2Core.DatasetsResults</a></td><td>DatasetID</td><td>DatasetID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Provenance_DatasetCitations_fk_DataSetCitations_DataSets.html">fk_DataSetCitations_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_DatasetCitations.html">ODM2Provenance.DatasetCitations</a></td><td>DataSetID</td><td>DataSetID</td>
+<td><a href="../foreignKeys/ODM2Provenance_DatasetCitations_fk_DataSetCitations_DataSets.html">fk_DataSetCitations_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_DatasetCitations.html">ODM2Provenance.DatasetCitations</a></td><td>DatasetID</td><td>DataSetID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Provenance_RelatedDatasets_fk_RelatedDatasets_DataSets.html">fk_RelatedDatasets_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_RelatedDatasets.html">ODM2Provenance.RelatedDatasets</a></td><td>DataSetID</td><td>DataSetID</td>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedDatasets_fk_RelatedDatasets_DataSets.html">fk_RelatedDatasets_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_RelatedDatasets.html">ODM2Provenance.RelatedDatasets</a></td><td>DatasetID</td><td>DataSetID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Provenance_RelatedDatasets_fk_RelatedDatasets_DataSets_AreRelated.html">fk_RelatedDatasets_DataSets_AreRelated</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_RelatedDatasets.html">ODM2Provenance.RelatedDatasets</a></td><td>DataSetID</td><td>RelatedDatasetID</td>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedDatasets_fk_RelatedDatasets_DataSets_AreRelated.html">fk_RelatedDatasets_DataSets_AreRelated</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_RelatedDatasets.html">ODM2Provenance.RelatedDatasets</a></td><td>DatasetID</td><td>RelatedDatasetID</td>
 </tr>
 </table>
 <br>
