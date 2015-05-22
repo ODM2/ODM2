@@ -9,6 +9,17 @@ Each physical fraction sample has been assigned a specimen SamplingFeature. In a
 ## Database loading/mapping status
 I've fully loaded fine and coarse particulates and all ancillary data I'm interested in loading initially (specimens, sites, dataset, citation, people, organizations, doi externalidentifier, etc), and come up with a template scheme for loading the remaining physical fractions. *I'll do the dissolved and bulk measurements in June.*
 
+### ODM2 Schema version and tweaks
+This database was created using the [ODM2_for_PostgreSQL.sql blank schema DDL script](https://github.com/ODM2/ODM2/blob/master/src/blank_schema_scripts/postgresql/ODM2_for_PostgreSQL.sql) downloaded on May 10, 2015. A few modifications were applied to that standard ODM2 blank script, mostly related to PostGIS usage:
+```sql
+-- Removed all "CREATE EXTENSION" statements
+ALTER TABLE odm2.samplingfeatures ADD CONSTRAINT 
+  enforce_dims_featuregeometry CHECK (st_ndims(featuregeometry) = 2);
+CREATE INDEX idx_samplingfeature_featuregeom ON odm2.samplingfeatures USING gist (featuregeometry);
+SELECT Populate_Geometry_Columns();
+UPDATE public.geometry_columns SET type = 'GEOMETRY' WHERE f_table_schema = 'odm2' AND f_table_name = 'samplingfeatures';
+```
+
 ## PostgreSQL Database Dump
 I've created a PostgreSQL database dump file ([marchantariats.sql](marchantariats.sql)) using `pg_dump`, with plain-text format. It can be restored using the `postgres` user and the following `psql` (*not pg_restore!*) statement:
 ```
