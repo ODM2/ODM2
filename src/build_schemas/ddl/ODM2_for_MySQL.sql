@@ -115,7 +115,7 @@ CREATE TABLE ActionBy (
 	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ActionID INT   NOT NULL,
 	AffiliationID INT   NOT NULL,
-	IsActionLead BIT   NOT NULL,
+	IsActionLead TINYINT(1)   NOT NULL,
 	RoleDescription VARCHAR (500)  NULL
 );
 
@@ -135,7 +135,7 @@ CREATE TABLE Affiliations (
 	AffiliationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	PersonID INT   NOT NULL,
 	OrganizationID INT   NULL,
-	IsPrimaryOrganizationContact BIT   NULL,
+	IsPrimaryOrganizationContact TINYINT(1)   NULL,
 	AffiliationStartDate DATE   NOT NULL,
 	AffiliationEndDate DATE   NULL,
 	PrimaryPhone VARCHAR (50)  NULL,
@@ -626,7 +626,7 @@ CREATE TABLE EquipmentModels (
 	ModelPartNumber VARCHAR (50)  NULL,
 	ModelName VARCHAR (255)  NOT NULL,
 	ModelDescription VARCHAR (500)  NULL,
-	IsInstrument BIT   NOT NULL,
+	IsInstrument TINYINT(1)   NOT NULL,
 	ModelSpecificationsFileLink VARCHAR (255)  NULL,
 	ModelLink VARCHAR (255)  NULL
 );
@@ -649,7 +649,7 @@ CREATE TABLE InstrumentOutputVariables (
 
 CREATE TABLE MaintenanceActions (
 	ActionID INT   NOT NULL PRIMARY KEY,
-	IsFactoryService BIT   NOT NULL,
+	IsFactoryService TINYINT(1)   NOT NULL,
 	MaintenanceCode VARCHAR (50)  NULL,
 	MaintenanceReason VARCHAR (500)  NULL
 );
@@ -729,12 +729,12 @@ CREATE TABLE CitationExternalIdentifiers (
 	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	CitationID INT   NOT NULL,
 	ExternalIdentifierSystemID INT   NOT NULL,
-	CitationExternalIdentifer VARCHAR (255)  NOT NULL,
-	CitationExternalIdentiferURI VARCHAR (255)  NULL
+	CitationExternalIdentifier VARCHAR (255)  NOT NULL,
+	CitationExternalIdentifierURI VARCHAR (255)  NULL
 );
 
 CREATE TABLE ExternalIdentifierSystems (
-	ExternalIdentifierSystemID INT   NOT NULL PRIMARY KEY,
+	ExternalIdentifierSystemID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ExternalIdentifierSystemName VARCHAR (255)  NOT NULL,
 	IdentifierSystemOrganizationID INT   NOT NULL,
 	ExternalIdentifierSystemDescription VARCHAR (500)  NULL,
@@ -1174,7 +1174,7 @@ CREATE TABLE Sites (
 );
 
 CREATE TABLE SpatialOffsets (
-	SpatialOffsetID INT   NOT NULL PRIMARY KEY,
+	SpatialOffsetID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	SpatialOffsetTypeCV VARCHAR (255)  NOT NULL,
 	Offset1Value FLOAT   NOT NULL,
 	Offset1UnitID INT   NOT NULL,
@@ -1196,7 +1196,7 @@ CREATE TABLE Specimens (
 	SamplingFeatureID INT   NOT NULL PRIMARY KEY,
 	SpecimenTypeCV VARCHAR (255)  NOT NULL,
 	SpecimenMediumCV VARCHAR (255)  NOT NULL,
-	IsFieldSpecimen BIT   NOT NULL
+	IsFieldSpecimen TINYINT(1)   NOT NULL
 );
 
 CREATE TABLE SpecimenTaxonomicClassifiers (
@@ -1215,7 +1215,7 @@ CREATE TABLE ModelAffiliations (
 	BridgeID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ModelID INT   NOT NULL,
 	AffiliationID INT   NOT NULL,
-	IsPrimary BIT   NOT NULL,
+	IsPrimary TINYINT(1)   NOT NULL,
 	RoleDescription VARCHAR (500)  NULL
 );
 

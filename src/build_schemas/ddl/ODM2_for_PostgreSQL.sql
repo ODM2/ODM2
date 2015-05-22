@@ -643,11 +643,11 @@ create table ODM2.CitationExternalIdentifiers (
 	bridgeid serial  NOT NULL primary key,
 	citationid integer  NOT NULL,
 	externalidentifiersystemid integer  NOT NULL,
-	citationexternalidentifer varchar (255) NOT NULL,
-	citationexternalidentiferuri varchar (255) NULL
+	citationexternalidentifier varchar (255) NOT NULL,
+	citationexternalidentifieruri varchar (255) NULL
 );
 create table ODM2.ExternalIdentifierSystems (
-	externalidentifiersystemid integer  NOT NULL primary key,
+	externalidentifiersystemid serial  NOT NULL primary key,
 	externalidentifiersystemname varchar (255) NOT NULL,
 	identifiersystemorganizationid integer  NOT NULL,
 	externalidentifiersystemdescription varchar (500) NULL,
@@ -1042,7 +1042,7 @@ create table ODM2.Sites (
 	spatialreferenceid integer  NOT NULL
 );
 create table ODM2.SpatialOffsets (
-	spatialoffsetid integer  NOT NULL primary key,
+	spatialoffsetid serial  NOT NULL primary key,
 	spatialoffsettypecv varchar (255) NOT NULL,
 	offset1value double precision  NOT NULL,
 	offset1unitid integer  NOT NULL,

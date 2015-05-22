@@ -734,12 +734,12 @@ CREATE TABLE ODM2.CitationExternalIdentifiers (
 	BridgeID int  IDENTITY (1,1) NOT NULL,
 	CitationID int   NOT NULL,
 	ExternalIdentifierSystemID int   NOT NULL,
-	CitationExternalIdentifer varchar (255)  NOT NULL,
-	CitationExternalIdentiferURI varchar (255)  NULL,
+	CitationExternalIdentifier varchar (255)  NOT NULL,
+	CitationExternalIdentifierURI varchar (255)  NULL,
 	PRIMARY KEY (BridgeID)
 )
 CREATE TABLE ODM2.ExternalIdentifierSystems (
-	ExternalIdentifierSystemID int   NOT NULL,
+	ExternalIdentifierSystemID int  IDENTITY (1,1) NOT NULL,
 	ExternalIdentifierSystemName varchar (255)  NOT NULL,
 	IdentifierSystemOrganizationID int   NOT NULL,
 	ExternalIdentifierSystemDescription varchar (500)  NULL,
@@ -1175,7 +1175,7 @@ CREATE TABLE ODM2.Sites (
 	PRIMARY KEY (SamplingFeatureID)
 )
 CREATE TABLE ODM2.SpatialOffsets (
-	SpatialOffsetID int   NOT NULL,
+	SpatialOffsetID int  IDENTITY (1,1) NOT NULL,
 	SpatialOffsetTypeCV varchar (255)  NOT NULL,
 	Offset1Value float   NOT NULL,
 	Offset1UnitID int   NOT NULL,

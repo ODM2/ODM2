@@ -962,8 +962,8 @@ CREATE TABLE CitationExternalIdentifiers (
 	BridgeID INTEGER   NOT NULL PRIMARY KEY,
 	CitationID INTEGER   NOT NULL,
 	ExternalIdentifierSystemID INTEGER   NOT NULL,
-	CitationExternalIdentifer VARCHAR (255)  NOT NULL,
-	CitationExternalIdentiferURI VARCHAR (255)  NULL,
+	CitationExternalIdentifier VARCHAR (255)  NOT NULL,
+	CitationExternalIdentifierURI VARCHAR (255)  NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ExternalIdentifierSystemID) REFERENCES ExternalIdentifierSystems (ExternalIdentifierSystemID)
