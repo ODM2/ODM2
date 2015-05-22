@@ -102,7 +102,7 @@ class MYSQL():
             'binary':'BINARY',
             'bit':'BIT',
             'blob':'BLOB',
-            'boolean':'BIT',
+            'boolean':'TINYINT(1)',
             'char ':'CHAR',
             'date':'DATE',
             'datetime':'DATETIME',
