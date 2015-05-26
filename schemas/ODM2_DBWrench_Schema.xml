@@ -1038,7 +1038,7 @@
     <Tbl UsSo="1" nm="TaxonomicClassifiers">
       <TblOpts/>
       <Pk ClNs="TaxonomicClassifierID" nm="pkTaxonomicClassifiers"/>
-      <Cl au="0" df="" nm="TaxonomicClassifierID" nu="0">
+      <Cl au="1" df="" nm="TaxonomicClassifierID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
