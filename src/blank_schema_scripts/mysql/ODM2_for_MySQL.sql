@@ -238,7 +238,7 @@ CREATE TABLE SamplingFeatures (
 );
 
 CREATE TABLE TaxonomicClassifiers (
-	TaxonomicClassifierID INT   NOT NULL PRIMARY KEY,
+	TaxonomicClassifierID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	TaxonomicClassifierTypeCV VARCHAR (255)  NOT NULL,
 	TaxonomicClassifierName VARCHAR (255)  NOT NULL,
 	TaxonomicClassifierCommonName VARCHAR (255)  NULL,

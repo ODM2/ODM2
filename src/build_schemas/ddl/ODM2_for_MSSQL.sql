@@ -248,7 +248,7 @@ CREATE TABLE ODM2.SamplingFeatures (
 	PRIMARY KEY (SamplingFeatureID)
 )
 CREATE TABLE ODM2.TaxonomicClassifiers (
-	TaxonomicClassifierID int   NOT NULL,
+	TaxonomicClassifierID int  IDENTITY (1,1) NOT NULL,
 	TaxonomicClassifierTypeCV varchar (255)  NOT NULL,
 	TaxonomicClassifierName varchar (255)  NOT NULL,
 	TaxonomicClassifierCommonName varchar (255)  NULL,

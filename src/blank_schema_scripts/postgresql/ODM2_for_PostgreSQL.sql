@@ -213,7 +213,7 @@ create table ODM2.SamplingFeatures (
 	elevationdatumcv varchar (255) NULL
 );
 create table ODM2.TaxonomicClassifiers (
-	taxonomicclassifierid integer  NOT NULL primary key,
+	taxonomicclassifierid serial  NOT NULL primary key,
 	taxonomicclassifiertypecv varchar (255) NOT NULL,
 	taxonomicclassifiername varchar (255) NOT NULL,
 	taxonomicclassifiercommonname varchar (255) NULL,
