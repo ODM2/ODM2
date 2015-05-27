@@ -4,7 +4,13 @@ Contact [Emilio Mayorga](https://github.com/emiliom) for questions. **This is a 
 ## Description
 A 10 year "time series" (not sensor based) of lots of biogeochemical measurements from a location on the central Amazon mainstem. The data, with some small exceptions, was published 20 years ago: http://dx.doi.org/10.1029/95GB01145. The dataset includes measurements on several physical fractions (dissolved, fine particulates, coarse particulates, and probably "total" or bulk), plus river stage and possibly discharge.
 
-Each physical fraction sample has been assigned a specimen SamplingFeature. In addition, variables have been created that are specific to each fraction (eg, FSS vs CSS for Fine and Coarse Suspended Sediment, respectively). *I will add more ODM2 implementation descriptions in the future.*
+Here are some key implementation choices and considerations:
+- Each physical fraction sample has been assigned a single specimen SamplingFeature per sampling event. No distinction has been made yet to create "sub" specimens based on separate physical separation methods (eg, using different filter types for FSS and FPOC).
+- Variables have been created that are specific to each fraction (eg, FSS vs CSS for Fine and Coarse Suspended Sediment, respectively).
+- Actions are highly coarse or aggregated at this time. There's simply one Observation action lumping ALL observations made at the site that day (what could otherwise be called a "sampling event"). These actions are all assigned to the coarse Method:  "Aggregated measurements, lumping all observation activities during one site visit"
+- This dataset was collected and can be viewed as a "time series", though not in the ODM2 "TimeSeries" ResultType sense. For each variable, there's a time series of up to individual 101 measurements, with corresponding individual Results and MeasurementResultValues.
+
+*I will add more ODM2 implementation descriptions in the future.*
 
 ## Database loading/mapping status
 I've fully loaded fine and coarse particulates and all ancillary data I'm interested in loading initially (specimens, sites, dataset, citation, people, organizations, doi externalidentifier, etc), and come up with a template scheme for loading the remaining physical fractions. *I'll do the dissolved and bulk measurements in June.*
