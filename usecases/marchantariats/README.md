@@ -4,13 +4,16 @@ Contact [Emilio Mayorga](https://github.com/emiliom) for questions. **This is a 
 ## Description
 A 10 year "time series" (not sensor based) of lots of biogeochemical measurements from a location on the central Amazon mainstem. The data, with some small exceptions, was published 20 years ago: http://dx.doi.org/10.1029/95GB01145. The dataset includes measurements on several physical fractions (dissolved, fine particulates, coarse particulates, and probably "total" or bulk), plus river stage and possibly discharge.
 
-Here are some key implementation choices and considerations:
-- Each physical fraction sample has been assigned a single specimen SamplingFeature per sampling event. No distinction has been made yet to create "sub" specimens based on separate physical separation methods (eg, using different filter types for FSS and FPOC).
-- Variables have been created that are specific to each fraction (eg, FSS vs CSS for Fine and Coarse Suspended Sediment, respectively).
+Here are some important implementation choices and considerations:
 - Actions are highly coarse or aggregated at this time. There's simply one Observation action lumping ALL observations made at the site that day (what could otherwise be called a "sampling event"). These actions are all assigned to the coarse Method:  "Aggregated measurements, lumping all observation activities during one site visit"
+- Each physical fraction sample has been assigned a single specimen SamplingFeature per sampling event. No distinction has been made yet to create "sub" specimens based on separate physical separation methods (eg, using different filter types for FSS and FPOC).
+- Each Result is linked directly with a specimen SamplingFeature (via the FeatureActions table), and only indirectly with the related sites SamplingFeature via the RelatedFeatures table that relates specimens with sites.
+- Note that specimen SamplingFeatures are not required to have non-null FeatureGeometry entries, b/c the geometry can be found in the related parent site or parent SamplingFeature. I chose not to populate FeatureGeometry for specimen SamplingFeatures, to avoid the possibility of incorrectly duplicated information. This means that a set of joins us required to bring in the geometry information together with FeatureActions and Results. I've created the convenience `odm2.specimen_site_sf` View to join site attributes and site SamplingFeatures attributes to specimen SamplingFeatureID. This view is included in the database dump file.
+- Fow now, all specimens are related to a single site (SamplingFeatureID 1036), but it's best not to hard-wired that assumption in any querie. I may add a second site (SamplingFeatureID 1003 / (SamplingFeatureCode 'Man') in the near future. I loaded many other site SamplingFeatures, but these are not associated with any Actions or Results. All the other sites were loaded because the Marchantaria measurements "time series" is part of a larger database of Amazon biogeochemical data that I want to load into this ODM2 database eventually. All other sites should be ignored at this time.
+- Variables have been created that are specific to each fraction (eg, FSS vs CSS for Fine and Coarse Suspended Sediment, respectively). The use of such variables together with specimens by physical fraction is somewhat redundant, but convenient.
 - This dataset was collected and can be viewed as a "time series", though not in the ODM2 "TimeSeries" ResultType sense. For each variable, there's a time series of up to individual 101 measurements, with corresponding individual Results and MeasurementResultValues.
 
-*I will add more ODM2 implementation descriptions in the future.*
+*I will add more ODM2 implementation descriptions over time.*
 
 ## Database loading/mapping status
 I've fully loaded fine and coarse particulates and all ancillary data I'm interested in loading initially (specimens, sites, dataset, citation, people, organizations, doi externalidentifier, etc), and come up with a template scheme for loading the remaining physical fractions. *I'll do the dissolved and bulk measurements in June.*
