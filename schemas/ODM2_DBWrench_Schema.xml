@@ -625,7 +625,7 @@
         <Cm>A text abstract describing the dataset</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Datasets_CV_DatasetTypeCV" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_DatasetTypeCV" oe="1" sch="ODM2CV" zr="0"/>
+        <PrTb mn="0" nm="CV_DatasetType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Datasets" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="DatasetTypeCV" prCl="Name"/>
       </Fk>
@@ -1295,10 +1295,10 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="CV_DatasetTypeCV">
+    <Tbl UsSo="1" nm="CV_DatasetType">
       <Cm>Table containing terms used in the DatasetType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_DatasetTypeCV"/>
+      <Pk ClNs="Name" nm="pkCV_DatasetType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -5563,7 +5563,7 @@
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_AnnotationType" x="35" y="269"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_CensorCode" x="36" y="388"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DataQualityType" x="36" y="508"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DatasetTypeCV" x="37" y="628"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DatasetType" x="37" y="628"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DirectiveType" x="35" y="745"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ElevationDatum" x="321" y="37"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_EquipmentType" x="323" y="153"/>
@@ -6465,7 +6465,7 @@
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="500">
+  <RnmMgr NxRnmId="501">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7675,6 +7675,9 @@
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="499" nNm="CitationExternalIdentifier" oNm="CitationExternalIdentifer"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="500" nNm="CV_DatasetType" oNm="CV_DatasetTypeCV"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
