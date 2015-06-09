@@ -318,7 +318,7 @@ CREATE TABLE ODM2.CV_DataQualityType (
 	SourceVocabularyURI varchar (255)  NULL,
 	PRIMARY KEY (Name)
 )
-CREATE TABLE ODM2.CV_DatasetTypeCV (
+CREATE TABLE ODM2.CV_DatasetType (
 	Term varchar (255)  NOT NULL,
 	Name varchar (255)  NOT NULL,
 	Definition varchar (1000)  NULL,
@@ -1400,7 +1400,7 @@ FOREIGN KEY (PersonID) REFERENCES ODM2.People (PersonID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.Datasets ADD CONSTRAINT fk_Datasets_CV_DatasetTypeCV
-FOREIGN KEY (DatasetTypeCV) REFERENCES ODM2.CV_DatasetTypeCV (Name)
+FOREIGN KEY (DatasetTypeCV) REFERENCES ODM2.CV_DatasetType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.DatasetsResults ADD CONSTRAINT fk_DataSetsResults_DataSets

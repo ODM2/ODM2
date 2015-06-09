@@ -219,7 +219,7 @@ CREATE TABLE Datasets (
 	DatasetCode VARCHAR (50)  NOT NULL,
 	DatasetTitle VARCHAR (255)  NOT NULL,
 	DatasetAbstract VARCHAR (500)  NOT NULL,
-	FOREIGN KEY (DatasetTypeCV) REFERENCES CV_DatasetTypeCV (Name)
+	FOREIGN KEY (DatasetTypeCV) REFERENCES CV_DatasetType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -434,7 +434,7 @@ CREATE TABLE CV_DataQualityType (
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
 
-CREATE TABLE CV_DatasetTypeCV (
+CREATE TABLE CV_DatasetType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
 	Definition VARCHAR (1000)  NULL,
