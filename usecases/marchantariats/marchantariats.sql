@@ -2,9 +2,9 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.3.6
--- Dumped by pg_dump version 9.3.6
--- Started on 2015-05-22 09:38:32 PDT
+-- Dumped from database version 9.3.7
+-- Dumped by pg_dump version 9.3.7
+-- Started on 2015-06-11 00:06:53 PDT
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -14,7 +14,7 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- TOC entry 4954 (class 1262 OID 21975)
+-- TOC entry 4968 (class 1262 OID 21975)
 -- Name: marchantariats; Type: DATABASE; Schema: -; Owner: -
 --
 
@@ -31,8 +31,8 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- TOC entry 4955 (class 1262 OID 21975)
--- Dependencies: 4954
+-- TOC entry 4969 (class 1262 OID 21975)
+-- Dependencies: 4968
 -- Name: marchantariats; Type: COMMENT; Schema: -; Owner: -
 --
 
@@ -48,7 +48,7 @@ CREATE SCHEMA odm2;
 
 
 --
--- TOC entry 432 (class 3079 OID 11787)
+-- TOC entry 435 (class 3079 OID 11787)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
 --
 
@@ -56,8 +56,8 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 4957 (class 0 OID 0)
--- Dependencies: 432
+-- TOC entry 4971 (class 0 OID 0)
+-- Dependencies: 435
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
 --
 
@@ -65,7 +65,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- TOC entry 434 (class 3079 OID 16390)
+-- TOC entry 437 (class 3079 OID 16390)
 -- Name: postgis; Type: EXTENSION; Schema: -; Owner: -
 --
 
@@ -73,8 +73,8 @@ CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
 
 
 --
--- TOC entry 4958 (class 0 OID 0)
--- Dependencies: 434
+-- TOC entry 4972 (class 0 OID 0)
+-- Dependencies: 437
 -- Name: EXTENSION postgis; Type: COMMENT; Schema: -; Owner: -
 --
 
@@ -82,7 +82,7 @@ COMMENT ON EXTENSION postgis IS 'PostGIS geometry, geography, and raster spatial
 
 
 --
--- TOC entry 433 (class 3079 OID 24039)
+-- TOC entry 436 (class 3079 OID 24039)
 -- Name: postgres_fdw; Type: EXTENSION; Schema: -; Owner: -
 --
 
@@ -90,8 +90,8 @@ CREATE EXTENSION IF NOT EXISTS postgres_fdw WITH SCHEMA public;
 
 
 --
--- TOC entry 4959 (class 0 OID 0)
--- Dependencies: 433
+-- TOC entry 4973 (class 0 OID 0)
+-- Dependencies: 436
 -- Name: EXTENSION postgres_fdw; Type: COMMENT; Schema: -; Owner: -
 --
 
@@ -99,7 +99,7 @@ COMMENT ON EXTENSION postgres_fdw IS 'foreign-data wrapper for remote PostgreSQL
 
 
 --
--- TOC entry 3576 (class 1417 OID 24049)
+-- TOC entry 3587 (class 1417 OID 24049)
 -- Name: amazonriverbgc; Type: SERVER; Schema: -; Owner: -
 --
 
@@ -111,8 +111,8 @@ CREATE SERVER amazonriverbgc FOREIGN DATA WRAPPER postgres_fdw OPTIONS (
 
 
 --
--- TOC entry 4960 (class 0 OID 0)
--- Dependencies: 3576
+-- TOC entry 4974 (class 0 OID 0)
+-- Dependencies: 3587
 -- Name: USER MAPPING public SERVER amazonriverbgc; Type: USER MAPPING; Schema: -; Owner: -
 --
 
@@ -154,7 +154,7 @@ CREATE SEQUENCE actionannotations_bridgeid_seq
 
 
 --
--- TOC entry 4961 (class 0 OID 0)
+-- TOC entry 4975 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: actionannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -190,7 +190,7 @@ CREATE SEQUENCE actionby_bridgeid_seq
 
 
 --
--- TOC entry 4962 (class 0 OID 0)
+-- TOC entry 4976 (class 0 OID 0)
 -- Dependencies: 240
 -- Name: actionby_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -224,7 +224,7 @@ CREATE SEQUENCE actiondirectives_bridgeid_seq
 
 
 --
--- TOC entry 4963 (class 0 OID 0)
+-- TOC entry 4977 (class 0 OID 0)
 -- Dependencies: 359
 -- Name: actiondirectives_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -259,7 +259,7 @@ CREATE SEQUENCE actionextensionpropertyvalues_bridgeid_seq
 
 
 --
--- TOC entry 4964 (class 0 OID 0)
+-- TOC entry 4978 (class 0 OID 0)
 -- Dependencies: 328
 -- Name: actionextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -299,7 +299,7 @@ CREATE SEQUENCE actions_actionid_seq
 
 
 --
--- TOC entry 4965 (class 0 OID 0)
+-- TOC entry 4979 (class 0 OID 0)
 -- Dependencies: 242
 -- Name: actions_actionid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -340,7 +340,7 @@ CREATE SEQUENCE affiliations_affiliationid_seq
 
 
 --
--- TOC entry 4966 (class 0 OID 0)
+-- TOC entry 4980 (class 0 OID 0)
 -- Dependencies: 244
 -- Name: affiliations_affiliationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -380,7 +380,7 @@ CREATE SEQUENCE annotations_annotationid_seq
 
 
 --
--- TOC entry 4967 (class 0 OID 0)
+-- TOC entry 4981 (class 0 OID 0)
 -- Dependencies: 212
 -- Name: annotations_annotationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -415,7 +415,7 @@ CREATE SEQUENCE authorlists_bridgeid_seq
 
 
 --
--- TOC entry 4968 (class 0 OID 0)
+-- TOC entry 4982 (class 0 OID 0)
 -- Dependencies: 364
 -- Name: authorlists_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -462,7 +462,7 @@ CREATE SEQUENCE calibrationreferenceequipment_bridgeid_seq
 
 
 --
--- TOC entry 4969 (class 0 OID 0)
+-- TOC entry 4983 (class 0 OID 0)
 -- Dependencies: 307
 -- Name: calibrationreferenceequipment_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -496,7 +496,7 @@ CREATE SEQUENCE calibrationstandards_bridgeid_seq
 
 
 --
--- TOC entry 4970 (class 0 OID 0)
+-- TOC entry 4984 (class 0 OID 0)
 -- Dependencies: 309
 -- Name: calibrationstandards_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -548,7 +548,7 @@ CREATE SEQUENCE categoricalresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 4971 (class 0 OID 0)
+-- TOC entry 4985 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: categoricalresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -584,7 +584,7 @@ CREATE SEQUENCE categoricalresultvalues_valueid_seq
 
 
 --
--- TOC entry 4972 (class 0 OID 0)
+-- TOC entry 4986 (class 0 OID 0)
 -- Dependencies: 384
 -- Name: categoricalresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -619,7 +619,7 @@ CREATE SEQUENCE citationextensionpropertyvalues_bridgeid_seq
 
 
 --
--- TOC entry 4973 (class 0 OID 0)
+-- TOC entry 4987 (class 0 OID 0)
 -- Dependencies: 330
 -- Name: citationextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -655,7 +655,7 @@ CREATE SEQUENCE citationexternalidentifiers_bridgeid_seq
 
 
 --
--- TOC entry 4974 (class 0 OID 0)
+-- TOC entry 4988 (class 0 OID 0)
 -- Dependencies: 342
 -- Name: citationexternalidentifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -691,7 +691,7 @@ CREATE SEQUENCE citations_citationid_seq
 
 
 --
--- TOC entry 4975 (class 0 OID 0)
+-- TOC entry 4989 (class 0 OID 0)
 -- Dependencies: 366
 -- Name: citations_citationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1140,7 +1140,7 @@ CREATE SEQUENCE dataloggerfilecolumns_dataloggerfilecolumnid_seq
 
 
 --
--- TOC entry 4976 (class 0 OID 0)
+-- TOC entry 4990 (class 0 OID 0)
 -- Dependencies: 311
 -- Name: dataloggerfilecolumns_dataloggerfilecolumnid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1176,7 +1176,7 @@ CREATE SEQUENCE dataloggerfiles_dataloggerfileid_seq
 
 
 --
--- TOC entry 4977 (class 0 OID 0)
+-- TOC entry 4991 (class 0 OID 0)
 -- Dependencies: 313
 -- Name: dataloggerfiles_dataloggerfileid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1213,7 +1213,7 @@ CREATE SEQUENCE dataloggerprogramfiles_programid_seq
 
 
 --
--- TOC entry 4978 (class 0 OID 0)
+-- TOC entry 4992 (class 0 OID 0)
 -- Dependencies: 315
 -- Name: dataloggerprogramfiles_programid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1264,7 +1264,7 @@ CREATE SEQUENCE datasetcitations_bridgeid_seq
 
 
 --
--- TOC entry 4979 (class 0 OID 0)
+-- TOC entry 4993 (class 0 OID 0)
 -- Dependencies: 368
 -- Name: datasetcitations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1301,7 +1301,7 @@ CREATE SEQUENCE datasets_datasetid_seq
 
 
 --
--- TOC entry 4980 (class 0 OID 0)
+-- TOC entry 4994 (class 0 OID 0)
 -- Dependencies: 246
 -- Name: datasets_datasetid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1335,7 +1335,7 @@ CREATE SEQUENCE datasetsresults_bridgeid_seq
 
 
 --
--- TOC entry 4981 (class 0 OID 0)
+-- TOC entry 4995 (class 0 OID 0)
 -- Dependencies: 248
 -- Name: datasetsresults_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1368,7 +1368,7 @@ CREATE SEQUENCE derivationequations_derivationequationid_seq
 
 
 --
--- TOC entry 4982 (class 0 OID 0)
+-- TOC entry 4996 (class 0 OID 0)
 -- Dependencies: 370
 -- Name: derivationequations_derivationequationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1402,7 +1402,7 @@ CREATE SEQUENCE directives_directiveid_seq
 
 
 --
--- TOC entry 4983 (class 0 OID 0)
+-- TOC entry 4997 (class 0 OID 0)
 -- Dependencies: 361
 -- Name: directives_directiveid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1445,7 +1445,7 @@ CREATE SEQUENCE equipment_equipmentid_seq
 
 
 --
--- TOC entry 4984 (class 0 OID 0)
+-- TOC entry 4998 (class 0 OID 0)
 -- Dependencies: 317
 -- Name: equipment_equipmentid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1479,7 +1479,7 @@ CREATE SEQUENCE equipmentannotations_bridgeid_seq
 
 
 --
--- TOC entry 4985 (class 0 OID 0)
+-- TOC entry 4999 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: equipmentannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1518,7 +1518,7 @@ CREATE SEQUENCE equipmentmodels_equipmentmodelid_seq
 
 
 --
--- TOC entry 4986 (class 0 OID 0)
+-- TOC entry 5000 (class 0 OID 0)
 -- Dependencies: 319
 -- Name: equipmentmodels_equipmentmodelid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1552,7 +1552,7 @@ CREATE SEQUENCE equipmentused_bridgeid_seq
 
 
 --
--- TOC entry 4987 (class 0 OID 0)
+-- TOC entry 5001 (class 0 OID 0)
 -- Dependencies: 321
 -- Name: equipmentused_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1588,7 +1588,7 @@ CREATE SEQUENCE extensionproperties_propertyid_seq
 
 
 --
--- TOC entry 4988 (class 0 OID 0)
+-- TOC entry 5002 (class 0 OID 0)
 -- Dependencies: 332
 -- Name: extensionproperties_propertyid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1636,7 +1636,7 @@ CREATE SEQUENCE featureactions_featureactionid_seq
 
 
 --
--- TOC entry 4989 (class 0 OID 0)
+-- TOC entry 5003 (class 0 OID 0)
 -- Dependencies: 250
 -- Name: featureactions_featureactionid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1674,7 +1674,7 @@ CREATE SEQUENCE instrumentoutputvariables_instrumentoutputvariableid_seq
 
 
 --
--- TOC entry 4990 (class 0 OID 0)
+-- TOC entry 5004 (class 0 OID 0)
 -- Dependencies: 323
 -- Name: instrumentoutputvariables_instrumentoutputvariableid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1748,6 +1748,43 @@ CREATE VIEW mappings_results_coarse_particulates AS
           WHERE (((samplingfeatures.samplingfeaturetypecv)::text = 'Specimen'::text) AND ((samplingfeatures.samplingfeaturecode)::text ~~ '%_cp'::text))) sfspec ON ((act.actionid = sfspec.sampleid)))
      JOIN featureactions fa ON (((act.actionid = fa.actionid) AND (sfspec.samplingfeatureid = fa.samplingfeatureid))))
      JOIN amz_riverbgc.coarse_particulates arbgcfr ON ((act.actionid = arbgcfr.sampleid)))
+     JOIN amz_riverbgc.variable_units_odm2mapping arvuom ON ((arbgcfr.variable = (arvuom.variable)::text)))
+  ORDER BY act.begindatetime, fa.actionid, arbgcfr.variable;
+
+
+--
+-- TOC entry 433 (class 1259 OID 84922)
+-- Name: mappings_results_dissolved; Type: VIEW; Schema: odm2; Owner: -
+--
+
+CREATE VIEW mappings_results_dissolved AS
+ SELECT fa.featureactionid,
+    fa.samplingfeatureid,
+    fa.actionid,
+    arvuom.odm2_variableid AS variableid,
+    arvuom.odm2_unitsid AS unitsid,
+    act.begindatetime AS resultdatetime,
+    act.begindatetimeutcoffset AS resultdatetimeutcoffset,
+    arbgcfr.sampleid AS arbgcfr_sampleid,
+    arbgcfr.variable AS arbgcfr_variable,
+    arbgcfr.units AS arbgcfr_units,
+    arbgcfr.value AS arbgcfr_value
+   FROM ((((actions act
+     JOIN ( SELECT samplingfeatures.samplingfeatureid,
+            samplingfeatures.samplingfeatureuuid,
+            samplingfeatures.samplingfeaturetypecv,
+            samplingfeatures.samplingfeaturecode,
+            samplingfeatures.samplingfeaturename,
+            samplingfeatures.samplingfeaturedescription,
+            samplingfeatures.samplingfeaturegeotypecv,
+            samplingfeatures.featuregeometry,
+            samplingfeatures.elevation_m,
+            samplingfeatures.elevationdatumcv,
+            ((regexp_matches((samplingfeatures.samplingfeaturecode)::text, 'smp(\d+)_diss'::text))[1])::integer AS sampleid
+           FROM samplingfeatures
+          WHERE (((samplingfeatures.samplingfeaturetypecv)::text = 'Specimen'::text) AND ((samplingfeatures.samplingfeaturecode)::text ~~ '%_diss%'::text))) sfspec ON ((act.actionid = sfspec.sampleid)))
+     JOIN featureactions fa ON (((act.actionid = fa.actionid) AND (sfspec.samplingfeatureid = fa.samplingfeatureid))))
+     JOIN amz_riverbgc.dissolved arbgcfr ON ((act.actionid = arbgcfr.sampleid)))
      JOIN amz_riverbgc.variable_units_odm2mapping arvuom ON ((arbgcfr.variable = (arvuom.variable)::text)))
   ORDER BY act.begindatetime, fa.actionid, arbgcfr.variable;
 
@@ -1837,7 +1874,7 @@ CREATE SEQUENCE measurementresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 4991 (class 0 OID 0)
+-- TOC entry 5005 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: measurementresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1873,7 +1910,7 @@ CREATE SEQUENCE measurementresultvalues_valueid_seq
 
 
 --
--- TOC entry 4992 (class 0 OID 0)
+-- TOC entry 5006 (class 0 OID 0)
 -- Dependencies: 387
 -- Name: measurementresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1907,7 +1944,7 @@ CREATE SEQUENCE methodannotations_bridgeid_seq
 
 
 --
--- TOC entry 4993 (class 0 OID 0)
+-- TOC entry 5007 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: methodannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1942,7 +1979,7 @@ CREATE SEQUENCE methodcitations_bridgeid_seq
 
 
 --
--- TOC entry 4994 (class 0 OID 0)
+-- TOC entry 5008 (class 0 OID 0)
 -- Dependencies: 372
 -- Name: methodcitations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -1977,7 +2014,7 @@ CREATE SEQUENCE methodextensionpropertyvalues_bridgeid_seq
 
 
 --
--- TOC entry 4995 (class 0 OID 0)
+-- TOC entry 5009 (class 0 OID 0)
 -- Dependencies: 334
 -- Name: methodextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2013,7 +2050,7 @@ CREATE SEQUENCE methodexternalidentifiers_bridgeid_seq
 
 
 --
--- TOC entry 4996 (class 0 OID 0)
+-- TOC entry 5010 (class 0 OID 0)
 -- Dependencies: 345
 -- Name: methodexternalidentifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2051,7 +2088,7 @@ CREATE SEQUENCE methods_methodid_seq
 
 
 --
--- TOC entry 4997 (class 0 OID 0)
+-- TOC entry 5011 (class 0 OID 0)
 -- Dependencies: 252
 -- Name: methods_methodid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2087,7 +2124,7 @@ CREATE SEQUENCE modelaffiliations_bridgeid_seq
 
 
 --
--- TOC entry 4998 (class 0 OID 0)
+-- TOC entry 5012 (class 0 OID 0)
 -- Dependencies: 419
 -- Name: modelaffiliations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2124,7 +2161,7 @@ CREATE SEQUENCE models_modelid_seq
 
 
 --
--- TOC entry 4999 (class 0 OID 0)
+-- TOC entry 5013 (class 0 OID 0)
 -- Dependencies: 421
 -- Name: models_modelid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2162,7 +2199,7 @@ CREATE SEQUENCE organizations_organizationid_seq
 
 
 --
--- TOC entry 5000 (class 0 OID 0)
+-- TOC entry 5014 (class 0 OID 0)
 -- Dependencies: 254
 -- Name: organizations_organizationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2197,7 +2234,7 @@ CREATE SEQUENCE people_personid_seq
 
 
 --
--- TOC entry 5001 (class 0 OID 0)
+-- TOC entry 5015 (class 0 OID 0)
 -- Dependencies: 256
 -- Name: people_personid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2233,7 +2270,7 @@ CREATE SEQUENCE personexternalidentifiers_bridgeid_seq
 
 
 --
--- TOC entry 5002 (class 0 OID 0)
+-- TOC entry 5016 (class 0 OID 0)
 -- Dependencies: 347
 -- Name: personexternalidentifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2287,7 +2324,7 @@ CREATE SEQUENCE pointcoverageresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 5003 (class 0 OID 0)
+-- TOC entry 5017 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: pointcoverageresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2329,7 +2366,7 @@ CREATE SEQUENCE pointcoverageresultvalues_valueid_seq
 
 
 --
--- TOC entry 5004 (class 0 OID 0)
+-- TOC entry 5018 (class 0 OID 0)
 -- Dependencies: 390
 -- Name: pointcoverageresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2364,7 +2401,7 @@ CREATE SEQUENCE processinglevels_processinglevelid_seq
 
 
 --
--- TOC entry 5005 (class 0 OID 0)
+-- TOC entry 5019 (class 0 OID 0)
 -- Dependencies: 258
 -- Name: processinglevels_processinglevelid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2418,7 +2455,7 @@ CREATE SEQUENCE profileresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 5006 (class 0 OID 0)
+-- TOC entry 5020 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: profileresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2461,7 +2498,7 @@ CREATE SEQUENCE profileresultvalues_valueid_seq
 
 
 --
--- TOC entry 5007 (class 0 OID 0)
+-- TOC entry 5021 (class 0 OID 0)
 -- Dependencies: 393
 -- Name: profileresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2497,7 +2534,7 @@ CREATE SEQUENCE referencematerialexternalidentifiers_bridgeid_seq
 
 
 --
--- TOC entry 5008 (class 0 OID 0)
+-- TOC entry 5022 (class 0 OID 0)
 -- Dependencies: 349
 -- Name: referencematerialexternalidentifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2566,7 +2603,7 @@ CREATE SEQUENCE relatedactions_relationid_seq
 
 
 --
--- TOC entry 5009 (class 0 OID 0)
+-- TOC entry 5023 (class 0 OID 0)
 -- Dependencies: 260
 -- Name: relatedactions_relationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2601,7 +2638,7 @@ CREATE SEQUENCE relatedannotations_relationid_seq
 
 
 --
--- TOC entry 5010 (class 0 OID 0)
+-- TOC entry 5024 (class 0 OID 0)
 -- Dependencies: 374
 -- Name: relatedannotations_relationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2636,7 +2673,7 @@ CREATE SEQUENCE relatedcitations_relationid_seq
 
 
 --
--- TOC entry 5011 (class 0 OID 0)
+-- TOC entry 5025 (class 0 OID 0)
 -- Dependencies: 376
 -- Name: relatedcitations_relationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2672,7 +2709,7 @@ CREATE SEQUENCE relateddatasets_relationid_seq
 
 
 --
--- TOC entry 5012 (class 0 OID 0)
+-- TOC entry 5026 (class 0 OID 0)
 -- Dependencies: 378
 -- Name: relateddatasets_relationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2711,7 +2748,7 @@ CREATE SEQUENCE relatedequipment_relationid_seq
 
 
 --
--- TOC entry 5013 (class 0 OID 0)
+-- TOC entry 5027 (class 0 OID 0)
 -- Dependencies: 326
 -- Name: relatedequipment_relationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2747,7 +2784,7 @@ CREATE SEQUENCE relatedfeatures_relationid_seq
 
 
 --
--- TOC entry 5014 (class 0 OID 0)
+-- TOC entry 5028 (class 0 OID 0)
 -- Dependencies: 410
 -- Name: relatedfeatures_relationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2782,7 +2819,7 @@ CREATE SEQUENCE relatedmodels_relatedid_seq
 
 
 --
--- TOC entry 5015 (class 0 OID 0)
+-- TOC entry 5029 (class 0 OID 0)
 -- Dependencies: 423
 -- Name: relatedmodels_relatedid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2819,7 +2856,7 @@ CREATE SEQUENCE relatedresults_relationid_seq
 
 
 --
--- TOC entry 5016 (class 0 OID 0)
+-- TOC entry 5030 (class 0 OID 0)
 -- Dependencies: 380
 -- Name: relatedresults_relationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2855,7 +2892,7 @@ CREATE SEQUENCE resultannotations_bridgeid_seq
 
 
 --
--- TOC entry 5017 (class 0 OID 0)
+-- TOC entry 5031 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: resultannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2901,7 +2938,7 @@ CREATE SEQUENCE resultextensionpropertyvalues_bridgeid_seq
 
 
 --
--- TOC entry 5018 (class 0 OID 0)
+-- TOC entry 5032 (class 0 OID 0)
 -- Dependencies: 336
 -- Name: resultextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2958,7 +2995,7 @@ CREATE SEQUENCE results_resultid_seq
 
 
 --
--- TOC entry 5019 (class 0 OID 0)
+-- TOC entry 5033 (class 0 OID 0)
 -- Dependencies: 262
 -- Name: results_resultid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -2992,7 +3029,7 @@ CREATE SEQUENCE resultsdataquality_bridgeid_seq
 
 
 --
--- TOC entry 5020 (class 0 OID 0)
+-- TOC entry 5034 (class 0 OID 0)
 -- Dependencies: 304
 -- Name: resultsdataquality_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3026,7 +3063,7 @@ CREATE SEQUENCE samplingfeatureannotations_bridgeid_seq
 
 
 --
--- TOC entry 5021 (class 0 OID 0)
+-- TOC entry 5035 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: samplingfeatureannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3061,7 +3098,7 @@ CREATE SEQUENCE samplingfeatureextensionpropertyvalues_bridgeid_seq
 
 
 --
--- TOC entry 5022 (class 0 OID 0)
+-- TOC entry 5036 (class 0 OID 0)
 -- Dependencies: 338
 -- Name: samplingfeatureextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3097,7 +3134,7 @@ CREATE SEQUENCE samplingfeatureexternalidentifiers_bridgeid_seq
 
 
 --
--- TOC entry 5023 (class 0 OID 0)
+-- TOC entry 5037 (class 0 OID 0)
 -- Dependencies: 351
 -- Name: samplingfeatureexternalidentifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3119,7 +3156,7 @@ CREATE SEQUENCE samplingfeatures_samplingfeatureid_seq
 
 
 --
--- TOC entry 5024 (class 0 OID 0)
+-- TOC entry 5038 (class 0 OID 0)
 -- Dependencies: 264
 -- Name: samplingfeatures_samplingfeatureid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3173,7 +3210,7 @@ CREATE SEQUENCE sectionresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 5025 (class 0 OID 0)
+-- TOC entry 5039 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: sectionresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3220,7 +3257,7 @@ CREATE SEQUENCE sectionresultvalues_valueid_seq
 
 
 --
--- TOC entry 5026 (class 0 OID 0)
+-- TOC entry 5040 (class 0 OID 0)
 -- Dependencies: 396
 -- Name: sectionresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3263,7 +3300,7 @@ CREATE SEQUENCE simulations_simulationid_seq
 
 
 --
--- TOC entry 5027 (class 0 OID 0)
+-- TOC entry 5041 (class 0 OID 0)
 -- Dependencies: 425
 -- Name: simulations_simulationid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3330,7 +3367,7 @@ CREATE SEQUENCE spatialreferenceexternalidentifiers_bridgeid_seq
 
 
 --
--- TOC entry 5028 (class 0 OID 0)
+-- TOC entry 5042 (class 0 OID 0)
 -- Dependencies: 353
 -- Name: spatialreferenceexternalidentifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3366,12 +3403,38 @@ CREATE SEQUENCE spatialreferences_spatialreferenceid_seq
 
 
 --
--- TOC entry 5029 (class 0 OID 0)
+-- TOC entry 5043 (class 0 OID 0)
 -- Dependencies: 414
 -- Name: spatialreferences_spatialreferenceid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
 
 ALTER SEQUENCE spatialreferences_spatialreferenceid_seq OWNED BY spatialreferences.spatialreferenceid;
+
+
+--
+-- TOC entry 434 (class 1259 OID 84932)
+-- Name: specimen_site_sf; Type: VIEW; Schema: odm2; Owner: -
+--
+
+CREATE VIEW specimen_site_sf AS
+ SELECT sfsp.samplingfeatureid AS sp_samplingfeatureid,
+    sfst.samplingfeatureid AS st_samplingfeatureid,
+    sfst.samplingfeaturetypecv AS st_samplingfeaturetypecv,
+    sfst.samplingfeaturecode AS st_samplingfeaturecode,
+    sfst.samplingfeaturename AS st_samplingfeaturename,
+    sfst.samplingfeaturedescription AS st_samplingfeaturedescription,
+    sfst.samplingfeaturegeotypecv AS st_samplingfeaturegeotypecv,
+    sfst.featuregeometry AS st_featuregeometry,
+    site.sitetypecv,
+    site.latitude,
+    site.longitude,
+    site.spatialreferenceid
+   FROM samplingfeatures sfsp,
+    samplingfeatures sfst,
+    sites site,
+    relatedfeatures rf
+  WHERE (((sfsp.samplingfeatureid = rf.samplingfeatureid) AND (sfst.samplingfeatureid = rf.relatedfeatureid)) AND (sfst.samplingfeatureid = site.samplingfeatureid))
+  ORDER BY sfsp.samplingfeatureid;
 
 
 --
@@ -3426,7 +3489,7 @@ CREATE SEQUENCE specimentaxonomicclassifiers_bridgeid_seq
 
 
 --
--- TOC entry 5030 (class 0 OID 0)
+-- TOC entry 5044 (class 0 OID 0)
 -- Dependencies: 417
 -- Name: specimentaxonomicclassifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3480,7 +3543,7 @@ CREATE SEQUENCE spectraresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 5031 (class 0 OID 0)
+-- TOC entry 5045 (class 0 OID 0)
 -- Dependencies: 232
 -- Name: spectraresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3523,7 +3586,7 @@ CREATE SEQUENCE spectraresultvalues_valueid_seq
 
 
 --
--- TOC entry 5032 (class 0 OID 0)
+-- TOC entry 5046 (class 0 OID 0)
 -- Dependencies: 399
 -- Name: spectraresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3559,7 +3622,7 @@ CREATE SEQUENCE taxonomicclassifierexternalidentifiers_bridgeid_seq
 
 
 --
--- TOC entry 5033 (class 0 OID 0)
+-- TOC entry 5047 (class 0 OID 0)
 -- Dependencies: 355
 -- Name: taxonomicclassifierexternalidentifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3628,7 +3691,7 @@ CREATE SEQUENCE timeseriesresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 5034 (class 0 OID 0)
+-- TOC entry 5048 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: timeseriesresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3668,7 +3731,7 @@ CREATE SEQUENCE timeseriesresultvalues_valueid_seq
 
 
 --
--- TOC entry 5035 (class 0 OID 0)
+-- TOC entry 5049 (class 0 OID 0)
 -- Dependencies: 402
 -- Name: timeseriesresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3718,7 +3781,7 @@ CREATE SEQUENCE trajectoryresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 5036 (class 0 OID 0)
+-- TOC entry 5050 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: trajectoryresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3767,7 +3830,7 @@ CREATE SEQUENCE trajectoryresultvalues_valueid_seq
 
 
 --
--- TOC entry 5037 (class 0 OID 0)
+-- TOC entry 5051 (class 0 OID 0)
 -- Dependencies: 405
 -- Name: trajectoryresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3819,7 +3882,7 @@ CREATE SEQUENCE transectresultvalueannotations_bridgeid_seq
 
 
 --
--- TOC entry 5038 (class 0 OID 0)
+-- TOC entry 5052 (class 0 OID 0)
 -- Dependencies: 238
 -- Name: transectresultvalueannotations_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3867,7 +3930,7 @@ CREATE SEQUENCE transectresultvalues_valueid_seq
 
 
 --
--- TOC entry 5039 (class 0 OID 0)
+-- TOC entry 5053 (class 0 OID 0)
 -- Dependencies: 408
 -- Name: transectresultvalues_valueid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3903,7 +3966,7 @@ CREATE SEQUENCE units_unitsid_seq
 
 
 --
--- TOC entry 5040 (class 0 OID 0)
+-- TOC entry 5054 (class 0 OID 0)
 -- Dependencies: 267
 -- Name: units_unitsid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3938,7 +4001,7 @@ CREATE SEQUENCE variableextensionpropertyvalues_bridgeid_seq
 
 
 --
--- TOC entry 5041 (class 0 OID 0)
+-- TOC entry 5055 (class 0 OID 0)
 -- Dependencies: 340
 -- Name: variableextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -3974,7 +4037,7 @@ CREATE SEQUENCE variableexternalidentifiers_bridgeid_seq
 
 
 --
--- TOC entry 5042 (class 0 OID 0)
+-- TOC entry 5056 (class 0 OID 0)
 -- Dependencies: 357
 -- Name: variableexternalidentifiers_bridgeid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -4012,7 +4075,7 @@ CREATE SEQUENCE variables_variableid_seq
 
 
 --
--- TOC entry 5043 (class 0 OID 0)
+-- TOC entry 5057 (class 0 OID 0)
 -- Dependencies: 269
 -- Name: variables_variableid_seq; Type: SEQUENCE OWNED BY; Schema: odm2; Owner: -
 --
@@ -4021,7 +4084,7 @@ ALTER SEQUENCE variables_variableid_seq OWNED BY variables.variableid;
 
 
 --
--- TOC entry 3973 (class 2604 OID 69992)
+-- TOC entry 3984 (class 2604 OID 69992)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4029,7 +4092,7 @@ ALTER TABLE ONLY actionannotations ALTER COLUMN bridgeid SET DEFAULT nextval('ac
 
 
 --
--- TOC entry 3988 (class 2604 OID 70115)
+-- TOC entry 3999 (class 2604 OID 70115)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4037,7 +4100,7 @@ ALTER TABLE ONLY actionby ALTER COLUMN bridgeid SET DEFAULT nextval('actionby_br
 
 
 --
--- TOC entry 4030 (class 2604 OID 70811)
+-- TOC entry 4041 (class 2604 OID 70811)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4045,7 +4108,7 @@ ALTER TABLE ONLY actiondirectives ALTER COLUMN bridgeid SET DEFAULT nextval('act
 
 
 --
--- TOC entry 4015 (class 2604 OID 70656)
+-- TOC entry 4026 (class 2604 OID 70656)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4053,7 +4116,7 @@ ALTER TABLE ONLY actionextensionpropertyvalues ALTER COLUMN bridgeid SET DEFAULT
 
 
 --
--- TOC entry 3989 (class 2604 OID 70126)
+-- TOC entry 4000 (class 2604 OID 70126)
 -- Name: actionid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4061,7 +4124,7 @@ ALTER TABLE ONLY actions ALTER COLUMN actionid SET DEFAULT nextval('actions_acti
 
 
 --
--- TOC entry 3990 (class 2604 OID 70137)
+-- TOC entry 4001 (class 2604 OID 70137)
 -- Name: affiliationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4069,7 +4132,7 @@ ALTER TABLE ONLY affiliations ALTER COLUMN affiliationid SET DEFAULT nextval('af
 
 
 --
--- TOC entry 3974 (class 2604 OID 70000)
+-- TOC entry 3985 (class 2604 OID 70000)
 -- Name: annotationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4077,7 +4140,7 @@ ALTER TABLE ONLY annotations ALTER COLUMN annotationid SET DEFAULT nextval('anno
 
 
 --
--- TOC entry 4032 (class 2604 OID 70835)
+-- TOC entry 4043 (class 2604 OID 70835)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4085,7 +4148,7 @@ ALTER TABLE ONLY authorlists ALTER COLUMN bridgeid SET DEFAULT nextval('authorli
 
 
 --
--- TOC entry 4005 (class 2604 OID 70550)
+-- TOC entry 4016 (class 2604 OID 70550)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4093,7 +4156,7 @@ ALTER TABLE ONLY calibrationreferenceequipment ALTER COLUMN bridgeid SET DEFAULT
 
 
 --
--- TOC entry 4006 (class 2604 OID 70558)
+-- TOC entry 4017 (class 2604 OID 70558)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4101,7 +4164,7 @@ ALTER TABLE ONLY calibrationstandards ALTER COLUMN bridgeid SET DEFAULT nextval(
 
 
 --
--- TOC entry 3975 (class 2604 OID 70011)
+-- TOC entry 3986 (class 2604 OID 70011)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4109,7 +4172,7 @@ ALTER TABLE ONLY categoricalresultvalueannotations ALTER COLUMN bridgeid SET DEF
 
 
 --
--- TOC entry 4041 (class 2604 OID 70920)
+-- TOC entry 4052 (class 2604 OID 70920)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4117,7 +4180,7 @@ ALTER TABLE ONLY categoricalresultvalues ALTER COLUMN valueid SET DEFAULT nextva
 
 
 --
--- TOC entry 4016 (class 2604 OID 70664)
+-- TOC entry 4027 (class 2604 OID 70664)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4125,7 +4188,7 @@ ALTER TABLE ONLY citationextensionpropertyvalues ALTER COLUMN bridgeid SET DEFAU
 
 
 --
--- TOC entry 4022 (class 2604 OID 70715)
+-- TOC entry 4033 (class 2604 OID 70715)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4133,7 +4196,7 @@ ALTER TABLE ONLY citationexternalidentifiers ALTER COLUMN bridgeid SET DEFAULT n
 
 
 --
--- TOC entry 4033 (class 2604 OID 70843)
+-- TOC entry 4044 (class 2604 OID 70843)
 -- Name: citationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4141,7 +4204,7 @@ ALTER TABLE ONLY citations ALTER COLUMN citationid SET DEFAULT nextval('citation
 
 
 --
--- TOC entry 4007 (class 2604 OID 70566)
+-- TOC entry 4018 (class 2604 OID 70566)
 -- Name: dataloggerfilecolumnid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4149,7 +4212,7 @@ ALTER TABLE ONLY dataloggerfilecolumns ALTER COLUMN dataloggerfilecolumnid SET D
 
 
 --
--- TOC entry 4008 (class 2604 OID 70577)
+-- TOC entry 4019 (class 2604 OID 70577)
 -- Name: dataloggerfileid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4157,7 +4220,7 @@ ALTER TABLE ONLY dataloggerfiles ALTER COLUMN dataloggerfileid SET DEFAULT nextv
 
 
 --
--- TOC entry 4009 (class 2604 OID 70588)
+-- TOC entry 4020 (class 2604 OID 70588)
 -- Name: programid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4165,7 +4228,7 @@ ALTER TABLE ONLY dataloggerprogramfiles ALTER COLUMN programid SET DEFAULT nextv
 
 
 --
--- TOC entry 4034 (class 2604 OID 70854)
+-- TOC entry 4045 (class 2604 OID 70854)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4173,7 +4236,7 @@ ALTER TABLE ONLY datasetcitations ALTER COLUMN bridgeid SET DEFAULT nextval('dat
 
 
 --
--- TOC entry 3991 (class 2604 OID 70148)
+-- TOC entry 4002 (class 2604 OID 70148)
 -- Name: datasetid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4181,7 +4244,7 @@ ALTER TABLE ONLY datasets ALTER COLUMN datasetid SET DEFAULT nextval('datasets_d
 
 
 --
--- TOC entry 3992 (class 2604 OID 70159)
+-- TOC entry 4003 (class 2604 OID 70159)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4189,7 +4252,7 @@ ALTER TABLE ONLY datasetsresults ALTER COLUMN bridgeid SET DEFAULT nextval('data
 
 
 --
--- TOC entry 4035 (class 2604 OID 70862)
+-- TOC entry 4046 (class 2604 OID 70862)
 -- Name: derivationequationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4197,7 +4260,7 @@ ALTER TABLE ONLY derivationequations ALTER COLUMN derivationequationid SET DEFAU
 
 
 --
--- TOC entry 4031 (class 2604 OID 70819)
+-- TOC entry 4042 (class 2604 OID 70819)
 -- Name: directiveid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4205,7 +4268,7 @@ ALTER TABLE ONLY directives ALTER COLUMN directiveid SET DEFAULT nextval('direct
 
 
 --
--- TOC entry 4010 (class 2604 OID 70599)
+-- TOC entry 4021 (class 2604 OID 70599)
 -- Name: equipmentid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4213,7 +4276,7 @@ ALTER TABLE ONLY equipment ALTER COLUMN equipmentid SET DEFAULT nextval('equipme
 
 
 --
--- TOC entry 3976 (class 2604 OID 70019)
+-- TOC entry 3987 (class 2604 OID 70019)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4221,7 +4284,7 @@ ALTER TABLE ONLY equipmentannotations ALTER COLUMN bridgeid SET DEFAULT nextval(
 
 
 --
--- TOC entry 4011 (class 2604 OID 70610)
+-- TOC entry 4022 (class 2604 OID 70610)
 -- Name: equipmentmodelid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4229,7 +4292,7 @@ ALTER TABLE ONLY equipmentmodels ALTER COLUMN equipmentmodelid SET DEFAULT nextv
 
 
 --
--- TOC entry 4012 (class 2604 OID 70621)
+-- TOC entry 4023 (class 2604 OID 70621)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4237,7 +4300,7 @@ ALTER TABLE ONLY equipmentused ALTER COLUMN bridgeid SET DEFAULT nextval('equipm
 
 
 --
--- TOC entry 4017 (class 2604 OID 70672)
+-- TOC entry 4028 (class 2604 OID 70672)
 -- Name: propertyid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4245,7 +4308,7 @@ ALTER TABLE ONLY extensionproperties ALTER COLUMN propertyid SET DEFAULT nextval
 
 
 --
--- TOC entry 3993 (class 2604 OID 70167)
+-- TOC entry 4004 (class 2604 OID 70167)
 -- Name: featureactionid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4253,7 +4316,7 @@ ALTER TABLE ONLY featureactions ALTER COLUMN featureactionid SET DEFAULT nextval
 
 
 --
--- TOC entry 4013 (class 2604 OID 70629)
+-- TOC entry 4024 (class 2604 OID 70629)
 -- Name: instrumentoutputvariableid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4261,7 +4324,7 @@ ALTER TABLE ONLY instrumentoutputvariables ALTER COLUMN instrumentoutputvariable
 
 
 --
--- TOC entry 3977 (class 2604 OID 70027)
+-- TOC entry 3988 (class 2604 OID 70027)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4269,7 +4332,7 @@ ALTER TABLE ONLY measurementresultvalueannotations ALTER COLUMN bridgeid SET DEF
 
 
 --
--- TOC entry 4042 (class 2604 OID 70936)
+-- TOC entry 4053 (class 2604 OID 70936)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4277,7 +4340,7 @@ ALTER TABLE ONLY measurementresultvalues ALTER COLUMN valueid SET DEFAULT nextva
 
 
 --
--- TOC entry 3978 (class 2604 OID 70035)
+-- TOC entry 3989 (class 2604 OID 70035)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4285,7 +4348,7 @@ ALTER TABLE ONLY methodannotations ALTER COLUMN bridgeid SET DEFAULT nextval('me
 
 
 --
--- TOC entry 4036 (class 2604 OID 70870)
+-- TOC entry 4047 (class 2604 OID 70870)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4293,7 +4356,7 @@ ALTER TABLE ONLY methodcitations ALTER COLUMN bridgeid SET DEFAULT nextval('meth
 
 
 --
--- TOC entry 4018 (class 2604 OID 70683)
+-- TOC entry 4029 (class 2604 OID 70683)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4301,7 +4364,7 @@ ALTER TABLE ONLY methodextensionpropertyvalues ALTER COLUMN bridgeid SET DEFAULT
 
 
 --
--- TOC entry 4023 (class 2604 OID 70734)
+-- TOC entry 4034 (class 2604 OID 70734)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4309,7 +4372,7 @@ ALTER TABLE ONLY methodexternalidentifiers ALTER COLUMN bridgeid SET DEFAULT nex
 
 
 --
--- TOC entry 3994 (class 2604 OID 70175)
+-- TOC entry 4005 (class 2604 OID 70175)
 -- Name: methodid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4317,7 +4380,7 @@ ALTER TABLE ONLY methods ALTER COLUMN methodid SET DEFAULT nextval('methods_meth
 
 
 --
--- TOC entry 4053 (class 2604 OID 71101)
+-- TOC entry 4064 (class 2604 OID 71101)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4325,7 +4388,7 @@ ALTER TABLE ONLY modelaffiliations ALTER COLUMN bridgeid SET DEFAULT nextval('mo
 
 
 --
--- TOC entry 4054 (class 2604 OID 71112)
+-- TOC entry 4065 (class 2604 OID 71112)
 -- Name: modelid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4333,7 +4396,7 @@ ALTER TABLE ONLY models ALTER COLUMN modelid SET DEFAULT nextval('models_modelid
 
 
 --
--- TOC entry 3995 (class 2604 OID 70186)
+-- TOC entry 4006 (class 2604 OID 70186)
 -- Name: organizationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4341,7 +4404,7 @@ ALTER TABLE ONLY organizations ALTER COLUMN organizationid SET DEFAULT nextval('
 
 
 --
--- TOC entry 3996 (class 2604 OID 70197)
+-- TOC entry 4007 (class 2604 OID 70197)
 -- Name: personid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4349,7 +4412,7 @@ ALTER TABLE ONLY people ALTER COLUMN personid SET DEFAULT nextval('people_person
 
 
 --
--- TOC entry 4024 (class 2604 OID 70745)
+-- TOC entry 4035 (class 2604 OID 70745)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4357,7 +4420,7 @@ ALTER TABLE ONLY personexternalidentifiers ALTER COLUMN bridgeid SET DEFAULT nex
 
 
 --
--- TOC entry 3979 (class 2604 OID 70043)
+-- TOC entry 3990 (class 2604 OID 70043)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4365,7 +4428,7 @@ ALTER TABLE ONLY pointcoverageresultvalueannotations ALTER COLUMN bridgeid SET D
 
 
 --
--- TOC entry 4043 (class 2604 OID 70949)
+-- TOC entry 4054 (class 2604 OID 70949)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4373,7 +4436,7 @@ ALTER TABLE ONLY pointcoverageresultvalues ALTER COLUMN valueid SET DEFAULT next
 
 
 --
--- TOC entry 3997 (class 2604 OID 70208)
+-- TOC entry 4008 (class 2604 OID 70208)
 -- Name: processinglevelid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4381,7 +4444,7 @@ ALTER TABLE ONLY processinglevels ALTER COLUMN processinglevelid SET DEFAULT nex
 
 
 --
--- TOC entry 3980 (class 2604 OID 70051)
+-- TOC entry 3991 (class 2604 OID 70051)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4389,7 +4452,7 @@ ALTER TABLE ONLY profileresultvalueannotations ALTER COLUMN bridgeid SET DEFAULT
 
 
 --
--- TOC entry 4044 (class 2604 OID 70965)
+-- TOC entry 4055 (class 2604 OID 70965)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4397,7 +4460,7 @@ ALTER TABLE ONLY profileresultvalues ALTER COLUMN valueid SET DEFAULT nextval('p
 
 
 --
--- TOC entry 4025 (class 2604 OID 70756)
+-- TOC entry 4036 (class 2604 OID 70756)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4405,7 +4468,7 @@ ALTER TABLE ONLY referencematerialexternalidentifiers ALTER COLUMN bridgeid SET 
 
 
 --
--- TOC entry 3998 (class 2604 OID 70219)
+-- TOC entry 4009 (class 2604 OID 70219)
 -- Name: relationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4413,7 +4476,7 @@ ALTER TABLE ONLY relatedactions ALTER COLUMN relationid SET DEFAULT nextval('rel
 
 
 --
--- TOC entry 4037 (class 2604 OID 70878)
+-- TOC entry 4048 (class 2604 OID 70878)
 -- Name: relationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4421,7 +4484,7 @@ ALTER TABLE ONLY relatedannotations ALTER COLUMN relationid SET DEFAULT nextval(
 
 
 --
--- TOC entry 4038 (class 2604 OID 70886)
+-- TOC entry 4049 (class 2604 OID 70886)
 -- Name: relationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4429,7 +4492,7 @@ ALTER TABLE ONLY relatedcitations ALTER COLUMN relationid SET DEFAULT nextval('r
 
 
 --
--- TOC entry 4039 (class 2604 OID 70894)
+-- TOC entry 4050 (class 2604 OID 70894)
 -- Name: relationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4437,7 +4500,7 @@ ALTER TABLE ONLY relateddatasets ALTER COLUMN relationid SET DEFAULT nextval('re
 
 
 --
--- TOC entry 4014 (class 2604 OID 70648)
+-- TOC entry 4025 (class 2604 OID 70648)
 -- Name: relationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4445,7 +4508,7 @@ ALTER TABLE ONLY relatedequipment ALTER COLUMN relationid SET DEFAULT nextval('r
 
 
 --
--- TOC entry 4050 (class 2604 OID 71056)
+-- TOC entry 4061 (class 2604 OID 71056)
 -- Name: relationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4453,7 +4516,7 @@ ALTER TABLE ONLY relatedfeatures ALTER COLUMN relationid SET DEFAULT nextval('re
 
 
 --
--- TOC entry 4055 (class 2604 OID 71123)
+-- TOC entry 4066 (class 2604 OID 71123)
 -- Name: relatedid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4461,7 +4524,7 @@ ALTER TABLE ONLY relatedmodels ALTER COLUMN relatedid SET DEFAULT nextval('relat
 
 
 --
--- TOC entry 4040 (class 2604 OID 70902)
+-- TOC entry 4051 (class 2604 OID 70902)
 -- Name: relationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4469,7 +4532,7 @@ ALTER TABLE ONLY relatedresults ALTER COLUMN relationid SET DEFAULT nextval('rel
 
 
 --
--- TOC entry 3981 (class 2604 OID 70059)
+-- TOC entry 3992 (class 2604 OID 70059)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4477,7 +4540,7 @@ ALTER TABLE ONLY resultannotations ALTER COLUMN bridgeid SET DEFAULT nextval('re
 
 
 --
--- TOC entry 4019 (class 2604 OID 70691)
+-- TOC entry 4030 (class 2604 OID 70691)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4485,7 +4548,7 @@ ALTER TABLE ONLY resultextensionpropertyvalues ALTER COLUMN bridgeid SET DEFAULT
 
 
 --
--- TOC entry 3999 (class 2604 OID 70227)
+-- TOC entry 4010 (class 2604 OID 70227)
 -- Name: resultid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4493,7 +4556,7 @@ ALTER TABLE ONLY results ALTER COLUMN resultid SET DEFAULT nextval('results_resu
 
 
 --
--- TOC entry 4004 (class 2604 OID 70537)
+-- TOC entry 4015 (class 2604 OID 70537)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4501,7 +4564,7 @@ ALTER TABLE ONLY resultsdataquality ALTER COLUMN bridgeid SET DEFAULT nextval('r
 
 
 --
--- TOC entry 3982 (class 2604 OID 70067)
+-- TOC entry 3993 (class 2604 OID 70067)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4509,7 +4572,7 @@ ALTER TABLE ONLY samplingfeatureannotations ALTER COLUMN bridgeid SET DEFAULT ne
 
 
 --
--- TOC entry 4020 (class 2604 OID 70699)
+-- TOC entry 4031 (class 2604 OID 70699)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4517,7 +4580,7 @@ ALTER TABLE ONLY samplingfeatureextensionpropertyvalues ALTER COLUMN bridgeid SE
 
 
 --
--- TOC entry 4026 (class 2604 OID 70767)
+-- TOC entry 4037 (class 2604 OID 70767)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4525,7 +4588,7 @@ ALTER TABLE ONLY samplingfeatureexternalidentifiers ALTER COLUMN bridgeid SET DE
 
 
 --
--- TOC entry 4000 (class 2604 OID 70238)
+-- TOC entry 4011 (class 2604 OID 70238)
 -- Name: samplingfeatureid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4533,7 +4596,7 @@ ALTER TABLE ONLY samplingfeatures ALTER COLUMN samplingfeatureid SET DEFAULT nex
 
 
 --
--- TOC entry 3983 (class 2604 OID 70075)
+-- TOC entry 3994 (class 2604 OID 70075)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4541,7 +4604,7 @@ ALTER TABLE ONLY sectionresultvalueannotations ALTER COLUMN bridgeid SET DEFAULT
 
 
 --
--- TOC entry 4045 (class 2604 OID 70981)
+-- TOC entry 4056 (class 2604 OID 70981)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4549,7 +4612,7 @@ ALTER TABLE ONLY sectionresultvalues ALTER COLUMN valueid SET DEFAULT nextval('s
 
 
 --
--- TOC entry 4056 (class 2604 OID 71131)
+-- TOC entry 4067 (class 2604 OID 71131)
 -- Name: simulationid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4557,7 +4620,7 @@ ALTER TABLE ONLY simulations ALTER COLUMN simulationid SET DEFAULT nextval('simu
 
 
 --
--- TOC entry 4027 (class 2604 OID 70778)
+-- TOC entry 4038 (class 2604 OID 70778)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4565,7 +4628,7 @@ ALTER TABLE ONLY spatialreferenceexternalidentifiers ALTER COLUMN bridgeid SET D
 
 
 --
--- TOC entry 4051 (class 2604 OID 71074)
+-- TOC entry 4062 (class 2604 OID 71074)
 -- Name: spatialreferenceid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4573,7 +4636,7 @@ ALTER TABLE ONLY spatialreferences ALTER COLUMN spatialreferenceid SET DEFAULT n
 
 
 --
--- TOC entry 4052 (class 2604 OID 71093)
+-- TOC entry 4063 (class 2604 OID 71093)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4581,7 +4644,7 @@ ALTER TABLE ONLY specimentaxonomicclassifiers ALTER COLUMN bridgeid SET DEFAULT 
 
 
 --
--- TOC entry 3984 (class 2604 OID 70083)
+-- TOC entry 3995 (class 2604 OID 70083)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4589,7 +4652,7 @@ ALTER TABLE ONLY spectraresultvalueannotations ALTER COLUMN bridgeid SET DEFAULT
 
 
 --
--- TOC entry 4046 (class 2604 OID 70997)
+-- TOC entry 4057 (class 2604 OID 70997)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4597,7 +4660,7 @@ ALTER TABLE ONLY spectraresultvalues ALTER COLUMN valueid SET DEFAULT nextval('s
 
 
 --
--- TOC entry 4028 (class 2604 OID 70789)
+-- TOC entry 4039 (class 2604 OID 70789)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4605,7 +4668,7 @@ ALTER TABLE ONLY taxonomicclassifierexternalidentifiers ALTER COLUMN bridgeid SE
 
 
 --
--- TOC entry 3985 (class 2604 OID 70091)
+-- TOC entry 3996 (class 2604 OID 70091)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4613,7 +4676,7 @@ ALTER TABLE ONLY timeseriesresultvalueannotations ALTER COLUMN bridgeid SET DEFA
 
 
 --
--- TOC entry 4047 (class 2604 OID 71013)
+-- TOC entry 4058 (class 2604 OID 71013)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4621,7 +4684,7 @@ ALTER TABLE ONLY timeseriesresultvalues ALTER COLUMN valueid SET DEFAULT nextval
 
 
 --
--- TOC entry 3986 (class 2604 OID 70099)
+-- TOC entry 3997 (class 2604 OID 70099)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4629,7 +4692,7 @@ ALTER TABLE ONLY trajectoryresultvalueannotations ALTER COLUMN bridgeid SET DEFA
 
 
 --
--- TOC entry 4048 (class 2604 OID 71029)
+-- TOC entry 4059 (class 2604 OID 71029)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4637,7 +4700,7 @@ ALTER TABLE ONLY trajectoryresultvalues ALTER COLUMN valueid SET DEFAULT nextval
 
 
 --
--- TOC entry 3987 (class 2604 OID 70107)
+-- TOC entry 3998 (class 2604 OID 70107)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4645,7 +4708,7 @@ ALTER TABLE ONLY transectresultvalueannotations ALTER COLUMN bridgeid SET DEFAUL
 
 
 --
--- TOC entry 4049 (class 2604 OID 71045)
+-- TOC entry 4060 (class 2604 OID 71045)
 -- Name: valueid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4653,7 +4716,7 @@ ALTER TABLE ONLY transectresultvalues ALTER COLUMN valueid SET DEFAULT nextval('
 
 
 --
--- TOC entry 4002 (class 2604 OID 70257)
+-- TOC entry 4013 (class 2604 OID 70257)
 -- Name: unitsid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4661,7 +4724,7 @@ ALTER TABLE ONLY units ALTER COLUMN unitsid SET DEFAULT nextval('units_unitsid_s
 
 
 --
--- TOC entry 4021 (class 2604 OID 70707)
+-- TOC entry 4032 (class 2604 OID 70707)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4669,7 +4732,7 @@ ALTER TABLE ONLY variableextensionpropertyvalues ALTER COLUMN bridgeid SET DEFAU
 
 
 --
--- TOC entry 4029 (class 2604 OID 70800)
+-- TOC entry 4040 (class 2604 OID 70800)
 -- Name: bridgeid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4677,7 +4740,7 @@ ALTER TABLE ONLY variableexternalidentifiers ALTER COLUMN bridgeid SET DEFAULT n
 
 
 --
--- TOC entry 4003 (class 2604 OID 70268)
+-- TOC entry 4014 (class 2604 OID 70268)
 -- Name: variableid; Type: DEFAULT; Schema: odm2; Owner: -
 --
 
@@ -4685,7 +4748,7 @@ ALTER TABLE ONLY variables ALTER COLUMN variableid SET DEFAULT nextval('variable
 
 
 --
--- TOC entry 4734 (class 0 OID 69989)
+-- TOC entry 4748 (class 0 OID 69989)
 -- Dependencies: 211
 -- Data for Name: actionannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4695,7 +4758,7 @@ COPY actionannotations (bridgeid, actionid, annotationid) FROM stdin;
 
 
 --
--- TOC entry 5044 (class 0 OID 0)
+-- TOC entry 5058 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: actionannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4704,7 +4767,7 @@ SELECT pg_catalog.setval('actionannotations_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4764 (class 0 OID 70112)
+-- TOC entry 4778 (class 0 OID 70112)
 -- Dependencies: 241
 -- Data for Name: actionby; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4715,7 +4778,7 @@ COPY actionby (bridgeid, actionid, affiliationid, isactionlead, roledescription)
 
 
 --
--- TOC entry 5045 (class 0 OID 0)
+-- TOC entry 5059 (class 0 OID 0)
 -- Dependencies: 240
 -- Name: actionby_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4724,7 +4787,7 @@ SELECT pg_catalog.setval('actionby_bridgeid_seq', 1, true);
 
 
 --
--- TOC entry 4883 (class 0 OID 70808)
+-- TOC entry 4897 (class 0 OID 70808)
 -- Dependencies: 360
 -- Data for Name: actiondirectives; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4734,7 +4797,7 @@ COPY actiondirectives (bridgeid, actionid, directiveid) FROM stdin;
 
 
 --
--- TOC entry 5046 (class 0 OID 0)
+-- TOC entry 5060 (class 0 OID 0)
 -- Dependencies: 359
 -- Name: actiondirectives_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4743,7 +4806,7 @@ SELECT pg_catalog.setval('actiondirectives_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4852 (class 0 OID 70653)
+-- TOC entry 4866 (class 0 OID 70653)
 -- Dependencies: 329
 -- Data for Name: actionextensionpropertyvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4753,7 +4816,7 @@ COPY actionextensionpropertyvalues (bridgeid, actionid, propertyid, propertyvalu
 
 
 --
--- TOC entry 5047 (class 0 OID 0)
+-- TOC entry 5061 (class 0 OID 0)
 -- Dependencies: 328
 -- Name: actionextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4762,7 +4825,7 @@ SELECT pg_catalog.setval('actionextensionpropertyvalues_bridgeid_seq', 1, false)
 
 
 --
--- TOC entry 4766 (class 0 OID 70123)
+-- TOC entry 4780 (class 0 OID 70123)
 -- Dependencies: 243
 -- Data for Name: actions; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4874,7 +4937,7 @@ COPY actions (actionid, actiontypecv, methodid, begindatetime, begindatetimeutco
 
 
 --
--- TOC entry 5048 (class 0 OID 0)
+-- TOC entry 5062 (class 0 OID 0)
 -- Dependencies: 242
 -- Name: actions_actionid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4883,7 +4946,7 @@ SELECT pg_catalog.setval('actions_actionid_seq', 1, false);
 
 
 --
--- TOC entry 4768 (class 0 OID 70134)
+-- TOC entry 4782 (class 0 OID 70134)
 -- Dependencies: 245
 -- Data for Name: affiliations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4894,7 +4957,7 @@ COPY affiliations (affiliationid, personid, organizationid, isprimaryorganizatio
 
 
 --
--- TOC entry 5049 (class 0 OID 0)
+-- TOC entry 5063 (class 0 OID 0)
 -- Dependencies: 244
 -- Name: affiliations_affiliationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4903,7 +4966,7 @@ SELECT pg_catalog.setval('affiliations_affiliationid_seq', 1, false);
 
 
 --
--- TOC entry 4736 (class 0 OID 69997)
+-- TOC entry 4750 (class 0 OID 69997)
 -- Dependencies: 213
 -- Data for Name: annotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4913,7 +4976,7 @@ COPY annotations (annotationid, annotationtypecv, annotationcode, annotationtext
 
 
 --
--- TOC entry 5050 (class 0 OID 0)
+-- TOC entry 5064 (class 0 OID 0)
 -- Dependencies: 212
 -- Name: annotations_annotationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4922,7 +4985,7 @@ SELECT pg_catalog.setval('annotations_annotationid_seq', 1, false);
 
 
 --
--- TOC entry 4888 (class 0 OID 70832)
+-- TOC entry 4902 (class 0 OID 70832)
 -- Dependencies: 365
 -- Data for Name: authorlists; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4936,7 +4999,7 @@ COPY authorlists (bridgeid, citationid, personid, authororder) FROM stdin;
 
 
 --
--- TOC entry 5051 (class 0 OID 0)
+-- TOC entry 5065 (class 0 OID 0)
 -- Dependencies: 364
 -- Name: authorlists_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4945,7 +5008,7 @@ SELECT pg_catalog.setval('authorlists_bridgeid_seq', 4, true);
 
 
 --
--- TOC entry 4829 (class 0 OID 70540)
+-- TOC entry 4843 (class 0 OID 70540)
 -- Dependencies: 306
 -- Data for Name: calibrationactions; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4955,7 +5018,7 @@ COPY calibrationactions (actionid, calibrationcheckvalue, instrumentoutputvariab
 
 
 --
--- TOC entry 4831 (class 0 OID 70547)
+-- TOC entry 4845 (class 0 OID 70547)
 -- Dependencies: 308
 -- Data for Name: calibrationreferenceequipment; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4965,7 +5028,7 @@ COPY calibrationreferenceequipment (bridgeid, actionid, equipmentid) FROM stdin;
 
 
 --
--- TOC entry 5052 (class 0 OID 0)
+-- TOC entry 5066 (class 0 OID 0)
 -- Dependencies: 307
 -- Name: calibrationreferenceequipment_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4974,7 +5037,7 @@ SELECT pg_catalog.setval('calibrationreferenceequipment_bridgeid_seq', 1, false)
 
 
 --
--- TOC entry 4833 (class 0 OID 70555)
+-- TOC entry 4847 (class 0 OID 70555)
 -- Dependencies: 310
 -- Data for Name: calibrationstandards; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -4984,7 +5047,7 @@ COPY calibrationstandards (bridgeid, actionid, referencematerialid) FROM stdin;
 
 
 --
--- TOC entry 5053 (class 0 OID 0)
+-- TOC entry 5067 (class 0 OID 0)
 -- Dependencies: 309
 -- Name: calibrationstandards_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -4993,7 +5056,7 @@ SELECT pg_catalog.setval('calibrationstandards_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4906 (class 0 OID 70910)
+-- TOC entry 4920 (class 0 OID 70910)
 -- Dependencies: 383
 -- Data for Name: categoricalresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5003,7 +5066,7 @@ COPY categoricalresults (resultid, xlocation, xlocationunitsid, ylocation, yloca
 
 
 --
--- TOC entry 4738 (class 0 OID 70008)
+-- TOC entry 4752 (class 0 OID 70008)
 -- Dependencies: 215
 -- Data for Name: categoricalresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5013,7 +5076,7 @@ COPY categoricalresultvalueannotations (bridgeid, valueid, annotationid) FROM st
 
 
 --
--- TOC entry 5054 (class 0 OID 0)
+-- TOC entry 5068 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: categoricalresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -5022,7 +5085,7 @@ SELECT pg_catalog.setval('categoricalresultvalueannotations_bridgeid_seq', 1, fa
 
 
 --
--- TOC entry 4908 (class 0 OID 70917)
+-- TOC entry 4922 (class 0 OID 70917)
 -- Dependencies: 385
 -- Data for Name: categoricalresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5032,7 +5095,7 @@ COPY categoricalresultvalues (valueid, resultid, datavalue, valuedatetime, value
 
 
 --
--- TOC entry 5055 (class 0 OID 0)
+-- TOC entry 5069 (class 0 OID 0)
 -- Dependencies: 384
 -- Name: categoricalresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -5041,7 +5104,7 @@ SELECT pg_catalog.setval('categoricalresultvalues_valueid_seq', 1, false);
 
 
 --
--- TOC entry 4854 (class 0 OID 70661)
+-- TOC entry 4868 (class 0 OID 70661)
 -- Dependencies: 331
 -- Data for Name: citationextensionpropertyvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5051,7 +5114,7 @@ COPY citationextensionpropertyvalues (bridgeid, citationid, propertyid, property
 
 
 --
--- TOC entry 5056 (class 0 OID 0)
+-- TOC entry 5070 (class 0 OID 0)
 -- Dependencies: 330
 -- Name: citationextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -5060,7 +5123,7 @@ SELECT pg_catalog.setval('citationextensionpropertyvalues_bridgeid_seq', 1, fals
 
 
 --
--- TOC entry 4866 (class 0 OID 70712)
+-- TOC entry 4880 (class 0 OID 70712)
 -- Dependencies: 343
 -- Data for Name: citationexternalidentifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5071,7 +5134,7 @@ COPY citationexternalidentifiers (bridgeid, citationid, externalidentifiersystem
 
 
 --
--- TOC entry 5057 (class 0 OID 0)
+-- TOC entry 5071 (class 0 OID 0)
 -- Dependencies: 342
 -- Name: citationexternalidentifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -5080,7 +5143,7 @@ SELECT pg_catalog.setval('citationexternalidentifiers_bridgeid_seq', 1, true);
 
 
 --
--- TOC entry 4890 (class 0 OID 70840)
+-- TOC entry 4904 (class 0 OID 70840)
 -- Dependencies: 367
 -- Data for Name: citations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5091,7 +5154,7 @@ COPY citations (citationid, title, publisher, publicationyear, citationlink) FRO
 
 
 --
--- TOC entry 5058 (class 0 OID 0)
+-- TOC entry 5072 (class 0 OID 0)
 -- Dependencies: 366
 -- Name: citations_citationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -5100,7 +5163,7 @@ SELECT pg_catalog.setval('citations_citationid_seq', 1, true);
 
 
 --
--- TOC entry 4794 (class 0 OID 70274)
+-- TOC entry 4808 (class 0 OID 70274)
 -- Dependencies: 271
 -- Data for Name: cv_actiontype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5133,7 +5196,7 @@ equipmentDeployment	Equipment deployment	The act of placing equipment that will 
 
 
 --
--- TOC entry 4795 (class 0 OID 70282)
+-- TOC entry 4809 (class 0 OID 70282)
 -- Dependencies: 272
 -- Data for Name: cv_aggregationstatistic; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5158,7 +5221,7 @@ median	Median	The values represent the median over a time interval, such as dail
 
 
 --
--- TOC entry 4796 (class 0 OID 70290)
+-- TOC entry 4810 (class 0 OID 70290)
 -- Dependencies: 273
 -- Data for Name: cv_annotationtype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5193,7 +5256,7 @@ samplingFeatureAnnotation	Sampling feature annotation	An annotation or qualifiyi
 
 
 --
--- TOC entry 4797 (class 0 OID 70298)
+-- TOC entry 4811 (class 0 OID 70298)
 -- Dependencies: 274
 -- Data for Name: cv_censorcode; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5208,7 +5271,7 @@ greaterThan	Greater than	The value is known to be greater than the recorded valu
 
 
 --
--- TOC entry 4798 (class 0 OID 70306)
+-- TOC entry 4812 (class 0 OID 70306)
 -- Dependencies: 275
 -- Data for Name: cv_dataqualitytype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5218,7 +5281,7 @@ COPY cv_dataqualitytype (term, name, definition, category, sourcevocabularyuri) 
 
 
 --
--- TOC entry 4799 (class 0 OID 70314)
+-- TOC entry 4813 (class 0 OID 70314)
 -- Dependencies: 276
 -- Data for Name: cv_datasettypecv; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5233,7 +5296,7 @@ other	Other	A set of Results that has been grouped into a Dataset because they a
 
 
 --
--- TOC entry 4800 (class 0 OID 70322)
+-- TOC entry 4814 (class 0 OID 70322)
 -- Dependencies: 277
 -- Data for Name: cv_directivetype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5246,7 +5309,7 @@ fieldCampaign	Field campaign	A sampling event conducted in the field during whic
 
 
 --
--- TOC entry 4801 (class 0 OID 70330)
+-- TOC entry 4815 (class 0 OID 70330)
 -- Dependencies: 278
 -- Data for Name: cv_elevationdatum; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5260,7 +5323,7 @@ Unknown	Unknown	The vertical datum is unknown	\N	http://vocabulary.odm2.org/elev
 
 
 --
--- TOC entry 4802 (class 0 OID 70338)
+-- TOC entry 4816 (class 0 OID 70338)
 -- Dependencies: 279
 -- Data for Name: cv_equipmenttype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5294,7 +5357,7 @@ datalogger	Datalogger	An electronic device that records data over time or in rel
 
 
 --
--- TOC entry 4803 (class 0 OID 70346)
+-- TOC entry 4817 (class 0 OID 70346)
 -- Dependencies: 280
 -- Data for Name: cv_methodtype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5328,7 +5391,7 @@ equipmentRetrieval	Equipment retrieval	A method for retrieving equipment from a 
 
 
 --
--- TOC entry 4804 (class 0 OID 70354)
+-- TOC entry 4818 (class 0 OID 70354)
 -- Dependencies: 281
 -- Data for Name: cv_organizationtype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5364,7 +5427,7 @@ researchAgency	Research agency	A department or other administrative unit of a go
 
 
 --
--- TOC entry 4805 (class 0 OID 70362)
+-- TOC entry 4819 (class 0 OID 70362)
 -- Dependencies: 282
 -- Data for Name: cv_propertydatatype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5378,7 +5441,7 @@ floatingPointNumber	Floading point number	A floating-point number represents a l
 
 
 --
--- TOC entry 4806 (class 0 OID 70370)
+-- TOC entry 4820 (class 0 OID 70370)
 -- Dependencies: 283
 -- Data for Name: cv_qualitycode; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5393,7 +5456,7 @@ marginal	Marginal	A quality assessment has been made and one or more data qualit
 
 
 --
--- TOC entry 4807 (class 0 OID 70378)
+-- TOC entry 4821 (class 0 OID 70378)
 -- Dependencies: 284
 -- Data for Name: cv_referencematerialmedium; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5418,7 +5481,7 @@ organism	Organism	Reference material consisting of a species at organism level.	
 
 
 --
--- TOC entry 4808 (class 0 OID 70386)
+-- TOC entry 4822 (class 0 OID 70386)
 -- Dependencies: 285
 -- Data for Name: cv_relationshiptype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5456,7 +5519,7 @@ wasCollectedAt	Was collected at	Used to indicate that one entity was collected a
 
 
 --
--- TOC entry 4809 (class 0 OID 70394)
+-- TOC entry 4823 (class 0 OID 70394)
 -- Dependencies: 286
 -- Data for Name: cv_resulttype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5478,7 +5541,7 @@ trajectoryCoverage	Trajectory coverage	A series of ResultValues for a single Var
 
 
 --
--- TOC entry 4810 (class 0 OID 70402)
+-- TOC entry 4824 (class 0 OID 70402)
 -- Dependencies: 287
 -- Data for Name: cv_sampledmedium; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5503,7 +5566,7 @@ other	Other	Other.	\N	http://vocabulary.odm2.org/sampledmedium/other
 
 
 --
--- TOC entry 4811 (class 0 OID 70410)
+-- TOC entry 4825 (class 0 OID 70410)
 -- Dependencies: 288
 -- Data for Name: cv_samplingfeaturegeotype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5521,7 +5584,7 @@ multiLineString	Multi line string	A collection of individual lines, used as a si
 
 
 --
--- TOC entry 4812 (class 0 OID 70418)
+-- TOC entry 4826 (class 0 OID 70418)
 -- Dependencies: 289
 -- Data for Name: cv_samplingfeaturetype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5553,7 +5616,7 @@ site	Site	A facility or location at which observations have been collected. A si
 
 
 --
--- TOC entry 4813 (class 0 OID 70426)
+-- TOC entry 4827 (class 0 OID 70426)
 -- Dependencies: 290
 -- Data for Name: cv_sitetype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5614,7 +5677,7 @@ aggregateGroundwaterUse	Aggregate groundwater use	An Aggregate Groundwater Withd
 
 
 --
--- TOC entry 4814 (class 0 OID 70434)
+-- TOC entry 4828 (class 0 OID 70434)
 -- Dependencies: 291
 -- Data for Name: cv_spatialoffsettype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5635,7 +5698,7 @@ depthDirectional	Depth, directional	Depth below the earth or water surface along
 
 
 --
--- TOC entry 4815 (class 0 OID 70442)
+-- TOC entry 4829 (class 0 OID 70442)
 -- Dependencies: 292
 -- Data for Name: cv_speciation; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5790,7 +5853,7 @@ notApplicable	Not Applicable	Speciation is not applicable	\N	http://vocabulary.o
 
 
 --
--- TOC entry 4816 (class 0 OID 70450)
+-- TOC entry 4830 (class 0 OID 70450)
 -- Dependencies: 293
 -- Data for Name: cv_specimenmedium; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5815,7 +5878,7 @@ tissue	Tissue	Sample of a living organism's tissue.	\N	http://vocabulary.odm2.or
 
 
 --
--- TOC entry 4817 (class 0 OID 70458)
+-- TOC entry 4831 (class 0 OID 70458)
 -- Dependencies: 294
 -- Data for Name: cv_specimentype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5851,7 +5914,7 @@ foliageLeaching	Foliage leaching	Sample that consists of leachate from foliage	\
 
 
 --
--- TOC entry 4818 (class 0 OID 70466)
+-- TOC entry 4832 (class 0 OID 70466)
 -- Dependencies: 295
 -- Data for Name: cv_status; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5864,7 +5927,7 @@ ongoing	Ongoing	Data collection is ongoing.  New data values will be added perio
 
 
 --
--- TOC entry 4819 (class 0 OID 70474)
+-- TOC entry 4833 (class 0 OID 70474)
 -- Dependencies: 296
 -- Data for Name: cv_taxonomicclassifiertype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5888,7 +5951,7 @@ soilColor	Soil color	A taxonomy containing terms describing soil color.	Soil	htt
 
 
 --
--- TOC entry 4820 (class 0 OID 70482)
+-- TOC entry 4834 (class 0 OID 70482)
 -- Dependencies: 297
 -- Data for Name: cv_unitstype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -5909,7 +5972,7 @@ time	Time	Time	\N	emilio
 
 
 --
--- TOC entry 4821 (class 0 OID 70490)
+-- TOC entry 4835 (class 0 OID 70490)
 -- Dependencies: 298
 -- Data for Name: cv_variablename; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -6711,7 +6774,7 @@ bariumTotal	Barium, total	Total Barium (Ba). For chemical terms, "total" indicat
 
 
 --
--- TOC entry 4822 (class 0 OID 70498)
+-- TOC entry 4836 (class 0 OID 70498)
 -- Dependencies: 299
 -- Data for Name: cv_variabletype; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -6744,7 +6807,7 @@ nobleGas	Noble gas	Variables associated with noble gasses	\N	http://vocabulary.o
 
 
 --
--- TOC entry 4835 (class 0 OID 70563)
+-- TOC entry 4849 (class 0 OID 70563)
 -- Dependencies: 312
 -- Data for Name: dataloggerfilecolumns; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -6754,7 +6817,7 @@ COPY dataloggerfilecolumns (dataloggerfilecolumnid, resultid, dataloggerfileid, 
 
 
 --
--- TOC entry 5059 (class 0 OID 0)
+-- TOC entry 5073 (class 0 OID 0)
 -- Dependencies: 311
 -- Name: dataloggerfilecolumns_dataloggerfilecolumnid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -6763,7 +6826,7 @@ SELECT pg_catalog.setval('dataloggerfilecolumns_dataloggerfilecolumnid_seq', 1, 
 
 
 --
--- TOC entry 4837 (class 0 OID 70574)
+-- TOC entry 4851 (class 0 OID 70574)
 -- Dependencies: 314
 -- Data for Name: dataloggerfiles; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -6773,7 +6836,7 @@ COPY dataloggerfiles (dataloggerfileid, programid, dataloggerfilename, datalogge
 
 
 --
--- TOC entry 5060 (class 0 OID 0)
+-- TOC entry 5074 (class 0 OID 0)
 -- Dependencies: 313
 -- Name: dataloggerfiles_dataloggerfileid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -6782,7 +6845,7 @@ SELECT pg_catalog.setval('dataloggerfiles_dataloggerfileid_seq', 1, false);
 
 
 --
--- TOC entry 4839 (class 0 OID 70585)
+-- TOC entry 4853 (class 0 OID 70585)
 -- Dependencies: 316
 -- Data for Name: dataloggerprogramfiles; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -6792,7 +6855,7 @@ COPY dataloggerprogramfiles (programid, affiliationid, programname, programdescr
 
 
 --
--- TOC entry 5061 (class 0 OID 0)
+-- TOC entry 5075 (class 0 OID 0)
 -- Dependencies: 315
 -- Name: dataloggerprogramfiles_programid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -6801,7 +6864,7 @@ SELECT pg_catalog.setval('dataloggerprogramfiles_programid_seq', 1, false);
 
 
 --
--- TOC entry 4823 (class 0 OID 70506)
+-- TOC entry 4837 (class 0 OID 70506)
 -- Dependencies: 300
 -- Data for Name: dataquality; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -6811,7 +6874,7 @@ COPY dataquality (dataqualityid, dataqualitytypecv, dataqualitycode, dataquality
 
 
 --
--- TOC entry 4892 (class 0 OID 70851)
+-- TOC entry 4906 (class 0 OID 70851)
 -- Dependencies: 369
 -- Data for Name: datasetcitations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -6822,7 +6885,7 @@ COPY datasetcitations (bridgeid, datasetid, relationshiptypecv, citationid) FROM
 
 
 --
--- TOC entry 5062 (class 0 OID 0)
+-- TOC entry 5076 (class 0 OID 0)
 -- Dependencies: 368
 -- Name: datasetcitations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -6831,7 +6894,7 @@ SELECT pg_catalog.setval('datasetcitations_bridgeid_seq', 1, true);
 
 
 --
--- TOC entry 4770 (class 0 OID 70145)
+-- TOC entry 4784 (class 0 OID 70145)
 -- Dependencies: 247
 -- Data for Name: datasets; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -6842,7 +6905,7 @@ COPY datasets (datasetid, datasetuuid, datasettypecv, datasetcode, datasettitle,
 
 
 --
--- TOC entry 5063 (class 0 OID 0)
+-- TOC entry 5077 (class 0 OID 0)
 -- Dependencies: 246
 -- Name: datasets_datasetid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -6851,7 +6914,7 @@ SELECT pg_catalog.setval('datasets_datasetid_seq', 1, true);
 
 
 --
--- TOC entry 4772 (class 0 OID 70156)
+-- TOC entry 4786 (class 0 OID 70156)
 -- Dependencies: 249
 -- Data for Name: datasetsresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7652,20 +7715,1733 @@ COPY datasetsresults (bridgeid, datasetid, resultid) FROM stdin;
 793	1	793
 794	1	794
 795	1	795
+796	1	796
+797	1	797
+798	1	798
+799	1	799
+800	1	800
+801	1	801
+802	1	802
+803	1	803
+804	1	804
+805	1	805
+806	1	806
+807	1	807
+808	1	808
+809	1	809
+810	1	810
+811	1	811
+812	1	812
+813	1	813
+814	1	814
+815	1	815
+816	1	816
+817	1	817
+818	1	818
+819	1	819
+820	1	820
+821	1	821
+822	1	822
+823	1	823
+824	1	824
+825	1	825
+826	1	826
+827	1	827
+828	1	828
+829	1	829
+830	1	830
+831	1	831
+832	1	832
+833	1	833
+834	1	834
+835	1	835
+836	1	836
+837	1	837
+838	1	838
+839	1	839
+840	1	840
+841	1	841
+842	1	842
+843	1	843
+844	1	844
+845	1	845
+846	1	846
+847	1	847
+848	1	848
+849	1	849
+850	1	850
+851	1	851
+852	1	852
+853	1	853
+854	1	854
+855	1	855
+856	1	856
+857	1	857
+858	1	858
+859	1	859
+860	1	860
+861	1	861
+862	1	862
+863	1	863
+864	1	864
+865	1	865
+866	1	866
+867	1	867
+868	1	868
+869	1	869
+870	1	870
+871	1	871
+872	1	872
+873	1	873
+874	1	874
+875	1	875
+876	1	876
+877	1	877
+878	1	878
+879	1	879
+880	1	880
+881	1	881
+882	1	882
+883	1	883
+884	1	884
+885	1	885
+886	1	886
+887	1	887
+888	1	888
+889	1	889
+890	1	890
+891	1	891
+892	1	892
+893	1	893
+894	1	894
+895	1	895
+896	1	896
+897	1	897
+898	1	898
+899	1	899
+900	1	900
+901	1	901
+902	1	902
+903	1	903
+904	1	904
+905	1	905
+906	1	906
+907	1	907
+908	1	908
+909	1	909
+910	1	910
+911	1	911
+912	1	912
+913	1	913
+914	1	914
+915	1	915
+916	1	916
+917	1	917
+918	1	918
+919	1	919
+920	1	920
+921	1	921
+922	1	922
+923	1	923
+924	1	924
+925	1	925
+926	1	926
+927	1	927
+928	1	928
+929	1	929
+930	1	930
+931	1	931
+932	1	932
+933	1	933
+934	1	934
+935	1	935
+936	1	936
+937	1	937
+938	1	938
+939	1	939
+940	1	940
+941	1	941
+942	1	942
+943	1	943
+944	1	944
+945	1	945
+946	1	946
+947	1	947
+948	1	948
+949	1	949
+950	1	950
+951	1	951
+952	1	952
+953	1	953
+954	1	954
+955	1	955
+956	1	956
+957	1	957
+958	1	958
+959	1	959
+960	1	960
+961	1	961
+962	1	962
+963	1	963
+964	1	964
+965	1	965
+966	1	966
+967	1	967
+968	1	968
+969	1	969
+970	1	970
+971	1	971
+972	1	972
+973	1	973
+974	1	974
+975	1	975
+976	1	976
+977	1	977
+978	1	978
+979	1	979
+980	1	980
+981	1	981
+982	1	982
+983	1	983
+984	1	984
+985	1	985
+986	1	986
+987	1	987
+988	1	988
+989	1	989
+990	1	990
+991	1	991
+992	1	992
+993	1	993
+994	1	994
+995	1	995
+996	1	996
+997	1	997
+998	1	998
+999	1	999
+1000	1	1000
+1001	1	1001
+1002	1	1002
+1003	1	1003
+1004	1	1004
+1005	1	1005
+1006	1	1006
+1007	1	1007
+1008	1	1008
+1009	1	1009
+1010	1	1010
+1011	1	1011
+1012	1	1012
+1013	1	1013
+1014	1	1014
+1015	1	1015
+1016	1	1016
+1017	1	1017
+1018	1	1018
+1019	1	1019
+1020	1	1020
+1021	1	1021
+1022	1	1022
+1023	1	1023
+1024	1	1024
+1025	1	1025
+1026	1	1026
+1027	1	1027
+1028	1	1028
+1029	1	1029
+1030	1	1030
+1031	1	1031
+1032	1	1032
+1033	1	1033
+1034	1	1034
+1035	1	1035
+1036	1	1036
+1037	1	1037
+1038	1	1038
+1039	1	1039
+1040	1	1040
+1041	1	1041
+1042	1	1042
+1043	1	1043
+1044	1	1044
+1045	1	1045
+1046	1	1046
+1047	1	1047
+1048	1	1048
+1049	1	1049
+1050	1	1050
+1051	1	1051
+1052	1	1052
+1053	1	1053
+1054	1	1054
+1055	1	1055
+1056	1	1056
+1057	1	1057
+1058	1	1058
+1059	1	1059
+1060	1	1060
+1061	1	1061
+1062	1	1062
+1063	1	1063
+1064	1	1064
+1065	1	1065
+1066	1	1066
+1067	1	1067
+1068	1	1068
+1069	1	1069
+1070	1	1070
+1071	1	1071
+1072	1	1072
+1073	1	1073
+1074	1	1074
+1075	1	1075
+1076	1	1076
+1077	1	1077
+1078	1	1078
+1079	1	1079
+1080	1	1080
+1081	1	1081
+1082	1	1082
+1083	1	1083
+1084	1	1084
+1085	1	1085
+1086	1	1086
+1087	1	1087
+1088	1	1088
+1089	1	1089
+1090	1	1090
+1091	1	1091
+1092	1	1092
+1093	1	1093
+1094	1	1094
+1095	1	1095
+1096	1	1096
+1097	1	1097
+1098	1	1098
+1099	1	1099
+1100	1	1100
+1101	1	1101
+1102	1	1102
+1103	1	1103
+1104	1	1104
+1105	1	1105
+1106	1	1106
+1107	1	1107
+1108	1	1108
+1109	1	1109
+1110	1	1110
+1111	1	1111
+1112	1	1112
+1113	1	1113
+1114	1	1114
+1115	1	1115
+1116	1	1116
+1117	1	1117
+1118	1	1118
+1119	1	1119
+1120	1	1120
+1121	1	1121
+1122	1	1122
+1123	1	1123
+1124	1	1124
+1125	1	1125
+1126	1	1126
+1127	1	1127
+1128	1	1128
+1129	1	1129
+1130	1	1130
+1131	1	1131
+1132	1	1132
+1133	1	1133
+1134	1	1134
+1135	1	1135
+1136	1	1136
+1137	1	1137
+1138	1	1138
+1139	1	1139
+1140	1	1140
+1141	1	1141
+1142	1	1142
+1143	1	1143
+1144	1	1144
+1145	1	1145
+1146	1	1146
+1147	1	1147
+1148	1	1148
+1149	1	1149
+1150	1	1150
+1151	1	1151
+1152	1	1152
+1153	1	1153
+1154	1	1154
+1155	1	1155
+1156	1	1156
+1157	1	1157
+1158	1	1158
+1159	1	1159
+1160	1	1160
+1161	1	1161
+1162	1	1162
+1163	1	1163
+1164	1	1164
+1165	1	1165
+1166	1	1166
+1167	1	1167
+1168	1	1168
+1169	1	1169
+1170	1	1170
+1171	1	1171
+1172	1	1172
+1173	1	1173
+1174	1	1174
+1175	1	1175
+1176	1	1176
+1177	1	1177
+1178	1	1178
+1179	1	1179
+1180	1	1180
+1181	1	1181
+1182	1	1182
+1183	1	1183
+1184	1	1184
+1185	1	1185
+1186	1	1186
+1187	1	1187
+1188	1	1188
+1189	1	1189
+1190	1	1190
+1191	1	1191
+1192	1	1192
+1193	1	1193
+1194	1	1194
+1195	1	1195
+1196	1	1196
+1197	1	1197
+1198	1	1198
+1199	1	1199
+1200	1	1200
+1201	1	1201
+1202	1	1202
+1203	1	1203
+1204	1	1204
+1205	1	1205
+1206	1	1206
+1207	1	1207
+1208	1	1208
+1209	1	1209
+1210	1	1210
+1211	1	1211
+1212	1	1212
+1213	1	1213
+1214	1	1214
+1215	1	1215
+1216	1	1216
+1217	1	1217
+1218	1	1218
+1219	1	1219
+1220	1	1220
+1221	1	1221
+1222	1	1222
+1223	1	1223
+1224	1	1224
+1225	1	1225
+1226	1	1226
+1227	1	1227
+1228	1	1228
+1229	1	1229
+1230	1	1230
+1231	1	1231
+1232	1	1232
+1233	1	1233
+1234	1	1234
+1235	1	1235
+1236	1	1236
+1237	1	1237
+1238	1	1238
+1239	1	1239
+1240	1	1240
+1241	1	1241
+1242	1	1242
+1243	1	1243
+1244	1	1244
+1245	1	1245
+1246	1	1246
+1247	1	1247
+1248	1	1248
+1249	1	1249
+1250	1	1250
+1251	1	1251
+1252	1	1252
+1253	1	1253
+1254	1	1254
+1255	1	1255
+1256	1	1256
+1257	1	1257
+1258	1	1258
+1259	1	1259
+1260	1	1260
+1261	1	1261
+1262	1	1262
+1263	1	1263
+1264	1	1264
+1265	1	1265
+1266	1	1266
+1267	1	1267
+1268	1	1268
+1269	1	1269
+1270	1	1270
+1271	1	1271
+1272	1	1272
+1273	1	1273
+1274	1	1274
+1275	1	1275
+1276	1	1276
+1277	1	1277
+1278	1	1278
+1279	1	1279
+1280	1	1280
+1281	1	1281
+1282	1	1282
+1283	1	1283
+1284	1	1284
+1285	1	1285
+1286	1	1286
+1287	1	1287
+1288	1	1288
+1289	1	1289
+1290	1	1290
+1291	1	1291
+1292	1	1292
+1293	1	1293
+1294	1	1294
+1295	1	1295
+1296	1	1296
+1297	1	1297
+1298	1	1298
+1299	1	1299
+1300	1	1300
+1301	1	1301
+1302	1	1302
+1303	1	1303
+1304	1	1304
+1305	1	1305
+1306	1	1306
+1307	1	1307
+1308	1	1308
+1309	1	1309
+1310	1	1310
+1311	1	1311
+1312	1	1312
+1313	1	1313
+1314	1	1314
+1315	1	1315
+1316	1	1316
+1317	1	1317
+1318	1	1318
+1319	1	1319
+1320	1	1320
+1321	1	1321
+1322	1	1322
+1323	1	1323
+1324	1	1324
+1325	1	1325
+1326	1	1326
+1327	1	1327
+1328	1	1328
+1329	1	1329
+1330	1	1330
+1331	1	1331
+1332	1	1332
+1333	1	1333
+1334	1	1334
+1335	1	1335
+1336	1	1336
+1337	1	1337
+1338	1	1338
+1339	1	1339
+1340	1	1340
+1341	1	1341
+1342	1	1342
+1343	1	1343
+1344	1	1344
+1345	1	1345
+1346	1	1346
+1347	1	1347
+1348	1	1348
+1349	1	1349
+1350	1	1350
+1351	1	1351
+1352	1	1352
+1353	1	1353
+1354	1	1354
+1355	1	1355
+1356	1	1356
+1357	1	1357
+1358	1	1358
+1359	1	1359
+1360	1	1360
+1361	1	1361
+1362	1	1362
+1363	1	1363
+1364	1	1364
+1365	1	1365
+1366	1	1366
+1367	1	1367
+1368	1	1368
+1369	1	1369
+1370	1	1370
+1371	1	1371
+1372	1	1372
+1373	1	1373
+1374	1	1374
+1375	1	1375
+1376	1	1376
+1377	1	1377
+1378	1	1378
+1379	1	1379
+1380	1	1380
+1381	1	1381
+1382	1	1382
+1383	1	1383
+1384	1	1384
+1385	1	1385
+1386	1	1386
+1387	1	1387
+1388	1	1388
+1389	1	1389
+1390	1	1390
+1391	1	1391
+1392	1	1392
+1393	1	1393
+1394	1	1394
+1395	1	1395
+1396	1	1396
+1397	1	1397
+1398	1	1398
+1399	1	1399
+1400	1	1400
+1401	1	1401
+1402	1	1402
+1403	1	1403
+1404	1	1404
+1405	1	1405
+1406	1	1406
+1407	1	1407
+1408	1	1408
+1409	1	1409
+1410	1	1410
+1411	1	1411
+1412	1	1412
+1413	1	1413
+1414	1	1414
+1415	1	1415
+1416	1	1416
+1417	1	1417
+1418	1	1418
+1419	1	1419
+1420	1	1420
+1421	1	1421
+1422	1	1422
+1423	1	1423
+1424	1	1424
+1425	1	1425
+1426	1	1426
+1427	1	1427
+1428	1	1428
+1429	1	1429
+1430	1	1430
+1431	1	1431
+1432	1	1432
+1433	1	1433
+1434	1	1434
+1435	1	1435
+1436	1	1436
+1437	1	1437
+1438	1	1438
+1439	1	1439
+1440	1	1440
+1441	1	1441
+1442	1	1442
+1443	1	1443
+1444	1	1444
+1445	1	1445
+1446	1	1446
+1447	1	1447
+1448	1	1448
+1449	1	1449
+1450	1	1450
+1451	1	1451
+1452	1	1452
+1453	1	1453
+1454	1	1454
+1455	1	1455
+1456	1	1456
+1457	1	1457
+1458	1	1458
+1459	1	1459
+1460	1	1460
+1461	1	1461
+1462	1	1462
+1463	1	1463
+1464	1	1464
+1465	1	1465
+1466	1	1466
+1467	1	1467
+1468	1	1468
+1469	1	1469
+1470	1	1470
+1471	1	1471
+1472	1	1472
+1473	1	1473
+1474	1	1474
+1475	1	1475
+1476	1	1476
+1477	1	1477
+1478	1	1478
+1479	1	1479
+1480	1	1480
+1481	1	1481
+1482	1	1482
+1483	1	1483
+1484	1	1484
+1485	1	1485
+1486	1	1486
+1487	1	1487
+1488	1	1488
+1489	1	1489
+1490	1	1490
+1491	1	1491
+1492	1	1492
+1493	1	1493
+1494	1	1494
+1495	1	1495
+1496	1	1496
+1497	1	1497
+1498	1	1498
+1499	1	1499
+1500	1	1500
+1501	1	1501
+1502	1	1502
+1503	1	1503
+1504	1	1504
+1505	1	1505
+1506	1	1506
+1507	1	1507
+1508	1	1508
+1509	1	1509
+1510	1	1510
+1511	1	1511
+1512	1	1512
+1513	1	1513
+1514	1	1514
+1515	1	1515
+1516	1	1516
+1517	1	1517
+1518	1	1518
+1519	1	1519
+1520	1	1520
+1521	1	1521
+1522	1	1522
+1523	1	1523
+1524	1	1524
+1525	1	1525
+1526	1	1526
+1527	1	1527
+1528	1	1528
+1529	1	1529
+1530	1	1530
+1531	1	1531
+1532	1	1532
+1533	1	1533
+1534	1	1534
+1535	1	1535
+1536	1	1536
+1537	1	1537
+1538	1	1538
+1539	1	1539
+1540	1	1540
+1541	1	1541
+1542	1	1542
+1543	1	1543
+1544	1	1544
+1545	1	1545
+1546	1	1546
+1547	1	1547
+1548	1	1548
+1549	1	1549
+1550	1	1550
+1551	1	1551
+1552	1	1552
+1553	1	1553
+1554	1	1554
+1555	1	1555
+1556	1	1556
+1557	1	1557
+1558	1	1558
+1559	1	1559
+1560	1	1560
+1561	1	1561
+1562	1	1562
+1563	1	1563
+1564	1	1564
+1565	1	1565
+1566	1	1566
+1567	1	1567
+1568	1	1568
+1569	1	1569
+1570	1	1570
+1571	1	1571
+1572	1	1572
+1573	1	1573
+1574	1	1574
+1575	1	1575
+1576	1	1576
+1577	1	1577
+1578	1	1578
+1579	1	1579
+1580	1	1580
+1581	1	1581
+1582	1	1582
+1583	1	1583
+1584	1	1584
+1585	1	1585
+1586	1	1586
+1587	1	1587
+1588	1	1588
+1589	1	1589
+1590	1	1590
+1591	1	1591
+1592	1	1592
+1593	1	1593
+1594	1	1594
+1595	1	1595
+1596	1	1596
+1597	1	1597
+1598	1	1598
+1599	1	1599
+1600	1	1600
+1601	1	1601
+1602	1	1602
+1603	1	1603
+1604	1	1604
+1605	1	1605
+1606	1	1606
+1607	1	1607
+1608	1	1608
+1609	1	1609
+1610	1	1610
+1611	1	1611
+1612	1	1612
+1613	1	1613
+1614	1	1614
+1615	1	1615
+1616	1	1616
+1617	1	1617
+1618	1	1618
+1619	1	1619
+1620	1	1620
+1621	1	1621
+1622	1	1622
+1623	1	1623
+1624	1	1624
+1625	1	1625
+1626	1	1626
+1627	1	1627
+1628	1	1628
+1629	1	1629
+1630	1	1630
+1631	1	1631
+1632	1	1632
+1633	1	1633
+1634	1	1634
+1635	1	1635
+1636	1	1636
+1637	1	1637
+1638	1	1638
+1639	1	1639
+1640	1	1640
+1641	1	1641
+1642	1	1642
+1643	1	1643
+1644	1	1644
+1645	1	1645
+1646	1	1646
+1647	1	1647
+1648	1	1648
+1649	1	1649
+1650	1	1650
+1651	1	1651
+1652	1	1652
+1653	1	1653
+1654	1	1654
+1655	1	1655
+1656	1	1656
+1657	1	1657
+1658	1	1658
+1659	1	1659
+1660	1	1660
+1661	1	1661
+1662	1	1662
+1663	1	1663
+1664	1	1664
+1665	1	1665
+1666	1	1666
+1667	1	1667
+1668	1	1668
+1669	1	1669
+1670	1	1670
+1671	1	1671
+1672	1	1672
+1673	1	1673
+1674	1	1674
+1675	1	1675
+1676	1	1676
+1677	1	1677
+1678	1	1678
+1679	1	1679
+1680	1	1680
+1681	1	1681
+1682	1	1682
+1683	1	1683
+1684	1	1684
+1685	1	1685
+1686	1	1686
+1687	1	1687
+1688	1	1688
+1689	1	1689
+1690	1	1690
+1691	1	1691
+1692	1	1692
+1693	1	1693
+1694	1	1694
+1695	1	1695
+1696	1	1696
+1697	1	1697
+1698	1	1698
+1699	1	1699
+1700	1	1700
+1701	1	1701
+1702	1	1702
+1703	1	1703
+1704	1	1704
+1705	1	1705
+1706	1	1706
+1707	1	1707
+1708	1	1708
+1709	1	1709
+1710	1	1710
+1711	1	1711
+1712	1	1712
+1713	1	1713
+1714	1	1714
+1715	1	1715
+1716	1	1716
+1717	1	1717
+1718	1	1718
+1719	1	1719
+1720	1	1720
+1721	1	1721
+1722	1	1722
+1723	1	1723
+1724	1	1724
+1725	1	1725
+1726	1	1726
+1727	1	1727
+1728	1	1728
+1729	1	1729
+1730	1	1730
+1731	1	1731
+1732	1	1732
+1733	1	1733
+1734	1	1734
+1735	1	1735
+1736	1	1736
+1737	1	1737
+1738	1	1738
+1739	1	1739
+1740	1	1740
+1741	1	1741
+1742	1	1742
+1743	1	1743
+1744	1	1744
+1745	1	1745
+1746	1	1746
+1747	1	1747
+1748	1	1748
+1749	1	1749
+1750	1	1750
+1751	1	1751
+1752	1	1752
+1753	1	1753
+1754	1	1754
+1755	1	1755
+1756	1	1756
+1757	1	1757
+1758	1	1758
+1759	1	1759
+1760	1	1760
+1761	1	1761
+1762	1	1762
+1763	1	1763
+1764	1	1764
+1765	1	1765
+1766	1	1766
+1767	1	1767
+1768	1	1768
+1769	1	1769
+1770	1	1770
+1771	1	1771
+1772	1	1772
+1773	1	1773
+1774	1	1774
+1775	1	1775
+1776	1	1776
+1777	1	1777
+1778	1	1778
+1779	1	1779
+1780	1	1780
+1781	1	1781
+1782	1	1782
+1783	1	1783
+1784	1	1784
+1785	1	1785
+1786	1	1786
+1787	1	1787
+1788	1	1788
+1789	1	1789
+1790	1	1790
+1791	1	1791
+1792	1	1792
+1793	1	1793
+1794	1	1794
+1795	1	1795
+1796	1	1796
+1797	1	1797
+1798	1	1798
+1799	1	1799
+1800	1	1800
+1801	1	1801
+1802	1	1802
+1803	1	1803
+1804	1	1804
+1805	1	1805
+1806	1	1806
+1807	1	1807
+1808	1	1808
+1809	1	1809
+1810	1	1810
+1811	1	1811
+1812	1	1812
+1813	1	1813
+1814	1	1814
+1815	1	1815
+1816	1	1816
+1817	1	1817
+1818	1	1818
+1819	1	1819
+1820	1	1820
+1821	1	1821
+1822	1	1822
+1823	1	1823
+1824	1	1824
+1825	1	1825
+1826	1	1826
+1827	1	1827
+1828	1	1828
+1829	1	1829
+1830	1	1830
+1831	1	1831
+1832	1	1832
+1833	1	1833
+1834	1	1834
+1835	1	1835
+1836	1	1836
+1837	1	1837
+1838	1	1838
+1839	1	1839
+1840	1	1840
+1841	1	1841
+1842	1	1842
+1843	1	1843
+1844	1	1844
+1845	1	1845
+1846	1	1846
+1847	1	1847
+1848	1	1848
+1849	1	1849
+1850	1	1850
+1851	1	1851
+1852	1	1852
+1853	1	1853
+1854	1	1854
+1855	1	1855
+1856	1	1856
+1857	1	1857
+1858	1	1858
+1859	1	1859
+1860	1	1860
+1861	1	1861
+1862	1	1862
+1863	1	1863
+1864	1	1864
+1865	1	1865
+1866	1	1866
+1867	1	1867
+1868	1	1868
+1869	1	1869
+1870	1	1870
+1871	1	1871
+1872	1	1872
+1873	1	1873
+1874	1	1874
+1875	1	1875
+1876	1	1876
+1877	1	1877
+1878	1	1878
+1879	1	1879
+1880	1	1880
+1881	1	1881
+1882	1	1882
+1883	1	1883
+1884	1	1884
+1885	1	1885
+1886	1	1886
+1887	1	1887
+1888	1	1888
+1889	1	1889
+1890	1	1890
+1891	1	1891
+1892	1	1892
+1893	1	1893
+1894	1	1894
+1895	1	1895
+1896	1	1896
+1897	1	1897
+1898	1	1898
+1899	1	1899
+1900	1	1900
+1901	1	1901
+1902	1	1902
+1903	1	1903
+1904	1	1904
+1905	1	1905
+1906	1	1906
+1907	1	1907
+1908	1	1908
+1909	1	1909
+1910	1	1910
+1911	1	1911
+1912	1	1912
+1913	1	1913
+1914	1	1914
+1915	1	1915
+1916	1	1916
+1917	1	1917
+1918	1	1918
+1919	1	1919
+1920	1	1920
+1921	1	1921
+1922	1	1922
+1923	1	1923
+1924	1	1924
+1925	1	1925
+1926	1	1926
+1927	1	1927
+1928	1	1928
+1929	1	1929
+1930	1	1930
+1931	1	1931
+1932	1	1932
+1933	1	1933
+1934	1	1934
+1935	1	1935
+1936	1	1936
+1937	1	1937
+1938	1	1938
+1939	1	1939
+1940	1	1940
+1941	1	1941
+1942	1	1942
+1943	1	1943
+1944	1	1944
+1945	1	1945
+1946	1	1946
+1947	1	1947
+1948	1	1948
+1949	1	1949
+1950	1	1950
+1951	1	1951
+1952	1	1952
+1953	1	1953
+1954	1	1954
+1955	1	1955
+1956	1	1956
+1957	1	1957
+1958	1	1958
+1959	1	1959
+1960	1	1960
+1961	1	1961
+1962	1	1962
+1963	1	1963
+1964	1	1964
+1965	1	1965
+1966	1	1966
+1967	1	1967
+1968	1	1968
+1969	1	1969
+1970	1	1970
+1971	1	1971
+1972	1	1972
+1973	1	1973
+1974	1	1974
+1975	1	1975
+1976	1	1976
+1977	1	1977
+1978	1	1978
+1979	1	1979
+1980	1	1980
+1981	1	1981
+1982	1	1982
+1983	1	1983
+1984	1	1984
+1985	1	1985
+1986	1	1986
+1987	1	1987
+1988	1	1988
+1989	1	1989
+1990	1	1990
+1991	1	1991
+1992	1	1992
+1993	1	1993
+1994	1	1994
+1995	1	1995
+1996	1	1996
+1997	1	1997
+1998	1	1998
+1999	1	1999
+2000	1	2000
+2001	1	2001
+2002	1	2002
+2003	1	2003
+2004	1	2004
+2005	1	2005
+2006	1	2006
+2007	1	2007
+2008	1	2008
+2009	1	2009
+2010	1	2010
+2011	1	2011
+2012	1	2012
+2013	1	2013
+2014	1	2014
+2015	1	2015
+2016	1	2016
+2017	1	2017
+2018	1	2018
+2019	1	2019
+2020	1	2020
+2021	1	2021
+2022	1	2022
+2023	1	2023
+2024	1	2024
+2025	1	2025
+2026	1	2026
+2027	1	2027
+2028	1	2028
+2029	1	2029
+2030	1	2030
+2031	1	2031
+2032	1	2032
+2033	1	2033
+2034	1	2034
+2035	1	2035
+2036	1	2036
+2037	1	2037
+2038	1	2038
+2039	1	2039
+2040	1	2040
+2041	1	2041
+2042	1	2042
+2043	1	2043
+2044	1	2044
+2045	1	2045
+2046	1	2046
+2047	1	2047
+2048	1	2048
+2049	1	2049
+2050	1	2050
+2051	1	2051
+2052	1	2052
+2053	1	2053
+2054	1	2054
+2055	1	2055
+2056	1	2056
+2057	1	2057
+2058	1	2058
+2059	1	2059
+2060	1	2060
+2061	1	2061
+2062	1	2062
+2063	1	2063
+2064	1	2064
+2065	1	2065
+2066	1	2066
+2067	1	2067
+2068	1	2068
+2069	1	2069
+2070	1	2070
+2071	1	2071
+2072	1	2072
+2073	1	2073
+2074	1	2074
+2075	1	2075
+2076	1	2076
+2077	1	2077
+2078	1	2078
+2079	1	2079
+2080	1	2080
+2081	1	2081
+2082	1	2082
+2083	1	2083
+2084	1	2084
+2085	1	2085
+2086	1	2086
+2087	1	2087
+2088	1	2088
+2089	1	2089
+2090	1	2090
+2091	1	2091
+2092	1	2092
+2093	1	2093
+2094	1	2094
+2095	1	2095
+2096	1	2096
+2097	1	2097
+2098	1	2098
+2099	1	2099
+2100	1	2100
+2101	1	2101
+2102	1	2102
+2103	1	2103
+2104	1	2104
+2105	1	2105
+2106	1	2106
+2107	1	2107
+2108	1	2108
+2109	1	2109
+2110	1	2110
+2111	1	2111
+2112	1	2112
+2113	1	2113
+2114	1	2114
+2115	1	2115
+2116	1	2116
+2117	1	2117
+2118	1	2118
+2119	1	2119
+2120	1	2120
+2121	1	2121
+2122	1	2122
+2123	1	2123
+2124	1	2124
+2125	1	2125
+2126	1	2126
+2127	1	2127
+2128	1	2128
+2129	1	2129
+2130	1	2130
+2131	1	2131
+2132	1	2132
+2133	1	2133
+2134	1	2134
+2135	1	2135
+2136	1	2136
+2137	1	2137
+2138	1	2138
+2139	1	2139
+2140	1	2140
+2141	1	2141
+2142	1	2142
+2143	1	2143
+2144	1	2144
+2145	1	2145
+2146	1	2146
+2147	1	2147
+2148	1	2148
+2149	1	2149
+2150	1	2150
+2151	1	2151
+2152	1	2152
+2153	1	2153
+2154	1	2154
+2155	1	2155
+2156	1	2156
+2157	1	2157
+2158	1	2158
+2159	1	2159
+2160	1	2160
+2161	1	2161
+2162	1	2162
+2163	1	2163
+2164	1	2164
+2165	1	2165
+2166	1	2166
+2167	1	2167
+2168	1	2168
+2169	1	2169
+2170	1	2170
+2171	1	2171
+2172	1	2172
+2173	1	2173
+2174	1	2174
+2175	1	2175
+2176	1	2176
+2177	1	2177
+2178	1	2178
+2179	1	2179
+2180	1	2180
+2181	1	2181
+2182	1	2182
+2183	1	2183
+2184	1	2184
+2185	1	2185
+2186	1	2186
+2187	1	2187
+2188	1	2188
+2189	1	2189
+2190	1	2190
+2191	1	2191
+2192	1	2192
+2193	1	2193
+2194	1	2194
+2195	1	2195
+2196	1	2196
+2197	1	2197
+2198	1	2198
+2199	1	2199
+2200	1	2200
+2201	1	2201
+2202	1	2202
+2203	1	2203
+2204	1	2204
+2205	1	2205
+2206	1	2206
+2207	1	2207
+2208	1	2208
+2209	1	2209
+2210	1	2210
+2211	1	2211
+2212	1	2212
+2213	1	2213
+2214	1	2214
+2215	1	2215
+2216	1	2216
+2217	1	2217
+2218	1	2218
+2219	1	2219
+2220	1	2220
+2221	1	2221
+2222	1	2222
+2223	1	2223
+2224	1	2224
+2225	1	2225
+2226	1	2226
+2227	1	2227
+2228	1	2228
+2229	1	2229
+2230	1	2230
+2231	1	2231
+2232	1	2232
+2233	1	2233
+2234	1	2234
+2235	1	2235
+2236	1	2236
+2237	1	2237
+2238	1	2238
+2239	1	2239
+2240	1	2240
+2241	1	2241
+2242	1	2242
+2243	1	2243
+2244	1	2244
+2245	1	2245
+2246	1	2246
+2247	1	2247
+2248	1	2248
+2249	1	2249
+2250	1	2250
+2251	1	2251
+2252	1	2252
+2253	1	2253
+2254	1	2254
+2255	1	2255
+2256	1	2256
+2257	1	2257
+2258	1	2258
+2259	1	2259
+2260	1	2260
+2261	1	2261
+2262	1	2262
+2263	1	2263
+2264	1	2264
+2265	1	2265
+2266	1	2266
+2267	1	2267
+2268	1	2268
+2269	1	2269
+2270	1	2270
+2271	1	2271
+2272	1	2272
+2273	1	2273
+2274	1	2274
+2275	1	2275
+2276	1	2276
+2277	1	2277
+2278	1	2278
+2279	1	2279
+2280	1	2280
+2281	1	2281
+2282	1	2282
+2283	1	2283
+2284	1	2284
+2285	1	2285
+2286	1	2286
+2287	1	2287
+2288	1	2288
+2289	1	2289
+2290	1	2290
+2291	1	2291
+2292	1	2292
+2293	1	2293
+2294	1	2294
+2295	1	2295
+2296	1	2296
+2297	1	2297
+2298	1	2298
+2299	1	2299
+2300	1	2300
+2301	1	2301
+2302	1	2302
+2303	1	2303
+2304	1	2304
+2305	1	2305
+2306	1	2306
+2307	1	2307
+2308	1	2308
+2309	1	2309
+2310	1	2310
+2311	1	2311
+2312	1	2312
+2313	1	2313
+2314	1	2314
+2315	1	2315
+2316	1	2316
+2317	1	2317
+2318	1	2318
+2319	1	2319
+2320	1	2320
+2321	1	2321
+2322	1	2322
+2323	1	2323
+2324	1	2324
+2325	1	2325
+2326	1	2326
+2327	1	2327
+2328	1	2328
+2329	1	2329
+2330	1	2330
+2331	1	2331
+2332	1	2332
+2333	1	2333
+2334	1	2334
+2335	1	2335
+2336	1	2336
+2337	1	2337
+2338	1	2338
+2339	1	2339
+2340	1	2340
+2341	1	2341
+2342	1	2342
+2343	1	2343
+2344	1	2344
+2345	1	2345
+2346	1	2346
+2347	1	2347
+2348	1	2348
+2349	1	2349
+2350	1	2350
+2351	1	2351
+2352	1	2352
+2353	1	2353
+2354	1	2354
+2355	1	2355
+2356	1	2356
+2357	1	2357
+2358	1	2358
+2359	1	2359
+2360	1	2360
+2361	1	2361
+2362	1	2362
+2363	1	2363
+2364	1	2364
+2365	1	2365
+2366	1	2366
+2367	1	2367
+2368	1	2368
+2369	1	2369
+2370	1	2370
+2371	1	2371
+2372	1	2372
+2373	1	2373
+2374	1	2374
+2375	1	2375
+2376	1	2376
+2377	1	2377
+2378	1	2378
+2379	1	2379
+2380	1	2380
+2381	1	2381
+2382	1	2382
+2383	1	2383
+2384	1	2384
+2385	1	2385
+2386	1	2386
+2387	1	2387
+2388	1	2388
+2389	1	2389
+2390	1	2390
+2391	1	2391
+2392	1	2392
+2393	1	2393
+2394	1	2394
+2395	1	2395
+2396	1	2396
+2397	1	2397
+2398	1	2398
+2399	1	2399
+2400	1	2400
+2401	1	2401
+2402	1	2402
+2403	1	2403
+2404	1	2404
+2405	1	2405
+2406	1	2406
+2407	1	2407
+2408	1	2408
+2409	1	2409
+2410	1	2410
+2411	1	2411
+2412	1	2412
+2413	1	2413
+2414	1	2414
+2415	1	2415
+2416	1	2416
+2417	1	2417
+2418	1	2418
+2419	1	2419
+2420	1	2420
+2421	1	2421
+2422	1	2422
+2423	1	2423
+2424	1	2424
+2425	1	2425
+2426	1	2426
+2427	1	2427
+2428	1	2428
+2429	1	2429
+2430	1	2430
+2431	1	2431
+2432	1	2432
+2433	1	2433
+2434	1	2434
+2435	1	2435
+2436	1	2436
+2437	1	2437
+2438	1	2438
+2439	1	2439
+2440	1	2440
+2441	1	2441
+2442	1	2442
+2443	1	2443
+2444	1	2444
+2445	1	2445
+2446	1	2446
+2447	1	2447
+2448	1	2448
+2449	1	2449
+2450	1	2450
+2451	1	2451
+2452	1	2452
+2453	1	2453
+2454	1	2454
+2455	1	2455
+2456	1	2456
+2457	1	2457
+2458	1	2458
+2459	1	2459
+2460	1	2460
+2461	1	2461
+2462	1	2462
+2463	1	2463
+2464	1	2464
+2465	1	2465
+2466	1	2466
+2467	1	2467
+2468	1	2468
+2469	1	2469
+2470	1	2470
+2471	1	2471
+2472	1	2472
+2473	1	2473
+2474	1	2474
+2475	1	2475
+2476	1	2476
+2477	1	2477
+2478	1	2478
+2479	1	2479
+2480	1	2480
+2481	1	2481
+2482	1	2482
+2483	1	2483
+2484	1	2484
+2485	1	2485
+2486	1	2486
+2487	1	2487
+2488	1	2488
+2489	1	2489
+2490	1	2490
+2491	1	2491
+2492	1	2492
+2493	1	2493
+2494	1	2494
+2495	1	2495
+2496	1	2496
+2497	1	2497
+2498	1	2498
+2499	1	2499
+2500	1	2500
+2501	1	2501
+2502	1	2502
+2503	1	2503
+2504	1	2504
+2505	1	2505
+2506	1	2506
+2507	1	2507
+2508	1	2508
 \.
 
 
 --
--- TOC entry 5064 (class 0 OID 0)
+-- TOC entry 5078 (class 0 OID 0)
 -- Dependencies: 248
 -- Name: datasetsresults_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
 
-SELECT pg_catalog.setval('datasetsresults_bridgeid_seq', 795, true);
+SELECT pg_catalog.setval('datasetsresults_bridgeid_seq', 2508, true);
 
 
 --
--- TOC entry 4894 (class 0 OID 70859)
+-- TOC entry 4908 (class 0 OID 70859)
 -- Dependencies: 371
 -- Data for Name: derivationequations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7675,7 +9451,7 @@ COPY derivationequations (derivationequationid, derivationequation) FROM stdin;
 
 
 --
--- TOC entry 5065 (class 0 OID 0)
+-- TOC entry 5079 (class 0 OID 0)
 -- Dependencies: 370
 -- Name: derivationequations_derivationequationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -7684,7 +9460,7 @@ SELECT pg_catalog.setval('derivationequations_derivationequationid_seq', 1, fals
 
 
 --
--- TOC entry 4885 (class 0 OID 70816)
+-- TOC entry 4899 (class 0 OID 70816)
 -- Dependencies: 362
 -- Data for Name: directives; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7694,7 +9470,7 @@ COPY directives (directiveid, directivetypecv, directivedescription) FROM stdin;
 
 
 --
--- TOC entry 5066 (class 0 OID 0)
+-- TOC entry 5080 (class 0 OID 0)
 -- Dependencies: 361
 -- Name: directives_directiveid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -7703,7 +9479,7 @@ SELECT pg_catalog.setval('directives_directiveid_seq', 1, false);
 
 
 --
--- TOC entry 4841 (class 0 OID 70596)
+-- TOC entry 4855 (class 0 OID 70596)
 -- Dependencies: 318
 -- Data for Name: equipment; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7713,7 +9489,7 @@ COPY equipment (equipmentid, equipmentcode, equipmentname, equipmenttypecv, equi
 
 
 --
--- TOC entry 5067 (class 0 OID 0)
+-- TOC entry 5081 (class 0 OID 0)
 -- Dependencies: 317
 -- Name: equipment_equipmentid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -7722,7 +9498,7 @@ SELECT pg_catalog.setval('equipment_equipmentid_seq', 1, false);
 
 
 --
--- TOC entry 4740 (class 0 OID 70016)
+-- TOC entry 4754 (class 0 OID 70016)
 -- Dependencies: 217
 -- Data for Name: equipmentannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7732,7 +9508,7 @@ COPY equipmentannotations (bridgeid, equipmentid, annotationid) FROM stdin;
 
 
 --
--- TOC entry 5068 (class 0 OID 0)
+-- TOC entry 5082 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: equipmentannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -7741,7 +9517,7 @@ SELECT pg_catalog.setval('equipmentannotations_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4843 (class 0 OID 70607)
+-- TOC entry 4857 (class 0 OID 70607)
 -- Dependencies: 320
 -- Data for Name: equipmentmodels; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7751,7 +9527,7 @@ COPY equipmentmodels (equipmentmodelid, modelmanufacturerid, modelpartnumber, mo
 
 
 --
--- TOC entry 5069 (class 0 OID 0)
+-- TOC entry 5083 (class 0 OID 0)
 -- Dependencies: 319
 -- Name: equipmentmodels_equipmentmodelid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -7760,7 +9536,7 @@ SELECT pg_catalog.setval('equipmentmodels_equipmentmodelid_seq', 1, false);
 
 
 --
--- TOC entry 4845 (class 0 OID 70618)
+-- TOC entry 4859 (class 0 OID 70618)
 -- Dependencies: 322
 -- Data for Name: equipmentused; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7770,7 +9546,7 @@ COPY equipmentused (bridgeid, actionid, equipmentid) FROM stdin;
 
 
 --
--- TOC entry 5070 (class 0 OID 0)
+-- TOC entry 5084 (class 0 OID 0)
 -- Dependencies: 321
 -- Name: equipmentused_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -7779,7 +9555,7 @@ SELECT pg_catalog.setval('equipmentused_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4856 (class 0 OID 70669)
+-- TOC entry 4870 (class 0 OID 70669)
 -- Dependencies: 333
 -- Data for Name: extensionproperties; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7789,7 +9565,7 @@ COPY extensionproperties (propertyid, propertyname, propertydescription, propert
 
 
 --
--- TOC entry 5071 (class 0 OID 0)
+-- TOC entry 5085 (class 0 OID 0)
 -- Dependencies: 332
 -- Name: extensionproperties_propertyid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -7798,7 +9574,7 @@ SELECT pg_catalog.setval('extensionproperties_propertyid_seq', 1, false);
 
 
 --
--- TOC entry 4867 (class 0 OID 70721)
+-- TOC entry 4881 (class 0 OID 70721)
 -- Dependencies: 344
 -- Data for Name: externalidentifiersystems; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -7809,7 +9585,7 @@ COPY externalidentifiersystems (externalidentifiersystemid, externalidentifiersy
 
 
 --
--- TOC entry 4774 (class 0 OID 70164)
+-- TOC entry 4788 (class 0 OID 70164)
 -- Dependencies: 251
 -- Data for Name: featureactions; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -8010,20 +9786,219 @@ COPY featureactions (featureactionid, samplingfeatureid, actionid) FROM stdin;
 193	33219	434
 194	33220	435
 195	33221	436
+196	33222	336
+197	33223	337
+198	33224	338
+199	33225	339
+200	33226	340
+201	33227	341
+202	33228	342
+203	33229	343
+204	33230	344
+205	33231	345
+206	33232	346
+207	33233	347
+208	33234	348
+209	33235	349
+210	33236	350
+211	33237	351
+212	33238	352
+213	33239	353
+214	33240	354
+215	33241	355
+216	33242	356
+217	33243	357
+218	33244	358
+219	33245	359
+220	33246	360
+221	33247	361
+222	33248	362
+223	33249	363
+224	33250	364
+225	33251	365
+226	33252	366
+227	33253	367
+228	33254	368
+229	33255	369
+230	33256	370
+231	33257	371
+232	33258	372
+233	33259	373
+234	33260	374
+235	33261	375
+236	33262	376
+237	33263	377
+238	33264	378
+239	33265	379
+240	33266	380
+241	33267	381
+242	33268	382
+243	33269	383
+244	33270	384
+245	33271	385
+246	33272	386
+247	33273	387
+248	33274	388
+249	33275	389
+250	33276	390
+251	33277	391
+252	33278	392
+253	33297	412
+254	33279	393
+255	33280	394
+256	33281	395
+257	33282	396
+258	33283	397
+259	33284	398
+260	33285	399
+261	33286	400
+262	33287	401
+263	33288	402
+264	33289	403
+265	33290	404
+266	33291	405
+267	33292	406
+268	33293	407
+269	33294	408
+270	33295	409
+271	33296	410
+272	33298	413
+273	33299	414
+274	33300	415
+275	33301	416
+276	33302	417
+277	33303	418
+278	33304	419
+279	33305	420
+280	33306	421
+281	33307	422
+282	33308	423
+283	33309	424
+284	33310	425
+285	33311	426
+286	33312	427
+287	33313	428
+288	33314	429
+289	33315	430
+290	33316	431
+291	33317	432
+292	33318	433
+293	33319	434
+294	33320	435
+295	33321	436
+296	33322	336
+297	33323	337
+298	33324	338
+299	33325	339
+300	33326	340
+301	33327	341
+302	33328	342
+303	33329	343
+304	33330	344
+305	33331	345
+306	33332	346
+307	33333	347
+308	33334	348
+309	33335	349
+310	33336	350
+311	33337	351
+312	33338	352
+313	33339	353
+314	33340	354
+315	33341	355
+316	33342	356
+317	33343	357
+318	33344	358
+319	33345	359
+320	33346	360
+321	33347	361
+322	33348	362
+323	33349	363
+324	33350	364
+325	33351	365
+326	33352	366
+327	33353	367
+328	33354	368
+329	33355	369
+330	33356	370
+331	33357	371
+332	33358	372
+333	33359	373
+334	33360	374
+335	33361	375
+336	33362	376
+337	33363	377
+338	33364	378
+339	33365	379
+340	33366	380
+341	33367	381
+342	33368	382
+343	33369	383
+344	33370	384
+345	33371	385
+346	33372	386
+347	33373	387
+348	33374	388
+349	33375	389
+350	33376	390
+351	33377	391
+352	33378	392
+353	33379	393
+354	33380	394
+355	33381	395
+356	33382	396
+357	33383	397
+358	33384	398
+359	33385	399
+360	33386	400
+361	33387	401
+362	33388	402
+363	33389	403
+364	33390	404
+365	33391	405
+366	33392	406
+367	33393	407
+368	33394	408
+369	33395	409
+370	33396	410
+371	33397	413
+372	33398	414
+373	33399	415
+374	33400	416
+375	33401	417
+376	33402	418
+377	33403	419
+378	33404	420
+379	33405	421
+380	33406	422
+381	33407	423
+382	33408	424
+383	33409	425
+384	33410	426
+385	33411	427
+386	33412	428
+387	33413	429
+388	33414	430
+389	33415	431
+390	33416	432
+391	33417	433
+392	33418	434
+393	33419	435
+394	33420	436
 \.
 
 
 --
--- TOC entry 5072 (class 0 OID 0)
+-- TOC entry 5086 (class 0 OID 0)
 -- Dependencies: 250
 -- Name: featureactions_featureactionid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
 
-SELECT pg_catalog.setval('featureactions_featureactionid_seq', 195, true);
+SELECT pg_catalog.setval('featureactions_featureactionid_seq', 394, true);
 
 
 --
--- TOC entry 4847 (class 0 OID 70626)
+-- TOC entry 4861 (class 0 OID 70626)
 -- Dependencies: 324
 -- Data for Name: instrumentoutputvariables; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -8033,7 +10008,7 @@ COPY instrumentoutputvariables (instrumentoutputvariableid, modelid, variableid,
 
 
 --
--- TOC entry 5073 (class 0 OID 0)
+-- TOC entry 5087 (class 0 OID 0)
 -- Dependencies: 323
 -- Name: instrumentoutputvariables_instrumentoutputvariableid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -8042,7 +10017,7 @@ SELECT pg_catalog.setval('instrumentoutputvariables_instrumentoutputvariableid_s
 
 
 --
--- TOC entry 4848 (class 0 OID 70635)
+-- TOC entry 4862 (class 0 OID 70635)
 -- Dependencies: 325
 -- Data for Name: maintenanceactions; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -8052,7 +10027,7 @@ COPY maintenanceactions (actionid, isfactoryservice, maintenancecode, maintenanc
 
 
 --
--- TOC entry 4909 (class 0 OID 70923)
+-- TOC entry 4923 (class 0 OID 70923)
 -- Dependencies: 386
 -- Data for Name: measurementresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -8853,11 +10828,1724 @@ COPY measurementresults (resultid, xlocation, xlocationunitsid, ylocation, yloca
 793	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
 794	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
 795	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+796	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+797	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+798	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+799	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+800	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+801	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+802	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+803	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+804	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+805	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+806	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+807	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+808	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+809	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+810	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+811	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+812	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+813	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+814	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+815	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+816	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+817	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+818	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+819	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+820	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+821	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+822	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+823	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+824	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+825	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+826	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+827	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+828	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+829	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+830	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+831	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+832	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+833	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+834	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+835	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+836	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+837	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+838	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+839	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+840	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+841	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+842	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+843	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+844	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+845	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+846	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+847	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+848	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+849	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+850	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+851	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+852	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+853	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+854	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+855	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+856	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+857	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+858	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+859	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+860	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+861	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+862	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+863	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+864	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+865	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+866	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+867	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+868	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+869	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+870	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+871	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+872	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+873	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+874	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+875	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+876	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+877	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+878	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+879	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+880	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+881	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+882	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+883	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+884	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+885	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+886	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+887	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+888	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+889	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+890	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+891	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+892	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+893	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+894	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+895	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+896	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+897	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+898	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+899	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+900	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+901	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+902	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+903	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+904	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+905	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+906	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+907	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+908	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+909	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+910	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+911	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+912	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+913	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+914	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+915	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+916	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+917	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+918	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+919	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+920	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+921	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+922	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+923	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+924	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+925	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+926	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+927	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+928	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+929	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+930	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+931	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+932	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+933	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+934	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+935	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+936	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+937	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+938	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+939	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+940	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+941	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+942	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+943	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+944	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+945	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+946	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+947	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+948	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+949	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+950	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+951	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+952	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+953	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+954	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+955	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+956	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+957	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+958	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+959	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+960	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+961	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+962	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+963	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+964	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+965	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+966	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+967	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+968	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+969	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+970	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+971	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+972	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+973	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+974	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+975	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+976	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+977	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+978	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+979	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+980	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+981	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+982	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+983	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+984	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+985	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+986	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+987	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+988	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+989	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+990	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+991	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+992	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+993	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+994	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+995	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+996	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+997	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+998	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+999	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1000	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1001	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1002	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1003	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1004	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1005	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1006	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1007	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1008	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1009	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1010	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1011	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1012	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1013	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1014	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1015	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1016	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1017	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1018	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1019	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1020	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1021	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1022	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1023	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1024	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1025	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1026	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1027	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1028	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1029	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1030	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1031	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1032	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1033	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1034	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1035	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1036	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1037	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1038	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1039	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1040	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1041	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1042	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1043	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1044	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1045	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1046	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1047	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1048	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1049	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1050	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1051	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1052	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1053	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1054	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1055	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1056	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1057	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1058	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1059	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1060	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1061	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1062	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1063	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1064	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1065	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1066	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1067	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1068	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1069	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1070	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1071	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1072	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1073	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1074	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1075	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1076	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1077	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1078	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1079	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1080	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1081	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1082	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1083	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1084	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1085	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1086	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1087	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1088	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1089	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1090	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1091	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1092	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1093	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1094	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1095	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1096	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1097	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1098	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1099	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1100	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1101	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1102	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1103	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1104	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1105	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1106	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1107	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1108	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1109	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1110	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1111	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1112	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1113	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1114	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1115	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1116	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1117	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1118	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1119	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1120	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1121	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1122	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1123	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1124	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1125	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1126	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1127	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1128	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1129	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1130	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1131	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1132	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1133	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1134	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1135	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1136	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1137	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1138	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1139	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1140	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1141	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1142	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1143	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1144	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1145	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1146	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1147	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1148	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1149	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1150	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1151	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1152	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1153	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1154	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1155	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1156	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1157	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1158	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1159	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1160	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1161	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1162	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1163	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1164	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1165	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1166	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1167	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1168	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1169	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1170	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1171	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1172	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1173	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1174	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1175	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1176	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1177	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1178	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1179	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1180	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1181	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1182	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1183	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1184	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1185	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1186	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1187	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1188	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1189	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1190	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1191	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1192	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1193	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1194	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1195	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1196	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1197	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1198	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1199	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1200	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1201	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1202	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1203	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1204	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1205	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1206	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1207	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1208	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1209	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1210	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1211	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1212	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1213	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1214	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1215	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1216	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1217	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1218	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1219	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1220	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1221	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1222	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1223	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1224	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1225	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1226	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1227	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1228	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1229	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1230	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1231	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1232	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1233	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1234	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1235	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1236	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1237	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1238	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1239	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1240	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1241	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1242	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1243	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1244	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1245	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1246	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1247	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1248	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1249	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1250	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1251	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1252	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1253	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1254	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1255	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1256	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1257	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1258	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1259	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1260	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1261	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1262	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1263	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1264	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1265	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1266	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1267	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1268	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1269	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1270	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1271	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1272	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1273	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1274	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1275	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1276	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1277	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1278	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1279	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1280	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1281	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1282	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1283	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1284	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1285	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1286	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1287	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1288	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1289	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1290	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1291	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1292	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1293	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1294	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1295	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1296	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1297	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1298	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1299	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1300	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1301	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1302	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1303	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1304	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1305	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1306	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1307	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1308	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1309	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1310	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1311	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1312	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1313	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1314	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1315	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1316	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1317	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1318	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1319	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1320	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1321	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1322	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1323	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1324	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1325	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1326	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1327	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1328	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1329	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1330	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1331	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1332	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1333	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1334	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1335	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1336	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1337	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1338	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1339	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1340	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1341	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1342	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1343	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1344	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1345	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1346	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1347	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1348	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1349	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1350	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1351	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1352	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1353	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1354	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1355	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1356	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1357	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1358	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1359	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1360	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1361	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1362	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1363	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1364	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1365	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1366	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1367	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1368	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1369	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1370	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1371	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1372	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1373	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1374	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1375	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1376	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1377	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1378	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1379	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1380	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1381	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1382	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1383	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1384	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1385	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1386	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1387	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1388	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1389	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1390	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1391	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1392	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1393	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1394	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1395	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1396	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1397	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1398	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1399	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1400	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1401	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1402	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1403	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1404	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1405	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1406	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1407	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1408	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1409	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1410	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1411	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1412	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1413	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1414	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1415	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1416	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1417	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1418	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1419	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1420	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1421	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1422	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1423	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1424	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1425	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1426	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1427	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1428	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1429	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1430	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1431	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1432	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1433	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1434	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1435	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1436	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1437	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1438	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1439	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1440	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1441	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1442	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1443	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1444	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1445	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1446	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1447	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1448	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1449	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1450	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1451	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1452	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1453	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1454	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1455	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1456	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1457	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1458	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1459	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1460	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1461	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1462	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1463	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1464	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1465	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1466	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1467	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1468	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1469	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1470	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1471	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1472	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1473	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1474	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1475	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1476	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1477	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1478	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1479	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1480	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1481	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1482	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1483	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1484	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1485	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1486	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1487	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1488	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1489	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1490	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1491	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1492	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1493	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1494	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1495	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1496	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1497	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1498	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1499	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1500	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1501	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1502	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1503	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1504	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1505	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1506	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1507	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1508	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1509	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1510	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1511	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1512	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1513	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1514	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1515	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1516	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1517	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1518	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1519	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1520	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1521	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1522	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1523	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1524	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1525	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1526	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1527	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1528	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1529	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1530	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1531	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1532	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1533	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1534	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1535	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1536	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1537	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1538	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1539	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1540	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1541	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1542	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1543	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1544	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1545	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1546	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1547	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1548	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1549	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1550	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1551	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1552	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1553	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1554	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1555	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1556	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1557	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1558	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1559	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1560	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1561	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1562	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1563	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1564	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1565	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1566	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1567	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1568	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1569	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1570	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1571	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1572	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1573	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1574	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1575	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1576	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1577	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1578	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1579	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1580	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1581	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1582	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1583	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1584	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1585	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1586	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1587	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1588	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1589	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1590	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1591	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1592	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1593	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1594	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1595	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1596	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1597	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1598	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1599	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1600	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1601	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1602	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1603	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1604	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1605	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1606	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1607	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1608	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1609	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1610	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1611	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1612	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1613	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1614	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1615	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1616	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1617	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1618	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1619	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1620	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1621	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1622	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1623	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1624	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1625	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1626	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1627	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1628	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1629	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1630	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1631	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1632	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1633	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1634	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1635	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1636	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1637	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1638	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1639	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1640	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1641	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1642	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1643	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1644	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1645	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1646	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1647	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1648	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1649	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1650	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1651	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1652	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1653	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1654	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1655	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1656	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1657	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1658	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1659	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1660	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1661	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1662	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1663	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1664	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1665	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1666	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1667	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1668	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1669	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1670	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1671	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1672	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1673	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1674	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1675	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1676	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1677	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1678	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1679	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1680	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1681	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1682	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1683	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1684	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1685	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1686	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1687	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1688	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1689	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1690	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1691	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1692	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1693	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1694	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1695	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1696	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1697	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1698	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1699	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1700	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1701	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1702	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1703	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1704	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1705	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1706	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1707	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1708	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1709	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1710	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1711	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1712	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1713	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1714	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1715	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1716	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1717	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1718	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1719	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1720	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1721	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1722	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1723	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1724	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1725	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1726	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1727	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1728	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1729	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1730	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1731	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1732	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1733	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1734	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1735	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1736	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1737	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1738	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1739	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1740	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1741	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1742	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1743	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1744	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1745	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1746	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1747	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1748	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1749	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1750	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1751	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1752	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1753	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1754	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1755	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1756	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1757	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1758	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1759	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1760	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1761	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1762	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1763	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1764	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1765	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1766	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1767	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1768	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1769	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1770	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1771	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1772	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1773	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1774	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1775	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1776	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1777	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1778	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1779	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1780	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1781	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1782	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1783	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1784	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1785	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1786	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1787	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1788	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1789	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1790	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1791	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1792	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1793	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1794	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1795	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1796	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1797	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1798	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1799	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1800	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1801	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1802	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1803	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1804	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1805	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1806	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1807	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1808	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1809	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1810	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1811	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1812	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1813	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1814	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1815	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1816	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1817	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1818	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1819	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1820	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1821	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1822	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1823	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1824	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1825	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1826	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1827	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1828	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1829	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1830	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1831	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1832	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1833	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1834	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1835	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1836	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1837	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1838	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1839	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1840	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1841	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1842	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1843	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1844	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1845	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1846	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1847	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1848	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1849	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1850	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1851	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1852	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1853	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1854	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1855	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1856	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1857	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1858	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1859	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1860	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1861	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1862	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1863	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1864	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1865	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1866	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1867	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1868	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1869	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1870	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1871	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1872	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1873	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1874	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1875	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1876	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1877	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1878	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1879	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1880	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1881	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1882	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1883	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1884	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1885	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1886	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1887	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1888	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1889	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1890	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1891	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1892	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1893	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1894	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1895	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1896	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1897	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1898	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1899	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1900	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1901	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1902	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1903	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1904	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1905	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1906	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1907	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1908	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1909	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1910	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1911	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1912	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1913	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1914	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1915	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1916	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1917	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1918	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1919	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1920	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1921	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1922	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1923	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1924	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1925	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1926	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1927	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1928	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1929	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1930	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1931	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1932	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1933	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1934	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1935	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1936	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1937	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1938	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1939	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1940	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1941	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1942	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1943	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1944	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1945	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1946	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1947	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1948	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1949	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1950	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1951	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1952	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1953	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1954	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1955	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1956	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1957	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1958	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1959	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1960	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1961	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1962	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1963	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1964	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1965	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1966	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1967	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1968	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1969	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1970	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1971	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1972	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1973	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1974	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1975	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1976	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1977	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1978	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1979	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1980	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1981	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1982	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1983	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1984	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1985	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1986	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1987	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1988	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1989	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1990	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1991	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1992	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1993	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1994	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1995	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1996	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1997	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1998	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+1999	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2000	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2001	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2002	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2003	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2004	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2005	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2006	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2007	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2008	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2009	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2010	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2011	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2012	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2013	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2014	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2015	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2016	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2017	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2018	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2019	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2020	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2021	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2022	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2023	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2024	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2025	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2026	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2027	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2028	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2029	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2030	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2031	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2032	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2033	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2034	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2035	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2036	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2037	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2038	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2039	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2040	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2041	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2042	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2043	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2044	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2045	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2046	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2047	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2048	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2049	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2050	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2051	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2052	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2053	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2054	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2055	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2056	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2057	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2058	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2059	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2060	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2061	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2062	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2063	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2064	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2065	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2066	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2067	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2068	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2069	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2070	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2071	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2072	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2073	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2074	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2075	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2076	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2077	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2078	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2079	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2080	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2081	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2082	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2083	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2084	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2085	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2086	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2087	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2088	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2089	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2090	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2091	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2092	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2093	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2094	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2095	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2096	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2097	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2098	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2099	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2100	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2101	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2102	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2103	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2104	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2105	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2106	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2107	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2108	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2109	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2110	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2111	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2112	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2113	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2114	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2115	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2116	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2117	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2118	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2119	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2120	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2121	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2122	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2123	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2124	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2125	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2126	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2127	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2128	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2129	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2130	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2131	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2132	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2133	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2134	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2135	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2136	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2137	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2138	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2139	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2140	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2141	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2142	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2143	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2144	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2145	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2146	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2147	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2148	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2149	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2150	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2151	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2152	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2153	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2154	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2155	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2156	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2157	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2158	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2159	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2160	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2161	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2162	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2163	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2164	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2165	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2166	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2167	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2168	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2169	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2170	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2171	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2172	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2173	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2174	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2175	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2176	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2177	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2178	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2179	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2180	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2181	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2182	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2183	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2184	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2185	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2186	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2187	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2188	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2189	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2190	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2191	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2192	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2193	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2194	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2195	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2196	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2197	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2198	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2199	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2200	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2201	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2202	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2203	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2204	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2205	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2206	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2207	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2208	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2209	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2210	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2211	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2212	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2213	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2214	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2215	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2216	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2217	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2218	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2219	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2220	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2221	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2222	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2223	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2224	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2225	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2226	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2227	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2228	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2229	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2230	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2231	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2232	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2233	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2234	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2235	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2236	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2237	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2238	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2239	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2240	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2241	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2242	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2243	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2244	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2245	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2246	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2247	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2248	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2249	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2250	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2251	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2252	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2253	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2254	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2255	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2256	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2257	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2258	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2259	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2260	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2261	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2262	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2263	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2264	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2265	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2266	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2267	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2268	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2269	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2270	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2271	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2272	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2273	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2274	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2275	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2276	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2277	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2278	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2279	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2280	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2281	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2282	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2283	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2284	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2285	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2286	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2287	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2288	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2289	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2290	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2291	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2292	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2293	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2294	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2295	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2296	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2297	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2298	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2299	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2300	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2301	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2302	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2303	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2304	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2305	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2306	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2307	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2308	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2309	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2310	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2311	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2312	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2313	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2314	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2315	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2316	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2317	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2318	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2319	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2320	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2321	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2322	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2323	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2324	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2325	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2326	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2327	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2328	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2329	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2330	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2331	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2332	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2333	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2334	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2335	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2336	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2337	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2338	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2339	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2340	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2341	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2342	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2343	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2344	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2345	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2346	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2347	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2348	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2349	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2350	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2351	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2352	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2353	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2354	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2355	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2356	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2357	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2358	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2359	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2360	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2361	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2362	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2363	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2364	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2365	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2366	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2367	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2368	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2369	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2370	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2371	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2372	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2373	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2374	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2375	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2376	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2377	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2378	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2379	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2380	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2381	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2382	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2383	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2384	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2385	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2386	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2387	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2388	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2389	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2390	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2391	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2392	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2393	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2394	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2395	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2396	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2397	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2398	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2399	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2400	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2401	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2402	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2403	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2404	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2405	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2406	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2407	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2408	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2409	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2410	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2411	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2412	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2413	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2414	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2415	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2416	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2417	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2418	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2419	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2420	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2421	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2422	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2423	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2424	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2425	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2426	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2427	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2428	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2429	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2430	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2431	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2432	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2433	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2434	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2435	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2436	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2437	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2438	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2439	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2440	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2441	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2442	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2443	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2444	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2445	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2446	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2447	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2448	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2449	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2450	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2451	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2452	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2453	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2454	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2455	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2456	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2457	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2458	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2459	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2460	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2461	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2462	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2463	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2464	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2465	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2466	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2467	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2468	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2469	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2470	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2471	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2472	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2473	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2474	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2475	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2476	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2477	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2478	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2479	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2480	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2481	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2482	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2483	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2484	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2485	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2486	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2487	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2488	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2489	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2490	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2491	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2492	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2493	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2494	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2495	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2496	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2497	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2498	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2499	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2500	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2501	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2502	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2503	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2504	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2505	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2506	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2507	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
+2508	\N	\N	\N	\N	\N	\N	\N	Not censored	Good	Sporadic	1	14
 \.
 
 
 --
--- TOC entry 4742 (class 0 OID 70024)
+-- TOC entry 4756 (class 0 OID 70024)
 -- Dependencies: 219
 -- Data for Name: measurementresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -8867,7 +12555,7 @@ COPY measurementresultvalueannotations (bridgeid, valueid, annotationid) FROM st
 
 
 --
--- TOC entry 5074 (class 0 OID 0)
+-- TOC entry 5088 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: measurementresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -8876,7 +12564,7 @@ SELECT pg_catalog.setval('measurementresultvalueannotations_bridgeid_seq', 1, fa
 
 
 --
--- TOC entry 4911 (class 0 OID 70933)
+-- TOC entry 4925 (class 0 OID 70933)
 -- Dependencies: 388
 -- Data for Name: measurementresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9677,20 +13365,1733 @@ COPY measurementresultvalues (valueid, resultid, datavalue, valuedatetime, value
 793	793	54.1000000000000014	1993-04-17 00:00:00	-5
 794	794	74.2999999999999972	1993-06-20 00:00:00	-5
 795	795	42	1993-08-24 00:00:00	-5
+796	796	4.29000000000000004	1983-01-17 00:00:00	-5
+797	797	2.2200000000000002	1983-01-17 00:00:00	-5
+798	798	13.0899999999999999	1983-01-17 00:00:00	-5
+799	799	0.75	1983-01-17 00:00:00	-5
+800	800	29.5	1983-01-17 00:00:00	-5
+801	801	4.70999999999999996	1983-01-27 00:00:00	-5
+802	802	1.87000000000000011	1983-01-27 00:00:00	-5
+803	803	11.5700000000000003	1983-01-27 00:00:00	-5
+804	804	1.01000000000000001	1983-01-27 00:00:00	-5
+805	805	29	1983-01-27 00:00:00	-5
+806	806	4.42999999999999972	1983-02-08 00:00:00	-5
+807	807	4.17999999999999972	1983-02-08 00:00:00	-5
+808	808	10.5600000000000005	1983-02-08 00:00:00	-5
+809	809	0.709999999999999964	1983-02-08 00:00:00	-5
+810	810	28.8999999999999986	1983-02-08 00:00:00	-5
+811	811	45	1983-02-21 00:00:00	-5
+812	812	4.76999999999999957	1983-02-21 00:00:00	-5
+813	813	138	1983-02-21 00:00:00	-5
+814	814	1.81000000000000005	1983-02-21 00:00:00	-5
+815	815	10.3000000000000007	1983-02-21 00:00:00	-5
+816	816	0.709999999999999964	1983-02-21 00:00:00	-5
+817	817	30	1983-02-21 00:00:00	-5
+818	818	58.6000000000000014	1983-03-03 00:00:00	-5
+819	819	4.53000000000000025	1983-03-03 00:00:00	-5
+820	820	159	1983-03-03 00:00:00	-5
+821	821	1.64999999999999991	1983-03-03 00:00:00	-5
+822	822	11.0500000000000007	1983-03-03 00:00:00	-5
+823	823	0.839999999999999969	1983-03-03 00:00:00	-5
+824	824	30.8999999999999986	1983-03-03 00:00:00	-5
+825	825	41.2999999999999972	1983-06-07 00:00:00	-5
+826	826	4.23000000000000043	1983-06-07 00:00:00	-5
+827	827	22.1999999999999993	1983-06-07 00:00:00	-5
+828	828	126	1983-06-07 00:00:00	-5
+829	829	0.349999999999999978	1983-06-07 00:00:00	-5
+830	830	7.13999999999999968	1983-06-07 00:00:00	-5
+831	831	0.900000000000000022	1983-06-07 00:00:00	-5
+832	832	29	1983-06-07 00:00:00	-5
+833	833	45.7999999999999972	1983-07-21 00:00:00	-5
+834	834	4.21999999999999975	1983-07-21 00:00:00	-5
+835	835	20	1983-07-21 00:00:00	-5
+836	836	108	1983-07-21 00:00:00	-5
+837	837	0.200000000000000011	1983-07-21 00:00:00	-5
+838	838	9.61999999999999922	1983-07-21 00:00:00	-5
+839	839	0.640000000000000013	1983-07-21 00:00:00	-5
+840	840	157	1983-07-21 00:00:00	-5
+841	841	28.5	1983-07-21 00:00:00	-5
+842	842	59.7000000000000028	1983-08-11 00:00:00	-5
+843	843	3.50999999999999979	1983-08-11 00:00:00	-5
+844	844	23.1999999999999993	1983-08-11 00:00:00	-5
+845	845	135	1983-08-11 00:00:00	-5
+846	846	0.569999999999999951	1983-08-11 00:00:00	-5
+847	847	10.2100000000000009	1983-08-11 00:00:00	-5
+848	848	0.869999999999999996	1983-08-11 00:00:00	-5
+849	849	175	1983-08-11 00:00:00	-5
+850	850	29	1983-08-11 00:00:00	-5
+851	851	89.5	1983-09-10 00:00:00	-5
+852	852	2.66000000000000014	1983-09-10 00:00:00	-5
+853	853	23	1983-09-10 00:00:00	-5
+854	854	195	1983-09-10 00:00:00	-5
+855	855	0.23000000000000001	1983-09-10 00:00:00	-5
+856	856	15.6199999999999992	1983-09-10 00:00:00	-5
+857	857	0.849999999999999978	1983-09-10 00:00:00	-5
+858	858	172	1983-09-10 00:00:00	-5
+859	859	29.5	1983-09-10 00:00:00	-5
+860	860	2.66000000000000014	1983-09-20 00:00:00	-5
+861	861	23.1000000000000014	1983-09-20 00:00:00	-5
+862	862	0.220000000000000001	1983-09-20 00:00:00	-5
+863	863	11.7899999999999991	1983-09-20 00:00:00	-5
+864	864	0.890000000000000013	1983-09-20 00:00:00	-5
+865	865	155	1983-09-20 00:00:00	-5
+866	866	27.8000000000000007	1983-09-20 00:00:00	-5
+867	867	93.2999999999999972	1983-09-30 00:00:00	-5
+868	868	2.79000000000000004	1983-09-30 00:00:00	-5
+869	869	21	1983-09-30 00:00:00	-5
+870	870	190	1983-09-30 00:00:00	-5
+871	871	1.34000000000000008	1983-09-30 00:00:00	-5
+872	872	9.73000000000000043	1983-09-30 00:00:00	-5
+873	873	1	1983-09-30 00:00:00	-5
+874	874	160	1983-09-30 00:00:00	-5
+875	875	28.6999999999999993	1983-09-30 00:00:00	-5
+876	876	77.2999999999999972	1983-12-16 00:00:00	-5
+877	877	23.8999999999999986	1983-12-16 00:00:00	-5
+878	878	180	1983-12-16 00:00:00	-5
+879	879	0.489999999999999991	1983-12-16 00:00:00	-5
+880	880	14.9000000000000004	1983-12-16 00:00:00	-5
+881	881	0.709999999999999964	1983-12-16 00:00:00	-5
+882	882	133.5	1983-12-16 00:00:00	-5
+883	883	28.3000000000000007	1983-12-16 00:00:00	-5
+884	884	66.2999999999999972	1984-01-03 00:00:00	-5
+885	885	22.1999999999999993	1984-01-03 00:00:00	-5
+886	886	130	1984-01-03 00:00:00	-5
+887	887	0.550000000000000044	1984-01-03 00:00:00	-5
+888	888	13.9800000000000004	1984-01-03 00:00:00	-5
+889	889	0.729999999999999982	1984-01-03 00:00:00	-5
+890	890	136.800000000000011	1984-01-03 00:00:00	-5
+891	891	28	1984-01-03 00:00:00	-5
+892	892	0.440000000000000002	1984-01-19 00:00:00	-5
+893	893	11.9399999999999995	1984-01-19 00:00:00	-5
+894	894	0.689999999999999947	1984-01-19 00:00:00	-5
+895	895	133.949999999999989	1984-01-19 00:00:00	-5
+896	896	28.3000000000000007	1984-01-19 00:00:00	-5
+897	897	52.1000000000000014	1984-03-20 00:00:00	-5
+898	898	-6.08000000000000007	1984-03-20 00:00:00	-5
+899	899	23	1984-03-20 00:00:00	-5
+900	900	121	1984-03-20 00:00:00	-5
+901	901	1.03000000000000003	1984-03-20 00:00:00	-5
+902	902	7.54999999999999982	1984-03-20 00:00:00	-5
+903	903	0.770000000000000018	1984-03-20 00:00:00	-5
+904	904	137.610000000000014	1984-03-20 00:00:00	-5
+905	905	27.3999999999999986	1984-03-20 00:00:00	-5
+906	906	-6.20999999999999996	1984-04-05 00:00:00	-5
+907	907	0.609999999999999987	1984-04-05 00:00:00	-5
+908	908	5.70999999999999996	1984-04-05 00:00:00	-5
+909	909	0.719999999999999973	1984-04-05 00:00:00	-5
+910	910	144.599999999999994	1984-04-05 00:00:00	-5
+911	911	28.1000000000000014	1984-04-05 00:00:00	-5
+912	912	160	1984-09-13 00:00:00	-5
+913	913	66.9000000000000057	1984-09-13 00:00:00	-5
+914	914	3.85999999999999988	1984-09-13 00:00:00	-5
+915	915	21	1984-09-13 00:00:00	-5
+916	916	141	1984-09-13 00:00:00	-5
+917	917	2.12000000000000011	1984-09-13 00:00:00	-5
+918	918	10.6500000000000004	1984-09-13 00:00:00	-5
+919	919	0.790000000000000036	1984-09-13 00:00:00	-5
+920	920	146.5	1984-09-13 00:00:00	-5
+921	921	28.1999999999999993	1984-09-13 00:00:00	-5
+922	922	181	1984-09-27 00:00:00	-5
+923	923	64.9000000000000057	1984-09-27 00:00:00	-5
+924	924	3.12000000000000011	1984-09-27 00:00:00	-5
+925	925	20	1984-09-27 00:00:00	-5
+926	926	145	1984-09-27 00:00:00	-5
+927	927	11.4100000000000001	1984-09-27 00:00:00	-5
+928	928	0.709999999999999964	1984-09-27 00:00:00	-5
+929	929	151.900000000000006	1984-09-27 00:00:00	-5
+930	930	29.5	1984-09-27 00:00:00	-5
+931	931	183	1984-10-10 00:00:00	-5
+932	932	65.5	1984-10-10 00:00:00	-5
+933	933	3.39999999999999991	1984-10-10 00:00:00	-5
+934	934	20	1984-10-10 00:00:00	-5
+935	935	134	1984-10-10 00:00:00	-5
+936	936	0.140000000000000013	1984-10-10 00:00:00	-5
+937	937	11.5600000000000005	1984-10-10 00:00:00	-5
+938	938	0.67000000000000004	1984-10-10 00:00:00	-5
+939	939	29.6999999999999993	1984-10-10 00:00:00	-5
+940	940	249	1984-10-25 00:00:00	-5
+941	941	97.0999999999999943	1984-10-25 00:00:00	-5
+942	942	2.66999999999999993	1984-10-25 00:00:00	-5
+943	943	24.8000000000000007	1984-10-25 00:00:00	-5
+944	944	188	1984-10-25 00:00:00	-5
+945	945	0.790000000000000036	1984-10-25 00:00:00	-5
+946	946	16.6400000000000006	1984-10-25 00:00:00	-5
+947	947	0.900000000000000022	1984-10-25 00:00:00	-5
+948	948	160.800000000000011	1984-10-25 00:00:00	-5
+949	949	30.8999999999999986	1984-10-25 00:00:00	-5
+950	950	216	1984-11-07 00:00:00	-5
+951	951	73.5999999999999943	1984-11-07 00:00:00	-5
+952	952	2.85999999999999988	1984-11-07 00:00:00	-5
+953	953	22.6999999999999993	1984-11-07 00:00:00	-5
+954	954	160	1984-11-07 00:00:00	-5
+955	955	0.450000000000000011	1984-11-07 00:00:00	-5
+956	956	16.0399999999999991	1984-11-07 00:00:00	-5
+957	957	0.709999999999999964	1984-11-07 00:00:00	-5
+958	958	148.099999999999994	1984-11-07 00:00:00	-5
+959	959	236	1984-11-23 00:00:00	-5
+960	960	85.7999999999999972	1984-11-23 00:00:00	-5
+961	961	3.45999999999999996	1984-11-23 00:00:00	-5
+962	962	20.6000000000000014	1984-11-23 00:00:00	-5
+963	963	159	1984-11-23 00:00:00	-5
+964	964	0.979999999999999982	1984-11-23 00:00:00	-5
+965	965	14.6400000000000006	1984-11-23 00:00:00	-5
+966	966	0.930000000000000049	1984-11-23 00:00:00	-5
+967	967	151.800000000000011	1984-11-23 00:00:00	-5
+968	968	30	1984-11-23 00:00:00	-5
+969	969	257	1984-12-05 00:00:00	-5
+970	970	63.6000000000000014	1984-12-05 00:00:00	-5
+971	971	3.31000000000000005	1984-12-05 00:00:00	-5
+972	972	24.6000000000000014	1984-12-05 00:00:00	-5
+973	973	160	1984-12-05 00:00:00	-5
+974	974	0.619999999999999996	1984-12-05 00:00:00	-5
+975	975	19.129999999999999	1984-12-05 00:00:00	-5
+976	976	0.910000000000000031	1984-12-05 00:00:00	-5
+977	977	148.900000000000006	1984-12-05 00:00:00	-5
+978	978	29.3000000000000007	1984-12-05 00:00:00	-5
+979	979	271	1984-12-18 00:00:00	-5
+980	980	83.5	1984-12-18 00:00:00	-5
+981	981	3	1984-12-18 00:00:00	-5
+982	982	27	1984-12-18 00:00:00	-5
+983	983	169	1984-12-18 00:00:00	-5
+984	984	0.739999999999999991	1984-12-18 00:00:00	-5
+985	985	20.9400000000000013	1984-12-18 00:00:00	-5
+986	986	0.780000000000000027	1984-12-18 00:00:00	-5
+987	987	145.400000000000006	1984-12-18 00:00:00	-5
+988	988	28.6999999999999993	1984-12-18 00:00:00	-5
+989	989	262	1985-02-13 00:00:00	-5
+990	990	42.5	1985-02-13 00:00:00	-5
+991	991	4.73000000000000043	1985-02-13 00:00:00	-5
+992	992	23.8000000000000007	1985-02-13 00:00:00	-5
+993	993	120	1985-02-13 00:00:00	-5
+994	994	0.760000000000000009	1985-02-13 00:00:00	-5
+995	995	11.0199999999999996	1985-02-13 00:00:00	-5
+996	996	0.67000000000000004	1985-02-13 00:00:00	-5
+997	997	28.5	1985-02-13 00:00:00	-5
+998	998	306	1985-03-06 00:00:00	-5
+999	999	57.2000000000000028	1985-03-06 00:00:00	-5
+1000	1000	23.8999999999999986	1985-03-06 00:00:00	-5
+1001	1001	146	1985-03-06 00:00:00	-5
+1002	1002	0.447000000000000008	1985-03-06 00:00:00	-5
+1003	1003	12.6500000000000004	1985-03-06 00:00:00	-5
+1004	1004	0.764000000000000012	1985-03-06 00:00:00	-5
+1005	1005	153	1985-03-06 00:00:00	-5
+1006	1006	28.6000000000000014	1985-03-06 00:00:00	-5
+1007	1007	277	1985-03-20 00:00:00	-5
+1008	1008	65.2000000000000028	1985-03-20 00:00:00	-5
+1009	1009	24.1999999999999993	1985-03-20 00:00:00	-5
+1010	1010	141	1985-03-20 00:00:00	-5
+1011	1011	0.757000000000000006	1985-03-20 00:00:00	-5
+1012	1012	11.9299999999999997	1985-03-20 00:00:00	-5
+1013	1013	0.895000000000000018	1985-03-20 00:00:00	-5
+1014	1014	147.400000000000006	1985-03-20 00:00:00	-5
+1015	1015	28.3999999999999986	1985-03-20 00:00:00	-5
+1016	1016	279	1985-04-03 00:00:00	-5
+1017	1017	53.1000000000000014	1985-04-03 00:00:00	-5
+1018	1018	0.479999999999999982	1985-04-03 00:00:00	-5
+1019	1019	13.0199999999999996	1985-04-03 00:00:00	-5
+1020	1020	0.846999999999999975	1985-04-03 00:00:00	-5
+1021	1021	148.900000000000006	1985-04-03 00:00:00	-5
+1022	1022	28.3999999999999986	1985-04-03 00:00:00	-5
+1023	1023	275	1985-04-17 00:00:00	-5
+1024	1024	64.5	1985-04-17 00:00:00	-5
+1025	1025	25.8999999999999986	1985-04-17 00:00:00	-5
+1026	1026	142	1985-04-17 00:00:00	-5
+1027	1027	0.349999999999999978	1985-04-17 00:00:00	-5
+1028	1028	11.7899999999999991	1985-04-17 00:00:00	-5
+1029	1029	0.812999999999999945	1985-04-17 00:00:00	-5
+1030	1030	150.199999999999989	1985-04-17 00:00:00	-5
+1031	1031	29.8999999999999986	1985-04-17 00:00:00	-5
+1032	1032	255	1985-05-02 00:00:00	-5
+1033	1033	58.8999999999999986	1985-05-02 00:00:00	-5
+1034	1034	27	1985-05-02 00:00:00	-5
+1035	1035	139	1985-05-02 00:00:00	-5
+1036	1036	0.344999999999999973	1985-05-02 00:00:00	-5
+1037	1037	12.9600000000000009	1985-05-02 00:00:00	-5
+1038	1038	0.861999999999999988	1985-05-02 00:00:00	-5
+1039	1039	141.699999999999989	1985-05-02 00:00:00	-5
+1040	1040	28.5	1985-05-02 00:00:00	-5
+1041	1041	222	1985-05-15 00:00:00	-5
+1042	1042	54.3999999999999986	1985-05-15 00:00:00	-5
+1043	1043	23.1999999999999993	1985-05-15 00:00:00	-5
+1044	1044	121	1985-05-15 00:00:00	-5
+1045	1045	0.441000000000000003	1985-05-15 00:00:00	-5
+1046	1046	11.0800000000000001	1985-05-15 00:00:00	-5
+1047	1047	0.822999999999999954	1985-05-15 00:00:00	-5
+1048	1048	142.5	1985-05-15 00:00:00	-5
+1049	1049	28	1985-05-15 00:00:00	-5
+1050	1050	216	1985-05-29 00:00:00	-5
+1051	1051	57.5	1985-05-29 00:00:00	-5
+1052	1052	22.3999999999999986	1985-05-29 00:00:00	-5
+1053	1053	113	1985-05-29 00:00:00	-5
+1054	1054	0.42599999999999999	1985-05-29 00:00:00	-5
+1055	1055	9.92600000000000016	1985-05-29 00:00:00	-5
+1056	1056	0.767000000000000015	1985-05-29 00:00:00	-5
+1057	1057	141.900000000000006	1985-05-29 00:00:00	-5
+1058	1058	28	1985-05-29 00:00:00	-5
+1059	1059	216	1985-06-12 00:00:00	-5
+1060	1060	48.8999999999999986	1985-06-12 00:00:00	-5
+1061	1061	21.6000000000000014	1985-06-12 00:00:00	-5
+1062	1062	131	1985-06-12 00:00:00	-5
+1063	1063	0.0940000000000000002	1985-06-12 00:00:00	-5
+1064	1064	11.2400000000000002	1985-06-12 00:00:00	-5
+1065	1065	0.744999999999999996	1985-06-12 00:00:00	-5
+1066	1066	140.5	1985-06-12 00:00:00	-5
+1067	1067	27	1985-06-12 00:00:00	-5
+1068	1068	187	1985-06-26 00:00:00	-5
+1069	1069	42.2000000000000028	1985-06-26 00:00:00	-5
+1070	1070	20.5	1985-06-26 00:00:00	-5
+1071	1071	108	1985-06-26 00:00:00	-5
+1072	1072	0.394000000000000017	1985-06-26 00:00:00	-5
+1073	1073	9.63499999999999979	1985-06-26 00:00:00	-5
+1074	1074	0.81899999999999995	1985-06-26 00:00:00	-5
+1075	1075	139.599999999999994	1985-06-26 00:00:00	-5
+1076	1076	27.3999999999999986	1985-06-26 00:00:00	-5
+1077	1077	174	1985-07-10 00:00:00	-5
+1078	1078	45.6000000000000014	1985-07-10 00:00:00	-5
+1079	1079	25	1985-07-10 00:00:00	-5
+1080	1080	105	1985-07-10 00:00:00	-5
+1081	1081	0.239999999999999991	1985-07-10 00:00:00	-5
+1082	1082	9.5600000000000005	1985-07-10 00:00:00	-5
+1083	1083	0.808000000000000052	1985-07-10 00:00:00	-5
+1084	1084	146.099999999999994	1985-07-10 00:00:00	-5
+1085	1085	27.6000000000000014	1985-07-10 00:00:00	-5
+1086	1086	170	1985-07-21 00:00:00	-5
+1087	1087	39.2999999999999972	1985-07-21 00:00:00	-5
+1088	1088	19.5	1985-07-21 00:00:00	-5
+1089	1089	103	1985-07-21 00:00:00	-5
+1090	1090	0.357999999999999985	1985-07-21 00:00:00	-5
+1091	1091	9.94500000000000028	1985-07-21 00:00:00	-5
+1092	1092	0.756000000000000005	1985-07-21 00:00:00	-5
+1093	1093	146.800000000000011	1985-07-21 00:00:00	-5
+1094	1094	27.3999999999999986	1985-07-21 00:00:00	-5
+1095	1095	190	1985-10-10 00:00:00	-5
+1096	1096	88.5	1985-10-10 00:00:00	-5
+1097	1097	20.3999999999999986	1985-10-10 00:00:00	-5
+1098	1098	150	1985-10-10 00:00:00	-5
+1099	1099	0.790000000000000036	1985-10-10 00:00:00	-5
+1100	1100	14.0800000000000001	1985-10-10 00:00:00	-5
+1101	1101	0.939999999999999947	1985-10-10 00:00:00	-5
+1102	1102	149.599999999999994	1985-10-10 00:00:00	-5
+1103	1103	29.6000000000000014	1985-10-10 00:00:00	-5
+1104	1104	216	1985-10-30 00:00:00	-5
+1105	1105	76.5999999999999943	1985-10-30 00:00:00	-5
+1106	1106	21	1985-10-30 00:00:00	-5
+1107	1107	155	1985-10-30 00:00:00	-5
+1108	1108	0.728999999999999981	1985-10-30 00:00:00	-5
+1109	1109	16.0300000000000011	1985-10-30 00:00:00	-5
+1110	1110	0.936000000000000054	1985-10-30 00:00:00	-5
+1111	1111	137.400000000000006	1985-10-30 00:00:00	-5
+1112	1112	28.8000000000000007	1985-10-30 00:00:00	-5
+1113	1113	191	1985-11-13 00:00:00	-5
+1114	1114	72.5	1985-11-13 00:00:00	-5
+1115	1115	20.6000000000000014	1985-11-13 00:00:00	-5
+1116	1116	137	1985-11-13 00:00:00	-5
+1117	1117	0.599999999999999978	1985-11-13 00:00:00	-5
+1118	1118	13.0099999999999998	1985-11-13 00:00:00	-5
+1119	1119	0.948999999999999955	1985-11-13 00:00:00	-5
+1120	1120	161.400000000000006	1985-11-13 00:00:00	-5
+1121	1121	29.3000000000000007	1985-11-13 00:00:00	-5
+1122	1122	280	1985-11-27 00:00:00	-5
+1123	1123	79.2000000000000028	1985-11-27 00:00:00	-5
+1124	1124	23.1000000000000014	1985-11-27 00:00:00	-5
+1125	1125	149	1985-11-27 00:00:00	-5
+1126	1126	0.181999999999999995	1985-11-27 00:00:00	-5
+1127	1127	15.8599999999999994	1985-11-27 00:00:00	-5
+1128	1128	0.864999999999999991	1985-11-27 00:00:00	-5
+1129	1129	161.400000000000006	1985-11-27 00:00:00	-5
+1130	1130	29.1999999999999993	1985-11-27 00:00:00	-5
+1131	1131	216	1985-12-12 00:00:00	-5
+1132	1132	69	1985-12-12 00:00:00	-5
+1133	1133	22	1985-12-12 00:00:00	-5
+1134	1134	150	1985-12-12 00:00:00	-5
+1135	1135	0.181999999999999995	1985-12-12 00:00:00	-5
+1136	1136	15.6500000000000004	1985-12-12 00:00:00	-5
+1137	1137	0.831999999999999962	1985-12-12 00:00:00	-5
+1138	1138	145.099999999999994	1985-12-12 00:00:00	-5
+1139	1139	28.8000000000000007	1985-12-12 00:00:00	-5
+1140	1140	266	1985-12-26 00:00:00	-5
+1141	1141	60.8999999999999986	1985-12-26 00:00:00	-5
+1142	1142	28.1999999999999993	1985-12-26 00:00:00	-5
+1143	1143	140	1985-12-26 00:00:00	-5
+1144	1144	0.0708000000000000018	1985-12-26 00:00:00	-5
+1145	1145	12.5	1985-12-26 00:00:00	-5
+1146	1146	0.661000000000000032	1985-12-26 00:00:00	-5
+1147	1147	147.300000000000011	1985-12-26 00:00:00	-5
+1148	1148	29	1985-12-26 00:00:00	-5
+1149	1149	58	1986-01-10 00:00:00	-5
+1150	1150	23.1000000000000014	1986-01-10 00:00:00	-5
+1151	1151	142	1986-01-10 00:00:00	-5
+1152	1152	0.0859999999999999931	1986-01-10 00:00:00	-5
+1153	1153	12.3800000000000008	1986-01-10 00:00:00	-5
+1154	1154	0.679000000000000048	1986-01-10 00:00:00	-5
+1155	1155	142.599999999999994	1986-01-10 00:00:00	-5
+1156	1156	28.5	1986-01-10 00:00:00	-5
+1157	1157	255	1986-01-30 00:00:00	-5
+1158	1158	55	1986-01-30 00:00:00	-5
+1159	1159	23.3000000000000007	1986-01-30 00:00:00	-5
+1160	1160	132	1986-01-30 00:00:00	-5
+1161	1161	0.252000000000000002	1986-01-30 00:00:00	-5
+1162	1162	16.9699999999999989	1986-01-30 00:00:00	-5
+1163	1163	0.474999999999999978	1986-01-30 00:00:00	-5
+1164	1164	138.400000000000006	1986-01-30 00:00:00	-5
+1165	1165	28.5	1986-01-30 00:00:00	-5
+1166	1166	272	1986-02-14 00:00:00	-5
+1167	1167	61	1986-02-14 00:00:00	-5
+1168	1168	23.3000000000000007	1986-02-14 00:00:00	-5
+1169	1169	141	1986-02-14 00:00:00	-5
+1170	1170	0.349999999999999978	1986-02-14 00:00:00	-5
+1171	1171	12.4900000000000002	1986-02-14 00:00:00	-5
+1172	1172	0.700999999999999956	1986-02-14 00:00:00	-5
+1173	1173	133.599999999999994	1986-02-14 00:00:00	-5
+1174	1174	28.3999999999999986	1986-02-14 00:00:00	-5
+1175	1175	288	1986-03-04 00:00:00	-5
+1176	1176	59	1986-03-04 00:00:00	-5
+1177	1177	24.3000000000000007	1986-03-04 00:00:00	-5
+1178	1178	126	1986-03-04 00:00:00	-5
+1179	1179	0.512000000000000011	1986-03-04 00:00:00	-5
+1180	1180	13.2899999999999991	1986-03-04 00:00:00	-5
+1181	1181	1.08000000000000007	1986-03-04 00:00:00	-5
+1182	1182	137.699999999999989	1986-03-04 00:00:00	-5
+1183	1183	28.3999999999999986	1986-03-04 00:00:00	-5
+1184	1184	285	1986-03-21 00:00:00	-5
+1185	1185	54	1986-03-21 00:00:00	-5
+1186	1186	24.3000000000000007	1986-03-21 00:00:00	-5
+1187	1187	127	1986-03-21 00:00:00	-5
+1188	1188	0.711999999999999966	1986-03-21 00:00:00	-5
+1189	1189	6.13100000000000023	1986-03-21 00:00:00	-5
+1190	1190	0.626000000000000001	1986-03-21 00:00:00	-5
+1191	1191	141	1986-03-21 00:00:00	-5
+1192	1192	27.6000000000000014	1986-03-21 00:00:00	-5
+1193	1193	272	1986-04-12 00:00:00	-5
+1194	1194	67.0999999999999943	1986-04-12 00:00:00	-5
+1195	1195	22.6000000000000014	1986-04-12 00:00:00	-5
+1196	1196	128	1986-04-12 00:00:00	-5
+1197	1197	0	1986-04-12 00:00:00	-5
+1198	1198	10.3200000000000003	1986-04-12 00:00:00	-5
+1199	1199	1.47799999999999998	1986-04-12 00:00:00	-5
+1200	1200	146.900000000000006	1986-04-12 00:00:00	-5
+1201	1201	28.8999999999999986	1986-04-12 00:00:00	-5
+1202	1202	0.411999999999999977	1986-04-28 00:00:00	-5
+1203	1203	7.54399999999999959	1986-04-28 00:00:00	-5
+1204	1204	141.5	1986-04-28 00:00:00	-5
+1205	1205	27.8000000000000007	1986-04-28 00:00:00	-5
+1206	1206	0.539000000000000035	1986-05-21 00:00:00	-5
+1207	1207	6.56099999999999994	1986-05-21 00:00:00	-5
+1208	1208	1.1359999999999999	1986-05-21 00:00:00	-5
+1209	1209	153.300000000000011	1986-05-21 00:00:00	-5
+1210	1210	28.5	1986-05-21 00:00:00	-5
+1211	1211	185	1986-06-17 00:00:00	-5
+1212	1212	0.253800000000000026	1986-06-17 00:00:00	-5
+1213	1213	5.99899999999999967	1986-06-17 00:00:00	-5
+1214	1214	155.400000000000006	1986-06-17 00:00:00	-5
+1215	1215	27.3999999999999986	1986-06-17 00:00:00	-5
+1216	1216	1.125	1986-07-02 00:00:00	-5
+1217	1217	5.87399999999999967	1986-07-02 00:00:00	-5
+1218	1218	0.628000000000000003	1986-07-02 00:00:00	-5
+1219	1219	154	1986-07-02 00:00:00	-5
+1220	1220	27.1999999999999993	1986-07-02 00:00:00	-5
+1221	1221	0.496099999999999985	1986-08-20 00:00:00	-5
+1222	1222	7.84999999999999964	1986-08-20 00:00:00	-5
+1223	1223	0.662000000000000033	1986-08-20 00:00:00	-5
+1224	1224	146	1986-08-20 00:00:00	-5
+1225	1225	28.6999999999999993	1986-08-20 00:00:00	-5
+1226	1226	0.502399999999999958	1986-09-12 00:00:00	-5
+1227	1227	11	1986-09-12 00:00:00	-5
+1228	1228	0.578999999999999959	1986-09-12 00:00:00	-5
+1229	1229	149	1986-09-12 00:00:00	-5
+1230	1230	28.5	1986-09-12 00:00:00	-5
+1231	1231	0.560899999999999954	1986-10-21 00:00:00	-5
+1232	1232	15.7200000000000006	1986-10-21 00:00:00	-5
+1233	1233	0.682000000000000051	1986-10-21 00:00:00	-5
+1234	1234	152	1986-10-21 00:00:00	-5
+1235	1235	29.3000000000000007	1986-10-21 00:00:00	-5
+1236	1236	0.650000000000000022	1986-11-05 00:00:00	-5
+1237	1237	13.7599999999999998	1986-11-05 00:00:00	-5
+1238	1238	0.667000000000000037	1986-11-05 00:00:00	-5
+1239	1239	142	1986-11-05 00:00:00	-5
+1240	1240	0.489999999999999991	1986-11-19 00:00:00	-5
+1241	1241	15.0999999999999996	1986-11-19 00:00:00	-5
+1242	1242	0.770000000000000018	1986-11-19 00:00:00	-5
+1243	1243	144	1986-11-19 00:00:00	-5
+1244	1244	28.6000000000000014	1986-11-19 00:00:00	-5
+1245	1245	176	1987-06-28 00:00:00	-5
+1246	1246	181	1987-08-25 00:00:00	-5
+1247	1247	11.5999999999999996	1987-08-25 00:00:00	-5
+1248	1248	0.468999999999999972	1987-08-25 00:00:00	-5
+1249	1249	28.6999999999999993	1987-08-25 00:00:00	-5
+1250	1250	207	1987-09-30 00:00:00	-5
+1251	1251	1.15999999999999992	1987-09-30 00:00:00	-5
+1252	1252	16.0100000000000016	1987-09-30 00:00:00	-5
+1253	1253	0.766000000000000014	1987-09-30 00:00:00	-5
+1254	1254	163	1987-09-30 00:00:00	-5
+1255	1255	238	1987-12-07 00:00:00	-5
+1256	1256	222	1988-01-08 00:00:00	-5
+1257	1257	0.949999999999999956	1988-01-08 00:00:00	-5
+1258	1258	19.5539999999999985	1988-01-08 00:00:00	-5
+1259	1259	0.85199999999999998	1988-01-08 00:00:00	-5
+1260	1260	143	1988-01-08 00:00:00	-5
+1261	1261	28.1999999999999993	1988-01-08 00:00:00	-5
+1262	1262	223	1988-02-05 00:00:00	-5
+1263	1263	0.780000000000000027	1988-02-05 00:00:00	-5
+1264	1264	10.4440000000000008	1988-02-05 00:00:00	-5
+1265	1265	0.758000000000000007	1988-02-05 00:00:00	-5
+1266	1266	145	1988-02-05 00:00:00	-5
+1267	1267	28.6000000000000014	1988-02-05 00:00:00	-5
+1268	1268	216	1988-04-21 00:00:00	-5
+1269	1269	11.8100000000000005	1988-04-21 00:00:00	-5
+1270	1270	0.809000000000000052	1988-04-21 00:00:00	-5
+1271	1271	150	1988-04-21 00:00:00	-5
+1272	1272	28.6000000000000014	1988-04-21 00:00:00	-5
+1273	1273	194	1988-05-20 00:00:00	-5
+1274	1274	9.25999999999999979	1988-05-20 00:00:00	-5
+1275	1275	0.696999999999999953	1988-05-20 00:00:00	-5
+1276	1276	155	1988-05-20 00:00:00	-5
+1277	1277	27.6999999999999993	1988-05-20 00:00:00	-5
+1278	1278	0.520000000000000018	1988-06-29 00:00:00	-5
+1279	1279	6.05999999999999961	1988-06-29 00:00:00	-5
+1280	1280	1.23100000000000009	1988-06-29 00:00:00	-5
+1281	1281	146	1988-06-29 00:00:00	-5
+1282	1282	27.3000000000000007	1988-06-29 00:00:00	-5
+1283	1283	170	1988-07-18 00:00:00	-5
+1284	1284	0.959999999999999964	1988-07-18 00:00:00	-5
+1285	1285	8.11999999999999922	1988-07-18 00:00:00	-5
+1286	1286	0.903000000000000025	1988-07-18 00:00:00	-5
+1287	1287	155	1988-07-18 00:00:00	-5
+1288	1288	27.3000000000000007	1988-07-18 00:00:00	-5
+1289	1289	139	1988-08-28 00:00:00	-5
+1290	1290	11.8499999999999996	1988-08-28 00:00:00	-5
+1291	1291	0.801000000000000045	1988-08-28 00:00:00	-5
+1292	1292	156	1988-08-28 00:00:00	-5
+1293	1293	29.6000000000000014	1988-08-28 00:00:00	-5
+1294	1294	155	1988-09-23 00:00:00	-5
+1295	1295	16.6600000000000001	1988-09-23 00:00:00	-5
+1296	1296	0.824999999999999956	1988-09-23 00:00:00	-5
+1297	1297	181	1988-09-23 00:00:00	-5
+1298	1298	30.1999999999999993	1988-09-23 00:00:00	-5
+1299	1299	262	1989-02-01 00:00:00	-5
+1300	1300	0.777000000000000024	1989-02-01 00:00:00	-5
+1301	1301	0.901000000000000023	1989-02-01 00:00:00	-5
+1302	1302	154	1989-02-01 00:00:00	-5
+1303	1303	27.1000000000000014	1989-02-01 00:00:00	-5
+1304	1304	5.20000000000000018	1989-03-12 00:00:00	-5
+1305	1305	9.19999999999999929	1989-03-12 00:00:00	-5
+1306	1306	0.985999999999999988	1989-03-12 00:00:00	-5
+1307	1307	140	1989-03-12 00:00:00	-5
+1308	1308	27.8000000000000007	1989-03-12 00:00:00	-5
+1309	1309	177	1989-07-11 00:00:00	-5
+1310	1310	3.25	1989-07-11 00:00:00	-5
+1311	1311	8.44999999999999929	1989-07-11 00:00:00	-5
+1312	1312	0.527000000000000024	1989-07-11 00:00:00	-5
+1313	1313	138	1989-07-11 00:00:00	-5
+1314	1314	26.3999999999999986	1989-07-11 00:00:00	-5
+1315	1315	159	1989-08-10 00:00:00	-5
+1316	1316	2.68999999999999995	1989-08-10 00:00:00	-5
+1317	1317	5.79999999999999982	1989-08-10 00:00:00	-5
+1318	1318	0.475999999999999979	1989-08-10 00:00:00	-5
+1319	1319	142	1989-08-10 00:00:00	-5
+1320	1320	28.1000000000000014	1989-08-10 00:00:00	-5
+1321	1321	214	1989-10-17 00:00:00	-5
+1322	1322	3.5	1989-10-17 00:00:00	-5
+1323	1323	9.64000000000000057	1989-10-17 00:00:00	-5
+1324	1324	0.625	1989-10-17 00:00:00	-5
+1325	1325	159	1989-10-17 00:00:00	-5
+1326	1326	29.6999999999999993	1989-10-17 00:00:00	-5
+1327	1327	185	1989-11-19 00:00:00	-5
+1328	1328	2.37000000000000011	1989-11-19 00:00:00	-5
+1329	1329	14.4000000000000004	1989-11-19 00:00:00	-5
+1330	1330	0.867999999999999994	1989-11-19 00:00:00	-5
+1331	1331	140	1989-11-19 00:00:00	-5
+1332	1332	29.6999999999999993	1989-11-19 00:00:00	-5
+1333	1333	258	1989-12-12 00:00:00	-5
+1334	1334	3.41999999999999993	1989-12-12 00:00:00	-5
+1335	1335	0.914000000000000035	1989-12-12 00:00:00	-5
+1336	1336	145	1989-12-12 00:00:00	-5
+1337	1337	29.6000000000000014	1989-12-12 00:00:00	-5
+1338	1338	2.37000000000000011	1990-03-13 00:00:00	-5
+1339	1339	14.6999999999999993	1990-03-13 00:00:00	-5
+1340	1340	0.82999999999999996	1990-03-13 00:00:00	-5
+1341	1341	145	1990-03-13 00:00:00	-5
+1342	1342	28.8000000000000007	1990-03-13 00:00:00	-5
+1343	1343	8.0600000000000005	1990-05-02 00:00:00	-5
+1344	1344	0.768000000000000016	1990-05-02 00:00:00	-5
+1345	1345	142.699999999999989	1990-05-02 00:00:00	-5
+1346	1346	28.3000000000000007	1990-05-02 00:00:00	-5
+1347	1347	0.469999999999999973	1990-06-11 00:00:00	-5
+1348	1348	10.2799999999999994	1990-06-11 00:00:00	-5
+1349	1349	0.729999999999999982	1990-06-11 00:00:00	-5
+1350	1350	132	1990-06-11 00:00:00	-5
+1351	1351	27.5	1990-06-11 00:00:00	-5
+1352	1352	0.23000000000000001	1990-09-14 00:00:00	-5
+1353	1353	14.2799999999999994	1990-09-14 00:00:00	-5
+1354	1354	0.760000000000000009	1990-09-14 00:00:00	-5
+1355	1355	163	1990-09-14 00:00:00	-5
+1356	1356	28.8999999999999986	1990-09-14 00:00:00	-5
+1357	1357	17.5	1990-10-17 00:00:00	-5
+1358	1358	0.790000000000000036	1990-10-17 00:00:00	-5
+1359	1359	176	1990-10-17 00:00:00	-5
+1360	1360	30	1990-10-17 00:00:00	-5
+1361	1361	0.280000000000000027	1990-12-01 00:00:00	-5
+1362	1362	15.25	1990-12-01 00:00:00	-5
+1363	1363	0.780000000000000027	1990-12-01 00:00:00	-5
+1364	1364	147	1990-12-01 00:00:00	-5
+1365	1365	29.1999999999999993	1990-12-01 00:00:00	-5
+1366	1366	1.98999999999999999	1991-01-15 00:00:00	-5
+1367	1367	14.3200000000000003	1991-01-15 00:00:00	-5
+1368	1368	0.729999999999999982	1991-01-15 00:00:00	-5
+1369	1369	150	1991-01-15 00:00:00	-5
+1370	1370	28.3000000000000007	1991-01-15 00:00:00	-5
+1371	1371	2.12000000000000011	1991-02-08 00:00:00	-5
+1372	1372	12.8499999999999996	1991-02-08 00:00:00	-5
+1373	1373	0.689999999999999947	1991-02-08 00:00:00	-5
+1374	1374	152	1991-02-08 00:00:00	-5
+1375	1375	28.3999999999999986	1991-02-08 00:00:00	-5
+1376	1376	1.58000000000000007	1991-03-25 00:00:00	-5
+1377	1377	12.8399999999999999	1991-03-25 00:00:00	-5
+1378	1378	0.75	1991-03-25 00:00:00	-5
+1379	1379	146	1991-03-25 00:00:00	-5
+1380	1380	28.3999999999999986	1991-03-25 00:00:00	-5
+1381	1381	1.62000000000000011	1991-06-28 00:00:00	-5
+1382	1382	5.19000000000000039	1991-06-28 00:00:00	-5
+1383	1383	0.760000000000000009	1991-06-28 00:00:00	-5
+1384	1384	149	1991-06-28 00:00:00	-5
+1385	1385	27.6000000000000014	1991-06-28 00:00:00	-5
+1386	1386	1.35000000000000009	1991-08-01 00:00:00	-5
+1387	1387	9.57000000000000028	1991-08-01 00:00:00	-5
+1388	1388	0.709999999999999964	1991-08-01 00:00:00	-5
+1389	1389	150	1991-08-01 00:00:00	-5
+1390	1390	27.8000000000000007	1991-08-01 00:00:00	-5
+1391	1391	0.440000000000000002	1991-10-05 00:00:00	-5
+1392	1392	15.2400000000000002	1991-10-05 00:00:00	-5
+1393	1393	1.07000000000000006	1991-10-05 00:00:00	-5
+1394	1394	178	1991-10-05 00:00:00	-5
+1395	1395	30.5	1991-10-05 00:00:00	-5
+1396	1396	2.93999999999999995	1991-10-29 00:00:00	-5
+1397	1397	17.2600000000000016	1991-10-29 00:00:00	-5
+1398	1398	1.17999999999999994	1991-10-29 00:00:00	-5
+1399	1399	184	1991-10-29 00:00:00	-5
+1400	1400	29.6000000000000014	1991-10-29 00:00:00	-5
+1401	1401	1.8600000000000001	1991-12-06 00:00:00	-5
+1402	1402	17.7600000000000016	1991-12-06 00:00:00	-5
+1403	1403	1.17999999999999994	1991-12-06 00:00:00	-5
+1404	1404	164	1991-12-06 00:00:00	-5
+1405	1405	30	1991-12-06 00:00:00	-5
+1406	1406	3.50999999999999979	1992-01-18 00:00:00	-5
+1407	1407	15.9600000000000009	1992-01-18 00:00:00	-5
+1408	1408	139	1992-01-18 00:00:00	-5
+1409	1409	29.1000000000000014	1992-01-18 00:00:00	-5
+1410	1410	1.42999999999999994	1992-02-22 00:00:00	-5
+1411	1411	14.9000000000000004	1992-02-22 00:00:00	-5
+1412	1412	0.699999999999999956	1992-02-22 00:00:00	-5
+1413	1413	144	1992-02-22 00:00:00	-5
+1414	1414	28.6999999999999993	1992-02-22 00:00:00	-5
+1415	1415	3.62999999999999989	1992-03-24 00:00:00	-5
+1416	1416	13.2200000000000006	1992-03-24 00:00:00	-5
+1417	1417	28.1000000000000014	1992-03-24 00:00:00	-5
+1418	1418	2.4700000000000002	1992-04-24 00:00:00	-5
+1419	1419	10.6600000000000001	1992-04-24 00:00:00	-5
+1420	1420	0.699999999999999956	1992-04-24 00:00:00	-5
+1421	1421	147	1992-04-24 00:00:00	-5
+1422	1422	29	1992-04-24 00:00:00	-5
+1423	1423	2.31000000000000005	1992-05-14 00:00:00	-5
+1424	1424	9.41999999999999993	1992-05-14 00:00:00	-5
+1425	1425	0.839999999999999969	1992-05-14 00:00:00	-5
+1426	1426	146	1992-05-14 00:00:00	-5
+1427	1427	29.3999999999999986	1992-05-14 00:00:00	-5
+1428	1428	1.73999999999999999	1992-06-16 00:00:00	-5
+1429	1429	5.37999999999999989	1992-06-16 00:00:00	-5
+1430	1430	0.959999999999999964	1992-06-16 00:00:00	-5
+1431	1431	149	1992-06-16 00:00:00	-5
+1432	1432	27.8000000000000007	1992-06-16 00:00:00	-5
+1433	1433	0.92000000000000004	1993-03-24 00:00:00	-5
+1434	1434	7.69000000000000039	1993-03-24 00:00:00	-5
+1435	1435	1.10000000000000009	1993-03-24 00:00:00	-5
+1436	1436	147	1993-03-24 00:00:00	-5
+1437	1437	28.1999999999999993	1993-03-24 00:00:00	-5
+1438	1438	0.699999999999999956	1993-04-17 00:00:00	-5
+1439	1439	5.65000000000000036	1993-04-17 00:00:00	-5
+1440	1440	0.869999999999999996	1993-04-17 00:00:00	-5
+1441	1441	151	1993-04-17 00:00:00	-5
+1442	1442	27.6000000000000014	1993-04-17 00:00:00	-5
+1443	1443	1.98999999999999999	1993-06-20 00:00:00	-5
+1444	1444	4.69000000000000039	1993-06-20 00:00:00	-5
+1445	1445	0.810000000000000053	1993-06-20 00:00:00	-5
+1446	1446	147	1993-06-20 00:00:00	-5
+1447	1447	27.1999999999999993	1993-06-20 00:00:00	-5
+1448	1448	0.729999999999999982	1993-08-24 00:00:00	-5
+1449	1449	7.95000000000000018	1993-08-24 00:00:00	-5
+1450	1450	0.890000000000000013	1993-08-24 00:00:00	-5
+1451	1451	158	1993-08-24 00:00:00	-5
+1452	1452	27.1999999999999993	1993-08-24 00:00:00	-5
+1453	1453	633	1983-01-17 00:00:00	-5
+1454	1454	633	1983-01-17 00:00:00	-5
+1455	1455	778	1983-01-17 00:00:00	-5
+1456	1456	778	1983-01-17 00:00:00	-5
+1457	1457	-14.0899999999999999	1983-01-17 00:00:00	-5
+1458	1458	-14.0899999999999999	1983-01-17 00:00:00	-5
+1459	1459	138	1983-01-17 00:00:00	-5
+1460	1460	138	1983-01-17 00:00:00	-5
+1461	1461	4002	1983-01-17 00:00:00	-5
+1462	1462	4002	1983-01-17 00:00:00	-5
+1463	1463	7.00999999999999979	1983-01-17 00:00:00	-5
+1464	1464	7.00999999999999979	1983-01-17 00:00:00	-5
+1465	1465	628	1983-01-27 00:00:00	-5
+1466	1466	628	1983-01-27 00:00:00	-5
+1467	1467	783	1983-01-27 00:00:00	-5
+1468	1468	783	1983-01-27 00:00:00	-5
+1469	1469	124	1983-01-27 00:00:00	-5
+1470	1470	124	1983-01-27 00:00:00	-5
+1471	1471	4666	1983-01-27 00:00:00	-5
+1472	1472	4666	1983-01-27 00:00:00	-5
+1473	1473	6.94000000000000039	1983-01-27 00:00:00	-5
+1474	1474	6.94000000000000039	1983-01-27 00:00:00	-5
+1475	1475	796	1983-02-08 00:00:00	-5
+1476	1476	796	1983-02-08 00:00:00	-5
+1477	1477	1046	1983-02-08 00:00:00	-5
+1478	1478	1046	1983-02-08 00:00:00	-5
+1479	1479	-14.9800000000000004	1983-02-08 00:00:00	-5
+1480	1480	-14.9800000000000004	1983-02-08 00:00:00	-5
+1481	1481	135	1983-02-08 00:00:00	-5
+1482	1482	135	1983-02-08 00:00:00	-5
+1483	1483	7111	1983-02-08 00:00:00	-5
+1484	1484	7111	1983-02-08 00:00:00	-5
+1485	1485	6.86000000000000032	1983-02-08 00:00:00	-5
+1486	1486	6.86000000000000032	1983-02-08 00:00:00	-5
+1487	1487	859	1983-02-21 00:00:00	-5
+1488	1488	859	1983-02-21 00:00:00	-5
+1489	1489	1101	1983-02-21 00:00:00	-5
+1490	1490	1101	1983-02-21 00:00:00	-5
+1491	1491	130	1983-02-21 00:00:00	-5
+1492	1492	130	1983-02-21 00:00:00	-5
+1493	1493	6998	1983-02-21 00:00:00	-5
+1494	1494	6998	1983-02-21 00:00:00	-5
+1495	1495	6.90000000000000036	1983-02-21 00:00:00	-5
+1496	1496	6.90000000000000036	1983-02-21 00:00:00	-5
+1497	1497	834	1983-03-03 00:00:00	-5
+1498	1498	834	1983-03-03 00:00:00	-5
+1499	1499	1091	1983-03-03 00:00:00	-5
+1500	1500	1091	1983-03-03 00:00:00	-5
+1501	1501	-14.5099999999999998	1983-03-03 00:00:00	-5
+1502	1502	-14.5099999999999998	1983-03-03 00:00:00	-5
+1503	1503	125	1983-03-03 00:00:00	-5
+1504	1504	125	1983-03-03 00:00:00	-5
+1505	1505	7450	1983-03-03 00:00:00	-5
+1506	1506	7450	1983-03-03 00:00:00	-5
+1507	1507	6.86000000000000032	1983-03-03 00:00:00	-5
+1508	1508	6.86000000000000032	1983-03-03 00:00:00	-5
+1509	1509	636	1983-06-07 00:00:00	-5
+1510	1510	636	1983-06-07 00:00:00	-5
+1511	1511	925	1983-06-07 00:00:00	-5
+1512	1512	925	1983-06-07 00:00:00	-5
+1513	1513	123	1983-06-07 00:00:00	-5
+1514	1514	123	1983-06-07 00:00:00	-5
+1515	1515	8601	1983-06-07 00:00:00	-5
+1516	1516	8601	1983-06-07 00:00:00	-5
+1517	1517	6.67999999999999972	1983-06-07 00:00:00	-5
+1518	1518	6.67999999999999972	1983-06-07 00:00:00	-5
+1519	1519	519	1983-07-21 00:00:00	-5
+1520	1520	519	1983-07-21 00:00:00	-5
+1521	1521	781	1983-07-21 00:00:00	-5
+1522	1522	781	1983-07-21 00:00:00	-5
+1523	1523	-16.1700000000000017	1983-07-21 00:00:00	-5
+1524	1524	-16.1700000000000017	1983-07-21 00:00:00	-5
+1525	1525	118	1983-07-21 00:00:00	-5
+1526	1526	118	1983-07-21 00:00:00	-5
+1527	1527	7521	1983-07-21 00:00:00	-5
+1528	1528	7521	1983-07-21 00:00:00	-5
+1529	1529	6.65000000000000036	1983-07-21 00:00:00	-5
+1530	1530	6.65000000000000036	1983-07-21 00:00:00	-5
+1531	1531	614	1983-08-11 00:00:00	-5
+1532	1532	614	1983-08-11 00:00:00	-5
+1533	1533	822	1983-08-11 00:00:00	-5
+1534	1534	822	1983-08-11 00:00:00	-5
+1535	1535	-14.9100000000000001	1983-08-11 00:00:00	-5
+1536	1536	-14.9100000000000001	1983-08-11 00:00:00	-5
+1537	1537	171	1983-08-11 00:00:00	-5
+1538	1538	171	1983-08-11 00:00:00	-5
+1539	1539	6015	1983-08-11 00:00:00	-5
+1540	1540	6015	1983-08-11 00:00:00	-5
+1541	1541	6.82000000000000028	1983-08-11 00:00:00	-5
+1542	1542	6.82000000000000028	1983-08-11 00:00:00	-5
+1543	1543	632	1983-09-10 00:00:00	-5
+1544	1544	632	1983-09-10 00:00:00	-5
+1545	1545	754	1983-09-10 00:00:00	-5
+1546	1546	754	1983-09-10 00:00:00	-5
+1547	1547	-14.1400000000000006	1983-09-10 00:00:00	-5
+1548	1548	-14.1400000000000006	1983-09-10 00:00:00	-5
+1549	1549	174	1983-09-10 00:00:00	-5
+1550	1550	174	1983-09-10 00:00:00	-5
+1551	1551	3561	1983-09-10 00:00:00	-5
+1552	1552	3561	1983-09-10 00:00:00	-5
+1553	1553	7.05999999999999961	1983-09-10 00:00:00	-5
+1554	1554	7.05999999999999961	1983-09-10 00:00:00	-5
+1555	1555	596	1983-09-20 00:00:00	-5
+1556	1556	596	1983-09-20 00:00:00	-5
+1557	1557	719	1983-09-20 00:00:00	-5
+1558	1558	719	1983-09-20 00:00:00	-5
+1559	1559	-13.4700000000000006	1983-09-20 00:00:00	-5
+1560	1560	-13.4700000000000006	1983-09-20 00:00:00	-5
+1561	1561	198	1983-09-20 00:00:00	-5
+1562	1562	198	1983-09-20 00:00:00	-5
+1563	1563	3598	1983-09-20 00:00:00	-5
+1564	1564	3598	1983-09-20 00:00:00	-5
+1565	1565	7.03000000000000025	1983-09-20 00:00:00	-5
+1566	1566	7.03000000000000025	1983-09-20 00:00:00	-5
+1567	1567	493	1983-09-30 00:00:00	-5
+1568	1568	493	1983-09-30 00:00:00	-5
+1569	1569	604	1983-09-30 00:00:00	-5
+1570	1570	604	1983-09-30 00:00:00	-5
+1571	1571	-13.4199999999999999	1983-09-30 00:00:00	-5
+1572	1572	-13.4199999999999999	1983-09-30 00:00:00	-5
+1573	1573	168	1983-09-30 00:00:00	-5
+1574	1574	168	1983-09-30 00:00:00	-5
+1575	1575	3340	1983-09-30 00:00:00	-5
+1576	1576	3340	1983-09-30 00:00:00	-5
+1577	1577	6.98000000000000043	1983-09-30 00:00:00	-5
+1578	1578	6.98000000000000043	1983-09-30 00:00:00	-5
+1579	1579	629.299999999999955	1983-12-16 00:00:00	-5
+1580	1580	629.299999999999955	1983-12-16 00:00:00	-5
+1581	1581	809.899999999999977	1983-12-16 00:00:00	-5
+1582	1582	809.899999999999977	1983-12-16 00:00:00	-5
+1583	1583	-13.3300000000000001	1983-12-16 00:00:00	-5
+1584	1584	-13.3300000000000001	1983-12-16 00:00:00	-5
+1585	1585	174	1983-12-16 00:00:00	-5
+1586	1586	174	1983-12-16 00:00:00	-5
+1587	1587	5753	1983-12-16 00:00:00	-5
+1588	1588	5753	1983-12-16 00:00:00	-5
+1589	1589	6.84999999999999964	1983-12-16 00:00:00	-5
+1590	1590	6.84999999999999964	1983-12-16 00:00:00	-5
+1591	1591	621.899999999999977	1984-01-03 00:00:00	-5
+1592	1592	621.899999999999977	1984-01-03 00:00:00	-5
+1593	1593	755	1984-01-03 00:00:00	-5
+1594	1594	755	1984-01-03 00:00:00	-5
+1595	1595	-13.25	1984-01-03 00:00:00	-5
+1596	1596	-13.25	1984-01-03 00:00:00	-5
+1597	1597	167.810000000000002	1984-01-03 00:00:00	-5
+1598	1598	167.810000000000002	1984-01-03 00:00:00	-5
+1599	1599	4024	1984-01-03 00:00:00	-5
+1600	1600	4024	1984-01-03 00:00:00	-5
+1601	1601	7	1984-01-03 00:00:00	-5
+1602	1602	7	1984-01-03 00:00:00	-5
+1603	1603	620.600000000000023	1984-01-19 00:00:00	-5
+1604	1604	620.600000000000023	1984-01-19 00:00:00	-5
+1605	1605	761.5	1984-01-19 00:00:00	-5
+1606	1606	761.5	1984-01-19 00:00:00	-5
+1607	1607	-13.1099999999999994	1984-01-19 00:00:00	-5
+1608	1608	-13.1099999999999994	1984-01-19 00:00:00	-5
+1609	1609	160.129999999999995	1984-01-19 00:00:00	-5
+1610	1610	160.129999999999995	1984-01-19 00:00:00	-5
+1611	1611	4205	1984-01-19 00:00:00	-5
+1612	1612	4205	1984-01-19 00:00:00	-5
+1613	1613	6.98000000000000043	1984-01-19 00:00:00	-5
+1614	1614	6.98000000000000043	1984-01-19 00:00:00	-5
+1615	1615	731.799999999999955	1984-03-20 00:00:00	-5
+1616	1616	731.799999999999955	1984-03-20 00:00:00	-5
+1617	1617	937.799999999999955	1984-03-20 00:00:00	-5
+1618	1618	937.799999999999955	1984-03-20 00:00:00	-5
+1619	1619	-17.7100000000000009	1984-03-20 00:00:00	-5
+1620	1620	-17.7100000000000009	1984-03-20 00:00:00	-5
+1621	1621	131.52000000000001	1984-03-20 00:00:00	-5
+1622	1622	131.52000000000001	1984-03-20 00:00:00	-5
+1623	1623	5962	1984-03-20 00:00:00	-5
+1624	1624	5962	1984-03-20 00:00:00	-5
+1625	1625	6.90000000000000036	1984-03-20 00:00:00	-5
+1626	1626	6.90000000000000036	1984-03-20 00:00:00	-5
+1627	1627	618.899999999999977	1984-04-05 00:00:00	-5
+1628	1628	618.899999999999977	1984-04-05 00:00:00	-5
+1629	1629	809.899999999999977	1984-04-05 00:00:00	-5
+1630	1630	809.899999999999977	1984-04-05 00:00:00	-5
+1631	1631	-16.0899999999999999	1984-04-05 00:00:00	-5
+1632	1632	-16.0899999999999999	1984-04-05 00:00:00	-5
+1633	1633	152	1984-04-05 00:00:00	-5
+1634	1634	152	1984-04-05 00:00:00	-5
+1635	1635	5658	1984-04-05 00:00:00	-5
+1636	1636	5658	1984-04-05 00:00:00	-5
+1637	1637	6.84999999999999964	1984-04-05 00:00:00	-5
+1638	1638	6.84999999999999964	1984-04-05 00:00:00	-5
+1639	1639	636.399999999999977	1984-09-13 00:00:00	-5
+1640	1640	636.399999999999977	1984-09-13 00:00:00	-5
+1641	1641	782.399999999999977	1984-09-13 00:00:00	-5
+1642	1642	782.399999999999977	1984-09-13 00:00:00	-5
+1643	1643	-14.0399999999999991	1984-09-13 00:00:00	-5
+1644	1644	-14.0399999999999991	1984-09-13 00:00:00	-5
+1645	1645	187.599999999999994	1984-09-13 00:00:00	-5
+1646	1646	187.599999999999994	1984-09-13 00:00:00	-5
+1647	1647	4312	1984-09-13 00:00:00	-5
+1648	1648	4312	1984-09-13 00:00:00	-5
+1649	1649	6.98000000000000043	1984-09-13 00:00:00	-5
+1650	1650	6.98000000000000043	1984-09-13 00:00:00	-5
+1651	1651	602.100000000000023	1984-09-27 00:00:00	-5
+1652	1652	602.100000000000023	1984-09-27 00:00:00	-5
+1653	1653	711.5	1984-09-27 00:00:00	-5
+1654	1654	711.5	1984-09-27 00:00:00	-5
+1655	1655	-14.3599999999999994	1984-09-27 00:00:00	-5
+1656	1656	-14.3599999999999994	1984-09-27 00:00:00	-5
+1657	1657	208.400000000000006	1984-09-27 00:00:00	-5
+1658	1658	208.400000000000006	1984-09-27 00:00:00	-5
+1659	1659	3166	1984-09-27 00:00:00	-5
+1660	1660	3166	1984-09-27 00:00:00	-5
+1661	1661	7.08999999999999986	1984-09-27 00:00:00	-5
+1662	1662	7.08999999999999986	1984-09-27 00:00:00	-5
+1663	1663	557.5	1984-10-10 00:00:00	-5
+1664	1664	557.5	1984-10-10 00:00:00	-5
+1665	1665	645.399999999999977	1984-10-10 00:00:00	-5
+1666	1666	645.399999999999977	1984-10-10 00:00:00	-5
+1667	1667	-14.1400000000000006	1984-10-10 00:00:00	-5
+1668	1668	-14.1400000000000006	1984-10-10 00:00:00	-5
+1669	1669	214.300000000000011	1984-10-10 00:00:00	-5
+1670	1670	214.300000000000011	1984-10-10 00:00:00	-5
+1671	1671	2553	1984-10-10 00:00:00	-5
+1672	1672	2553	1984-10-10 00:00:00	-5
+1673	1673	7.15000000000000036	1984-10-10 00:00:00	-5
+1674	1674	7.15000000000000036	1984-10-10 00:00:00	-5
+1675	1675	639	1984-10-25 00:00:00	-5
+1676	1676	639	1984-10-25 00:00:00	-5
+1677	1677	718.799999999999955	1984-10-25 00:00:00	-5
+1678	1678	718.799999999999955	1984-10-25 00:00:00	-5
+1679	1679	198.599999999999994	1984-10-25 00:00:00	-5
+1680	1680	198.599999999999994	1984-10-25 00:00:00	-5
+1681	1681	2323	1984-10-25 00:00:00	-5
+1682	1682	2323	1984-10-25 00:00:00	-5
+1683	1683	7.25	1984-10-25 00:00:00	-5
+1684	1684	7.25	1984-10-25 00:00:00	-5
+1685	1685	614.600000000000023	1984-11-07 00:00:00	-5
+1686	1686	614.600000000000023	1984-11-07 00:00:00	-5
+1687	1687	697	1984-11-07 00:00:00	-5
+1688	1688	697	1984-11-07 00:00:00	-5
+1689	1689	197.099999999999994	1984-11-07 00:00:00	-5
+1690	1690	197.099999999999994	1984-11-07 00:00:00	-5
+1691	1691	2395	1984-11-07 00:00:00	-5
+1692	1692	2395	1984-11-07 00:00:00	-5
+1693	1693	7.21999999999999975	1984-11-07 00:00:00	-5
+1694	1694	7.21999999999999975	1984-11-07 00:00:00	-5
+1695	1695	644.200000000000045	1984-11-23 00:00:00	-5
+1696	1696	644.200000000000045	1984-11-23 00:00:00	-5
+1697	1697	737.299999999999955	1984-11-23 00:00:00	-5
+1698	1698	737.299999999999955	1984-11-23 00:00:00	-5
+1699	1699	-13.3300000000000001	1984-11-23 00:00:00	-5
+1700	1700	-13.3300000000000001	1984-11-23 00:00:00	-5
+1701	1701	190.099999999999994	1984-11-23 00:00:00	-5
+1702	1702	190.099999999999994	1984-11-23 00:00:00	-5
+1703	1703	2690	1984-11-23 00:00:00	-5
+1704	1704	2690	1984-11-23 00:00:00	-5
+1705	1705	7.19000000000000039	1984-11-23 00:00:00	-5
+1706	1706	7.19000000000000039	1984-11-23 00:00:00	-5
+1707	1707	682	1984-12-05 00:00:00	-5
+1708	1708	682	1984-12-05 00:00:00	-5
+1709	1709	773.899999999999977	1984-12-05 00:00:00	-5
+1710	1710	773.899999999999977	1984-12-05 00:00:00	-5
+1711	1711	-13.75	1984-12-05 00:00:00	-5
+1712	1712	-13.75	1984-12-05 00:00:00	-5
+1713	1713	198.800000000000011	1984-12-05 00:00:00	-5
+1714	1714	198.800000000000011	1984-12-05 00:00:00	-5
+1715	1715	2657	1984-12-05 00:00:00	-5
+1716	1716	2657	1984-12-05 00:00:00	-5
+1717	1717	7.21999999999999975	1984-12-05 00:00:00	-5
+1718	1718	7.21999999999999975	1984-12-05 00:00:00	-5
+1719	1719	778.600000000000023	1984-12-18 00:00:00	-5
+1720	1720	778.600000000000023	1984-12-18 00:00:00	-5
+1721	1721	896.5	1984-12-18 00:00:00	-5
+1722	1722	896.5	1984-12-18 00:00:00	-5
+1723	1723	191.900000000000006	1984-12-18 00:00:00	-5
+1724	1724	191.900000000000006	1984-12-18 00:00:00	-5
+1725	1725	3404	1984-12-18 00:00:00	-5
+1726	1726	3404	1984-12-18 00:00:00	-5
+1727	1727	7.16999999999999993	1984-12-18 00:00:00	-5
+1728	1728	7.16999999999999993	1984-12-18 00:00:00	-5
+1729	1729	620.200000000000045	1985-02-13 00:00:00	-5
+1730	1730	620.200000000000045	1985-02-13 00:00:00	-5
+1731	1731	759.799999999999955	1985-02-13 00:00:00	-5
+1732	1732	759.799999999999955	1985-02-13 00:00:00	-5
+1733	1733	-13.0299999999999994	1985-02-13 00:00:00	-5
+1734	1734	-13.0299999999999994	1985-02-13 00:00:00	-5
+1735	1735	183.400000000000006	1985-02-13 00:00:00	-5
+1736	1736	183.400000000000006	1985-02-13 00:00:00	-5
+1737	1737	4013	1985-02-13 00:00:00	-5
+1738	1738	4013	1985-02-13 00:00:00	-5
+1739	1739	7	1985-02-13 00:00:00	-5
+1740	1740	7	1985-02-13 00:00:00	-5
+1741	1741	783.600000000000023	1985-03-06 00:00:00	-5
+1742	1742	783.600000000000023	1985-03-06 00:00:00	-5
+1743	1743	951.600000000000023	1985-03-06 00:00:00	-5
+1744	1744	951.600000000000023	1985-03-06 00:00:00	-5
+1745	1745	-13.75	1985-03-06 00:00:00	-5
+1746	1746	-13.75	1985-03-06 00:00:00	-5
+1747	1747	174.400000000000006	1985-03-06 00:00:00	-5
+1748	1748	174.400000000000006	1985-03-06 00:00:00	-5
+1749	1749	4786	1985-03-06 00:00:00	-5
+1750	1750	4786	1985-03-06 00:00:00	-5
+1751	1751	7.02500000000000036	1985-03-06 00:00:00	-5
+1752	1752	7.02500000000000036	1985-03-06 00:00:00	-5
+1753	1753	744.899999999999977	1985-03-20 00:00:00	-5
+1754	1754	744.899999999999977	1985-03-20 00:00:00	-5
+1755	1755	884.100000000000023	1985-03-20 00:00:00	-5
+1756	1756	884.100000000000023	1985-03-20 00:00:00	-5
+1757	1757	-12.7699999999999996	1985-03-20 00:00:00	-5
+1758	1758	-12.7699999999999996	1985-03-20 00:00:00	-5
+1759	1759	194.300000000000011	1985-03-20 00:00:00	-5
+1760	1760	194.300000000000011	1985-03-20 00:00:00	-5
+1761	1761	3962	1985-03-20 00:00:00	-5
+1762	1762	3962	1985-03-20 00:00:00	-5
+1763	1763	7.08499999999999996	1985-03-20 00:00:00	-5
+1764	1764	7.08499999999999996	1985-03-20 00:00:00	-5
+1765	1765	849.399999999999977	1985-04-03 00:00:00	-5
+1766	1766	849.399999999999977	1985-04-03 00:00:00	-5
+1767	1767	995	1985-04-03 00:00:00	-5
+1768	1768	995	1985-04-03 00:00:00	-5
+1769	1769	-13.3300000000000001	1985-04-03 00:00:00	-5
+1770	1770	-13.3300000000000001	1985-04-03 00:00:00	-5
+1771	1771	171.099999999999994	1985-04-03 00:00:00	-5
+1772	1772	171.099999999999994	1985-04-03 00:00:00	-5
+1773	1773	4364	1985-04-03 00:00:00	-5
+1774	1774	4364	1985-04-03 00:00:00	-5
+1775	1775	7.09999999999999964	1985-04-03 00:00:00	-5
+1776	1776	7.09999999999999964	1985-04-03 00:00:00	-5
+1777	1777	839.5	1985-04-17 00:00:00	-5
+1778	1778	839.5	1985-04-17 00:00:00	-5
+1779	1779	1016	1985-04-17 00:00:00	-5
+1780	1780	1016	1985-04-17 00:00:00	-5
+1781	1781	-13.8399999999999999	1985-04-17 00:00:00	-5
+1782	1782	-13.8399999999999999	1985-04-17 00:00:00	-5
+1783	1783	176.800000000000011	1985-04-17 00:00:00	-5
+1784	1784	176.800000000000011	1985-04-17 00:00:00	-5
+1785	1785	5127	1985-04-17 00:00:00	-5
+1786	1786	5127	1985-04-17 00:00:00	-5
+1787	1787	7.02500000000000036	1985-04-17 00:00:00	-5
+1788	1788	7.02500000000000036	1985-04-17 00:00:00	-5
+1789	1789	743.299999999999955	1985-05-02 00:00:00	-5
+1790	1790	743.299999999999955	1985-05-02 00:00:00	-5
+1791	1791	887.700000000000045	1985-05-02 00:00:00	-5
+1792	1792	887.700000000000045	1985-05-02 00:00:00	-5
+1793	1793	-13.8399999999999999	1985-05-02 00:00:00	-5
+1794	1794	-13.8399999999999999	1985-05-02 00:00:00	-5
+1795	1795	179.900000000000006	1985-05-02 00:00:00	-5
+1796	1796	179.900000000000006	1985-05-02 00:00:00	-5
+1797	1797	4140	1985-05-02 00:00:00	-5
+1798	1798	4140	1985-05-02 00:00:00	-5
+1799	1799	7.06500000000000039	1985-05-02 00:00:00	-5
+1800	1800	7.06500000000000039	1985-05-02 00:00:00	-5
+1801	1801	625.899999999999977	1985-05-15 00:00:00	-5
+1802	1802	625.899999999999977	1985-05-15 00:00:00	-5
+1803	1803	770.299999999999955	1985-05-15 00:00:00	-5
+1804	1804	770.299999999999955	1985-05-15 00:00:00	-5
+1805	1805	-14.5099999999999998	1985-05-15 00:00:00	-5
+1806	1806	-14.5099999999999998	1985-05-15 00:00:00	-5
+1807	1807	173.099999999999994	1985-05-15 00:00:00	-5
+1808	1808	173.099999999999994	1985-05-15 00:00:00	-5
+1809	1809	4192	1985-05-15 00:00:00	-5
+1810	1810	4192	1985-05-15 00:00:00	-5
+1811	1811	6.98500000000000032	1985-05-15 00:00:00	-5
+1812	1812	6.98500000000000032	1985-05-15 00:00:00	-5
+1813	1813	573.100000000000023	1985-05-29 00:00:00	-5
+1814	1814	573.100000000000023	1985-05-29 00:00:00	-5
+1815	1815	749.600000000000023	1985-05-29 00:00:00	-5
+1816	1816	749.600000000000023	1985-05-29 00:00:00	-5
+1817	1817	-15.2200000000000006	1985-05-29 00:00:00	-5
+1818	1818	-15.2200000000000006	1985-05-29 00:00:00	-5
+1819	1819	161.199999999999989	1985-05-29 00:00:00	-5
+1820	1820	161.199999999999989	1985-05-29 00:00:00	-5
+1821	1821	5120	1985-05-29 00:00:00	-5
+1822	1822	5120	1985-05-29 00:00:00	-5
+1823	1823	6.86000000000000032	1985-05-29 00:00:00	-5
+1824	1824	6.86000000000000032	1985-05-29 00:00:00	-5
+1825	1825	591.5	1985-06-12 00:00:00	-5
+1826	1826	591.5	1985-06-12 00:00:00	-5
+1827	1827	774.100000000000023	1985-06-12 00:00:00	-5
+1828	1828	774.100000000000023	1985-06-12 00:00:00	-5
+1829	1829	-14.5	1985-06-12 00:00:00	-5
+1830	1830	-14.5	1985-06-12 00:00:00	-5
+1831	1831	173.5	1985-06-12 00:00:00	-5
+1832	1832	173.5	1985-06-12 00:00:00	-5
+1833	1833	5407	1985-06-12 00:00:00	-5
+1834	1834	5407	1985-06-12 00:00:00	-5
+1835	1835	6.84999999999999964	1985-06-12 00:00:00	-5
+1836	1836	6.84999999999999964	1985-06-12 00:00:00	-5
+1837	1837	517.399999999999977	1985-06-26 00:00:00	-5
+1838	1838	517.399999999999977	1985-06-26 00:00:00	-5
+1839	1839	682.600000000000023	1985-06-26 00:00:00	-5
+1840	1840	682.600000000000023	1985-06-26 00:00:00	-5
+1841	1841	-15.5199999999999996	1985-06-26 00:00:00	-5
+1842	1842	-15.5199999999999996	1985-06-26 00:00:00	-5
+1843	1843	157.199999999999989	1985-06-26 00:00:00	-5
+1844	1844	157.199999999999989	1985-06-26 00:00:00	-5
+1845	1845	5186	1985-06-26 00:00:00	-5
+1846	1846	5186	1985-06-26 00:00:00	-5
+1847	1847	6.80999999999999961	1985-06-26 00:00:00	-5
+1848	1848	6.80999999999999961	1985-06-26 00:00:00	-5
+1849	1849	508.5	1985-07-10 00:00:00	-5
+1850	1850	508.5	1985-07-10 00:00:00	-5
+1851	1851	705.299999999999955	1985-07-10 00:00:00	-5
+1852	1852	705.299999999999955	1985-07-10 00:00:00	-5
+1853	1853	-15.8200000000000003	1985-07-10 00:00:00	-5
+1854	1854	-15.8200000000000003	1985-07-10 00:00:00	-5
+1855	1855	153.199999999999989	1985-07-10 00:00:00	-5
+1856	1856	153.199999999999989	1985-07-10 00:00:00	-5
+1857	1857	5880	1985-07-10 00:00:00	-5
+1858	1858	5880	1985-07-10 00:00:00	-5
+1859	1859	6.74800000000000022	1985-07-10 00:00:00	-5
+1860	1860	6.74800000000000022	1985-07-10 00:00:00	-5
+1861	1861	470.199999999999989	1985-07-21 00:00:00	-5
+1862	1862	470.199999999999989	1985-07-21 00:00:00	-5
+1863	1863	647.600000000000023	1985-07-21 00:00:00	-5
+1864	1864	647.600000000000023	1985-07-21 00:00:00	-5
+1865	1865	125	1985-07-21 00:00:00	-5
+1866	1866	125	1985-07-21 00:00:00	-5
+1867	1867	4970	1985-07-21 00:00:00	-5
+1868	1868	4970	1985-07-21 00:00:00	-5
+1869	1869	6.78699999999999992	1985-07-21 00:00:00	-5
+1870	1870	6.78699999999999992	1985-07-21 00:00:00	-5
+1871	1871	594.600000000000023	1985-10-10 00:00:00	-5
+1872	1872	594.600000000000023	1985-10-10 00:00:00	-5
+1873	1873	695.600000000000023	1985-10-10 00:00:00	-5
+1874	1874	695.600000000000023	1985-10-10 00:00:00	-5
+1875	1875	-14.3300000000000001	1985-10-10 00:00:00	-5
+1876	1876	-14.3300000000000001	1985-10-10 00:00:00	-5
+1877	1877	185.599999999999994	1985-10-10 00:00:00	-5
+1878	1878	185.599999999999994	1985-10-10 00:00:00	-5
+1879	1879	2917	1985-10-10 00:00:00	-5
+1880	1880	2917	1985-10-10 00:00:00	-5
+1881	1881	7.12000000000000011	1985-10-10 00:00:00	-5
+1882	1882	7.12000000000000011	1985-10-10 00:00:00	-5
+1883	1883	623.899999999999977	1985-10-30 00:00:00	-5
+1884	1884	623.899999999999977	1985-10-30 00:00:00	-5
+1885	1885	729.600000000000023	1985-10-30 00:00:00	-5
+1886	1886	729.600000000000023	1985-10-30 00:00:00	-5
+1887	1887	-12.9100000000000001	1985-10-30 00:00:00	-5
+1888	1888	-12.9100000000000001	1985-10-30 00:00:00	-5
+1889	1889	189.759999999999991	1985-10-30 00:00:00	-5
+1890	1890	189.759999999999991	1985-10-30 00:00:00	-5
+1891	1891	3090	1985-10-30 00:00:00	-5
+1892	1892	3090	1985-10-30 00:00:00	-5
+1893	1893	7.11599999999999966	1985-10-30 00:00:00	-5
+1894	1894	7.11599999999999966	1985-10-30 00:00:00	-5
+1895	1895	512.799999999999955	1985-11-13 00:00:00	-5
+1896	1896	512.799999999999955	1985-11-13 00:00:00	-5
+1897	1897	610.200000000000045	1985-11-13 00:00:00	-5
+1898	1898	610.200000000000045	1985-11-13 00:00:00	-5
+1899	1899	-14.1799999999999997	1985-11-13 00:00:00	-5
+1900	1900	-14.1799999999999997	1985-11-13 00:00:00	-5
+1901	1901	184.319999999999993	1985-11-13 00:00:00	-5
+1902	1902	184.319999999999993	1985-11-13 00:00:00	-5
+1903	1903	2804	1985-11-13 00:00:00	-5
+1904	1904	2804	1985-11-13 00:00:00	-5
+1905	1905	7.0730000000000004	1985-11-13 00:00:00	-5
+1906	1906	7.0730000000000004	1985-11-13 00:00:00	-5
+1907	1907	585.700000000000045	1985-11-27 00:00:00	-5
+1908	1908	585.700000000000045	1985-11-27 00:00:00	-5
+1909	1909	717	1985-11-27 00:00:00	-5
+1910	1910	717	1985-11-27 00:00:00	-5
+1911	1911	183.039999999999992	1985-11-27 00:00:00	-5
+1912	1912	183.039999999999992	1985-11-27 00:00:00	-5
+1913	1913	3772	1985-11-27 00:00:00	-5
+1914	1914	3772	1985-11-27 00:00:00	-5
+1915	1915	7.00199999999999978	1985-11-27 00:00:00	-5
+1916	1916	7.00199999999999978	1985-11-27 00:00:00	-5
+1917	1917	613.100000000000023	1985-12-12 00:00:00	-5
+1918	1918	613.100000000000023	1985-12-12 00:00:00	-5
+1919	1919	707.200000000000045	1985-12-12 00:00:00	-5
+1920	1920	707.200000000000045	1985-12-12 00:00:00	-5
+1921	1921	180.47999999999999	1985-12-12 00:00:00	-5
+1922	1922	180.47999999999999	1985-12-12 00:00:00	-5
+1923	1923	2724	1985-12-12 00:00:00	-5
+1924	1924	2724	1985-12-12 00:00:00	-5
+1925	1925	7.16300000000000026	1985-12-12 00:00:00	-5
+1926	1926	7.16300000000000026	1985-12-12 00:00:00	-5
+1927	1927	521.299999999999955	1985-12-26 00:00:00	-5
+1928	1928	521.299999999999955	1985-12-26 00:00:00	-5
+1929	1929	635.200000000000045	1985-12-26 00:00:00	-5
+1930	1930	635.200000000000045	1985-12-26 00:00:00	-5
+1931	1931	-14.5299999999999994	1985-12-26 00:00:00	-5
+1932	1932	-14.5299999999999994	1985-12-26 00:00:00	-5
+1933	1933	176.319999999999993	1985-12-26 00:00:00	-5
+1934	1934	176.319999999999993	1985-12-26 00:00:00	-5
+1935	1935	3326	1985-12-26 00:00:00	-5
+1936	1936	3326	1985-12-26 00:00:00	-5
+1937	1937	7.00600000000000023	1985-12-26 00:00:00	-5
+1938	1938	7.00600000000000023	1985-12-26 00:00:00	-5
+1939	1939	485.199999999999989	1986-01-10 00:00:00	-5
+1940	1940	485.199999999999989	1986-01-10 00:00:00	-5
+1941	1941	606.899999999999977	1986-01-10 00:00:00	-5
+1942	1942	606.899999999999977	1986-01-10 00:00:00	-5
+1943	1943	-14.5500000000000007	1986-01-10 00:00:00	-5
+1944	1944	-14.5500000000000007	1986-01-10 00:00:00	-5
+1945	1945	169.599999999999994	1986-01-10 00:00:00	-5
+1946	1946	169.599999999999994	1986-01-10 00:00:00	-5
+1947	1947	3563	1986-01-10 00:00:00	-5
+1948	1948	3563	1986-01-10 00:00:00	-5
+1949	1949	6.94500000000000028	1986-01-10 00:00:00	-5
+1950	1950	6.94500000000000028	1986-01-10 00:00:00	-5
+1951	1951	693.600000000000023	1986-01-30 00:00:00	-5
+1952	1952	693.600000000000023	1986-01-30 00:00:00	-5
+1953	1953	788.5	1986-01-30 00:00:00	-5
+1954	1954	788.5	1986-01-30 00:00:00	-5
+1955	1955	-12.8200000000000003	1986-01-30 00:00:00	-5
+1956	1956	-12.8200000000000003	1986-01-30 00:00:00	-5
+1957	1957	182	1986-01-30 00:00:00	-5
+1958	1958	182	1986-01-30 00:00:00	-5
+1959	1959	2765	1986-01-30 00:00:00	-5
+1960	1960	2765	1986-01-30 00:00:00	-5
+1961	1961	7.20999999999999996	1986-01-30 00:00:00	-5
+1962	1962	7.20999999999999996	1986-01-30 00:00:00	-5
+1963	1963	675	1986-02-14 00:00:00	-5
+1964	1964	675	1986-02-14 00:00:00	-5
+1965	1965	793.5	1986-02-14 00:00:00	-5
+1966	1966	793.5	1986-02-14 00:00:00	-5
+1967	1967	-12.75	1986-02-14 00:00:00	-5
+1968	1968	-12.75	1986-02-14 00:00:00	-5
+1969	1969	195.52000000000001	1986-02-14 00:00:00	-5
+1970	1970	195.52000000000001	1986-02-14 00:00:00	-5
+1971	1971	3389	1986-02-14 00:00:00	-5
+1972	1972	3389	1986-02-14 00:00:00	-5
+1973	1973	7.11000000000000032	1986-02-14 00:00:00	-5
+1974	1974	7.11000000000000032	1986-02-14 00:00:00	-5
+1975	1975	783	1986-03-04 00:00:00	-5
+1976	1976	783	1986-03-04 00:00:00	-5
+1977	1977	933	1986-03-04 00:00:00	-5
+1978	1978	933	1986-03-04 00:00:00	-5
+1979	1979	-13.3900000000000006	1986-03-04 00:00:00	-5
+1980	1980	-13.3900000000000006	1986-03-04 00:00:00	-5
+1981	1981	152	1986-03-04 00:00:00	-5
+1982	1982	152	1986-03-04 00:00:00	-5
+1983	1983	3922	1986-03-04 00:00:00	-5
+1984	1984	3922	1986-03-04 00:00:00	-5
+1985	1985	7.11099999999999977	1986-03-04 00:00:00	-5
+1986	1986	7.11099999999999977	1986-03-04 00:00:00	-5
+1987	1987	748	1986-03-21 00:00:00	-5
+1988	1988	748	1986-03-21 00:00:00	-5
+1989	1989	920	1986-03-21 00:00:00	-5
+1990	1990	920	1986-03-21 00:00:00	-5
+1991	1991	-14.4700000000000006	1986-03-21 00:00:00	-5
+1992	1992	-14.4700000000000006	1986-03-21 00:00:00	-5
+1993	1993	155.199999999999989	1986-03-21 00:00:00	-5
+1994	1994	155.199999999999989	1986-03-21 00:00:00	-5
+1995	1995	4839	1986-03-21 00:00:00	-5
+1996	1996	4839	1986-03-21 00:00:00	-5
+1997	1997	7	1986-03-21 00:00:00	-5
+1998	1998	7	1986-03-21 00:00:00	-5
+1999	1999	732	1986-04-12 00:00:00	-5
+2000	2000	732	1986-04-12 00:00:00	-5
+2001	2001	922	1986-04-12 00:00:00	-5
+2002	2002	922	1986-04-12 00:00:00	-5
+2003	2003	-15.0899999999999999	1986-04-12 00:00:00	-5
+2004	2004	-15.0899999999999999	1986-04-12 00:00:00	-5
+2005	2005	142.400000000000006	1986-04-12 00:00:00	-5
+2006	2006	142.400000000000006	1986-04-12 00:00:00	-5
+2007	2007	5110	1986-04-12 00:00:00	-5
+2008	2008	5110	1986-04-12 00:00:00	-5
+2009	2009	6.96699999999999964	1986-04-12 00:00:00	-5
+2010	2010	6.96699999999999964	1986-04-12 00:00:00	-5
+2011	2011	766.5	1986-04-28 00:00:00	-5
+2012	2012	766.5	1986-04-28 00:00:00	-5
+2013	2013	941.5	1986-04-28 00:00:00	-5
+2014	2014	941.5	1986-04-28 00:00:00	-5
+2015	2015	116.875	1986-04-28 00:00:00	-5
+2016	2016	116.875	1986-04-28 00:00:00	-5
+2017	2017	5134	1986-04-28 00:00:00	-5
+2018	2018	5134	1986-04-28 00:00:00	-5
+2019	2019	6.98500000000000032	1986-04-28 00:00:00	-5
+2020	2020	6.98500000000000032	1986-04-28 00:00:00	-5
+2021	2021	582	1986-05-21 00:00:00	-5
+2022	2022	582	1986-05-21 00:00:00	-5
+2023	2023	829	1986-05-21 00:00:00	-5
+2024	2024	829	1986-05-21 00:00:00	-5
+2025	2025	98.125	1986-05-21 00:00:00	-5
+2026	2026	98.125	1986-05-21 00:00:00	-5
+2027	2027	7278	1986-05-21 00:00:00	-5
+2028	2028	7278	1986-05-21 00:00:00	-5
+2029	2029	6.71400000000000041	1986-05-21 00:00:00	-5
+2030	2030	6.71400000000000041	1986-05-21 00:00:00	-5
+2031	2031	533	1986-06-17 00:00:00	-5
+2032	2032	533	1986-06-17 00:00:00	-5
+2033	2033	796	1986-06-17 00:00:00	-5
+2034	2034	796	1986-06-17 00:00:00	-5
+2035	2035	85.625	1986-06-17 00:00:00	-5
+2036	2036	85.625	1986-06-17 00:00:00	-5
+2037	2037	7832	1986-06-17 00:00:00	-5
+2038	2038	7832	1986-06-17 00:00:00	-5
+2039	2039	6.64400000000000013	1986-06-17 00:00:00	-5
+2040	2040	6.64400000000000013	1986-06-17 00:00:00	-5
+2041	2041	539	1986-07-02 00:00:00	-5
+2042	2042	539	1986-07-02 00:00:00	-5
+2043	2043	786	1986-07-02 00:00:00	-5
+2044	2044	786	1986-07-02 00:00:00	-5
+2045	2045	-16.8599999999999994	1986-07-02 00:00:00	-5
+2046	2046	-16.8599999999999994	1986-07-02 00:00:00	-5
+2047	2047	85.9375	1986-07-02 00:00:00	-5
+2048	2048	85.9375	1986-07-02 00:00:00	-5
+2049	2049	7273	1986-07-02 00:00:00	-5
+2050	2050	7273	1986-07-02 00:00:00	-5
+2051	2051	6.68100000000000005	1986-07-02 00:00:00	-5
+2052	2052	6.68100000000000005	1986-07-02 00:00:00	-5
+2053	2053	373	1986-08-20 00:00:00	-5
+2054	2054	373	1986-08-20 00:00:00	-5
+2055	2055	589	1986-08-20 00:00:00	-5
+2056	2056	589	1986-08-20 00:00:00	-5
+2057	2057	109.6875	1986-08-20 00:00:00	-5
+2058	2058	109.6875	1986-08-20 00:00:00	-5
+2059	2059	6322	1986-08-20 00:00:00	-5
+2060	2060	6322	1986-08-20 00:00:00	-5
+2061	2061	6.58199999999999985	1986-08-20 00:00:00	-5
+2062	2062	6.58199999999999985	1986-08-20 00:00:00	-5
+2063	2063	391	1986-09-12 00:00:00	-5
+2064	2064	391	1986-09-12 00:00:00	-5
+2065	2065	554	1986-09-12 00:00:00	-5
+2066	2066	554	1986-09-12 00:00:00	-5
+2067	2067	137.5	1986-09-12 00:00:00	-5
+2068	2068	137.5	1986-09-12 00:00:00	-5
+2069	2069	4756	1986-09-12 00:00:00	-5
+2070	2070	4756	1986-09-12 00:00:00	-5
+2071	2071	6.72599999999999998	1986-09-12 00:00:00	-5
+2072	2072	6.72599999999999998	1986-09-12 00:00:00	-5
+2073	2073	396	1986-10-21 00:00:00	-5
+2074	2074	396	1986-10-21 00:00:00	-5
+2075	2075	523	1986-10-21 00:00:00	-5
+2076	2076	523	1986-10-21 00:00:00	-5
+2077	2077	177.1875	1986-10-21 00:00:00	-5
+2078	2078	177.1875	1986-10-21 00:00:00	-5
+2079	2079	3773	1986-10-21 00:00:00	-5
+2080	2080	3773	1986-10-21 00:00:00	-5
+2081	2081	6.83199999999999985	1986-10-21 00:00:00	-5
+2082	2082	6.83199999999999985	1986-10-21 00:00:00	-5
+2083	2083	364	1986-11-05 00:00:00	-5
+2084	2084	364	1986-11-05 00:00:00	-5
+2085	2085	475	1986-11-05 00:00:00	-5
+2086	2086	475	1986-11-05 00:00:00	-5
+2087	2087	3259	1986-11-05 00:00:00	-5
+2088	2088	3259	1986-11-05 00:00:00	-5
+2089	2089	6.85899999999999999	1986-11-05 00:00:00	-5
+2090	2090	6.85899999999999999	1986-11-05 00:00:00	-5
+2091	2091	440	1986-11-19 00:00:00	-5
+2092	2092	440	1986-11-19 00:00:00	-5
+2093	2093	580	1986-11-19 00:00:00	-5
+2094	2094	580	1986-11-19 00:00:00	-5
+2095	2095	176	1986-11-19 00:00:00	-5
+2096	2096	176	1986-11-19 00:00:00	-5
+2097	2097	4022	1986-11-19 00:00:00	-5
+2098	2098	4022	1986-11-19 00:00:00	-5
+2099	2099	6.84999999999999964	1986-11-19 00:00:00	-5
+2100	2100	6.84999999999999964	1986-11-19 00:00:00	-5
+2101	2101	148.125	1987-08-25 00:00:00	-5
+2102	2102	148.125	1987-08-25 00:00:00	-5
+2103	2103	6.85400000000000009	1987-08-25 00:00:00	-5
+2104	2104	6.85400000000000009	1987-08-25 00:00:00	-5
+2105	2105	420	1987-09-30 00:00:00	-5
+2106	2106	420	1987-09-30 00:00:00	-5
+2107	2107	505	1987-09-30 00:00:00	-5
+2108	2108	505	1987-09-30 00:00:00	-5
+2109	2109	172.8125	1987-09-30 00:00:00	-5
+2110	2110	172.8125	1987-09-30 00:00:00	-5
+2111	2111	2489	1987-09-30 00:00:00	-5
+2112	2112	2489	1987-09-30 00:00:00	-5
+2113	2113	7.03800000000000026	1987-09-30 00:00:00	-5
+2114	2114	7.03800000000000026	1987-09-30 00:00:00	-5
+2115	2115	536	1987-12-07 00:00:00	-5
+2116	2116	536	1987-12-07 00:00:00	-5
+2117	2117	663	1987-12-07 00:00:00	-5
+2118	2118	663	1987-12-07 00:00:00	-5
+2119	2119	3623	1987-12-07 00:00:00	-5
+2120	2120	3623	1987-12-07 00:00:00	-5
+2121	2121	6.98099999999999987	1987-12-07 00:00:00	-5
+2122	2122	6.98099999999999987	1987-12-07 00:00:00	-5
+2123	2123	694	1988-01-08 00:00:00	-5
+2124	2124	694	1988-01-08 00:00:00	-5
+2125	2125	825	1988-01-08 00:00:00	-5
+2126	2126	825	1988-01-08 00:00:00	-5
+2127	2127	165.9375	1988-01-08 00:00:00	-5
+2128	2128	165.9375	1988-01-08 00:00:00	-5
+2129	2129	3666	1988-01-08 00:00:00	-5
+2130	2130	3666	1988-01-08 00:00:00	-5
+2131	2131	7.08800000000000008	1988-01-08 00:00:00	-5
+2132	2132	7.08800000000000008	1988-01-08 00:00:00	-5
+2133	2133	691	1988-02-05 00:00:00	-5
+2134	2134	691	1988-02-05 00:00:00	-5
+2135	2135	869	1988-02-05 00:00:00	-5
+2136	2136	869	1988-02-05 00:00:00	-5
+2137	2137	155	1988-02-05 00:00:00	-5
+2138	2138	155	1988-02-05 00:00:00	-5
+2139	2139	5017	1988-02-05 00:00:00	-5
+2140	2140	5017	1988-02-05 00:00:00	-5
+2141	2141	6.95000000000000018	1988-02-05 00:00:00	-5
+2142	2142	6.95000000000000018	1988-02-05 00:00:00	-5
+2143	2143	616	1988-04-21 00:00:00	-5
+2144	2144	616	1988-04-21 00:00:00	-5
+2145	2145	826	1988-04-21 00:00:00	-5
+2146	2146	826	1988-04-21 00:00:00	-5
+2147	2147	147.8125	1988-04-21 00:00:00	-5
+2148	2148	147.8125	1988-04-21 00:00:00	-5
+2149	2149	6076	1988-04-21 00:00:00	-5
+2150	2150	6076	1988-04-21 00:00:00	-5
+2151	2151	6.81700000000000017	1988-04-21 00:00:00	-5
+2152	2152	6.81700000000000017	1988-04-21 00:00:00	-5
+2153	2153	496	1988-05-20 00:00:00	-5
+2154	2154	496	1988-05-20 00:00:00	-5
+2155	2155	681	1988-05-20 00:00:00	-5
+2156	2156	681	1988-05-20 00:00:00	-5
+2157	2157	125.625	1988-05-20 00:00:00	-5
+2158	2158	125.625	1988-05-20 00:00:00	-5
+2159	2159	5515	1988-05-20 00:00:00	-5
+2160	2160	5515	1988-05-20 00:00:00	-5
+2161	2161	6.76499999999999968	1988-05-20 00:00:00	-5
+2162	2162	6.76499999999999968	1988-05-20 00:00:00	-5
+2163	2163	530	1988-06-29 00:00:00	-5
+2164	2164	530	1988-06-29 00:00:00	-5
+2165	2165	814	1988-06-29 00:00:00	-5
+2166	2166	814	1988-06-29 00:00:00	-5
+2167	2167	82.5	1988-06-29 00:00:00	-5
+2168	2168	82.5	1988-06-29 00:00:00	-5
+2169	2169	8306	1988-06-29 00:00:00	-5
+2170	2170	8306	1988-06-29 00:00:00	-5
+2171	2171	6.61599999999999966	1988-06-29 00:00:00	-5
+2172	2172	6.61599999999999966	1988-06-29 00:00:00	-5
+2173	2173	461	1988-07-18 00:00:00	-5
+2174	2174	461	1988-07-18 00:00:00	-5
+2175	2175	715	1988-07-18 00:00:00	-5
+2176	2176	715	1988-07-18 00:00:00	-5
+2177	2177	113.125	1988-07-18 00:00:00	-5
+2178	2178	113.125	1988-07-18 00:00:00	-5
+2179	2179	7410	1988-07-18 00:00:00	-5
+2180	2180	7410	1988-07-18 00:00:00	-5
+2181	2181	6.60500000000000043	1988-07-18 00:00:00	-5
+2182	2182	6.60500000000000043	1988-07-18 00:00:00	-5
+2183	2183	471	1988-08-28 00:00:00	-5
+2184	2184	471	1988-08-28 00:00:00	-5
+2185	2185	702	1988-08-28 00:00:00	-5
+2186	2186	702	1988-08-28 00:00:00	-5
+2187	2187	123.75	1988-08-28 00:00:00	-5
+2188	2188	123.75	1988-08-28 00:00:00	-5
+2189	2189	6747	1988-08-28 00:00:00	-5
+2190	2190	6747	1988-08-28 00:00:00	-5
+2191	2191	6.65500000000000025	1988-08-28 00:00:00	-5
+2192	2192	6.65500000000000025	1988-08-28 00:00:00	-5
+2193	2193	533	1988-09-23 00:00:00	-5
+2194	2194	533	1988-09-23 00:00:00	-5
+2195	2195	638	1988-09-23 00:00:00	-5
+2196	2196	638	1988-09-23 00:00:00	-5
+2197	2197	156.25	1988-09-23 00:00:00	-5
+2198	2198	156.25	1988-09-23 00:00:00	-5
+2199	2199	3073	1988-09-23 00:00:00	-5
+2200	2200	3073	1988-09-23 00:00:00	-5
+2201	2201	7.04999999999999982	1988-09-23 00:00:00	-5
+2202	2202	7.04999999999999982	1988-09-23 00:00:00	-5
+2203	2203	852	1989-02-01 00:00:00	-5
+2204	2204	852	1989-02-01 00:00:00	-5
+2205	2205	1006	1989-02-01 00:00:00	-5
+2206	2206	1006	1989-02-01 00:00:00	-5
+2207	2207	-10.1799999999999997	1989-02-01 00:00:00	-5
+2208	2208	-10.1799999999999997	1989-02-01 00:00:00	-5
+2209	2209	187.5	1989-02-01 00:00:00	-5
+2210	2210	187.5	1989-02-01 00:00:00	-5
+2211	2211	4584	1989-02-01 00:00:00	-5
+2212	2212	4584	1989-02-01 00:00:00	-5
+2213	2213	7.08000000000000007	1989-02-01 00:00:00	-5
+2214	2214	7.08000000000000007	1989-02-01 00:00:00	-5
+2215	2215	902	1989-03-12 00:00:00	-5
+2216	2216	902	1989-03-12 00:00:00	-5
+2217	2217	1047	1989-03-12 00:00:00	-5
+2218	2218	1047	1989-03-12 00:00:00	-5
+2219	2219	-12.3000000000000007	1989-03-12 00:00:00	-5
+2220	2220	-12.3000000000000007	1989-03-12 00:00:00	-5
+2221	2221	156.25	1989-03-12 00:00:00	-5
+2222	2222	156.25	1989-03-12 00:00:00	-5
+2223	2223	4325	1989-03-12 00:00:00	-5
+2224	2224	4325	1989-03-12 00:00:00	-5
+2225	2225	7.12999999999999989	1989-03-12 00:00:00	-5
+2226	2226	7.12999999999999989	1989-03-12 00:00:00	-5
+2227	2227	595	1989-07-11 00:00:00	-5
+2228	2228	595	1989-07-11 00:00:00	-5
+2229	2229	870	1989-07-11 00:00:00	-5
+2230	2230	870	1989-07-11 00:00:00	-5
+2231	2231	-15.5399999999999991	1989-07-11 00:00:00	-5
+2232	2232	-15.5399999999999991	1989-07-11 00:00:00	-5
+2233	2233	125	1989-07-11 00:00:00	-5
+2234	2234	125	1989-07-11 00:00:00	-5
+2235	2235	7864	1989-07-11 00:00:00	-5
+2236	2236	7864	1989-07-11 00:00:00	-5
+2237	2237	6.69000000000000039	1989-07-11 00:00:00	-5
+2238	2238	6.69000000000000039	1989-07-11 00:00:00	-5
+2239	2239	509	1989-08-10 00:00:00	-5
+2240	2240	509	1989-08-10 00:00:00	-5
+2241	2241	772	1989-08-10 00:00:00	-5
+2242	2242	772	1989-08-10 00:00:00	-5
+2243	2243	-16.8599999999999994	1989-08-10 00:00:00	-5
+2244	2244	-16.8599999999999994	1989-08-10 00:00:00	-5
+2245	2245	93.75	1989-08-10 00:00:00	-5
+2246	2246	93.75	1989-08-10 00:00:00	-5
+2247	2247	7724	1989-08-10 00:00:00	-5
+2248	2248	7724	1989-08-10 00:00:00	-5
+2249	2249	6.62999999999999989	1989-08-10 00:00:00	-5
+2250	2250	6.62999999999999989	1989-08-10 00:00:00	-5
+2251	2251	612	1989-10-17 00:00:00	-5
+2252	2252	612	1989-10-17 00:00:00	-5
+2253	2253	739	1989-10-17 00:00:00	-5
+2254	2254	739	1989-10-17 00:00:00	-5
+2255	2255	-13.8200000000000003	1989-10-17 00:00:00	-5
+2256	2256	-13.8200000000000003	1989-10-17 00:00:00	-5
+2257	2257	156.25	1989-10-17 00:00:00	-5
+2258	2258	156.25	1989-10-17 00:00:00	-5
+2259	2259	3695	1989-10-17 00:00:00	-5
+2260	2260	3695	1989-10-17 00:00:00	-5
+2261	2261	7.03000000000000025	1989-10-17 00:00:00	-5
+2262	2262	7.03000000000000025	1989-10-17 00:00:00	-5
+2263	2263	526	1989-11-19 00:00:00	-5
+2264	2264	526	1989-11-19 00:00:00	-5
+2265	2265	663	1989-11-19 00:00:00	-5
+2266	2266	663	1989-11-19 00:00:00	-5
+2267	2267	-14.3599999999999994	1989-11-19 00:00:00	-5
+2268	2268	-14.3599999999999994	1989-11-19 00:00:00	-5
+2269	2269	156.25	1989-11-19 00:00:00	-5
+2270	2270	156.25	1989-11-19 00:00:00	-5
+2271	2271	3999	1989-11-19 00:00:00	-5
+2272	2272	3999	1989-11-19 00:00:00	-5
+2273	2273	6.92999999999999972	1989-11-19 00:00:00	-5
+2274	2274	6.92999999999999972	1989-11-19 00:00:00	-5
+2275	2275	579	1989-12-12 00:00:00	-5
+2276	2276	579	1989-12-12 00:00:00	-5
+2277	2277	723	1989-12-12 00:00:00	-5
+2278	2278	723	1989-12-12 00:00:00	-5
+2279	2279	-13.5	1989-12-12 00:00:00	-5
+2280	2280	-13.5	1989-12-12 00:00:00	-5
+2281	2281	187.5	1989-12-12 00:00:00	-5
+2282	2282	187.5	1989-12-12 00:00:00	-5
+2283	2283	4204	1989-12-12 00:00:00	-5
+2284	2284	4204	1989-12-12 00:00:00	-5
+2285	2285	6.95000000000000018	1989-12-12 00:00:00	-5
+2286	2286	6.95000000000000018	1989-12-12 00:00:00	-5
+2287	2287	533	1990-03-13 00:00:00	-5
+2288	2288	533	1990-03-13 00:00:00	-5
+2289	2289	663.5	1990-03-13 00:00:00	-5
+2290	2290	663.5	1990-03-13 00:00:00	-5
+2291	2291	129	1990-03-13 00:00:00	-5
+2292	2292	129	1990-03-13 00:00:00	-5
+2293	2293	3781	1990-03-13 00:00:00	-5
+2294	2294	3781	1990-03-13 00:00:00	-5
+2295	2295	6.95999999999999996	1990-03-13 00:00:00	-5
+2296	2296	6.95999999999999996	1990-03-13 00:00:00	-5
+2297	2297	446	1990-05-02 00:00:00	-5
+2298	2298	446	1990-05-02 00:00:00	-5
+2299	2299	665.299999999999955	1990-05-02 00:00:00	-5
+2300	2300	665.299999999999955	1990-05-02 00:00:00	-5
+2301	2301	106	1990-05-02 00:00:00	-5
+2302	2302	106	1990-05-02 00:00:00	-5
+2303	2303	6345	1990-05-02 00:00:00	-5
+2304	2304	6345	1990-05-02 00:00:00	-5
+2305	2305	6.65800000000000036	1990-05-02 00:00:00	-5
+2306	2306	6.65800000000000036	1990-05-02 00:00:00	-5
+2307	2307	506	1990-06-11 00:00:00	-5
+2308	2308	506	1990-06-11 00:00:00	-5
+2309	2309	759.399999999999977	1990-06-11 00:00:00	-5
+2310	2310	759.399999999999977	1990-06-11 00:00:00	-5
+2311	2311	115	1990-06-11 00:00:00	-5
+2312	2312	115	1990-06-11 00:00:00	-5
+2313	2313	7333	1990-06-11 00:00:00	-5
+2314	2314	7333	1990-06-11 00:00:00	-5
+2315	2315	6.65000000000000036	1990-06-11 00:00:00	-5
+2316	2316	6.65000000000000036	1990-06-11 00:00:00	-5
+2317	2317	464	1990-09-14 00:00:00	-5
+2318	2318	464	1990-09-14 00:00:00	-5
+2319	2319	588.600000000000023	1990-09-14 00:00:00	-5
+2320	2320	588.600000000000023	1990-09-14 00:00:00	-5
+2321	2321	137	1990-09-14 00:00:00	-5
+2322	2322	137	1990-09-14 00:00:00	-5
+2323	2323	3610	1990-09-14 00:00:00	-5
+2324	2324	3610	1990-09-14 00:00:00	-5
+2325	2325	6.91999999999999993	1990-09-14 00:00:00	-5
+2326	2326	6.91999999999999993	1990-09-14 00:00:00	-5
+2327	2327	563	1990-10-17 00:00:00	-5
+2328	2328	563	1990-10-17 00:00:00	-5
+2329	2329	649.700000000000045	1990-10-17 00:00:00	-5
+2330	2330	649.700000000000045	1990-10-17 00:00:00	-5
+2331	2331	195	1990-10-17 00:00:00	-5
+2332	2332	195	1990-10-17 00:00:00	-5
+2333	2333	2519	1990-10-17 00:00:00	-5
+2334	2334	2519	1990-10-17 00:00:00	-5
+2335	2335	7.16000000000000014	1990-10-17 00:00:00	-5
+2336	2336	7.16000000000000014	1990-10-17 00:00:00	-5
+2337	2337	717	1990-12-01 00:00:00	-5
+2338	2338	717	1990-12-01 00:00:00	-5
+2339	2339	804.5	1990-12-01 00:00:00	-5
+2340	2340	804.5	1990-12-01 00:00:00	-5
+2341	2341	175	1990-12-01 00:00:00	-5
+2342	2342	175	1990-12-01 00:00:00	-5
+2343	2343	2547	1990-12-01 00:00:00	-5
+2344	2344	2547	1990-12-01 00:00:00	-5
+2345	2345	7.25999999999999979	1990-12-01 00:00:00	-5
+2346	2346	7.25999999999999979	1990-12-01 00:00:00	-5
+2347	2347	488	1991-01-15 00:00:00	-5
+2348	2348	488	1991-01-15 00:00:00	-5
+2349	2349	562.299999999999955	1991-01-15 00:00:00	-5
+2350	2350	562.299999999999955	1991-01-15 00:00:00	-5
+2351	2351	168	1991-01-15 00:00:00	-5
+2352	2352	168	1991-01-15 00:00:00	-5
+2353	2353	2158	1991-01-15 00:00:00	-5
+2354	2354	2158	1991-01-15 00:00:00	-5
+2355	2355	7.16500000000000004	1991-01-15 00:00:00	-5
+2356	2356	7.16500000000000004	1991-01-15 00:00:00	-5
+2357	2357	571	1991-02-08 00:00:00	-5
+2358	2358	571	1991-02-08 00:00:00	-5
+2359	2359	704.5	1991-02-08 00:00:00	-5
+2360	2360	704.5	1991-02-08 00:00:00	-5
+2361	2361	153	1991-02-08 00:00:00	-5
+2362	2362	153	1991-02-08 00:00:00	-5
+2363	2363	3869	1991-02-08 00:00:00	-5
+2364	2364	3869	1991-02-08 00:00:00	-5
+2365	2365	6.98000000000000043	1991-02-08 00:00:00	-5
+2366	2366	6.98000000000000043	1991-02-08 00:00:00	-5
+2367	2367	604	1991-03-25 00:00:00	-5
+2368	2368	604	1991-03-25 00:00:00	-5
+2369	2369	699.200000000000045	1991-03-25 00:00:00	-5
+2370	2370	699.200000000000045	1991-03-25 00:00:00	-5
+2371	2371	147	1991-03-25 00:00:00	-5
+2372	2372	147	1991-03-25 00:00:00	-5
+2373	2373	2765	1991-03-25 00:00:00	-5
+2374	2374	2765	1991-03-25 00:00:00	-5
+2375	2375	7.15000000000000036	1991-03-25 00:00:00	-5
+2376	2376	7.15000000000000036	1991-03-25 00:00:00	-5
+2377	2377	391	1991-06-28 00:00:00	-5
+2378	2378	391	1991-06-28 00:00:00	-5
+2379	2379	569.600000000000023	1991-06-28 00:00:00	-5
+2380	2380	569.600000000000023	1991-06-28 00:00:00	-5
+2381	2381	5168	1991-06-28 00:00:00	-5
+2382	2382	5168	1991-06-28 00:00:00	-5
+2383	2383	6.69000000000000039	1991-06-28 00:00:00	-5
+2384	2384	6.69000000000000039	1991-06-28 00:00:00	-5
+2385	2385	335	1991-08-01 00:00:00	-5
+2386	2386	335	1991-08-01 00:00:00	-5
+2387	2387	514.799999999999955	1991-08-01 00:00:00	-5
+2388	2388	514.799999999999955	1991-08-01 00:00:00	-5
+2389	2389	113	1991-08-01 00:00:00	-5
+2390	2390	113	1991-08-01 00:00:00	-5
+2391	2391	5202	1991-08-01 00:00:00	-5
+2392	2392	5202	1991-08-01 00:00:00	-5
+2393	2393	6.62000000000000011	1991-08-01 00:00:00	-5
+2394	2394	6.62000000000000011	1991-08-01 00:00:00	-5
+2395	2395	651	1991-10-05 00:00:00	-5
+2396	2396	651	1991-10-05 00:00:00	-5
+2397	2397	756	1991-10-05 00:00:00	-5
+2398	2398	756	1991-10-05 00:00:00	-5
+2399	2399	124	1991-10-05 00:00:00	-5
+2400	2400	124	1991-10-05 00:00:00	-5
+2401	2401	3050	1991-10-05 00:00:00	-5
+2402	2402	3050	1991-10-05 00:00:00	-5
+2403	2403	7.13999999999999968	1991-10-05 00:00:00	-5
+2404	2404	7.13999999999999968	1991-10-05 00:00:00	-5
+2405	2405	596	1991-10-29 00:00:00	-5
+2406	2406	596	1991-10-29 00:00:00	-5
+2407	2407	677.700000000000045	1991-10-29 00:00:00	-5
+2408	2408	677.700000000000045	1991-10-29 00:00:00	-5
+2409	2409	2376	1991-10-29 00:00:00	-5
+2410	2410	2376	1991-10-29 00:00:00	-5
+2411	2411	7.20999999999999996	1991-10-29 00:00:00	-5
+2412	2412	7.20999999999999996	1991-10-29 00:00:00	-5
+2413	2413	580	1991-12-06 00:00:00	-5
+2414	2414	580	1991-12-06 00:00:00	-5
+2415	2415	649.100000000000023	1991-12-06 00:00:00	-5
+2416	2416	649.100000000000023	1991-12-06 00:00:00	-5
+2417	2417	175	1991-12-06 00:00:00	-5
+2418	2418	175	1991-12-06 00:00:00	-5
+2419	2419	2014	1991-12-06 00:00:00	-5
+2420	2420	2014	1991-12-06 00:00:00	-5
+2421	2421	7.26999999999999957	1991-12-06 00:00:00	-5
+2422	2422	7.26999999999999957	1991-12-06 00:00:00	-5
+2423	2423	681	1992-01-18 00:00:00	-5
+2424	2424	681	1992-01-18 00:00:00	-5
+2425	2425	746.700000000000045	1992-01-18 00:00:00	-5
+2426	2426	746.700000000000045	1992-01-18 00:00:00	-5
+2427	2427	184	1992-01-18 00:00:00	-5
+2428	2428	184	1992-01-18 00:00:00	-5
+2429	2429	1921	1992-01-18 00:00:00	-5
+2430	2430	1921	1992-01-18 00:00:00	-5
+2431	2431	7.36000000000000032	1992-01-18 00:00:00	-5
+2432	2432	7.36000000000000032	1992-01-18 00:00:00	-5
+2433	2433	639	1992-02-22 00:00:00	-5
+2434	2434	639	1992-02-22 00:00:00	-5
+2435	2435	696.399999999999977	1992-02-22 00:00:00	-5
+2436	2436	696.399999999999977	1992-02-22 00:00:00	-5
+2437	2437	178	1992-02-22 00:00:00	-5
+2438	2438	178	1992-02-22 00:00:00	-5
+2439	2439	1682	1992-02-22 00:00:00	-5
+2440	2440	1682	1992-02-22 00:00:00	-5
+2441	2441	7.38999999999999968	1992-02-22 00:00:00	-5
+2442	2442	7.38999999999999968	1992-02-22 00:00:00	-5
+2443	2443	569	1992-03-24 00:00:00	-5
+2444	2444	569	1992-03-24 00:00:00	-5
+2445	2445	658.700000000000045	1992-03-24 00:00:00	-5
+2446	2446	658.700000000000045	1992-03-24 00:00:00	-5
+2447	2447	179	1992-03-24 00:00:00	-5
+2448	2448	179	1992-03-24 00:00:00	-5
+2449	2449	2605	1992-03-24 00:00:00	-5
+2450	2450	2605	1992-03-24 00:00:00	-5
+2451	2451	7.15000000000000036	1992-03-24 00:00:00	-5
+2452	2452	7.15000000000000036	1992-03-24 00:00:00	-5
+2453	2453	574	1992-04-24 00:00:00	-5
+2454	2454	574	1992-04-24 00:00:00	-5
+2455	2455	678	1992-04-24 00:00:00	-5
+2456	2456	678	1992-04-24 00:00:00	-5
+2457	2457	134	1992-04-24 00:00:00	-5
+2458	2458	134	1992-04-24 00:00:00	-5
+2459	2459	3018	1992-04-24 00:00:00	-5
+2460	2460	3018	1992-04-24 00:00:00	-5
+2461	2461	7.08999999999999986	1992-04-24 00:00:00	-5
+2462	2462	7.08999999999999986	1992-04-24 00:00:00	-5
+2463	2463	556	1992-05-14 00:00:00	-5
+2464	2464	556	1992-05-14 00:00:00	-5
+2465	2465	666.5	1992-05-14 00:00:00	-5
+2466	2466	666.5	1992-05-14 00:00:00	-5
+2467	2467	143	1992-05-14 00:00:00	-5
+2468	2468	143	1992-05-14 00:00:00	-5
+2469	2469	3206	1992-05-14 00:00:00	-5
+2470	2470	3206	1992-05-14 00:00:00	-5
+2471	2471	7.04999999999999982	1992-05-14 00:00:00	-5
+2472	2472	7.04999999999999982	1992-05-14 00:00:00	-5
+2473	2473	421	1992-06-16 00:00:00	-5
+2474	2474	421	1992-06-16 00:00:00	-5
+2475	2475	570.200000000000045	1992-06-16 00:00:00	-5
+2476	2476	570.200000000000045	1992-06-16 00:00:00	-5
+2477	2477	132	1992-06-16 00:00:00	-5
+2478	2478	132	1992-06-16 00:00:00	-5
+2479	2479	4318	1992-06-16 00:00:00	-5
+2480	2480	4318	1992-06-16 00:00:00	-5
+2481	2481	6.79999999999999982	1992-06-16 00:00:00	-5
+2482	2482	6.79999999999999982	1992-06-16 00:00:00	-5
+2483	2483	565	1993-03-24 00:00:00	-5
+2484	2484	565	1993-03-24 00:00:00	-5
+2485	2485	727.600000000000023	1993-03-24 00:00:00	-5
+2486	2486	727.600000000000023	1993-03-24 00:00:00	-5
+2487	2487	4710	1993-03-24 00:00:00	-5
+2488	2488	4710	1993-03-24 00:00:00	-5
+2489	2489	6.88999999999999968	1993-03-24 00:00:00	-5
+2490	2490	6.88999999999999968	1993-03-24 00:00:00	-5
+2491	2491	528	1993-04-17 00:00:00	-5
+2492	2492	528	1993-04-17 00:00:00	-5
+2493	2493	753	1993-04-17 00:00:00	-5
+2494	2494	753	1993-04-17 00:00:00	-5
+2495	2495	169	1993-04-17 00:00:00	-5
+2496	2496	169	1993-04-17 00:00:00	-5
+2497	2497	6512	1993-04-17 00:00:00	-5
+2498	2498	6512	1993-04-17 00:00:00	-5
+2499	2499	6.71999999999999975	1993-04-17 00:00:00	-5
+2500	2500	6.71999999999999975	1993-04-17 00:00:00	-5
+2501	2501	69	1993-06-20 00:00:00	-5
+2502	2502	69	1993-06-20 00:00:00	-5
+2503	2503	6.69000000000000039	1993-06-20 00:00:00	-5
+2504	2504	6.69000000000000039	1993-06-20 00:00:00	-5
+2505	2505	126	1993-08-24 00:00:00	-5
+2506	2506	126	1993-08-24 00:00:00	-5
+2507	2507	6.88999999999999968	1993-08-24 00:00:00	-5
+2508	2508	6.88999999999999968	1993-08-24 00:00:00	-5
 \.
 
 
 --
--- TOC entry 5075 (class 0 OID 0)
+-- TOC entry 5089 (class 0 OID 0)
 -- Dependencies: 387
 -- Name: measurementresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
 
-SELECT pg_catalog.setval('measurementresultvalues_valueid_seq', 795, true);
+SELECT pg_catalog.setval('measurementresultvalues_valueid_seq', 2508, true);
 
 
 --
--- TOC entry 4744 (class 0 OID 70032)
+-- TOC entry 4758 (class 0 OID 70032)
 -- Dependencies: 221
 -- Data for Name: methodannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9700,7 +15101,7 @@ COPY methodannotations (bridgeid, methodid, annotationid) FROM stdin;
 
 
 --
--- TOC entry 5076 (class 0 OID 0)
+-- TOC entry 5090 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: methodannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9709,7 +15110,7 @@ SELECT pg_catalog.setval('methodannotations_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4896 (class 0 OID 70867)
+-- TOC entry 4910 (class 0 OID 70867)
 -- Dependencies: 373
 -- Data for Name: methodcitations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9719,7 +15120,7 @@ COPY methodcitations (bridgeid, methodid, relationshiptypecv, citationid) FROM s
 
 
 --
--- TOC entry 5077 (class 0 OID 0)
+-- TOC entry 5091 (class 0 OID 0)
 -- Dependencies: 372
 -- Name: methodcitations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9728,7 +15129,7 @@ SELECT pg_catalog.setval('methodcitations_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4858 (class 0 OID 70680)
+-- TOC entry 4872 (class 0 OID 70680)
 -- Dependencies: 335
 -- Data for Name: methodextensionpropertyvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9738,7 +15139,7 @@ COPY methodextensionpropertyvalues (bridgeid, methodid, propertyid, propertyvalu
 
 
 --
--- TOC entry 5078 (class 0 OID 0)
+-- TOC entry 5092 (class 0 OID 0)
 -- Dependencies: 334
 -- Name: methodextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9747,7 +15148,7 @@ SELECT pg_catalog.setval('methodextensionpropertyvalues_bridgeid_seq', 1, false)
 
 
 --
--- TOC entry 4869 (class 0 OID 70731)
+-- TOC entry 4883 (class 0 OID 70731)
 -- Dependencies: 346
 -- Data for Name: methodexternalidentifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9757,7 +15158,7 @@ COPY methodexternalidentifiers (bridgeid, methodid, externalidentifiersystemid, 
 
 
 --
--- TOC entry 5079 (class 0 OID 0)
+-- TOC entry 5093 (class 0 OID 0)
 -- Dependencies: 345
 -- Name: methodexternalidentifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9766,7 +15167,7 @@ SELECT pg_catalog.setval('methodexternalidentifiers_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4776 (class 0 OID 70172)
+-- TOC entry 4790 (class 0 OID 70172)
 -- Dependencies: 253
 -- Data for Name: methods; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9778,7 +15179,7 @@ COPY methods (methodid, methodtypecv, methodcode, methodname, methoddescription,
 
 
 --
--- TOC entry 5080 (class 0 OID 0)
+-- TOC entry 5094 (class 0 OID 0)
 -- Dependencies: 252
 -- Name: methods_methodid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9787,7 +15188,7 @@ SELECT pg_catalog.setval('methods_methodid_seq', 1, false);
 
 
 --
--- TOC entry 4943 (class 0 OID 71098)
+-- TOC entry 4957 (class 0 OID 71098)
 -- Dependencies: 420
 -- Data for Name: modelaffiliations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9797,7 +15198,7 @@ COPY modelaffiliations (bridgeid, modelid, affiliationid, isprimary, roledescrip
 
 
 --
--- TOC entry 5081 (class 0 OID 0)
+-- TOC entry 5095 (class 0 OID 0)
 -- Dependencies: 419
 -- Name: modelaffiliations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9806,7 +15207,7 @@ SELECT pg_catalog.setval('modelaffiliations_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4945 (class 0 OID 71109)
+-- TOC entry 4959 (class 0 OID 71109)
 -- Dependencies: 422
 -- Data for Name: models; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9816,7 +15217,7 @@ COPY models (modelid, modelcode, modelname, modeldescription, version, modellink
 
 
 --
--- TOC entry 5082 (class 0 OID 0)
+-- TOC entry 5096 (class 0 OID 0)
 -- Dependencies: 421
 -- Name: models_modelid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9825,7 +15226,7 @@ SELECT pg_catalog.setval('models_modelid_seq', 1, false);
 
 
 --
--- TOC entry 4778 (class 0 OID 70183)
+-- TOC entry 4792 (class 0 OID 70183)
 -- Dependencies: 255
 -- Data for Name: organizations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9837,7 +15238,7 @@ COPY organizations (organizationid, organizationtypecv, organizationcode, organi
 
 
 --
--- TOC entry 5083 (class 0 OID 0)
+-- TOC entry 5097 (class 0 OID 0)
 -- Dependencies: 254
 -- Name: organizations_organizationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9846,7 +15247,7 @@ SELECT pg_catalog.setval('organizations_organizationid_seq', 2, true);
 
 
 --
--- TOC entry 4780 (class 0 OID 70194)
+-- TOC entry 4794 (class 0 OID 70194)
 -- Dependencies: 257
 -- Data for Name: people; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9861,7 +15262,7 @@ COPY people (personid, personfirstname, personmiddlename, personlastname) FROM s
 
 
 --
--- TOC entry 5084 (class 0 OID 0)
+-- TOC entry 5098 (class 0 OID 0)
 -- Dependencies: 256
 -- Name: people_personid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9870,7 +15271,7 @@ SELECT pg_catalog.setval('people_personid_seq', 5, true);
 
 
 --
--- TOC entry 4871 (class 0 OID 70742)
+-- TOC entry 4885 (class 0 OID 70742)
 -- Dependencies: 348
 -- Data for Name: personexternalidentifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9880,7 +15281,7 @@ COPY personexternalidentifiers (bridgeid, personid, externalidentifiersystemid, 
 
 
 --
--- TOC entry 5085 (class 0 OID 0)
+-- TOC entry 5099 (class 0 OID 0)
 -- Dependencies: 347
 -- Name: personexternalidentifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9889,7 +15290,7 @@ SELECT pg_catalog.setval('personexternalidentifiers_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4912 (class 0 OID 70939)
+-- TOC entry 4926 (class 0 OID 70939)
 -- Dependencies: 389
 -- Data for Name: pointcoverageresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9899,7 +15300,7 @@ COPY pointcoverageresults (resultid, zlocation, zlocationunitsid, spatialreferen
 
 
 --
--- TOC entry 4746 (class 0 OID 70040)
+-- TOC entry 4760 (class 0 OID 70040)
 -- Dependencies: 223
 -- Data for Name: pointcoverageresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9909,7 +15310,7 @@ COPY pointcoverageresultvalueannotations (bridgeid, valueid, annotationid) FROM 
 
 
 --
--- TOC entry 5086 (class 0 OID 0)
+-- TOC entry 5100 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: pointcoverageresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9918,7 +15319,7 @@ SELECT pg_catalog.setval('pointcoverageresultvalueannotations_bridgeid_seq', 1, 
 
 
 --
--- TOC entry 4914 (class 0 OID 70946)
+-- TOC entry 4928 (class 0 OID 70946)
 -- Dependencies: 391
 -- Data for Name: pointcoverageresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9928,7 +15329,7 @@ COPY pointcoverageresultvalues (valueid, resultid, datavalue, valuedatetime, val
 
 
 --
--- TOC entry 5087 (class 0 OID 0)
+-- TOC entry 5101 (class 0 OID 0)
 -- Dependencies: 390
 -- Name: pointcoverageresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9937,7 +15338,7 @@ SELECT pg_catalog.setval('pointcoverageresultvalues_valueid_seq', 1, false);
 
 
 --
--- TOC entry 4782 (class 0 OID 70205)
+-- TOC entry 4796 (class 0 OID 70205)
 -- Dependencies: 259
 -- Data for Name: processinglevels; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9949,7 +15350,7 @@ COPY processinglevels (processinglevelid, processinglevelcode, definition, expla
 
 
 --
--- TOC entry 5088 (class 0 OID 0)
+-- TOC entry 5102 (class 0 OID 0)
 -- Dependencies: 258
 -- Name: processinglevels_processinglevelid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9958,7 +15359,7 @@ SELECT pg_catalog.setval('processinglevels_processinglevelid_seq', 1, false);
 
 
 --
--- TOC entry 4915 (class 0 OID 70955)
+-- TOC entry 4929 (class 0 OID 70955)
 -- Dependencies: 392
 -- Data for Name: profileresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9968,7 +15369,7 @@ COPY profileresults (resultid, xlocation, xlocationunitsid, ylocation, ylocation
 
 
 --
--- TOC entry 4748 (class 0 OID 70048)
+-- TOC entry 4762 (class 0 OID 70048)
 -- Dependencies: 225
 -- Data for Name: profileresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9978,7 +15379,7 @@ COPY profileresultvalueannotations (bridgeid, valueid, annotationid) FROM stdin;
 
 
 --
--- TOC entry 5089 (class 0 OID 0)
+-- TOC entry 5103 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: profileresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -9987,7 +15388,7 @@ SELECT pg_catalog.setval('profileresultvalueannotations_bridgeid_seq', 1, false)
 
 
 --
--- TOC entry 4917 (class 0 OID 70962)
+-- TOC entry 4931 (class 0 OID 70962)
 -- Dependencies: 394
 -- Data for Name: profileresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -9997,7 +15398,7 @@ COPY profileresultvalues (valueid, resultid, datavalue, valuedatetime, valuedate
 
 
 --
--- TOC entry 5090 (class 0 OID 0)
+-- TOC entry 5104 (class 0 OID 0)
 -- Dependencies: 393
 -- Name: profileresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10006,7 +15407,7 @@ SELECT pg_catalog.setval('profileresultvalues_valueid_seq', 1, false);
 
 
 --
--- TOC entry 4873 (class 0 OID 70753)
+-- TOC entry 4887 (class 0 OID 70753)
 -- Dependencies: 350
 -- Data for Name: referencematerialexternalidentifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10016,7 +15417,7 @@ COPY referencematerialexternalidentifiers (bridgeid, referencematerialid, extern
 
 
 --
--- TOC entry 5091 (class 0 OID 0)
+-- TOC entry 5105 (class 0 OID 0)
 -- Dependencies: 349
 -- Name: referencematerialexternalidentifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10025,7 +15426,7 @@ SELECT pg_catalog.setval('referencematerialexternalidentifiers_bridgeid_seq', 1,
 
 
 --
--- TOC entry 4824 (class 0 OID 70514)
+-- TOC entry 4838 (class 0 OID 70514)
 -- Dependencies: 301
 -- Data for Name: referencematerials; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10035,7 +15436,7 @@ COPY referencematerials (referencematerialid, referencematerialmediumcv, referen
 
 
 --
--- TOC entry 4825 (class 0 OID 70522)
+-- TOC entry 4839 (class 0 OID 70522)
 -- Dependencies: 302
 -- Data for Name: referencematerialvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10045,7 +15446,7 @@ COPY referencematerialvalues (referencematerialvalueid, referencematerialid, ref
 
 
 --
--- TOC entry 4784 (class 0 OID 70216)
+-- TOC entry 4798 (class 0 OID 70216)
 -- Dependencies: 261
 -- Data for Name: relatedactions; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10156,7 +15557,7 @@ COPY relatedactions (relationid, actionid, relationshiptypecv, relatedactionid) 
 
 
 --
--- TOC entry 5092 (class 0 OID 0)
+-- TOC entry 5106 (class 0 OID 0)
 -- Dependencies: 260
 -- Name: relatedactions_relationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10165,7 +15566,7 @@ SELECT pg_catalog.setval('relatedactions_relationid_seq', 202, true);
 
 
 --
--- TOC entry 4898 (class 0 OID 70875)
+-- TOC entry 4912 (class 0 OID 70875)
 -- Dependencies: 375
 -- Data for Name: relatedannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10175,7 +15576,7 @@ COPY relatedannotations (relationid, annotationid, relationshiptypecv, relatedan
 
 
 --
--- TOC entry 5093 (class 0 OID 0)
+-- TOC entry 5107 (class 0 OID 0)
 -- Dependencies: 374
 -- Name: relatedannotations_relationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10184,7 +15585,7 @@ SELECT pg_catalog.setval('relatedannotations_relationid_seq', 1, false);
 
 
 --
--- TOC entry 4900 (class 0 OID 70883)
+-- TOC entry 4914 (class 0 OID 70883)
 -- Dependencies: 377
 -- Data for Name: relatedcitations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10194,7 +15595,7 @@ COPY relatedcitations (relationid, citationid, relationshiptypecv, relatedcitati
 
 
 --
--- TOC entry 5094 (class 0 OID 0)
+-- TOC entry 5108 (class 0 OID 0)
 -- Dependencies: 376
 -- Name: relatedcitations_relationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10203,7 +15604,7 @@ SELECT pg_catalog.setval('relatedcitations_relationid_seq', 1, false);
 
 
 --
--- TOC entry 4902 (class 0 OID 70891)
+-- TOC entry 4916 (class 0 OID 70891)
 -- Dependencies: 379
 -- Data for Name: relateddatasets; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10213,7 +15614,7 @@ COPY relateddatasets (relationid, datasetid, relationshiptypecv, relateddataseti
 
 
 --
--- TOC entry 5095 (class 0 OID 0)
+-- TOC entry 5109 (class 0 OID 0)
 -- Dependencies: 378
 -- Name: relateddatasets_relationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10222,7 +15623,7 @@ SELECT pg_catalog.setval('relateddatasets_relationid_seq', 1, false);
 
 
 --
--- TOC entry 4850 (class 0 OID 70645)
+-- TOC entry 4864 (class 0 OID 70645)
 -- Dependencies: 327
 -- Data for Name: relatedequipment; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10232,7 +15633,7 @@ COPY relatedequipment (relationid, equipmentid, relationshiptypecv, relatedequip
 
 
 --
--- TOC entry 5096 (class 0 OID 0)
+-- TOC entry 5110 (class 0 OID 0)
 -- Dependencies: 326
 -- Name: relatedequipment_relationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10241,7 +15642,7 @@ SELECT pg_catalog.setval('relatedequipment_relationid_seq', 1, false);
 
 
 --
--- TOC entry 4934 (class 0 OID 71053)
+-- TOC entry 4948 (class 0 OID 71053)
 -- Dependencies: 411
 -- Data for Name: relatedfeatures; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10442,20 +15843,219 @@ COPY relatedfeatures (relationid, samplingfeatureid, relationshiptypecv, related
 193	33219	Was collected at	1036	\N
 194	33220	Was collected at	1036	\N
 195	33221	Was collected at	1036	\N
+196	33222	Was collected at	1036	\N
+197	33223	Was collected at	1036	\N
+198	33224	Was collected at	1036	\N
+199	33225	Was collected at	1036	\N
+200	33226	Was collected at	1036	\N
+201	33227	Was collected at	1036	\N
+202	33228	Was collected at	1036	\N
+203	33229	Was collected at	1036	\N
+204	33230	Was collected at	1036	\N
+205	33231	Was collected at	1036	\N
+206	33232	Was collected at	1036	\N
+207	33233	Was collected at	1036	\N
+208	33234	Was collected at	1036	\N
+209	33235	Was collected at	1036	\N
+210	33236	Was collected at	1036	\N
+211	33237	Was collected at	1036	\N
+212	33238	Was collected at	1036	\N
+213	33239	Was collected at	1036	\N
+214	33240	Was collected at	1036	\N
+215	33241	Was collected at	1036	\N
+216	33242	Was collected at	1036	\N
+217	33243	Was collected at	1036	\N
+218	33244	Was collected at	1036	\N
+219	33245	Was collected at	1036	\N
+220	33246	Was collected at	1036	\N
+221	33247	Was collected at	1036	\N
+222	33248	Was collected at	1036	\N
+223	33249	Was collected at	1036	\N
+224	33250	Was collected at	1036	\N
+225	33251	Was collected at	1036	\N
+226	33252	Was collected at	1036	\N
+227	33253	Was collected at	1036	\N
+228	33254	Was collected at	1036	\N
+229	33255	Was collected at	1036	\N
+230	33256	Was collected at	1036	\N
+231	33257	Was collected at	1036	\N
+232	33258	Was collected at	1036	\N
+233	33259	Was collected at	1036	\N
+234	33260	Was collected at	1036	\N
+235	33261	Was collected at	1036	\N
+236	33262	Was collected at	1036	\N
+237	33263	Was collected at	1036	\N
+238	33264	Was collected at	1036	\N
+239	33265	Was collected at	1036	\N
+240	33266	Was collected at	1036	\N
+241	33267	Was collected at	1036	\N
+242	33268	Was collected at	1036	\N
+243	33269	Was collected at	1036	\N
+244	33270	Was collected at	1036	\N
+245	33271	Was collected at	1036	\N
+246	33272	Was collected at	1036	\N
+247	33273	Was collected at	1036	\N
+248	33274	Was collected at	1036	\N
+249	33275	Was collected at	1036	\N
+250	33276	Was collected at	1036	\N
+251	33277	Was collected at	1036	\N
+252	33278	Was collected at	1036	\N
+253	33279	Was collected at	1036	\N
+254	33280	Was collected at	1036	\N
+255	33281	Was collected at	1036	\N
+256	33282	Was collected at	1036	\N
+257	33283	Was collected at	1036	\N
+258	33284	Was collected at	1036	\N
+259	33285	Was collected at	1036	\N
+260	33286	Was collected at	1036	\N
+261	33287	Was collected at	1036	\N
+262	33288	Was collected at	1036	\N
+263	33289	Was collected at	1036	\N
+264	33290	Was collected at	1036	\N
+265	33291	Was collected at	1036	\N
+266	33292	Was collected at	1036	\N
+267	33293	Was collected at	1036	\N
+268	33294	Was collected at	1036	\N
+269	33295	Was collected at	1036	\N
+270	33296	Was collected at	1036	\N
+271	33297	Was collected at	1036	\N
+272	33298	Was collected at	1036	\N
+273	33299	Was collected at	1036	\N
+274	33300	Was collected at	1036	\N
+275	33301	Was collected at	1036	\N
+276	33302	Was collected at	1036	\N
+277	33303	Was collected at	1036	\N
+278	33304	Was collected at	1036	\N
+279	33305	Was collected at	1036	\N
+280	33306	Was collected at	1036	\N
+281	33307	Was collected at	1036	\N
+282	33308	Was collected at	1036	\N
+283	33309	Was collected at	1036	\N
+284	33310	Was collected at	1036	\N
+285	33311	Was collected at	1036	\N
+286	33312	Was collected at	1036	\N
+287	33313	Was collected at	1036	\N
+288	33314	Was collected at	1036	\N
+289	33315	Was collected at	1036	\N
+290	33316	Was collected at	1036	\N
+291	33317	Was collected at	1036	\N
+292	33318	Was collected at	1036	\N
+293	33319	Was collected at	1036	\N
+294	33320	Was collected at	1036	\N
+295	33321	Was collected at	1036	\N
+296	33322	Was collected at	1036	\N
+297	33323	Was collected at	1036	\N
+298	33324	Was collected at	1036	\N
+299	33325	Was collected at	1036	\N
+300	33326	Was collected at	1036	\N
+301	33327	Was collected at	1036	\N
+302	33328	Was collected at	1036	\N
+303	33329	Was collected at	1036	\N
+304	33330	Was collected at	1036	\N
+305	33331	Was collected at	1036	\N
+306	33332	Was collected at	1036	\N
+307	33333	Was collected at	1036	\N
+308	33334	Was collected at	1036	\N
+309	33335	Was collected at	1036	\N
+310	33336	Was collected at	1036	\N
+311	33337	Was collected at	1036	\N
+312	33338	Was collected at	1036	\N
+313	33339	Was collected at	1036	\N
+314	33340	Was collected at	1036	\N
+315	33341	Was collected at	1036	\N
+316	33342	Was collected at	1036	\N
+317	33343	Was collected at	1036	\N
+318	33344	Was collected at	1036	\N
+319	33345	Was collected at	1036	\N
+320	33346	Was collected at	1036	\N
+321	33347	Was collected at	1036	\N
+322	33348	Was collected at	1036	\N
+323	33349	Was collected at	1036	\N
+324	33350	Was collected at	1036	\N
+325	33351	Was collected at	1036	\N
+326	33352	Was collected at	1036	\N
+327	33353	Was collected at	1036	\N
+328	33354	Was collected at	1036	\N
+329	33355	Was collected at	1036	\N
+330	33356	Was collected at	1036	\N
+331	33357	Was collected at	1036	\N
+332	33358	Was collected at	1036	\N
+333	33359	Was collected at	1036	\N
+334	33360	Was collected at	1036	\N
+335	33361	Was collected at	1036	\N
+336	33362	Was collected at	1036	\N
+337	33363	Was collected at	1036	\N
+338	33364	Was collected at	1036	\N
+339	33365	Was collected at	1036	\N
+340	33366	Was collected at	1036	\N
+341	33367	Was collected at	1036	\N
+342	33368	Was collected at	1036	\N
+343	33369	Was collected at	1036	\N
+344	33370	Was collected at	1036	\N
+345	33371	Was collected at	1036	\N
+346	33372	Was collected at	1036	\N
+347	33373	Was collected at	1036	\N
+348	33374	Was collected at	1036	\N
+349	33375	Was collected at	1036	\N
+350	33376	Was collected at	1036	\N
+351	33377	Was collected at	1036	\N
+352	33378	Was collected at	1036	\N
+353	33379	Was collected at	1036	\N
+354	33380	Was collected at	1036	\N
+355	33381	Was collected at	1036	\N
+356	33382	Was collected at	1036	\N
+357	33383	Was collected at	1036	\N
+358	33384	Was collected at	1036	\N
+359	33385	Was collected at	1036	\N
+360	33386	Was collected at	1036	\N
+361	33387	Was collected at	1036	\N
+362	33388	Was collected at	1036	\N
+363	33389	Was collected at	1036	\N
+364	33390	Was collected at	1036	\N
+365	33391	Was collected at	1036	\N
+366	33392	Was collected at	1036	\N
+367	33393	Was collected at	1036	\N
+368	33394	Was collected at	1036	\N
+369	33395	Was collected at	1036	\N
+370	33396	Was collected at	1036	\N
+371	33397	Was collected at	1036	\N
+372	33398	Was collected at	1036	\N
+373	33399	Was collected at	1036	\N
+374	33400	Was collected at	1036	\N
+375	33401	Was collected at	1036	\N
+376	33402	Was collected at	1036	\N
+377	33403	Was collected at	1036	\N
+378	33404	Was collected at	1036	\N
+379	33405	Was collected at	1036	\N
+380	33406	Was collected at	1036	\N
+381	33407	Was collected at	1036	\N
+382	33408	Was collected at	1036	\N
+383	33409	Was collected at	1036	\N
+384	33410	Was collected at	1036	\N
+385	33411	Was collected at	1036	\N
+386	33412	Was collected at	1036	\N
+387	33413	Was collected at	1036	\N
+388	33414	Was collected at	1036	\N
+389	33415	Was collected at	1036	\N
+390	33416	Was collected at	1036	\N
+391	33417	Was collected at	1036	\N
+392	33418	Was collected at	1036	\N
+393	33419	Was collected at	1036	\N
+394	33420	Was collected at	1036	\N
 \.
 
 
 --
--- TOC entry 5097 (class 0 OID 0)
+-- TOC entry 5111 (class 0 OID 0)
 -- Dependencies: 410
 -- Name: relatedfeatures_relationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
 
-SELECT pg_catalog.setval('relatedfeatures_relationid_seq', 195, true);
+SELECT pg_catalog.setval('relatedfeatures_relationid_seq', 394, true);
 
 
 --
--- TOC entry 4947 (class 0 OID 71120)
+-- TOC entry 4961 (class 0 OID 71120)
 -- Dependencies: 424
 -- Data for Name: relatedmodels; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10465,7 +16065,7 @@ COPY relatedmodels (relatedid, modelid, relationshiptypecv, relatedmodelid) FROM
 
 
 --
--- TOC entry 5098 (class 0 OID 0)
+-- TOC entry 5112 (class 0 OID 0)
 -- Dependencies: 423
 -- Name: relatedmodels_relatedid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10474,7 +16074,7 @@ SELECT pg_catalog.setval('relatedmodels_relatedid_seq', 1, false);
 
 
 --
--- TOC entry 4904 (class 0 OID 70899)
+-- TOC entry 4918 (class 0 OID 70899)
 -- Dependencies: 381
 -- Data for Name: relatedresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10484,7 +16084,7 @@ COPY relatedresults (relationid, resultid, relationshiptypecv, relatedresultid, 
 
 
 --
--- TOC entry 5099 (class 0 OID 0)
+-- TOC entry 5113 (class 0 OID 0)
 -- Dependencies: 380
 -- Name: relatedresults_relationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10493,7 +16093,7 @@ SELECT pg_catalog.setval('relatedresults_relationid_seq', 1, false);
 
 
 --
--- TOC entry 4750 (class 0 OID 70056)
+-- TOC entry 4764 (class 0 OID 70056)
 -- Dependencies: 227
 -- Data for Name: resultannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10503,7 +16103,7 @@ COPY resultannotations (bridgeid, resultid, annotationid, begindatetime, enddate
 
 
 --
--- TOC entry 5100 (class 0 OID 0)
+-- TOC entry 5114 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: resultannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10512,7 +16112,7 @@ SELECT pg_catalog.setval('resultannotations_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4905 (class 0 OID 70905)
+-- TOC entry 4919 (class 0 OID 70905)
 -- Dependencies: 382
 -- Data for Name: resultderivationequations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10522,7 +16122,7 @@ COPY resultderivationequations (resultid, derivationequationid) FROM stdin;
 
 
 --
--- TOC entry 4860 (class 0 OID 70688)
+-- TOC entry 4874 (class 0 OID 70688)
 -- Dependencies: 337
 -- Data for Name: resultextensionpropertyvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10532,7 +16132,7 @@ COPY resultextensionpropertyvalues (bridgeid, resultid, propertyid, propertyvalu
 
 
 --
--- TOC entry 5101 (class 0 OID 0)
+-- TOC entry 5115 (class 0 OID 0)
 -- Dependencies: 336
 -- Name: resultextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -10541,7 +16141,7 @@ SELECT pg_catalog.setval('resultextensionpropertyvalues_bridgeid_seq', 1, false)
 
 
 --
--- TOC entry 4826 (class 0 OID 70527)
+-- TOC entry 4840 (class 0 OID 70527)
 -- Dependencies: 303
 -- Data for Name: resultnormalizationvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -10551,7 +16151,7 @@ COPY resultnormalizationvalues (resultid, normalizedbyreferencematerialvalueid) 
 
 
 --
--- TOC entry 4786 (class 0 OID 70224)
+-- TOC entry 4800 (class 0 OID 70224)
 -- Dependencies: 263
 -- Data for Name: results; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -11352,20 +16952,1733 @@ COPY results (resultid, resultuuid, featureactionid, resulttypecv, variableid, u
 793	90fea32b-c423-b6bb-00d7-dedc7404ba2a	193	Measurement	8	1	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
 794	ccfecc56-5a48-fcc3-9e55-ead7b35e6fb9	194	Measurement	8	1	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
 795	ee7c1212-7a8f-1778-1892-a753e0e78de2	195	Measurement	8	1	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+796	fe818142-dd8b-c030-dbb4-cc190010e0c5	196	Measurement	11	1	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+797	74aae4b1-88b5-c5fe-edf6-7acee2999914	196	Measurement	15	7	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+798	c57995d1-ac57-948b-8e7d-be0342e2385b	196	Measurement	16	7	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+799	f49193cf-b8e1-17ab-9e74-541152e96a97	196	Measurement	17	7	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+800	c9056f03-2e7a-b1c8-6a20-a1bc1a78e7c1	196	Measurement	19	3	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+801	b0b1fb4c-6f55-2079-edec-4e71a069d767	197	Measurement	11	1	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+802	24509689-0cfa-8b42-345f-0df93613b8cf	197	Measurement	15	7	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+803	5faee2b4-d7e3-72bb-0c7c-08717cce1d4b	197	Measurement	16	7	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+804	e83e295d-3135-4382-8cbc-ff8e107b0b1a	197	Measurement	17	7	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+805	1e18973a-df3b-04ef-5f12-392dda872c79	197	Measurement	19	3	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+806	83e669fd-7db7-69a1-1cb7-807b3dfda23d	198	Measurement	11	1	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+807	12c83b39-ea9a-5c95-2121-df70661f58aa	198	Measurement	15	7	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+808	5870940d-9636-4376-9df5-914a681306c0	198	Measurement	16	7	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+809	e6ada27b-3fd5-bc93-a58e-bde952241e9f	198	Measurement	17	7	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+810	1e804daa-6f96-61d4-83a0-7ef43763e774	198	Measurement	19	3	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+811	9e1682a1-82f6-a7f1-dce4-6cbe5008988d	199	Measurement	10	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+812	fe9f271a-52a2-1435-8fa6-12eb424ac278	199	Measurement	11	1	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+813	e1934b3e-1751-7ecd-d786-0b74e282e648	199	Measurement	14	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+814	871e5fd4-46c6-fad6-d523-046914e81f1a	199	Measurement	15	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+815	401860ca-b940-3d81-d2fc-d1a84fded650	199	Measurement	16	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+816	0d753f8d-a8dc-2014-96b1-e3346b8306b3	199	Measurement	17	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+817	c9ff38c3-4d56-86b9-3405-762f3f8c0020	199	Measurement	19	3	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+818	27eae8a7-9a15-2762-e6e5-0116a3c62e41	200	Measurement	10	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+819	0f3feccc-59b3-57a0-efd1-a9a560420bf1	200	Measurement	11	1	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+820	ecb4b0be-a1af-22e8-8d3e-f284e8d327dd	200	Measurement	14	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+821	90471918-d7e7-87e8-5b40-0d4378c48fbb	200	Measurement	15	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+822	92e67d5f-e17f-5cad-c4f6-69d43c20f248	200	Measurement	16	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+823	414e643f-c049-c36c-aae1-13b9e8b3df3b	200	Measurement	17	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+824	79945b4c-93e8-8106-c8f7-0247f4c91bb1	200	Measurement	19	3	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+825	b545a760-dc57-4f8d-8623-da7a167ca283	201	Measurement	10	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+826	705ba444-0888-0018-8ab2-8ea67272ff65	201	Measurement	11	1	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+827	d17ad1f1-f577-8530-751f-d761f5e58583	201	Measurement	13	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+828	076b94ef-ecfb-a4a0-5fea-693f23468ba4	201	Measurement	14	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+829	cfa5ca1e-83e3-e2be-5969-30e26f89f6e7	201	Measurement	15	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+830	b30643bc-70da-2206-5961-c48e2dc190b3	201	Measurement	16	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+831	3715ccdc-f698-6799-21a0-02a268f3a570	201	Measurement	17	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+832	a5adc926-9259-e0c6-b9cd-a36e88059f98	201	Measurement	19	3	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+833	ad044fb7-2d6c-83e9-ddad-8e6acf4ac36c	202	Measurement	10	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+834	4958140f-a6a2-f4c9-415b-905f6172e48f	202	Measurement	11	1	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+835	42ef4e48-623d-c703-12e4-132da9f9d9a0	202	Measurement	13	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+836	71a40e0d-ec4f-6285-0ede-0f3fa9a0b7d5	202	Measurement	14	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+837	c8d31140-fad9-1f75-272f-3038989ee6b6	202	Measurement	15	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+838	e72b7d30-d57d-c37c-9ed3-44a866099834	202	Measurement	16	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+839	29e4a7b5-d400-5f30-25cd-3d7c5336a435	202	Measurement	17	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+840	af626f9d-01a9-5e88-a511-384b2cf1ed79	202	Measurement	18	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+841	4f2e7c6b-3f2b-b95d-b2ed-5b1c4436e7fe	202	Measurement	19	3	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+842	1a7a819d-3833-00ea-afef-526aa1385593	203	Measurement	10	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+843	d3a09362-65b2-aba2-971d-7329b5a2f02b	203	Measurement	11	1	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+844	0dac7f8b-fc70-c238-bb07-ee6fd6521a67	203	Measurement	13	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+845	85ed995f-b401-0f8f-64f4-6782462de4a8	203	Measurement	14	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+846	695dd12b-ee46-a007-cad4-19f6b0f922f6	203	Measurement	15	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+847	6e2ab7f9-5169-814a-f4ee-c16ffe5a96d8	203	Measurement	16	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+848	5f5dc796-e00a-ef33-5e1a-4911ad8b60d0	203	Measurement	17	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+849	e1fd8f9d-d0a9-5a70-f2d0-678814a734e8	203	Measurement	18	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+850	5cda3ceb-0706-f447-149a-aa0a3d29e013	203	Measurement	19	3	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+851	44086474-3a63-e3b6-ed7a-fd77c3e18fa0	204	Measurement	10	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+852	2686b1bc-2a47-71a8-8447-e67de65a0e42	204	Measurement	11	1	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+853	0fe2b502-6b31-36f3-402a-4287b7db7ec2	204	Measurement	13	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+854	413586a5-37a3-7000-37da-1a0628d686f5	204	Measurement	14	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+855	318e32a9-62f7-47a7-7d89-4504bf7174fc	204	Measurement	15	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+856	ea226a86-d85c-9afe-73cf-ca357fa8f455	204	Measurement	16	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+857	43ea7e35-3847-b1ae-e5b0-b94e97e3e56f	204	Measurement	17	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+858	911bbcb4-0273-3fe4-bde1-7c296ff9fb5b	204	Measurement	18	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+859	b15b664b-ae70-71e9-e0d4-668f00330c73	204	Measurement	19	3	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+860	8d8ef1e3-8ef5-43ce-0b11-d07e0b5f9c3e	205	Measurement	11	1	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+861	1f1267a0-43a2-482b-6e8c-87370c4b06c1	205	Measurement	13	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+862	18fe79b3-f0fb-ccb8-469b-60c0b82a19e2	205	Measurement	15	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+863	a1fb583b-9469-3109-2bc3-6949152ba270	205	Measurement	16	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+864	e6562b55-b94d-adbc-96a0-4040887eeae4	205	Measurement	17	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+865	aa34259c-45b2-841b-5be2-f1f4e2bd864f	205	Measurement	18	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+866	5dc964b6-bd89-e23e-d8ac-0db7df7b7193	205	Measurement	19	3	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+867	773148fc-e590-faea-ca88-16a48fa81890	206	Measurement	10	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+868	6313ac6e-fd82-1541-c250-0c5d0aff64b0	206	Measurement	11	1	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+869	7a432be6-720b-3459-833e-3cb2a75e1d6b	206	Measurement	13	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+870	7d406870-9e10-0743-e202-952646d8d0b6	206	Measurement	14	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+871	99660c9a-2c4b-2a8f-83dc-bd74914552a4	206	Measurement	15	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+872	e1c32295-bcd2-4746-1297-da190a39a48e	206	Measurement	16	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+873	628d26b6-83d4-6844-e495-77d8f2118cfc	206	Measurement	17	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+874	dc8ec669-6e09-d2de-806b-7d371fd794c9	206	Measurement	18	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+875	2fa1b036-f49b-aacf-a801-aa0841737f9e	206	Measurement	19	3	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+876	db5f86ca-194a-2a6b-5b91-84c03d50455c	207	Measurement	10	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+877	da6e091c-baf4-1ca6-d798-6c92e7999988	207	Measurement	13	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+878	fd8ca7be-7d40-ec7f-8cc3-f2d4b5825ded	207	Measurement	14	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+879	c83aa650-d428-4559-0a11-b21599a56d7e	207	Measurement	15	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+880	da5a66c4-fad4-f963-5c1f-83e130fa6a55	207	Measurement	16	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+881	ac7e7462-f2ca-7903-66ca-74b5b3a9e557	207	Measurement	17	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+882	cabff614-7958-6437-3aee-58a05b8e6eea	207	Measurement	18	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+883	ac2b4462-7487-1548-99ac-fea6acdb4b25	207	Measurement	19	3	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+884	ad577363-84da-24ab-c549-dea756f656c6	208	Measurement	10	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+885	09eec121-6ff2-6b6e-c63e-00522f4a7920	208	Measurement	13	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+886	572a4e10-87d0-c8ac-7910-73357d0650f9	208	Measurement	14	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+887	9bdf12a6-a74d-94a5-e96f-2881dd13929c	208	Measurement	15	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+888	9df0c716-7f68-a167-134d-718d482278bf	208	Measurement	16	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+889	98a5cfc6-0890-7a24-8202-1e47e0fc0835	208	Measurement	17	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+890	f690739d-0bed-7725-c7ce-9fccb03d5cec	208	Measurement	18	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+891	3eb63ee4-5944-df97-c6eb-ff4e72fc2cf5	208	Measurement	19	3	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+892	3fcd69fa-ef6c-0407-af51-8b0da9382aa2	209	Measurement	15	7	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+893	0b4bc43f-1fd7-e4a2-59ac-107c3c9ea325	209	Measurement	16	7	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+894	4e47c659-d534-72f5-6f3c-10274766a1b1	209	Measurement	17	7	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+895	a19146b1-5769-6ffe-1aa0-aab5a29f6944	209	Measurement	18	7	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+896	85230640-fd5b-e9be-3e18-fbfa3ba8cf2e	209	Measurement	19	3	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+897	773ec847-c60a-9b6d-e1e6-aab6b0682192	210	Measurement	10	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+898	88c81539-8aa3-8006-b2c1-c9bad612836c	210	Measurement	12	10	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+899	6497a0df-8a69-fb69-dbe2-cf3401718b37	210	Measurement	13	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+900	3cdb53a5-283a-93f9-f9d5-ce3b3ac7da67	210	Measurement	14	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+901	e4b4fdfd-bea3-05fc-ebaf-ab1e70ceb516	210	Measurement	15	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+902	7c317582-c93f-e5e6-b218-c1f51e08339e	210	Measurement	16	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+903	fef74f0c-f090-3a05-52c5-ed90c47e5bad	210	Measurement	17	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+904	8d1b3ef6-8c06-f92c-d7a6-86d99d217b94	210	Measurement	18	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+905	3fb95f26-a277-b437-4fbf-6ca8f20be83c	210	Measurement	19	3	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+906	30c481ed-975a-b4bd-ff61-9be4fd3059df	211	Measurement	12	10	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+907	1b55f6fe-ce0c-4197-3fed-50c03ac6b558	211	Measurement	15	7	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+908	e100e44b-fa5a-ebbf-1f5c-e64ddce9c9c6	211	Measurement	16	7	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+909	451c23bc-8c4b-324b-5078-40aeef626d5e	211	Measurement	17	7	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+910	2595086e-cefd-db6a-040b-0b943dd99e20	211	Measurement	18	7	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+911	ced2ee34-5298-0a1f-9dd3-b1564eaa9f69	211	Measurement	19	3	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+912	54a1f3cd-7cdc-9519-a67a-36effa2804e2	212	Measurement	9	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+913	61dc83ed-2435-ff78-593e-37c90c56e04b	212	Measurement	10	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+914	e86b76f3-b44d-6cbd-83d0-47b837b764ea	212	Measurement	11	1	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+915	941b42f1-6a40-4c7e-6fa3-e093142a1adf	212	Measurement	13	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+916	a41e8678-87e9-92b4-66f4-c9395609a444	212	Measurement	14	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+917	23ba3d3f-8f3b-8124-eead-4836f96f8502	212	Measurement	15	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+918	e8a410d0-fa79-1afa-86bd-be02ddd5feae	212	Measurement	16	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+919	099f3950-e7bd-499a-a496-fa0355175ad9	212	Measurement	17	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+920	55e17c58-e134-1e40-8689-c71f7643d412	212	Measurement	18	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+921	b13ae886-b277-1574-3bba-aecbcbd2fedb	212	Measurement	19	3	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+922	c4f7f3bd-3e03-5e32-1d5e-b74e5871a563	213	Measurement	9	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+923	6221e8c6-283b-7994-6144-bc885e47d5d8	213	Measurement	10	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+924	2198d9d1-b3e9-e2a6-83de-d23a7e35f426	213	Measurement	11	1	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+925	203acd0e-c9e2-51ab-c5ff-1bdc71a40d07	213	Measurement	13	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+926	00644786-e17b-42a0-95e6-1d3c1ab2a00a	213	Measurement	14	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+927	028bf855-b153-389c-18ce-4cdfd85f8c04	213	Measurement	16	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+928	8031d6c7-c5af-b789-7783-cfc109ee2864	213	Measurement	17	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+929	d8033de5-6736-45c4-481f-257763c976da	213	Measurement	18	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+930	eb286d43-bd84-1d94-dea5-684434340830	213	Measurement	19	3	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+931	3b87fbc1-2b18-ffd7-3047-e8de2f5b9af4	214	Measurement	9	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+932	5aae7226-dfd7-85b3-aeeb-2e0aa2d4fdb1	214	Measurement	10	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+933	139702e7-b361-d467-0546-bfc0eb3483db	214	Measurement	11	1	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+934	8eaa7df6-60d7-c153-a148-a9d5ecdeb6cf	214	Measurement	13	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+935	d59bbad6-c20f-3cd7-1663-98472d6d32f2	214	Measurement	14	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+936	62fbe64d-b0f3-d2ae-c289-b28e7bd47ad0	214	Measurement	15	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+937	5041934b-6950-bc50-d192-8d6272d8c381	214	Measurement	16	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+938	39875070-ced8-7cc1-9a83-d0a43d9bba2b	214	Measurement	17	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+939	f4eb1eca-327f-ab81-ed98-c0a82549a53b	214	Measurement	19	3	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+940	14371a97-7f92-71f7-2fb2-bed88ba37add	215	Measurement	9	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+941	eca65a7e-e06d-2f45-01fb-49f177b8a0ed	215	Measurement	10	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+942	223e8c28-28ee-e3e1-39d3-4ddc5aab5b18	215	Measurement	11	1	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+943	853268e0-90ad-1db4-9be6-2a00881d3e07	215	Measurement	13	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+944	16b7f1a5-b049-4117-2273-83bae90adc93	215	Measurement	14	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+945	76aaad44-bcba-b8d3-d626-b01c3ccc8b39	215	Measurement	15	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+946	75b66981-c8ed-433b-f8bd-206d6e0c07bd	215	Measurement	16	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+947	55e27b9c-2073-202b-99b7-969cde28d044	215	Measurement	17	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+948	90a839fc-e5ed-741f-8b73-848df04734d8	215	Measurement	18	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+949	bde4754a-8ed9-82c7-f728-37eca2a319a3	215	Measurement	19	3	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+950	a7709968-63ff-f497-fe87-94fcf7d4a202	216	Measurement	9	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+951	0da91805-fc6d-a3fa-b81f-ed13408268ad	216	Measurement	10	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+952	abf920e1-d8de-9674-151b-7448875f5143	216	Measurement	11	1	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+953	6bbeeef4-710f-a067-624d-f475368404f8	216	Measurement	13	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+954	55b347d3-2017-c536-c31a-3812de15cdaf	216	Measurement	14	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+955	7c8809e3-a3ad-aa67-0c61-f56c2ed6d12b	216	Measurement	15	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+956	31cc9189-9b51-6e9e-7142-0b8f55c642db	216	Measurement	16	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+957	46cdf222-4bde-4722-0552-c6c181b79a7b	216	Measurement	17	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+958	b4e17fe1-50d2-f35d-c299-c03cc9439022	216	Measurement	18	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+959	74370a7c-0c00-78d9-9046-8681cb2a1ac4	217	Measurement	9	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+960	666092d6-427e-0143-becc-1c82efa193ee	217	Measurement	10	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+961	ade38055-dd30-8b43-4d17-8bb945b0c532	217	Measurement	11	1	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+962	eeb35380-1927-1b2e-9182-fed6c481f582	217	Measurement	13	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+963	8e44e15c-925a-5a01-db83-cee1227d39a1	217	Measurement	14	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+964	64b4e9ae-db9d-e292-94aa-0ab0d8683b1c	217	Measurement	15	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+965	e7948f0d-b275-099a-4495-845b3a37166c	217	Measurement	16	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+966	a1628d92-a174-31b5-ca98-d9a4f58b8015	217	Measurement	17	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+967	1e7d1b92-7827-6348-b3fa-ab4a9808697e	217	Measurement	18	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+968	5c796573-948d-70eb-27af-dae4543f4765	217	Measurement	19	3	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+969	1a759b19-33ea-26de-4ab2-6ede1d7651d7	218	Measurement	9	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+970	eee0d2da-653a-eb8c-5e28-6f5c1ea9807e	218	Measurement	10	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+971	59aeb9e8-25e9-4ea0-3001-7549ed7c6bed	218	Measurement	11	1	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+972	0cb13dd2-325d-99dc-afc9-e8592cc6e55a	218	Measurement	13	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+973	d3003cb9-7aa0-179a-d60b-e7e9dbabf049	218	Measurement	14	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+974	ebf9bd37-7c88-1d54-2269-769fea539a1a	218	Measurement	15	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+975	437e16af-61b1-f36e-66d6-61242655577b	218	Measurement	16	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+976	60442e20-7760-e443-fe64-68bd30a01bfd	218	Measurement	17	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+977	357a352b-ea88-5c5c-9902-c7348c36bbf5	218	Measurement	18	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+978	d26f7ca8-9e37-39d2-ed77-b9bbcf7771c7	218	Measurement	19	3	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+979	302379ff-f0e9-e3dd-4ccb-a594d791d142	219	Measurement	9	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+980	f83bfb33-bf16-97da-28b4-5ca9da49e796	219	Measurement	10	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+981	4ce820fc-3c5d-5dfc-2afc-136ea479bf89	219	Measurement	11	1	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+982	a4f48e0e-075e-1d8d-108d-b6b0e1916f4e	219	Measurement	13	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+983	7e7a161c-9da6-dd5e-c64e-90855e453477	219	Measurement	14	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+984	487c7a95-3d33-c895-9189-91f3134a9ffc	219	Measurement	15	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+985	9351c573-42a6-9862-a46c-fcbd96794366	219	Measurement	16	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+986	209f2e69-2f4b-039d-d931-ad96de4fcd96	219	Measurement	17	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+987	41fe563c-366f-2cce-6875-367a226ff70d	219	Measurement	18	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+988	dd805967-12df-3ac9-2c60-a6bc6fc67490	219	Measurement	19	3	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+989	11a5fd0b-86a0-688a-52c6-09a6021153bd	220	Measurement	9	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+990	aada3202-166d-bf99-29c5-faabea2f723e	220	Measurement	10	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+991	cb981678-1d39-5b61-1aa8-305189255667	220	Measurement	11	1	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+992	c2e6381b-e081-efad-0312-edbd378b7c37	220	Measurement	13	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+993	6e9340e8-7d43-d7f7-15d9-2462a6401588	220	Measurement	14	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+994	283d4302-cce9-9919-252e-70155cb510c0	220	Measurement	15	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+995	5d943dbf-0d14-0cc9-b43a-e916ec660bce	220	Measurement	16	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+996	7a209ecf-16f1-9a1e-9bb3-ddd2479eb733	220	Measurement	17	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+997	aadfb99a-d979-0cea-6dff-6bfa53052d5f	220	Measurement	19	3	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+998	9cef2cd7-fa32-d1a3-721d-a1a2e1822e03	221	Measurement	9	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+999	3189b48a-9d63-a729-e180-76eb865b0395	221	Measurement	10	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1000	a856be5c-a6af-e683-0e2e-ea2c22c6e58c	221	Measurement	13	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1001	12228536-f5b1-42e5-2dfa-ebb33bbcf47b	221	Measurement	14	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1002	8cf3f1ab-2bb2-8be3-6aa6-12ff333955da	221	Measurement	15	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1003	b8323ccb-6b3d-882e-61aa-84f085f9fcc3	221	Measurement	16	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1004	bb0ced61-2943-9072-f85f-a21b08220c25	221	Measurement	17	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1005	6efcf79f-f671-b595-8a3c-363413f1b57c	221	Measurement	18	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1006	833bcb84-f37e-fac2-e6fe-42bdb53ee343	221	Measurement	19	3	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1007	2d065611-5a57-0fd1-8196-4325535e7632	222	Measurement	9	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1008	336668ae-6570-0874-d4a2-5fdb163d83a4	222	Measurement	10	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1009	33cf8f85-afac-bf5b-88ba-022812d955d6	222	Measurement	13	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1010	920a9273-3df8-9dc9-5f04-2b4f0ad5457d	222	Measurement	14	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1011	bc943fee-20b3-d621-7c75-d4a9ecf478fc	222	Measurement	15	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1012	dcc51f4a-b945-b104-0a47-6358bf8e4c32	222	Measurement	16	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1013	a82a6b0f-8e76-925a-1044-e1096a732151	222	Measurement	17	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1014	08c4fc29-0930-0de9-0ed0-bffa40be0f69	222	Measurement	18	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1015	5e057c4c-93cd-ffde-3ebe-d113aae8c907	222	Measurement	19	3	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1016	224a7477-8bb0-c337-ebb4-21814c5635d7	223	Measurement	9	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1017	6306bdc5-6e09-b1b9-35b2-4cdbdba8943c	223	Measurement	10	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1018	f7388129-91d5-4a00-a728-1012308f20b5	223	Measurement	15	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1019	47afa23a-3e7f-5943-57ed-1f324bcc98c8	223	Measurement	16	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1020	a111bfeb-e527-9026-135d-cd7d3d97a57e	223	Measurement	17	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1021	dd5f04e6-6fee-5809-897c-3dee468fd4c7	223	Measurement	18	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1022	ca68ad98-2d2a-bf3a-45c0-adce1349425e	223	Measurement	19	3	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1023	63b31ae1-0c83-b161-3c1e-197082e49330	224	Measurement	9	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1024	685c7528-c7c2-8188-6539-fcbed86a91fa	224	Measurement	10	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1025	b226dc27-6f16-88d7-ab30-48e829759275	224	Measurement	13	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1026	64123ef0-73d8-55b1-84ab-1329663863b1	224	Measurement	14	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1027	02d00878-0af4-1388-2232-5670a9e104ba	224	Measurement	15	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1028	1370c58f-507c-4de5-89c7-527c826934ea	224	Measurement	16	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1029	20c96a6e-db2c-48f8-08fd-616287f01369	224	Measurement	17	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1030	ece17ca4-b926-eebc-2ed6-69de21bf3860	224	Measurement	18	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1031	2b4dc9a9-c7f5-9ee1-c270-54427df47b60	224	Measurement	19	3	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1032	005f97db-f9f2-0953-f9a5-cb1b2f6e0a89	225	Measurement	9	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1033	c861353f-4dd4-f9bb-9beb-881f60969391	225	Measurement	10	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1034	344ba43b-9072-30bc-a7f3-cee2988eb993	225	Measurement	13	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1035	61a4685d-7e0f-6b60-4cbb-30d29c3a7bf5	225	Measurement	14	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1036	6746e8bb-f98d-9a23-f971-64ef9202a898	225	Measurement	15	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1037	0bef756c-0bad-7784-9d2e-44852890ced8	225	Measurement	16	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1038	4952ddb9-9cd0-c5c0-f6f5-40b88d691d3d	225	Measurement	17	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1039	13ad61c1-c003-d258-72ff-e872d42fbb0f	225	Measurement	18	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1040	3fb3f8e1-f91c-f293-4c28-3b896fd638c1	225	Measurement	19	3	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1041	95c577c6-9e40-55c4-a79c-bf26861bc5e0	226	Measurement	9	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1042	7a1d99a6-7d6e-4da3-713f-46a1fedecab3	226	Measurement	10	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1043	9dcfbbcb-2cb4-b928-4d8b-d871dab65504	226	Measurement	13	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1044	9fc5e810-fc53-9cc4-7430-c732af666cae	226	Measurement	14	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1045	b77410b5-1b19-e70a-e462-24399610b013	226	Measurement	15	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1046	7cb93b30-126a-4c7b-fcf0-39a5570687a8	226	Measurement	16	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1047	0bc35752-5514-3efe-d060-e27cd9353129	226	Measurement	17	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1048	7842a519-edf8-03ed-1b7b-93bf209f75d1	226	Measurement	18	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1049	02aeb38b-3a22-b975-b283-20e9efc08743	226	Measurement	19	3	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1050	06a39d26-b2fc-0fa2-4b3c-e56b59c2bb79	227	Measurement	9	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1051	b7e96edd-62f9-357b-94b1-0233b1678859	227	Measurement	10	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1052	6b347250-071a-fdc8-6dc0-5de92fead51b	227	Measurement	13	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1053	f8217ec7-a8cb-df38-0dba-9af41e1431b8	227	Measurement	14	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1054	80981ed4-fb52-01b3-8441-89d899fa45fc	227	Measurement	15	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1055	a7e9e62c-b894-f3a4-c71d-3e861c3ad199	227	Measurement	16	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1056	3faef8a5-5d33-acb3-aa95-31e2b3f0ce12	227	Measurement	17	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1057	55bf8557-6d96-5990-d578-831e5eadcbd8	227	Measurement	18	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1058	bbdd6705-e110-ad5e-e238-1506f6e285ad	227	Measurement	19	3	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1059	0c0ab64b-41eb-c04d-4e2b-5cb73bb71e4a	228	Measurement	9	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1060	76a1cbbb-a32a-21c7-b057-96b9f4cbaedf	228	Measurement	10	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1061	623d2d56-eaed-2901-785b-d380be362432	228	Measurement	13	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1062	5d5a5882-f17d-3fba-4076-a441565e1570	228	Measurement	14	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1063	568d0022-010b-99f0-3a4c-3c8315cfa70c	228	Measurement	15	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1064	e049c449-69e1-4224-f4a0-6a67874699f6	228	Measurement	16	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1065	7f1d68fa-87e6-c123-cff9-494b10798659	228	Measurement	17	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1066	e048c4cd-96bd-5453-a288-17e2cdbdb903	228	Measurement	18	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1067	35b7e926-f64b-350d-6173-123205252bbe	228	Measurement	19	3	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1068	e8065725-4ba1-38b8-d03d-1886caae28a3	229	Measurement	9	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1069	9ce7d2d4-70f6-4675-58be-8a2da6c44163	229	Measurement	10	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1070	b738d4cf-eabd-315d-af78-aa98deabbdeb	229	Measurement	13	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1071	00df6884-523e-af57-892f-dba6f918dc6f	229	Measurement	14	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1072	37e44d37-718e-15a2-7664-fe4dee15d22b	229	Measurement	15	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1073	e09f18a0-4ef7-c91c-afe7-1976d21e70ad	229	Measurement	16	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1074	e65ab665-25a7-607d-a681-97a97e326601	229	Measurement	17	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1075	dddcc69e-ddb8-bb34-8a01-7f06c1ead9e4	229	Measurement	18	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1076	7a80998f-933f-cc39-521a-59c8c8dc4f4e	229	Measurement	19	3	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1077	a319b308-82c8-3e36-c739-69f190960ecb	230	Measurement	9	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1078	eeeb042f-e683-7123-78a9-e4c663b0b31d	230	Measurement	10	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1079	7c42adfc-c715-a7b7-2c75-57f0c06c2f80	230	Measurement	13	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1080	86e7d815-7b83-a469-10ec-92cbcca0034c	230	Measurement	14	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1081	b8c28b66-66cf-ab68-4b1f-77e6853a4e5a	230	Measurement	15	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1082	50052f63-f380-1f86-1cc1-a5758e5ff338	230	Measurement	16	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1083	ea7f5668-a081-8669-67e1-2f209308a4c6	230	Measurement	17	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1084	aff54e95-aea3-ce6b-1a06-2afb09ac5e1c	230	Measurement	18	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1085	198ec6d5-35ee-437d-c5da-b12425138c9f	230	Measurement	19	3	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1086	af7fa3e2-a242-e420-cafc-493ec04139e9	231	Measurement	9	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1087	98d12186-6a35-f9af-9302-51faf44e6ef9	231	Measurement	10	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1088	6a8c1fa3-b108-604f-2b67-3c07a516f033	231	Measurement	13	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1089	94b29465-b1b5-70cb-b0e4-287fd315a8f3	231	Measurement	14	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1090	e74db5d6-0b5a-be81-cf11-5e15058e3908	231	Measurement	15	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1091	f7f51aa2-bfbd-b699-5391-2840acc2459b	231	Measurement	16	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1092	75cc62fb-582a-b23c-718b-5d755fcc3025	231	Measurement	17	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1093	50b7b42f-8da1-e6f0-6276-af3143e95e89	231	Measurement	18	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1094	b3277665-c8bb-b762-b124-a7447d30e460	231	Measurement	19	3	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1095	470972de-76e0-98a1-4fec-fd9bd79a4722	232	Measurement	9	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1096	1a307d47-38f6-5571-979e-8ee3fc3e4c50	232	Measurement	10	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1097	04be2956-a11c-9ac6-69b1-32e0ffefd40c	232	Measurement	13	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1098	7b3c6565-5c00-207d-b2ac-07c94ded4b6a	232	Measurement	14	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1099	d4953d0e-ea4a-4d34-6c4c-dca5d50224cd	232	Measurement	15	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1100	cd170a51-f08b-1f40-ddda-2fea9f509a4f	232	Measurement	16	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1101	58cf17e4-e3c8-026c-649a-4c99a005780f	232	Measurement	17	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1102	959fe53d-c530-3af1-a126-f42087ee18c3	232	Measurement	18	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1103	ce5503dd-b1ca-47f3-b30d-10f8bfe3db6f	232	Measurement	19	3	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1104	92a5a711-5364-df7c-529b-642beb390079	233	Measurement	9	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1105	2025eb48-2da0-d493-3abf-4c6e1d215bb0	233	Measurement	10	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1106	ec37e9a2-2ec4-be62-eb6f-8832b6a31754	233	Measurement	13	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1107	fefb39f4-27a0-f2cc-fc66-bab6c6f5c96a	233	Measurement	14	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1108	a2676648-8f94-9561-c661-535eea22474b	233	Measurement	15	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1109	19ba81c9-5e8a-fe92-4ee3-4386c4e303a0	233	Measurement	16	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1110	31d8e81b-a0d0-345d-8720-e90d68b1f8bd	233	Measurement	17	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1111	86e5e87c-37ea-e280-c149-2e613c7288f9	233	Measurement	18	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1112	3e8aeee4-3e3a-dda5-2947-10247f98988a	233	Measurement	19	3	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1113	f79d8e39-fcb8-d35b-ac34-e039db439935	234	Measurement	9	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1114	d084443c-6b4f-686f-3777-66e216bef695	234	Measurement	10	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1115	633e8126-3f06-b2b4-b95e-54584de4a2d3	234	Measurement	13	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1116	83fdf169-1a33-cbbd-d52b-fc45968e4cf3	234	Measurement	14	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1117	fe32ce6c-a3d5-032f-ba2d-c17990ac6bc1	234	Measurement	15	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1118	1acc5b1d-c930-69af-9563-970201d26b01	234	Measurement	16	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1119	d9a391c2-e034-3fd9-e3b1-6c3267081848	234	Measurement	17	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1120	060f17be-d757-e61d-390d-04e8d498ec48	234	Measurement	18	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1121	ca5e7ce2-6c3c-cfc3-6603-0d051825ac9c	234	Measurement	19	3	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1122	37c05db5-96bc-d52b-5d7f-ab0821415199	235	Measurement	9	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1123	77047f2d-547b-71bc-f108-3b7b87b45b4d	235	Measurement	10	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1124	6bc5d0c8-3fd5-4908-fdcb-c09263fee41c	235	Measurement	13	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1125	2f24bbca-d06c-13bb-264f-fd5e0d2672cc	235	Measurement	14	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1126	ac9d22af-405e-c1c0-3b92-552c5aae9567	235	Measurement	15	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1127	7d24b6fb-c021-0387-6055-7a23a49a04d2	235	Measurement	16	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1128	98007698-286a-9207-2a2b-db7eb0e48f45	235	Measurement	17	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1129	1e492324-fbcb-b491-a446-0d2732c27f29	235	Measurement	18	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1130	c836fac8-6330-e10b-47e4-1cdd814d425d	235	Measurement	19	3	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1131	f78d8208-0271-e086-91b9-30b5b8aee2c4	236	Measurement	9	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1132	ad76b908-5194-0167-1b16-9fdb72efba73	236	Measurement	10	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1133	b58ed6d9-3818-7944-f0fc-03360b2a5c1d	236	Measurement	13	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1134	3897aa7b-5f08-b966-93a7-b4c1e030c912	236	Measurement	14	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1135	ee2cdf0c-6dad-9ce2-58a7-45f326560302	236	Measurement	15	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1136	32229a1d-f9e5-8366-05d5-aa8702051a9d	236	Measurement	16	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1137	77bbd1c6-c0ff-783e-7ed7-d86e643286f7	236	Measurement	17	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1138	33e0e8b7-fd3f-e026-1d71-9efed48e5c74	236	Measurement	18	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1139	2140d2db-d6d9-7b83-e4cd-8d5d6b355ecb	236	Measurement	19	3	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1140	1088b8fd-e87f-093f-b6d2-566579f10051	237	Measurement	9	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1141	6a9f2d58-2eaf-dfb5-5fe5-77154f3fb565	237	Measurement	10	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1142	d33f1ced-ae0f-e92f-5e00-2659231587da	237	Measurement	13	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1143	56693065-e89a-3b6c-1ed1-c346f9fe1579	237	Measurement	14	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1144	fbaa8f36-239f-23d9-2f7a-906afbaa7f52	237	Measurement	15	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1145	025f3613-1314-4268-81f9-a34696cfe0a9	237	Measurement	16	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1146	8d18b5c5-35bb-bb93-2d11-c0864afeab45	237	Measurement	17	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1147	dd5066c3-c7ac-6cb6-5fe3-033ebf0474d3	237	Measurement	18	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1148	ff77a353-60c4-d741-2d9e-23bce52233f6	237	Measurement	19	3	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1149	051f75a8-aa02-cf50-ee88-b349b7f8002d	238	Measurement	10	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1150	bf709eef-2614-2b03-a82b-befa9fd74fd4	238	Measurement	13	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1151	8fa63689-ef96-e63b-9d01-b71734470106	238	Measurement	14	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1152	60475d6a-896a-6e60-ef6d-f3e57c2077d3	238	Measurement	15	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1153	b253bcdd-a9bf-2642-9b47-7033d0050a7b	238	Measurement	16	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1154	dce5c303-2b42-6297-88d2-f6e3fe16f40c	238	Measurement	17	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1155	5307ea7b-c6a0-f0e3-e69a-d9654d359fd6	238	Measurement	18	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1156	74a98e00-023b-c748-0c47-c19e74065bb4	238	Measurement	19	3	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1157	4995cd94-9d36-efe3-6003-ea70ad2973dc	239	Measurement	9	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1158	09ff18e7-0d5a-5390-7bd3-f77783a2e159	239	Measurement	10	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1159	2f44d877-b7b1-e0fc-f522-bf8477d6d913	239	Measurement	13	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1160	e8ac886f-b1c9-ef52-fe34-61f327f7b6fb	239	Measurement	14	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1161	e5b92cae-4e5e-1b5b-5f97-7f82d1eff95c	239	Measurement	15	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1162	976e868a-e31d-7056-006c-7277fd19fc72	239	Measurement	16	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1163	7f64f49a-ce22-c962-549e-3d46cce2438e	239	Measurement	17	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1164	05814f29-763f-74d6-af1b-374b10fbc3ce	239	Measurement	18	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1165	76b23435-55d0-64b4-45d7-89457e7240d5	239	Measurement	19	3	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1166	b365b94d-1492-777a-7532-0bbe702034b8	240	Measurement	9	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1167	91f8a258-e8f3-db98-679e-4e6bc53503e2	240	Measurement	10	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1168	570a186d-65c8-5e2e-0a43-60dfac325537	240	Measurement	13	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1169	d86ffbeb-b6e8-ad1b-67b7-51541ea0065a	240	Measurement	14	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1170	17def49d-038d-0813-6f09-0104c656d0c7	240	Measurement	15	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1171	b8b2cf2b-f0c5-f1d7-ee40-c9f7bb90e57a	240	Measurement	16	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1172	d15be106-9c66-959a-a60f-b44d5898202b	240	Measurement	17	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1173	41e56b10-561e-3a32-e84d-913fe45eb58d	240	Measurement	18	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1174	b723ed32-d4bd-1da4-2594-31732af25ec2	240	Measurement	19	3	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1175	f91e7580-ca94-29de-99e7-be705a3afa45	241	Measurement	9	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1176	e90dc630-99f7-6818-6bfc-8e8503023ac7	241	Measurement	10	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1177	dd16e284-eb49-4b99-85e4-3971b6433d40	241	Measurement	13	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1178	46b79e1e-fb05-5afc-733f-5f094a379848	241	Measurement	14	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1179	1311c0fa-12b6-c163-ef8e-0c555bd722d4	241	Measurement	15	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1180	aaeef12b-4508-2f35-33b6-90868913cc76	241	Measurement	16	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1181	3a50d78b-924f-f711-b9c1-033fef55c8ec	241	Measurement	17	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1182	cb16fe56-74f4-9c93-7da2-46df3fda6f7d	241	Measurement	18	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1183	00473e73-ff4b-5963-aa18-7fbedaa27d9a	241	Measurement	19	3	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1184	634f85c3-e940-c230-1748-d18baf75359b	242	Measurement	9	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1185	427a448b-f14e-bbe2-d856-7b90df06e046	242	Measurement	10	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1186	e7a6f78a-d632-b322-ea05-2ff9ebb9634e	242	Measurement	13	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1187	db9dc182-7d80-02c9-026d-0c7479748734	242	Measurement	14	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1188	3d6840f3-dff6-1a77-2e29-6d4df9e3af6e	242	Measurement	15	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1189	1c1a3c74-88f9-298a-d6db-e35916395325	242	Measurement	16	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1190	05e521f1-b568-fe89-9783-84aecbc1f193	242	Measurement	17	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1191	4fe0d23e-2a0c-38e2-8ad7-55d7fbd94a69	242	Measurement	18	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1192	bf30852b-e61c-beaa-1d2c-c55fd5858bdd	242	Measurement	19	3	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1193	7da60b1a-8500-cdd3-f0bb-7536cc49d91e	243	Measurement	9	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1194	792b37ff-8ac1-02a3-92a9-e1cda47e2bdb	243	Measurement	10	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1195	82a53784-43ff-3abb-15f0-cde241a8249c	243	Measurement	13	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1196	73481a07-6883-54a9-5aaf-3c76ae6aa727	243	Measurement	14	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1197	c29681b5-aef8-110e-891e-554d4d739dec	243	Measurement	15	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1198	38ff44be-363c-fe7e-391c-1cbbe815cf20	243	Measurement	16	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1199	b8e8a411-5452-10be-f655-ff78d0463a3f	243	Measurement	17	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1200	c691d605-3a7e-4e54-8ee6-8dd4fdaa6304	243	Measurement	18	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1201	38e25a43-3640-fd71-e54a-174c0db8fac3	243	Measurement	19	3	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1202	37b6cd37-f2b3-9a93-91bb-1c7c31791ed9	244	Measurement	15	7	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1203	dcb9f204-ac27-d665-dae7-11f3dc8966c5	244	Measurement	16	7	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1204	9b2ec744-1808-1aef-2797-45b1abf0b9fb	244	Measurement	18	7	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1205	fd920e49-faed-5b70-df14-2229020a31d4	244	Measurement	19	3	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1206	bb5b7cfd-398e-c626-b198-c68770b2b151	245	Measurement	15	7	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1207	36a3552b-4505-286e-8e0d-bd585871f14a	245	Measurement	16	7	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1208	86361dcf-add7-63c1-e5dc-6281896cc625	245	Measurement	17	7	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1209	6c331ff5-6323-0909-bd64-0632f536e9f3	245	Measurement	18	7	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1210	ac878729-e387-bdd5-f928-8d9d78a5a5a7	245	Measurement	19	3	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1211	7837c6ad-46f2-37a2-2770-d83b3b926fd6	246	Measurement	9	7	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1212	266c3976-36fb-9077-149b-1b7832e7b186	246	Measurement	15	7	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1213	a7e5c0ff-92aa-6272-0b76-63a84f23a5d1	246	Measurement	16	7	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1214	120be0ed-7471-e7b3-ee90-dd48c4f4eb15	246	Measurement	18	7	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1215	a5f45894-ef91-eb9c-123c-6b95fe35acc1	246	Measurement	19	3	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1216	34dd3d5f-19c7-a453-13b6-54f526a4c250	247	Measurement	15	7	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1217	64be6674-ca00-c169-4513-96404da36a14	247	Measurement	16	7	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1218	3b73ee28-1051-d09f-9904-dd6a381d0fb5	247	Measurement	17	7	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1219	ed2579cf-680b-d062-aec2-ddfefa0ddc46	247	Measurement	18	7	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1220	f7e94190-f987-4611-4c5e-a9942bbee92e	247	Measurement	19	3	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1221	ab42840b-d8ee-7890-fa11-c2ff6cd39e61	248	Measurement	15	7	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1222	562524d4-1a34-3cba-5ae4-ec42db52feac	248	Measurement	16	7	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1223	9d0d28e1-f4a9-484f-5fbc-c493cf570313	248	Measurement	17	7	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1224	3fb395fe-f4e6-f619-5917-de67fc3eb8a0	248	Measurement	18	7	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1225	23e4dd28-4ef3-9869-bd60-20b4792034ad	248	Measurement	19	3	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1226	73e68478-0f9b-cbde-0d23-4957d281e44a	249	Measurement	15	7	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1227	fe579826-8d2e-c374-bca1-06d1db48a9db	249	Measurement	16	7	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1228	5346b3c2-c135-6561-cd09-de50767df0ff	249	Measurement	17	7	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1229	78f15ff3-9323-a6a1-a2c2-30a1017405a3	249	Measurement	18	7	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1230	e4990ba0-9170-dc52-ca58-4dd6a4f8b318	249	Measurement	19	3	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1231	b9c55bf1-f794-1c90-e269-3d5978c5a40c	250	Measurement	15	7	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1232	3bb34f22-49ad-528a-16d4-cbf37482aef9	250	Measurement	16	7	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1233	810a85a5-621e-9de6-7837-56bb4e698462	250	Measurement	17	7	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1234	9f5fdaea-992f-d110-827f-201a2e9ce6fa	250	Measurement	18	7	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1235	e08e708a-4dea-e4de-83a5-44875654feb1	250	Measurement	19	3	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1236	c433b581-3d82-00e7-5f91-dd6bef03f4e4	251	Measurement	15	7	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1237	833a1e9c-9076-b6a4-3a74-eac839bfb67a	251	Measurement	16	7	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1238	6a1a155a-7155-3388-532d-abacfefdbd71	251	Measurement	17	7	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1239	d87ada72-afe2-392e-9bab-3e3059a9ff5f	251	Measurement	18	7	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1240	e765d87c-32e7-5d64-9652-b0e1fa207c1e	252	Measurement	15	7	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1241	4f91b80b-8071-e371-4e05-c91079d27ffc	252	Measurement	16	7	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1242	22462fe1-7b01-cdd2-cbcd-e93ef68f7d32	252	Measurement	17	7	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1243	3dad132f-2a46-42af-2c41-f1f1fec47c93	252	Measurement	18	7	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1244	2dfebaea-83ac-ab4b-d970-ed53d43a7d8e	252	Measurement	19	3	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1245	c965110b-2ccb-3ce1-db32-53bb6b3cea39	253	Measurement	9	7	\N	1	1987-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1246	f5e04c05-c22e-5f3f-9727-24a3cc7abede	254	Measurement	9	7	\N	1	1987-08-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1247	87b551a8-2005-44b9-b1b5-4de8677cc82c	254	Measurement	16	7	\N	1	1987-08-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1248	85d9bb4d-81c2-01e5-8d86-16276d0ebf91	254	Measurement	17	7	\N	1	1987-08-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1249	aecf97f5-8d26-f193-3f55-e7240fece56a	254	Measurement	19	3	\N	1	1987-08-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1250	0d0cf3b3-47ef-4deb-015c-a69090c6a0db	255	Measurement	9	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1251	7692ce22-62e6-3605-d0ca-a1dbc07cc205	255	Measurement	15	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1252	16d4a0af-9488-f7c9-f71f-0a8d3c6fd7cc	255	Measurement	16	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1253	4be22c54-94b4-041c-d6e1-75eb84e59021	255	Measurement	17	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1254	de7c8c79-ac8a-cdf7-90a6-b5ef1ee60442	255	Measurement	18	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1255	41bd345b-3d25-ac5a-a5b3-90ae54c86365	256	Measurement	9	7	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1256	19c4a4f4-11cc-a638-2917-2d19eca18ea8	257	Measurement	9	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1257	52ca0528-8180-1f68-068c-2c84ff70cb6b	257	Measurement	15	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1258	26662ffc-64f7-42df-3fff-d7ab2c5e43c7	257	Measurement	16	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1259	3886b6f2-82ce-a8a7-377f-60c38e4b0673	257	Measurement	17	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1260	01be3df9-ca6b-b897-bf03-793403a80ded	257	Measurement	18	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1261	3f5785e6-e807-9cec-866e-72cddc612070	257	Measurement	19	3	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1262	259dba56-004e-e788-f024-1db03250fd6f	258	Measurement	9	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1263	3ef0dd7f-4765-47be-c548-ada68c604e74	258	Measurement	15	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1264	3350f96f-9e02-85c7-a373-253e477ecc91	258	Measurement	16	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1265	077aa937-d18c-7430-2298-fa06813c5fbb	258	Measurement	17	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1266	32f81c58-5a44-14bd-9e09-70ae1678f2b6	258	Measurement	18	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1267	7e84019a-fd9e-c763-11f4-e3b9f36bb2c8	258	Measurement	19	3	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1268	1ff1097b-16e0-88dd-c03e-b39416159b97	259	Measurement	9	7	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1269	d9c91830-59fc-7d1b-2e26-99916b05f455	259	Measurement	16	7	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1270	172de150-9483-aec8-8e6a-8f7f09150651	259	Measurement	17	7	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1271	84b690e0-5901-567a-7db4-f07751fbafcc	259	Measurement	18	7	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1272	00af685a-9c07-84c7-dd28-ec19db763038	259	Measurement	19	3	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1273	43203394-666d-9751-84c4-0a853cab8e9a	260	Measurement	9	7	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1274	596349ba-6dc8-7c54-b66f-6e4b0c0f38bd	260	Measurement	16	7	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1275	b35d3e7d-b2cd-2424-5f19-6e0bd2942aab	260	Measurement	17	7	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1276	b81b6873-d2b9-f5cc-c160-5f6820e3e5fd	260	Measurement	18	7	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1277	edcc6f45-aeae-f448-b907-a58e7e61afc7	260	Measurement	19	3	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1278	5d82e569-f8a5-b11a-fb30-5d9d85cb0fcf	261	Measurement	15	7	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1279	5a8ef0e4-f67c-591d-9017-f78f76aff164	261	Measurement	16	7	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1280	35bb1e4f-9e5c-30c3-4a50-fff7874ebb82	261	Measurement	17	7	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1281	d75e1149-467b-a4ae-2116-34b0eeb134e4	261	Measurement	18	7	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1282	8fde38dd-0530-81f7-f070-d5920dd6f38d	261	Measurement	19	3	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1283	69baf022-5ced-fc2f-60e8-632c0bfaa5f2	262	Measurement	9	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1284	349d623a-91e4-1eea-fd06-f4d8847f27b8	262	Measurement	15	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1285	80737529-bdcb-95bd-c802-e3d2a26c2a93	262	Measurement	16	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1286	9a9c2d29-0db1-6c81-b897-3090ae7287be	262	Measurement	17	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1287	4c6af629-830b-f74d-9270-5413ba33e2ce	262	Measurement	18	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1288	d8c0b125-4929-663c-a80a-cd3261de6dea	262	Measurement	19	3	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1289	dac4aed6-50bb-6c5b-a81b-82c0a79fcb4d	263	Measurement	9	7	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1290	bdd1085a-2950-a7e2-c549-c8f6e307b739	263	Measurement	16	7	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1291	6061fa7c-3634-822b-de82-badcf34d0a65	263	Measurement	17	7	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1292	1aa40c47-d3a0-62fa-8c59-2f80e7868bdd	263	Measurement	18	7	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1293	805f58fd-9808-7273-3122-975a53800af6	263	Measurement	19	3	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1294	7724a753-b638-b759-b670-3cde221a5e2a	264	Measurement	9	7	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1295	d8e902b2-a293-a686-5ecd-622693909ee0	264	Measurement	16	7	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1296	8ed86bad-6d49-f94c-16a6-ce96ac86caab	264	Measurement	17	7	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1297	6fff1dfd-9e57-df12-9d07-35b22b60f276	264	Measurement	18	7	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1298	b80a4551-5595-c460-0f61-c4dd4286cfcb	264	Measurement	19	3	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1299	534ef4ee-8b99-31ab-7a34-6554e69cb44b	265	Measurement	9	7	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1300	f86d3231-6f5f-3fae-b4b4-41a7d1e044dd	265	Measurement	15	7	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1301	4778a692-fb4c-9b1a-9437-74a171b03449	265	Measurement	17	7	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1302	21dc1fb1-2851-b97f-d810-96bcee846c16	265	Measurement	18	7	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1303	5747abe4-3d38-2405-c992-b6ed942a4bc2	265	Measurement	19	3	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1304	c134edb4-a389-47c8-5455-7ebdc263ad41	266	Measurement	15	7	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1305	754423c5-7679-22ec-1b4d-b10e71f5e2f6	266	Measurement	16	7	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1306	0a4bf20f-83be-3251-3b1e-787c21deb492	266	Measurement	17	7	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1307	b7450381-a452-700f-3077-55ec06d8aed6	266	Measurement	18	7	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1308	f0df5724-8f0d-6897-9d8a-a0e83341af6b	266	Measurement	19	3	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1309	142a9296-be32-4f42-a59b-25b7eb916af6	267	Measurement	9	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1310	a8477622-b995-920c-0e4f-70602658c483	267	Measurement	15	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1311	f416c341-82ca-ee7f-614b-6d4ceebfd2be	267	Measurement	16	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1312	550fd0dc-c850-38e4-1f26-80b9fcdcdfaf	267	Measurement	17	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1313	49adc82d-d06a-3f93-86fe-33a2f95f349f	267	Measurement	18	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1314	fc0d4718-2b35-c6b6-2f97-cae25618e102	267	Measurement	19	3	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1315	67b9fd32-0b5b-c306-fef1-cc723388a6ab	268	Measurement	9	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1316	8cb529a5-7bec-4295-50a5-fcb8c15f1e15	268	Measurement	15	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1317	dfc3347c-4376-71dd-2175-a4b17df8c975	268	Measurement	16	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1318	977dabe1-26a7-9cca-8a51-c2e55d73ac4f	268	Measurement	17	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1319	1965bc7d-8831-b7bb-d9d6-d305ebef2110	268	Measurement	18	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1320	da2b1b41-db17-4ca1-9546-511452ea613e	268	Measurement	19	3	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1321	37c17fd3-711e-446a-9758-b4012c1ee505	269	Measurement	9	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1322	5097daac-085a-60b9-ad57-a5b139cc2fe6	269	Measurement	15	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1323	c09cadf8-8b2c-c155-7740-d98e75ea882b	269	Measurement	16	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1324	adebc49b-ca88-b797-fed7-487273d5f3c3	269	Measurement	17	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1325	a011c333-fbd3-6c8a-9c58-d206ea44c155	269	Measurement	18	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1326	9d0e20f4-bdc9-8b35-35a5-b278db19e4f9	269	Measurement	19	3	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1327	cf9d1b90-d492-cb24-c1e7-4aed43939be4	270	Measurement	9	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1328	50808111-be91-0cd3-1ea2-a814d59401df	270	Measurement	15	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1329	fb7fd882-811a-3b0c-b048-703517751810	270	Measurement	16	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1330	2af9d790-7702-122f-ef1d-29bd35b58a15	270	Measurement	17	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1331	8fee422f-0c14-2764-27f6-7132432dbf1b	270	Measurement	18	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1332	73e6c169-358e-50b5-317a-5ae88e2dabd8	270	Measurement	19	3	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1333	0e58b146-9875-44dc-f566-5fe28c80b509	271	Measurement	9	7	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1334	3bafb7e9-e15c-a4ff-c338-2204a5fc7366	271	Measurement	15	7	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1335	b69f68d6-ba48-0dbb-e76b-ed9c098d0e2f	271	Measurement	17	7	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1336	6d09808e-469e-42c5-2e16-93a6ec91c680	271	Measurement	18	7	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1337	e6954c82-c247-56eb-e752-004bdc929728	271	Measurement	19	3	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1338	a9c6e011-6a34-47ac-16d4-6b25fc42d7d3	272	Measurement	15	7	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1339	6e9fd040-ddc5-b2d9-b089-5b4f3daf1c41	272	Measurement	16	7	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1340	90b9d562-23a9-44f2-65a1-3e1b8538eb7e	272	Measurement	17	7	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1341	1cd632b2-6749-50a6-23de-523de1476c6e	272	Measurement	18	7	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1342	fdc96956-2b2d-4999-3b5e-5da124635a0b	272	Measurement	19	3	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1343	8f6cc824-e561-3818-ed21-00646079e8db	273	Measurement	16	7	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1344	ba00fc77-2fb4-0c87-8b64-67428880f83b	273	Measurement	17	7	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1345	91c27221-7ad9-25f2-67d8-e992cd6eacae	273	Measurement	18	7	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1346	5e901a6e-c313-a73d-d5ab-e334bdac3a67	273	Measurement	19	3	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1347	95cf1e2d-574b-0828-0786-019ed0d78bcf	274	Measurement	15	7	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1348	667d5dd7-b049-93f9-7843-c48ad30c80e4	274	Measurement	16	7	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1349	e0e26d94-9981-3afc-8151-bc9ab5253620	274	Measurement	17	7	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1350	7c9bba50-a264-2227-4db5-efb47d10e3cd	274	Measurement	18	7	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1351	93f20038-a466-30b8-7bcd-fbb557d297e1	274	Measurement	19	3	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1352	94a0932a-a7a1-af88-35e7-cda0a8d9f30e	275	Measurement	15	7	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1353	809b55b2-192e-e846-3464-bb717db632ff	275	Measurement	16	7	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1354	f551ac84-1b3d-ccd0-5466-30df8e0df874	275	Measurement	17	7	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1355	ac99d87d-f0e0-7888-420b-d5260ab0b458	275	Measurement	18	7	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1356	b2265169-01e6-daad-5994-43390233605d	275	Measurement	19	3	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1357	29d96d58-37a6-d77d-3b61-eccad4c116c6	276	Measurement	16	7	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1358	cb8ba611-c4a0-0c21-b7de-8b58a3447148	276	Measurement	17	7	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1359	f5ea23d3-88c2-7e0f-83cf-e8c4b4d6150b	276	Measurement	18	7	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1360	b8bcd292-b9a0-c854-4c64-f939629deec4	276	Measurement	19	3	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1361	e017aab0-fe0b-23b1-02a0-af8df2aa2f6c	277	Measurement	15	7	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1362	b20aca7e-7e4c-9130-e36d-b01ee9175ba7	277	Measurement	16	7	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1363	ef7bdc31-26a8-c733-6482-fd3feab0b0c4	277	Measurement	17	7	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1364	806e188b-700e-01b4-135d-72231c8b40c7	277	Measurement	18	7	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1365	b41edc93-f85e-dfbf-e205-89839c1088b6	277	Measurement	19	3	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1366	de8090f5-f6fb-3fda-fad9-262b228e59a2	278	Measurement	15	7	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1367	653353e8-0e0b-0dff-ac4d-c03f9210dcc0	278	Measurement	16	7	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1368	36fb283b-e403-b839-da44-9c8ae6e70eba	278	Measurement	17	7	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1369	fb663435-3872-6024-c690-46afb59ef956	278	Measurement	18	7	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1370	bc454ddd-8f3e-fdda-36b4-bcacf0277bfe	278	Measurement	19	3	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1371	28b7491e-2b2b-a65c-e8a2-f997fb27a782	279	Measurement	15	7	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1372	6dbecc23-f988-3450-fa8b-64ecc2971759	279	Measurement	16	7	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1373	7d67e63a-f7c2-36c9-8960-408dfeb01c26	279	Measurement	17	7	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1374	4a1cf472-17c0-b8b4-6513-4853dbe6f278	279	Measurement	18	7	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1375	b80185c8-32c0-8629-e2f0-9649a687989f	279	Measurement	19	3	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1376	fe544f5e-d1db-8f75-eadc-11d5e3e59c4d	280	Measurement	15	7	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1377	b7d5f67a-4740-d1dc-08fc-65708ed49cc0	280	Measurement	16	7	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1378	b99b0c7e-3903-82ff-4479-2e1d1bb6bacd	280	Measurement	17	7	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1379	e9fbc609-d265-5117-ca1c-a2fb431f2c14	280	Measurement	18	7	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1380	1d1121fd-e790-dbb6-8d22-85d060e4ad14	280	Measurement	19	3	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1381	1508a407-38f9-f24b-2c77-706b69e17e6d	281	Measurement	15	7	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1382	1baf522a-ac10-6326-233c-344978ad1876	281	Measurement	16	7	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1383	fc5b6668-060e-863f-9fb8-b90582456e14	281	Measurement	17	7	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1384	3dc82769-ced6-52d2-8f56-b800b420057c	281	Measurement	18	7	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1385	560e0c19-72f3-e3f7-3a1c-13ffbcb8a43a	281	Measurement	19	3	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1386	93942a21-8383-bd5c-d319-76ac4b730a30	282	Measurement	15	7	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1387	557246d5-7c27-d688-33e8-f018cbc82d9f	282	Measurement	16	7	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1388	b753e0d0-4cd4-1efc-3939-69044de8cad8	282	Measurement	17	7	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1389	864b5be4-86f3-9873-502a-c515c2d0764d	282	Measurement	18	7	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1390	022d8aac-723e-7eaa-c7ba-92cc319d7a5d	282	Measurement	19	3	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1391	d29064bc-5fcd-f384-3fcb-aea77c5f7881	283	Measurement	15	7	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1392	995282fc-d498-35b4-d84f-e51edd373ef0	283	Measurement	16	7	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1393	497308c6-f34a-f5b3-2b39-182603f94a48	283	Measurement	17	7	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1394	e0d8cca7-2562-cbdd-a939-1a785b2f4d03	283	Measurement	18	7	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1395	d4cb0a27-cf9b-8053-19bc-db148f7c6d24	283	Measurement	19	3	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1396	202bdefc-5624-1c53-37dd-c1f61c5ef4e6	284	Measurement	15	7	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1397	887e43b7-078d-0022-51d1-9101cafe72cc	284	Measurement	16	7	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1398	2ea1f7a9-1e58-aaed-dde6-d9e106d0fcb3	284	Measurement	17	7	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1399	5889e3ef-4630-8427-99cb-df8d8f019564	284	Measurement	18	7	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1400	22f0f7e2-b88d-c9ae-fcf5-9714de9c3e8b	284	Measurement	19	3	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1401	56a8d086-6b5c-eaa3-e170-f383cb7322b5	285	Measurement	15	7	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1402	5f3e39d1-87bf-de2c-6054-6fd9eb089837	285	Measurement	16	7	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1403	575eb2e6-3a87-f8c6-0905-c048aa315b35	285	Measurement	17	7	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1404	c0c7f2f7-22dd-1ed0-5519-a38e31b2fb9b	285	Measurement	18	7	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1405	cc70cca2-38dc-2a6a-8ec1-175d563d803d	285	Measurement	19	3	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1406	d5e50480-fed2-871c-fd0d-8b8e051b0107	286	Measurement	15	7	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1407	10b49fe8-dd53-76d9-3215-094273bb911f	286	Measurement	16	7	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1408	1e164b15-56b5-ac15-6099-a9e5dd6bbd08	286	Measurement	18	7	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1409	ff514205-4e98-eec2-7cc9-87e89474f7e3	286	Measurement	19	3	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1410	f5eb3276-a48c-667b-8f79-ebab39d67586	287	Measurement	15	7	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1411	0377a044-1ffe-3c52-824a-97f3922abb54	287	Measurement	16	7	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1412	afde8118-55e1-4b53-c4d1-108653af09c0	287	Measurement	17	7	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1413	8d6060b4-54fc-5556-a03b-80e4d12179e0	287	Measurement	18	7	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1414	93d0fd6e-d1be-7868-d9e5-522474d22be8	287	Measurement	19	3	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1415	8fc8b74a-9147-18c2-69ab-423c9a24c0b9	288	Measurement	15	7	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1416	b75c3f3d-db28-3e4c-f518-b0be7ad26bb1	288	Measurement	16	7	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1417	ef07f8ca-3876-b16a-8ea5-74b48d7cfe4b	288	Measurement	19	3	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1418	af7c9ca0-fb11-480f-98a9-aff657d4c248	289	Measurement	15	7	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1419	b70a1979-946b-e0c6-50de-de1fea9c4a39	289	Measurement	16	7	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1420	99ff11e1-5463-e0a0-0201-afc05cf2b4c4	289	Measurement	17	7	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1421	b7752e2a-3a12-4ba8-3911-d045ec8cf4a4	289	Measurement	18	7	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1422	6bae8c17-d4a9-a801-5b23-71b4ea5ea266	289	Measurement	19	3	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1423	9b520ad7-d1d7-a38e-4d65-6ce79d67feb0	290	Measurement	15	7	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1424	dfa6a660-2edc-1ef3-f71c-727dec0fa73c	290	Measurement	16	7	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1425	4d637cb9-9229-32ef-9c6a-a2b972a4edd3	290	Measurement	17	7	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1426	13e064cf-16f0-b5d7-a6fa-7c5af614ae9a	290	Measurement	18	7	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1427	e6d1ce63-5230-521c-0adf-73b5d47932ab	290	Measurement	19	3	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1428	72c41b88-716b-3698-3d15-fe7729e09eff	291	Measurement	15	7	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1429	8f7e502d-3879-857c-fb65-fec21893c41a	291	Measurement	16	7	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1430	dcd3ff7b-73fd-aefd-810f-9331673dd068	291	Measurement	17	7	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1431	1a1b1ed9-b414-38c8-4b83-3afb3666dce1	291	Measurement	18	7	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1432	d2980a4c-c0a8-6275-fabe-9f1cc36a8848	291	Measurement	19	3	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1433	a70abea3-0cb9-f469-36ad-485dfca9a538	292	Measurement	15	7	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1434	61794664-9f68-b75c-81ee-95e9306b5f4a	292	Measurement	16	7	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1435	aa9f454a-dbdc-3d07-5a5e-dedccffea063	292	Measurement	17	7	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1436	ae7f0a9a-5cc9-0f44-fa9d-94a7dd5c265c	292	Measurement	18	7	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1437	87db8f4b-b82b-e628-52c1-00979bd70dd2	292	Measurement	19	3	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1438	f64e1b1b-eb14-9a15-853e-95bb6aa8d56f	293	Measurement	15	7	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1439	e90d77cd-c7ed-bd5d-abb4-208a05f54de3	293	Measurement	16	7	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1440	b132cc9c-cbf7-7f7a-dde7-8c6d17be97d2	293	Measurement	17	7	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1441	2e997afd-9fbc-9cb8-8b4e-580b71ef9a7a	293	Measurement	18	7	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1442	aed51dcc-fd9e-ee7a-b769-70a802d4eabb	293	Measurement	19	3	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1443	3fade55e-9fc2-566b-9843-2b0cf4e3f79f	294	Measurement	15	7	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1444	8c286219-b9b4-c868-1fc9-8ddf1e9e4b38	294	Measurement	16	7	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1445	a45daa57-059a-4098-bc01-c30ac0b6c309	294	Measurement	17	7	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1446	6941d45f-8f31-2b74-26fb-ee1f13dcad92	294	Measurement	18	7	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1447	a5028e8c-32db-1406-0b1e-b048c9382cae	294	Measurement	19	3	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1448	00c694d4-6d25-6451-ad50-777f70d46a92	295	Measurement	15	7	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1449	d3251f2f-578c-b298-0b50-72a462acec12	295	Measurement	16	7	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1450	8cc9a03e-e1f2-a768-3242-dfe63165f1b0	295	Measurement	17	7	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1451	4d150365-51d7-1f0c-b957-1976899f3518	295	Measurement	18	7	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1452	1b2b2b2a-3f73-2a7d-dff8-f9319918becc	295	Measurement	19	3	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1453	d8c8bb80-f467-2567-c5ee-a749005a2237	296	Measurement	20	6	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1454	4b3e61ef-fc40-1289-cad7-9717638a0526	196	Measurement	20	6	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1455	974dbb23-0a82-438a-1c11-fe17a54bd5c9	296	Measurement	24	7	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1456	8e99c5b2-7f83-cbe0-2721-5777238e2c3b	196	Measurement	24	7	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1457	bec96dee-0ec5-6760-23d4-4dbef7b912a2	296	Measurement	21	10	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1458	1093fe92-84bf-ed85-1f30-7b3914deaaf4	196	Measurement	21	10	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1459	aecbd936-960f-37b4-6b6b-c10225d442a1	196	Measurement	22	7	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1460	ecdfbb0c-fb48-0987-d37b-6f6a9e6dcb0f	296	Measurement	22	7	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1461	de487213-bade-88e5-4503-4ea3f801759d	296	Measurement	25	8	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1462	233bb4c9-c238-1abd-ce10-9350c61a14b4	196	Measurement	25	8	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1463	63deb6a6-142d-82cf-ee5a-cbef928c227f	196	Measurement	23	4	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1464	0232e5bf-0b2c-d75a-cc08-87ab16b0dbcb	296	Measurement	23	4	\N	1	1983-01-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1465	3a4f9def-d9b4-8f30-82e2-0346ec6459d1	297	Measurement	20	6	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1466	36858b82-2aa5-3e4c-e7b9-d1b4fd74d18f	197	Measurement	20	6	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1467	1202be9d-88f1-45d0-1eb7-7feebb787ab3	197	Measurement	24	7	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1468	0b479d4e-ffb8-a9cc-8308-d493cb4e2111	297	Measurement	24	7	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1469	a9ba040d-1045-329d-c028-5c0a7fe7f631	197	Measurement	22	7	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1470	ba91131a-051a-3170-2e2d-4cadf2a71d22	297	Measurement	22	7	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1471	e1231fd0-86ee-ceb8-b021-ff3ddec1ad7a	197	Measurement	25	8	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1472	c0415f47-f477-8c5b-f927-ebd68f07ed8a	297	Measurement	25	8	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1473	726722fe-421d-0afc-6681-0d9867e1a794	197	Measurement	23	4	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1474	74d76da4-5954-8d9e-4f59-b9308bfebfd4	297	Measurement	23	4	\N	1	1983-01-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1475	849735a0-f13f-ef70-f453-a2b97f58d9b6	298	Measurement	20	6	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1476	0be192a5-7093-7990-208a-74b0264d4768	198	Measurement	20	6	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1477	f1850dff-1cb4-21d5-89ba-f74e49a636cd	298	Measurement	24	7	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1478	833a2255-562e-b984-9b68-0f9575693cfe	198	Measurement	24	7	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1479	42f3920c-3d03-61eb-5faa-3086727c6364	198	Measurement	21	10	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1480	f7886fbe-aaa4-704a-d4e6-8e6b92fb1894	298	Measurement	21	10	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1481	2b6eb5a0-6151-8fcb-9bee-dfc0f5260644	298	Measurement	22	7	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1482	ae27e2b5-1789-f70b-7e64-f7af1f53c61b	198	Measurement	22	7	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1483	f05ab902-a927-e6b8-fca1-8c084a0fdba7	298	Measurement	25	8	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1484	545361bc-786d-aaf8-a030-49e9c76b8db7	198	Measurement	25	8	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1485	a33e2dbb-afe9-976c-6d77-d8b8bc10745c	198	Measurement	23	4	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1486	43d1a4ff-8822-aca2-e49b-b406a379b64f	298	Measurement	23	4	\N	1	1983-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1487	2f3e799b-8ab6-c58f-2920-4447b4054e69	199	Measurement	20	6	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1488	4decace9-b0de-ddad-e005-544b025389db	299	Measurement	20	6	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1489	4f8edf62-bba4-0daa-f855-e0faafd77b6f	199	Measurement	24	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1490	63809fe9-3f7c-37f4-b1f1-aa7babd34a57	299	Measurement	24	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1491	798ec493-2c98-1e1e-0777-e4e9a8c6efb0	199	Measurement	22	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1492	25c154c3-534a-f435-6d27-4eca33568d0e	299	Measurement	22	7	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1493	db47ebc6-b28f-8451-4349-4a997de4db7f	199	Measurement	25	8	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1494	7f33dd8d-3b9a-ec81-7665-3657c3a0df1a	299	Measurement	25	8	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1495	bdb785fc-2242-9fb1-84ab-89b131b61c95	199	Measurement	23	4	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1496	2ce2b150-2d27-7618-4c8a-3ebc394b5462	299	Measurement	23	4	\N	1	1983-02-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1497	1caedd20-76f2-e293-ece2-a56dd5cbbbc7	300	Measurement	20	6	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1498	04abaec8-8299-a3a9-0373-d4b951752f26	200	Measurement	20	6	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1499	20568d0e-6352-8e7d-b0ea-2ab59384b95c	200	Measurement	24	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1500	fe229af2-02b1-8538-6d9e-7e7a9614160e	300	Measurement	24	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1501	5b644d85-6e79-634c-cbcd-587faf99bb52	300	Measurement	21	10	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1502	c410826a-feb6-1dea-9d62-b50bb54bc8d7	200	Measurement	21	10	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1503	16880d23-4ad0-5bc9-34f4-0e9b629997b1	300	Measurement	22	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1504	a83f8bb4-e646-50be-f7f9-00f47c668056	200	Measurement	22	7	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1505	fcb45807-efb4-1b83-fa95-ccdc8267fdc4	200	Measurement	25	8	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1506	dbf34c22-a3a5-ae17-910a-76142b6f607a	300	Measurement	25	8	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1507	7ee40548-7ec0-488a-0eab-eebe87d93245	200	Measurement	23	4	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1508	85de7942-9206-f018-3256-3da42cb78c0b	300	Measurement	23	4	\N	1	1983-03-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1509	23a073f5-2835-f252-8e7f-b04f28f2ab5d	301	Measurement	20	6	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1510	acc26fd9-8f25-2e2a-3733-294aa2f754c4	201	Measurement	20	6	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1511	d57b3e58-3454-c0e2-0540-6e55ba8f310e	301	Measurement	24	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1512	0ef49f1b-2a29-bfbd-d8cd-09ba67ee1c20	201	Measurement	24	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1513	75e0b2ca-5e7d-7020-d9fa-06c0f22e651b	301	Measurement	22	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1514	29fde363-5cad-1e1f-e57a-2efee498b700	201	Measurement	22	7	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1515	7ad0cc49-452e-f8cd-0f58-2da2c6aee2fd	201	Measurement	25	8	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1516	5dc77a40-f675-301c-74d0-512d1d3ca4ed	301	Measurement	25	8	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1517	4e4fe884-6378-4035-ff36-4549b2570962	201	Measurement	23	4	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1518	dc609f1a-3a57-121b-7e54-0e5b7a2af89c	301	Measurement	23	4	\N	1	1983-06-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1519	ee945ad7-c5bd-c73d-e413-1665c37cbd7c	302	Measurement	20	6	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1520	84b65165-23d9-c121-386b-d40cf061f0f6	202	Measurement	20	6	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1521	2aeff66e-16ea-57d9-f834-5fe99b4e75b1	202	Measurement	24	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1522	9648f986-c72b-c39d-6367-cf4ff065eb9c	302	Measurement	24	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1523	08620574-494a-2e84-81a7-0ee36f110973	202	Measurement	21	10	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1524	155028de-eeb6-0a03-8d34-4740bd53cee6	302	Measurement	21	10	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1525	6583f8e4-fa1c-70b6-58c0-f89c414b2a77	302	Measurement	22	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1526	43245152-0066-84fa-770d-2058bb1c8e28	202	Measurement	22	7	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1527	7a992ea4-4bd5-c1eb-db26-38446677ff89	302	Measurement	25	8	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1528	c5c30b87-1ef2-b1b5-8bbb-8ce6d56ef52c	202	Measurement	25	8	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1529	f236b6ad-54d3-ee3e-5030-4e2b326ba53c	202	Measurement	23	4	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1530	94514788-ef2d-eefa-0ae5-2cdd0b9e8300	302	Measurement	23	4	\N	1	1983-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1531	7ddcb0d3-9063-3f85-0c56-424cec4644f1	303	Measurement	20	6	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1532	b29293f6-d2ec-20ad-e4c0-0f115170deeb	203	Measurement	20	6	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1533	fb0c79b2-1e58-ecc2-532b-fa447727349d	203	Measurement	24	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1534	cecd8382-3a18-425d-550d-43a10095fb89	303	Measurement	24	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1535	90bd69c0-4394-8274-b6df-37d71d49d590	303	Measurement	21	10	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1536	d62104ae-0660-2b29-169f-3bf78cff61ed	203	Measurement	21	10	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1537	bdfd44e5-0e95-3db2-4573-6f70b4b7bd28	303	Measurement	22	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1538	6d43353c-b865-5716-3088-ee02e21d4e0c	203	Measurement	22	7	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1539	a01349f8-90be-d7fe-25c4-38e1ba1e248c	203	Measurement	25	8	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1540	bd6bfbc3-5a0e-d122-ef8b-55e6d06515bc	303	Measurement	25	8	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1541	47ff1d84-0429-b99d-2226-368eeeb8a926	303	Measurement	23	4	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1542	36ed4a29-a189-18ed-9232-a894a650aeac	203	Measurement	23	4	\N	1	1983-08-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1543	61d2a270-c146-3e08-8619-0b9754fb285f	304	Measurement	20	6	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1544	ba3f3b42-3018-0f54-803e-8e11a2765970	204	Measurement	20	6	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1545	014cf94d-1823-f2ad-a24a-c37562398a5a	304	Measurement	24	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1546	420c6222-36ed-9f73-4f4b-8dea39777c93	204	Measurement	24	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1547	d21733b4-5516-3992-c9fb-a44c7acff28d	204	Measurement	21	10	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1548	3cff1ae6-90c7-cdea-3a3a-7d0fa333bd53	304	Measurement	21	10	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1549	264ea7fd-4241-775a-f185-2040e11b0b61	204	Measurement	22	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1550	641619dd-2850-bd8a-bdcd-c63df3a7d865	304	Measurement	22	7	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1551	e4ecf101-83ec-d879-19d3-9ce91d09f879	304	Measurement	25	8	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1552	bb8e069c-0f6b-367c-38d2-88a2aacc744c	204	Measurement	25	8	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1553	2aaa945a-26ba-6c95-ed3a-45e8240d0794	304	Measurement	23	4	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1554	b98c71b2-6632-0809-3160-39ede239d0fe	204	Measurement	23	4	\N	1	1983-09-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1555	64a9a5a0-99c0-f95d-12dc-90891cf4eb26	305	Measurement	20	6	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1556	b1e7a92f-a798-324d-c7d3-f3a4670e7c02	205	Measurement	20	6	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1557	f1d31851-5ab3-a0ef-ca98-6e22d176a4a2	305	Measurement	24	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1558	ab6b99f9-5570-adc6-88cb-02d70f017986	205	Measurement	24	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1559	155dd559-e121-95bc-9aca-3abd4e2eaef5	205	Measurement	21	10	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1560	9bce951d-8c85-8a18-ea0e-4a0ef446d836	305	Measurement	21	10	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1561	41589d5f-6151-04ed-8566-b23b7c4a135b	205	Measurement	22	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1562	d52bb9ec-d832-f034-da28-411e22a3d781	305	Measurement	22	7	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1563	202b20e5-4b4c-e4b6-2a61-a31e4c1a21b8	305	Measurement	25	8	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1564	626312cb-c40e-9e96-402d-998b1741f0b3	205	Measurement	25	8	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1565	058facc3-9674-7b09-97d2-c2bf919aae4e	205	Measurement	23	4	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1566	74dc140f-5658-42ec-d9a3-b4f74a1c456e	305	Measurement	23	4	\N	1	1983-09-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1567	54e1070c-8226-135b-bffa-b5c9e1241473	306	Measurement	20	6	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1568	868c312a-1b19-ee90-26f9-7de62a3e7bcd	206	Measurement	20	6	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1569	390f916d-e993-5cf6-a8e4-3269abca564e	306	Measurement	24	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1570	01f68979-5ca8-5227-d9e4-35334fb8e9e0	206	Measurement	24	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1571	5d13c533-5a58-9562-8eca-b1c7120911ad	306	Measurement	21	10	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1572	b16585ec-5252-2635-7617-58a4db417acf	206	Measurement	21	10	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1573	ea96614f-6e44-fac3-bfb1-24000a39da6c	306	Measurement	22	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1574	71df903b-4eef-4020-9bbf-4ff0138e0674	206	Measurement	22	7	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1575	a7883dc3-9819-e18a-7538-a92e77d08969	306	Measurement	25	8	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1576	1428d371-2a85-d0fe-2c13-12c24986ec2b	206	Measurement	25	8	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1577	590030f7-baa0-a840-23a5-36fbb5979a02	306	Measurement	23	4	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1578	5d1baeef-75b4-3682-e99c-6bc024a22369	206	Measurement	23	4	\N	1	1983-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1579	fa2a9991-6a01-a07c-0583-83813bab8b59	207	Measurement	20	6	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1580	f0ca8ba7-76ac-a35c-a768-4049e0c1afa8	307	Measurement	20	6	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1581	bced5d83-5933-a7a2-1fc3-49e98100375c	307	Measurement	24	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1582	cd619484-2af0-8b34-2f52-eb1dc69b85e5	207	Measurement	24	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1583	95d749f5-0dbc-4769-8a0a-145f765107f8	207	Measurement	21	10	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1584	e01df1a7-eca3-e96f-8c44-1791270554ff	307	Measurement	21	10	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1585	f2a2b133-b1ef-b4f0-eead-2e0348ebf66b	207	Measurement	22	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1586	5df467e7-8bcd-47df-97f3-9cfa87943403	307	Measurement	22	7	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1587	ef1e5ae1-978d-23cd-5b8e-f2ce95f42cb6	207	Measurement	25	8	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1588	6a617081-40e1-3722-f57c-5ad8569f6f82	307	Measurement	25	8	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1589	c0336eee-d1b8-a6e6-13af-ecbc02bbfede	207	Measurement	23	4	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1590	5a9f5ac8-858d-9d65-66ff-732e3768583e	307	Measurement	23	4	\N	1	1983-12-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1591	1408ed27-6099-5574-ca68-68078945096f	208	Measurement	20	6	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1592	4ca654e2-27bc-6d15-4da2-852c1fc620d6	308	Measurement	20	6	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1593	57824c86-29e1-891e-c2d3-7ecb0f8e4fb7	208	Measurement	24	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1594	3267816b-3d34-8cba-449a-b613ec01f762	308	Measurement	24	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1595	9ac319a3-85ce-5de3-142c-a85041890c5a	308	Measurement	21	10	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1596	d7ea1ad8-f7d2-1407-2f28-bc0ce1d9d2e6	208	Measurement	21	10	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1597	9d76890c-90c4-8089-80f6-939e8ff6daf9	208	Measurement	22	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1598	52e16599-ef4e-8da0-2b84-43db23d6402f	308	Measurement	22	7	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1599	cd5a8c89-7168-9015-ab55-67860de64587	308	Measurement	25	8	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1600	512dcc57-7bc1-4a06-9ab8-76a026fc9a5b	208	Measurement	25	8	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1601	246fdd13-6482-d917-add1-c5a08e4669e7	208	Measurement	23	4	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1602	1337a527-6285-fff3-fce5-d68169665e5d	308	Measurement	23	4	\N	1	1984-01-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1603	74de1022-e366-daad-b526-db3a6555d104	209	Measurement	20	6	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1604	6ecebcc4-ad17-693f-2472-69c34053ae28	309	Measurement	20	6	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1605	46e5e618-623b-43d6-2754-53dd859c1989	209	Measurement	24	7	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1606	66e11d71-de3c-0192-7058-4005f6629711	309	Measurement	24	7	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1607	b14841da-8f3e-58f5-6658-df8dc9f08024	309	Measurement	21	10	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1608	4779f3dc-9b79-82f5-b2f5-2aa9b4dde5dd	209	Measurement	21	10	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1609	98b2332b-be1b-68bd-ebaf-d3b7bff3dd2e	209	Measurement	22	7	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1610	4d8c86d5-f3b5-8594-4bcc-ec2b4ec1845b	309	Measurement	22	7	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1611	2fde44dc-b61f-83c5-195a-51e244bc284d	209	Measurement	25	8	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1612	389f4687-8090-c5a0-8070-acc31245beb8	309	Measurement	25	8	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1613	78cb6a33-6970-c27d-958e-ae4b36e0c47b	209	Measurement	23	4	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1614	82c5828c-fba2-d667-b720-26b04d1af354	309	Measurement	23	4	\N	1	1984-01-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1615	3f5ff8b5-8004-e382-e5ae-d0fb8b948b96	210	Measurement	20	6	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1616	a764adf0-0aff-8924-d68b-40a7887631ce	310	Measurement	20	6	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1617	0605b3ca-35fa-6a79-2740-204c32d171b4	310	Measurement	24	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1618	fd9edea9-45c3-f502-a47c-aff24733566d	210	Measurement	24	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1619	31e0d00c-7f63-a5f3-9acb-5950cfe80baf	310	Measurement	21	10	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1620	3d11f91e-cb07-785b-dcc0-8adfd307d062	210	Measurement	21	10	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1621	e3c1c45b-d5eb-0345-6781-8c32db9ae38f	210	Measurement	22	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1622	308246fd-d063-ca93-ac8d-dd84ee0ad903	310	Measurement	22	7	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1623	c022f72a-22ea-3828-9b03-eda030faf5d1	310	Measurement	25	8	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1624	1bd1eabf-d7c8-b6ce-ab40-0b6bff93bb5e	210	Measurement	25	8	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1625	c3461394-9945-eccb-db70-8a66b4d0bafc	310	Measurement	23	4	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1626	ad3f776a-77ce-856f-8182-efc227e1c19d	210	Measurement	23	4	\N	1	1984-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1627	95b0fbff-3c63-48e0-41d6-1abbab750cc0	311	Measurement	20	6	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1628	584cd837-6e19-761c-c9c0-f7ab2179886f	211	Measurement	20	6	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1629	2e295dac-6c33-6775-4e4e-ca85e8c39908	211	Measurement	24	7	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1630	7415c737-55c9-6abd-75b3-58334b721b2b	311	Measurement	24	7	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1631	c219deab-56ea-ca79-6673-bb3c2e84521e	211	Measurement	21	10	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1632	7c12ab89-9b57-3c5d-7d33-128cc655d182	311	Measurement	21	10	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1633	3bf55be8-2123-999d-ce21-c7658b6a0b5f	211	Measurement	22	7	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1634	bae5c3ed-dd07-c3a9-3dcc-5d454c13ceea	311	Measurement	22	7	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1635	e1f36a15-65ea-b121-68a8-9c8ac0782465	311	Measurement	25	8	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1636	e440d4f0-f7c1-2af1-0aa7-7a2de73dea21	211	Measurement	25	8	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1637	eb01a749-1286-575f-db12-54f8ac631c0d	211	Measurement	23	4	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1638	198da5e0-a7bd-9f52-03f5-a45df2bdf076	311	Measurement	23	4	\N	1	1984-04-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1639	2255d31f-99af-6316-eba7-fc0908e338e6	312	Measurement	20	6	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1640	c318fdf2-61d4-d3e2-2489-999f705c2880	212	Measurement	20	6	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1641	6057046b-a8dd-cc65-552f-772b3816bc8c	312	Measurement	24	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1642	ba0dc404-4fcc-0bc2-bdaf-2c8ee72a21cc	212	Measurement	24	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1643	89b56324-550d-7b43-90e6-5cc7d2420ccf	312	Measurement	21	10	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1644	df85ce13-f0df-c4ff-ab66-f54433904c6c	212	Measurement	21	10	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1645	54af5dcd-e98b-b7c9-c80d-ed8bd9c5acbf	312	Measurement	22	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1646	58ccc130-bf53-18c5-1f55-d3e9d6818ce1	212	Measurement	22	7	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1647	6bc26bc9-ebb5-345c-97f5-bf9a325d276f	312	Measurement	25	8	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1648	6271bdc2-7d7a-a682-fda4-4330be2c4bf1	212	Measurement	25	8	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1649	05954259-984e-bad2-6f07-c87f156cfed0	212	Measurement	23	4	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1650	008ab1ff-7da4-ac13-3025-42daf63555ff	312	Measurement	23	4	\N	1	1984-09-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1651	deb8138b-b20d-7379-bb5b-69e4c919cbb7	213	Measurement	20	6	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1652	a9486b6b-b84e-effb-e7d2-af059d64c4a6	313	Measurement	20	6	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1653	875bcec9-fd10-0127-b9e6-91a7a97812e8	213	Measurement	24	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1654	22c46497-0737-94ac-3295-c592b86c6e54	313	Measurement	24	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1655	0989599c-045a-73b6-4444-a8f8a0d5f2e1	213	Measurement	21	10	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1656	23b5b3ab-460a-e10a-2980-9405e5291cc0	313	Measurement	21	10	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1657	c1b2e31c-31cb-7169-ce3c-d60f7fa7b077	213	Measurement	22	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1658	8e25177a-eda6-6ee4-e0c1-cedcc46baab3	313	Measurement	22	7	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1659	bf60b72b-2e2b-8c41-d44b-fbace37ff6f3	213	Measurement	25	8	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1660	d9e8c2e9-421a-d3b0-c665-bff73c2c4073	313	Measurement	25	8	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1661	6a2e3207-450e-4b1a-0296-0e0dcd169415	313	Measurement	23	4	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1662	e6f388d4-c7a6-6ef2-7ee6-308416b0ac13	213	Measurement	23	4	\N	1	1984-09-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1663	767095c3-d654-ca2f-9c20-a52a5dcd76c3	314	Measurement	20	6	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1664	ce4dfc1f-2b0c-bde3-f538-37cb9eb7da23	214	Measurement	20	6	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1665	e1337287-07c5-72b1-f992-5f3a245d19f0	214	Measurement	24	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1666	d3c47d9c-a615-feaa-ae9c-7380852ebd40	314	Measurement	24	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1667	dd60c771-3279-2294-5962-8a20d0046552	314	Measurement	21	10	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1668	11fecea6-3535-3a6b-795a-842e2f8a9d4f	214	Measurement	21	10	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1669	d85de936-157b-eeae-7244-81d0ef4938e7	314	Measurement	22	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1670	c27c630b-9c78-d492-9689-0971f33552ac	214	Measurement	22	7	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1671	e74a034d-2032-d657-5c77-cbf1deddc628	214	Measurement	25	8	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1672	c6103373-96b1-820b-b5f4-f599af61c7e1	314	Measurement	25	8	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1673	1d0875c3-beee-a885-d2e2-6951be394599	314	Measurement	23	4	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1674	f63a40d4-8fc7-97be-096a-6c74487c61b5	214	Measurement	23	4	\N	1	1984-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1675	b078f507-8f53-62f2-31f0-2968df152f79	315	Measurement	20	6	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1676	fd8c06b7-3727-dfa6-3121-2985feb83a5d	215	Measurement	20	6	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1677	f62da98e-fa07-0da5-6b43-725fecc83dd9	215	Measurement	24	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1678	3d6d58cd-4027-ee7e-6106-3522437f9dc0	315	Measurement	24	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1679	ea20ec6e-48db-ff3c-6bd3-167f2148f893	315	Measurement	22	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1680	49a74e22-2edc-ccf4-bdaf-8b9191aef89b	215	Measurement	22	7	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1681	ad18809b-fdf5-e0ea-db9a-75dca6c30508	215	Measurement	25	8	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1682	8114bc43-9ea4-6cda-1d2a-851c038ccc90	315	Measurement	25	8	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1683	26417027-82c0-322f-b0fa-b50505cd307e	215	Measurement	23	4	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1684	1d1b596c-04f3-ad0b-4b5f-2a9bad9c1437	315	Measurement	23	4	\N	1	1984-10-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1685	913124aa-4d21-7ea0-a1c9-690d061bcf1e	216	Measurement	20	6	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1686	451135b9-71a7-93b9-c34d-b5a17d72cdec	316	Measurement	20	6	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1687	0deac154-9372-36ed-a781-db24e30ff53f	316	Measurement	24	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1688	40ff12d5-b50b-8d1a-2929-ace3d64bb455	216	Measurement	24	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1689	76b5d747-f6c8-b4f5-2629-80f47bc2ed7f	216	Measurement	22	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1690	5dce797c-27ff-30de-6274-00ba62e8b9d7	316	Measurement	22	7	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1691	f93fad9a-315a-4d09-ff4e-7174297689de	316	Measurement	25	8	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1692	65e77700-6a6b-42b6-98e9-f6c55298833a	216	Measurement	25	8	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1693	8ced6ef1-ae7b-a916-52f3-29f851d24cc2	216	Measurement	23	4	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1694	543531d1-aa4b-26e9-2335-f99e794e3d78	316	Measurement	23	4	\N	1	1984-11-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1695	08ac3b63-33c7-2c83-cc2d-bfab6a9b5da9	217	Measurement	20	6	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1696	a88f7a2f-d119-4010-cbf3-7a9dde878abc	317	Measurement	20	6	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1697	1527a6b6-a4c6-dc51-d0f6-d02b9f6cdd77	317	Measurement	24	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1698	36d0cec4-2c65-322b-3fb0-7b00daa71ad9	217	Measurement	24	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1699	85f2b9e1-c530-7f33-439a-9e1c8b18b958	217	Measurement	21	10	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1700	b13ec5d2-2d47-dfc5-0677-a73b700ac85c	317	Measurement	21	10	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1701	b58c9c55-9658-2f50-2674-aa1057fb4acd	317	Measurement	22	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1702	bb5673d7-4fb0-0d02-b492-350fd167be39	217	Measurement	22	7	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1703	4c7b1ac6-99ab-a173-cc1c-bf92b175b220	317	Measurement	25	8	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1704	4a846572-d3d4-2bdc-27c8-28fd6ce4aa3b	217	Measurement	25	8	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1705	73867bce-5465-fe70-de0a-86b49df25055	317	Measurement	23	4	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1706	59997eb6-a241-dae9-162f-48884fece931	217	Measurement	23	4	\N	1	1984-11-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1707	dac0fd43-eb55-66ba-3275-fd4b6aa1e413	318	Measurement	20	6	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1708	2d0121a7-f010-c154-8e37-47fa3b548a8c	218	Measurement	20	6	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1709	b1c876aa-4bb0-cdb8-a05a-abf242e4b95c	318	Measurement	24	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1710	86eb7614-ecdf-d8f4-2ed0-ec06ff669e54	218	Measurement	24	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1711	4c9fa855-39b1-0b78-c75e-987485203bc9	218	Measurement	21	10	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1712	7a6f358a-d982-4923-80f4-3d8c6824accf	318	Measurement	21	10	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1713	fcbde2b1-3f0d-6494-d844-d8970b7dcd47	318	Measurement	22	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1714	0372b712-8398-5b40-6319-73c3c301633e	218	Measurement	22	7	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1715	d869ffa8-5217-f9d8-8373-c91ac2d5a621	218	Measurement	25	8	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1716	7a623c49-a12e-66df-dd56-d8b41968f802	318	Measurement	25	8	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1717	a36f5bb4-f9db-2d75-579c-074be572f926	218	Measurement	23	4	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1718	88462908-3ea5-ebcc-c762-4efefb776369	318	Measurement	23	4	\N	1	1984-12-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1719	178a8e63-56ec-54f6-8ed9-91203b2eaf04	319	Measurement	20	6	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1720	40459d57-52ea-288b-4870-456648de8927	219	Measurement	20	6	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1721	0492b396-2948-4733-2d49-62f57fcaeb93	219	Measurement	24	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1722	13356a72-b279-91cb-0f52-760bbc47c970	319	Measurement	24	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1723	38123eb8-afdd-7530-123d-f3d1e5435063	319	Measurement	22	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1724	838d907b-6847-10da-4fc2-d9b744a15064	219	Measurement	22	7	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1725	f6cac353-0523-d652-c375-630d1c5d8704	219	Measurement	25	8	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1726	3e035db7-8e98-2855-2cfb-f16a59cc38f2	319	Measurement	25	8	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1727	a7f24527-9598-3b36-f14c-8e20eb3c0bfc	219	Measurement	23	4	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1728	63ba9de4-a07c-3429-c2b7-cddd2e630dce	319	Measurement	23	4	\N	1	1984-12-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1729	12b893dc-f9bb-f6db-2285-0cc1f1cd844a	220	Measurement	20	6	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1730	2cfcafb2-45bf-e9a6-404e-a4514b7e4fce	320	Measurement	20	6	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1731	7d3ebc91-c54a-19b0-8101-dc3f510011fb	320	Measurement	24	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1732	c32e5070-4e4e-b8f8-b974-1d95dc330bc1	220	Measurement	24	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1733	2007d91a-1e9c-6642-d1f8-017e16dc7ce7	320	Measurement	21	10	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1734	60ab06f6-12cb-9dde-9748-402cd4314808	220	Measurement	21	10	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1735	85c9a879-1c9c-c82c-2ad2-2c9df09a321b	320	Measurement	22	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1736	bd339466-9cdb-dbf0-4d0a-f0d2f72ecffb	220	Measurement	22	7	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1737	b63c7223-dc80-ef82-fbb5-295bc1a541b3	220	Measurement	25	8	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1738	9f790395-9444-0656-281f-80f74efdbcd7	320	Measurement	25	8	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1739	c1f171e1-37de-f9f7-3446-57800b8dd5fa	320	Measurement	23	4	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1740	da2fc6ae-f514-79f5-9f61-8978579d68a2	220	Measurement	23	4	\N	1	1985-02-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1741	a9bd4beb-1c73-d603-0a92-a20c704fb3cf	321	Measurement	20	6	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1742	b1e38141-0a50-36f5-6e6f-8e5deea2ceaf	221	Measurement	20	6	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1743	ff232275-43e5-7350-8f08-8b4c3aefb8ec	321	Measurement	24	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1744	315ae2fb-5908-f7f8-877f-239a0ac4c62d	221	Measurement	24	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1745	bd10a4ee-9e28-cf6b-a4dc-59db5f96f03e	321	Measurement	21	10	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1746	5d0dccbb-3c3a-28ca-0666-b5f8a9eb37b9	221	Measurement	21	10	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1747	ed594418-706c-1984-d855-4dcbe980507e	321	Measurement	22	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1748	aad72590-0e54-8e34-2b39-8a4fc2ce753b	221	Measurement	22	7	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1749	a7d28cc8-8f2f-3031-6be8-11f4c3d799d4	321	Measurement	25	8	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1750	b0a360c8-807e-8fdd-a3df-b06cab49dcb7	221	Measurement	25	8	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1751	348a802b-71d9-597d-6b79-a224eec90977	321	Measurement	23	4	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1752	aba38ca8-5f0b-047d-c9b0-4d70bfe3a63d	221	Measurement	23	4	\N	1	1985-03-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1753	c32e3371-8a0b-d935-57a7-568e88d30a57	322	Measurement	20	6	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1754	2538162c-085b-ac7a-9229-d27ab9ba4f26	222	Measurement	20	6	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1755	649c9656-8148-d20b-f199-7488220b3fa8	222	Measurement	24	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1756	d0a38913-d911-61e8-e506-763b1b43e7e8	322	Measurement	24	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1757	fa97a9fc-3764-0f93-7b00-409f5eb44be3	222	Measurement	21	10	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1758	9b7c045f-fe8a-937b-e8ee-ce0e9e8b77fc	322	Measurement	21	10	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1759	fc19f406-e88c-61cd-3eae-954d7c8c941e	222	Measurement	22	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1760	ee249fc5-9288-9d3b-d797-38020f175838	322	Measurement	22	7	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1761	4a3a8b83-5ec1-db4f-bc78-4a9e5b935a0f	322	Measurement	25	8	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1762	8eb41515-6bd0-aba6-5d1e-87c8ba934a57	222	Measurement	25	8	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1763	f2b20f15-2f55-085f-82d3-60dc5ac6fcdc	222	Measurement	23	4	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1764	b3e8483d-77da-39ac-bc51-b426851f5c2e	322	Measurement	23	4	\N	1	1985-03-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1765	df05a2d8-4887-09c6-ec25-32bbe825d90b	223	Measurement	20	6	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1766	a248e14f-5b49-2878-9947-1bd71f009b2d	323	Measurement	20	6	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1767	5113c9aa-03d5-d09e-fad4-a90fa5cc1e24	323	Measurement	24	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1768	41e1b54f-1c10-b04c-7f1b-fb24df07be07	223	Measurement	24	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1769	a75d9115-1684-d7d0-5c53-e99d6ef15b63	223	Measurement	21	10	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1770	1f9ae6a1-0234-2632-72bb-87f77f15741e	323	Measurement	21	10	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1771	f4ce3af9-7995-d9e8-6fa4-203661b622fd	323	Measurement	22	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1772	e1e0298b-0e55-ee1e-75f1-5ac3b14efb55	223	Measurement	22	7	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1773	629fafdd-f8c1-b2ab-6a5a-21b20d90245f	323	Measurement	25	8	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1774	6fe4c492-5134-3403-3e25-66f4dbc945b6	223	Measurement	25	8	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1775	e365e37b-abdb-3bac-1277-5b14dde5e66e	323	Measurement	23	4	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1776	a32f418e-ac13-5a80-c3e7-f21b5bfe9b98	223	Measurement	23	4	\N	1	1985-04-03 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1777	c39d8f4c-c018-2b36-6ebc-067f411d98d8	224	Measurement	20	6	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1778	a164cb23-ac38-9354-a8b2-497abc095587	324	Measurement	20	6	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1779	ebdb71c4-877f-a94f-313e-436316f37b07	224	Measurement	24	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1780	01c1529b-f8f6-44c3-3eaa-5644e8b23a4e	324	Measurement	24	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1781	c1bb067b-d1ee-07cc-72fb-77f920ef3c5f	224	Measurement	21	10	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1782	ca5bb9c8-e267-9f24-4440-1486fe8a4acc	324	Measurement	21	10	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1783	325ba36d-74f3-cd18-4ad6-de9daa6a4ae3	324	Measurement	22	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1784	b5450d81-e7a4-c60c-9ee3-95125fa64f81	224	Measurement	22	7	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1785	ea61f015-078d-3c2b-a99f-199b2714cb83	324	Measurement	25	8	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1786	67430611-1dea-99c5-594c-da701c4d45f9	224	Measurement	25	8	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1787	ebfe42dd-99a4-ecd6-9e57-2eb0b3e572d6	324	Measurement	23	4	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1788	1f8eebcf-34c1-1d98-38fb-0e06858ca98d	224	Measurement	23	4	\N	1	1985-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1789	31b228ad-97a4-d384-bbac-831c8575e630	225	Measurement	20	6	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1790	c9fa0772-d996-9e08-76e1-218e7ef3ea7f	325	Measurement	20	6	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1791	9549f204-c901-5f39-a291-d77dcbe8b718	225	Measurement	24	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1792	3de86299-bef1-6090-edb7-a5b39c172b84	325	Measurement	24	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1793	fa3968ee-c76e-e709-8f63-255aaddaab91	225	Measurement	21	10	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1794	aed703a6-4475-432b-33e5-273ad223b1a0	325	Measurement	21	10	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1795	5288f44b-0692-5864-b86e-cef93b1b496c	325	Measurement	22	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1796	61ae75ef-d113-919b-440b-01a88a59a5cd	225	Measurement	22	7	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1797	387cbed0-19ff-a512-6746-cb080a8c4ee6	325	Measurement	25	8	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1798	be235526-00ef-e713-3e92-879eeeab2adb	225	Measurement	25	8	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1799	abbcff9f-11ad-88a8-5481-40a577fee95e	225	Measurement	23	4	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1800	1cf150e3-676f-29f8-04c5-219ce6b75bd2	325	Measurement	23	4	\N	1	1985-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1801	71dec81c-fcd7-38b1-98a5-ac4140db2e1b	326	Measurement	20	6	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1802	80e4a040-010c-602c-1df8-d02631774fa6	226	Measurement	20	6	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1803	cd92ae96-b5e9-2ee3-d5c2-31e2b19506d2	326	Measurement	24	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1804	a3fd2293-88ce-5a6a-006d-f699114f2019	226	Measurement	24	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1805	e602d836-d7d7-0950-b025-a69b7aac5d84	326	Measurement	21	10	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1806	6b46b0c0-2209-a399-6a7a-e731d01c104b	226	Measurement	21	10	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1807	96904039-4f68-23a6-d51e-c35c04f35dcb	326	Measurement	22	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1808	4890b977-bf68-94bf-4f9d-58275d937678	226	Measurement	22	7	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1809	b87aaea1-8ae0-79d2-f4ae-2a276e1b4664	326	Measurement	25	8	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1810	2d3606cd-adc4-96dd-b817-1b09bfde7b58	226	Measurement	25	8	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1811	cdf282f3-e1e1-f723-4736-4f264c411d1f	326	Measurement	23	4	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1812	948ffd53-cd51-472d-9d6d-3cbe51e9b914	226	Measurement	23	4	\N	1	1985-05-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1813	7289d222-b735-9fad-bc8d-0b39c7ea847d	227	Measurement	20	6	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1814	293435b5-f152-c7c1-428e-48321221c9d7	327	Measurement	20	6	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1815	f43aa412-6737-5d2d-1a20-4a412f749a00	227	Measurement	24	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1816	19004daf-4bb9-a0f1-6365-e399e5d48780	327	Measurement	24	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1817	2095bee9-de7a-029c-243d-1a5ecf7e8c6d	327	Measurement	21	10	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1818	406ac230-d92d-8a8b-cc18-a048fd78f7f9	227	Measurement	21	10	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1819	5e661fcf-625d-5615-a8bd-4207449893e9	327	Measurement	22	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1820	1a800225-0103-49ad-7f62-8e6f8643c0d5	227	Measurement	22	7	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1821	af462f8c-4430-419a-b540-946fa7a453f9	327	Measurement	25	8	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1822	8694cd94-7336-4d7d-1507-3671c678663e	227	Measurement	25	8	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1823	fe7184b0-bc17-c7e2-dd87-825d63b08635	227	Measurement	23	4	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1824	c097d060-1ccf-5eaf-df90-37a57d600a49	327	Measurement	23	4	\N	1	1985-05-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1825	a4d862d8-5a35-fe8b-843e-4fd572647931	328	Measurement	20	6	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1826	e7ab0ddd-8eae-c420-240a-792c4d7a7416	228	Measurement	20	6	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1827	42fa66e8-cdf0-7b80-a966-508d2eacc97a	328	Measurement	24	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1828	76e4568b-7065-4d2e-1918-2e6f31392120	228	Measurement	24	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1829	5b5d78ce-cac4-48ba-3f62-c76f0a4993c2	228	Measurement	21	10	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1830	53279d0a-1e8a-9b54-1229-0690e54a67df	328	Measurement	21	10	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1831	0a553e25-db62-697b-297f-319bfb2d7030	228	Measurement	22	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1832	e9a6767f-8858-9c54-b70a-5015bea3061c	328	Measurement	22	7	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1833	fe69910c-8304-3492-c73a-0d2e3c7d0d23	328	Measurement	25	8	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1834	de4ef88b-cbd6-2253-310e-944284c65136	228	Measurement	25	8	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1835	e2ea6a08-802f-4753-cb7a-b94a994b6baa	228	Measurement	23	4	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1836	ab6ab7ba-3c07-bc80-2653-2cd32533ebc5	328	Measurement	23	4	\N	1	1985-06-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1837	aea7d5e9-5404-3f0d-4c35-cafa6677bd79	329	Measurement	20	6	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1838	2a1b4b78-80e3-5df0-0a7a-adcba25a3f0c	229	Measurement	20	6	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1839	19214724-bea7-2862-2899-3ad34f4452bf	329	Measurement	24	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1840	aa9fcc28-3964-e3aa-243d-bb4ca9e0835d	229	Measurement	24	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1841	cb6a6c74-30a9-c21b-3936-243b25c28f24	229	Measurement	21	10	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1842	897bb831-bfbc-fcf3-7fa8-0ed12b4e8d3c	329	Measurement	21	10	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1843	3b5bf3fd-accf-2ba2-bf3d-c88d7e16f42f	229	Measurement	22	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1844	e43b0ea0-021a-1483-cb10-c4c93b26b6cf	329	Measurement	22	7	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1845	a9fdcaed-a50b-fa70-216b-5c54eec67a75	229	Measurement	25	8	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1846	6980debe-be45-4bec-6833-117175e33a1e	329	Measurement	25	8	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1847	b303ef7f-6ccd-43ef-16d2-6dad1e4b982c	229	Measurement	23	4	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1848	eda870d1-fe36-feff-03a4-5e3397745dd3	329	Measurement	23	4	\N	1	1985-06-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1849	49b288c2-1b13-5b8e-65bc-a53d3aa67b62	230	Measurement	20	6	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1850	e532aa9c-4b83-27b3-b272-39ccde692c9c	330	Measurement	20	6	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1851	8afbcb0a-9623-6ab8-154c-c16bf4f5a1ed	230	Measurement	24	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1852	d4e3df56-18b1-1bc1-9116-b6b64ca2bcc1	330	Measurement	24	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1853	8c9f05c7-6343-3502-8da6-9554053f991c	230	Measurement	21	10	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1854	6fb2dd67-0be9-af6e-4658-8d69c9cf1fc1	330	Measurement	21	10	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1855	ce2470d2-3885-e57f-96db-03d4513aec7f	230	Measurement	22	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1856	9f55d985-ff3d-d645-8b0e-903b6e280257	330	Measurement	22	7	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1857	b236b538-9533-0b29-c866-b6a28acf3fb1	330	Measurement	25	8	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1858	e7f967f0-2311-5ec6-e17f-331560ee67c4	230	Measurement	25	8	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1859	c388c4ff-1ab3-f597-8a0e-a11368cec876	330	Measurement	23	4	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1860	706b151d-b1ea-53c3-9b90-d5b7235e463e	230	Measurement	23	4	\N	1	1985-07-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1861	cc217691-4895-4f00-84fd-c1817020b526	331	Measurement	20	6	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1862	5a4b173d-f3fc-aca2-f4e0-b0262ae7892a	231	Measurement	20	6	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1863	3fa462cb-f8b5-3ece-030a-c5a04f7bb631	231	Measurement	24	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1864	a7eaf40b-82fc-de1e-8e12-e74fcb1ab597	331	Measurement	24	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1865	7998dd1f-d8ba-b057-9420-45e8af98a753	231	Measurement	22	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1866	b19fa233-ced3-72c4-d6b4-aa1c7efb0be9	331	Measurement	22	7	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1867	885c77c4-e585-37b7-e04f-103c3ea001e1	231	Measurement	25	8	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1868	0101ddea-e50d-3993-d20a-534268bee90b	331	Measurement	25	8	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1869	b940d521-c476-044b-75ad-1c4ee7e10267	231	Measurement	23	4	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1870	6fe6c5bb-cda3-4fb5-be5d-4a3f0e1c79e7	331	Measurement	23	4	\N	1	1985-07-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1871	b639a788-db1b-cb15-fcac-c0109a2f4511	232	Measurement	20	6	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1872	a915543b-4d3e-075c-4937-873091e31be2	332	Measurement	20	6	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1873	81ad023e-138b-b997-60ba-37fc01e7435e	232	Measurement	24	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1874	327c10f9-c3bb-1b31-5398-47e9f97996f4	332	Measurement	24	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1875	4dceb752-c949-d5c3-473d-4f51325a9a50	332	Measurement	21	10	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1876	446825b6-d1b0-317a-73ca-38ff02b2724a	232	Measurement	21	10	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1877	c45cbcec-d2cb-8a26-53a2-be98236cd895	232	Measurement	22	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1878	a2d69b21-890d-f6fa-bed7-d84f556e152a	332	Measurement	22	7	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1879	446b8afb-a2d0-2df1-71d5-87f2a6c5a076	232	Measurement	25	8	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1880	6afb99d3-a1dd-67b1-4aa9-8d29ead18c81	332	Measurement	25	8	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1881	0fd9a15d-6854-bab2-314d-9f2f22475010	332	Measurement	23	4	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1882	302d7476-0a30-2cfa-d92d-5d25ad06e89d	232	Measurement	23	4	\N	1	1985-10-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1883	bbcde685-8d90-1049-a640-8a7a4fce508e	333	Measurement	20	6	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1884	06dc36a9-5bdb-bb71-f8c3-59dada4ad166	233	Measurement	20	6	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1885	eb0a086c-ee7e-2d86-8d98-fb0aa11348f4	333	Measurement	24	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1886	0f099294-600d-d09b-68e0-d04346417163	233	Measurement	24	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1887	b431677d-03d5-69e0-68c9-0ca462941133	233	Measurement	21	10	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1888	67aa3069-bd96-4671-1b06-96253ea0c6da	333	Measurement	21	10	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1889	ecfa78b1-974d-7d26-f427-a7a9ddbf6f6b	333	Measurement	22	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1890	c99069bb-629b-84b4-bcc0-c705b9a5eb5e	233	Measurement	22	7	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1891	8d4fe888-66da-8a9b-6966-1a4e05d0d40d	233	Measurement	25	8	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1892	b2899349-6dbe-d083-c589-f656af52a6b1	333	Measurement	25	8	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1893	0354ada8-c540-311d-263e-c0732d33caf2	233	Measurement	23	4	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1894	d98f7623-1bb1-2f3c-614a-ccc89befb118	333	Measurement	23	4	\N	1	1985-10-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1895	5e3300ff-c0b6-7fef-0c12-9950fae1e685	234	Measurement	20	6	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1896	253911d9-d8f0-8871-613d-f2ce13525eea	334	Measurement	20	6	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1897	c4ad0603-d1b8-af7b-5b64-ea7312506533	334	Measurement	24	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1898	6b923d70-d10d-c5e3-a5b7-041540903389	234	Measurement	24	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1899	944a514a-da06-2c38-2d2a-8e9307700eb7	334	Measurement	21	10	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1900	97eb733e-bb42-39c2-948c-0ba8f84cbb42	234	Measurement	21	10	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1901	1a9d40fe-686c-54c0-4b04-e447eb6df333	334	Measurement	22	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1902	83ed5409-1c1c-a18f-ecbc-de46308a661f	234	Measurement	22	7	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1903	ad04dac5-71a8-a791-bb24-920ed4c4fa2a	334	Measurement	25	8	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1904	4733d28b-4d89-8d3d-3223-130893c94385	234	Measurement	25	8	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1905	e14f284b-1484-d610-c01b-a878b9d231c6	334	Measurement	23	4	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1906	5e6dff81-3df3-4b18-995e-ec70739a85fc	234	Measurement	23	4	\N	1	1985-11-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1907	ada73ac1-7bee-d1c1-06b5-2c0912c6e3cd	335	Measurement	20	6	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1908	a983d39b-ecfa-ff71-d45a-37a19a6a9309	235	Measurement	20	6	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1909	96b133d5-3903-03dd-be21-448bc147d119	235	Measurement	24	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1910	0b5ae18c-9514-c4a1-1720-e59aae4b50d2	335	Measurement	24	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1911	c43644f6-7b4f-9470-7151-e72c75a591e4	335	Measurement	22	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1912	c42841c3-981b-47d2-e27b-250f75620e9d	235	Measurement	22	7	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1913	8a1e7e1c-50fc-a19d-3a9a-ae2b74c9c8b4	235	Measurement	25	8	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1914	c69aa467-ee0e-ef2c-4c20-c33f35dbbd5c	335	Measurement	25	8	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1915	5bed821b-85a3-9689-14da-b332edf890a3	335	Measurement	23	4	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1916	4901ab59-bf25-9f23-50ae-55513123d88a	235	Measurement	23	4	\N	1	1985-11-27 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1917	9fa1f39a-3942-1290-1f9b-fafabb9cfdf7	336	Measurement	20	6	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1918	8c57dadb-f87c-4c88-5ddc-3a06fbaf554a	236	Measurement	20	6	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1919	788115e3-062e-8977-9576-5eb249be2891	236	Measurement	24	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1920	84ae73d0-f380-d86d-c26f-91c3ca0e09cc	336	Measurement	24	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1921	3db7a04a-0b64-65a3-51f0-afd0f28a0066	336	Measurement	22	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1922	72ad5be4-2479-b0ed-1534-efd8e89ce868	236	Measurement	22	7	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1923	80131d35-de29-ad55-25b2-d6a8923767bb	236	Measurement	25	8	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1924	f28f624d-6d30-064e-6e42-dfc1f0052085	336	Measurement	25	8	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1925	031d71a8-95ca-d2cf-eb37-a1efb20a049b	236	Measurement	23	4	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1926	a32e76e5-f6e6-d1d7-cc5d-68f01ffdfba0	336	Measurement	23	4	\N	1	1985-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1927	0e31bb74-aa14-14a0-d5ce-d3264fbf702e	237	Measurement	20	6	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1928	04dda7ba-e1db-6ae1-8857-3cf574b5bd3e	337	Measurement	20	6	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1929	5524a5cb-b690-1604-c87c-e8d7d74be8aa	237	Measurement	24	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1930	79accd4f-bc1b-e0d8-5201-3ac22f44f6e8	337	Measurement	24	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1931	14917d9a-78ce-b747-5221-879419997e9a	237	Measurement	21	10	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1932	c9d9966e-b7d1-4f8c-05f1-1dff4eeed85c	337	Measurement	21	10	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1933	13cbf066-7bd3-cad4-0cfd-e6c98b5b63b6	237	Measurement	22	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1934	390caeeb-9850-8c28-edf5-45394bad3299	337	Measurement	22	7	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1935	95a46f98-e29f-4974-daba-e9c37341e8b7	337	Measurement	25	8	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1936	cdcb8945-75cf-e25a-470b-f9fccc40026f	237	Measurement	25	8	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1937	757efa99-a4ea-d5e8-9a82-6004f85231e5	237	Measurement	23	4	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1938	7ebcd44f-1f82-a5d6-8a3d-17bead551327	337	Measurement	23	4	\N	1	1985-12-26 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1939	cfee7503-ad2f-2357-a05f-21ceeac3f04e	338	Measurement	20	6	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1940	a8de4231-08f1-e310-cdf3-63d38496abc3	238	Measurement	20	6	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1941	61fbf26d-8549-2eb1-f463-239a2d1d1ccc	338	Measurement	24	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1942	b89778e2-2c87-ef8c-2024-e88c45b5ce09	238	Measurement	24	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1943	e016784e-304f-7c0e-6a02-82161080f5d5	338	Measurement	21	10	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1944	274c63d3-030b-1ff2-0721-cda3608424ee	238	Measurement	21	10	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1945	2b3188ef-871f-c37e-553b-cca4398551d3	338	Measurement	22	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1946	7404f923-e102-3e91-8d94-74f66d6c2c0d	238	Measurement	22	7	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1947	7584756f-878f-846b-9a13-f1daf1471c1b	338	Measurement	25	8	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1948	2c3905ca-e089-ca70-8759-64bfa61a8d21	238	Measurement	25	8	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1949	38b54d21-5350-eab8-f25d-f335ae2363cd	238	Measurement	23	4	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1950	5d7e3584-cab8-5910-90c8-532af54596aa	338	Measurement	23	4	\N	1	1986-01-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1951	4fb33a97-dea0-acc6-2c87-f29eb1ca32bf	239	Measurement	20	6	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1952	f02e1650-5c32-15b7-b60c-ed97e4094580	339	Measurement	20	6	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1953	1c79a4c4-d8d8-b9e3-7f4f-755676e4db61	339	Measurement	24	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1954	54655d71-694d-c826-bb2f-7c1d9447b748	239	Measurement	24	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1955	6afed83d-b911-132f-57d8-cc0f36da629f	239	Measurement	21	10	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1956	2d0ff283-bd05-d709-42a6-ff22af8712c1	339	Measurement	21	10	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1957	5dbc39b4-f744-fb8d-c2bf-f11930aada40	239	Measurement	22	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1958	6f7b3756-ca6c-f435-451b-0a2b392bb816	339	Measurement	22	7	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1959	f9a34780-45ec-2c7b-0268-b62d39282017	239	Measurement	25	8	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1960	ec2bd109-9846-e04b-1ce3-5d0263a64760	339	Measurement	25	8	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1961	fe7e8347-2fba-6aee-7e7c-7f4daee50c93	239	Measurement	23	4	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1962	b1393ef0-d57c-301d-598b-bd5543232ed3	339	Measurement	23	4	\N	1	1986-01-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1963	b3c04e56-8356-26fe-62ca-4a147d2931fe	340	Measurement	20	6	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1964	d85a4eb7-78f2-1341-0392-d662012d9d36	240	Measurement	20	6	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1965	ae9e986c-e513-b97f-d3ad-f8af4fe919cc	340	Measurement	24	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1966	9e59ee66-71bd-4bbb-8057-76e1058862b1	240	Measurement	24	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1967	17a6dcd5-0716-4e01-83f4-cb9a47046bdd	340	Measurement	21	10	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1968	b5f10848-d6ca-f1b4-8272-1dd4289f03c7	240	Measurement	21	10	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1969	f2b618e2-de57-58df-af94-36709ffb0ba6	340	Measurement	22	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1970	1b82bbc0-fdcf-80a8-6d8e-4a6b40157d63	240	Measurement	22	7	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1971	c2206598-5a95-c166-4d93-d798148d6cce	340	Measurement	25	8	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1972	35b7888c-4eb3-1e8b-4910-157e1326bcf4	240	Measurement	25	8	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1973	86a52c5e-affe-532a-ef96-4594c44804eb	240	Measurement	23	4	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1974	4ebfbe49-6290-a912-ae5c-fcf54bcab33c	340	Measurement	23	4	\N	1	1986-02-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1975	a05e7ca7-f1f8-b021-132f-6b63b37a2774	241	Measurement	20	6	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1976	2a309591-7ada-316c-dafe-dca69dfd3b7d	341	Measurement	20	6	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1977	51e3e3c7-a7a9-4116-a823-77089b1e38c1	241	Measurement	24	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1978	810392b3-8510-f919-3670-797959cf0e3b	341	Measurement	24	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1979	5fc6ef3b-6396-78ad-d6d6-a23237c8d719	241	Measurement	21	10	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1980	ac4b4a52-b3bb-9f35-d5dc-a85f393bacbe	341	Measurement	21	10	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1981	76896116-515a-4ef9-8e72-856625b3543f	241	Measurement	22	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1982	3ed1fdfe-ca3b-a05b-2a37-893795b114dc	341	Measurement	22	7	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1983	2bcb3d82-6d5c-a9e5-4b94-c55ae00c2406	341	Measurement	25	8	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1984	9375565b-0947-f490-2079-9d5c25eae86c	241	Measurement	25	8	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1985	3d3428b0-a041-5c51-cb04-43cb69820209	241	Measurement	23	4	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1986	8087bcec-e332-00d7-fe74-c06fa09dc55f	341	Measurement	23	4	\N	1	1986-03-04 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1987	aff8078f-4314-9978-3507-6516e12e9902	342	Measurement	20	6	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1988	07eee69c-577d-a8da-1f5c-baf6bccbf4c8	242	Measurement	20	6	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1989	c39959e5-cbf4-594f-d697-227a61e091fa	242	Measurement	24	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1990	16c39f45-45d1-813b-fdb3-2ade925d654e	342	Measurement	24	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1991	2682eb44-44d8-bdf4-275f-9b8baaf91775	242	Measurement	21	10	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1992	e79bc880-44f4-d745-e0f2-ac4a69fb6e02	342	Measurement	21	10	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1993	1475ead7-4d10-e1ef-9d66-87554e47c364	242	Measurement	22	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1994	8b5caa08-f3c9-1e74-1f45-21dc55079eac	342	Measurement	22	7	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1995	57a77e5e-50a3-069c-3e9b-3d3a76e4e079	342	Measurement	25	8	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1996	3fd350e6-e66a-db2e-1c21-14af13aa165d	242	Measurement	25	8	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1997	601f5da1-edd9-71e2-d082-e584bb370435	342	Measurement	23	4	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1998	d1666a8a-29fe-642a-fe8a-edf5c57f37d4	242	Measurement	23	4	\N	1	1986-03-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+1999	2453c0bc-1f73-1f20-10a4-fcee938cb4f2	243	Measurement	20	6	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2000	1d7718c9-b960-9597-0421-05f18ee41a94	343	Measurement	20	6	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2001	3b170387-ef2c-e92a-e2b9-1a5f194e68ed	343	Measurement	24	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2002	0c176f34-da2f-40c2-7ba1-780f2eaed2fa	243	Measurement	24	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2003	2aa745d8-6ec3-67e8-2e3c-821335cdd1c3	243	Measurement	21	10	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2004	94ec0a90-59a9-0629-96b9-e9cc7500aa30	343	Measurement	21	10	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2005	c80cd3bf-a98f-408d-af0f-01637d8013e5	343	Measurement	22	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2006	edd39ff7-5c35-cb41-2430-e9af7da19d53	243	Measurement	22	7	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2007	1f836a52-d17a-c0c2-faa8-5eae2c10159e	243	Measurement	25	8	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2008	42ca64b1-3011-cca6-f288-d771cab90f81	343	Measurement	25	8	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2009	d86fc860-be19-d838-c5da-7d5ab2b8afb5	343	Measurement	23	4	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2010	78643c79-4066-9e57-a2f6-69c8fe56cb35	243	Measurement	23	4	\N	1	1986-04-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2011	a0e61d27-7ce1-0d01-4b00-bdef0acc7ead	344	Measurement	20	6	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2012	55364f53-1c53-9511-d457-7b59d5dfa53f	244	Measurement	20	6	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2013	193668ad-aa4f-b379-f751-df6ea61dd3c8	344	Measurement	24	7	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2014	b777a221-4775-bd03-7cc8-5ba08c5b8089	244	Measurement	24	7	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2015	b8c3e90a-ce9f-0732-4488-1b9cdb0f20ad	244	Measurement	22	7	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2016	054dc6de-dc33-cbd4-af37-46d280dc856a	344	Measurement	22	7	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2017	ab2e4904-0aca-8853-4a84-363642a82f34	344	Measurement	25	8	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2018	6214503c-7d32-2d7b-3b3e-1a6b0d815bc7	244	Measurement	25	8	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2019	e0c06d79-7096-6773-13c7-a21b4b1c4b54	344	Measurement	23	4	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2020	58ceac81-2912-cace-214f-28516ed4bcc3	244	Measurement	23	4	\N	1	1986-04-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2021	5b1865a8-2e10-5f4a-8b17-10bf32386536	245	Measurement	20	6	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2022	f699c40d-0f26-46c1-2ed1-4702b4f85985	345	Measurement	20	6	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2023	420fa030-bf93-74b1-93da-c27b478f70b7	345	Measurement	24	7	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2024	087435dd-7967-ad86-2b1d-182e69029926	245	Measurement	24	7	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2025	b97c623e-8311-ce65-d5bc-06d15a0a9ae3	345	Measurement	22	7	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2026	26043d11-089a-94a5-082a-34b9430524d3	245	Measurement	22	7	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2027	9f2d687f-48a8-9b85-29a0-a3c8012efad0	245	Measurement	25	8	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2028	afa09d6b-b270-c043-6f10-3e7a4c22e252	345	Measurement	25	8	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2029	cf44e46c-d33f-4940-f9f2-adaf3a96a614	345	Measurement	23	4	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2030	71ddbb9e-5a9e-968b-8864-d26b959c76c2	245	Measurement	23	4	\N	1	1986-05-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2031	2cc7019e-dc1e-557c-dac8-34706dcff873	346	Measurement	20	6	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2032	b2c428c2-73e3-353e-b1c0-eef86b419e39	246	Measurement	20	6	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2033	c98ab8a6-24d4-ef96-fbd8-85b905ec2e24	346	Measurement	24	7	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2034	c2e8e189-57d6-ee96-17dd-14845e6fc02b	246	Measurement	24	7	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2035	9ace4322-948c-09df-0fd8-b648e678ab87	346	Measurement	22	7	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2036	eef6c9fd-a244-8801-25f2-24fd40d23c8b	246	Measurement	22	7	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2037	d07f8dd8-66da-42c9-c3d0-dd43fb268890	346	Measurement	25	8	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2038	1e0acd2d-19e6-b233-8850-87cc70911228	246	Measurement	25	8	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2039	65dbd6dc-dbd0-db48-fe6e-80a794c8a36d	246	Measurement	23	4	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2040	d91693b2-87e0-3772-d617-2a1f9752a102	346	Measurement	23	4	\N	1	1986-06-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2041	da69f215-15ad-78d3-6a0e-c1368902ca3a	347	Measurement	20	6	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2042	47cd6d8f-9e20-b9e7-76bc-839af2290591	247	Measurement	20	6	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2043	7197a84a-7a98-a70f-866a-18178db2dd0a	247	Measurement	24	7	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2044	53d50436-9d08-f9ca-126b-6de7efd67370	347	Measurement	24	7	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2045	4e0ceea2-6d6a-e58f-493f-c113b13d88c7	247	Measurement	21	10	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2046	7d7fd193-c945-ac6c-656b-f2826e6a4286	347	Measurement	21	10	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2047	f551b6bf-dfa3-be47-a3b1-012aee7ee28e	347	Measurement	22	7	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2048	223d8031-5351-e43a-dcad-b899c9f7d0e6	247	Measurement	22	7	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2049	8731d314-8a86-4f25-cf3e-ab4cbf64b51b	247	Measurement	25	8	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2050	70ad10c6-e50e-aeca-257c-1f9914091444	347	Measurement	25	8	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2051	200c7670-899e-b2b5-6266-1c0e204e5adf	347	Measurement	23	4	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2052	f6383c1b-8e57-2071-f56b-b72d744cc4f0	247	Measurement	23	4	\N	1	1986-07-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2053	b01a1745-3773-51cd-9fbe-133e8dcdd734	248	Measurement	20	6	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2054	43f6a9ce-4f00-b6c9-d8c7-fbbc6b13e1cc	348	Measurement	20	6	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2055	3f126ca0-9568-cdcb-d34a-0b1b74a58504	248	Measurement	24	7	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2056	7622bde7-bf0f-4523-ca97-54da59dae7f9	348	Measurement	24	7	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2057	a7a88074-fc1e-c709-766a-2f1c2a46c6b1	348	Measurement	22	7	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2058	3760bc77-b374-94e0-6a61-5d625430afed	248	Measurement	22	7	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2059	a1995730-20b9-d192-5650-e77acbf56a9b	248	Measurement	25	8	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2060	0612a787-cdcd-2f66-4493-0690b8bba6ed	348	Measurement	25	8	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2061	b4b67fac-1fdb-fcb3-fff2-f83e40ba62a6	348	Measurement	23	4	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2062	58e46f0e-22dd-5bc5-f702-dfc291a28b84	248	Measurement	23	4	\N	1	1986-08-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2063	8e019c89-a27b-ff6d-a9a8-ce0e675cba96	249	Measurement	20	6	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2064	38ac9594-b565-3558-79eb-d1ab1321ad82	349	Measurement	20	6	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2065	6901da1f-d323-11d3-9920-d90f5f67a1d7	349	Measurement	24	7	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2066	94fc130d-b26a-4e8e-89c2-c48190a894e6	249	Measurement	24	7	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2067	5afa767d-797c-013b-b7bd-5303ad5421c5	249	Measurement	22	7	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2068	2df25617-7833-fb64-2c56-96b83b1d1154	349	Measurement	22	7	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2069	577ebf58-b4eb-454a-3c97-ed19b1d1005a	349	Measurement	25	8	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2070	96822c46-2294-fd8b-fd8d-193f662d7759	249	Measurement	25	8	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2071	fd3c3256-0504-9626-28c1-8b7af61dd5ba	249	Measurement	23	4	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2072	0fd22ef1-cbcd-b5e6-cfe9-a54c35be3967	349	Measurement	23	4	\N	1	1986-09-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2073	b2e18ed4-2345-3933-2d69-ae799b771a52	350	Measurement	20	6	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2074	85c08d24-92ab-fa93-d1d0-4914d3c4627d	250	Measurement	20	6	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2075	a49aacfd-cdfa-70c4-229e-3f457ff46b0f	250	Measurement	24	7	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2076	00904889-3307-e45f-2b3b-1bf48591c72d	350	Measurement	24	7	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2077	3006e2b5-9bab-a826-53fc-58483a2ea62f	250	Measurement	22	7	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2078	04e769ad-3e36-93de-20b7-d3adaab89d2c	350	Measurement	22	7	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2079	33ece18e-3e9c-0ba6-b693-54678ee7c4df	250	Measurement	25	8	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2080	318759ac-8ded-5bfd-5718-11da62fc31e9	350	Measurement	25	8	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2081	22c733a5-a026-08e6-8115-8b794d6d3ad3	250	Measurement	23	4	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2082	fe0c5d53-247c-a0ad-3f80-18de73009134	350	Measurement	23	4	\N	1	1986-10-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2083	766487ca-afb4-87e5-6e8f-be860eaf9137	251	Measurement	20	6	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2084	78a1e498-ec78-166f-ad02-c0b4f33ca461	351	Measurement	20	6	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2085	66b26c21-9b32-7a66-d7d4-680826772875	251	Measurement	24	7	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2086	07995f22-6a40-e057-c9fc-37ecb91c17d7	351	Measurement	24	7	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2087	fa47dc87-12e2-00a3-948e-ccf5f906ed15	251	Measurement	25	8	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2088	45748504-9d57-42bf-b47c-b573fa134a05	351	Measurement	25	8	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2089	b4d4eec1-ddb4-3554-b91f-be1072565e96	251	Measurement	23	4	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2090	1a7a6616-658e-d457-01d9-ceef99100271	351	Measurement	23	4	\N	1	1986-11-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2091	58bb7634-2bd1-278e-7195-24f68a3a4bef	352	Measurement	20	6	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2092	7604d45e-8aef-e91a-51a2-ae22c35762b7	252	Measurement	20	6	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2093	f0b09245-503d-dac1-71df-c6723252be3b	352	Measurement	24	7	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2094	89b86890-c09b-5096-bf10-a8987500d310	252	Measurement	24	7	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2095	acf43179-3717-db0e-9638-e9e58a95180a	252	Measurement	22	7	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2096	6e6bcf09-623c-a637-f6b2-c54314d3bc63	352	Measurement	22	7	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2097	133a6015-8f30-f77e-05ee-ac45a461da72	252	Measurement	25	8	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2098	f789ef53-ca12-9651-e703-9c58ce48b621	352	Measurement	25	8	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2099	5317a91e-32ab-0817-36d1-8b529c01f064	252	Measurement	23	4	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2100	4190f624-815a-c7e7-bd22-ded477ed7bff	352	Measurement	23	4	\N	1	1986-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2101	1dabec96-e271-7ebf-98f4-eff74ed766dc	353	Measurement	22	7	\N	1	1987-08-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2102	330cb1cb-72fb-65dd-8e64-8c3bd1e31162	254	Measurement	22	7	\N	1	1987-08-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2103	6a290f10-17bc-094b-c685-3ca6f518bcd5	254	Measurement	23	4	\N	1	1987-08-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2104	2400a161-31f7-210b-c27c-da864c3108fd	353	Measurement	23	4	\N	1	1987-08-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2105	6ce064d4-aa2f-8a41-bf79-716a26667a60	255	Measurement	20	6	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2106	a8576279-8aac-af0b-9032-05b82c41170c	354	Measurement	20	6	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2107	24157a6e-6d92-8e07-2056-48f4a4151af5	255	Measurement	24	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2108	40e8de11-0723-d580-bed9-059645f3a209	354	Measurement	24	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2109	22d782c1-7e2d-2c76-3045-02337d560910	255	Measurement	22	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2110	10497c34-b7d1-f743-3457-b0360099403f	354	Measurement	22	7	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2111	c390af7a-af84-a99c-7597-589caa3780c6	255	Measurement	25	8	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2112	ab713209-f52f-a125-6568-4c7dfe208369	354	Measurement	25	8	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2113	e977235f-4182-8383-b5ff-0a065ba34238	354	Measurement	23	4	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2114	01e861f2-4eb5-74e8-52af-5bf41017c646	255	Measurement	23	4	\N	1	1987-09-30 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2115	f3de5475-db5d-1795-6305-ac532fa0386c	355	Measurement	20	6	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2116	cd441856-62b6-86e5-9270-afa848d887af	256	Measurement	20	6	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2117	fed6fdd1-16cc-0ea4-0c1c-02660a9ab341	355	Measurement	24	7	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2118	eb6c3c31-3fc6-8214-44e9-6312a3b504ac	256	Measurement	24	7	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2119	7d9dd129-afb0-0610-f2fe-40a29c96e8c8	256	Measurement	25	8	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2120	00718925-caec-30dd-3d41-89cc8ac63b02	355	Measurement	25	8	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2121	6a20f073-9a0f-14ec-df1a-b9faacfec7d6	256	Measurement	23	4	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2122	ad2aec81-9ff2-bfa7-3954-d0a1b5e8df82	355	Measurement	23	4	\N	1	1987-12-07 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2123	9d748a3d-bcf5-a10c-5563-db3f3050e087	257	Measurement	20	6	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2124	2e4628d1-48ad-407c-c98e-a95cf8e57094	356	Measurement	20	6	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2125	18fa0ec9-0d40-ac2c-a92c-016d1dbf5b29	356	Measurement	24	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2126	3c1fa686-9386-7ac2-ca54-9e07bd531323	257	Measurement	24	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2127	414457d9-4e39-2ac3-cebe-69d2c2e13777	257	Measurement	22	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2128	8fde324a-96ba-302e-8e90-19c1ff1b4c45	356	Measurement	22	7	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2129	4cf17545-2971-3d97-ce8e-4bcd12600af7	257	Measurement	25	8	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2130	b67455a6-d3df-e619-1e2a-7a8a61b7dc50	356	Measurement	25	8	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2131	bf2b8341-35e4-c8bc-95c8-5f375f3f5c6f	356	Measurement	23	4	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2132	e0a1c0c7-7358-38c6-efc5-bf5ea1ce1d1e	257	Measurement	23	4	\N	1	1988-01-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2133	b85c1789-5adf-a686-4f47-43e267b2e369	357	Measurement	20	6	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2134	d3137327-2de1-75db-06df-66be09aa6795	258	Measurement	20	6	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2135	3648d9a2-bc5f-327e-ab81-952a486ebb3b	357	Measurement	24	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2136	f66066c3-96c3-78e6-8151-6274569c3d83	258	Measurement	24	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2137	5d09edc5-7e16-4078-8928-edcf6d65de0b	258	Measurement	22	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2138	ae3807e9-10e8-3f21-6bc4-bca065bf8543	357	Measurement	22	7	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2139	507fb6e2-7255-dc5a-f642-c63efffefcfb	258	Measurement	25	8	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2140	1732abc6-1c2f-6d72-6e72-f3761e271e9e	357	Measurement	25	8	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2141	de42b29f-9562-3e70-ed5f-96308931c022	258	Measurement	23	4	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2142	6822a224-59ad-c5b9-6766-bb3756495f80	357	Measurement	23	4	\N	1	1988-02-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2143	439726cb-1d4a-9367-f035-dc788ff7bd3c	259	Measurement	20	6	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2144	1cf5e7e3-3a8a-25f5-c44a-625d439b1fcb	358	Measurement	20	6	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2145	85a29d78-bc0a-aecb-7f81-85c552bf015c	259	Measurement	24	7	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2146	02437b09-c3d8-76cb-2b40-e7e1fe19b7bf	358	Measurement	24	7	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2147	2ba10028-9818-0b13-8054-bbb64f1df80d	259	Measurement	22	7	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2148	92c6e34c-d867-27bd-9602-771a63322be5	358	Measurement	22	7	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2149	7e600895-af9d-081f-aec5-dfa1271077fd	259	Measurement	25	8	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2150	e0c9971d-d7a7-b097-cbc0-9290fad69a7a	358	Measurement	25	8	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2151	e2a12cba-287c-32cc-a757-f50e5123b3c7	259	Measurement	23	4	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2152	9591df11-8061-7723-287a-50f7b99dbe06	358	Measurement	23	4	\N	1	1988-04-21 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2153	f19a75b0-2a2b-b02b-01df-79e7670f67ee	359	Measurement	20	6	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2154	49770161-c941-db0e-7799-70c2452d9d45	260	Measurement	20	6	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2155	dd4261ca-e0a6-6499-2629-5928d5900f95	260	Measurement	24	7	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2156	d6ae66bf-6e16-cbb6-b875-c330f9e07b48	359	Measurement	24	7	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2157	74b9e9ef-da9c-6341-648b-f7edede87e81	260	Measurement	22	7	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2158	8ce07195-af4e-ceb8-3bc0-6b0622aee06c	359	Measurement	22	7	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2159	3e775577-2694-7612-8d21-ae8c338f7c9d	260	Measurement	25	8	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2160	0559532f-1880-4d8b-e433-66446fc16e0f	359	Measurement	25	8	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2161	647180df-27b1-c335-bdcf-8c54c0fee954	359	Measurement	23	4	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2162	23f65493-fbc3-89ae-02db-5b24432a814f	260	Measurement	23	4	\N	1	1988-05-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2163	aa72f886-d839-2e23-cacc-c88893eb82bf	360	Measurement	20	6	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2164	34d3bb6d-e6ba-ff08-bb4b-db2345c628f7	261	Measurement	20	6	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2165	2bd1b6b5-6dd4-c958-a984-2718a41e4974	360	Measurement	24	7	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2166	5b87d8dd-c88e-78f7-d58d-4740aec1b55f	261	Measurement	24	7	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2167	badcd32c-57e0-2eb9-58b4-9711a08632d7	261	Measurement	22	7	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2168	fc282733-8e91-7446-4de7-2722eb58b586	360	Measurement	22	7	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2169	441439a0-a9fc-9cbc-81f9-a31070f4cbf7	360	Measurement	25	8	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2170	d1e5a49b-d5ed-677d-a14a-51aef2d51177	261	Measurement	25	8	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2171	b39d9db8-6ad3-b882-563c-294c5af8b866	261	Measurement	23	4	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2172	617a0902-6ea8-2de0-0c44-8ab14977a615	360	Measurement	23	4	\N	1	1988-06-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2173	943fedfb-dca4-01c3-6edd-e2af95e246bc	262	Measurement	20	6	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2174	336c3899-8b20-7ce8-6359-b7aea9664d81	361	Measurement	20	6	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2175	66f2dc3a-ca9c-8474-1285-2ab00e39d224	262	Measurement	24	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2176	7a9af0d0-f2ec-7464-7e5b-cf1aea9723d9	361	Measurement	24	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2177	85dc9310-7099-d70a-0eb1-d2e4e3b54cbf	262	Measurement	22	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2178	b6047347-fa0e-a6af-5491-67a742c2e5f3	361	Measurement	22	7	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2179	7719e70d-cd62-c5b0-21a3-6e9c81553b02	262	Measurement	25	8	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2180	c407bc32-522f-5b00-0daf-ae1da5d21823	361	Measurement	25	8	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2181	0a78b7f7-78c0-dcbc-145d-1c6a4e2fdda5	262	Measurement	23	4	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2182	91f82882-f25f-f867-5ebd-8d4ed2f76f02	361	Measurement	23	4	\N	1	1988-07-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2183	0162dc78-4676-5c41-d5ef-271eaeaca2cd	362	Measurement	20	6	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2184	7ce48481-c29d-6683-03ec-11f74f54e0b4	263	Measurement	20	6	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2185	fc11d0ad-eac3-d82b-9657-54d270501273	263	Measurement	24	7	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2186	2a0d4f76-f3a6-2554-7384-d1866b48da93	362	Measurement	24	7	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2187	93cab6e4-3463-8763-03ed-4830564039fd	362	Measurement	22	7	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2188	504039f6-ef59-8ab7-8d94-3939085bcfe1	263	Measurement	22	7	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2189	c8d4d8f6-346c-a2cf-2bbc-bcea2a38d81b	362	Measurement	25	8	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2190	fb883a7e-21cc-4254-d3ab-d819a0ad0d13	263	Measurement	25	8	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2191	246c5542-ff09-b370-4d2a-05efb871e973	362	Measurement	23	4	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2192	c6675a9e-4231-1d00-f9bb-149047381992	263	Measurement	23	4	\N	1	1988-08-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2193	3e40783a-04be-cfc1-2cab-d45f997ffab0	264	Measurement	20	6	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2194	ac486f8f-44ee-77f1-d9c7-22d15ae09364	363	Measurement	20	6	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2195	b561f7ec-d9b2-2252-1ba8-ced0d197a21d	264	Measurement	24	7	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2196	bfce120a-64df-0f3a-1678-2595086a7cae	363	Measurement	24	7	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2197	dbe79c47-f8da-49cb-a330-4fdc953dc2a0	363	Measurement	22	7	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2198	47b916ac-4c66-f44c-d2c3-47c42c494b82	264	Measurement	22	7	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2199	62f916f6-c60c-972e-4f07-212560915646	363	Measurement	25	8	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2200	72d66952-e5e1-e03b-2bed-2cf78f05c44b	264	Measurement	25	8	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2201	452e1402-ce89-f542-312a-e866b2af6df9	264	Measurement	23	4	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2202	3abeacb4-63ba-570a-2938-9aeabe0ef528	363	Measurement	23	4	\N	1	1988-09-23 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2203	bc78d75a-3142-1460-b5bf-ba286ce6a5b4	364	Measurement	20	6	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2204	0de8c0b0-d00e-d430-6920-d7d2c2d6f423	265	Measurement	20	6	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2205	8737922f-83b9-339d-44cc-d4214dbcbd7e	364	Measurement	24	7	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2206	9f06af2b-5947-c7e8-fc7e-aed15cf84897	265	Measurement	24	7	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2207	135b9bcc-ac71-a242-192e-748c93c10f87	364	Measurement	21	10	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2208	36d7d2f7-f89b-e5ea-ccc9-4938d2fb8908	265	Measurement	21	10	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2209	2d3ab776-67bd-478b-0328-00dc4383a415	265	Measurement	22	7	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2210	2a51fee6-18b1-472b-dca0-8d22490f8c81	364	Measurement	22	7	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2211	80d3fa17-dc88-8239-6ca2-5939c166696e	364	Measurement	25	8	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2212	538d6544-da95-418c-9eeb-d53d80275752	265	Measurement	25	8	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2213	0fdff2c5-08c5-f9df-1985-f1b68a80bcd6	364	Measurement	23	4	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2214	b90bc4fd-d4ad-4f72-ae63-336f544a18b0	265	Measurement	23	4	\N	1	1989-02-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2215	ec205fb7-fc44-aaff-49f7-920b632bb6d2	365	Measurement	20	6	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2216	cef783ef-98ad-13e4-9b75-de3ff8f0715a	266	Measurement	20	6	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2217	1e9af66a-789d-ac8b-107d-7240dedd3fcc	266	Measurement	24	7	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2218	4e45c909-113c-8946-b050-ea1d784de880	365	Measurement	24	7	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2219	4060be25-82f9-ae85-2d83-02203ff831db	365	Measurement	21	10	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2220	6942ab40-f7fa-398e-7ffd-472e22bddf3a	266	Measurement	21	10	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2221	536b9fee-73fa-39b1-ad9d-01c97d35fbe8	365	Measurement	22	7	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2222	829553e6-ddf9-a0b9-4bd2-885ea3d9115f	266	Measurement	22	7	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2223	0d10c7f8-c67e-9383-154d-398ae7d17130	365	Measurement	25	8	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2224	ea9b9fd1-c63e-4250-761c-ba79a247611b	266	Measurement	25	8	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2225	8ab44131-8784-d126-5b6b-7762af02947d	365	Measurement	23	4	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2226	2dc94e0d-f366-a2c9-8222-89245a74990e	266	Measurement	23	4	\N	1	1989-03-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2227	8619f7a4-c023-0346-5d1d-4db84738efde	366	Measurement	20	6	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2228	ca363849-0dfe-4a25-c0d6-36324b487504	267	Measurement	20	6	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2229	096f3e86-33bb-9ca6-9e7c-a73721033f85	366	Measurement	24	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2230	509dc304-215e-cfe1-d9d6-1d57af6f13a3	267	Measurement	24	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2231	8b48d9cc-faa2-4ebc-0497-e74c1a65ef74	267	Measurement	21	10	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2232	ac878415-313e-5a8e-874b-d5fb33c2b504	366	Measurement	21	10	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2233	b4d1bbe8-9aa6-3d7b-0259-aa48aa1a533a	267	Measurement	22	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2234	d9705853-7b11-391a-c576-5e5340971a14	366	Measurement	22	7	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2235	efa9f945-5d51-907d-ff0a-4277ae030353	267	Measurement	25	8	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2236	79918015-2136-d4fe-bee3-d6b303c32469	366	Measurement	25	8	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2237	b9e00e5d-aa83-3f52-7c52-5b43b8ce3d75	267	Measurement	23	4	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2238	0ce02ace-e650-d0e8-d4e2-19becb274740	366	Measurement	23	4	\N	1	1989-07-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2239	268832f4-a7bd-2f48-a2a6-ae229d341789	367	Measurement	20	6	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2240	0e1cb882-822d-00ec-0d5b-b03d19d5867e	268	Measurement	20	6	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2241	94877b1d-9541-3cef-5f8c-c2bfcd80d873	268	Measurement	24	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2242	9ec9bc99-28f6-4624-7db7-e962c73a3dd1	367	Measurement	24	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2243	b3fbd895-7197-37b9-ce83-8c381702e173	268	Measurement	21	10	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2244	15c52498-4c47-ef58-67b8-15e31375fe5a	367	Measurement	21	10	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2245	cbaffa15-479b-8c54-de85-4c779a204cd7	367	Measurement	22	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2246	8f854cfa-4941-c534-7a8a-1d320247090b	268	Measurement	22	7	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2247	b63f523e-5e2f-2450-f97e-553955d413e0	367	Measurement	25	8	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2248	9400ad17-c086-2440-5d2a-d919f38d376e	268	Measurement	25	8	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2249	640e1095-7fbc-3146-4391-7b173a443bc7	367	Measurement	23	4	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2250	ff233020-825d-5c96-92a6-788cc96d3615	268	Measurement	23	4	\N	1	1989-08-10 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2251	2c943a5d-a52d-f7b3-a942-a82924de8f8f	269	Measurement	20	6	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2252	724d7983-7b1d-0387-3581-ce4f3d92d092	368	Measurement	20	6	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2253	b922b958-f2b8-81ca-b08e-d76a62f32855	269	Measurement	24	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2254	38216a7a-d9e0-a870-afed-985cafe45bae	368	Measurement	24	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2255	ea271ad1-6207-192c-f9e4-23fe85fe70a1	269	Measurement	21	10	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2256	43d24dd1-7701-bc7d-2aa8-99086bf929c1	368	Measurement	21	10	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2257	1ea23a41-a0cd-77e2-27b9-6269f55596e3	368	Measurement	22	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2258	6ac7f4e9-75b1-d766-759c-897b204413e5	269	Measurement	22	7	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2259	66e33000-98e0-9866-3bb9-b0eca31ae4e4	269	Measurement	25	8	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2260	710911b2-d547-9bfe-2710-6b73884d4433	368	Measurement	25	8	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2261	fbb96886-d819-8fbf-5643-cb58573aeb15	269	Measurement	23	4	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2262	34677d80-d0eb-f69a-0427-a444ef2722dd	368	Measurement	23	4	\N	1	1989-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2263	16851e1d-5366-736f-418a-85f55e824b8f	270	Measurement	20	6	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2264	d5aa6291-9912-75c2-0f4b-f5b63b3c7146	369	Measurement	20	6	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2265	988ebf32-2952-238f-f663-9222145b85a7	270	Measurement	24	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2266	d37319be-e515-ea00-4857-103ad3b36beb	369	Measurement	24	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2267	6e010a95-6945-7b69-540e-ffe1bf4fa364	369	Measurement	21	10	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2268	1f76cced-4d83-688c-c1ee-a02171777a98	270	Measurement	21	10	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2269	149f74b7-dfe1-ff29-a198-41a1e4e312db	369	Measurement	22	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2270	26f3e81b-6512-2c9d-39f4-2dc573e9c919	270	Measurement	22	7	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2271	a9e80a97-df12-e8eb-9a3d-9b57cf9c81b6	270	Measurement	25	8	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2272	662199d3-8ad7-1505-99bc-be4488f2c33b	369	Measurement	25	8	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2273	8c2d006a-6b6a-8ffa-f253-78d883e67623	270	Measurement	23	4	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2274	fba994f7-98f6-9c38-9432-5a9c914ad1bd	369	Measurement	23	4	\N	1	1989-11-19 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2275	b9ec7ff6-233f-492e-c198-872f0d369841	370	Measurement	20	6	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2276	d6480a6c-ac75-001c-52ad-3388590404e6	271	Measurement	20	6	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2277	828fef89-5ed8-be77-753e-bcddc196740f	370	Measurement	24	7	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2278	4a5d25e4-34ef-e0cc-859e-878e7aeb54e9	271	Measurement	24	7	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2279	ba73dbac-e264-8261-3ff4-385c9f0198ab	370	Measurement	21	10	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2280	a4c90bc3-bebb-d33b-2257-56d66e013833	271	Measurement	21	10	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2281	17b79d47-b18a-eceb-fea0-bdf374259b16	370	Measurement	22	7	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2282	3c17965e-dd22-e74e-8aac-fd294f96b4c1	271	Measurement	22	7	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2283	bdbeffcd-bbdf-2fe7-0a64-bc1ae49e4e13	370	Measurement	25	8	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2284	cf260b7a-f33c-002e-117a-31ccdbdd5fcb	271	Measurement	25	8	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2285	f760f6e6-cd29-48fd-e9e2-d9f8520580ca	370	Measurement	23	4	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2286	6c77b0df-c44a-b523-1236-28adf2d359b0	271	Measurement	23	4	\N	1	1989-12-12 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2287	7223458a-212c-c16b-64a0-e52665bf91dd	272	Measurement	20	6	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2288	3ee8936b-bec1-f3b4-5022-6898fc4408a6	371	Measurement	20	6	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2289	f1e93837-1db5-8faa-c99e-3870e6a7c34f	371	Measurement	24	7	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2290	84ca8878-56ef-0e2f-af51-043c08b8fac6	272	Measurement	24	7	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2291	854a6fe6-3541-4603-6116-1f4f14d8ad8d	371	Measurement	22	7	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2292	64be9306-53a5-8d87-1067-0a4dd593bb6d	272	Measurement	22	7	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2293	c5bf2c54-8abd-7536-1b85-68cf66d2b3d9	272	Measurement	25	8	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2294	04e0ee2f-c521-4cb0-857f-6a35f2e0149b	371	Measurement	25	8	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2295	cf8fe588-946a-2eba-5077-ea25103e4a87	371	Measurement	23	4	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2296	1af55490-0ea9-acca-9201-8aefea975b00	272	Measurement	23	4	\N	1	1990-03-13 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2297	ecc84f03-a390-9fe4-7377-2c6c3df538a6	273	Measurement	20	6	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2298	a5f5bd4b-c235-25e2-03d4-1530a62ff1f8	372	Measurement	20	6	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2299	567d299e-1b9e-93cf-f8d1-aa9acc93ccf9	273	Measurement	24	7	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2300	191cc3f0-582f-d3eb-7ab7-ddafe8d05068	372	Measurement	24	7	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2301	bc14ee74-91cb-4f8b-34ef-43a94d36895a	273	Measurement	22	7	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2302	b76f4c3b-2c5a-a0f5-9395-5e3e3125eb56	372	Measurement	22	7	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2303	85824f67-9f94-5f7c-a26b-8b6bbd4270e0	273	Measurement	25	8	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2304	372233d6-9409-af0b-28cb-67e446435941	372	Measurement	25	8	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2305	88ec203f-49de-3c12-b833-8749b22b04cf	372	Measurement	23	4	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2306	78ca243a-be30-d997-e803-3789c4fea2fc	273	Measurement	23	4	\N	1	1990-05-02 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2307	60a59e0e-415c-9de1-bcd0-1906856046c2	373	Measurement	20	6	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2308	3166f081-779e-2373-014c-9b539c227997	274	Measurement	20	6	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2309	0089bc32-7bbc-b977-a890-92c0a89ac385	373	Measurement	24	7	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2310	586a4e6a-f30a-b82b-5450-bd3c28bf5107	274	Measurement	24	7	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2311	9cc91c0b-237b-3ac8-8e3e-45c02a7af242	373	Measurement	22	7	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2312	0da7bf18-c03d-61cd-7755-a623cbcd0fcf	274	Measurement	22	7	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2313	76ca6f43-fdc6-2983-bf17-fb71594f7df1	373	Measurement	25	8	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2314	a5682768-452f-3ffe-97b3-a764acd93b6e	274	Measurement	25	8	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2315	d5fb3a09-bd30-1867-39ee-d1bf0d68f1e5	274	Measurement	23	4	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2316	a2690c15-556d-36e7-ec06-3023c8ff2d94	373	Measurement	23	4	\N	1	1990-06-11 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2317	b4e72a9b-e359-038a-78f8-0fab55277231	275	Measurement	20	6	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2318	d94462e8-3d6e-049f-d6f7-1c2a1e189008	374	Measurement	20	6	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2319	875813a4-1000-d811-5336-31dbe0386055	374	Measurement	24	7	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2320	c1651858-11bd-b6ea-eb82-d09bdaf3672b	275	Measurement	24	7	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2321	c0fdc9d4-a70b-f84c-e952-386e898f5141	275	Measurement	22	7	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2322	aefaba82-898e-f260-1812-7484a225972e	374	Measurement	22	7	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2323	df047f51-4c8e-ea6a-9eb3-42fde124a979	275	Measurement	25	8	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2324	ea80604e-400f-9c8d-7ecc-6864ea1d2d00	374	Measurement	25	8	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2325	c2fa71aa-5bdd-8e77-e30b-d0cdea0876e1	275	Measurement	23	4	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2326	9ad53d63-a702-93b7-cc5f-c96ac0694d7a	374	Measurement	23	4	\N	1	1990-09-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2327	d362ebde-cd4e-fe70-6487-a0e7c4059079	375	Measurement	20	6	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2328	cf483a45-bf52-6b0f-15cf-7338279e23df	276	Measurement	20	6	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2329	c58809b0-19ce-4a78-dcd3-08f8286b8c85	276	Measurement	24	7	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2330	c10198a4-92ce-e763-af52-aeb538530ca9	375	Measurement	24	7	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2331	b1ffc8ba-4e2a-04f5-68bc-88a89694122b	276	Measurement	22	7	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2332	a81d54cd-c3c8-be41-d134-8149f1b72fef	375	Measurement	22	7	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2333	07ede731-516e-86aa-7045-f777f9f73358	375	Measurement	25	8	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2334	bf837a03-c392-1645-6a19-71c29346620a	276	Measurement	25	8	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2335	898d766c-cabf-f5a3-cf62-bc63ca505ecf	375	Measurement	23	4	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2336	846d316b-3ca0-5206-99da-f7b4325db1d7	276	Measurement	23	4	\N	1	1990-10-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2337	6123ea95-101f-14a8-09c4-b665ade87961	277	Measurement	20	6	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2338	d40eb77b-b128-7f59-ef0b-cd4be631dd2b	376	Measurement	20	6	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2339	0f1a843a-df9d-66bd-f6ad-3db6cde1bc26	277	Measurement	24	7	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2340	ca47f1b8-602d-c848-2aa2-9fcb4750722e	376	Measurement	24	7	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2341	b7cdbbb1-772a-01d9-4e48-8b3f982c5515	376	Measurement	22	7	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2342	45960253-fd15-e8ff-e591-2cbf085a2c46	277	Measurement	22	7	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2343	f63a1476-66ab-5097-643e-be71f6281811	277	Measurement	25	8	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2344	28c4aa79-c2a1-5c3f-ad4a-771c846e9ef6	376	Measurement	25	8	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2345	6b8b7e57-5fcf-f2bc-965f-824f9242cb0d	277	Measurement	23	4	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2346	90dffac8-5916-4ec7-0174-06c037a7a572	376	Measurement	23	4	\N	1	1990-12-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2347	2e3fefaf-b3a6-4dab-bcb1-4d7a8b6f6d6b	377	Measurement	20	6	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2348	e5b91fab-4725-cae5-4d4c-2b527e518a73	278	Measurement	20	6	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2349	4fdfc02a-37c2-6f0f-159c-0f5f847728a9	278	Measurement	24	7	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2350	bd6c0db1-206d-6fb7-5336-60cd24a8efb6	377	Measurement	24	7	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2351	7f41e769-629f-ff9c-42c5-5867c2d11e26	278	Measurement	22	7	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2352	e7837332-6b59-2c16-a95d-75fcbd61d70e	377	Measurement	22	7	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2353	a26bb989-6437-d74c-3799-5da0719ffe8f	278	Measurement	25	8	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2354	cf3045c5-9f42-5129-23f5-f86737924f54	377	Measurement	25	8	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2355	4a0c7b72-9fb0-cf56-cf55-94ed2b8141a4	377	Measurement	23	4	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2356	dec192ee-9812-7c13-1833-1f79fa50fcfc	278	Measurement	23	4	\N	1	1991-01-15 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2357	da199e30-e8c0-c913-410f-9d6a0640d060	279	Measurement	20	6	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2358	6128b155-d6d6-ed43-83d2-d2e0bc546925	378	Measurement	20	6	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2359	459819b7-a6f1-9388-3235-1567966b49ad	378	Measurement	24	7	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2360	50440f14-c5f9-fb01-5378-aceac131a696	279	Measurement	24	7	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2361	e598fd73-e851-4677-3608-59c0c7f0e9a3	279	Measurement	22	7	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2362	47c51b67-14e1-287d-5c8b-0a7f7dc460e1	378	Measurement	22	7	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2363	92d124da-0c5b-6813-b190-5a437f6cd654	279	Measurement	25	8	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2364	48f19153-9480-8c0e-7c30-64ee51bc7beb	378	Measurement	25	8	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2365	3bdeb6ec-9514-8424-b260-14944e9820d8	279	Measurement	23	4	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2366	025b7dd1-8db3-76de-60db-223e82a9a0ca	378	Measurement	23	4	\N	1	1991-02-08 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2367	7633790e-aaf6-fcaa-93ab-7e8e4ba78b7b	379	Measurement	20	6	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2368	d0c954cd-268a-3877-572b-697f5ccf2a65	280	Measurement	20	6	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2369	13d3d231-a370-cdef-0d64-0eecf34ffab9	280	Measurement	24	7	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2370	9db26d6a-9425-3223-4fe9-749961459a00	379	Measurement	24	7	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2371	b4619af2-3203-00d5-d4b9-093be967c327	379	Measurement	22	7	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2372	a33eef1a-3e8f-1f5c-a97e-06fa49f60f63	280	Measurement	22	7	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2373	9d6c2dc5-d8ac-76c1-bc2b-223366b5d2a5	379	Measurement	25	8	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2374	433e8ef5-0662-188c-5767-7fb326b034f3	280	Measurement	25	8	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2375	1a3a395e-4a9b-6912-81b5-c64b5274f1e9	280	Measurement	23	4	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2376	916d463d-e03d-71b4-b4f3-d9d8a56529a4	379	Measurement	23	4	\N	1	1991-03-25 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2377	d81d347a-6add-60c5-45b1-7b220dd07e93	281	Measurement	20	6	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2378	b87933cd-2385-0b7f-82c0-6fee3b0e64c6	380	Measurement	20	6	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2379	02211b30-953c-0c64-45eb-7ea69afa3f94	380	Measurement	24	7	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2380	94450da4-b475-69b7-95d9-f8a3e29a8df2	281	Measurement	24	7	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2381	1a2bc63b-c557-34b4-954d-631767f7f38f	281	Measurement	25	8	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2382	5d569eb4-1b26-f9e4-c63f-32c6b92fd6f9	380	Measurement	25	8	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2383	636ed682-cf59-699d-51f6-bbaff3c5df7f	281	Measurement	23	4	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2384	91ce76e3-63ab-fd7f-e817-cf04e0fe2ccd	380	Measurement	23	4	\N	1	1991-06-28 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2385	a5c565e5-5a6a-4870-1d39-40570384800a	282	Measurement	20	6	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2386	42af948b-a31c-5bf4-8ebc-9b8fd42693cd	381	Measurement	20	6	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2387	f55c5c8e-fd2f-9860-02c8-a2fe6f7a2402	282	Measurement	24	7	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2388	a4d4ccbc-61e0-6bcd-89ef-ae5598ab81cb	381	Measurement	24	7	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2389	93a291a0-97ef-eb47-9e91-5a2fd1a10f86	381	Measurement	22	7	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2390	c7427cae-ebef-e467-418b-67421f046dd5	282	Measurement	22	7	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2391	5fb5b8c1-eddd-5d2c-e9d6-ecc63c436d70	282	Measurement	25	8	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2392	f0966c09-1a37-70a5-c057-82ccf9c7b2c9	381	Measurement	25	8	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2393	835a8df9-3114-19ff-b318-184fb221d35d	282	Measurement	23	4	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2394	5a65a5b4-985a-0b97-3a25-dd6517a12c72	381	Measurement	23	4	\N	1	1991-08-01 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2395	a9fb087e-245c-9223-17aa-d183c514ac32	283	Measurement	20	6	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2396	45cf4787-6a63-01ad-3d43-d7196f7fa505	382	Measurement	20	6	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2397	bed74fcf-16f5-ed58-18ea-2d396a65720a	382	Measurement	24	7	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2398	32160bf4-29f0-0776-fcfd-58add83df08e	283	Measurement	24	7	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2399	00a47b3b-49be-751f-5a34-5c2d961e8a7b	382	Measurement	22	7	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2400	1aaef7a1-ef4e-4461-6519-5a4406eaa585	283	Measurement	22	7	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2401	c0378096-8fc4-f1b3-50fa-8c35ac54238b	382	Measurement	25	8	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2402	d2bac47d-ae3a-a63a-7360-7c2daaff06ea	283	Measurement	25	8	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2403	8642de5c-7fef-e0f6-7abb-cf09ec6b2ead	283	Measurement	23	4	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2404	2ed8ee87-f669-9b27-64d2-4f626b4484be	382	Measurement	23	4	\N	1	1991-10-05 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2405	e67ff159-8b6c-0c36-4b4f-ccdaba6f6406	383	Measurement	20	6	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2406	02b94ddf-bc89-07a6-3694-757cbdbcf159	284	Measurement	20	6	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2407	6d9cddde-4a81-b043-07ea-d1a942f3075e	383	Measurement	24	7	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2408	5e8329f6-b2ee-55b9-5ac9-a755456d7de6	284	Measurement	24	7	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2409	efef0a98-b6b5-502b-5272-3f8e4d8d3dce	383	Measurement	25	8	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2410	16e48103-ce4b-8096-26e8-c5dc88a58bd3	284	Measurement	25	8	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2411	09a3c2e5-0ea4-7720-0fe7-76ac2df4ccbe	383	Measurement	23	4	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2412	25395b1d-d61a-2d7d-b44d-190eb22428fb	284	Measurement	23	4	\N	1	1991-10-29 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2413	492813d7-faee-94c7-1a3c-6f047d7b1e6d	384	Measurement	20	6	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2414	5704f098-06ea-6d61-7ffe-eaf8491eb987	285	Measurement	20	6	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2415	dcc9db12-2a9c-4bc5-8378-3f8a07cbcd61	384	Measurement	24	7	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2416	e54513f2-5bab-f179-2d7d-99bb9fcbf712	285	Measurement	24	7	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2417	c3e04c0d-8302-4137-4f8f-b9ffc22c40db	285	Measurement	22	7	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2418	e213898f-377b-bb26-8c4f-8d82cf0dff36	384	Measurement	22	7	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2419	34d9696d-bbbf-ece2-24e7-8d72f82024b8	285	Measurement	25	8	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2420	5f2a2f4f-ba2a-e22c-c5ca-c35931c13f93	384	Measurement	25	8	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2421	9f3ada53-3f02-c27f-cd2c-8817348baefa	384	Measurement	23	4	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2422	35630d8d-c81a-286a-5f36-ea2b9e361e8b	285	Measurement	23	4	\N	1	1991-12-06 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2423	850aa9af-9da6-fd6c-763e-90aa88ff7c8c	385	Measurement	20	6	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2424	7304d62b-6032-5342-b65d-78e21844022a	286	Measurement	20	6	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2425	e18f8c20-ebb4-01ff-d25a-982a4983f968	385	Measurement	24	7	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2426	9ed2ab46-6ab3-2e0b-fe85-fdfd0ae015dc	286	Measurement	24	7	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2427	2ba50192-36f4-ab59-d946-f0ef583961c2	286	Measurement	22	7	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2428	bb6d3470-ffb9-ac1d-ae88-89693756c81c	385	Measurement	22	7	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2429	560bd9a6-ceac-6759-5246-a0ea651a8d22	385	Measurement	25	8	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2430	42d873f3-bbf7-190e-0d4b-2da442521988	286	Measurement	25	8	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2431	98a80195-f76a-2346-9c58-f1be26a95fca	385	Measurement	23	4	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2432	4889d340-cb33-2625-8596-1a22c96f680d	286	Measurement	23	4	\N	1	1992-01-18 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2433	2ac16890-a401-1b67-b1fa-3b6327182b44	386	Measurement	20	6	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2434	118e961d-4a39-0ab2-6163-f2fc4ca4c960	287	Measurement	20	6	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2435	590500f4-b942-b002-5ada-9b405f7d20b9	386	Measurement	24	7	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2436	ccc72f15-afe3-3150-7b8c-f7f13a95db1c	287	Measurement	24	7	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2437	142051a0-35f6-1867-98ee-f5481e3da527	386	Measurement	22	7	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2438	db85967b-f1d5-3270-0824-ec32e410eab0	287	Measurement	22	7	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2439	ec6ce25c-8b9b-2358-b91c-dc43e00d2ace	287	Measurement	25	8	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2440	6ecd9eaa-0776-e852-41b8-c7a74e124002	386	Measurement	25	8	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2441	cadb4e80-665e-fb41-1cf2-c9ae4b3367a0	287	Measurement	23	4	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2442	aa14493e-9ef5-15aa-568b-486322247b33	386	Measurement	23	4	\N	1	1992-02-22 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2443	b4ee09b1-fdac-048b-0cea-aa649564d561	288	Measurement	20	6	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2444	f9574bd1-a9d6-cfe3-830c-f3969d47a13e	387	Measurement	20	6	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2445	50138c81-9adf-d918-0c72-8bc4c0d91d89	387	Measurement	24	7	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2446	4695a687-9ba4-f871-28ca-170b33445f94	288	Measurement	24	7	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2447	c9b40e57-9143-226d-b3dd-e7990a1f6bdb	387	Measurement	22	7	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2448	c31f79aa-cf48-140e-f71b-147417d416e9	288	Measurement	22	7	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2449	fd65d1ee-eaef-b056-ef14-9b51d651c236	387	Measurement	25	8	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2450	66a6ed53-5f30-cf35-f7ee-ead95dc6d83a	288	Measurement	25	8	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2451	84b84f39-765c-a202-5ef3-1555c38811c3	288	Measurement	23	4	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2452	29c17a79-42c0-b88e-281e-8b2134e028b7	387	Measurement	23	4	\N	1	1992-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2453	b59a1a25-e947-28a0-7208-34fd672d25df	388	Measurement	20	6	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2454	d09e6d9a-e732-9995-f36c-bbb8ea875c25	289	Measurement	20	6	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2455	4a7a1cf6-8e52-24ac-d27b-2900264250af	289	Measurement	24	7	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2456	c14d33d2-e727-492b-8e1d-9af65a0fa3c0	388	Measurement	24	7	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2457	ad99a9d8-d797-7d68-645c-a6a57384dd7f	388	Measurement	22	7	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2458	59619db5-ffea-36de-a17d-1f1b0d985888	289	Measurement	22	7	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2459	5d4be8ad-e59b-b5ca-21cf-bbd827838631	388	Measurement	25	8	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2460	98092146-dc56-69d9-0666-32fb1a79f7e6	289	Measurement	25	8	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2461	b41a3c1c-39e6-316a-0694-612d600216df	289	Measurement	23	4	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2462	b2715ef1-ed57-b015-9e12-494d7588c348	388	Measurement	23	4	\N	1	1992-04-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2463	e8976185-6863-b2fa-c42a-c535c57d786c	290	Measurement	20	6	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2464	cfc09330-b8e8-c2c2-e2e7-b618dfb69dd7	389	Measurement	20	6	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2465	dba0e87c-58d9-b9a2-2750-bd51989e7bcd	290	Measurement	24	7	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2466	c0cb6ede-4e50-f556-d9ef-79e4928d40ed	389	Measurement	24	7	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2467	0ea8af1c-c880-c9cf-e0e8-2f03471abba3	389	Measurement	22	7	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2468	5285c4ce-06a9-9312-07c3-affe8c370036	290	Measurement	22	7	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2469	3e02f1e9-8089-0d91-52b9-22d361b5aaa2	389	Measurement	25	8	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2470	2659bb40-3bea-4951-8468-79dc1870e656	290	Measurement	25	8	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2471	422e5602-0992-a5d5-2e5e-1bc32a45197f	290	Measurement	23	4	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2472	06e8292d-160f-01ff-7265-91216fedad81	389	Measurement	23	4	\N	1	1992-05-14 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2473	1f6bd3ff-dc65-8bba-194a-31c43b944a48	291	Measurement	20	6	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2474	58da5510-cfc0-d830-49e5-50b5fe360d09	390	Measurement	20	6	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2475	d235b8d4-c885-d1ef-d569-60b58e668f77	291	Measurement	24	7	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2476	bf26e2e5-525a-cf19-5743-28029e5a5d1c	390	Measurement	24	7	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2477	2cf2d94d-df72-cab5-db23-d35f7aec3982	390	Measurement	22	7	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2478	62e9afef-6a38-494b-d339-fa5154becd3c	291	Measurement	22	7	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2479	96e70760-3e9c-abad-7e85-a1d4635bd469	390	Measurement	25	8	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2480	442708bf-aee3-5aa7-5612-fe7c6f65efaf	291	Measurement	25	8	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2481	a81b7542-10f3-5c90-8512-373ca2436440	291	Measurement	23	4	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2482	28afa7dd-d6a1-eb25-649c-c43525977d0a	390	Measurement	23	4	\N	1	1992-06-16 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2483	1b49ff7c-333f-ff62-0c8a-7a77f1a4f5eb	292	Measurement	20	6	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2484	32f522db-316d-98b6-37fc-cbc4ec39a37f	391	Measurement	20	6	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2485	105190da-3a69-c4c3-ac72-db381e42f69d	391	Measurement	24	7	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2486	a08ab3f3-226c-238d-1979-821bfe2a9622	292	Measurement	24	7	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2487	8213c475-7061-d665-4cdd-a7d1f3de67fc	391	Measurement	25	8	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2488	965f9f56-37ac-e63d-d66e-c45fda7d0a04	292	Measurement	25	8	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2489	92bc0f1d-239f-644c-e2cd-34a797ab93b2	292	Measurement	23	4	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2490	8d580304-67ab-8576-0881-2f29534c151d	391	Measurement	23	4	\N	1	1993-03-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2491	6c0f6bc8-cbf0-e476-744d-4dddf1f71ffc	392	Measurement	20	6	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2492	31744ad0-bf6d-f492-ebef-e972b465a497	293	Measurement	20	6	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2493	d25f1f63-856f-6d74-f679-58e72ef01a92	293	Measurement	24	7	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2494	709a8042-509d-cbf9-cd6e-72d1dd418c57	392	Measurement	24	7	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2495	6061ba22-2780-5595-0e97-10e2ddb5bddb	293	Measurement	22	7	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2496	d4d8d97d-dea6-757f-3044-7976c6da8cef	392	Measurement	22	7	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2497	3572c620-64e8-e775-1fe3-6f8ab25debd8	293	Measurement	25	8	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2498	c3404f45-f6d1-4ac4-a405-850bc33b5fa5	392	Measurement	25	8	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2499	076ed266-ad9b-0bb1-bf58-09b838b4264a	293	Measurement	23	4	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2500	adae1b8b-0ad1-1806-ccf8-9fa466580b66	392	Measurement	23	4	\N	1	1993-04-17 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2501	6e63ab1b-e956-991c-8f05-da7fb7f181ec	294	Measurement	22	7	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2502	86781347-2b22-55e5-735b-7230e62c2233	393	Measurement	22	7	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2503	33e875ba-7b6d-a98a-d5a2-4f2517ee9522	294	Measurement	23	4	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2504	5a3c49b2-08a8-8f7c-270d-2f62f33aef28	393	Measurement	23	4	\N	1	1993-06-20 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2505	2e7d67b8-537a-55a9-998e-9f3320e822f4	394	Measurement	22	7	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2506	5b90f41d-1471-f403-dc08-41c625d5476a	295	Measurement	22	7	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2507	ef895afb-6118-6788-dd1f-19bec2dc13b8	295	Measurement	23	4	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
+2508	a741f730-3fbe-4503-87e2-19b448c207f1	394	Measurement	23	4	\N	1	1993-08-24 00:00:00	-5	\N	\N	Complete	Liquid aqueous	1
 \.
 
 
 --
--- TOC entry 5102 (class 0 OID 0)
+-- TOC entry 5116 (class 0 OID 0)
 -- Dependencies: 262
 -- Name: results_resultid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
 
-SELECT pg_catalog.setval('results_resultid_seq', 795, true);
+SELECT pg_catalog.setval('results_resultid_seq', 2508, true);
 
 
 --
--- TOC entry 4828 (class 0 OID 70534)
+-- TOC entry 4842 (class 0 OID 70534)
 -- Dependencies: 305
 -- Data for Name: resultsdataquality; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -11375,7 +18688,7 @@ COPY resultsdataquality (bridgeid, resultid, dataqualityid) FROM stdin;
 
 
 --
--- TOC entry 5103 (class 0 OID 0)
+-- TOC entry 5117 (class 0 OID 0)
 -- Dependencies: 304
 -- Name: resultsdataquality_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -11384,7 +18697,7 @@ SELECT pg_catalog.setval('resultsdataquality_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4752 (class 0 OID 70064)
+-- TOC entry 4766 (class 0 OID 70064)
 -- Dependencies: 229
 -- Data for Name: samplingfeatureannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -11394,7 +18707,7 @@ COPY samplingfeatureannotations (bridgeid, samplingfeatureid, annotationid) FROM
 
 
 --
--- TOC entry 5104 (class 0 OID 0)
+-- TOC entry 5118 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: samplingfeatureannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -11403,7 +18716,7 @@ SELECT pg_catalog.setval('samplingfeatureannotations_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4862 (class 0 OID 70696)
+-- TOC entry 4876 (class 0 OID 70696)
 -- Dependencies: 339
 -- Data for Name: samplingfeatureextensionpropertyvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -11413,7 +18726,7 @@ COPY samplingfeatureextensionpropertyvalues (bridgeid, samplingfeatureid, proper
 
 
 --
--- TOC entry 5105 (class 0 OID 0)
+-- TOC entry 5119 (class 0 OID 0)
 -- Dependencies: 338
 -- Name: samplingfeatureextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -11422,7 +18735,7 @@ SELECT pg_catalog.setval('samplingfeatureextensionpropertyvalues_bridgeid_seq', 
 
 
 --
--- TOC entry 4875 (class 0 OID 70764)
+-- TOC entry 4889 (class 0 OID 70764)
 -- Dependencies: 352
 -- Data for Name: samplingfeatureexternalidentifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -11432,7 +18745,7 @@ COPY samplingfeatureexternalidentifiers (bridgeid, samplingfeatureid, externalid
 
 
 --
--- TOC entry 5106 (class 0 OID 0)
+-- TOC entry 5120 (class 0 OID 0)
 -- Dependencies: 351
 -- Name: samplingfeatureexternalidentifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -11441,7 +18754,7 @@ SELECT pg_catalog.setval('samplingfeatureexternalidentifiers_bridgeid_seq', 1, f
 
 
 --
--- TOC entry 4788 (class 0 OID 70235)
+-- TOC entry 4802 (class 0 OID 70235)
 -- Dependencies: 265
 -- Data for Name: samplingfeatures; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -11952,20 +19265,219 @@ COPY samplingfeatures (samplingfeatureid, samplingfeatureuuid, samplingfeaturety
 33219	4f9071a9-f151-6328-f28b-ce95b02def26	Specimen	sta1036exp1300smp434_cp	Coarse Particulates specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Coarse Particulates specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 434	\N	\N	\N	\N
 33220	22ab0d3c-2262-6c97-88f7-885a16c117b6	Specimen	sta1036exp1300smp435_cp	Coarse Particulates specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Coarse Particulates specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 435	\N	\N	\N	\N
 33221	ceeb79b8-2c1e-e934-a448-e723d48755a6	Specimen	sta1036exp1300smp436_cp	Coarse Particulates specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Coarse Particulates specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 436	\N	\N	\N	\N
+33222	65954f60-4ec1-f114-13f5-ea05aa648d72	Specimen	sta1036exp1300smp336_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 336	\N	\N	\N	\N
+33223	03d47e62-1370-5784-3b8c-9c24967a1d7d	Specimen	sta1036exp1300smp337_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 337	\N	\N	\N	\N
+33224	fbfc2e98-0ab7-7a03-7806-5545038d7285	Specimen	sta1036exp1300smp338_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 338	\N	\N	\N	\N
+33225	e9106ab3-c695-d26f-a6c7-f93040e5ce3f	Specimen	sta1036exp1300smp339_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 339	\N	\N	\N	\N
+33226	dee297ec-8ad5-9853-5ad3-4c5537382af5	Specimen	sta1036exp1300smp340_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 340	\N	\N	\N	\N
+33227	a37f9ea9-5fc6-7634-a844-14319f0b0ef4	Specimen	sta1036exp1300smp341_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 341	\N	\N	\N	\N
+33228	965a042e-1007-8897-0d84-60fe4275ac08	Specimen	sta1036exp1300smp342_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 342	\N	\N	\N	\N
+33229	315d54ee-ece4-6648-eadf-6720515b2404	Specimen	sta1036exp1300smp343_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 343	\N	\N	\N	\N
+33230	6ae953b8-c186-c2c3-2010-f37ab75c0c4e	Specimen	sta1036exp1300smp344_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 344	\N	\N	\N	\N
+33231	694fa266-f3d4-ae79-3d6a-83b2776c9b99	Specimen	sta1036exp1300smp345_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 345	\N	\N	\N	\N
+33232	93b40669-2977-c546-4a55-28962c4a5053	Specimen	sta1036exp1300smp346_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 346	\N	\N	\N	\N
+33233	c35471a8-2fd3-6c7f-e91f-464efae161eb	Specimen	sta1036exp1300smp347_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 347	\N	\N	\N	\N
+33234	fedddd2f-2d71-015a-c574-95198a3171c0	Specimen	sta1036exp1300smp348_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 348	\N	\N	\N	\N
+33235	187855d2-b4cd-3264-fd99-d88c1b1e58ce	Specimen	sta1036exp1300smp349_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 349	\N	\N	\N	\N
+33236	571c13b1-e066-e4bf-d58c-ac490bfda7d1	Specimen	sta1036exp1300smp350_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 350	\N	\N	\N	\N
+33237	a8bef274-b0cc-163d-5f85-754464e3d519	Specimen	sta1036exp1300smp351_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 351	\N	\N	\N	\N
+33238	a01c8666-5738-7a73-04ef-08ba83789dab	Specimen	sta1036exp1300smp352_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 352	\N	\N	\N	\N
+33239	173e7fc9-ac9b-9e26-9ee8-76c8433b8369	Specimen	sta1036exp1300smp353_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 353	\N	\N	\N	\N
+33240	34f590b0-0196-b804-17aa-506c98762aa7	Specimen	sta1036exp1300smp354_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 354	\N	\N	\N	\N
+33241	2e698562-c2ac-3dbc-02d0-c47bb13549ea	Specimen	sta1036exp1300smp355_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 355	\N	\N	\N	\N
+33242	a5032779-1ee0-4be1-9305-75f42a5c89e9	Specimen	sta1036exp1300smp356_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 356	\N	\N	\N	\N
+33243	242618db-40c9-6f05-7879-246be26a05ac	Specimen	sta1036exp1300smp357_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 357	\N	\N	\N	\N
+33244	03860c2a-18e3-e0c3-0ceb-18379d758961	Specimen	sta1036exp1300smp358_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 358	\N	\N	\N	\N
+33245	21e10269-f4b4-0c93-25a8-6e9362f77291	Specimen	sta1036exp1300smp359_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 359	\N	\N	\N	\N
+33246	b86f1093-b97d-6c33-0292-f372a58f4cd7	Specimen	sta1036exp1300smp360_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 360	\N	\N	\N	\N
+33247	8f09c968-b0e3-4bb5-7180-c3edc621cea3	Specimen	sta1036exp1300smp361_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 361	\N	\N	\N	\N
+33248	791aaa33-8769-a825-350a-096dba860cd6	Specimen	sta1036exp1300smp362_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 362	\N	\N	\N	\N
+33249	0d42a53a-cf26-4c3d-4699-2e70a2dc4c8b	Specimen	sta1036exp1300smp363_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 363	\N	\N	\N	\N
+33250	6f4efc0c-42e8-116e-2d5c-896ed2f3752f	Specimen	sta1036exp1300smp364_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 364	\N	\N	\N	\N
+33251	2426e52c-ab59-c113-ba20-5a865718dca3	Specimen	sta1036exp1300smp365_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 365	\N	\N	\N	\N
+33252	3c273cbd-f415-e863-aa45-43b4e37d5aed	Specimen	sta1036exp1300smp366_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 366	\N	\N	\N	\N
+33253	6ba3628d-b477-8a59-ea39-dd55b758d9da	Specimen	sta1036exp1300smp367_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 367	\N	\N	\N	\N
+33254	22a4cf22-a772-000d-1849-fca6bb77f440	Specimen	sta1036exp1300smp368_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 368	\N	\N	\N	\N
+33255	c80ad13a-7758-717a-1ff1-e9998aef5481	Specimen	sta1036exp1300smp369_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 369	\N	\N	\N	\N
+33256	8d10f02a-9c3b-f6f7-af0e-6d6606d52938	Specimen	sta1036exp1300smp370_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 370	\N	\N	\N	\N
+33257	149a8b6c-8ff4-9564-d2b7-c98e57967f7d	Specimen	sta1036exp1300smp371_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 371	\N	\N	\N	\N
+33258	212f0b22-3507-607b-6dd7-4bedc53e8ed8	Specimen	sta1036exp1300smp372_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 372	\N	\N	\N	\N
+33259	2d667481-4a5e-c98b-914f-0dc9d738f668	Specimen	sta1036exp1300smp373_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 373	\N	\N	\N	\N
+33260	78cf22e9-bb4e-7f05-f3cb-c4ebb5b975d5	Specimen	sta1036exp1300smp374_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 374	\N	\N	\N	\N
+33261	cc5823f1-c9a6-fce8-dca0-774fe039b249	Specimen	sta1036exp1300smp375_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 375	\N	\N	\N	\N
+33262	809a5314-2f0c-22a6-69c8-0cca2f8f4d49	Specimen	sta1036exp1300smp376_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 376	\N	\N	\N	\N
+33263	77e283fc-39ba-b9b3-2015-e9cb1e33f5d5	Specimen	sta1036exp1300smp377_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 377	\N	\N	\N	\N
+33264	9f72cb13-9348-129c-710f-30f1b32a23a6	Specimen	sta1036exp1300smp378_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 378	\N	\N	\N	\N
+33265	e8b1bd53-d8fb-c44e-e6be-56fa4ed2d372	Specimen	sta1036exp1300smp379_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 379	\N	\N	\N	\N
+33266	1a4f746c-c646-0370-2475-d41663fb48cf	Specimen	sta1036exp1300smp380_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 380	\N	\N	\N	\N
+33267	35f06c90-be01-2939-63e7-a604874a10cc	Specimen	sta1036exp1300smp381_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 381	\N	\N	\N	\N
+33268	387a90e2-3fb4-5d75-8a96-0040e932521e	Specimen	sta1036exp1300smp382_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 382	\N	\N	\N	\N
+33269	226d3014-f965-05a1-b6aa-2b8ac8cc02fe	Specimen	sta1036exp1300smp383_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 383	\N	\N	\N	\N
+33270	826268f4-f3d0-bb15-3d0a-d0e390d82379	Specimen	sta1036exp1300smp384_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 384	\N	\N	\N	\N
+33271	485d719e-4f78-cfe4-c38b-9cc43c14d1b0	Specimen	sta1036exp1300smp385_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 385	\N	\N	\N	\N
+33272	3e46294e-d554-84ba-d0b6-25062b001e9a	Specimen	sta1036exp1300smp386_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 386	\N	\N	\N	\N
+33273	d54dc580-9f61-3d4f-f294-3b46b94f7e0a	Specimen	sta1036exp1300smp387_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 387	\N	\N	\N	\N
+33274	8cb909af-4514-52ec-18fd-685dcaf8ec8c	Specimen	sta1036exp1300smp388_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 388	\N	\N	\N	\N
+33275	af63e9bc-54ec-d11b-9732-b49f09047674	Specimen	sta1036exp1300smp389_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 389	\N	\N	\N	\N
+33276	32c09472-e5c7-0e7c-0b69-3eccc4260fcd	Specimen	sta1036exp1300smp390_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 390	\N	\N	\N	\N
+33277	cac86a08-7804-883d-000d-30e85557e195	Specimen	sta1036exp1300smp391_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 391	\N	\N	\N	\N
+33278	42906121-56f8-7a1a-c1a8-f8a5999ecd60	Specimen	sta1036exp1300smp392_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 392	\N	\N	\N	\N
+33279	75b19aff-fe6d-e35b-7375-ae08f68bad81	Specimen	sta1036exp1300smp393_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 393	\N	\N	\N	\N
+33280	b12f2aee-ab29-7e0d-d27f-f7fbe7cee335	Specimen	sta1036exp1300smp394_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 394	\N	\N	\N	\N
+33281	7f693438-3374-0082-40a7-9467ab904338	Specimen	sta1036exp1300smp395_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 395	\N	\N	\N	\N
+33282	4647b2d3-9960-99f5-b725-ac9da5e8f649	Specimen	sta1036exp1300smp396_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 396	\N	\N	\N	\N
+33283	0a322b5d-80f9-9fe0-a4a1-64d67df6afab	Specimen	sta1036exp1300smp397_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 397	\N	\N	\N	\N
+33284	cbae4585-d69c-32d7-75c4-0d4f6122717d	Specimen	sta1036exp1300smp398_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 398	\N	\N	\N	\N
+33285	03cebb86-b3af-51c5-3ee5-b3d129c4ea1d	Specimen	sta1036exp1300smp399_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 399	\N	\N	\N	\N
+33286	82d0d02e-eca6-eb42-9556-b07f981e39d7	Specimen	sta1036exp1300smp400_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 400	\N	\N	\N	\N
+33287	73d24aaa-06d9-fa41-7f22-3f64ad385385	Specimen	sta1036exp1300smp401_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 401	\N	\N	\N	\N
+33288	5b5bad89-9674-7c27-c688-bc2f5a57bea4	Specimen	sta1036exp1300smp402_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 402	\N	\N	\N	\N
+33289	d4323a47-48b8-f215-4de2-3123f9924919	Specimen	sta1036exp1300smp403_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 403	\N	\N	\N	\N
+33290	447dc8ab-900a-35e6-fded-750d30eeead4	Specimen	sta1036exp1300smp404_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 404	\N	\N	\N	\N
+33291	8858691f-713f-cf5c-bba3-f4fdeb17f4bd	Specimen	sta1036exp1300smp405_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 405	\N	\N	\N	\N
+33292	d3db3b03-3fd2-0ed9-9575-98e28877b0eb	Specimen	sta1036exp1300smp406_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 406	\N	\N	\N	\N
+33293	dffb270f-c00c-60de-1ee7-c115e8f801a5	Specimen	sta1036exp1300smp407_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 407	\N	\N	\N	\N
+33294	a2f701fd-93ab-7070-a5ef-b24e8c51370e	Specimen	sta1036exp1300smp408_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 408	\N	\N	\N	\N
+33295	09475abf-08e9-5759-a650-0281d18507ef	Specimen	sta1036exp1300smp409_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 409	\N	\N	\N	\N
+33296	36ab981d-686a-0f64-7cc6-2fc983484cda	Specimen	sta1036exp1300smp410_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 410	\N	\N	\N	\N
+33297	999ef40a-3fd4-bcfe-a6a7-112a3d0fb525	Specimen	sta1036exp1300smp412_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 412	\N	\N	\N	\N
+33298	fcb278c7-58a4-c09a-da14-ccc7f923a53e	Specimen	sta1036exp1300smp413_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 413	\N	\N	\N	\N
+33299	6b37d73b-0778-70dc-7a42-7949171becf7	Specimen	sta1036exp1300smp414_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 414	\N	\N	\N	\N
+33300	1317c846-2980-4a0c-feea-7738812a238f	Specimen	sta1036exp1300smp415_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 415	\N	\N	\N	\N
+33301	86f86d20-445e-46b6-a968-4dce54dda981	Specimen	sta1036exp1300smp416_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 416	\N	\N	\N	\N
+33302	59ec58dc-a8cf-4393-14f4-5bc28032399a	Specimen	sta1036exp1300smp417_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 417	\N	\N	\N	\N
+33303	b4bed065-d469-b026-257b-412a54336ecf	Specimen	sta1036exp1300smp418_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 418	\N	\N	\N	\N
+33304	a4f90a21-af64-603c-32ec-99dda37c9e7f	Specimen	sta1036exp1300smp419_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 419	\N	\N	\N	\N
+33305	19b3a1d5-dbdb-3751-7d80-29977234eeba	Specimen	sta1036exp1300smp420_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 420	\N	\N	\N	\N
+33306	e67bbcf7-279a-7cfc-e80c-47be52c04998	Specimen	sta1036exp1300smp421_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 421	\N	\N	\N	\N
+33307	933614d0-d452-a4cd-7d92-349adbd05cc3	Specimen	sta1036exp1300smp422_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 422	\N	\N	\N	\N
+33308	0de1fe43-f50f-0eba-090a-c80eb6889165	Specimen	sta1036exp1300smp423_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 423	\N	\N	\N	\N
+33309	4741cb8d-412c-d960-4757-becea1e1ae74	Specimen	sta1036exp1300smp424_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 424	\N	\N	\N	\N
+33310	9f3c8746-73c3-4873-a4ca-7fdfd405deb7	Specimen	sta1036exp1300smp425_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 425	\N	\N	\N	\N
+33311	60b5f7dc-22be-1e6b-7f9c-d7adfa3b8ca3	Specimen	sta1036exp1300smp426_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 426	\N	\N	\N	\N
+33312	66896dc9-3223-ab46-0652-b2b8dbf042f1	Specimen	sta1036exp1300smp427_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 427	\N	\N	\N	\N
+33313	c9486776-c87f-a545-60b3-3b8fff3528c6	Specimen	sta1036exp1300smp428_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 428	\N	\N	\N	\N
+33314	c95d631c-0392-63de-6916-941018e50a7b	Specimen	sta1036exp1300smp429_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 429	\N	\N	\N	\N
+33315	62e2f13c-8d10-a334-9a96-eef7cb1b5922	Specimen	sta1036exp1300smp430_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 430	\N	\N	\N	\N
+33316	c43d4eac-e6fb-91ed-2bdf-0a14eecaee85	Specimen	sta1036exp1300smp431_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 431	\N	\N	\N	\N
+33317	b5cd75da-9108-513c-5616-f9502885643a	Specimen	sta1036exp1300smp432_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 432	\N	\N	\N	\N
+33318	9c2f5214-28a2-6564-ec0f-10e52b48ed94	Specimen	sta1036exp1300smp433_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 433	\N	\N	\N	\N
+33319	6e5ad25b-eef6-617b-07e0-87b658c34627	Specimen	sta1036exp1300smp434_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 434	\N	\N	\N	\N
+33320	737c4980-9757-07ee-13a7-aeb9f33695f1	Specimen	sta1036exp1300smp435_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 435	\N	\N	\N	\N
+33321	b482a5c6-318b-b6cd-13e7-da80ec53e547	Specimen	sta1036exp1300smp436_dissmn	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (main composite) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 436	\N	\N	\N	\N
+33322	4a609d26-9c3f-5946-39ab-ecea3567609e	Specimen	sta1036exp1300smp336_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 336	\N	\N	\N	\N
+33323	e20c274b-67c1-2d76-24dd-08627a96c259	Specimen	sta1036exp1300smp337_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 337	\N	\N	\N	\N
+33324	aefa71be-843c-4323-9a9a-f60943675040	Specimen	sta1036exp1300smp338_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 338	\N	\N	\N	\N
+33325	f4525f08-49ba-f9f3-a561-56fa62095092	Specimen	sta1036exp1300smp339_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 339	\N	\N	\N	\N
+33326	bf7c8303-3dcf-f956-2ce6-8e004a67339f	Specimen	sta1036exp1300smp340_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 340	\N	\N	\N	\N
+33327	fde6a160-15f7-2d0d-3af6-7a7c65f56013	Specimen	sta1036exp1300smp341_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 341	\N	\N	\N	\N
+33328	d9c2615a-a380-c669-4754-3a0b6341bdb4	Specimen	sta1036exp1300smp342_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 342	\N	\N	\N	\N
+33329	d33f2a70-e6a7-0974-f442-c08463041f41	Specimen	sta1036exp1300smp343_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 343	\N	\N	\N	\N
+33330	ab47e180-de21-becb-25d9-7ed37228bd39	Specimen	sta1036exp1300smp344_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 344	\N	\N	\N	\N
+33331	bc6fcaa6-bc1a-97bb-e9d6-db7a59bdec34	Specimen	sta1036exp1300smp345_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 345	\N	\N	\N	\N
+33332	50f72b8a-8f69-d015-cfe1-c2b4eea24a89	Specimen	sta1036exp1300smp346_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 346	\N	\N	\N	\N
+33333	6a418351-7188-4fc0-cde3-9a98875448ae	Specimen	sta1036exp1300smp347_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 347	\N	\N	\N	\N
+33334	79106c70-afc5-852d-b563-364b7a8ffa9a	Specimen	sta1036exp1300smp348_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 348	\N	\N	\N	\N
+33335	704d7397-9021-9c62-f8a0-ecda8f655b96	Specimen	sta1036exp1300smp349_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 349	\N	\N	\N	\N
+33336	ddc4f6d0-1ef7-91e9-4c6a-2f1b92fcd987	Specimen	sta1036exp1300smp350_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 350	\N	\N	\N	\N
+33337	edc1844c-1f43-eb13-577d-9cddcc056bfd	Specimen	sta1036exp1300smp351_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 351	\N	\N	\N	\N
+33338	97bf40ee-d791-7e86-0240-3f9792d1aeae	Specimen	sta1036exp1300smp352_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 352	\N	\N	\N	\N
+33339	17ad8f2e-6895-d801-cdeb-d7e8b4457e1e	Specimen	sta1036exp1300smp353_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 353	\N	\N	\N	\N
+33340	753a40c0-5fd5-f6ba-9041-beafbb0a5d87	Specimen	sta1036exp1300smp354_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 354	\N	\N	\N	\N
+33341	88ea2b93-78ef-fa30-62a0-40485e5fec55	Specimen	sta1036exp1300smp355_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 355	\N	\N	\N	\N
+33342	1bad1d12-9091-c982-eab4-27a20d03a8f1	Specimen	sta1036exp1300smp356_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 356	\N	\N	\N	\N
+33343	e9118071-843f-8e84-7d44-315d9d290e16	Specimen	sta1036exp1300smp357_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 357	\N	\N	\N	\N
+33344	16dfb8d9-86fe-8dd9-1ea9-0f11d1ec8660	Specimen	sta1036exp1300smp358_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 358	\N	\N	\N	\N
+33345	ab09fe36-4f45-67f4-8008-a10a538f0566	Specimen	sta1036exp1300smp359_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 359	\N	\N	\N	\N
+33346	adbf205e-50d9-62dc-813e-42e05cc7dd3c	Specimen	sta1036exp1300smp360_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 360	\N	\N	\N	\N
+33347	c9f61960-37db-99c2-e0b9-cd23b9daeef8	Specimen	sta1036exp1300smp361_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 361	\N	\N	\N	\N
+33348	eedf6b42-fed8-955f-ae92-204708b64c98	Specimen	sta1036exp1300smp362_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 362	\N	\N	\N	\N
+33349	a9056aee-9499-7fb8-2f75-0421f369ab23	Specimen	sta1036exp1300smp363_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 363	\N	\N	\N	\N
+33350	4b800e79-b8ad-ba5e-dd86-81dafc371fe6	Specimen	sta1036exp1300smp364_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 364	\N	\N	\N	\N
+33351	271289fa-71a8-34d3-a698-e99ed747549f	Specimen	sta1036exp1300smp365_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 365	\N	\N	\N	\N
+33352	1bf57258-ec46-7921-32fd-8d870757c593	Specimen	sta1036exp1300smp366_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 366	\N	\N	\N	\N
+33353	6b044ed7-5193-33c4-d919-b65d5fed23ab	Specimen	sta1036exp1300smp367_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 367	\N	\N	\N	\N
+33354	7ac10b0e-de06-9e78-c8f0-80893d4e0920	Specimen	sta1036exp1300smp368_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 368	\N	\N	\N	\N
+33355	93c8a92e-0569-6688-ccc7-734e0d4f6a6d	Specimen	sta1036exp1300smp369_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 369	\N	\N	\N	\N
+33356	fddeecfb-855e-e572-1785-0973cbcb7d1e	Specimen	sta1036exp1300smp370_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 370	\N	\N	\N	\N
+33357	370d53a6-a939-90cd-c560-4de13a657f1d	Specimen	sta1036exp1300smp371_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 371	\N	\N	\N	\N
+33358	88c1dee8-0cb3-8e30-0c46-a8f6d615b15b	Specimen	sta1036exp1300smp372_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 372	\N	\N	\N	\N
+33359	983ecec1-814e-3735-765e-bef92751417d	Specimen	sta1036exp1300smp373_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 373	\N	\N	\N	\N
+33360	74ba0e99-dfed-f035-6c01-2c8cb10e9ef1	Specimen	sta1036exp1300smp374_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 374	\N	\N	\N	\N
+33361	772e91d3-4243-41a2-ec8b-df0405e1c187	Specimen	sta1036exp1300smp375_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 375	\N	\N	\N	\N
+33362	d1e26bb7-f166-adb4-8aa7-19c7c0fb07d7	Specimen	sta1036exp1300smp376_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 376	\N	\N	\N	\N
+33363	23a3106c-b964-ad11-3ab2-4d53782f414d	Specimen	sta1036exp1300smp377_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 377	\N	\N	\N	\N
+33364	6f917aef-1ff1-6b7e-d301-7af955c7da93	Specimen	sta1036exp1300smp378_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 378	\N	\N	\N	\N
+33365	76fac7ce-ccd6-f226-b1fa-b96c5051ea9d	Specimen	sta1036exp1300smp379_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 379	\N	\N	\N	\N
+33366	a30d4f29-c502-b43c-8ab1-8a99511cabfb	Specimen	sta1036exp1300smp380_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 380	\N	\N	\N	\N
+33367	a4e3e603-11d7-9dc2-5520-70d5527b8924	Specimen	sta1036exp1300smp381_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 381	\N	\N	\N	\N
+33368	802a3caf-e18d-3c80-6610-963d0df5756b	Specimen	sta1036exp1300smp382_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 382	\N	\N	\N	\N
+33369	a424bfc6-a60f-b7b6-3eb4-00d6bee32bc6	Specimen	sta1036exp1300smp383_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 383	\N	\N	\N	\N
+33370	86b2dc2d-5e3b-328b-d6dc-ac358e16fbc7	Specimen	sta1036exp1300smp384_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 384	\N	\N	\N	\N
+33371	402ad9ba-3c50-a96d-51da-33192b5063e7	Specimen	sta1036exp1300smp385_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 385	\N	\N	\N	\N
+33372	a55b0c57-9e1d-193c-9cce-a7b70bcbbffb	Specimen	sta1036exp1300smp386_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 386	\N	\N	\N	\N
+33373	fca5257f-fabf-f1ab-6ff0-7f005a135e34	Specimen	sta1036exp1300smp387_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 387	\N	\N	\N	\N
+33374	9516e358-a847-3c04-43da-1da1a6e4964d	Specimen	sta1036exp1300smp388_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 388	\N	\N	\N	\N
+33375	7b6a767d-e41f-f055-c44a-6c8b3508882a	Specimen	sta1036exp1300smp389_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 389	\N	\N	\N	\N
+33376	9b2227d7-0a43-dcbd-f929-e2fae9c50bfc	Specimen	sta1036exp1300smp390_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 390	\N	\N	\N	\N
+33377	23c19349-6bcc-83fd-7dd5-350149f41367	Specimen	sta1036exp1300smp391_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 391	\N	\N	\N	\N
+33378	3b5451ba-fb97-3d26-a615-c01153da157c	Specimen	sta1036exp1300smp392_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 392	\N	\N	\N	\N
+33379	1c3c0525-b353-ee45-88ed-f6e31d75f8e6	Specimen	sta1036exp1300smp393_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 393	\N	\N	\N	\N
+33380	66ef126e-1a36-4a43-f5bc-b6ee630885b5	Specimen	sta1036exp1300smp394_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 394	\N	\N	\N	\N
+33381	37226fe5-3459-6959-e95d-0485e4482c04	Specimen	sta1036exp1300smp395_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 395	\N	\N	\N	\N
+33382	cfe7ff51-a094-91a8-ced8-b0f69b0643f0	Specimen	sta1036exp1300smp396_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 396	\N	\N	\N	\N
+33383	53f2f0d3-4889-ec9b-c803-fc40797616ec	Specimen	sta1036exp1300smp397_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 397	\N	\N	\N	\N
+33384	65397a9a-3b7a-a4a5-8c99-4774664c40c3	Specimen	sta1036exp1300smp398_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 398	\N	\N	\N	\N
+33385	47a413c6-1985-7fe9-b7cc-4f530a0be69a	Specimen	sta1036exp1300smp399_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 399	\N	\N	\N	\N
+33386	b6c8b916-5356-f2eb-d022-bf8c358eabe3	Specimen	sta1036exp1300smp400_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 400	\N	\N	\N	\N
+33387	04182a19-4120-7475-17f2-5a75fb8781a1	Specimen	sta1036exp1300smp401_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 401	\N	\N	\N	\N
+33388	98c5ae3b-2952-a474-6345-4ccfaa0c7d25	Specimen	sta1036exp1300smp402_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 402	\N	\N	\N	\N
+33389	b3bde33f-8845-6f61-ac3e-7dec3e5a91fb	Specimen	sta1036exp1300smp403_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 403	\N	\N	\N	\N
+33390	49c791f3-0986-5765-0f49-bb5b052642de	Specimen	sta1036exp1300smp404_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 404	\N	\N	\N	\N
+33391	7aadaf8b-667c-7c72-9db2-ebf824de6163	Specimen	sta1036exp1300smp405_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 405	\N	\N	\N	\N
+33392	9e1a43fe-02a7-ba8c-643b-0f158a5b2d52	Specimen	sta1036exp1300smp406_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 406	\N	\N	\N	\N
+33393	f793dfb3-fc23-24ac-52ef-b607013e4569	Specimen	sta1036exp1300smp407_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 407	\N	\N	\N	\N
+33394	4994281d-48bd-c88a-6d40-32ff88d543c4	Specimen	sta1036exp1300smp408_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 408	\N	\N	\N	\N
+33395	d91a2554-b580-fa84-a236-ab61b7bf2aca	Specimen	sta1036exp1300smp409_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 409	\N	\N	\N	\N
+33396	9767c12b-3fe2-d188-5f1e-df861e6ee078	Specimen	sta1036exp1300smp410_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 410	\N	\N	\N	\N
+33397	fdcab793-2859-dcee-1f7e-89fa1a8cd607	Specimen	sta1036exp1300smp413_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 413	\N	\N	\N	\N
+33398	67a8558d-3533-c97a-4b2c-f1d184f7fb41	Specimen	sta1036exp1300smp414_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 414	\N	\N	\N	\N
+33399	8c78d579-9e20-6eda-7024-b48547650e2b	Specimen	sta1036exp1300smp415_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 415	\N	\N	\N	\N
+33400	7330f038-6612-fa3d-8213-a60b42aba1f9	Specimen	sta1036exp1300smp416_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 416	\N	\N	\N	\N
+33401	ad0e351c-919d-3b8c-6d7c-20d162db505e	Specimen	sta1036exp1300smp417_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 417	\N	\N	\N	\N
+33402	41fd1a36-b609-4201-3581-17e79b8173f2	Specimen	sta1036exp1300smp418_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 418	\N	\N	\N	\N
+33403	fc9b7e84-7c1a-17dc-3312-34df09ba393c	Specimen	sta1036exp1300smp419_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 419	\N	\N	\N	\N
+33404	739ea9b5-1770-05bb-0ee6-49b3abf441f2	Specimen	sta1036exp1300smp420_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 420	\N	\N	\N	\N
+33405	b04efa07-2585-0d22-a6ab-a783b667815b	Specimen	sta1036exp1300smp421_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 421	\N	\N	\N	\N
+33406	754b157b-90eb-2766-3989-d7442b95a3b1	Specimen	sta1036exp1300smp422_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 422	\N	\N	\N	\N
+33407	2befc91e-e015-b895-5c72-effabc093c4c	Specimen	sta1036exp1300smp423_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 423	\N	\N	\N	\N
+33408	d04c0d4a-8e1d-de60-dfaf-c5845fc985eb	Specimen	sta1036exp1300smp424_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 424	\N	\N	\N	\N
+33409	13bb8ad1-c148-431e-8dcd-4ab1058f3402	Specimen	sta1036exp1300smp425_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 425	\N	\N	\N	\N
+33410	926e2dc4-5dc4-bea4-abca-2da828ee49a3	Specimen	sta1036exp1300smp426_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 426	\N	\N	\N	\N
+33411	542b0ce3-8a1f-8f6c-6c5f-b4a3d3aa67dd	Specimen	sta1036exp1300smp427_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 427	\N	\N	\N	\N
+33412	6d5fb2a9-3f90-8711-fcfc-750b8841daed	Specimen	sta1036exp1300smp428_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 428	\N	\N	\N	\N
+33413	92ff7e52-0f83-90e5-88bd-ad4f5fbbc2d1	Specimen	sta1036exp1300smp429_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 429	\N	\N	\N	\N
+33414	953351ce-1ed2-deb1-e2eb-d7c39699944c	Specimen	sta1036exp1300smp430_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 430	\N	\N	\N	\N
+33415	45608e24-d8b1-cf04-cdc4-dcaa91eff8b3	Specimen	sta1036exp1300smp431_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 431	\N	\N	\N	\N
+33416	ca933b6c-74c3-4eed-3e58-6f2be976635c	Specimen	sta1036exp1300smp432_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 432	\N	\N	\N	\N
+33417	9ee44559-7c34-f297-ac60-503fde6811ef	Specimen	sta1036exp1300smp433_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 433	\N	\N	\N	\N
+33418	f64a45a1-fd55-2462-ac13-a9bccd54c3e0	Specimen	sta1036exp1300smp434_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 434	\N	\N	\N	\N
+33419	11c3be23-ebe5-882a-5898-728f15550d78	Specimen	sta1036exp1300smp435_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 435	\N	\N	\N	\N
+33420	f8524fd5-127d-b067-1ee1-29279b1de9da	Specimen	sta1036exp1300smp436_dissgas	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria), from Marchantaria time series	Dissolved (minimum aeration) specimen at station 1036 (Solimoes - Marchantaria, river Solimoes), from Marchantaria time series. From Sample ID 436	\N	\N	\N	\N
 \.
 
 
 --
--- TOC entry 5107 (class 0 OID 0)
+-- TOC entry 5121 (class 0 OID 0)
 -- Dependencies: 264
 -- Name: samplingfeatures_samplingfeatureid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
 
-SELECT pg_catalog.setval('samplingfeatures_samplingfeatureid_seq', 33221, true);
+SELECT pg_catalog.setval('samplingfeatures_samplingfeatureid_seq', 33420, true);
 
 
 --
--- TOC entry 4918 (class 0 OID 70971)
+-- TOC entry 4932 (class 0 OID 70971)
 -- Dependencies: 395
 -- Data for Name: sectionresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -11975,7 +19487,7 @@ COPY sectionresults (resultid, ylocation, ylocationunitsid, spatialreferenceid, 
 
 
 --
--- TOC entry 4754 (class 0 OID 70072)
+-- TOC entry 4768 (class 0 OID 70072)
 -- Dependencies: 231
 -- Data for Name: sectionresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -11985,7 +19497,7 @@ COPY sectionresultvalueannotations (bridgeid, valueid, annotationid) FROM stdin;
 
 
 --
--- TOC entry 5108 (class 0 OID 0)
+-- TOC entry 5122 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: sectionresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -11994,7 +19506,7 @@ SELECT pg_catalog.setval('sectionresultvalueannotations_bridgeid_seq', 1, false)
 
 
 --
--- TOC entry 4920 (class 0 OID 70978)
+-- TOC entry 4934 (class 0 OID 70978)
 -- Dependencies: 397
 -- Data for Name: sectionresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12004,7 +19516,7 @@ COPY sectionresultvalues (valueid, resultid, datavalue, valuedatetime, valuedate
 
 
 --
--- TOC entry 5109 (class 0 OID 0)
+-- TOC entry 5123 (class 0 OID 0)
 -- Dependencies: 396
 -- Name: sectionresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12013,7 +19525,7 @@ SELECT pg_catalog.setval('sectionresultvalues_valueid_seq', 1, false);
 
 
 --
--- TOC entry 4949 (class 0 OID 71128)
+-- TOC entry 4963 (class 0 OID 71128)
 -- Dependencies: 426
 -- Data for Name: simulations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12023,7 +19535,7 @@ COPY simulations (simulationid, actionid, simulationname, simulationdescription,
 
 
 --
--- TOC entry 5110 (class 0 OID 0)
+-- TOC entry 5124 (class 0 OID 0)
 -- Dependencies: 425
 -- Name: simulations_simulationid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12032,7 +19544,7 @@ SELECT pg_catalog.setval('simulations_simulationid_seq', 1, false);
 
 
 --
--- TOC entry 4935 (class 0 OID 71059)
+-- TOC entry 4949 (class 0 OID 71059)
 -- Dependencies: 412
 -- Data for Name: sites; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12352,7 +19864,7 @@ COPY sites (samplingfeatureid, sitetypecv, latitude, longitude, spatialreference
 
 
 --
--- TOC entry 4936 (class 0 OID 71064)
+-- TOC entry 4950 (class 0 OID 71064)
 -- Dependencies: 413
 -- Data for Name: spatialoffsets; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12362,7 +19874,7 @@ COPY spatialoffsets (spatialoffsetid, spatialoffsettypecv, offset1value, offset1
 
 
 --
--- TOC entry 4877 (class 0 OID 70775)
+-- TOC entry 4891 (class 0 OID 70775)
 -- Dependencies: 354
 -- Data for Name: spatialreferenceexternalidentifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12372,7 +19884,7 @@ COPY spatialreferenceexternalidentifiers (bridgeid, spatialreferenceid, external
 
 
 --
--- TOC entry 5111 (class 0 OID 0)
+-- TOC entry 5125 (class 0 OID 0)
 -- Dependencies: 353
 -- Name: spatialreferenceexternalidentifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12381,7 +19893,7 @@ SELECT pg_catalog.setval('spatialreferenceexternalidentifiers_bridgeid_seq', 1, 
 
 
 --
--- TOC entry 4938 (class 0 OID 71071)
+-- TOC entry 4952 (class 0 OID 71071)
 -- Dependencies: 415
 -- Data for Name: spatialreferences; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12392,7 +19904,7 @@ COPY spatialreferences (spatialreferenceid, srscode, srsname, srsdescription, sr
 
 
 --
--- TOC entry 5112 (class 0 OID 0)
+-- TOC entry 5126 (class 0 OID 0)
 -- Dependencies: 414
 -- Name: spatialreferences_spatialreferenceid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12401,7 +19913,7 @@ SELECT pg_catalog.setval('spatialreferences_spatialreferenceid_seq', 1, false);
 
 
 --
--- TOC entry 4886 (class 0 OID 70825)
+-- TOC entry 4900 (class 0 OID 70825)
 -- Dependencies: 363
 -- Data for Name: specimenbatchpostions; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12411,7 +19923,7 @@ COPY specimenbatchpostions (featureactionid, batchpositionnumber, batchpositionl
 
 
 --
--- TOC entry 4939 (class 0 OID 71080)
+-- TOC entry 4953 (class 0 OID 71080)
 -- Dependencies: 416
 -- Data for Name: specimens; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12612,11 +20124,210 @@ COPY specimens (samplingfeatureid, specimentypecv, specimenmediumcv, isfieldspec
 33219	Grab	Particulate	t
 33220	Grab	Particulate	t
 33221	Grab	Particulate	t
+33222	Grab	Liquid aqueous	t
+33223	Grab	Liquid aqueous	t
+33224	Grab	Liquid aqueous	t
+33225	Grab	Liquid aqueous	t
+33226	Grab	Liquid aqueous	t
+33227	Grab	Liquid aqueous	t
+33228	Grab	Liquid aqueous	t
+33229	Grab	Liquid aqueous	t
+33230	Grab	Liquid aqueous	t
+33231	Grab	Liquid aqueous	t
+33232	Grab	Liquid aqueous	t
+33233	Grab	Liquid aqueous	t
+33234	Grab	Liquid aqueous	t
+33235	Grab	Liquid aqueous	t
+33236	Grab	Liquid aqueous	t
+33237	Grab	Liquid aqueous	t
+33238	Grab	Liquid aqueous	t
+33239	Grab	Liquid aqueous	t
+33240	Grab	Liquid aqueous	t
+33241	Grab	Liquid aqueous	t
+33242	Grab	Liquid aqueous	t
+33243	Grab	Liquid aqueous	t
+33244	Grab	Liquid aqueous	t
+33245	Grab	Liquid aqueous	t
+33246	Grab	Liquid aqueous	t
+33247	Grab	Liquid aqueous	t
+33248	Grab	Liquid aqueous	t
+33249	Grab	Liquid aqueous	t
+33250	Grab	Liquid aqueous	t
+33251	Grab	Liquid aqueous	t
+33252	Grab	Liquid aqueous	t
+33253	Grab	Liquid aqueous	t
+33254	Grab	Liquid aqueous	t
+33255	Grab	Liquid aqueous	t
+33256	Grab	Liquid aqueous	t
+33257	Grab	Liquid aqueous	t
+33258	Grab	Liquid aqueous	t
+33259	Grab	Liquid aqueous	t
+33260	Grab	Liquid aqueous	t
+33261	Grab	Liquid aqueous	t
+33262	Grab	Liquid aqueous	t
+33263	Grab	Liquid aqueous	t
+33264	Grab	Liquid aqueous	t
+33265	Grab	Liquid aqueous	t
+33266	Grab	Liquid aqueous	t
+33267	Grab	Liquid aqueous	t
+33268	Grab	Liquid aqueous	t
+33269	Grab	Liquid aqueous	t
+33270	Grab	Liquid aqueous	t
+33271	Grab	Liquid aqueous	t
+33272	Grab	Liquid aqueous	t
+33273	Grab	Liquid aqueous	t
+33274	Grab	Liquid aqueous	t
+33275	Grab	Liquid aqueous	t
+33276	Grab	Liquid aqueous	t
+33277	Grab	Liquid aqueous	t
+33278	Grab	Liquid aqueous	t
+33279	Grab	Liquid aqueous	t
+33280	Grab	Liquid aqueous	t
+33281	Grab	Liquid aqueous	t
+33282	Grab	Liquid aqueous	t
+33283	Grab	Liquid aqueous	t
+33284	Grab	Liquid aqueous	t
+33285	Grab	Liquid aqueous	t
+33286	Grab	Liquid aqueous	t
+33287	Grab	Liquid aqueous	t
+33288	Grab	Liquid aqueous	t
+33289	Grab	Liquid aqueous	t
+33290	Grab	Liquid aqueous	t
+33291	Grab	Liquid aqueous	t
+33292	Grab	Liquid aqueous	t
+33293	Grab	Liquid aqueous	t
+33294	Grab	Liquid aqueous	t
+33295	Grab	Liquid aqueous	t
+33296	Grab	Liquid aqueous	t
+33297	Grab	Liquid aqueous	t
+33298	Grab	Liquid aqueous	t
+33299	Grab	Liquid aqueous	t
+33300	Grab	Liquid aqueous	t
+33301	Grab	Liquid aqueous	t
+33302	Grab	Liquid aqueous	t
+33303	Grab	Liquid aqueous	t
+33304	Grab	Liquid aqueous	t
+33305	Grab	Liquid aqueous	t
+33306	Grab	Liquid aqueous	t
+33307	Grab	Liquid aqueous	t
+33308	Grab	Liquid aqueous	t
+33309	Grab	Liquid aqueous	t
+33310	Grab	Liquid aqueous	t
+33311	Grab	Liquid aqueous	t
+33312	Grab	Liquid aqueous	t
+33313	Grab	Liquid aqueous	t
+33314	Grab	Liquid aqueous	t
+33315	Grab	Liquid aqueous	t
+33316	Grab	Liquid aqueous	t
+33317	Grab	Liquid aqueous	t
+33318	Grab	Liquid aqueous	t
+33319	Grab	Liquid aqueous	t
+33320	Grab	Liquid aqueous	t
+33321	Grab	Liquid aqueous	t
+33322	Grab	Liquid aqueous	t
+33323	Grab	Liquid aqueous	t
+33324	Grab	Liquid aqueous	t
+33325	Grab	Liquid aqueous	t
+33326	Grab	Liquid aqueous	t
+33327	Grab	Liquid aqueous	t
+33328	Grab	Liquid aqueous	t
+33329	Grab	Liquid aqueous	t
+33330	Grab	Liquid aqueous	t
+33331	Grab	Liquid aqueous	t
+33332	Grab	Liquid aqueous	t
+33333	Grab	Liquid aqueous	t
+33334	Grab	Liquid aqueous	t
+33335	Grab	Liquid aqueous	t
+33336	Grab	Liquid aqueous	t
+33337	Grab	Liquid aqueous	t
+33338	Grab	Liquid aqueous	t
+33339	Grab	Liquid aqueous	t
+33340	Grab	Liquid aqueous	t
+33341	Grab	Liquid aqueous	t
+33342	Grab	Liquid aqueous	t
+33343	Grab	Liquid aqueous	t
+33344	Grab	Liquid aqueous	t
+33345	Grab	Liquid aqueous	t
+33346	Grab	Liquid aqueous	t
+33347	Grab	Liquid aqueous	t
+33348	Grab	Liquid aqueous	t
+33349	Grab	Liquid aqueous	t
+33350	Grab	Liquid aqueous	t
+33351	Grab	Liquid aqueous	t
+33352	Grab	Liquid aqueous	t
+33353	Grab	Liquid aqueous	t
+33354	Grab	Liquid aqueous	t
+33355	Grab	Liquid aqueous	t
+33356	Grab	Liquid aqueous	t
+33357	Grab	Liquid aqueous	t
+33358	Grab	Liquid aqueous	t
+33359	Grab	Liquid aqueous	t
+33360	Grab	Liquid aqueous	t
+33361	Grab	Liquid aqueous	t
+33362	Grab	Liquid aqueous	t
+33363	Grab	Liquid aqueous	t
+33364	Grab	Liquid aqueous	t
+33365	Grab	Liquid aqueous	t
+33366	Grab	Liquid aqueous	t
+33367	Grab	Liquid aqueous	t
+33368	Grab	Liquid aqueous	t
+33369	Grab	Liquid aqueous	t
+33370	Grab	Liquid aqueous	t
+33371	Grab	Liquid aqueous	t
+33372	Grab	Liquid aqueous	t
+33373	Grab	Liquid aqueous	t
+33374	Grab	Liquid aqueous	t
+33375	Grab	Liquid aqueous	t
+33376	Grab	Liquid aqueous	t
+33377	Grab	Liquid aqueous	t
+33378	Grab	Liquid aqueous	t
+33379	Grab	Liquid aqueous	t
+33380	Grab	Liquid aqueous	t
+33381	Grab	Liquid aqueous	t
+33382	Grab	Liquid aqueous	t
+33383	Grab	Liquid aqueous	t
+33384	Grab	Liquid aqueous	t
+33385	Grab	Liquid aqueous	t
+33386	Grab	Liquid aqueous	t
+33387	Grab	Liquid aqueous	t
+33388	Grab	Liquid aqueous	t
+33389	Grab	Liquid aqueous	t
+33390	Grab	Liquid aqueous	t
+33391	Grab	Liquid aqueous	t
+33392	Grab	Liquid aqueous	t
+33393	Grab	Liquid aqueous	t
+33394	Grab	Liquid aqueous	t
+33395	Grab	Liquid aqueous	t
+33396	Grab	Liquid aqueous	t
+33397	Grab	Liquid aqueous	t
+33398	Grab	Liquid aqueous	t
+33399	Grab	Liquid aqueous	t
+33400	Grab	Liquid aqueous	t
+33401	Grab	Liquid aqueous	t
+33402	Grab	Liquid aqueous	t
+33403	Grab	Liquid aqueous	t
+33404	Grab	Liquid aqueous	t
+33405	Grab	Liquid aqueous	t
+33406	Grab	Liquid aqueous	t
+33407	Grab	Liquid aqueous	t
+33408	Grab	Liquid aqueous	t
+33409	Grab	Liquid aqueous	t
+33410	Grab	Liquid aqueous	t
+33411	Grab	Liquid aqueous	t
+33412	Grab	Liquid aqueous	t
+33413	Grab	Liquid aqueous	t
+33414	Grab	Liquid aqueous	t
+33415	Grab	Liquid aqueous	t
+33416	Grab	Liquid aqueous	t
+33417	Grab	Liquid aqueous	t
+33418	Grab	Liquid aqueous	t
+33419	Grab	Liquid aqueous	t
+33420	Grab	Liquid aqueous	t
 \.
 
 
 --
--- TOC entry 4941 (class 0 OID 71090)
+-- TOC entry 4955 (class 0 OID 71090)
 -- Dependencies: 418
 -- Data for Name: specimentaxonomicclassifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12626,7 +20337,7 @@ COPY specimentaxonomicclassifiers (bridgeid, samplingfeatureid, taxonomicclassif
 
 
 --
--- TOC entry 5113 (class 0 OID 0)
+-- TOC entry 5127 (class 0 OID 0)
 -- Dependencies: 417
 -- Name: specimentaxonomicclassifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12635,7 +20346,7 @@ SELECT pg_catalog.setval('specimentaxonomicclassifiers_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4921 (class 0 OID 70987)
+-- TOC entry 4935 (class 0 OID 70987)
 -- Dependencies: 398
 -- Data for Name: spectraresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12645,7 +20356,7 @@ COPY spectraresults (resultid, xlocation, xlocationunitsid, ylocation, ylocation
 
 
 --
--- TOC entry 4756 (class 0 OID 70080)
+-- TOC entry 4770 (class 0 OID 70080)
 -- Dependencies: 233
 -- Data for Name: spectraresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12655,7 +20366,7 @@ COPY spectraresultvalueannotations (bridgeid, valueid, annotationid) FROM stdin;
 
 
 --
--- TOC entry 5114 (class 0 OID 0)
+-- TOC entry 5128 (class 0 OID 0)
 -- Dependencies: 232
 -- Name: spectraresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12664,7 +20375,7 @@ SELECT pg_catalog.setval('spectraresultvalueannotations_bridgeid_seq', 1, false)
 
 
 --
--- TOC entry 4923 (class 0 OID 70994)
+-- TOC entry 4937 (class 0 OID 70994)
 -- Dependencies: 400
 -- Data for Name: spectraresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12674,7 +20385,7 @@ COPY spectraresultvalues (valueid, resultid, datavalue, valuedatetime, valuedate
 
 
 --
--- TOC entry 5115 (class 0 OID 0)
+-- TOC entry 5129 (class 0 OID 0)
 -- Dependencies: 399
 -- Name: spectraresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12683,7 +20394,7 @@ SELECT pg_catalog.setval('spectraresultvalues_valueid_seq', 1, false);
 
 
 --
--- TOC entry 4879 (class 0 OID 70786)
+-- TOC entry 4893 (class 0 OID 70786)
 -- Dependencies: 356
 -- Data for Name: taxonomicclassifierexternalidentifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12693,7 +20404,7 @@ COPY taxonomicclassifierexternalidentifiers (bridgeid, taxonomicclassifierid, ex
 
 
 --
--- TOC entry 5116 (class 0 OID 0)
+-- TOC entry 5130 (class 0 OID 0)
 -- Dependencies: 355
 -- Name: taxonomicclassifierexternalidentifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12702,7 +20413,7 @@ SELECT pg_catalog.setval('taxonomicclassifierexternalidentifiers_bridgeid_seq', 
 
 
 --
--- TOC entry 4789 (class 0 OID 70244)
+-- TOC entry 4803 (class 0 OID 70244)
 -- Dependencies: 266
 -- Data for Name: taxonomicclassifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12712,7 +20423,7 @@ COPY taxonomicclassifiers (taxonomicclassifierid, taxonomicclassifiertypecv, tax
 
 
 --
--- TOC entry 4924 (class 0 OID 71003)
+-- TOC entry 4938 (class 0 OID 71003)
 -- Dependencies: 401
 -- Data for Name: timeseriesresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12722,7 +20433,7 @@ COPY timeseriesresults (resultid, xlocation, xlocationunitsid, ylocation, ylocat
 
 
 --
--- TOC entry 4758 (class 0 OID 70088)
+-- TOC entry 4772 (class 0 OID 70088)
 -- Dependencies: 235
 -- Data for Name: timeseriesresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12732,7 +20443,7 @@ COPY timeseriesresultvalueannotations (bridgeid, valueid, annotationid) FROM std
 
 
 --
--- TOC entry 5117 (class 0 OID 0)
+-- TOC entry 5131 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: timeseriesresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12741,7 +20452,7 @@ SELECT pg_catalog.setval('timeseriesresultvalueannotations_bridgeid_seq', 1, fal
 
 
 --
--- TOC entry 4926 (class 0 OID 71010)
+-- TOC entry 4940 (class 0 OID 71010)
 -- Dependencies: 403
 -- Data for Name: timeseriesresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12751,7 +20462,7 @@ COPY timeseriesresultvalues (valueid, resultid, datavalue, valuedatetime, valued
 
 
 --
--- TOC entry 5118 (class 0 OID 0)
+-- TOC entry 5132 (class 0 OID 0)
 -- Dependencies: 402
 -- Name: timeseriesresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12760,7 +20471,7 @@ SELECT pg_catalog.setval('timeseriesresultvalues_valueid_seq', 1, false);
 
 
 --
--- TOC entry 4927 (class 0 OID 71019)
+-- TOC entry 4941 (class 0 OID 71019)
 -- Dependencies: 404
 -- Data for Name: trajectoryresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12770,7 +20481,7 @@ COPY trajectoryresults (resultid, spatialreferenceid, intendedtrajectoryspacing,
 
 
 --
--- TOC entry 4760 (class 0 OID 70096)
+-- TOC entry 4774 (class 0 OID 70096)
 -- Dependencies: 237
 -- Data for Name: trajectoryresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12780,7 +20491,7 @@ COPY trajectoryresultvalueannotations (bridgeid, valueid, annotationid) FROM std
 
 
 --
--- TOC entry 5119 (class 0 OID 0)
+-- TOC entry 5133 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: trajectoryresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12789,7 +20500,7 @@ SELECT pg_catalog.setval('trajectoryresultvalueannotations_bridgeid_seq', 1, fal
 
 
 --
--- TOC entry 4929 (class 0 OID 71026)
+-- TOC entry 4943 (class 0 OID 71026)
 -- Dependencies: 406
 -- Data for Name: trajectoryresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12799,7 +20510,7 @@ COPY trajectoryresultvalues (valueid, resultid, datavalue, valuedatetime, valued
 
 
 --
--- TOC entry 5120 (class 0 OID 0)
+-- TOC entry 5134 (class 0 OID 0)
 -- Dependencies: 405
 -- Name: trajectoryresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12808,7 +20519,7 @@ SELECT pg_catalog.setval('trajectoryresultvalues_valueid_seq', 1, false);
 
 
 --
--- TOC entry 4930 (class 0 OID 71035)
+-- TOC entry 4944 (class 0 OID 71035)
 -- Dependencies: 407
 -- Data for Name: transectresults; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12818,7 +20529,7 @@ COPY transectresults (resultid, zlocation, zlocationunitsid, spatialreferenceid,
 
 
 --
--- TOC entry 4762 (class 0 OID 70104)
+-- TOC entry 4776 (class 0 OID 70104)
 -- Dependencies: 239
 -- Data for Name: transectresultvalueannotations; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12828,7 +20539,7 @@ COPY transectresultvalueannotations (bridgeid, valueid, annotationid) FROM stdin
 
 
 --
--- TOC entry 5121 (class 0 OID 0)
+-- TOC entry 5135 (class 0 OID 0)
 -- Dependencies: 238
 -- Name: transectresultvalueannotations_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12837,7 +20548,7 @@ SELECT pg_catalog.setval('transectresultvalueannotations_bridgeid_seq', 1, false
 
 
 --
--- TOC entry 4932 (class 0 OID 71042)
+-- TOC entry 4946 (class 0 OID 71042)
 -- Dependencies: 409
 -- Data for Name: transectresultvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12847,7 +20558,7 @@ COPY transectresultvalues (valueid, resultid, datavalue, valuedatetime, valuedat
 
 
 --
--- TOC entry 5122 (class 0 OID 0)
+-- TOC entry 5136 (class 0 OID 0)
 -- Dependencies: 408
 -- Name: transectresultvalues_valueid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12856,7 +20567,7 @@ SELECT pg_catalog.setval('transectresultvalues_valueid_seq', 1, false);
 
 
 --
--- TOC entry 4791 (class 0 OID 70254)
+-- TOC entry 4805 (class 0 OID 70254)
 -- Dependencies: 268
 -- Data for Name: units; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12880,7 +20591,7 @@ COPY units (unitsid, unitstypecv, unitsabbreviation, unitsname, unitslink) FROM 
 
 
 --
--- TOC entry 5123 (class 0 OID 0)
+-- TOC entry 5137 (class 0 OID 0)
 -- Dependencies: 267
 -- Name: units_unitsid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12889,7 +20600,7 @@ SELECT pg_catalog.setval('units_unitsid_seq', 14, true);
 
 
 --
--- TOC entry 4864 (class 0 OID 70704)
+-- TOC entry 4878 (class 0 OID 70704)
 -- Dependencies: 341
 -- Data for Name: variableextensionpropertyvalues; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12899,7 +20610,7 @@ COPY variableextensionpropertyvalues (bridgeid, variableid, propertyid, property
 
 
 --
--- TOC entry 5124 (class 0 OID 0)
+-- TOC entry 5138 (class 0 OID 0)
 -- Dependencies: 340
 -- Name: variableextensionpropertyvalues_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12908,7 +20619,7 @@ SELECT pg_catalog.setval('variableextensionpropertyvalues_bridgeid_seq', 1, fals
 
 
 --
--- TOC entry 4881 (class 0 OID 70797)
+-- TOC entry 4895 (class 0 OID 70797)
 -- Dependencies: 358
 -- Data for Name: variableexternalidentifiers; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12918,7 +20629,7 @@ COPY variableexternalidentifiers (bridgeid, variableid, externalidentifiersystem
 
 
 --
--- TOC entry 5125 (class 0 OID 0)
+-- TOC entry 5139 (class 0 OID 0)
 -- Dependencies: 357
 -- Name: variableexternalidentifiers_bridgeid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
@@ -12927,7 +20638,7 @@ SELECT pg_catalog.setval('variableexternalidentifiers_bridgeid_seq', 1, false);
 
 
 --
--- TOC entry 4793 (class 0 OID 70265)
+-- TOC entry 4807 (class 0 OID 70265)
 -- Dependencies: 270
 -- Data for Name: variables; Type: TABLE DATA; Schema: odm2; Owner: -
 --
@@ -12941,22 +20652,39 @@ COPY variables (variableid, variabletypecv, variablecode, variablenamecv, variab
 6	Chemistry	CPON	Nitrogen, particulate organic	Coarse particulate organic nitrogen	\N	-999
 7	Chemistry	CPCNa	Carbon to nitrogen molar ratio	Coarse particulate atomic (molar) organic C/N ratio, acidified	\N	-999
 8	Water quality	CSS	Sediment, suspended	Coarse suspended sediment	\N	-999
+9	Chemistry	Ca	Calcium, dissolved	Dissolved Calcium (Ca)	\N	-999
+10	Chemistry	Cl	Chlorine	Chlorine (Cl2)	\N	-999
+11	Chemistry	DOC	Carbon, dissolved organic	Dissolved Organic Carbon	\N	-999
+12	Hydrology	18OinH2O	delta-18O of H2O	Stable isotope 18O (oxygen) of water	\N	-999
+13	Chemistry	K	Potassium, dissolved	Dissolved Potassium (K)	\N	-999
+14	Chemistry	Na	Sodium, dissolved	Dissolved Sodium (Na)	\N	-999
+15	Chemistry	NH4	Nitrogen, NH4	Ammonium Nitrogen (NH4)	\N	-999
+16	Chemistry	NO3	Nitrogen, dissolved nitrate (NO3)	Dissolved nitrate (NO3) nitrogen	\N	-999
+17	Chemistry	PO4	Phosphorus, orthophosphate dissolved	Dissolved orthophosphate (PO4) phosphorus	\N	-999
+18	Chemistry	SiO4	Silica, dissolved	Dissolved silica (SiO2) (Labelled SiO4 in source data)	\N	-999
+19	Hydrology	Temperature	Temperature	Temperature	\N	-999
+20	Chemistry	Alk	Alkalinity, total	Total Alkalinity	\N	-999
+21	Chemistry	DIC_13	delta-13C of DIC	Isotope 13C of dissolved inorganic carbon (DIC)	\N	-999
+22	Chemistry	DO2	Oxygen, dissolved	Dissolved oxygen	\N	-999
+23	Chemistry	pH	pH	pH (measure of acidity)	\N	-999
+24	Chemistry	DIC	Carbon, dissolved inorganic	Dissolved Inorganic Carbon	\N	-999
+25	Chemistry	pCO2	Carbon Dioxide, dissolved	Dissolved Carbon dioxide (CO2) partial pressure	\N	-999
 \.
 
 
 --
--- TOC entry 5126 (class 0 OID 0)
+-- TOC entry 5140 (class 0 OID 0)
 -- Dependencies: 269
 -- Name: variables_variableid_seq; Type: SEQUENCE SET; Schema: odm2; Owner: -
 --
 
-SELECT pg_catalog.setval('variables_variableid_seq', 8, true);
+SELECT pg_catalog.setval('variables_variableid_seq', 25, true);
 
 
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 3971 (class 0 OID 16658)
+-- TOC entry 3982 (class 0 OID 16658)
 -- Dependencies: 173
 -- Data for Name: spatial_ref_sys; Type: TABLE DATA; Schema: public; Owner: -
 --
@@ -12968,7 +20696,7 @@ COPY spatial_ref_sys (srid, auth_name, auth_srid, srtext, proj4text) FROM stdin;
 SET search_path = odm2, pg_catalog;
 
 --
--- TOC entry 4058 (class 2606 OID 69994)
+-- TOC entry 4069 (class 2606 OID 69994)
 -- Name: actionannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -12977,7 +20705,7 @@ ALTER TABLE ONLY actionannotations
 
 
 --
--- TOC entry 4088 (class 2606 OID 70120)
+-- TOC entry 4099 (class 2606 OID 70120)
 -- Name: actionby_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -12986,7 +20714,7 @@ ALTER TABLE ONLY actionby
 
 
 --
--- TOC entry 4245 (class 2606 OID 70813)
+-- TOC entry 4256 (class 2606 OID 70813)
 -- Name: actiondirectives_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -12995,7 +20723,7 @@ ALTER TABLE ONLY actiondirectives
 
 
 --
--- TOC entry 4213 (class 2606 OID 70658)
+-- TOC entry 4224 (class 2606 OID 70658)
 -- Name: actionextensionpropertyvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13004,7 +20732,7 @@ ALTER TABLE ONLY actionextensionpropertyvalues
 
 
 --
--- TOC entry 4090 (class 2606 OID 70131)
+-- TOC entry 4101 (class 2606 OID 70131)
 -- Name: actions_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13013,7 +20741,7 @@ ALTER TABLE ONLY actions
 
 
 --
--- TOC entry 4092 (class 2606 OID 70142)
+-- TOC entry 4103 (class 2606 OID 70142)
 -- Name: affiliations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13022,7 +20750,7 @@ ALTER TABLE ONLY affiliations
 
 
 --
--- TOC entry 4060 (class 2606 OID 70005)
+-- TOC entry 4071 (class 2606 OID 70005)
 -- Name: annotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13031,7 +20759,7 @@ ALTER TABLE ONLY annotations
 
 
 --
--- TOC entry 4251 (class 2606 OID 70837)
+-- TOC entry 4262 (class 2606 OID 70837)
 -- Name: authorlists_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13040,7 +20768,7 @@ ALTER TABLE ONLY authorlists
 
 
 --
--- TOC entry 4189 (class 2606 OID 70544)
+-- TOC entry 4200 (class 2606 OID 70544)
 -- Name: calibrationactions_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13049,7 +20777,7 @@ ALTER TABLE ONLY calibrationactions
 
 
 --
--- TOC entry 4191 (class 2606 OID 70552)
+-- TOC entry 4202 (class 2606 OID 70552)
 -- Name: calibrationreferenceequipment_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13058,7 +20786,7 @@ ALTER TABLE ONLY calibrationreferenceequipment
 
 
 --
--- TOC entry 4193 (class 2606 OID 70560)
+-- TOC entry 4204 (class 2606 OID 70560)
 -- Name: calibrationstandards_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13067,7 +20795,7 @@ ALTER TABLE ONLY calibrationstandards
 
 
 --
--- TOC entry 4271 (class 2606 OID 70914)
+-- TOC entry 4282 (class 2606 OID 70914)
 -- Name: categoricalresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13076,7 +20804,7 @@ ALTER TABLE ONLY categoricalresults
 
 
 --
--- TOC entry 4062 (class 2606 OID 70013)
+-- TOC entry 4073 (class 2606 OID 70013)
 -- Name: categoricalresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13085,7 +20813,7 @@ ALTER TABLE ONLY categoricalresultvalueannotations
 
 
 --
--- TOC entry 4273 (class 2606 OID 70922)
+-- TOC entry 4284 (class 2606 OID 70922)
 -- Name: categoricalresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13094,7 +20822,7 @@ ALTER TABLE ONLY categoricalresultvalues
 
 
 --
--- TOC entry 4215 (class 2606 OID 70666)
+-- TOC entry 4226 (class 2606 OID 70666)
 -- Name: citationextensionpropertyvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13103,7 +20831,7 @@ ALTER TABLE ONLY citationextensionpropertyvalues
 
 
 --
--- TOC entry 4227 (class 2606 OID 70720)
+-- TOC entry 4238 (class 2606 OID 70720)
 -- Name: citationexternalidentifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13112,7 +20840,7 @@ ALTER TABLE ONLY citationexternalidentifiers
 
 
 --
--- TOC entry 4253 (class 2606 OID 70848)
+-- TOC entry 4264 (class 2606 OID 70848)
 -- Name: citations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13121,7 +20849,7 @@ ALTER TABLE ONLY citations
 
 
 --
--- TOC entry 4121 (class 2606 OID 70281)
+-- TOC entry 4132 (class 2606 OID 70281)
 -- Name: cv_actiontype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13130,7 +20858,7 @@ ALTER TABLE ONLY cv_actiontype
 
 
 --
--- TOC entry 4123 (class 2606 OID 70289)
+-- TOC entry 4134 (class 2606 OID 70289)
 -- Name: cv_aggregationstatistic_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13139,7 +20867,7 @@ ALTER TABLE ONLY cv_aggregationstatistic
 
 
 --
--- TOC entry 4125 (class 2606 OID 70297)
+-- TOC entry 4136 (class 2606 OID 70297)
 -- Name: cv_annotationtype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13148,7 +20876,7 @@ ALTER TABLE ONLY cv_annotationtype
 
 
 --
--- TOC entry 4127 (class 2606 OID 70305)
+-- TOC entry 4138 (class 2606 OID 70305)
 -- Name: cv_censorcode_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13157,7 +20885,7 @@ ALTER TABLE ONLY cv_censorcode
 
 
 --
--- TOC entry 4129 (class 2606 OID 70313)
+-- TOC entry 4140 (class 2606 OID 70313)
 -- Name: cv_dataqualitytype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13166,7 +20894,7 @@ ALTER TABLE ONLY cv_dataqualitytype
 
 
 --
--- TOC entry 4131 (class 2606 OID 70321)
+-- TOC entry 4142 (class 2606 OID 70321)
 -- Name: cv_datasettypecv_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13175,7 +20903,7 @@ ALTER TABLE ONLY cv_datasettypecv
 
 
 --
--- TOC entry 4133 (class 2606 OID 70329)
+-- TOC entry 4144 (class 2606 OID 70329)
 -- Name: cv_directivetype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13184,7 +20912,7 @@ ALTER TABLE ONLY cv_directivetype
 
 
 --
--- TOC entry 4135 (class 2606 OID 70337)
+-- TOC entry 4146 (class 2606 OID 70337)
 -- Name: cv_elevationdatum_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13193,7 +20921,7 @@ ALTER TABLE ONLY cv_elevationdatum
 
 
 --
--- TOC entry 4137 (class 2606 OID 70345)
+-- TOC entry 4148 (class 2606 OID 70345)
 -- Name: cv_equipmenttype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13202,7 +20930,7 @@ ALTER TABLE ONLY cv_equipmenttype
 
 
 --
--- TOC entry 4139 (class 2606 OID 70353)
+-- TOC entry 4150 (class 2606 OID 70353)
 -- Name: cv_methodtype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13211,7 +20939,7 @@ ALTER TABLE ONLY cv_methodtype
 
 
 --
--- TOC entry 4141 (class 2606 OID 70361)
+-- TOC entry 4152 (class 2606 OID 70361)
 -- Name: cv_organizationtype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13220,7 +20948,7 @@ ALTER TABLE ONLY cv_organizationtype
 
 
 --
--- TOC entry 4143 (class 2606 OID 70369)
+-- TOC entry 4154 (class 2606 OID 70369)
 -- Name: cv_propertydatatype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13229,7 +20957,7 @@ ALTER TABLE ONLY cv_propertydatatype
 
 
 --
--- TOC entry 4145 (class 2606 OID 70377)
+-- TOC entry 4156 (class 2606 OID 70377)
 -- Name: cv_qualitycode_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13238,7 +20966,7 @@ ALTER TABLE ONLY cv_qualitycode
 
 
 --
--- TOC entry 4147 (class 2606 OID 70385)
+-- TOC entry 4158 (class 2606 OID 70385)
 -- Name: cv_referencematerialmedium_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13247,7 +20975,7 @@ ALTER TABLE ONLY cv_referencematerialmedium
 
 
 --
--- TOC entry 4149 (class 2606 OID 70393)
+-- TOC entry 4160 (class 2606 OID 70393)
 -- Name: cv_relationshiptype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13256,7 +20984,7 @@ ALTER TABLE ONLY cv_relationshiptype
 
 
 --
--- TOC entry 4151 (class 2606 OID 70401)
+-- TOC entry 4162 (class 2606 OID 70401)
 -- Name: cv_resulttype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13265,7 +20993,7 @@ ALTER TABLE ONLY cv_resulttype
 
 
 --
--- TOC entry 4153 (class 2606 OID 70409)
+-- TOC entry 4164 (class 2606 OID 70409)
 -- Name: cv_sampledmedium_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13274,7 +21002,7 @@ ALTER TABLE ONLY cv_sampledmedium
 
 
 --
--- TOC entry 4155 (class 2606 OID 70417)
+-- TOC entry 4166 (class 2606 OID 70417)
 -- Name: cv_samplingfeaturegeotype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13283,7 +21011,7 @@ ALTER TABLE ONLY cv_samplingfeaturegeotype
 
 
 --
--- TOC entry 4157 (class 2606 OID 70425)
+-- TOC entry 4168 (class 2606 OID 70425)
 -- Name: cv_samplingfeaturetype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13292,7 +21020,7 @@ ALTER TABLE ONLY cv_samplingfeaturetype
 
 
 --
--- TOC entry 4159 (class 2606 OID 70433)
+-- TOC entry 4170 (class 2606 OID 70433)
 -- Name: cv_sitetype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13301,7 +21029,7 @@ ALTER TABLE ONLY cv_sitetype
 
 
 --
--- TOC entry 4161 (class 2606 OID 70441)
+-- TOC entry 4172 (class 2606 OID 70441)
 -- Name: cv_spatialoffsettype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13310,7 +21038,7 @@ ALTER TABLE ONLY cv_spatialoffsettype
 
 
 --
--- TOC entry 4163 (class 2606 OID 70449)
+-- TOC entry 4174 (class 2606 OID 70449)
 -- Name: cv_speciation_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13319,7 +21047,7 @@ ALTER TABLE ONLY cv_speciation
 
 
 --
--- TOC entry 4165 (class 2606 OID 70457)
+-- TOC entry 4176 (class 2606 OID 70457)
 -- Name: cv_specimenmedium_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13328,7 +21056,7 @@ ALTER TABLE ONLY cv_specimenmedium
 
 
 --
--- TOC entry 4167 (class 2606 OID 70465)
+-- TOC entry 4178 (class 2606 OID 70465)
 -- Name: cv_specimentype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13337,7 +21065,7 @@ ALTER TABLE ONLY cv_specimentype
 
 
 --
--- TOC entry 4169 (class 2606 OID 70473)
+-- TOC entry 4180 (class 2606 OID 70473)
 -- Name: cv_status_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13346,7 +21074,7 @@ ALTER TABLE ONLY cv_status
 
 
 --
--- TOC entry 4171 (class 2606 OID 70481)
+-- TOC entry 4182 (class 2606 OID 70481)
 -- Name: cv_taxonomicclassifiertype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13355,7 +21083,7 @@ ALTER TABLE ONLY cv_taxonomicclassifiertype
 
 
 --
--- TOC entry 4173 (class 2606 OID 70489)
+-- TOC entry 4184 (class 2606 OID 70489)
 -- Name: cv_unitstype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13364,7 +21092,7 @@ ALTER TABLE ONLY cv_unitstype
 
 
 --
--- TOC entry 4175 (class 2606 OID 70497)
+-- TOC entry 4186 (class 2606 OID 70497)
 -- Name: cv_variablename_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13373,7 +21101,7 @@ ALTER TABLE ONLY cv_variablename
 
 
 --
--- TOC entry 4177 (class 2606 OID 70505)
+-- TOC entry 4188 (class 2606 OID 70505)
 -- Name: cv_variabletype_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13382,7 +21110,7 @@ ALTER TABLE ONLY cv_variabletype
 
 
 --
--- TOC entry 4195 (class 2606 OID 70571)
+-- TOC entry 4206 (class 2606 OID 70571)
 -- Name: dataloggerfilecolumns_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13391,7 +21119,7 @@ ALTER TABLE ONLY dataloggerfilecolumns
 
 
 --
--- TOC entry 4197 (class 2606 OID 70582)
+-- TOC entry 4208 (class 2606 OID 70582)
 -- Name: dataloggerfiles_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13400,7 +21128,7 @@ ALTER TABLE ONLY dataloggerfiles
 
 
 --
--- TOC entry 4199 (class 2606 OID 70593)
+-- TOC entry 4210 (class 2606 OID 70593)
 -- Name: dataloggerprogramfiles_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13409,7 +21137,7 @@ ALTER TABLE ONLY dataloggerprogramfiles
 
 
 --
--- TOC entry 4179 (class 2606 OID 70513)
+-- TOC entry 4190 (class 2606 OID 70513)
 -- Name: dataquality_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13418,7 +21146,7 @@ ALTER TABLE ONLY dataquality
 
 
 --
--- TOC entry 4255 (class 2606 OID 70856)
+-- TOC entry 4266 (class 2606 OID 70856)
 -- Name: datasetcitations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13427,7 +21155,7 @@ ALTER TABLE ONLY datasetcitations
 
 
 --
--- TOC entry 4094 (class 2606 OID 70153)
+-- TOC entry 4105 (class 2606 OID 70153)
 -- Name: datasets_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13436,7 +21164,7 @@ ALTER TABLE ONLY datasets
 
 
 --
--- TOC entry 4096 (class 2606 OID 70161)
+-- TOC entry 4107 (class 2606 OID 70161)
 -- Name: datasetsresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13445,7 +21173,7 @@ ALTER TABLE ONLY datasetsresults
 
 
 --
--- TOC entry 4257 (class 2606 OID 70864)
+-- TOC entry 4268 (class 2606 OID 70864)
 -- Name: derivationequations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13454,7 +21182,7 @@ ALTER TABLE ONLY derivationequations
 
 
 --
--- TOC entry 4247 (class 2606 OID 70824)
+-- TOC entry 4258 (class 2606 OID 70824)
 -- Name: directives_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13463,7 +21191,7 @@ ALTER TABLE ONLY directives
 
 
 --
--- TOC entry 4201 (class 2606 OID 70604)
+-- TOC entry 4212 (class 2606 OID 70604)
 -- Name: equipment_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13472,7 +21200,7 @@ ALTER TABLE ONLY equipment
 
 
 --
--- TOC entry 4064 (class 2606 OID 70021)
+-- TOC entry 4075 (class 2606 OID 70021)
 -- Name: equipmentannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13481,7 +21209,7 @@ ALTER TABLE ONLY equipmentannotations
 
 
 --
--- TOC entry 4203 (class 2606 OID 70615)
+-- TOC entry 4214 (class 2606 OID 70615)
 -- Name: equipmentmodels_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13490,7 +21218,7 @@ ALTER TABLE ONLY equipmentmodels
 
 
 --
--- TOC entry 4205 (class 2606 OID 70623)
+-- TOC entry 4216 (class 2606 OID 70623)
 -- Name: equipmentused_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13499,7 +21227,7 @@ ALTER TABLE ONLY equipmentused
 
 
 --
--- TOC entry 4217 (class 2606 OID 70677)
+-- TOC entry 4228 (class 2606 OID 70677)
 -- Name: extensionproperties_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13508,7 +21236,7 @@ ALTER TABLE ONLY extensionproperties
 
 
 --
--- TOC entry 4229 (class 2606 OID 70728)
+-- TOC entry 4240 (class 2606 OID 70728)
 -- Name: externalidentifiersystems_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13517,7 +21245,7 @@ ALTER TABLE ONLY externalidentifiersystems
 
 
 --
--- TOC entry 4098 (class 2606 OID 70169)
+-- TOC entry 4109 (class 2606 OID 70169)
 -- Name: featureactions_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13526,7 +21254,7 @@ ALTER TABLE ONLY featureactions
 
 
 --
--- TOC entry 4207 (class 2606 OID 70634)
+-- TOC entry 4218 (class 2606 OID 70634)
 -- Name: instrumentoutputvariables_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13535,7 +21263,7 @@ ALTER TABLE ONLY instrumentoutputvariables
 
 
 --
--- TOC entry 4209 (class 2606 OID 70642)
+-- TOC entry 4220 (class 2606 OID 70642)
 -- Name: maintenanceactions_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13544,7 +21272,7 @@ ALTER TABLE ONLY maintenanceactions
 
 
 --
--- TOC entry 4275 (class 2606 OID 70930)
+-- TOC entry 4286 (class 2606 OID 70930)
 -- Name: measurementresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13553,7 +21281,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4066 (class 2606 OID 70029)
+-- TOC entry 4077 (class 2606 OID 70029)
 -- Name: measurementresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13562,7 +21290,7 @@ ALTER TABLE ONLY measurementresultvalueannotations
 
 
 --
--- TOC entry 4277 (class 2606 OID 70938)
+-- TOC entry 4288 (class 2606 OID 70938)
 -- Name: measurementresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13571,7 +21299,7 @@ ALTER TABLE ONLY measurementresultvalues
 
 
 --
--- TOC entry 4068 (class 2606 OID 70037)
+-- TOC entry 4079 (class 2606 OID 70037)
 -- Name: methodannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13580,7 +21308,7 @@ ALTER TABLE ONLY methodannotations
 
 
 --
--- TOC entry 4259 (class 2606 OID 70872)
+-- TOC entry 4270 (class 2606 OID 70872)
 -- Name: methodcitations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13589,7 +21317,7 @@ ALTER TABLE ONLY methodcitations
 
 
 --
--- TOC entry 4219 (class 2606 OID 70685)
+-- TOC entry 4230 (class 2606 OID 70685)
 -- Name: methodextensionpropertyvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13598,7 +21326,7 @@ ALTER TABLE ONLY methodextensionpropertyvalues
 
 
 --
--- TOC entry 4231 (class 2606 OID 70739)
+-- TOC entry 4242 (class 2606 OID 70739)
 -- Name: methodexternalidentifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13607,7 +21335,7 @@ ALTER TABLE ONLY methodexternalidentifiers
 
 
 --
--- TOC entry 4100 (class 2606 OID 70180)
+-- TOC entry 4111 (class 2606 OID 70180)
 -- Name: methods_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13616,7 +21344,7 @@ ALTER TABLE ONLY methods
 
 
 --
--- TOC entry 4319 (class 2606 OID 71106)
+-- TOC entry 4330 (class 2606 OID 71106)
 -- Name: modelaffiliations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13625,7 +21353,7 @@ ALTER TABLE ONLY modelaffiliations
 
 
 --
--- TOC entry 4321 (class 2606 OID 71117)
+-- TOC entry 4332 (class 2606 OID 71117)
 -- Name: models_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13634,7 +21362,7 @@ ALTER TABLE ONLY models
 
 
 --
--- TOC entry 4102 (class 2606 OID 70191)
+-- TOC entry 4113 (class 2606 OID 70191)
 -- Name: organizations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13643,7 +21371,7 @@ ALTER TABLE ONLY organizations
 
 
 --
--- TOC entry 4104 (class 2606 OID 70202)
+-- TOC entry 4115 (class 2606 OID 70202)
 -- Name: people_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13652,7 +21380,7 @@ ALTER TABLE ONLY people
 
 
 --
--- TOC entry 4233 (class 2606 OID 70750)
+-- TOC entry 4244 (class 2606 OID 70750)
 -- Name: personexternalidentifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13661,7 +21389,7 @@ ALTER TABLE ONLY personexternalidentifiers
 
 
 --
--- TOC entry 4279 (class 2606 OID 70943)
+-- TOC entry 4290 (class 2606 OID 70943)
 -- Name: pointcoverageresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13670,7 +21398,7 @@ ALTER TABLE ONLY pointcoverageresults
 
 
 --
--- TOC entry 4070 (class 2606 OID 70045)
+-- TOC entry 4081 (class 2606 OID 70045)
 -- Name: pointcoverageresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13679,7 +21407,7 @@ ALTER TABLE ONLY pointcoverageresultvalueannotations
 
 
 --
--- TOC entry 4281 (class 2606 OID 70954)
+-- TOC entry 4292 (class 2606 OID 70954)
 -- Name: pointcoverageresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13688,7 +21416,7 @@ ALTER TABLE ONLY pointcoverageresultvalues
 
 
 --
--- TOC entry 4106 (class 2606 OID 70213)
+-- TOC entry 4117 (class 2606 OID 70213)
 -- Name: processinglevels_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13697,7 +21425,7 @@ ALTER TABLE ONLY processinglevels
 
 
 --
--- TOC entry 4283 (class 2606 OID 70959)
+-- TOC entry 4294 (class 2606 OID 70959)
 -- Name: profileresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13706,7 +21434,7 @@ ALTER TABLE ONLY profileresults
 
 
 --
--- TOC entry 4072 (class 2606 OID 70053)
+-- TOC entry 4083 (class 2606 OID 70053)
 -- Name: profileresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13715,7 +21443,7 @@ ALTER TABLE ONLY profileresultvalueannotations
 
 
 --
--- TOC entry 4285 (class 2606 OID 70970)
+-- TOC entry 4296 (class 2606 OID 70970)
 -- Name: profileresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13724,7 +21452,7 @@ ALTER TABLE ONLY profileresultvalues
 
 
 --
--- TOC entry 4235 (class 2606 OID 70761)
+-- TOC entry 4246 (class 2606 OID 70761)
 -- Name: referencematerialexternalidentifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13733,7 +21461,7 @@ ALTER TABLE ONLY referencematerialexternalidentifiers
 
 
 --
--- TOC entry 4181 (class 2606 OID 70521)
+-- TOC entry 4192 (class 2606 OID 70521)
 -- Name: referencematerials_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13742,7 +21470,7 @@ ALTER TABLE ONLY referencematerials
 
 
 --
--- TOC entry 4183 (class 2606 OID 70526)
+-- TOC entry 4194 (class 2606 OID 70526)
 -- Name: referencematerialvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13751,7 +21479,7 @@ ALTER TABLE ONLY referencematerialvalues
 
 
 --
--- TOC entry 4108 (class 2606 OID 70221)
+-- TOC entry 4119 (class 2606 OID 70221)
 -- Name: relatedactions_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13760,7 +21488,7 @@ ALTER TABLE ONLY relatedactions
 
 
 --
--- TOC entry 4261 (class 2606 OID 70880)
+-- TOC entry 4272 (class 2606 OID 70880)
 -- Name: relatedannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13769,7 +21497,7 @@ ALTER TABLE ONLY relatedannotations
 
 
 --
--- TOC entry 4263 (class 2606 OID 70888)
+-- TOC entry 4274 (class 2606 OID 70888)
 -- Name: relatedcitations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13778,7 +21506,7 @@ ALTER TABLE ONLY relatedcitations
 
 
 --
--- TOC entry 4265 (class 2606 OID 70896)
+-- TOC entry 4276 (class 2606 OID 70896)
 -- Name: relateddatasets_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13787,7 +21515,7 @@ ALTER TABLE ONLY relateddatasets
 
 
 --
--- TOC entry 4211 (class 2606 OID 70650)
+-- TOC entry 4222 (class 2606 OID 70650)
 -- Name: relatedequipment_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13796,7 +21524,7 @@ ALTER TABLE ONLY relatedequipment
 
 
 --
--- TOC entry 4307 (class 2606 OID 71058)
+-- TOC entry 4318 (class 2606 OID 71058)
 -- Name: relatedfeatures_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13805,7 +21533,7 @@ ALTER TABLE ONLY relatedfeatures
 
 
 --
--- TOC entry 4323 (class 2606 OID 71125)
+-- TOC entry 4334 (class 2606 OID 71125)
 -- Name: relatedmodels_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13814,7 +21542,7 @@ ALTER TABLE ONLY relatedmodels
 
 
 --
--- TOC entry 4267 (class 2606 OID 70904)
+-- TOC entry 4278 (class 2606 OID 70904)
 -- Name: relatedresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13823,7 +21551,7 @@ ALTER TABLE ONLY relatedresults
 
 
 --
--- TOC entry 4074 (class 2606 OID 70061)
+-- TOC entry 4085 (class 2606 OID 70061)
 -- Name: resultannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13832,7 +21560,7 @@ ALTER TABLE ONLY resultannotations
 
 
 --
--- TOC entry 4269 (class 2606 OID 70909)
+-- TOC entry 4280 (class 2606 OID 70909)
 -- Name: resultderivationequations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13841,7 +21569,7 @@ ALTER TABLE ONLY resultderivationequations
 
 
 --
--- TOC entry 4221 (class 2606 OID 70693)
+-- TOC entry 4232 (class 2606 OID 70693)
 -- Name: resultextensionpropertyvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13850,7 +21578,7 @@ ALTER TABLE ONLY resultextensionpropertyvalues
 
 
 --
--- TOC entry 4185 (class 2606 OID 70531)
+-- TOC entry 4196 (class 2606 OID 70531)
 -- Name: resultnormalizationvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13859,7 +21587,7 @@ ALTER TABLE ONLY resultnormalizationvalues
 
 
 --
--- TOC entry 4110 (class 2606 OID 70232)
+-- TOC entry 4121 (class 2606 OID 70232)
 -- Name: results_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13868,7 +21596,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4187 (class 2606 OID 70539)
+-- TOC entry 4198 (class 2606 OID 70539)
 -- Name: resultsdataquality_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13877,7 +21605,7 @@ ALTER TABLE ONLY resultsdataquality
 
 
 --
--- TOC entry 4076 (class 2606 OID 70069)
+-- TOC entry 4087 (class 2606 OID 70069)
 -- Name: samplingfeatureannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13886,7 +21614,7 @@ ALTER TABLE ONLY samplingfeatureannotations
 
 
 --
--- TOC entry 4223 (class 2606 OID 70701)
+-- TOC entry 4234 (class 2606 OID 70701)
 -- Name: samplingfeatureextensionpropertyvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13895,7 +21623,7 @@ ALTER TABLE ONLY samplingfeatureextensionpropertyvalues
 
 
 --
--- TOC entry 4237 (class 2606 OID 70772)
+-- TOC entry 4248 (class 2606 OID 70772)
 -- Name: samplingfeatureexternalidentifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13904,7 +21632,7 @@ ALTER TABLE ONLY samplingfeatureexternalidentifiers
 
 
 --
--- TOC entry 4113 (class 2606 OID 70243)
+-- TOC entry 4124 (class 2606 OID 70243)
 -- Name: samplingfeatures_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13913,7 +21641,7 @@ ALTER TABLE ONLY samplingfeatures
 
 
 --
--- TOC entry 4287 (class 2606 OID 70975)
+-- TOC entry 4298 (class 2606 OID 70975)
 -- Name: sectionresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13922,7 +21650,7 @@ ALTER TABLE ONLY sectionresults
 
 
 --
--- TOC entry 4078 (class 2606 OID 70077)
+-- TOC entry 4089 (class 2606 OID 70077)
 -- Name: sectionresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13931,7 +21659,7 @@ ALTER TABLE ONLY sectionresultvalueannotations
 
 
 --
--- TOC entry 4289 (class 2606 OID 70986)
+-- TOC entry 4300 (class 2606 OID 70986)
 -- Name: sectionresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13940,7 +21668,7 @@ ALTER TABLE ONLY sectionresultvalues
 
 
 --
--- TOC entry 4325 (class 2606 OID 71136)
+-- TOC entry 4336 (class 2606 OID 71136)
 -- Name: simulations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13949,7 +21677,7 @@ ALTER TABLE ONLY simulations
 
 
 --
--- TOC entry 4309 (class 2606 OID 71063)
+-- TOC entry 4320 (class 2606 OID 71063)
 -- Name: sites_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13958,7 +21686,7 @@ ALTER TABLE ONLY sites
 
 
 --
--- TOC entry 4311 (class 2606 OID 71068)
+-- TOC entry 4322 (class 2606 OID 71068)
 -- Name: spatialoffsets_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13967,7 +21695,7 @@ ALTER TABLE ONLY spatialoffsets
 
 
 --
--- TOC entry 4239 (class 2606 OID 70783)
+-- TOC entry 4250 (class 2606 OID 70783)
 -- Name: spatialreferenceexternalidentifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13976,7 +21704,7 @@ ALTER TABLE ONLY spatialreferenceexternalidentifiers
 
 
 --
--- TOC entry 4313 (class 2606 OID 71079)
+-- TOC entry 4324 (class 2606 OID 71079)
 -- Name: spatialreferences_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13985,7 +21713,7 @@ ALTER TABLE ONLY spatialreferences
 
 
 --
--- TOC entry 4249 (class 2606 OID 70829)
+-- TOC entry 4260 (class 2606 OID 70829)
 -- Name: specimenbatchpostions_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -13994,7 +21722,7 @@ ALTER TABLE ONLY specimenbatchpostions
 
 
 --
--- TOC entry 4315 (class 2606 OID 71087)
+-- TOC entry 4326 (class 2606 OID 71087)
 -- Name: specimens_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14003,7 +21731,7 @@ ALTER TABLE ONLY specimens
 
 
 --
--- TOC entry 4317 (class 2606 OID 71095)
+-- TOC entry 4328 (class 2606 OID 71095)
 -- Name: specimentaxonomicclassifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14012,7 +21740,7 @@ ALTER TABLE ONLY specimentaxonomicclassifiers
 
 
 --
--- TOC entry 4291 (class 2606 OID 70991)
+-- TOC entry 4302 (class 2606 OID 70991)
 -- Name: spectraresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14021,7 +21749,7 @@ ALTER TABLE ONLY spectraresults
 
 
 --
--- TOC entry 4080 (class 2606 OID 70085)
+-- TOC entry 4091 (class 2606 OID 70085)
 -- Name: spectraresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14030,7 +21758,7 @@ ALTER TABLE ONLY spectraresultvalueannotations
 
 
 --
--- TOC entry 4293 (class 2606 OID 71002)
+-- TOC entry 4304 (class 2606 OID 71002)
 -- Name: spectraresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14039,7 +21767,7 @@ ALTER TABLE ONLY spectraresultvalues
 
 
 --
--- TOC entry 4241 (class 2606 OID 70794)
+-- TOC entry 4252 (class 2606 OID 70794)
 -- Name: taxonomicclassifierexternalidentifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14048,7 +21776,7 @@ ALTER TABLE ONLY taxonomicclassifierexternalidentifiers
 
 
 --
--- TOC entry 4115 (class 2606 OID 70251)
+-- TOC entry 4126 (class 2606 OID 70251)
 -- Name: taxonomicclassifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14057,7 +21785,7 @@ ALTER TABLE ONLY taxonomicclassifiers
 
 
 --
--- TOC entry 4295 (class 2606 OID 71007)
+-- TOC entry 4306 (class 2606 OID 71007)
 -- Name: timeseriesresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14066,7 +21794,7 @@ ALTER TABLE ONLY timeseriesresults
 
 
 --
--- TOC entry 4082 (class 2606 OID 70093)
+-- TOC entry 4093 (class 2606 OID 70093)
 -- Name: timeseriesresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14075,7 +21803,7 @@ ALTER TABLE ONLY timeseriesresultvalueannotations
 
 
 --
--- TOC entry 4297 (class 2606 OID 71018)
+-- TOC entry 4308 (class 2606 OID 71018)
 -- Name: timeseriesresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14084,7 +21812,7 @@ ALTER TABLE ONLY timeseriesresultvalues
 
 
 --
--- TOC entry 4299 (class 2606 OID 71023)
+-- TOC entry 4310 (class 2606 OID 71023)
 -- Name: trajectoryresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14093,7 +21821,7 @@ ALTER TABLE ONLY trajectoryresults
 
 
 --
--- TOC entry 4084 (class 2606 OID 70101)
+-- TOC entry 4095 (class 2606 OID 70101)
 -- Name: trajectoryresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14102,7 +21830,7 @@ ALTER TABLE ONLY trajectoryresultvalueannotations
 
 
 --
--- TOC entry 4301 (class 2606 OID 71034)
+-- TOC entry 4312 (class 2606 OID 71034)
 -- Name: trajectoryresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14111,7 +21839,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4303 (class 2606 OID 71039)
+-- TOC entry 4314 (class 2606 OID 71039)
 -- Name: transectresults_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14120,7 +21848,7 @@ ALTER TABLE ONLY transectresults
 
 
 --
--- TOC entry 4086 (class 2606 OID 70109)
+-- TOC entry 4097 (class 2606 OID 70109)
 -- Name: transectresultvalueannotations_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14129,7 +21857,7 @@ ALTER TABLE ONLY transectresultvalueannotations
 
 
 --
--- TOC entry 4305 (class 2606 OID 71050)
+-- TOC entry 4316 (class 2606 OID 71050)
 -- Name: transectresultvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14138,7 +21866,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4117 (class 2606 OID 70262)
+-- TOC entry 4128 (class 2606 OID 70262)
 -- Name: units_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14147,7 +21875,7 @@ ALTER TABLE ONLY units
 
 
 --
--- TOC entry 4225 (class 2606 OID 70709)
+-- TOC entry 4236 (class 2606 OID 70709)
 -- Name: variableextensionpropertyvalues_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14156,7 +21884,7 @@ ALTER TABLE ONLY variableextensionpropertyvalues
 
 
 --
--- TOC entry 4243 (class 2606 OID 70805)
+-- TOC entry 4254 (class 2606 OID 70805)
 -- Name: variableexternalidentifiers_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14165,7 +21893,7 @@ ALTER TABLE ONLY variableexternalidentifiers
 
 
 --
--- TOC entry 4119 (class 2606 OID 70273)
+-- TOC entry 4130 (class 2606 OID 70273)
 -- Name: variables_pkey; Type: CONSTRAINT; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14174,7 +21902,7 @@ ALTER TABLE ONLY variables
 
 
 --
--- TOC entry 4111 (class 1259 OID 72583)
+-- TOC entry 4122 (class 1259 OID 72583)
 -- Name: idx_samplingfeature_featuregeom; Type: INDEX; Schema: odm2; Owner: -; Tablespace: 
 --
 
@@ -14182,7 +21910,7 @@ CREATE INDEX idx_samplingfeature_featuregeom ON samplingfeatures USING gist (fea
 
 
 --
--- TOC entry 4326 (class 2606 OID 71137)
+-- TOC entry 4337 (class 2606 OID 71137)
 -- Name: fk_actionannotations_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14191,7 +21919,7 @@ ALTER TABLE ONLY actionannotations
 
 
 --
--- TOC entry 4327 (class 2606 OID 71142)
+-- TOC entry 4338 (class 2606 OID 71142)
 -- Name: fk_actionannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14200,7 +21928,7 @@ ALTER TABLE ONLY actionannotations
 
 
 --
--- TOC entry 4465 (class 2606 OID 71832)
+-- TOC entry 4476 (class 2606 OID 71832)
 -- Name: fk_actiondirectives_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14209,7 +21937,7 @@ ALTER TABLE ONLY actiondirectives
 
 
 --
--- TOC entry 4466 (class 2606 OID 71837)
+-- TOC entry 4477 (class 2606 OID 71837)
 -- Name: fk_actiondirectives_directives; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14218,7 +21946,7 @@ ALTER TABLE ONLY actiondirectives
 
 
 --
--- TOC entry 4434 (class 2606 OID 71677)
+-- TOC entry 4445 (class 2606 OID 71677)
 -- Name: fk_actionextensionpropertyvalues_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14227,7 +21955,7 @@ ALTER TABLE ONLY actionextensionpropertyvalues
 
 
 --
--- TOC entry 4435 (class 2606 OID 71682)
+-- TOC entry 4446 (class 2606 OID 71682)
 -- Name: fk_actionextensionpropertyvalues_extensionproperties; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14236,7 +21964,7 @@ ALTER TABLE ONLY actionextensionpropertyvalues
 
 
 --
--- TOC entry 4357 (class 2606 OID 71292)
+-- TOC entry 4368 (class 2606 OID 71292)
 -- Name: fk_actionpeople_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14245,7 +21973,7 @@ ALTER TABLE ONLY actionby
 
 
 --
--- TOC entry 4358 (class 2606 OID 71297)
+-- TOC entry 4369 (class 2606 OID 71297)
 -- Name: fk_actionpeople_affiliations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14254,7 +21982,7 @@ ALTER TABLE ONLY actionby
 
 
 --
--- TOC entry 4359 (class 2606 OID 71302)
+-- TOC entry 4370 (class 2606 OID 71302)
 -- Name: fk_actions_cv_actiontype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14263,7 +21991,7 @@ ALTER TABLE ONLY actions
 
 
 --
--- TOC entry 4360 (class 2606 OID 71307)
+-- TOC entry 4371 (class 2606 OID 71307)
 -- Name: fk_actions_methods; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14272,7 +22000,7 @@ ALTER TABLE ONLY actions
 
 
 --
--- TOC entry 4361 (class 2606 OID 71312)
+-- TOC entry 4372 (class 2606 OID 71312)
 -- Name: fk_affiliations_organizations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14281,7 +22009,7 @@ ALTER TABLE ONLY affiliations
 
 
 --
--- TOC entry 4362 (class 2606 OID 71317)
+-- TOC entry 4373 (class 2606 OID 71317)
 -- Name: fk_affiliations_people; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14290,7 +22018,7 @@ ALTER TABLE ONLY affiliations
 
 
 --
--- TOC entry 4328 (class 2606 OID 71147)
+-- TOC entry 4339 (class 2606 OID 71147)
 -- Name: fk_annotations_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14299,7 +22027,7 @@ ALTER TABLE ONLY annotations
 
 
 --
--- TOC entry 4329 (class 2606 OID 71152)
+-- TOC entry 4340 (class 2606 OID 71152)
 -- Name: fk_annotations_cv_annotationtype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14308,7 +22036,7 @@ ALTER TABLE ONLY annotations
 
 
 --
--- TOC entry 4330 (class 2606 OID 71157)
+-- TOC entry 4341 (class 2606 OID 71157)
 -- Name: fk_annotations_people; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14317,7 +22045,7 @@ ALTER TABLE ONLY annotations
 
 
 --
--- TOC entry 4469 (class 2606 OID 71852)
+-- TOC entry 4480 (class 2606 OID 71852)
 -- Name: fk_authorlists_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14326,7 +22054,7 @@ ALTER TABLE ONLY authorlists
 
 
 --
--- TOC entry 4470 (class 2606 OID 71857)
+-- TOC entry 4481 (class 2606 OID 71857)
 -- Name: fk_authorlists_people; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14335,7 +22063,7 @@ ALTER TABLE ONLY authorlists
 
 
 --
--- TOC entry 4405 (class 2606 OID 71532)
+-- TOC entry 4416 (class 2606 OID 71532)
 -- Name: fk_calibrationactions_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14344,7 +22072,7 @@ ALTER TABLE ONLY calibrationactions
 
 
 --
--- TOC entry 4406 (class 2606 OID 71537)
+-- TOC entry 4417 (class 2606 OID 71537)
 -- Name: fk_calibrationactions_instrumentoutputvariables; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14353,7 +22081,7 @@ ALTER TABLE ONLY calibrationactions
 
 
 --
--- TOC entry 4407 (class 2606 OID 71542)
+-- TOC entry 4418 (class 2606 OID 71542)
 -- Name: fk_calibrationreferenceequipment_calibrationactions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14362,7 +22090,7 @@ ALTER TABLE ONLY calibrationreferenceequipment
 
 
 --
--- TOC entry 4408 (class 2606 OID 71547)
+-- TOC entry 4419 (class 2606 OID 71547)
 -- Name: fk_calibrationreferenceequipment_equipment; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14371,7 +22099,7 @@ ALTER TABLE ONLY calibrationreferenceequipment
 
 
 --
--- TOC entry 4409 (class 2606 OID 71552)
+-- TOC entry 4420 (class 2606 OID 71552)
 -- Name: fk_calibrationstandards_calibrationactions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14380,7 +22108,7 @@ ALTER TABLE ONLY calibrationstandards
 
 
 --
--- TOC entry 4491 (class 2606 OID 71962)
+-- TOC entry 4502 (class 2606 OID 71962)
 -- Name: fk_categoricalresults_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14389,7 +22117,7 @@ ALTER TABLE ONLY categoricalresults
 
 
 --
--- TOC entry 4492 (class 2606 OID 71967)
+-- TOC entry 4503 (class 2606 OID 71967)
 -- Name: fk_categoricalresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14398,7 +22126,7 @@ ALTER TABLE ONLY categoricalresults
 
 
 --
--- TOC entry 4493 (class 2606 OID 71972)
+-- TOC entry 4504 (class 2606 OID 71972)
 -- Name: fk_categoricalresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14407,7 +22135,7 @@ ALTER TABLE ONLY categoricalresults
 
 
 --
--- TOC entry 4331 (class 2606 OID 71162)
+-- TOC entry 4342 (class 2606 OID 71162)
 -- Name: fk_categoricalresultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14416,7 +22144,7 @@ ALTER TABLE ONLY categoricalresultvalueannotations
 
 
 --
--- TOC entry 4332 (class 2606 OID 71167)
+-- TOC entry 4343 (class 2606 OID 71167)
 -- Name: fk_categoricalresultvalueannotations_categoricalresultvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14425,7 +22153,7 @@ ALTER TABLE ONLY categoricalresultvalueannotations
 
 
 --
--- TOC entry 4494 (class 2606 OID 71977)
+-- TOC entry 4505 (class 2606 OID 71977)
 -- Name: fk_categoricalresultvalues_categoricalresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14434,7 +22162,7 @@ ALTER TABLE ONLY categoricalresultvalues
 
 
 --
--- TOC entry 4436 (class 2606 OID 71687)
+-- TOC entry 4447 (class 2606 OID 71687)
 -- Name: fk_citationextensionpropertyvalues_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14443,7 +22171,7 @@ ALTER TABLE ONLY citationextensionpropertyvalues
 
 
 --
--- TOC entry 4437 (class 2606 OID 71692)
+-- TOC entry 4448 (class 2606 OID 71692)
 -- Name: fk_citationextensionpropertyvalues_extensionproperties; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14452,7 +22180,7 @@ ALTER TABLE ONLY citationextensionpropertyvalues
 
 
 --
--- TOC entry 4448 (class 2606 OID 71747)
+-- TOC entry 4459 (class 2606 OID 71747)
 -- Name: fk_citationexternalidentifiers_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14461,7 +22189,7 @@ ALTER TABLE ONLY citationexternalidentifiers
 
 
 --
--- TOC entry 4449 (class 2606 OID 71752)
+-- TOC entry 4460 (class 2606 OID 71752)
 -- Name: fk_citationexternalidentifiers_externalidentifiersystems; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14470,7 +22198,7 @@ ALTER TABLE ONLY citationexternalidentifiers
 
 
 --
--- TOC entry 4411 (class 2606 OID 71562)
+-- TOC entry 4422 (class 2606 OID 71562)
 -- Name: fk_dataloggerfilecolumns_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14479,7 +22207,7 @@ ALTER TABLE ONLY dataloggerfilecolumns
 
 
 --
--- TOC entry 4412 (class 2606 OID 71567)
+-- TOC entry 4423 (class 2606 OID 71567)
 -- Name: fk_dataloggerfilecolumns_dataloggerfiles; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14488,7 +22216,7 @@ ALTER TABLE ONLY dataloggerfilecolumns
 
 
 --
--- TOC entry 4413 (class 2606 OID 71572)
+-- TOC entry 4424 (class 2606 OID 71572)
 -- Name: fk_dataloggerfilecolumns_instrumentoutputvariables; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14497,7 +22225,7 @@ ALTER TABLE ONLY dataloggerfilecolumns
 
 
 --
--- TOC entry 4414 (class 2606 OID 71577)
+-- TOC entry 4425 (class 2606 OID 71577)
 -- Name: fk_dataloggerfilecolumns_recordingunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14506,7 +22234,7 @@ ALTER TABLE ONLY dataloggerfilecolumns
 
 
 --
--- TOC entry 4415 (class 2606 OID 71582)
+-- TOC entry 4426 (class 2606 OID 71582)
 -- Name: fk_dataloggerfilecolumns_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14515,7 +22243,7 @@ ALTER TABLE ONLY dataloggerfilecolumns
 
 
 --
--- TOC entry 4416 (class 2606 OID 71587)
+-- TOC entry 4427 (class 2606 OID 71587)
 -- Name: fk_dataloggerfilecolumns_scanunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14524,7 +22252,7 @@ ALTER TABLE ONLY dataloggerfilecolumns
 
 
 --
--- TOC entry 4417 (class 2606 OID 71592)
+-- TOC entry 4428 (class 2606 OID 71592)
 -- Name: fk_dataloggerfiles_dataloggerprogramfiles; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14533,7 +22261,7 @@ ALTER TABLE ONLY dataloggerfiles
 
 
 --
--- TOC entry 4418 (class 2606 OID 71597)
+-- TOC entry 4429 (class 2606 OID 71597)
 -- Name: fk_dataloggerprogramfiles_affiliations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14542,7 +22270,7 @@ ALTER TABLE ONLY dataloggerprogramfiles
 
 
 --
--- TOC entry 4392 (class 2606 OID 71467)
+-- TOC entry 4403 (class 2606 OID 71467)
 -- Name: fk_dataquality_cv_dataqualitytype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14551,7 +22279,7 @@ ALTER TABLE ONLY dataquality
 
 
 --
--- TOC entry 4393 (class 2606 OID 71472)
+-- TOC entry 4404 (class 2606 OID 71472)
 -- Name: fk_dataquality_units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14560,7 +22288,7 @@ ALTER TABLE ONLY dataquality
 
 
 --
--- TOC entry 4471 (class 2606 OID 71862)
+-- TOC entry 4482 (class 2606 OID 71862)
 -- Name: fk_datasetcitations_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14569,7 +22297,7 @@ ALTER TABLE ONLY datasetcitations
 
 
 --
--- TOC entry 4472 (class 2606 OID 71867)
+-- TOC entry 4483 (class 2606 OID 71867)
 -- Name: fk_datasetcitations_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14578,7 +22306,7 @@ ALTER TABLE ONLY datasetcitations
 
 
 --
--- TOC entry 4473 (class 2606 OID 71872)
+-- TOC entry 4484 (class 2606 OID 71872)
 -- Name: fk_datasetcitations_datasets; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14587,7 +22315,7 @@ ALTER TABLE ONLY datasetcitations
 
 
 --
--- TOC entry 4363 (class 2606 OID 71322)
+-- TOC entry 4374 (class 2606 OID 71322)
 -- Name: fk_datasets_cv_datasettypecv; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14596,7 +22324,7 @@ ALTER TABLE ONLY datasets
 
 
 --
--- TOC entry 4364 (class 2606 OID 71327)
+-- TOC entry 4375 (class 2606 OID 71327)
 -- Name: fk_datasetsresults_datasets; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14605,7 +22333,7 @@ ALTER TABLE ONLY datasetsresults
 
 
 --
--- TOC entry 4365 (class 2606 OID 71332)
+-- TOC entry 4376 (class 2606 OID 71332)
 -- Name: fk_datasetsresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14614,7 +22342,7 @@ ALTER TABLE ONLY datasetsresults
 
 
 --
--- TOC entry 4467 (class 2606 OID 71842)
+-- TOC entry 4478 (class 2606 OID 71842)
 -- Name: fk_directives_cv_directivetype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14623,7 +22351,7 @@ ALTER TABLE ONLY directives
 
 
 --
--- TOC entry 4419 (class 2606 OID 71602)
+-- TOC entry 4430 (class 2606 OID 71602)
 -- Name: fk_equipment_cv_equipmenttype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14632,7 +22360,7 @@ ALTER TABLE ONLY equipment
 
 
 --
--- TOC entry 4420 (class 2606 OID 71607)
+-- TOC entry 4431 (class 2606 OID 71607)
 -- Name: fk_equipment_equipmentmodels; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14641,7 +22369,7 @@ ALTER TABLE ONLY equipment
 
 
 --
--- TOC entry 4421 (class 2606 OID 71612)
+-- TOC entry 4432 (class 2606 OID 71612)
 -- Name: fk_equipment_organizations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14650,7 +22378,7 @@ ALTER TABLE ONLY equipment
 
 
 --
--- TOC entry 4422 (class 2606 OID 71617)
+-- TOC entry 4433 (class 2606 OID 71617)
 -- Name: fk_equipment_people; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14659,7 +22387,7 @@ ALTER TABLE ONLY equipment
 
 
 --
--- TOC entry 4424 (class 2606 OID 71627)
+-- TOC entry 4435 (class 2606 OID 71627)
 -- Name: fk_equipmentactions_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14668,7 +22396,7 @@ ALTER TABLE ONLY equipmentused
 
 
 --
--- TOC entry 4425 (class 2606 OID 71632)
+-- TOC entry 4436 (class 2606 OID 71632)
 -- Name: fk_equipmentactions_equipment; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14677,7 +22405,7 @@ ALTER TABLE ONLY equipmentused
 
 
 --
--- TOC entry 4333 (class 2606 OID 71172)
+-- TOC entry 4344 (class 2606 OID 71172)
 -- Name: fk_equipmentannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14686,7 +22414,7 @@ ALTER TABLE ONLY equipmentannotations
 
 
 --
--- TOC entry 4334 (class 2606 OID 71177)
+-- TOC entry 4345 (class 2606 OID 71177)
 -- Name: fk_equipmentannotations_equipment; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14695,7 +22423,7 @@ ALTER TABLE ONLY equipmentannotations
 
 
 --
--- TOC entry 4423 (class 2606 OID 71622)
+-- TOC entry 4434 (class 2606 OID 71622)
 -- Name: fk_equipmentmodels_organizations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14704,7 +22432,7 @@ ALTER TABLE ONLY equipmentmodels
 
 
 --
--- TOC entry 4438 (class 2606 OID 71697)
+-- TOC entry 4449 (class 2606 OID 71697)
 -- Name: fk_extensionproperties_cv_propertydatatype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14713,7 +22441,7 @@ ALTER TABLE ONLY extensionproperties
 
 
 --
--- TOC entry 4439 (class 2606 OID 71702)
+-- TOC entry 4450 (class 2606 OID 71702)
 -- Name: fk_extensionproperties_units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14722,7 +22450,7 @@ ALTER TABLE ONLY extensionproperties
 
 
 --
--- TOC entry 4450 (class 2606 OID 71757)
+-- TOC entry 4461 (class 2606 OID 71757)
 -- Name: fk_externalidentifiersystems_organizations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14731,7 +22459,7 @@ ALTER TABLE ONLY externalidentifiersystems
 
 
 --
--- TOC entry 4366 (class 2606 OID 71337)
+-- TOC entry 4377 (class 2606 OID 71337)
 -- Name: fk_featureactions_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14740,7 +22468,7 @@ ALTER TABLE ONLY featureactions
 
 
 --
--- TOC entry 4367 (class 2606 OID 71342)
+-- TOC entry 4378 (class 2606 OID 71342)
 -- Name: fk_featureactions_samplingfeatures; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14749,7 +22477,7 @@ ALTER TABLE ONLY featureactions
 
 
 --
--- TOC entry 4592 (class 2606 OID 72467)
+-- TOC entry 4603 (class 2606 OID 72467)
 -- Name: fk_featureparents_featuresparent; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14758,7 +22486,7 @@ ALTER TABLE ONLY relatedfeatures
 
 
 --
--- TOC entry 4593 (class 2606 OID 72472)
+-- TOC entry 4604 (class 2606 OID 72472)
 -- Name: fk_featureparents_samplingfeatures; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14767,7 +22495,7 @@ ALTER TABLE ONLY relatedfeatures
 
 
 --
--- TOC entry 4594 (class 2606 OID 72477)
+-- TOC entry 4605 (class 2606 OID 72477)
 -- Name: fk_featureparents_spatialoffsets; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14776,7 +22504,7 @@ ALTER TABLE ONLY relatedfeatures
 
 
 --
--- TOC entry 4410 (class 2606 OID 71557)
+-- TOC entry 4421 (class 2606 OID 71557)
 -- Name: fk_fieldcalibrationstandards_referencematerials; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14785,7 +22513,7 @@ ALTER TABLE ONLY calibrationstandards
 
 
 --
--- TOC entry 4426 (class 2606 OID 71637)
+-- TOC entry 4437 (class 2606 OID 71637)
 -- Name: fk_instrumentoutputvariables_equipmentmodels; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14794,7 +22522,7 @@ ALTER TABLE ONLY instrumentoutputvariables
 
 
 --
--- TOC entry 4427 (class 2606 OID 71642)
+-- TOC entry 4438 (class 2606 OID 71642)
 -- Name: fk_instrumentoutputvariables_methods; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14803,7 +22531,7 @@ ALTER TABLE ONLY instrumentoutputvariables
 
 
 --
--- TOC entry 4428 (class 2606 OID 71647)
+-- TOC entry 4439 (class 2606 OID 71647)
 -- Name: fk_instrumentoutputvariables_units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14812,7 +22540,7 @@ ALTER TABLE ONLY instrumentoutputvariables
 
 
 --
--- TOC entry 4429 (class 2606 OID 71652)
+-- TOC entry 4440 (class 2606 OID 71652)
 -- Name: fk_instrumentoutputvariables_variables; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14821,7 +22549,7 @@ ALTER TABLE ONLY instrumentoutputvariables
 
 
 --
--- TOC entry 4430 (class 2606 OID 71657)
+-- TOC entry 4441 (class 2606 OID 71657)
 -- Name: fk_maintenanceactions_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14830,7 +22558,7 @@ ALTER TABLE ONLY maintenanceactions
 
 
 --
--- TOC entry 4495 (class 2606 OID 71982)
+-- TOC entry 4506 (class 2606 OID 71982)
 -- Name: fk_measurementresults_aiunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14839,7 +22567,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4496 (class 2606 OID 71987)
+-- TOC entry 4507 (class 2606 OID 71987)
 -- Name: fk_measurementresults_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14848,7 +22576,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4497 (class 2606 OID 71992)
+-- TOC entry 4508 (class 2606 OID 71992)
 -- Name: fk_measurementresults_cv_censorcode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14857,7 +22585,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4498 (class 2606 OID 71997)
+-- TOC entry 4509 (class 2606 OID 71997)
 -- Name: fk_measurementresults_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14866,7 +22594,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4499 (class 2606 OID 72002)
+-- TOC entry 4510 (class 2606 OID 72002)
 -- Name: fk_measurementresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14875,7 +22603,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4500 (class 2606 OID 72007)
+-- TOC entry 4511 (class 2606 OID 72007)
 -- Name: fk_measurementresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14884,7 +22612,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4501 (class 2606 OID 72012)
+-- TOC entry 4512 (class 2606 OID 72012)
 -- Name: fk_measurementresults_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14893,7 +22621,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4502 (class 2606 OID 72017)
+-- TOC entry 4513 (class 2606 OID 72017)
 -- Name: fk_measurementresults_yunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14902,7 +22630,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4503 (class 2606 OID 72022)
+-- TOC entry 4514 (class 2606 OID 72022)
 -- Name: fk_measurementresults_zunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14911,7 +22639,7 @@ ALTER TABLE ONLY measurementresults
 
 
 --
--- TOC entry 4335 (class 2606 OID 71182)
+-- TOC entry 4346 (class 2606 OID 71182)
 -- Name: fk_measurementresultvalueannotations_measurementresultvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14920,7 +22648,7 @@ ALTER TABLE ONLY measurementresultvalueannotations
 
 
 --
--- TOC entry 4504 (class 2606 OID 72027)
+-- TOC entry 4515 (class 2606 OID 72027)
 -- Name: fk_measurementresultvalues_measurementresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14929,7 +22657,7 @@ ALTER TABLE ONLY measurementresultvalues
 
 
 --
--- TOC entry 4337 (class 2606 OID 71192)
+-- TOC entry 4348 (class 2606 OID 71192)
 -- Name: fk_methodannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14938,7 +22666,7 @@ ALTER TABLE ONLY methodannotations
 
 
 --
--- TOC entry 4338 (class 2606 OID 71197)
+-- TOC entry 4349 (class 2606 OID 71197)
 -- Name: fk_methodannotations_methods; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14947,7 +22675,7 @@ ALTER TABLE ONLY methodannotations
 
 
 --
--- TOC entry 4474 (class 2606 OID 71877)
+-- TOC entry 4485 (class 2606 OID 71877)
 -- Name: fk_methodcitations_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14956,7 +22684,7 @@ ALTER TABLE ONLY methodcitations
 
 
 --
--- TOC entry 4475 (class 2606 OID 71882)
+-- TOC entry 4486 (class 2606 OID 71882)
 -- Name: fk_methodcitations_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14965,7 +22693,7 @@ ALTER TABLE ONLY methodcitations
 
 
 --
--- TOC entry 4476 (class 2606 OID 71887)
+-- TOC entry 4487 (class 2606 OID 71887)
 -- Name: fk_methodcitations_methods; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14974,7 +22702,7 @@ ALTER TABLE ONLY methodcitations
 
 
 --
--- TOC entry 4440 (class 2606 OID 71707)
+-- TOC entry 4451 (class 2606 OID 71707)
 -- Name: fk_methodextensionpropertyvalues_extensionproperties; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14983,7 +22711,7 @@ ALTER TABLE ONLY methodextensionpropertyvalues
 
 
 --
--- TOC entry 4441 (class 2606 OID 71712)
+-- TOC entry 4452 (class 2606 OID 71712)
 -- Name: fk_methodextensionpropertyvalues_methods; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -14992,7 +22720,7 @@ ALTER TABLE ONLY methodextensionpropertyvalues
 
 
 --
--- TOC entry 4451 (class 2606 OID 71762)
+-- TOC entry 4462 (class 2606 OID 71762)
 -- Name: fk_methodexternalidentifiers_externalidentifiersystems; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15001,7 +22729,7 @@ ALTER TABLE ONLY methodexternalidentifiers
 
 
 --
--- TOC entry 4452 (class 2606 OID 71767)
+-- TOC entry 4463 (class 2606 OID 71767)
 -- Name: fk_methodexternalidentifiers_methods; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15010,7 +22738,7 @@ ALTER TABLE ONLY methodexternalidentifiers
 
 
 --
--- TOC entry 4368 (class 2606 OID 71347)
+-- TOC entry 4379 (class 2606 OID 71347)
 -- Name: fk_methods_cv_methodtype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15019,7 +22747,7 @@ ALTER TABLE ONLY methods
 
 
 --
--- TOC entry 4369 (class 2606 OID 71352)
+-- TOC entry 4380 (class 2606 OID 71352)
 -- Name: fk_methods_organizations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15028,7 +22756,7 @@ ALTER TABLE ONLY methods
 
 
 --
--- TOC entry 4609 (class 2606 OID 72552)
+-- TOC entry 4620 (class 2606 OID 72552)
 -- Name: fk_modelaffiliations_affiliations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15037,7 +22765,7 @@ ALTER TABLE ONLY modelaffiliations
 
 
 --
--- TOC entry 4610 (class 2606 OID 72557)
+-- TOC entry 4621 (class 2606 OID 72557)
 -- Name: fk_modelaffiliations_models; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15046,7 +22774,7 @@ ALTER TABLE ONLY modelaffiliations
 
 
 --
--- TOC entry 4370 (class 2606 OID 71357)
+-- TOC entry 4381 (class 2606 OID 71357)
 -- Name: fk_organizations_cv_organizationtype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15055,7 +22783,7 @@ ALTER TABLE ONLY organizations
 
 
 --
--- TOC entry 4371 (class 2606 OID 71362)
+-- TOC entry 4382 (class 2606 OID 71362)
 -- Name: fk_organizations_organizations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15064,7 +22792,7 @@ ALTER TABLE ONLY organizations
 
 
 --
--- TOC entry 4386 (class 2606 OID 71437)
+-- TOC entry 4397 (class 2606 OID 71437)
 -- Name: fk_parenttaxon_taxon; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15073,7 +22801,7 @@ ALTER TABLE ONLY taxonomicclassifiers
 
 
 --
--- TOC entry 4453 (class 2606 OID 71772)
+-- TOC entry 4464 (class 2606 OID 71772)
 -- Name: fk_personexternalidentifiers_externalidentifiersystems; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15082,7 +22810,7 @@ ALTER TABLE ONLY personexternalidentifiers
 
 
 --
--- TOC entry 4454 (class 2606 OID 71777)
+-- TOC entry 4465 (class 2606 OID 71777)
 -- Name: fk_personexternalidentifiers_people; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15091,7 +22819,7 @@ ALTER TABLE ONLY personexternalidentifiers
 
 
 --
--- TOC entry 4505 (class 2606 OID 72032)
+-- TOC entry 4516 (class 2606 OID 72032)
 -- Name: fk_pointcoverageresults_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15100,7 +22828,7 @@ ALTER TABLE ONLY pointcoverageresults
 
 
 --
--- TOC entry 4506 (class 2606 OID 72037)
+-- TOC entry 4517 (class 2606 OID 72037)
 -- Name: fk_pointcoverageresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15109,7 +22837,7 @@ ALTER TABLE ONLY pointcoverageresults
 
 
 --
--- TOC entry 4507 (class 2606 OID 72042)
+-- TOC entry 4518 (class 2606 OID 72042)
 -- Name: fk_pointcoverageresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15118,7 +22846,7 @@ ALTER TABLE ONLY pointcoverageresults
 
 
 --
--- TOC entry 4508 (class 2606 OID 72047)
+-- TOC entry 4519 (class 2606 OID 72047)
 -- Name: fk_pointcoverageresults_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15127,7 +22855,7 @@ ALTER TABLE ONLY pointcoverageresults
 
 
 --
--- TOC entry 4509 (class 2606 OID 72052)
+-- TOC entry 4520 (class 2606 OID 72052)
 -- Name: fk_pointcoverageresults_yunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15136,7 +22864,7 @@ ALTER TABLE ONLY pointcoverageresults
 
 
 --
--- TOC entry 4510 (class 2606 OID 72057)
+-- TOC entry 4521 (class 2606 OID 72057)
 -- Name: fk_pointcoverageresults_zunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15145,7 +22873,7 @@ ALTER TABLE ONLY pointcoverageresults
 
 
 --
--- TOC entry 4339 (class 2606 OID 71202)
+-- TOC entry 4350 (class 2606 OID 71202)
 -- Name: fk_pointcoverageresultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15154,7 +22882,7 @@ ALTER TABLE ONLY pointcoverageresultvalueannotations
 
 
 --
--- TOC entry 4340 (class 2606 OID 71207)
+-- TOC entry 4351 (class 2606 OID 71207)
 -- Name: fk_pointcoverageresultvalueannotations_pointcoverageresultvalue; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15163,7 +22891,7 @@ ALTER TABLE ONLY pointcoverageresultvalueannotations
 
 
 --
--- TOC entry 4511 (class 2606 OID 72062)
+-- TOC entry 4522 (class 2606 OID 72062)
 -- Name: fk_pointcoverageresultvalues_cv_censorcode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15172,7 +22900,7 @@ ALTER TABLE ONLY pointcoverageresultvalues
 
 
 --
--- TOC entry 4512 (class 2606 OID 72067)
+-- TOC entry 4523 (class 2606 OID 72067)
 -- Name: fk_pointcoverageresultvalues_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15181,7 +22909,7 @@ ALTER TABLE ONLY pointcoverageresultvalues
 
 
 --
--- TOC entry 4513 (class 2606 OID 72072)
+-- TOC entry 4524 (class 2606 OID 72072)
 -- Name: fk_pointcoverageresultvalues_pointcoverageresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15190,7 +22918,7 @@ ALTER TABLE ONLY pointcoverageresultvalues
 
 
 --
--- TOC entry 4514 (class 2606 OID 72077)
+-- TOC entry 4525 (class 2606 OID 72077)
 -- Name: fk_pointcoverageresultvalues_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15199,7 +22927,7 @@ ALTER TABLE ONLY pointcoverageresultvalues
 
 
 --
--- TOC entry 4515 (class 2606 OID 72082)
+-- TOC entry 4526 (class 2606 OID 72082)
 -- Name: fk_pointcoverageresultvalues_yunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15208,7 +22936,7 @@ ALTER TABLE ONLY pointcoverageresultvalues
 
 
 --
--- TOC entry 4516 (class 2606 OID 72087)
+-- TOC entry 4527 (class 2606 OID 72087)
 -- Name: fk_profileresults_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15217,7 +22945,7 @@ ALTER TABLE ONLY profileresults
 
 
 --
--- TOC entry 4517 (class 2606 OID 72092)
+-- TOC entry 4528 (class 2606 OID 72092)
 -- Name: fk_profileresults_dunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15226,7 +22954,7 @@ ALTER TABLE ONLY profileresults
 
 
 --
--- TOC entry 4518 (class 2606 OID 72097)
+-- TOC entry 4529 (class 2606 OID 72097)
 -- Name: fk_profileresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15235,7 +22963,7 @@ ALTER TABLE ONLY profileresults
 
 
 --
--- TOC entry 4519 (class 2606 OID 72102)
+-- TOC entry 4530 (class 2606 OID 72102)
 -- Name: fk_profileresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15244,7 +22972,7 @@ ALTER TABLE ONLY profileresults
 
 
 --
--- TOC entry 4520 (class 2606 OID 72107)
+-- TOC entry 4531 (class 2606 OID 72107)
 -- Name: fk_profileresults_tunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15253,7 +22981,7 @@ ALTER TABLE ONLY profileresults
 
 
 --
--- TOC entry 4521 (class 2606 OID 72112)
+-- TOC entry 4532 (class 2606 OID 72112)
 -- Name: fk_profileresults_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15262,7 +22990,7 @@ ALTER TABLE ONLY profileresults
 
 
 --
--- TOC entry 4522 (class 2606 OID 72117)
+-- TOC entry 4533 (class 2606 OID 72117)
 -- Name: fk_profileresults_yunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15271,7 +22999,7 @@ ALTER TABLE ONLY profileresults
 
 
 --
--- TOC entry 4341 (class 2606 OID 71212)
+-- TOC entry 4352 (class 2606 OID 71212)
 -- Name: fk_profileresultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15280,7 +23008,7 @@ ALTER TABLE ONLY profileresultvalueannotations
 
 
 --
--- TOC entry 4342 (class 2606 OID 71217)
+-- TOC entry 4353 (class 2606 OID 71217)
 -- Name: fk_profileresultvalueannotations_profileresultvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15289,7 +23017,7 @@ ALTER TABLE ONLY profileresultvalueannotations
 
 
 --
--- TOC entry 4523 (class 2606 OID 72122)
+-- TOC entry 4534 (class 2606 OID 72122)
 -- Name: fk_profileresultvalues_aiunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15298,7 +23026,7 @@ ALTER TABLE ONLY profileresultvalues
 
 
 --
--- TOC entry 4524 (class 2606 OID 72127)
+-- TOC entry 4535 (class 2606 OID 72127)
 -- Name: fk_profileresultvalues_cv_censorcode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15307,7 +23035,7 @@ ALTER TABLE ONLY profileresultvalues
 
 
 --
--- TOC entry 4525 (class 2606 OID 72132)
+-- TOC entry 4536 (class 2606 OID 72132)
 -- Name: fk_profileresultvalues_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15316,7 +23044,7 @@ ALTER TABLE ONLY profileresultvalues
 
 
 --
--- TOC entry 4526 (class 2606 OID 72137)
+-- TOC entry 4537 (class 2606 OID 72137)
 -- Name: fk_profileresultvalues_dunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15325,7 +23053,7 @@ ALTER TABLE ONLY profileresultvalues
 
 
 --
--- TOC entry 4527 (class 2606 OID 72142)
+-- TOC entry 4538 (class 2606 OID 72142)
 -- Name: fk_profileresultvalues_profileresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15334,7 +23062,7 @@ ALTER TABLE ONLY profileresultvalues
 
 
 --
--- TOC entry 4394 (class 2606 OID 71477)
+-- TOC entry 4405 (class 2606 OID 71477)
 -- Name: fk_referencematerials_cv_referencematerialmedium; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15343,7 +23071,7 @@ ALTER TABLE ONLY referencematerials
 
 
 --
--- TOC entry 4395 (class 2606 OID 71482)
+-- TOC entry 4406 (class 2606 OID 71482)
 -- Name: fk_referencematerials_organizations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15352,7 +23080,7 @@ ALTER TABLE ONLY referencematerials
 
 
 --
--- TOC entry 4396 (class 2606 OID 71487)
+-- TOC entry 4407 (class 2606 OID 71487)
 -- Name: fk_referencematerials_samplingfeatures; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15361,7 +23089,7 @@ ALTER TABLE ONLY referencematerials
 
 
 --
--- TOC entry 4397 (class 2606 OID 71492)
+-- TOC entry 4408 (class 2606 OID 71492)
 -- Name: fk_referencematerialvalues_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15370,7 +23098,7 @@ ALTER TABLE ONLY referencematerialvalues
 
 
 --
--- TOC entry 4398 (class 2606 OID 71497)
+-- TOC entry 4409 (class 2606 OID 71497)
 -- Name: fk_referencematerialvalues_referencematerials; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15379,7 +23107,7 @@ ALTER TABLE ONLY referencematerialvalues
 
 
 --
--- TOC entry 4399 (class 2606 OID 71502)
+-- TOC entry 4410 (class 2606 OID 71502)
 -- Name: fk_referencematerialvalues_units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15388,7 +23116,7 @@ ALTER TABLE ONLY referencematerialvalues
 
 
 --
--- TOC entry 4400 (class 2606 OID 71507)
+-- TOC entry 4411 (class 2606 OID 71507)
 -- Name: fk_referencematerialvalues_variables; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15397,7 +23125,7 @@ ALTER TABLE ONLY referencematerialvalues
 
 
 --
--- TOC entry 4455 (class 2606 OID 71782)
+-- TOC entry 4466 (class 2606 OID 71782)
 -- Name: fk_refmaterialextidentifiers_extidentifiersystems; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15406,7 +23134,7 @@ ALTER TABLE ONLY referencematerialexternalidentifiers
 
 
 --
--- TOC entry 4456 (class 2606 OID 71787)
+-- TOC entry 4467 (class 2606 OID 71787)
 -- Name: fk_refmaterialextidentifiers_refmaterials; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15415,7 +23143,7 @@ ALTER TABLE ONLY referencematerialexternalidentifiers
 
 
 --
--- TOC entry 4372 (class 2606 OID 71367)
+-- TOC entry 4383 (class 2606 OID 71367)
 -- Name: fk_relatedactions_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15424,7 +23152,7 @@ ALTER TABLE ONLY relatedactions
 
 
 --
--- TOC entry 4373 (class 2606 OID 71372)
+-- TOC entry 4384 (class 2606 OID 71372)
 -- Name: fk_relatedactions_actions_arerelated; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15433,7 +23161,7 @@ ALTER TABLE ONLY relatedactions
 
 
 --
--- TOC entry 4374 (class 2606 OID 71377)
+-- TOC entry 4385 (class 2606 OID 71377)
 -- Name: fk_relatedactions_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15442,7 +23170,7 @@ ALTER TABLE ONLY relatedactions
 
 
 --
--- TOC entry 4477 (class 2606 OID 71892)
+-- TOC entry 4488 (class 2606 OID 71892)
 -- Name: fk_relatedannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15451,7 +23179,7 @@ ALTER TABLE ONLY relatedannotations
 
 
 --
--- TOC entry 4478 (class 2606 OID 71897)
+-- TOC entry 4489 (class 2606 OID 71897)
 -- Name: fk_relatedannotations_annotations_arerelated; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15460,7 +23188,7 @@ ALTER TABLE ONLY relatedannotations
 
 
 --
--- TOC entry 4479 (class 2606 OID 71902)
+-- TOC entry 4490 (class 2606 OID 71902)
 -- Name: fk_relatedannotations_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15469,7 +23197,7 @@ ALTER TABLE ONLY relatedannotations
 
 
 --
--- TOC entry 4480 (class 2606 OID 71907)
+-- TOC entry 4491 (class 2606 OID 71907)
 -- Name: fk_relatedcitations_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15478,7 +23206,7 @@ ALTER TABLE ONLY relatedcitations
 
 
 --
--- TOC entry 4481 (class 2606 OID 71912)
+-- TOC entry 4492 (class 2606 OID 71912)
 -- Name: fk_relatedcitations_citations_arerelated; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15487,7 +23215,7 @@ ALTER TABLE ONLY relatedcitations
 
 
 --
--- TOC entry 4482 (class 2606 OID 71917)
+-- TOC entry 4493 (class 2606 OID 71917)
 -- Name: fk_relatedcitations_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15496,7 +23224,7 @@ ALTER TABLE ONLY relatedcitations
 
 
 --
--- TOC entry 4483 (class 2606 OID 71922)
+-- TOC entry 4494 (class 2606 OID 71922)
 -- Name: fk_relateddatasets_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15505,7 +23233,7 @@ ALTER TABLE ONLY relateddatasets
 
 
 --
--- TOC entry 4484 (class 2606 OID 71927)
+-- TOC entry 4495 (class 2606 OID 71927)
 -- Name: fk_relateddatasets_datasets; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15514,7 +23242,7 @@ ALTER TABLE ONLY relateddatasets
 
 
 --
--- TOC entry 4485 (class 2606 OID 71932)
+-- TOC entry 4496 (class 2606 OID 71932)
 -- Name: fk_relateddatasets_datasets_arerelated; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15523,7 +23251,7 @@ ALTER TABLE ONLY relateddatasets
 
 
 --
--- TOC entry 4431 (class 2606 OID 71662)
+-- TOC entry 4442 (class 2606 OID 71662)
 -- Name: fk_relatedequipment_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15532,7 +23260,7 @@ ALTER TABLE ONLY relatedequipment
 
 
 --
--- TOC entry 4432 (class 2606 OID 71667)
+-- TOC entry 4443 (class 2606 OID 71667)
 -- Name: fk_relatedequipment_equipment; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15541,7 +23269,7 @@ ALTER TABLE ONLY relatedequipment
 
 
 --
--- TOC entry 4433 (class 2606 OID 71672)
+-- TOC entry 4444 (class 2606 OID 71672)
 -- Name: fk_relatedequipment_equipment_arerelated; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15550,7 +23278,7 @@ ALTER TABLE ONLY relatedequipment
 
 
 --
--- TOC entry 4595 (class 2606 OID 72482)
+-- TOC entry 4606 (class 2606 OID 72482)
 -- Name: fk_relatedfeatures_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15559,7 +23287,7 @@ ALTER TABLE ONLY relatedfeatures
 
 
 --
--- TOC entry 4611 (class 2606 OID 72562)
+-- TOC entry 4622 (class 2606 OID 72562)
 -- Name: fk_relatedmodels_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15568,7 +23296,7 @@ ALTER TABLE ONLY relatedmodels
 
 
 --
--- TOC entry 4612 (class 2606 OID 72567)
+-- TOC entry 4623 (class 2606 OID 72567)
 -- Name: fk_relatedmodels_models; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15577,7 +23305,7 @@ ALTER TABLE ONLY relatedmodels
 
 
 --
--- TOC entry 4486 (class 2606 OID 71937)
+-- TOC entry 4497 (class 2606 OID 71937)
 -- Name: fk_relatedresults_cv_relationshiptype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15586,7 +23314,7 @@ ALTER TABLE ONLY relatedresults
 
 
 --
--- TOC entry 4487 (class 2606 OID 71942)
+-- TOC entry 4498 (class 2606 OID 71942)
 -- Name: fk_relatedresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15595,7 +23323,7 @@ ALTER TABLE ONLY relatedresults
 
 
 --
--- TOC entry 4488 (class 2606 OID 71947)
+-- TOC entry 4499 (class 2606 OID 71947)
 -- Name: fk_relatedresults_results_arerelated; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15604,7 +23332,7 @@ ALTER TABLE ONLY relatedresults
 
 
 --
--- TOC entry 4343 (class 2606 OID 71222)
+-- TOC entry 4354 (class 2606 OID 71222)
 -- Name: fk_resultannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15613,7 +23341,7 @@ ALTER TABLE ONLY resultannotations
 
 
 --
--- TOC entry 4344 (class 2606 OID 71227)
+-- TOC entry 4355 (class 2606 OID 71227)
 -- Name: fk_resultannotations_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15622,7 +23350,7 @@ ALTER TABLE ONLY resultannotations
 
 
 --
--- TOC entry 4489 (class 2606 OID 71952)
+-- TOC entry 4500 (class 2606 OID 71952)
 -- Name: fk_resultderivationequations_derivationequations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15631,7 +23359,7 @@ ALTER TABLE ONLY resultderivationequations
 
 
 --
--- TOC entry 4490 (class 2606 OID 71957)
+-- TOC entry 4501 (class 2606 OID 71957)
 -- Name: fk_resultderivationequations_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15640,7 +23368,7 @@ ALTER TABLE ONLY resultderivationequations
 
 
 --
--- TOC entry 4442 (class 2606 OID 71717)
+-- TOC entry 4453 (class 2606 OID 71717)
 -- Name: fk_resultextensionpropertyvalues_extensionproperties; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15649,7 +23377,7 @@ ALTER TABLE ONLY resultextensionpropertyvalues
 
 
 --
--- TOC entry 4443 (class 2606 OID 71722)
+-- TOC entry 4454 (class 2606 OID 71722)
 -- Name: fk_resultextensionpropertyvalues_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15658,7 +23386,7 @@ ALTER TABLE ONLY resultextensionpropertyvalues
 
 
 --
--- TOC entry 4401 (class 2606 OID 71512)
+-- TOC entry 4412 (class 2606 OID 71512)
 -- Name: fk_resultnormalizationvalues_referencematerialvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15667,7 +23395,7 @@ ALTER TABLE ONLY resultnormalizationvalues
 
 
 --
--- TOC entry 4402 (class 2606 OID 71517)
+-- TOC entry 4413 (class 2606 OID 71517)
 -- Name: fk_resultnormalizationvalues_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15676,7 +23404,7 @@ ALTER TABLE ONLY resultnormalizationvalues
 
 
 --
--- TOC entry 4375 (class 2606 OID 71382)
+-- TOC entry 4386 (class 2606 OID 71382)
 -- Name: fk_results_cv_resulttype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15685,7 +23413,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4376 (class 2606 OID 71387)
+-- TOC entry 4387 (class 2606 OID 71387)
 -- Name: fk_results_cv_sampledmedium; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15694,7 +23422,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4377 (class 2606 OID 71392)
+-- TOC entry 4388 (class 2606 OID 71392)
 -- Name: fk_results_cv_status; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15703,7 +23431,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4378 (class 2606 OID 71397)
+-- TOC entry 4389 (class 2606 OID 71397)
 -- Name: fk_results_featureactions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15712,7 +23440,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4379 (class 2606 OID 71402)
+-- TOC entry 4390 (class 2606 OID 71402)
 -- Name: fk_results_processinglevels; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15721,7 +23449,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4380 (class 2606 OID 71407)
+-- TOC entry 4391 (class 2606 OID 71407)
 -- Name: fk_results_taxonomicclassifiers; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15730,7 +23458,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4381 (class 2606 OID 71412)
+-- TOC entry 4392 (class 2606 OID 71412)
 -- Name: fk_results_units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15739,7 +23467,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4382 (class 2606 OID 71417)
+-- TOC entry 4393 (class 2606 OID 71417)
 -- Name: fk_results_variables; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15748,7 +23476,7 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 4403 (class 2606 OID 71522)
+-- TOC entry 4414 (class 2606 OID 71522)
 -- Name: fk_resultsdataquality_dataquality; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15757,7 +23485,7 @@ ALTER TABLE ONLY resultsdataquality
 
 
 --
--- TOC entry 4404 (class 2606 OID 71527)
+-- TOC entry 4415 (class 2606 OID 71527)
 -- Name: fk_resultsdataquality_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15766,7 +23494,7 @@ ALTER TABLE ONLY resultsdataquality
 
 
 --
--- TOC entry 4336 (class 2606 OID 71187)
+-- TOC entry 4347 (class 2606 OID 71187)
 -- Name: fk_resultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15775,7 +23503,7 @@ ALTER TABLE ONLY measurementresultvalueannotations
 
 
 --
--- TOC entry 4345 (class 2606 OID 71232)
+-- TOC entry 4356 (class 2606 OID 71232)
 -- Name: fk_samplingfeatureannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15784,7 +23512,7 @@ ALTER TABLE ONLY samplingfeatureannotations
 
 
 --
--- TOC entry 4346 (class 2606 OID 71237)
+-- TOC entry 4357 (class 2606 OID 71237)
 -- Name: fk_samplingfeatureannotations_samplingfeatures; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15793,7 +23521,7 @@ ALTER TABLE ONLY samplingfeatureannotations
 
 
 --
--- TOC entry 4444 (class 2606 OID 71727)
+-- TOC entry 4455 (class 2606 OID 71727)
 -- Name: fk_samplingfeatureextensionpropertyvalues_extensionproperties; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15802,7 +23530,7 @@ ALTER TABLE ONLY samplingfeatureextensionpropertyvalues
 
 
 --
--- TOC entry 4445 (class 2606 OID 71732)
+-- TOC entry 4456 (class 2606 OID 71732)
 -- Name: fk_samplingfeatureextensionpropertyvalues_samplingfeatures; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15811,7 +23539,7 @@ ALTER TABLE ONLY samplingfeatureextensionpropertyvalues
 
 
 --
--- TOC entry 4457 (class 2606 OID 71792)
+-- TOC entry 4468 (class 2606 OID 71792)
 -- Name: fk_samplingfeatureexternalidentifiers_externalidentifiersystems; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15820,7 +23548,7 @@ ALTER TABLE ONLY samplingfeatureexternalidentifiers
 
 
 --
--- TOC entry 4458 (class 2606 OID 71797)
+-- TOC entry 4469 (class 2606 OID 71797)
 -- Name: fk_samplingfeatureexternalidentifiers_samplingfeatures; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15829,7 +23557,7 @@ ALTER TABLE ONLY samplingfeatureexternalidentifiers
 
 
 --
--- TOC entry 4383 (class 2606 OID 71422)
+-- TOC entry 4394 (class 2606 OID 71422)
 -- Name: fk_samplingfeatures_cv_elevationdatum; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15838,7 +23566,7 @@ ALTER TABLE ONLY samplingfeatures
 
 
 --
--- TOC entry 4384 (class 2606 OID 71427)
+-- TOC entry 4395 (class 2606 OID 71427)
 -- Name: fk_samplingfeatures_cv_samplingfeaturegeotype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15847,7 +23575,7 @@ ALTER TABLE ONLY samplingfeatures
 
 
 --
--- TOC entry 4385 (class 2606 OID 71432)
+-- TOC entry 4396 (class 2606 OID 71432)
 -- Name: fk_samplingfeatures_cv_samplingfeaturetype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15856,7 +23584,7 @@ ALTER TABLE ONLY samplingfeatures
 
 
 --
--- TOC entry 4528 (class 2606 OID 72147)
+-- TOC entry 4539 (class 2606 OID 72147)
 -- Name: fk_sectionresults_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15865,7 +23593,7 @@ ALTER TABLE ONLY sectionresults
 
 
 --
--- TOC entry 4529 (class 2606 OID 72152)
+-- TOC entry 4540 (class 2606 OID 72152)
 -- Name: fk_sectionresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15874,7 +23602,7 @@ ALTER TABLE ONLY sectionresults
 
 
 --
--- TOC entry 4530 (class 2606 OID 72157)
+-- TOC entry 4541 (class 2606 OID 72157)
 -- Name: fk_sectionresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15883,7 +23611,7 @@ ALTER TABLE ONLY sectionresults
 
 
 --
--- TOC entry 4531 (class 2606 OID 72162)
+-- TOC entry 4542 (class 2606 OID 72162)
 -- Name: fk_sectionresults_tmunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15892,7 +23620,7 @@ ALTER TABLE ONLY sectionresults
 
 
 --
--- TOC entry 4532 (class 2606 OID 72167)
+-- TOC entry 4543 (class 2606 OID 72167)
 -- Name: fk_sectionresults_units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15901,7 +23629,7 @@ ALTER TABLE ONLY sectionresults
 
 
 --
--- TOC entry 4533 (class 2606 OID 72172)
+-- TOC entry 4544 (class 2606 OID 72172)
 -- Name: fk_sectionresults_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15910,7 +23638,7 @@ ALTER TABLE ONLY sectionresults
 
 
 --
--- TOC entry 4534 (class 2606 OID 72177)
+-- TOC entry 4545 (class 2606 OID 72177)
 -- Name: fk_sectionresults_zunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15919,7 +23647,7 @@ ALTER TABLE ONLY sectionresults
 
 
 --
--- TOC entry 4347 (class 2606 OID 71242)
+-- TOC entry 4358 (class 2606 OID 71242)
 -- Name: fk_sectionresultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15928,7 +23656,7 @@ ALTER TABLE ONLY sectionresultvalueannotations
 
 
 --
--- TOC entry 4348 (class 2606 OID 71247)
+-- TOC entry 4359 (class 2606 OID 71247)
 -- Name: fk_sectionresultvalueannotations_sectionresultvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15937,7 +23665,7 @@ ALTER TABLE ONLY sectionresultvalueannotations
 
 
 --
--- TOC entry 4535 (class 2606 OID 72182)
+-- TOC entry 4546 (class 2606 OID 72182)
 -- Name: fk_sectionresultvalues_aiunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15946,7 +23674,7 @@ ALTER TABLE ONLY sectionresultvalues
 
 
 --
--- TOC entry 4536 (class 2606 OID 72187)
+-- TOC entry 4547 (class 2606 OID 72187)
 -- Name: fk_sectionresultvalues_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15955,7 +23683,7 @@ ALTER TABLE ONLY sectionresultvalues
 
 
 --
--- TOC entry 4537 (class 2606 OID 72192)
+-- TOC entry 4548 (class 2606 OID 72192)
 -- Name: fk_sectionresultvalues_cv_censorcode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15964,7 +23692,7 @@ ALTER TABLE ONLY sectionresultvalues
 
 
 --
--- TOC entry 4538 (class 2606 OID 72197)
+-- TOC entry 4549 (class 2606 OID 72197)
 -- Name: fk_sectionresultvalues_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15973,7 +23701,7 @@ ALTER TABLE ONLY sectionresultvalues
 
 
 --
--- TOC entry 4539 (class 2606 OID 72202)
+-- TOC entry 4550 (class 2606 OID 72202)
 -- Name: fk_sectionresultvalues_sectionresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15982,7 +23710,7 @@ ALTER TABLE ONLY sectionresultvalues
 
 
 --
--- TOC entry 4540 (class 2606 OID 72207)
+-- TOC entry 4551 (class 2606 OID 72207)
 -- Name: fk_sectionresultvalues_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -15991,7 +23719,7 @@ ALTER TABLE ONLY sectionresultvalues
 
 
 --
--- TOC entry 4541 (class 2606 OID 72212)
+-- TOC entry 4552 (class 2606 OID 72212)
 -- Name: fk_sectionresultvalues_zunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16000,7 +23728,7 @@ ALTER TABLE ONLY sectionresultvalues
 
 
 --
--- TOC entry 4613 (class 2606 OID 72572)
+-- TOC entry 4624 (class 2606 OID 72572)
 -- Name: fk_simulations_actions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16009,7 +23737,7 @@ ALTER TABLE ONLY simulations
 
 
 --
--- TOC entry 4614 (class 2606 OID 72577)
+-- TOC entry 4625 (class 2606 OID 72577)
 -- Name: fk_simulations_models; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16018,7 +23746,7 @@ ALTER TABLE ONLY simulations
 
 
 --
--- TOC entry 4596 (class 2606 OID 72487)
+-- TOC entry 4607 (class 2606 OID 72487)
 -- Name: fk_sites_cv_sitetype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16027,7 +23755,7 @@ ALTER TABLE ONLY sites
 
 
 --
--- TOC entry 4597 (class 2606 OID 72492)
+-- TOC entry 4608 (class 2606 OID 72492)
 -- Name: fk_sites_samplingfeatures; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16036,7 +23764,7 @@ ALTER TABLE ONLY sites
 
 
 --
--- TOC entry 4598 (class 2606 OID 72497)
+-- TOC entry 4609 (class 2606 OID 72497)
 -- Name: fk_sites_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16045,7 +23773,7 @@ ALTER TABLE ONLY sites
 
 
 --
--- TOC entry 4599 (class 2606 OID 72502)
+-- TOC entry 4610 (class 2606 OID 72502)
 -- Name: fk_spatialoffsets_cv_spatialoffsettype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16054,7 +23782,7 @@ ALTER TABLE ONLY spatialoffsets
 
 
 --
--- TOC entry 4600 (class 2606 OID 72507)
+-- TOC entry 4611 (class 2606 OID 72507)
 -- Name: fk_spatialoffsets_offset1units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16063,7 +23791,7 @@ ALTER TABLE ONLY spatialoffsets
 
 
 --
--- TOC entry 4601 (class 2606 OID 72512)
+-- TOC entry 4612 (class 2606 OID 72512)
 -- Name: fk_spatialoffsets_offset2units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16072,7 +23800,7 @@ ALTER TABLE ONLY spatialoffsets
 
 
 --
--- TOC entry 4602 (class 2606 OID 72517)
+-- TOC entry 4613 (class 2606 OID 72517)
 -- Name: fk_spatialoffsets_offset3units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16081,7 +23809,7 @@ ALTER TABLE ONLY spatialoffsets
 
 
 --
--- TOC entry 4459 (class 2606 OID 71802)
+-- TOC entry 4470 (class 2606 OID 71802)
 -- Name: fk_spatialreferenceexternalidentifiers_externalidentifiersystem; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16090,7 +23818,7 @@ ALTER TABLE ONLY spatialreferenceexternalidentifiers
 
 
 --
--- TOC entry 4460 (class 2606 OID 71807)
+-- TOC entry 4471 (class 2606 OID 71807)
 -- Name: fk_spatialreferenceexternalidentifiers_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16099,7 +23827,7 @@ ALTER TABLE ONLY spatialreferenceexternalidentifiers
 
 
 --
--- TOC entry 4468 (class 2606 OID 71847)
+-- TOC entry 4479 (class 2606 OID 71847)
 -- Name: fk_specimenbatchpostions_featureactions; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16108,7 +23836,7 @@ ALTER TABLE ONLY specimenbatchpostions
 
 
 --
--- TOC entry 4603 (class 2606 OID 72522)
+-- TOC entry 4614 (class 2606 OID 72522)
 -- Name: fk_specimens_cv_specimenmedium; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16117,7 +23845,7 @@ ALTER TABLE ONLY specimens
 
 
 --
--- TOC entry 4604 (class 2606 OID 72527)
+-- TOC entry 4615 (class 2606 OID 72527)
 -- Name: fk_specimens_cv_specimentype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16126,7 +23854,7 @@ ALTER TABLE ONLY specimens
 
 
 --
--- TOC entry 4605 (class 2606 OID 72532)
+-- TOC entry 4616 (class 2606 OID 72532)
 -- Name: fk_specimens_samplingfeatures; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16135,7 +23863,7 @@ ALTER TABLE ONLY specimens
 
 
 --
--- TOC entry 4606 (class 2606 OID 72537)
+-- TOC entry 4617 (class 2606 OID 72537)
 -- Name: fk_specimentaxonomicclassifiers_citations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16144,7 +23872,7 @@ ALTER TABLE ONLY specimentaxonomicclassifiers
 
 
 --
--- TOC entry 4607 (class 2606 OID 72542)
+-- TOC entry 4618 (class 2606 OID 72542)
 -- Name: fk_specimentaxonomicclassifiers_specimens; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16153,7 +23881,7 @@ ALTER TABLE ONLY specimentaxonomicclassifiers
 
 
 --
--- TOC entry 4608 (class 2606 OID 72547)
+-- TOC entry 4619 (class 2606 OID 72547)
 -- Name: fk_specimentaxonomicclassifiers_taxonomicclassifiers; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16162,7 +23890,7 @@ ALTER TABLE ONLY specimentaxonomicclassifiers
 
 
 --
--- TOC entry 4542 (class 2606 OID 72217)
+-- TOC entry 4553 (class 2606 OID 72217)
 -- Name: fk_spectraresults_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16171,7 +23899,7 @@ ALTER TABLE ONLY spectraresults
 
 
 --
--- TOC entry 4543 (class 2606 OID 72222)
+-- TOC entry 4554 (class 2606 OID 72222)
 -- Name: fk_spectraresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16180,7 +23908,7 @@ ALTER TABLE ONLY spectraresults
 
 
 --
--- TOC entry 4544 (class 2606 OID 72227)
+-- TOC entry 4555 (class 2606 OID 72227)
 -- Name: fk_spectraresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16189,7 +23917,7 @@ ALTER TABLE ONLY spectraresults
 
 
 --
--- TOC entry 4545 (class 2606 OID 72232)
+-- TOC entry 4556 (class 2606 OID 72232)
 -- Name: fk_spectraresults_units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16198,7 +23926,7 @@ ALTER TABLE ONLY spectraresults
 
 
 --
--- TOC entry 4546 (class 2606 OID 72237)
+-- TOC entry 4557 (class 2606 OID 72237)
 -- Name: fk_spectraresults_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16207,7 +23935,7 @@ ALTER TABLE ONLY spectraresults
 
 
 --
--- TOC entry 4547 (class 2606 OID 72242)
+-- TOC entry 4558 (class 2606 OID 72242)
 -- Name: fk_spectraresults_yunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16216,7 +23944,7 @@ ALTER TABLE ONLY spectraresults
 
 
 --
--- TOC entry 4548 (class 2606 OID 72247)
+-- TOC entry 4559 (class 2606 OID 72247)
 -- Name: fk_spectraresults_zunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16225,7 +23953,7 @@ ALTER TABLE ONLY spectraresults
 
 
 --
--- TOC entry 4349 (class 2606 OID 71252)
+-- TOC entry 4360 (class 2606 OID 71252)
 -- Name: fk_spectraresultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16234,7 +23962,7 @@ ALTER TABLE ONLY spectraresultvalueannotations
 
 
 --
--- TOC entry 4350 (class 2606 OID 71257)
+-- TOC entry 4361 (class 2606 OID 71257)
 -- Name: fk_spectraresultvalueannotations_spectraresultvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16243,7 +23971,7 @@ ALTER TABLE ONLY spectraresultvalueannotations
 
 
 --
--- TOC entry 4549 (class 2606 OID 72252)
+-- TOC entry 4560 (class 2606 OID 72252)
 -- Name: fk_spectraresultvalues_aiunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16252,7 +23980,7 @@ ALTER TABLE ONLY spectraresultvalues
 
 
 --
--- TOC entry 4550 (class 2606 OID 72257)
+-- TOC entry 4561 (class 2606 OID 72257)
 -- Name: fk_spectraresultvalues_cv_censorcode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16261,7 +23989,7 @@ ALTER TABLE ONLY spectraresultvalues
 
 
 --
--- TOC entry 4551 (class 2606 OID 72262)
+-- TOC entry 4562 (class 2606 OID 72262)
 -- Name: fk_spectraresultvalues_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16270,7 +23998,7 @@ ALTER TABLE ONLY spectraresultvalues
 
 
 --
--- TOC entry 4552 (class 2606 OID 72267)
+-- TOC entry 4563 (class 2606 OID 72267)
 -- Name: fk_spectraresultvalues_spectraresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16279,7 +24007,7 @@ ALTER TABLE ONLY spectraresultvalues
 
 
 --
--- TOC entry 4553 (class 2606 OID 72272)
+-- TOC entry 4564 (class 2606 OID 72272)
 -- Name: fk_spectraresultvalues_wunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16288,7 +24016,7 @@ ALTER TABLE ONLY spectraresultvalues
 
 
 --
--- TOC entry 4461 (class 2606 OID 71812)
+-- TOC entry 4472 (class 2606 OID 71812)
 -- Name: fk_taxonomicclassifierextids_extidsystems; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16297,7 +24025,7 @@ ALTER TABLE ONLY taxonomicclassifierexternalidentifiers
 
 
 --
--- TOC entry 4462 (class 2606 OID 71817)
+-- TOC entry 4473 (class 2606 OID 71817)
 -- Name: fk_taxonomicclassifierextids_taxonomicclassifiers; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16306,7 +24034,7 @@ ALTER TABLE ONLY taxonomicclassifierexternalidentifiers
 
 
 --
--- TOC entry 4387 (class 2606 OID 71442)
+-- TOC entry 4398 (class 2606 OID 71442)
 -- Name: fk_taxonomicclassifiers_cv_taxonomicclassifiertype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16315,7 +24043,7 @@ ALTER TABLE ONLY taxonomicclassifiers
 
 
 --
--- TOC entry 4554 (class 2606 OID 72277)
+-- TOC entry 4565 (class 2606 OID 72277)
 -- Name: fk_timeseriesresults_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16324,7 +24052,7 @@ ALTER TABLE ONLY timeseriesresults
 
 
 --
--- TOC entry 4555 (class 2606 OID 72282)
+-- TOC entry 4566 (class 2606 OID 72282)
 -- Name: fk_timeseriesresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16333,7 +24061,7 @@ ALTER TABLE ONLY timeseriesresults
 
 
 --
--- TOC entry 4556 (class 2606 OID 72287)
+-- TOC entry 4567 (class 2606 OID 72287)
 -- Name: fk_timeseriesresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16342,7 +24070,7 @@ ALTER TABLE ONLY timeseriesresults
 
 
 --
--- TOC entry 4557 (class 2606 OID 72292)
+-- TOC entry 4568 (class 2606 OID 72292)
 -- Name: fk_timeseriesresults_tunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16351,7 +24079,7 @@ ALTER TABLE ONLY timeseriesresults
 
 
 --
--- TOC entry 4558 (class 2606 OID 72297)
+-- TOC entry 4569 (class 2606 OID 72297)
 -- Name: fk_timeseriesresults_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16360,7 +24088,7 @@ ALTER TABLE ONLY timeseriesresults
 
 
 --
--- TOC entry 4559 (class 2606 OID 72302)
+-- TOC entry 4570 (class 2606 OID 72302)
 -- Name: fk_timeseriesresults_yunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16369,7 +24097,7 @@ ALTER TABLE ONLY timeseriesresults
 
 
 --
--- TOC entry 4560 (class 2606 OID 72307)
+-- TOC entry 4571 (class 2606 OID 72307)
 -- Name: fk_timeseriesresults_zunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16378,7 +24106,7 @@ ALTER TABLE ONLY timeseriesresults
 
 
 --
--- TOC entry 4351 (class 2606 OID 71262)
+-- TOC entry 4362 (class 2606 OID 71262)
 -- Name: fk_timeseriesresultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16387,7 +24115,7 @@ ALTER TABLE ONLY timeseriesresultvalueannotations
 
 
 --
--- TOC entry 4352 (class 2606 OID 71267)
+-- TOC entry 4363 (class 2606 OID 71267)
 -- Name: fk_timeseriesresultvalueannotations_timeseriesresultvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16396,7 +24124,7 @@ ALTER TABLE ONLY timeseriesresultvalueannotations
 
 
 --
--- TOC entry 4561 (class 2606 OID 72312)
+-- TOC entry 4572 (class 2606 OID 72312)
 -- Name: fk_timeseriesresultvalues_aiunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16405,7 +24133,7 @@ ALTER TABLE ONLY timeseriesresultvalues
 
 
 --
--- TOC entry 4562 (class 2606 OID 72317)
+-- TOC entry 4573 (class 2606 OID 72317)
 -- Name: fk_timeseriesresultvalues_cv_censorcode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16414,7 +24142,7 @@ ALTER TABLE ONLY timeseriesresultvalues
 
 
 --
--- TOC entry 4563 (class 2606 OID 72322)
+-- TOC entry 4574 (class 2606 OID 72322)
 -- Name: fk_timeseriesresultvalues_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16423,7 +24151,7 @@ ALTER TABLE ONLY timeseriesresultvalues
 
 
 --
--- TOC entry 4564 (class 2606 OID 72327)
+-- TOC entry 4575 (class 2606 OID 72327)
 -- Name: fk_timeseriesresultvalues_timeseriesresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16432,7 +24160,7 @@ ALTER TABLE ONLY timeseriesresultvalues
 
 
 --
--- TOC entry 4565 (class 2606 OID 72332)
+-- TOC entry 4576 (class 2606 OID 72332)
 -- Name: fk_trajectoryresults_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16441,7 +24169,7 @@ ALTER TABLE ONLY trajectoryresults
 
 
 --
--- TOC entry 4566 (class 2606 OID 72337)
+-- TOC entry 4577 (class 2606 OID 72337)
 -- Name: fk_trajectoryresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16450,7 +24178,7 @@ ALTER TABLE ONLY trajectoryresults
 
 
 --
--- TOC entry 4567 (class 2606 OID 72342)
+-- TOC entry 4578 (class 2606 OID 72342)
 -- Name: fk_trajectoryresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16459,7 +24187,7 @@ ALTER TABLE ONLY trajectoryresults
 
 
 --
--- TOC entry 4568 (class 2606 OID 72347)
+-- TOC entry 4579 (class 2606 OID 72347)
 -- Name: fk_trajectoryresults_tsunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16468,7 +24196,7 @@ ALTER TABLE ONLY trajectoryresults
 
 
 --
--- TOC entry 4569 (class 2606 OID 72352)
+-- TOC entry 4580 (class 2606 OID 72352)
 -- Name: fk_trajectoryresults_tunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16477,7 +24205,7 @@ ALTER TABLE ONLY trajectoryresults
 
 
 --
--- TOC entry 4353 (class 2606 OID 71272)
+-- TOC entry 4364 (class 2606 OID 71272)
 -- Name: fk_trajectoryresultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16486,7 +24214,7 @@ ALTER TABLE ONLY trajectoryresultvalueannotations
 
 
 --
--- TOC entry 4354 (class 2606 OID 71277)
+-- TOC entry 4365 (class 2606 OID 71277)
 -- Name: fk_trajectoryresultvalueannotations_trajectoryresultvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16495,7 +24223,7 @@ ALTER TABLE ONLY trajectoryresultvalueannotations
 
 
 --
--- TOC entry 4570 (class 2606 OID 72357)
+-- TOC entry 4581 (class 2606 OID 72357)
 -- Name: fk_trajectoryresultvalues_aiunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16504,7 +24232,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4571 (class 2606 OID 72362)
+-- TOC entry 4582 (class 2606 OID 72362)
 -- Name: fk_trajectoryresultvalues_cv_censorcode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16513,7 +24241,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4572 (class 2606 OID 72367)
+-- TOC entry 4583 (class 2606 OID 72367)
 -- Name: fk_trajectoryresultvalues_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16522,7 +24250,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4573 (class 2606 OID 72372)
+-- TOC entry 4584 (class 2606 OID 72372)
 -- Name: fk_trajectoryresultvalues_distanceunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16531,7 +24259,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4574 (class 2606 OID 72377)
+-- TOC entry 4585 (class 2606 OID 72377)
 -- Name: fk_trajectoryresultvalues_trajectoryresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16540,7 +24268,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4575 (class 2606 OID 72382)
+-- TOC entry 4586 (class 2606 OID 72382)
 -- Name: fk_trajectoryresultvalues_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16549,7 +24277,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4576 (class 2606 OID 72387)
+-- TOC entry 4587 (class 2606 OID 72387)
 -- Name: fk_trajectoryresultvalues_yunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16558,7 +24286,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4577 (class 2606 OID 72392)
+-- TOC entry 4588 (class 2606 OID 72392)
 -- Name: fk_trajectoryresultvalues_zunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16567,7 +24295,7 @@ ALTER TABLE ONLY trajectoryresultvalues
 
 
 --
--- TOC entry 4578 (class 2606 OID 72397)
+-- TOC entry 4589 (class 2606 OID 72397)
 -- Name: fk_transectresults_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16576,7 +24304,7 @@ ALTER TABLE ONLY transectresults
 
 
 --
--- TOC entry 4579 (class 2606 OID 72402)
+-- TOC entry 4590 (class 2606 OID 72402)
 -- Name: fk_transectresults_results; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16585,7 +24313,7 @@ ALTER TABLE ONLY transectresults
 
 
 --
--- TOC entry 4580 (class 2606 OID 72407)
+-- TOC entry 4591 (class 2606 OID 72407)
 -- Name: fk_transectresults_spatialreferences; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16594,7 +24322,7 @@ ALTER TABLE ONLY transectresults
 
 
 --
--- TOC entry 4581 (class 2606 OID 72412)
+-- TOC entry 4592 (class 2606 OID 72412)
 -- Name: fk_transectresults_tmunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16603,7 +24331,7 @@ ALTER TABLE ONLY transectresults
 
 
 --
--- TOC entry 4582 (class 2606 OID 72417)
+-- TOC entry 4593 (class 2606 OID 72417)
 -- Name: fk_transectresults_tsunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16612,7 +24340,7 @@ ALTER TABLE ONLY transectresults
 
 
 --
--- TOC entry 4583 (class 2606 OID 72422)
+-- TOC entry 4594 (class 2606 OID 72422)
 -- Name: fk_transectresults_units; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16621,7 +24349,7 @@ ALTER TABLE ONLY transectresults
 
 
 --
--- TOC entry 4355 (class 2606 OID 71282)
+-- TOC entry 4366 (class 2606 OID 71282)
 -- Name: fk_transectresultvalueannotations_annotations; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16630,7 +24358,7 @@ ALTER TABLE ONLY transectresultvalueannotations
 
 
 --
--- TOC entry 4356 (class 2606 OID 71287)
+-- TOC entry 4367 (class 2606 OID 71287)
 -- Name: fk_transectresultvalueannotations_transectresultvalues; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16639,7 +24367,7 @@ ALTER TABLE ONLY transectresultvalueannotations
 
 
 --
--- TOC entry 4584 (class 2606 OID 72427)
+-- TOC entry 4595 (class 2606 OID 72427)
 -- Name: fk_transectresultvalues_aiunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16648,7 +24376,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4585 (class 2606 OID 72432)
+-- TOC entry 4596 (class 2606 OID 72432)
 -- Name: fk_transectresultvalues_cv_aggregationstatistic; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16657,7 +24385,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4586 (class 2606 OID 72437)
+-- TOC entry 4597 (class 2606 OID 72437)
 -- Name: fk_transectresultvalues_cv_censorcode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16666,7 +24394,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4587 (class 2606 OID 72442)
+-- TOC entry 4598 (class 2606 OID 72442)
 -- Name: fk_transectresultvalues_cv_qualitycode; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16675,7 +24403,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4588 (class 2606 OID 72447)
+-- TOC entry 4599 (class 2606 OID 72447)
 -- Name: fk_transectresultvalues_distanceunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16684,7 +24412,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4589 (class 2606 OID 72452)
+-- TOC entry 4600 (class 2606 OID 72452)
 -- Name: fk_transectresultvalues_transectresults; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16693,7 +24421,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4590 (class 2606 OID 72457)
+-- TOC entry 4601 (class 2606 OID 72457)
 -- Name: fk_transectresultvalues_xunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16702,7 +24430,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4591 (class 2606 OID 72462)
+-- TOC entry 4602 (class 2606 OID 72462)
 -- Name: fk_transectresultvalues_yunits; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16711,7 +24439,7 @@ ALTER TABLE ONLY transectresultvalues
 
 
 --
--- TOC entry 4388 (class 2606 OID 71447)
+-- TOC entry 4399 (class 2606 OID 71447)
 -- Name: fk_units_cv_unitstype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16720,7 +24448,7 @@ ALTER TABLE ONLY units
 
 
 --
--- TOC entry 4446 (class 2606 OID 71737)
+-- TOC entry 4457 (class 2606 OID 71737)
 -- Name: fk_variableextensionpropertyvalues_extensionproperties; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16729,7 +24457,7 @@ ALTER TABLE ONLY variableextensionpropertyvalues
 
 
 --
--- TOC entry 4447 (class 2606 OID 71742)
+-- TOC entry 4458 (class 2606 OID 71742)
 -- Name: fk_variableextensionpropertyvalues_variables; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16738,7 +24466,7 @@ ALTER TABLE ONLY variableextensionpropertyvalues
 
 
 --
--- TOC entry 4463 (class 2606 OID 71822)
+-- TOC entry 4474 (class 2606 OID 71822)
 -- Name: fk_variableexternalidentifiers_externalidentifiersystems; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16747,7 +24475,7 @@ ALTER TABLE ONLY variableexternalidentifiers
 
 
 --
--- TOC entry 4464 (class 2606 OID 71827)
+-- TOC entry 4475 (class 2606 OID 71827)
 -- Name: fk_variableexternalidentifiers_variables; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16756,7 +24484,7 @@ ALTER TABLE ONLY variableexternalidentifiers
 
 
 --
--- TOC entry 4389 (class 2606 OID 71452)
+-- TOC entry 4400 (class 2606 OID 71452)
 -- Name: fk_variables_cv_speciation; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16765,7 +24493,7 @@ ALTER TABLE ONLY variables
 
 
 --
--- TOC entry 4390 (class 2606 OID 71457)
+-- TOC entry 4401 (class 2606 OID 71457)
 -- Name: fk_variables_cv_variablename; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16774,7 +24502,7 @@ ALTER TABLE ONLY variables
 
 
 --
--- TOC entry 4391 (class 2606 OID 71462)
+-- TOC entry 4402 (class 2606 OID 71462)
 -- Name: fk_variables_cv_variabletype; Type: FK CONSTRAINT; Schema: odm2; Owner: -
 --
 
@@ -16782,7 +24510,7 @@ ALTER TABLE ONLY variables
     ADD CONSTRAINT fk_variables_cv_variabletype FOREIGN KEY (variabletypecv) REFERENCES cv_variabletype(name) ON DELETE CASCADE;
 
 
--- Completed on 2015-05-22 09:38:46 PDT
+-- Completed on 2015-06-11 00:07:06 PDT
 
 --
 -- PostgreSQL database dump complete
