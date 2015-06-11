@@ -75,7 +75,7 @@ class CVCensorCode(Base):
 
 
 class CVDatasetType(Base):
-    __tablename__ = 'cv_datasettypecv'
+    __tablename__ = 'cv_datasettype'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
