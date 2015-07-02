@@ -629,7 +629,11 @@
         <CdTb mn="1" nm="Datasets" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="DatasetTypeCV" prCl="Name"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_DatasetCode">
+          <ClNs>DatasetCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="DatasetsResults">
@@ -731,7 +735,11 @@
         <CdTb mn="1" nm="Methods" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="OrganizationID" prCl="OrganizationID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_MethodCode">
+          <ClNs>MethodCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="Organizations">
@@ -776,7 +784,11 @@
         <CdTb mn="1" nm="Organizations" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ParentOrganizationID" prCl="OrganizationID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_OrganizationCode">
+          <ClNs>OrganizationCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="People">
@@ -822,7 +834,11 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
         <Cm>Text explanation of the processing level</Cm>
       </Cl>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_ProcessingLevelCode">
+          <ClNs>ProcessingLevelCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="RelatedActions">
@@ -1032,7 +1048,11 @@
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SamplingFeatureTypeCV" prCl="Name"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_SamplingFeatureCode">
+          <ClNs>SamplingFeatureCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TaxonomicClassifiers">
@@ -1154,7 +1174,11 @@
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="VariableTypeCV" prCl="Name"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_VariableCode">
+          <ClNs>VariableCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <CustomTypes/>
@@ -1987,7 +2011,11 @@
         <CdTb mn="1" nm="DataQuality" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="DataQualityValueUnitsID" prCl="UnitsID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_DataQualityCode">
+          <ClNs>DataQualityCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis>
         <StPr stA="ODM2Core" stB="DataQuality"/>
       </SchTrHis>
@@ -2047,7 +2075,11 @@
         <CdTb mn="0" nm="ReferenceMaterials" oe="1" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_ReferenceMaterialCode">
+          <ClNs>ReferenceMaterialCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis>
         <StPr stA="ODM2Equipment" stB="ReferenceMaterials"/>
       </SchTrHis>
@@ -2482,7 +2514,11 @@
         <CdTb mn="1" nm="Equipment" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="EquipmentOwnerID" prCl="PersonID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_EquipmentCode">
+          <ClNs>EquipmentCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="EquipmentModels">
@@ -5203,7 +5239,11 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_ModelCode">
+          <ClNs>ModelCode</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="RelatedModels">
@@ -6308,7 +6348,7 @@
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Simulation">
-    <RnCf ClkAct="true" FtSz="9" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="true" FtSz="9" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
