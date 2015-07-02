@@ -3789,7 +3789,11 @@
         <CdTb mn="0" nm="CategoricalResultValues" oe="1" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_CategoricalResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="MeasurementResults">
@@ -3905,7 +3909,11 @@
         <CdTb mn="0" nm="MeasurementResultValues" oe="1" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_MeasurementResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="PointCoverageResults">
@@ -4038,7 +4046,11 @@
         <CdTb mn="1" nm="PointCoverageResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_PointCoverageResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, CensorCodeCV, QualityCodeCV</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ProfileResults">
@@ -4181,7 +4193,11 @@
         <CdTb mn="1" nm="ProfileResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_ProfileResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SectionResults">
@@ -4344,7 +4360,11 @@
         <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_SectionResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XAggregationInterval, XLocationUnitsID, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SpectraResults">
@@ -4485,7 +4505,11 @@
         <CdTb mn="1" nm="SpectraResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="WavelengthUnitsID" prCl="UnitsID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_SpectraResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ExcitationWavelength, EmissionWavelength, WavelengthUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TimeSeriesResults">
@@ -4612,7 +4636,11 @@
         <CdTb mn="1" nm="TimeSeriesResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_TimeSeriesResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TrajectoryResults">
@@ -4764,7 +4792,11 @@
         <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_TrajectoryResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TransectResults">
@@ -4924,7 +4956,11 @@
         <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
       </Fk>
-      <UniqueConstraints/>
+      <UniqueConstraints>
+        <UnCon nm="uc_TransectResultValues">
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, TransectDistance, TransectDistanceAggregationInterval, TransectDistanceUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
+        </UnCon>
+      </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
     <CustomTypes/>
@@ -7741,6 +7777,9 @@
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results/Tables (18)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results/Tables (18)/SpectraResultValues</TreePath>
     <TreePath>/Diagrams (12)</TreePath>
   </TreePaths>
 </Db>
