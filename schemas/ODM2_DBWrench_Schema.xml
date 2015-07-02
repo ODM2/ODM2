@@ -946,15 +946,15 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Number of data values contained within the result</Cm>
       </Cl>
+      <Fk deAc="3" nm="fk_Results_CV_Medium" prLkCl="Name" upAc="3">
+        <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="SampledMediumCV" prCl="Name"/>
+      </Fk>
       <Fk deAc="3" nm="fk_Results_CV_ResultType" prLkCl="Name" upAc="3">
         <PrTb mn="0" nm="CV_ResultType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ResultTypeCV" prCl="Name"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Results_CV_SampledMedium" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_SampledMedium" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SampledMediumCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_CV_Status" prLkCl="Name" upAc="3">
         <PrTb mn="0" nm="CV_Status" oe="1" sch="ODM2CV" zr="1"/>
@@ -1427,6 +1427,33 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="CV_Medium">
+      <Cm>Table containing terms used in the Medium controlled vocabulary.</Cm>
+      <TblOpts/>
+      <Pk ClNs="Name" nm="pkCV_Medium"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="CV_MethodType">
       <Cm>Table containing terms used in the MethodType controlled vocabulary.</Cm>
       <TblOpts/>
@@ -1535,33 +1562,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="CV_ReferenceMaterialMedium">
-      <Cm>Table containing terms used in the ReferenceMaterialMedium controlled vocabulary.</Cm>
-      <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_ReferenceMaterialMedium"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="CV_RelationshipType">
       <Cm>Table containing terms used in the RelationshipType controlled vocabulary.</Cm>
       <TblOpts/>
@@ -1593,33 +1593,6 @@
       <Cm>Table containing terms used in the ResultType controlled vocabulary.</Cm>
       <TblOpts/>
       <Pk ClNs="Name" nm="pkCV_ResultType"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CV_SampledMedium">
-      <Cm>Table containing terms used in the SampledMedium controlled vocabulary.</Cm>
-      <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_SampledMedium"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1755,33 +1728,6 @@
       <Cm>Table containing terms used in the Speciation controlled vocabulary.</Cm>
       <TblOpts/>
       <Pk ClNs="Name" nm="pkCV_Speciation"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CV_SpecimenMedium">
-      <Cm>Table containing terms used in the SpecimenMedium controlled vocabulary.</Cm>
-      <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_SpecimenMedium"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -2060,8 +2006,8 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A foreign key to SamplingFeatures.  Only required when the ReferenceMaterial is Analyzed as if it were an unknown specimen.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_ReferenceMaterials_CV_ReferenceMaterialMedium" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_ReferenceMaterialMedium" oe="1" sch="ODM2CV" zr="0"/>
+      <Fk deAc="3" nm="fk_ReferenceMaterials_CV_Medium" prLkCl="Name" upAc="3">
+        <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="ReferenceMaterials" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="ReferenceMaterialMediumCV" prCl="Name"/>
       </Fk>
@@ -5163,8 +5109,8 @@
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A boolean indicating whether the specimen was collected in the field</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Specimens_CV_SpecimenMedium" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_SpecimenMedium" oe="1" sch="ODM2CV" zr="0"/>
+      <Fk deAc="3" nm="fk_Specimens_CV_Medium" prLkCl="Name" upAc="3">
+        <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Specimens" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SpecimenMediumCV" prCl="Name"/>
       </Fk>
@@ -5647,22 +5593,20 @@
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_OrganizationType" x="327" y="386"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_PropertyDataType" x="324" y="503"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QualityCode" x="324" y="621"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ReferenceMaterialMedium" x="325" y="742"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_RelationshipType" x="621" y="41"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ResultType" x="623" y="157"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SampledMedium" x="621" y="274"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureGeoType" x="620" y="389"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureType" x="622" y="508"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SiteType" x="620" y="624"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpatialOffsetType" x="622" y="739"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Speciation" x="913" y="43"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenMedium" x="912" y="158"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenType" x="914" y="277"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Status" x="915" y="393"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_TaxonomicClassifierType" x="915" y="513"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_UnitsType" x="914" y="630"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableName" x="914" y="748"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableType" x="918" y="866"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenType" x="915" y="155"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Status" x="916" y="271"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_TaxonomicClassifierType" x="916" y="391"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_UnitsType" x="915" y="508"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableName" x="915" y="626"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableType" x="625" y="280"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Medium" x="326" y="740"/>
     <Notes/>
     <Zones/>
   </Dgm>
@@ -7777,9 +7721,6 @@
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Results</TreePath>
-    <TreePath>/Schemas (12)/ODM2Results/Tables (18)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Results/Tables (18)/SpectraResultValues</TreePath>
     <TreePath>/Diagrams (12)</TreePath>
   </TreePaths>
 </Db>
