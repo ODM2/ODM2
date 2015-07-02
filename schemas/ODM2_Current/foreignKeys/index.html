@@ -135,7 +135,7 @@
 <td><a href="../foreignKeys/ODM2Core_Affiliations_fk_Affiliations_People.html">fk_Affiliations_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td>PersonID</td><td>PersonID</td>
 </tr>
 <tr class="altRow">
-<td><a href="../foreignKeys/ODM2Core_Datasets_fk_Datasets_CV_DatasetTypeCV.html">fk_Datasets_CV_DatasetTypeCV</a></td><td><a href="../tables/ODM2CV_CV_DatasetTypeCV.html">ODM2CV.CV_DatasetTypeCV</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td>Name</td><td>DatasetTypeCV</td>
+<td><a href="../foreignKeys/ODM2Core_Datasets_fk_Datasets_CV_DatasetTypeCV.html">fk_Datasets_CV_DatasetTypeCV</a></td><td><a href="../tables/ODM2CV_CV_DatasetType.html">ODM2CV.CV_DatasetType</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td>Name</td><td>DatasetTypeCV</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2Core_DatasetsResults_fk_DataSetsResults_DataSets.html">fk_DataSetsResults_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Core_DatasetsResults.html">ODM2Core.DatasetsResults</a></td><td>DatasetID</td><td>DatasetID</td>
@@ -171,10 +171,10 @@
 <td><a href="../foreignKeys/ODM2Core_RelatedActions_fk_RelatedActions_CV_RelationshipType.html">fk_RelatedActions_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Core_RelatedActions.html">ODM2Core.RelatedActions</a></td><td>Name</td><td>RelationshipTypeCV</td>
 </tr>
 <tr class="altRow">
-<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_ResultType.html">fk_Results_CV_ResultType</a></td><td><a href="../tables/ODM2CV_CV_ResultType.html">ODM2CV.CV_ResultType</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>ResultTypeCV</td>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_Medium.html">fk_Results_CV_Medium</a></td><td><a href="../tables/ODM2CV_CV_Medium.html">ODM2CV.CV_Medium</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>SampledMediumCV</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_SampledMedium.html">fk_Results_CV_SampledMedium</a></td><td><a href="../tables/ODM2CV_CV_SampledMedium.html">ODM2CV.CV_SampledMedium</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>SampledMediumCV</td>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_ResultType.html">fk_Results_CV_ResultType</a></td><td><a href="../tables/ODM2CV_CV_ResultType.html">ODM2CV.CV_ResultType</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>ResultTypeCV</td>
 </tr>
 <tr class="altRow">
 <td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_Status.html">fk_Results_CV_Status</a></td><td><a href="../tables/ODM2CV_CV_Status.html">ODM2CV.CV_Status</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>StatusCV</td>
@@ -228,7 +228,7 @@
 <td><a href="../foreignKeys/ODM2DataQuality_DataQuality_fk_DataQuality_Units.html">fk_DataQuality_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2DataQuality_DataQuality.html">ODM2DataQuality.DataQuality</a></td><td>UnitsID</td><td>DataQualityValueUnitsID</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterials_fk_ReferenceMaterials_CV_ReferenceMaterialMedium.html">fk_ReferenceMaterials_CV_ReferenceMaterialMedium</a></td><td><a href="../tables/ODM2CV_CV_ReferenceMaterialMedium.html">ODM2CV.CV_ReferenceMaterialMedium</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td>Name</td><td>ReferenceMaterialMediumCV</td>
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterials_fk_ReferenceMaterials_CV_Medium.html">fk_ReferenceMaterials_CV_Medium</a></td><td><a href="../tables/ODM2CV_CV_Medium.html">ODM2CV.CV_Medium</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td>Name</td><td>ReferenceMaterialMediumCV</td>
 </tr>
 <tr class="altRow">
 <td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterials_fk_ReferenceMaterials_Organizations.html">fk_ReferenceMaterials_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td>OrganizationID</td><td>ReferenceMaterialOrganizationID</td>
@@ -855,7 +855,7 @@
 <td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_Offset3Units.html">fk_SpatialOffsets_Offset3Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>UnitsID</td><td>Offset3UnitID</td>
 </tr>
 <tr class="altRow">
-<td><a href="../foreignKeys/ODM2SamplingFeatures_Specimens_fk_Specimens_CV_SpecimenMedium.html">fk_Specimens_CV_SpecimenMedium</a></td><td><a href="../tables/ODM2CV_CV_SpecimenMedium.html">ODM2CV.CV_SpecimenMedium</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td>Name</td><td>SpecimenMediumCV</td>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Specimens_fk_Specimens_CV_Medium.html">fk_Specimens_CV_Medium</a></td><td><a href="../tables/ODM2CV_CV_Medium.html">ODM2CV.CV_Medium</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td>Name</td><td>SpecimenMediumCV</td>
 </tr>
 <tr>
 <td><a href="../foreignKeys/ODM2SamplingFeatures_Specimens_fk_Specimens_CV_SpecimenType.html">fk_Specimens_CV_SpecimenType</a></td><td><a href="../tables/ODM2CV_CV_SpecimenType.html">ODM2CV.CV_SpecimenType</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td>Name</td><td>SpecimenTypeCV</td>
