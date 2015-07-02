@@ -341,6 +341,14 @@ CREATE TABLE CV_EquipmentType (
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
 
+CREATE TABLE CV_Medium (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (1000)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
 CREATE TABLE CV_MethodType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
@@ -373,14 +381,6 @@ CREATE TABLE CV_QualityCode (
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
 
-CREATE TABLE CV_ReferenceMaterialMedium (
-	Term VARCHAR (255)  NOT NULL,
-	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (1000)  NULL,
-	Category VARCHAR (255)  NULL,
-	SourceVocabularyURI VARCHAR (255)  NULL
-);
-
 CREATE TABLE CV_RelationshipType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
@@ -390,14 +390,6 @@ CREATE TABLE CV_RelationshipType (
 );
 
 CREATE TABLE CV_ResultType (
-	Term VARCHAR (255)  NOT NULL,
-	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (1000)  NULL,
-	Category VARCHAR (255)  NULL,
-	SourceVocabularyURI VARCHAR (255)  NULL
-);
-
-CREATE TABLE CV_SampledMedium (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
 	Definition VARCHAR (1000)  NULL,
@@ -438,14 +430,6 @@ CREATE TABLE CV_SpatialOffsetType (
 );
 
 CREATE TABLE CV_Speciation (
-	Term VARCHAR (255)  NOT NULL,
-	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (1000)  NULL,
-	Category VARCHAR (255)  NULL,
-	SourceVocabularyURI VARCHAR (255)  NULL
-);
-
-CREATE TABLE CV_SpecimenMedium (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
 	Definition VARCHAR (1000)  NULL,
@@ -1447,12 +1431,12 @@ ALTER TABLE RelatedActions ADD CONSTRAINT fk_RelatedActions_CV_RelationshipType
 FOREIGN KEY (RelationshipTypeCV) REFERENCES CV_RelationshipType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE Results ADD CONSTRAINT fk_Results_CV_ResultType
-FOREIGN KEY (ResultTypeCV) REFERENCES CV_ResultType (Name)
+ALTER TABLE Results ADD CONSTRAINT fk_Results_CV_Medium
+FOREIGN KEY (SampledMediumCV) REFERENCES CV_Medium (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE Results ADD CONSTRAINT fk_Results_CV_SampledMedium
-FOREIGN KEY (SampledMediumCV) REFERENCES CV_SampledMedium (Name)
+ALTER TABLE Results ADD CONSTRAINT fk_Results_CV_ResultType
+FOREIGN KEY (ResultTypeCV) REFERENCES CV_ResultType (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE Results ADD CONSTRAINT fk_Results_CV_Status
@@ -1523,8 +1507,8 @@ ALTER TABLE DataQuality ADD CONSTRAINT fk_DataQuality_Units
 FOREIGN KEY (DataQualityValueUnitsID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE ReferenceMaterials ADD CONSTRAINT fk_ReferenceMaterials_CV_ReferenceMaterialMedium
-FOREIGN KEY (ReferenceMaterialMediumCV) REFERENCES CV_ReferenceMaterialMedium (Name)
+ALTER TABLE ReferenceMaterials ADD CONSTRAINT fk_ReferenceMaterials_CV_Medium
+FOREIGN KEY (ReferenceMaterialMediumCV) REFERENCES CV_Medium (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE ReferenceMaterials ADD CONSTRAINT fk_ReferenceMaterials_Organizations
@@ -2359,8 +2343,8 @@ ALTER TABLE SpatialOffsets ADD CONSTRAINT fk_SpatialOffsets_Offset3Units
 FOREIGN KEY (Offset3UnitID) REFERENCES Units (UnitsID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-ALTER TABLE Specimens ADD CONSTRAINT fk_Specimens_CV_SpecimenMedium
-FOREIGN KEY (SpecimenMediumCV) REFERENCES CV_SpecimenMedium (Name)
+ALTER TABLE Specimens ADD CONSTRAINT fk_Specimens_CV_Medium
+FOREIGN KEY (SpecimenMediumCV) REFERENCES CV_Medium (Name)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE Specimens ADD CONSTRAINT fk_Specimens_CV_SpecimenType

@@ -303,6 +303,13 @@ create table ODM2.CV_EquipmentType (
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
+create table ODM2.CV_Medium (
+	term varchar (255) NOT NULL,
+	name varchar (255) NOT NULL primary key,
+	definition varchar (1000) NULL,
+	category varchar (255) NULL,
+	sourcevocabularyuri varchar (255) NULL
+);
 create table ODM2.CV_MethodType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
@@ -331,13 +338,6 @@ create table ODM2.CV_QualityCode (
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
-create table ODM2.CV_ReferenceMaterialMedium (
-	term varchar (255) NOT NULL,
-	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
-	category varchar (255) NULL,
-	sourcevocabularyuri varchar (255) NULL
-);
 create table ODM2.CV_RelationshipType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
@@ -346,13 +346,6 @@ create table ODM2.CV_RelationshipType (
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_ResultType (
-	term varchar (255) NOT NULL,
-	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
-	category varchar (255) NULL,
-	sourcevocabularyuri varchar (255) NULL
-);
-create table ODM2.CV_SampledMedium (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
 	definition varchar (1000) NULL,
@@ -388,13 +381,6 @@ create table ODM2.CV_SpatialOffsetType (
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_Speciation (
-	term varchar (255) NOT NULL,
-	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
-	category varchar (255) NULL,
-	sourcevocabularyuri varchar (255) NULL
-);
-create table ODM2.CV_SpecimenMedium (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
 	definition varchar (1000) NULL,
@@ -1306,12 +1292,12 @@ alter table ODM2.RelatedActions add constraint fk_RelatedActions_CV_Relationship
 foreign key (RelationshipTypeCV) References ODM2.CV_RelationshipType (Name)
 on update no Action on delete cascade;
 
-alter table ODM2.Results add constraint fk_Results_CV_ResultType
-foreign key (ResultTypeCV) References ODM2.CV_ResultType (Name)
+alter table ODM2.Results add constraint fk_Results_CV_Medium
+foreign key (SampledMediumCV) References ODM2.CV_Medium (Name)
 on update no Action on delete cascade;
 
-alter table ODM2.Results add constraint fk_Results_CV_SampledMedium
-foreign key (SampledMediumCV) References ODM2.CV_SampledMedium (Name)
+alter table ODM2.Results add constraint fk_Results_CV_ResultType
+foreign key (ResultTypeCV) References ODM2.CV_ResultType (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.Results add constraint fk_Results_CV_Status
@@ -1382,8 +1368,8 @@ alter table ODM2.DataQuality add constraint fk_DataQuality_Units
 foreign key (DataQualityValueUnitsID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
-alter table ODM2.ReferenceMaterials add constraint fk_ReferenceMaterials_CV_ReferenceMaterialMedium
-foreign key (ReferenceMaterialMediumCV) References ODM2.CV_ReferenceMaterialMedium (Name)
+alter table ODM2.ReferenceMaterials add constraint fk_ReferenceMaterials_CV_Medium
+foreign key (ReferenceMaterialMediumCV) References ODM2.CV_Medium (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.ReferenceMaterials add constraint fk_ReferenceMaterials_Organizations
@@ -2218,8 +2204,8 @@ alter table ODM2.SpatialOffsets add constraint fk_SpatialOffsets_Offset3Units
 foreign key (Offset3UnitID) References ODM2.Units (UnitsID)
 on update no Action on delete cascade;
 
-alter table ODM2.Specimens add constraint fk_Specimens_CV_SpecimenMedium
-foreign key (SpecimenMediumCV) References ODM2.CV_SpecimenMedium (Name)
+alter table ODM2.Specimens add constraint fk_Specimens_CV_Medium
+foreign key (SpecimenMediumCV) References ODM2.CV_Medium (Name)
 on update no Action on delete cascade;
 
 alter table ODM2.Specimens add constraint fk_Specimens_CV_SpecimenType

@@ -314,9 +314,9 @@ CREATE TABLE Results (
 	StatusCV VARCHAR (255)  NULL,
 	SampledMediumCV VARCHAR (255)  NOT NULL,
 	ValueCount INTEGER   NOT NULL,
-	FOREIGN KEY (ResultTypeCV) REFERENCES CV_ResultType (Name)
+	FOREIGN KEY (SampledMediumCV) REFERENCES CV_Medium (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
-	FOREIGN KEY (SampledMediumCV) REFERENCES CV_SampledMedium (Name)
+	FOREIGN KEY (ResultTypeCV) REFERENCES CV_ResultType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (StatusCV) REFERENCES CV_Status (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -466,6 +466,14 @@ CREATE TABLE CV_EquipmentType (
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
 
+CREATE TABLE CV_Medium (
+	Term VARCHAR (255)  NOT NULL,
+	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
+	Definition VARCHAR (1000)  NULL,
+	Category VARCHAR (255)  NULL,
+	SourceVocabularyURI VARCHAR (255)  NULL
+);
+
 CREATE TABLE CV_MethodType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
@@ -498,14 +506,6 @@ CREATE TABLE CV_QualityCode (
 	SourceVocabularyURI VARCHAR (255)  NULL
 );
 
-CREATE TABLE CV_ReferenceMaterialMedium (
-	Term VARCHAR (255)  NOT NULL,
-	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (1000)  NULL,
-	Category VARCHAR (255)  NULL,
-	SourceVocabularyURI VARCHAR (255)  NULL
-);
-
 CREATE TABLE CV_RelationshipType (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
@@ -515,14 +515,6 @@ CREATE TABLE CV_RelationshipType (
 );
 
 CREATE TABLE CV_ResultType (
-	Term VARCHAR (255)  NOT NULL,
-	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (1000)  NULL,
-	Category VARCHAR (255)  NULL,
-	SourceVocabularyURI VARCHAR (255)  NULL
-);
-
-CREATE TABLE CV_SampledMedium (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
 	Definition VARCHAR (1000)  NULL,
@@ -563,14 +555,6 @@ CREATE TABLE CV_SpatialOffsetType (
 );
 
 CREATE TABLE CV_Speciation (
-	Term VARCHAR (255)  NOT NULL,
-	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
-	Definition VARCHAR (1000)  NULL,
-	Category VARCHAR (255)  NULL,
-	SourceVocabularyURI VARCHAR (255)  NULL
-);
-
-CREATE TABLE CV_SpecimenMedium (
 	Term VARCHAR (255)  NOT NULL,
 	Name VARCHAR (255)  NOT NULL PRIMARY KEY,
 	Definition VARCHAR (1000)  NULL,
@@ -654,7 +638,7 @@ CREATE TABLE ReferenceMaterials (
 	ReferenceMaterialExpirationDate DATETIME   NULL,
 	ReferenceMaterialCertificateLink VARCHAR (255)  NULL,
 	SamplingFeatureID INTEGER   NULL,
-	FOREIGN KEY (ReferenceMaterialMediumCV) REFERENCES CV_ReferenceMaterialMedium (Name)
+	FOREIGN KEY (ReferenceMaterialMediumCV) REFERENCES CV_Medium (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ReferenceMaterialOrganizationID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -1736,7 +1720,7 @@ CREATE TABLE Specimens (
 	SpecimenTypeCV VARCHAR (255)  NOT NULL,
 	SpecimenMediumCV VARCHAR (255)  NOT NULL,
 	IsFieldSpecimen BIT   NOT NULL,
-	FOREIGN KEY (SpecimenMediumCV) REFERENCES CV_SpecimenMedium (Name)
+	FOREIGN KEY (SpecimenMediumCV) REFERENCES CV_Medium (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SpecimenTypeCV) REFERENCES CV_SpecimenType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
