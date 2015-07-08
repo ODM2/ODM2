@@ -125,6 +125,17 @@ class CVEquipmentType(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
+class CVMediumType(Base):
+    __tablename__ = 'cv_medium'
+    __table_args__ = {u'schema': 'odm2'}
+
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    def __repr__(self):
+        return "<CVMedium('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
 class CVMethodType(Base):
     __tablename__ = 'cv_methodtype'
@@ -204,7 +215,7 @@ class CVResultType(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
-
+'''
 class CVSampledMedium(Base):
     __tablename__ = 'cv_sampledmedium'
     __table_args__ = {u'schema': 'odm2'}
@@ -217,7 +228,7 @@ class CVSampledMedium(Base):
 
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
-
+'''
 
 class CVSamplingFeatureGeoType(Base):
     __tablename__ = 'cv_samplingfeaturegeotype'
@@ -271,7 +282,7 @@ class CVSpeciation(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
-
+'''
 class CVSpecimenMedium(Base):
     __tablename__ = 'cv_specimenmedium'
     __table_args__ = {u'schema': 'odm2'}
@@ -283,7 +294,7 @@ class CVSpecimenMedium(Base):
     SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
-
+'''
 
 class CVSpecimenType(Base):
     __tablename__ = 'cv_specimentype'
@@ -311,7 +322,7 @@ class CVSiteType(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
 
-
+'''
 class CVReferenceMaterialMedium(Base):
     __tablename__ = 'cv_referencematerialmedium'
     __table_args__ = {u'schema': 'odm2'}
@@ -324,7 +335,7 @@ class CVReferenceMaterialMedium(Base):
 
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.name, self.Definition, self.Category)
-
+'''
 
 class CVStatus(Base):
     __tablename__ = 'cv_status'
@@ -444,7 +455,7 @@ vocab= [("actiontype", CVActionType),
         ("samplingfeaturegeotype", CVSamplingFeatureGeoType),
         ("elevationdatum", CVElevationDatum),
         ("resulttype", CVResultType),
-        ("sampledmedium", CVSampledMedium),
+        #("sampledmedium", CVSampledMedium),
         ("speciation", CVSpeciation),
         ("aggregationstatistic", CVAggregationStatistic),
         ("methodtype", CVMethodType),
@@ -458,16 +469,18 @@ vocab= [("actiontype", CVActionType),
         ("annotationtype", CVAnnotationType),
         ("samplingfeaturetype", CVSamplingFeatureType),
         ("equipmenttype", CVEquipmentType),
-        ("specimenmedium", CVSpecimenMedium),
+        #("specimenmedium", CVSpecimenMedium),
         ("spatialoffsettype", CVSpatialOffsetType),
-        ("referencematerialmedium", CVReferenceMaterialMedium),
+        #("referencematerialmedium", CVReferenceMaterialMedium),
         ("specimentype", CVSpecimenType),
         ("variabletype", CVVariableType),
         ("variablename", CVVariableName),
         ("propertydatatype", CVPropertyDataType),
-        ("relationshiptype", CVRelationshipType)]
+        ("relationshiptype", CVRelationshipType),
+        ("unitstype", CVUnitsType),
+        ("medium", CVMediumType)]
 
-url = "http://vocabulary.odm2.org/api/v1/%s/?format=skos"
+url = "http://vocabulary.odm2.org/api.bak/v1/%s/?format=skos"
 
 #XML encodings
 dc = "{http://purl.org/dc/elements/1.1/}%s"
