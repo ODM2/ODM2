@@ -480,7 +480,7 @@ vocab= [("actiontype", CVActionType),
         ("unitstype", CVUnitsType),
         ("medium", CVMediumType)]
 
-url = "http://vocabulary.odm2.org/api.bak/v1/%s/?format=skos"
+url = "http://vocabulary.odm2.org/api/v1/%s/?format=skos"
 
 #XML encodings
 dc = "{http://purl.org/dc/elements/1.1/}%s"
