@@ -501,7 +501,7 @@ CREATE TABLE DataQuality (
 );
 
 CREATE TABLE ReferenceMaterials (
-	ReferenceMaterialID INT   NOT NULL PRIMARY KEY,
+	ReferenceMaterialID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ReferenceMaterialMediumCV VARCHAR (255)  NOT NULL,
 	ReferenceMaterialOrganizationID INT   NOT NULL,
 	ReferenceMaterialCode VARCHAR (50)  NOT NULL,

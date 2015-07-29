@@ -509,7 +509,7 @@ CREATE TABLE ODM2.DataQuality (
 	PRIMARY KEY (DataQualityID)
 )
 CREATE TABLE ODM2.ReferenceMaterials (
-	ReferenceMaterialID int   NOT NULL,
+	ReferenceMaterialID int  IDENTITY (1,1) NOT NULL,
 	ReferenceMaterialMediumCV varchar (255)  NOT NULL,
 	ReferenceMaterialOrganizationID int   NOT NULL,
 	ReferenceMaterialCode varchar (50)  NOT NULL,

@@ -443,7 +443,7 @@ create table ODM2.DataQuality (
 	dataqualitylink varchar (255) NULL
 );
 create table ODM2.ReferenceMaterials (
-	referencematerialid integer  NOT NULL primary key,
+	referencematerialid serial  NOT NULL primary key,
 	referencematerialmediumcv varchar (255) NOT NULL,
 	referencematerialorganizationid integer  NOT NULL,
 	referencematerialcode varchar (50) NOT NULL,
