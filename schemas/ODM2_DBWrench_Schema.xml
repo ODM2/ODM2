@@ -1197,7 +1197,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1224,7 +1224,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1251,7 +1251,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1278,7 +1278,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1305,7 +1305,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1332,7 +1332,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1359,7 +1359,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1386,7 +1386,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1413,7 +1413,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1440,7 +1440,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1467,7 +1467,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1494,7 +1494,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1521,7 +1521,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1548,7 +1548,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1575,7 +1575,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1602,7 +1602,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1629,7 +1629,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1656,7 +1656,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1683,7 +1683,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1710,7 +1710,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1737,7 +1737,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1764,7 +1764,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1791,7 +1791,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1818,7 +1818,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1845,7 +1845,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1872,7 +1872,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -1899,7 +1899,7 @@
         <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Definition of vocabulary term.</Cm>
       </Cl>
       <Cl au="0" df="" nm="Category" nu="1">
@@ -7716,7 +7716,8 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
