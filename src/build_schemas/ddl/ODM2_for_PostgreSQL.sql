@@ -243,189 +243,189 @@ create table ODM2.Variables (
 create table ODM2.CV_ActionType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_AggregationStatistic (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_AnnotationType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_CensorCode (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_DataQualityType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_DatasetType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_DirectiveType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_ElevationDatum (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_EquipmentType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_Medium (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_MethodType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_OrganizationType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_PropertyDataType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_QualityCode (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_RelationshipType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_ResultType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_SamplingFeatureGeoType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_SamplingFeatureType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_SiteType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_SpatialOffsetType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_Speciation (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_SpecimenType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_Status (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_TaxonomicClassifierType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_UnitsType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_VariableName (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
 create table ODM2.CV_VariableType (
 	term varchar (255) NOT NULL,
 	name varchar (255) NOT NULL primary key,
-	definition varchar (1000) NULL,
+	definition varchar (5000) NULL,
 	category varchar (255) NULL,
 	sourcevocabularyuri varchar (255) NULL
 );
