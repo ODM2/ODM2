@@ -1970,7 +1970,7 @@
       <Cm>Describes materials that are used for the calibration of an instrument, the assessment of a measurement method, or for assigning values to unknown specimens.</Cm>
       <TblOpts/>
       <Pk ClNs="ReferenceMaterialID" nm="pkReferenceMaterials"/>
-      <Cl au="0" df="" nm="ReferenceMaterialID" nu="0">
+      <Cl au="1" df="" nm="ReferenceMaterialID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The primary key to the Reference Material used to calibrate an instrument, assess a measurement method, or assign values to unknown specimens</Cm>
       </Cl>
@@ -7717,7 +7717,7 @@
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
