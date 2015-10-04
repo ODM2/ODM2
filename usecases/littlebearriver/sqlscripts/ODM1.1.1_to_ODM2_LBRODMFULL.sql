@@ -5,7 +5,7 @@
 -- 1.  The ODM2 Database must already exist and it must have all of the ODM2 objects in it
 -- 2.  The ODM2 database must not contain any data 
 -- 3.  Right now it is hard-coded to an ODM 1.1.1 database called "LittleBearRiverODM" and
--- an ODM2 database called "ODM2" - these names would need to be changed for running on 
+-- an ODM2 database called "ODM2" - these names will need to be changed for running on 
 -- other database names
 -- 4.  No other processes adding data to the ODM2 database while this is being run
 --------------------------------------------------------------------------------------
@@ -13,7 +13,7 @@
 --------------------------------------------------------------------------------------
 --Populate the SamplingFeature tables
 --NOTES:
---1.  Uses the SiteIDs from the existing ODM database to populate SamplingFeatureID  
+--1.  Uses the SiteIDs from the ODM 1.1.1 database to populate SamplingFeatureID  
 --2.  Currently uses the LatLongDatumID as SpatialReferenceID
 --------------------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ FROM LittleBearRiverODM.dbo.SpatialReferences
 ORDER BY SpatialReferenceID;
 SET IDENTITY_INSERT ODM2.ODM2.SpatialReferences OFF;
 
---Add records to the ODM2.SpatialReferences table for the OffsetTypes used in ODM1
+--Add records to the ODM2.SpatialReferences table for the OffsetTypes used in the ODM 1.1.1 database
 INSERT INTO ODM2.ODM2.SpatialReferences (SRSName)
 SELECT OffsetDescription
 FROM LittleBearRiverODM.dbo.OffsetTypes;
@@ -34,17 +34,25 @@ FROM LittleBearRiverODM.dbo.OffsetTypes;
 --First, make sure the data type of the FeatureGeometry field is correct 
 --For now using geometry type in SQL Server
 
+-------------------------------------------------------------------------------------------------------------
 --Added the following 3 lines because DBWrench didn't have geometry data type, but it seems to support it now
+--so I've commented them out
+--
 --ALTER TABLE ODM2.ODM2.SamplingFeatures DROP COLUMN FeatureGeometry;
 --ALTER TABLE ODM2.ODM2.SamplingFeatures ADD FeatureGeometry geometry NULL;
 --GO
+-------------------------------------------------------------------------------------------------------------
 
---Now add the Site SamplingFeatures to the SamplingFeatures table 
+--Now add the Site SamplingFeatures to the ODM2 SamplingFeatures table 
 --Set the default value of the SamplingFeatureUUID attribute to NEWSQUENTIALID() so the GUID is automatically generated
+--I did this by adding a default value constraint to the SamplingFeatureUUID field set to generate a NEWSEQUENTIALID()
+--when new records are entered into the SamplingFeatures table
 ALTER TABLE ODM2.ODM2.SamplingFeatures ADD CONSTRAINT DF_SamplingFeatureUUID DEFAULT NEWSEQUENTIALID() FOR SamplingFeatureUUID;
 SET IDENTITY_INSERT ODM2.ODM2.SamplingFeatures ON; 
-INSERT INTO ODM2.ODM2.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureCode, SamplingFeatureName, SamplingFeatureDescription, SamplingFeatureGeoTypeCV, FeatureGeometry, Elevation_m, ElevationDatumCV)
-SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.SiteCode AS SamplingFeatureCode, s.SiteName AS SamplingFeatureName, s.Comments AS SamplingFeatureDescription, 'Point' AS SamplingFeatureGeoTypeCV,
+INSERT INTO ODM2.ODM2.SamplingFeatures (SamplingFeatureID, SamplingFeatureTypeCV, SamplingFeatureCode, SamplingFeatureName, 
+	SamplingFeatureDescription, SamplingFeatureGeoTypeCV, FeatureGeometry, Elevation_m, ElevationDatumCV)
+SELECT s.SiteID AS SamplingFeatureID, 'Site' AS SamplingFeatureTypeCV, s.SiteCode AS SamplingFeatureCode, s.SiteName AS SamplingFeatureName, 
+	s.Comments AS SamplingFeatureDescription, 'Point' AS SamplingFeatureGeoTypeCV, 
 	geometry::Point(s.Longitude, s.Latitude, sr.SRSID) AS FeatureGeometry, s.Elevation_m, VerticalDatum AS ElevationDatumCV
 FROM LittleBearRiverODM.dbo.Sites s, LittleBearRiverODM.dbo.SpatialReferences sr
 WHERE s.LatLongDatumID = sr.SpatialReferenceID
@@ -59,12 +67,23 @@ ORDER BY SiteID;
 
 --------------------------------------------------------------------------------------
 --Populate the ODM2.Units table
+--TODO:  We are considering pre-populating the ODM2 schema with a list of Units. If we
+--do this, this part of the code may break.
+--NOTE:  Before running this part of the script, need to verify that the 'UnitsType' 
+--values used in the ODM 1.1.1 database contain valid values from the ODM2 UnitsTypeCV.
+--The script only moves over the Units that are actually used, so only need to check those
+--and not the whole list of Units in the ODM 1.1.1.
 --------------------------------------------------------------------------------------
 --Load the Units from ODM 1.1 - can just move these straight across and use the same IDs
+--But only copy the Units that are currently in use
 SET IDENTITY_INSERT ODM2.ODM2.Units ON; 
 INSERT INTO ODM2.ODM2.Units (UnitsID, UnitsTypeCV, UnitsAbbreviation, UnitsName, UnitsLink)
 SELECT UnitsID, UnitsType AS UnitsTypeCV, UnitsAbbreviation, UnitsName, 'http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units' AS UnitsLink
-FROM LittleBearRiverODM.dbo.Units 
+FROM LittleBearRiverODM.dbo.Units
+WHERE UnitsID IN (
+	SELECT VariableUnitsID AS UnitsID FROM LittleBearRiverODM.dbo.Variables
+	UNION
+	SELECT TimeUnitsID AS UnitsID FROM LittleBearRiverODM.dbo.Variables)
 ORDER BY UnitsID;
 SET IDENTITY_INSERT ODM2.ODM2.Units OFF;
 
