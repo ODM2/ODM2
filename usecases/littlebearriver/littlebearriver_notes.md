@@ -238,182 +238,143 @@ Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Resu
 
 **NOTE**: Need to ensure that all CensorCodes used in the DataValues table in the ODM 1.1.1 database match valid terms from the ODM2 CensorCodeCV prior to running this.
 
-
-
-
-
-
-
-
-## Implementation Notes for Sample-Based Data ##
+## Implementation Notes for Specimen-Based Data ##
 
 #### SamplingFeatures and Specimens
-ODM1 has a Samples table that is used to populate ODM2.Specimens.  However, in ODM1, Samples were linked directly to DataValues.  In ODM2, this is not the case. Linking water quality samples to DataValues in ODM2 requires going from Specimens --> SamplingFeatures --> FeatureActions --> Result --> MeasurementResults --> MeasurementResultValues.
+ODM 1.1.1 has a Samples table that is used to populate ODM2.Specimens.  However, in ODM 1.1.1, Samples were linked directly to DataValues.  In ODM2, this is not the case. Linking water quality samples to DataValues in ODM2 requires going from Specimens --> SamplingFeatures --> FeatureActions --> Result --> MeasurementResults --> MeasurementResultValues.
 
-1. I built a temporary table with a bunch of Specimen metadata so I could get the SamplingFeatureIDs, ActionIDs, FeatureActionIDs, and ResultIDs correct.
-    * Set SamplingFeatureIDs for the Specimens by adding DISTINCT ODM1.Samples.SampleID to the maximum SamplingFeatureID already in the ODM2.SamplingFeatures table.
-    * Set ActionIDs for "Sample collection" Actions by adding DISTINCT ODM1.Samples.SampleID to the maximum ActionID already in ODM2.
-    * Assumed only one "Sample analysis" action per Sample. *This is a little ambiguous in ODM1 because both SampleID and LabMethodID are in the Samples table*. Given this, I set ActionIDs for "Sample analysis" Actions by adding DISTINCT ODM1.Samples.SampleID to the maximum SampleID from ODM1 and the maximum ActionID already in ODM2 (with @MaxActionID being calculated before adding the Sample Collection Actions)
-    * It is possible to have multiple DataValues as the result of a laboratory analysis on a Sample in ODM1. This isn't the case for my dataset, but could happen for others. So, I created ResultIDs by adding the maximum ResultID already in the Results table to the ValueID for the sample-based DataValue from ODM1.
+**Specimens in ODM2.SamplingFeatures**: My water quality samples in ODM 1.1.1 are Specimen SamplingFeatures in ODM2. I first need to create records for the water quality samples in ODM2.SamplingFeatures.
 
-**Specimens in ODM2Core.SamplingFeatures**: My water quality samples in ODM1 are Specimen SamplingFeatures in ODM2. I first need to create records for the water quality samples in ODM2Core.SamplingFeatures.  
+1. Set ODM2.SamplingFeatures.SamplingFeatureID = AutoNumber - assigned by database
+2. Set ODM2.SamplingFeatures.SamplingFeatureTypeCV = 'Specimen'
+3. Set ODM2.SamplingFeatures.SamplingFeatureCode = ODM1.Samples.LabSampleCode
+4. Set ODM2.SamplingFeatures.SamplingFeatureName = NULL - this doesn't exist in ODM 1.1.1, so set as NULL
+5. Set ODM2.SamplingFeatures.SamplingFeatureDescription = 'Specimen loaded from an ODM 1.1.1 database.'
+6. Set ODM2.SamplingFeatures.SamplingFeatureGeoTypeCV = 'Not applicable' - not applicable for Specimens
+7. Set ODM2.SamplingFeatures.FeatureGeometry = NULL - not applicable for Specimens
+8. Set ODM2.SamplingFeatures.Elevation_m = NULL - not applicable for Specimens
+9. Set ODM2.SamplingFeatures.ElevationDatumCV = NULL - not applicable for Specimens
 
-1. Set ODM2Core.SamplingFeatures.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
-2. Set ODM2Core.SamplingFeatures.SamplingFeatureTypeCV = 'Specimen'
-3. Set ODM2Core.SamplingFeatures.SamplingFeatureCode = ODM1.Samples.LabSampleCode
-4. Set ODM2Core.SamplingFeatures.SamplingFeatureName = NULL - this doesn't exist in ODM1, so set as NULL
-5. Set ODM2Core.SamplingFeatures.SamplingFeatureDescription = 'Water Quality Sample' - *This is appropriate for my database, but is not generic for all ODM1 databases.  Might be better to just set this to something like "ODM1 Sample" or something generic like that*
-6. Set ODM2Core.SamplingFeatures.SamplingFeatureGeoTypeCV = NULL - not applicable for Specimens
-7. Set ODM2Core.SamplingFeatures.FeatureGeometry = NULL - not applicable for Specimens
-8. Set ODM2Core.SamplingFeatures.Elevation_m = NULL - not applicable for Specimens
-9. Set ODM2Core.SamplingFeatures.ElevationDatumCV = NULL - not applicable for Specimens
+**Specimens in ODM2.Specimens**: Next, I need to create records for each water quality sample in the ODM2.Specimens table.
 
-**Specimens in ODM2SamplingFeatures.Specimens**: Next, I need to create records for each water quality sample in the ODM2SamplingFeautures.Specimens table.
+1. Set ODM2.Specimens.SamplingFeatureID = ODM2.SamplingFeatures.SamplingFeatureID - set to the same SamplingFeatureID as the inserted SamplingFeature
+2. Set ODM2.Specimens.SpecimenTypeCV = ODM1.Samples.SampleType
+3. Set ODM2S.Specimens.SpecimenMediumCV = ODM1.Variables.SampleMedium
+4. Set ODM2.Specimens.IsFieldSpecimen = 1 (1 = True)
 
-1. Set ODM2SamplingFeatures.Specimens.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
-2. Set ODM2SamplingFeatures.Specimens.SpecimenTypeCV = ODM1.Samples.SampleType
-3. Set ODM2SamplingFeatures.Specimens.SpecimenMediumCV = ODM1.Variables.SampleMedium
-4. Set ODM2SamplingFeatures.Specimens.IsFieldSpecimen = 1
+**NOTE**: Need to make sure that the SampleType terms used in the ODM 1.1.1 Samples table are valid terms from the ODM2 SpecimenTypeCV before running this code.
+**NOTE**: Need to make sure that the SampleMedium terms used in the ODM 1.1.1 Variables table are valid terms from the ODM2 MediumCV before running this code.
 
-**Specimens in ODM2SamplingFeatures.RelatedFeatures**: Once records have been created in both the Specimens and SamplingFeatures tables, I can add records to the ODM2SamplingFeatures.RelatedFeatures table to record which Site SamplingFeature each Specimen was collected at.
+**Specimens in ODM2.RelatedFeatures**: Once records have been created in both the Specimens and SamplingFeatures tables, I can add records to the ODM2.RelatedFeatures table to record which Site each Specimen was collected at.
 
-1. Set ODM2SamplingFeatures.RelatedFeatures.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
-2. Set ODM2SamplingFeatures.FeatureParents.RelationshipTypeCV = 'wasCollectedAt' - *this is supposed to be a CV, but I just made this up for now. But, this is essentially a way of saying that the Specimen recorded in SamplingFeatureID **wasCollectedAt** the SamplingFeature recorded in ParentFeatureID*.
-3. Set ODM2SamplingFeatures.FeatureParents.RelatedFeatureID = ODM1.Sites.SiteID - *I can do this because I used the SiteIDs from the ODM1 database as the SamplingFeatureIDs in the ODM2 database*
+1. Set ODM2.RelatedFeatures.SamplingFeatureID = ODM2.SamplingFeatures.SamplingFeatureID - the SamplingFeatureIDs of the inserted Specimens
+2. Set ODM2.RelatedFeatures.RelationshipTypeCV = 'Was collected at' - *This is means that the Specimen recorded in SamplingFeatureID **Was collected at** the SamplingFeature recorded in RelatedFeatureID*.
+3. Set ODM2.RelatedFeatures.RelatedFeatureID = ODM1.Sites.SiteID - *I can do this because I used the SiteIDs from the ODM 1.1.1 database as the SamplingFeatureIDs in the ODM2 database.  But, I have to link through Samples, DataValues, and Sites*
 4. Set ODM2SamplingFeatures.FeatureParents.SpatialOffsetID = NULL - don't need this for any of my samples
 
-#### Sample Collection Actions
-Since I have a bunch of water quality samples (Specimens) in my ODM1 database, I need to create a "Sample collection" Action for each sample. Make sure to filter out DataValues that do not have a sample (e.g., include only DataValues where ODM1.DataValues.SampleID IS NOT NULL).
-
-1. Set ODM2Core.Actions.ActionID = @MaxActionID + ODM1.DataValues.SampleID
-2. Set ODM2Core.Actions.ActionTypeCV = 'Sample collection'
-3. Set ODM2Core.Actions.MethodID = ODM1.DataValues.MethodID - *this only works for the LBR data because of the way I have specified the ODM1 Method for sample-based data values as a sample collection Method. But, this may not work for all ODM1 databases because other data managers may not have done this*.
-4. Set ODM2Core.Actions.BeginDateTime = ODM1.DataValues.LocalDateTime
-5. Set ODM2Core.Actions.BeginDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-6. Set ODM2Core.Actions.EndDateTime = ODM1.DataValues.LocalDateTime
-7. Set ODM2Core.Actions.EndDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-8. Set ODM2Core.Actions.ActionDescription = 'Sample collection'
-9. Set ODM2Core.Actions.ActionFileLink = NULL
-
-**Populate ODM2Core.ActionBy for "Sample collection" Actions**: Each "Sample collection" action is performed by a person. In ODM1, I only have the person that is affiliated with the Source record. So, I arbitrarily use that person as the "Sample collector".
-
-1. Set ODM2Core.ActionBy.ActionID = @MaxActionID + ODM1.DataValues.SampleID
-2. Set ODM2Core.ActionBy.AffiliationID = ODM1.Sources.SourceID - this works because I used the ODM1 SourceIDs as the OrganizationIDs in ODM2
-3. Set ODM2Core.ActionBy.IsActionLead = 1
-4. Set ODM2Core.ActionBy.RoleDescription = 'Sample collector'
-
-**Populate ODM2Core.FeatureActions for "Sample collection" Actions**: Now I need to add records to the FeatureActions table linking the "Sample collection" Actions to the Specimen SamplingFeatures that were collected.
-
-1. Set ODM2Core.FeatureActions.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
-2. Set ODM2Core.FeatureActions.ActionID = @MaxActionID + ODM1.DataValues.SampleID
-
 #### Sample Analysis Actions
-The "Sample analysis" Actions on the Specimens I just created for my water quality samples are the Actions that create the Measurement Results. So, I need to create a "Sample analysis" Action for each Specimen to link it to its Result. I don't have any information about the dates and times at which the "Sample analysis" Actions occurred and so I am just going to use the dates and times recorded with the DataValues in the ODM1 database.
+The "Sample analysis" Actions on the Specimens I just created for my water quality samples are the Actions that create the Measurement Results. So, I need to create a "Sample analysis" Action for each Specimen to link it to its Result(s). I don't have any information about the dates and times at which the "Sample analysis" Actions occurred, and so I am just going to use the dates and times recorded with the DataValues in the ODM 1.1.1 database.  This may need to be adjusted after the fact.
 
-1. Set ODM2Core.Actions.ActionID = ODM1.Samples.SampleID + @MaxSampleID + @MaxActionID - the @MaxSampleID and @MaxActionID were evaluated before adding either the "Sample collection" or "Sample analysis" actions
-2. Set ODM2Core.Actions.ActionTypeCV = 'Sample analysis'
-3. Set ODM2Core.Actions.MethodID = ODM2.Methods.MethodID - this is the MethodID for the appropriate LabMethod from ODM1, which I have already added to the database
-4. Set ODM2Core.Actions.BeginDateTime = ODM1.DataValues.LocalDateTime
-5. Set ODM2Core.Actions.BeginDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-6. Set ODM2Core.Actions.EndDateTime = ODM1.DataValues.LocalDateTime
-7. Set ODM2Core.Actions.EndDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-8. Set ODM2Core.Actions.ActionDescription = 'Sample laboratory analysis'
-9. Set ODM2Core.Actions.ActionFileLink = NULL
+**Populate ODM2.Actions for "Specimen analysis" Actions**: First I created a temporary table so I could get all of the IDs matched up correctly. The temporary table contains one record per Action/Result that need to get inserted, along with their attributes in a single table that I can select from. Then, I selected from the temporary table to populate the others:
 
-**Populate ODM2Core.ActionBy for "Sample analysis" Actions**: Each "Sample analysis" action is performed by a person. In ODM1, I only have the person that is affiliated with the Source record. So, I arbitrarily use that person as the "Analyst".
+1. Set ODM2.Actions.ActionID = @MaxActionID + the ROW_NUMBER() of the temporary table - starts the ActionIDs to increment from the largest ActionID in the Actions table.
+2. Set ODM2.Actions.ActionTypeCV = 'Specimen analysis'
+3. Set ODM2.Actions.MethodID = ODM2.Methods.MethodID - this is the MethodID for the appropriate LabMethod from ODM 1.1.1, which I have already added to the database
+4. Set ODM2.Actions.BeginDateTime = ODM1.DataValues.LocalDateTime
+5. Set ODM2.Actions.BeginDateTimeUTCOffset = ODM1.DataValues.UTCOffset
+6. Set ODM2.Actions.EndDateTime = ODM1.DataValues.LocalDateTime - assumes the same time for beginning and ending of the Specimen Analysis Action.
+7. Set ODM2.Actions.EndDateTimeUTCOffset = ODM1.DataValues.UTCOffset
+8. Set ODM2.Actions.ActionDescription = 'Specimen laboratory analysis.'
+9. Set ODM2.Actions.ActionFileLink = NULL
 
-1. Set ODM2Core.ActionBy.ActionID = ODM1.Samples.SampleID + @MaxActionID + @SampleCount - @MaxActionID and @SampleCount were evaluated before adding either the "Sample collection" or "Sample analysis" actions
-2. Set ODM2Core.ActionBy.AffiliationID = ODM1.Sources.SourceID - this works because I used the ODM1 SourceIDs as the OrganizationIDs in ODM2
+**Populate ODM2.ActionBy for "Specimen analysis" Actions**: Each "Specimen analysis" action is performed by a person. In ODM 1.1.1, I only have the person that is affiliated with the Source record. So, I arbitrarily use that person as the "Laboratory analyst".
+
+1. Set ODM2Core.ActionBy.ActionID = ODM2.Actions.ActionID - ActionID of the inserted Action 
+2. Set ODM2Core.ActionBy.AffiliationID = ODM1.Sources.SourceID - this works because I used the ODM 1.1.1 SourceIDs as the OrganizationIDs in ODM2
 3. Set ODM2Core.ActionBy.IsActionLead = 1
-4. Set ODM2Core.ActionBy.RoleDescription = 'Analyst'
+4. Set ODM2Core.ActionBy.RoleDescription = 'Laboratory analyst'
 
-**Populate ODM2Core.FeatureActions for "Sample analysis" Actions**: Now I need to add records to the FeatureActions table linking the "Sample analysis" Actions to the Specimen SamplingFeatures that they were performed on. Here I used a table variable to get back the records inserted into FeatureActions, so then I can easily join them to the temporary specimen information table to create the Results in the next step.
+**Populate ODM2.FeatureActions for "Specimen analysis" Actions**: Now I need to add records to the FeatureActions table linking the "Specimen analysis" Actions to the Specimen SamplingFeatures that they were performed on. Here I used a temp table to get back the records inserted into FeatureActions, so then I can easily join them to the temporary Action information table to create the Results in the next step.
 
-1. Set ODM2Core.FeatureActions.SamplingFeatureID = ODM1.Samples.SampleID + @MaxSamplingFeatureID
-2. Set ODM2Core.FeatureActions.ActionID = ODM1.Samples.SampleID + @MaxActionID + @SampleCount - the "Sample analysis" Action
+1. Set ODM2.FeatureActions.SamplingFeatureID = ODM2.SamplingFeatures.SamplingFeatureID - the SamplingFeatureIDs of the inserted Specimen SamplingFeatures
+2. Set ODM2.FeatureActions.ActionID = ODM2.Actions.ActionID - the ActionID of the inserted "Specimen analysis" Actions
 
-#### Results
-For my sample based data, each Result record will detail a "Measurement" Result that has a single ResultValue.  First I had to insert a record for the Measurement ResultType in the ResultTypesCV table.  I used the temporary specimen info table I created and the table variable I created to get the inserted records back from the FeatureActions table to generate all of the Results information.
+#### Populate ODM2.Results
+For my Specimen based data, each Result record will detail a "Measurement" Result that has a single DataValue.  I used the temporary tables I created to generate all of the Results information.
 
-1. Set ODM2Core.Results.ResultID = @MaxResultID + ODM1.DataValues.ValueID
-2. Set ODM2Core.Results.FeatureActionID = ODM2.ODM2Core.FeatureActions.FeatureActionID (these are the records I just inserted above)
-3. Set ODM2Core.Results.ResultTypeCV = 'Measurement'
-4. Set ODM2Core.Results.VariableID = ODM1.DataValues.VariableID - I can do this because I used the ODM1 VariableIDs in ODM2
-5. Set ODM2Core.Results.UnitsID = ODM1.Variables.VariableUnitsID - I can do this because I used the ODM1 UnitsIDs in ODM2
-6. Set ODM2Core.Results.TaxonomicClassifierID = NULL
-7. Set ODM2Core.Results.ProcessingLevelID = 1
-8. Set ODM2Core.Results.ResultDateTime = ODM1.DataValues.LocalDateTime
-9. Set ODM2Core.Results.ResultDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-10. Set ODM2Core.Results.ValidDateTime = NULL
-11. Set ODM2Core.Results.ValidDateTimeUTCOffset = NULL
-12. Set ODM2Core.Results.StatusCV = 'Complete'
-13. Set ODM2Core.Results.SampledMediumCV = ODM1.Variables.SampleMedium
-14. Set ODM2Core.Results.ValueCount = 1
+1. Set ODM2.Results.ResultID = @MaxResultID + ODM1.DataValues.ValueID - this makes sure my ResultIDs are unique
+2. Set ODM2.Results.FeatureActionID = ODM2.ODM2Core.FeatureActions.FeatureActionID - these are the records I just inserted above
+3. Set ODM2.Results.ResultTypeCV = 'Measurement'
+4. Set ODM2.Results.VariableID = ODM1.DataValues.VariableID - I can do this because I used the ODM 1.1.1 VariableIDs in ODM2
+5. Set ODM2.Results.UnitsID = ODM2.Units.UnitsID - I need to match the Units in my ODM2 database with the Units in the ODM 1.1.1 database by UnitsName
+6. Set ODM2.Results.TaxonomicClassifierID = NULL
+7. Set ODM2.Results.ProcessingLevelID = ODM1.DataValues.QualityControlLevelID
+8. Set ODM2.Results.ResultDateTime = ODM1.DataValues.LocalDateTime
+9. Set ODM2.Results.ResultDateTimeUTCOffset = ODM1.DataValues.UTCOffset
+10. Set ODM2.Results.ValidDateTime = NULL
+11. Set ODM2.Results.ValidDateTimeUTCOffset = NULL
+12. Set ODM2.Results.StatusCV = 'Complete'
+13. Set ODM2.Results.SampledMediumCV = ODM1.Variables.SampleMedium
+14. Set ODM2.Results.ValueCount = 1
 
-#### Related Actions ####
-The "Sample collection" Activities are related to the "Sample analysis" Actions and I want to store that relationship. So, I need to relate them in the ODM2Core.RelatedActions table. 
+**NOTE**: Need to make sure that all of the terms in the SampleMedium field in the 
+ODM 1.1.1 Variables table match valid terms from the ODM2 MediumCV.
 
-Note:  @MaxActionID and @SampleCount have to be calculated before either of the "Sample collection" or "Sample analysis" Actions are created in the database.
-
-1. Set ODM2Core.RelatedActions.ActionID = ODM1.Samples.SampleID + @MaxActionID - the "Sample collection" Action
-2. Set ODM2Core.RelatedActions.RelationshipTypeCV = 'isSampleCollectionFor' - *this is supposed to be a CV, but I just made it up for now. The term I used asserts that the Action recorded by ActionID (the "Sample collection" Action) **isSampleCollectionFor** the Action recorded in RelatedActionID (the "Sample analysis" Action).
-3. Set ODM2Core.RelatedActions.RelatedActionID = ODM1.Samples.SampleID + @MaxActionID + @SampleCount - the "Sample analysis" Action
-
-#### MeasurementResults for Sample-based Results
+#### MeasurementResults for Specimen-based Results
 Add the records for each Measurement Result to the MeasurementResults table.
 
-1. Set ODM2Results.MeasurementResults.ResultID = @MaxResultID + ODM1.DataValues.ValueID
-2. Set ODM2Results.MeasurementResults.XLocation = NULL
-3. Set ODM2Results.MeasurementResults.XLocationUnitsID = NULL
-4. Set ODM2Results.MeasurementResults.YLocation = NULL
-5. Set ODM2Results.MeasurementResults.YLocationUnitsID = NULL
-6. Set ODM2Results.MeasurementResults.ZLocation = ODM1.DataValues.OffsetValue
-7. Set ODM2Results.MeasurementResults.ZLocationUnitsID = ODM1.OffsetTypes.OffsetUnitsID
-8. Set ODM2Results.MeasurementResults.SpatialReferenceID = ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID - Here I have to get the SpatialReferenceID for the ODM1 OffsetTypes that I added to ODM2 as SpatialReferences
-9. Set ODM2Results.MeasurementResults.CensorCodeCV = ODM1.DataValues.CensorCode
-10. Set ODM2Results.MeasurementResults.QualityCodeCV = NULL
-11. Set ODM2Results.MeasurementResults.AggregationStatisticCV = ODM1.Variables.DataType
-12. Set ODM2Results.MeasurementResults.TimeAggregationInterval = ODM1.SeriesCatalog.TimeSupport
-13. Set ODM2Results.MeasurementResults.TimeAggregationIntervalUnitsID = ODM1.SeriesCatalog.TimeUnitsName
+1. Set ODM2.MeasurementResults.ResultID = @MaxResultID + ODM1.DataValues.ValueID - same as Results.ResultID
+2. Set ODM2.MeasurementResults.XLocation = NULL
+3. Set ODM2.MeasurementResults.XLocationUnitsID = NULL
+4. Set ODM2.MeasurementResults.YLocation = NULL
+5. Set ODM2.MeasurementResults.YLocationUnitsID = NULL
+6. Set ODM2.MeasurementResults.ZLocation = ODM1.DataValues.OffsetValue
+7. Set ODM2.MeasurementResults.ZLocationUnitsID = ODM2.Units.UnitsID - had to match up with ODM1.OffsetTypes.OffsetUnitsID bu matching UnitsName
+8. Set ODM2.MeasurementResults.SpatialReferenceID = ODM2.SpatialReferences.SpatialReferenceID - Here I have to get the SpatialReferenceID for the ODM 1.1.1 OffsetTypes that I added to ODM2 as SpatialReferences
+9. Set ODM2.MeasurementResults.CensorCodeCV = ODM1.DataValues.CensorCode
+10. Set ODM2.MeasurementResults.QualityCodeCV = NULL
+11. Set ODM2.MeasurementResults.AggregationStatisticCV = ODM1.Variables.DataType
+12. Set ODM2.MeasurementResults.TimeAggregationInterval = ODM1.SeriesCatalog.TimeSupport
+13. Set ODM2.MeasurementResults.TimeAggregationIntervalUnitsID = ODM2.Units.UnitsID - had to match up with ODM1.SeriesCatalog.TimeUnitsName
 
-**NOTE**: I handled the ODM1 Offset the same as for TimeSeries Results.  See the notes above about potential problems.
+**NOTE**: I handled the ODM 1.1.1 Offset the same as for TimeSeries Results.  See the notes above about potential problems.
+**NOTE**: Need to make sure that any terms in the CensorCode field of the ODM1.DataValues table match valid terms from the ODM2 CensorCodeCV.
+**NOTE**: Need to make sure that any terms in the DataType field of the ODM1.Variables table match valid terms from the ODM2 AggregationStatisticCV.
 
-#### MeasurementResultValues for Sample-based Results ####
-Add the DataValues from the Sample-based data in ODM1 to ODM2 as ResultValues.
+#### MeasurementResultValues for Specimen-based Results ####
+Add the DataValues from the Specimen-based data in ODM 1.1.1 to ODM2 as ResultValues.
 
 1. Set ODM2Results.MeasurementResultValues.ValueID = ODM1.DataValues.ValueID
-2. Set ODM2Results.MeasurementResultValues.ResultID = @MaxResultID + ODM1.DataValues.ValueID
+2. Set ODM2Results.MeasurementResultValues.ResultID = @MaxResultID + ODM1.DataValues.ValueID - same as above
 3. Set ODM2Results.ResultValues.DataValue = ODM1.DataValues.DataValue
 4. Set ODM2Results.ResultValues.ValueDateTime = ODM1.DataValues.LocalDateTime
 5. Set ODM2Results.ResultValues.ValueDateTimeUTCOffset = ODM1.DataValues.UTCOffset
 
-#### Annotations for ResultValues ####
-I need to add the DataValue Qualifiers from ODM1 to ODM2. DataValue Qualifiers were the only types of Annotations supported by ODM1.
+## Implementation Notes for Annotations ##
 
-Adding records to the **ODM2Annotations.Annotations** table:
+### Annotations for ResultValues ###
+I need to add the DataValue Qualifiers from ODM 1.1.1 to ODM2. DataValue Qualifiers were the only types of Annotations supported by ODM 1.1.1.
 
-1. Set ODM2Annotations.Annotations.AnnotationID = ODM1.Qualifiers.QualifierID - I can do this because DataValue Qualifiers are the only Annotations in ODM1
-2. Set ODM2Annotations.Annotations.AnnotationTypeCV = 'Data Value Qualifier' - this needs to eventually conform to a CV
-3. Set ODM2Annotations.Annotations.AnnotationCode = ODM1.Qualifiers.QualifierCode
-4. Set ODM2Annotations.Annotations.AnnotationText = ODM1.Qualifiers.QualifierDescription - had to truncate this to 500 characters to match ODM2 schema. ODM1 allowed more characters.
-5. Set ODM2Annotations.Annotations.AnnotationDateTime = NULL - I really don't know anything about when these annotations were applied
-6. Set ODM2Annotations.Annotations.AnnotationUTCOffset = NULL
-7. Set ODM2Annotations.Annotations.AnnotatorID = NULL
+#### Populate ODM2.Annotations for MeasurementResultValueAnnotations and TimeSeriesResultValueAnnotations ####
+I had to run the basically the same query twice, but first for DataValues that have SampleIDs associated with them (which would be MeasurementResultValueAnnotations) and then DataValues that don't have SampleIDs associated with them (which would be TimeSeriesResultValueAnnotations)
 
-Adding records to the **ODM2Annotations.TimeSeriesResultValueAnnotations** table:
+1. Set ODM2.Annotations.AnnotationID = ODM1.Qualifiers.QualifierID - I can do this because DataValue Qualifiers are the only Annotations in ODM1
+2. Set ODM2.Annotations.AnnotationTypeCV = 'Measurement result value annotation' OR 'Time series result value annotation'
+3. Set ODM2.Annotations.AnnotationCode = ODM1.Qualifiers.QualifierCode
+4. Set ODM2.Annotations.AnnotationText = ODM1.Qualifiers.QualifierDescription - had to truncate this to 500 characters to match ODM2 schema. ODM 1.1.1 allowed more characters.
+5. Set ODM2.Annotations.AnnotationDateTime = NULL - I really don't know anything about when these annotations were applied
+6. Set ODM2.Annotations.AnnotationUTCOffset = NULL
+7. Set ODM2.Annotations.AnnotatorID = NULL
 
-1. Set ODM2Annotations.TimeSeriesResultValueAnnotations.ValueID = ODM1.DataValues.ValueID - I can do this because I preserved the ValueIDs when I moved the data across
-2. Set ODM2Annotations.TimeSeriesResultValueAnnotations.AnnotationID = ODM1.DataValues.QualifierID - I can do this because I used the QualifierIDs from ODM1 as the AnnotationIDs in ODM2
+#### Populate ODM2.TimeSeriesResultValueAnnotations ####
 
-Adding records to the **ODM2Annotations.MeasurementResultValueAnnotations** table:
+1. Set ODM2.TimeSeriesResultValueAnnotations.ValueID = ODM1.DataValues.ValueID - I can do this because I preserved the ValueIDs when I moved the data across
+2. Set ODM2.TimeSeriesResultValueAnnotations.AnnotationID = ODM1.DataValues.QualifierID - I can do this because I used the QualifierIDs from ODM 1.1.1 as the AnnotationIDs in ODM2
 
-1. Set ODM2Annotations.MeasurementResultValueAnnotations.ValueID = ODM1.DataValues.ValueID - I can do this because I preserved the ValueIDs when I moved the data across
-2. Set ODM2Annotations.MeasurementResultValueAnnotations.AnnotationID = ODM1.DataValues.QualifierID - I can do this because I used the QualifierIDs from ODM1 as the AnnotationIDs in ODM2
+#### Populate ODM2.MeasurementResultValueAnnotations ####
 
-**(0 Records added to ODM2Annotations.MeasurementResultValueAnnotations)**
-
-## TODO: ##
-1.  Modify some fields that should conform to CVs to use accepted CV values.
+1. Set ODM2.MeasurementResultValueAnnotations.ValueID = ODM1.DataValues.ValueID - I can do this because I preserved the ValueIDs when I moved the data across
+2. Set ODM2.MeasurementResultValueAnnotations.AnnotationID = ODM1.DataValues.QualifierID - I can do this because I used the QualifierIDs from ODM1 as the AnnotationIDs in ODM2
 
 
 

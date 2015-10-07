@@ -630,6 +630,8 @@ FROM #tempActionInfo;
 --2.  The ResultDateTime will be set to the LocalDateTime in the ODM 1.1.1
 --    DataValues table.
 --3.  Set Status = "Complete" for now 
+--4.  Need to make sure that all of the terms in the SampleMedium field in the 
+--    ODM 1.1.1 Variables table match valid terms from the ODM2 MediumCV
 -------------------------------------------------------------------------------
 SET IDENTITY_INSERT ODM2.ODM2.Results ON;
 INSERT INTO ODM2.ODM2.Results (ResultID, FeatureActionID, ResultTypeCV, 
