@@ -1,7 +1,7 @@
 ODM2 Data Use Case:  Little Bear River
 ======================================
 
-The Little Bear River data are currently stored in a CUAHSI Hydrologic Information System (HIS) ODM Version 1.1.1 database in Microsoft SQL Server. The data consist of time series of hydrologic observations collected at aquatic and weather monitoring sites in the Little Bear River of Northern Utah, USA. Also included are water quality samples collected in the Little Bear River and analyzed for constituents such as sediment and nutrient concentrations.
+The Little Bear River data are currently stored in a CUAHSI Hydrologic Information System (HIS) ODM Version 1.1.1 database in Microsoft SQL Server. The data consist of time series of hydrologic observations collected at aquatic and weather monitoring sites in the Little Bear River of Northern Utah, USA. Also included are water quality samples collected in the Little Bear River and analyzed for constituents such as suspended sediment and nutrient concentrations.
 
 [Documentation for ODM 1.1.1](http://hydroserver.codeplex.com/wikipage?title=Observations%20Data%20Model&referringTitle=Documentation) is available online. More information about the Little Bear River data is available [here](http://littlebearriver.usu.edu). This implementation exercise is development of a script to map and copy the Little Bear River data from an ODM 1.1.1 database to to an ODM2 database.
 
@@ -15,84 +15,86 @@ The following ODM2 schemas are required for the Little Bear River data use case:
 4. ODM2Annotations
 5. ODMCV
 
-Eventually I could add the ODM2Equipment and ODM2DataQuality schemas because I have all of the information needed, there was just no place for it in my ODM1 database.  For now, I have focused on moving what is already in my ODM 1.1.1 database into an ODM2 database.
+Eventually I could add the ODM2Equipment and ODM2DataQuality schemas because I have all of the information needed, there was just no place for it in my ODM 1.1.1 database.  For now, I have focused on moving what is already in my ODM 1.1.1 database into an ODM2 database.
 
 ## Implementation Notes for Sensor-Based Data ##
 
 #### SpatialReferences
-SpatialReferences in ODM2 are mostly the same as in ODM1 except that they are not treated as a Controlled Vocabulary.  So, I basically copied them straight across.
+SpatialReferences in ODM2 are mostly the same as in ODM 1.1.1 except that they are not treated as a Controlled Vocabulary.  So, I basically copied them straight across.
 
-1. Set ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID = ODM1.SpatialReferences.SpatialReferenceID
-2. Set ODM2SamplingFeatures.SpatialReferences.SRSID = "CUAHSI:" & ODM1.SpatialReferences.SRSID - had to concatenate the CUAHSI string and cast this to VARCHAR(50) to be consistent with ODM2
-3. Set ODM2SamplingFeatures.SpatialReferences.SRSName = ODM1.SpatialReferences.SRSName
-4. Set ODM2SamplingFeatures.SpatialReferences.SRSDescription = ODM1.SpatialReferences.Notes - had to cast this to VARCHAR(500) to be consistent with ODM2, which might truncate some information
-5. Set ODM2SamplingFeatures.SpatialReferences.SRSLink = "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=SpatialReferences"
+1. Set ODM2.SamplingFeatures.SpatialReferences.SpatialReferenceID = ODM1.SpatialReferences.SpatialReferenceID
+2. Set ODM2.SamplingFeatures.SpatialReferences.SRSID = "CUAHSI:" & ODM1.SpatialReferences.SRSID - had to concatenate the CUAHSI string and cast this to VARCHAR(50) to be consistent with ODM2
+3. Set ODM2.SamplingFeatures.SpatialReferences.SRSName = ODM1.SpatialReferences.SRSName
+4. Set ODM2.SamplingFeatures.SpatialReferences.SRSDescription = ODM1.SpatialReferences.Notes - had to cast this to VARCHAR(500) to be consistent with ODM2, which might truncate some information
+5. Set ODM2.SpatialReferences.SRSLink = "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=SpatialReferences"
 
-But, I also need to create a SpatialReference record for each OffsetType in the ODM1 database so I can use it in ODM2 to define how the offsets are being used.
+But, I also need to create a SpatialReference record for each OffsetType in the ODM 1.1.1 database so I can use it in ODM2 to define how the offsets are being used.
 
-1. Set ODM2SamplingFeatures.SpatialReferences.SRSName = ODM1.OffsetTypes.OffsetDescription
+1. Set ODM2.SpatialReferences.SRSName = ODM1.OffsetTypes.OffsetDescription
 
 #### SamplingFeatures and Sites
-Sites in ODM2 are essentially the same as in ODM1 except that both Sites and SamplingFeatures tables have to be populated and the Site information is split between the two tables. I first have to set the default value of the SamplingFeatureUUID field in the ODM2Core.SamplingFeatures table to be a NEWSEQUENTIALID(). 
+Sites in ODM2 are essentially the same as in ODM 1.1.1 except that both Sites and SamplingFeatures tables have to be populated and the Site information is split between the two tables. I first have to set the default value of the SamplingFeatureUUID field in the ODM2Core.SamplingFeatures table to be a NEWSEQUENTIALID(). 
 
-Adding records to **ODM2Core.SamplingFeatures**:
+Adding records to **ODM2.SamplingFeatures**:
 
-1. Set ODM2Core.SamplingFeatures.SamplingFeatureID = ODM1.Sites.SiteID
-2. ODM2Core.SamplingFeatures.SamplingFeatureUUID = NEWSEQUENTIALID() - this is a SQL Server Function to generate a GUID, and I did this by setting the default value of the Attribute rather than creating a GUID on the fly (i.e., SQL Server generates the GUIDS for me)
-3. Set ODM2Core.SamplingFeatures.SamplingFeatureTypeCV = 'Site'
-4. Set ODM2Core.SamplingFeatures.SamplingFeatureCode = ODM1.Sites.SiteCode
-5. Set ODM2Core.SamplingFeatures.SamplingFeatureName = ODM1.Sites.SiteName
-6. Set ODM2Core.SamplingFeatures.SamplingFeatureDescription =  ODM1.Sites.Comments
-7. Set ODM2Core.SamplingFeatures.SamplingFeatureGeoTypeCV = 'Point'
-8. Set ODM2Core.SamplingFeatures.FeatureGeometry = geometry::Point(ODM1.Sites.Longitude, ODM1.Sites.Latitude, ODM1.SpatialReferences.SRSID) 
-9. Set ODM2Core.SamplingFeatures.Elevation_m = ODM1.Sites.Elevation_m
-10. Set ODM2Core.SamplingFeautres.ElevationDatumCV = ODM1.Sites.VerticalDatum
+1. Set ODM2.SamplingFeatures.SamplingFeatureID = ODM1.Sites.SiteID
+2. ODM2Core.SamplingFeatures.SamplingFeatureUUID = NEWSEQUENTIALID() - this is a SQL Server Function to generate a UUID, and I did this by setting the default value of the Attribute rather than creating a UUID on the fly (i.e., SQL Server generates the UUIDS for me)
+3. Set ODM2.SamplingFeatures.SamplingFeatureTypeCV = 'Site'
+4. Set ODM2.SamplingFeatures.SamplingFeatureCode = ODM1.Sites.SiteCode
+5. Set ODM2.SamplingFeatures.SamplingFeatureName = ODM1.Sites.SiteName
+6. Set ODM2.SamplingFeatures.SamplingFeatureDescription =  ODM1.Sites.Comments
+7. Set ODM2.SamplingFeatures.SamplingFeatureGeoTypeCV = 'Point'
+8. Set ODM2.SamplingFeatures.FeatureGeometry = geometry::Point(ODM1.Sites.Longitude, ODM1.Sites.Latitude, ODM1.SpatialReferences.SRSID) - this is a function that creates the geometry from point coordinates
+9. Set ODM2.SamplingFeatures.Elevation_m = ODM1.Sites.Elevation_m
+10. Set ODM2.SamplingFeautres.ElevationDatumCV = ODM1.Sites.VerticalDatum
 
-Adding records to **ODM2SamplingFeatures.Sites**: Some of the ODM1 Site attributes don't get copied across because they are no longer part of the Core (e.g., LocalX, LocalY, LocalProjectionID, PosAccuracy_m, State, County, Comments)
+Adding records to **ODM2SamplingFeatures.Sites**: Some of the ODM 1.1.1 Site attributes don't get copied across because they are no longer part of the ODM2 Core schema (e.g., LocalX, LocalY, LocalProjectionID, PosAccuracy_m, State, County, Comments)
 
-1. Set ODM2SamplingFeatures.Sites.SamplingFeautureID = ODM1.Sites.SiteID
-2. Set ODM2SamplingFeatures.Sites.SiteTypeCV = ODM1.Sites.SiteType
-3. Set ODM2SamplingFeatures.Sites.Latitude = ODM1.Sites.Latitude
-4. Set ODM2SamplingFeatures.Sites.Longitude = ODM1.Sites.Longitude
-5. Set ODM2SamplingFeatures.Sites.SpatialReferenceID = ODM1.Sites.LatLongDatumeID - I can do this because I moved all of the SpatialReferences from ODM1 and preserved the SpatialReferenceIDs
+1. Set ODM2.Sites.SamplingFeatureID = ODM1.Sites.SiteID
+2. Set ODM2.Sites.SiteTypeCV = ODM1.Sites.SiteType
+3. Set ODM2.Sites.Latitude = ODM1.Sites.Latitude
+4. Set ODM2.Sites.Longitude = ODM1.Sites.Longitude
+5. Set ODM2.Sites.SpatialReferenceID = ODM1.Sites.LatLongDatumID - I can do this because I moved all of the SpatialReferences from ODM1 and preserved the SpatialReferenceIDs
 
 #### Units
-Units are the same in ODM1 an ODM2 except that they are not treated as a controlled vocabulary in ODM2.  The only change is the order in which the attributes appear in the table and ODM1.Units.UnitsType = ODM2.Units.UnitsTypeCV.  Copied Units straight across from ODM1, preserving the UnitsIDs.
+Units are the same in ODM1 an ODM2 except that they are not treated as a controlled vocabulary in ODM2.  However, there will still be a list of Units for upload to an ODM2 database and so any Units that are in an ODM 1.1.1 database need to be matched to whatever is in the ODM2 database by using the UnitsName. For now, I copied the Units straight across from my ODM 1.1.1 database, preserving the UnitsIDs.
 
-**TODO**:  This is where I'm stuck.  I need to get the UnitsTypeCV finished before I can move on.
+**TODO**:  Modify the code of the script to accomodate a pre-generated list of Units uploaded to an ODM2 database.
 
-1. Set ODM2Core.Units.UnitsID = ODM1.Units.UnitsID
-2. Set ODM2Core.Units.UnitsTypeCV = ODM1.Units.UnitsType
-3. Set ODM2Core.Units.UnitsAbbreviation = ODM1.Units.UnitsAbbreviation
-4. Set ODM2Core.Units.UnitsName = ODM1.Units.UnitsName
-5. Set ODM2Core.Units.UnitsLink = 'http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units'
+1. Set ODM2.Units.UnitsID = ODM1.Units.UnitsID
+2. Set ODM2.Units.UnitsTypeCV = ODM1.Units.UnitsType
+3. Set ODM2.Units.UnitsAbbreviation = ODM1.Units.UnitsAbbreviation
+4. Set ODM2.Units.UnitsName = ODM1.Units.UnitsName
+5. Set ODM2.Units.UnitsLink = 'http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units'
+
+**NOTE**:  Had to ensure that UnitsType terms used in the ODM 1.1.1 Units table matched valid terms from the ODM2 UnitsTypeCV.
 
 #### ProcessingLevels
-ProcessingLevels in ODM2 are the same as QualityControlLevels in ODM1. I copied QualityControlLevels straight across from ODM1, preserving the QualityControlLevelIDs.
+ProcessingLevels in ODM2 are the same as QualityControlLevels in ODM 1.1.1. I copied QualityControlLevels straight across from ODM 1.1.1, preserving the QualityControlLevelIDs.
 
-1. Set ODM2Core.ProcessingLevels.ProcessingLevelID = ODM1.QualityControlLevels.QualityControlLevelID
-2. Set ODM2Core.ProcessingLevels.ProcessingLevelCode = ODM1.QualityControlLevels.QualityControlLevelCode
-3. Set ODM2Core.ProcessingLevels.Definition = ODM1.QualityControlLevels.Definition
-4. Set ODM2Core.ProcessingLevels.Explanation = ODM1.QualityControlLevels.Explanation
+1. Set ODM2.ProcessingLevels.ProcessingLevelID = ODM1.QualityControlLevels.QualityControlLevelID
+2. Set ODM2.ProcessingLevels.ProcessingLevelCode = ODM1.QualityControlLevels.QualityControlLevelCode
+3. Set ODM2.ProcessingLevels.Definition = ODM1.QualityControlLevels.Definition
+4. Set ODM2.ProcessingLevels.Explanation = ODM1.QualityControlLevels.Explanation
 
 #### Variables
 Variables in ODM2 have fewer attributes because some of the information has been moved to the Result (e.g., Units). Additionally, the CV fields in ODM2.Variables are named with a "CV" at the end.
 
-1. Set ODM2Core.Variables.VariableID = ODM1.Variables.VariableID 
-2. Set ODM2Core.Variables.VariableTypeCV = 'Unknown' - It's required, but doesn't exist in ODM 1.1, so set to "Unknown" (see note below)
-3. Set ODM2Core.Variables.VariableCode = ODM1.Variables.VariableCode
-4. Set ODM2Core.Variables.VaribleNameCV = ODM1.Variables.VariableName
-5. Set ODM2Core.Variables.VariableDefinition = "NULL" - does not exist in ODM 1.1 and not required
-6. Set ODM2Core.Variables.SpeciationCV = ODM1.Variables.Speciation
-7. Set ODM2Core.Variables.NoDataValue = ODM1.Variables.NoDataValue
+1. Set ODM2.Variables.VariableID = ODM1.Variables.VariableID 
+2. Set ODM2.Variables.VariableTypeCV = 'Unknown' - It's required, but doesn't exist in ODM 1.1, so set to "Unknown" (see note below)
+3. Set ODM2.Variables.VariableCode = ODM1.Variables.VariableCode
+4. Set ODM2.Variables.VaribleNameCV = ODM1.Variables.VariableName
+5. Set ODM2.Variables.VariableDefinition = "NULL" - does not exist in ODM 1.1 and not required
+6. Set ODM2.Variables.SpeciationCV = ODM1.Variables.Speciation
+7. Set ODM2.Variables.NoDataValue = ODM1.Variables.NoDataValue
 
-**NOTE**:  ValueType from ODM1 is not currently mapped to ODM2.  This is most closely related to MethodTypeCV in the ODM2.Methods table, but not exactly the same.  Also, could be related to VariableTypeCV?
+**NOTE**:  ValueType from ODM 1.1.1 is not currently mapped to ODM2.  This is most closely related to MethodTypeCV in the ODM2.Methods table, but not exactly the same.  Also, could be related to VariableTypeCV?
 **NOTE**:  DataType is mapped to AggregationStatistic in ODM2.
 
 #### Methods
-Methods in ODM2 have more attributes than Methods in ODM1. But, Methods can essentially be copied straight across using the same IDs.
+Methods in ODM2 have more attributes than Methods in ODM 1.1.1. But, Methods can essentially be copied straight across using the same MethodIDs.
 
-1. Set ODM2Core.Methods.MethodID = ODM1.Methods.MethodID 
+1. Set ODM2.Methods.MethodID = ODM1.Methods.MethodID 
 2. Set ODM2.Methods.MethodTypeCV = 'Unknown' - this is required, but I have no way of getting this from ODM1 because there is no MethodType in ODM1.  So, I set this to 'Unknown' since it has to have a value.  This is related to the ValueType CV from ODM 1.1.1, but not exactly the same.
 3. Set ODM2.Methods.MethodCode = ODM1.Methods.MethodID - MethodCode is required, but doesn't exist in ODM1, so I used the MethodID
 4. Set ODM2.Methods.MethodName = ODM1.Methods.MethodDescription - there is no MethodName in ODM1, so I just used the MethodDescription
@@ -101,70 +103,70 @@ Methods in ODM2 have more attributes than Methods in ODM1. But, Methods can esse
 7. Set ODM2.Methods.OrganizationID = NULL - ODM1 doesn't have the capability to link Methods to Organizations, so this has to be NULL
 
 #### Organizations
-Organizations in ODM2 roughly map to Sources in ODM1. However, the attributes aren't quite the same. Created an Organization in ODM2 for each record in the ODM1.Sources table.
+Organizations in ODM2 roughly map to Sources in ODM1. However, the attributes aren't quite the same. I created an Organization in ODM2 for each record in the ODM1.Sources table.
 
-1. Set ODM2Core.Organizations.OrganizationID = ODM1.Sources.SourceID 
-2. Set ODM2Core.Organizations.OrganizationTypeCV = 'Research Institute' - *this may not be quite right, and may even be wrong for many types of Sources that people have used in ODM1 databases*, but it doesn't exist in ODM 1.1, so this is set as the default value
-3. Set ODM2Core.Organizations.OrganizationCode = ODM1.Sources.SourceID - there is no OrganizationCode in ODM1, so I just used the SourceID as the OrganizationCode.
-4. Set ODM2Core.Organization.OrganizationName = ODM1.Sources.Organization
-5. Set ODM2Core.Organization.OrganizationDescription = ODM1.Sources.SourceDescription - had to cast this to VARCHAR(500) to fit ODM2, so some information may be truncated
-6. Set ODM2Core.Organization.OrganizationLink = ODM1.Sources.SourceLink
-7. Set ODM2Core.Organization.ParentOrganizationID = NULL - this attribute doesn't exist in ODM1 and so there's nothing for me to move across
+1. Set ODM2.Organizations.OrganizationID = ODM1.Sources.SourceID 
+2. Set ODM2.Organizations.OrganizationTypeCV = 'Research institute' - *this may not be quite right, and may even be wrong for many types of Sources that people have used in ODM1 databases*, but it doesn't exist in ODM 1.1, so this is set as the default value
+3. Set ODM2.Organizations.OrganizationCode = ODM1.Sources.SourceID - there is no OrganizationCode in ODM1, so I just used the SourceID as the OrganizationCode.
+4. Set ODM2.Organization.OrganizationName = ODM1.Sources.Organization
+5. Set ODM2.Organization.OrganizationDescription = ODM1.Sources.SourceDescription - had to cast this to VARCHAR(500) to fit ODM2, so some information may be truncated
+6. Set ODM2.Organization.OrganizationLink = ODM1.Sources.SourceLink
+7. Set ODM2.Organization.ParentOrganizationID = NULL - this attribute doesn't exist in ODM1 and so there's nothing for me to move across
 
 Adding records to the **Organizations** table for ODM1 analytical labs: In ODM1, there is also a LabMethods table that is linked to Samples. This is where laboratory analytical methods used to analyze samples are stored. In ODM2 we have generalized Methods and so I need to add the LabMethods from ODM1 to the Methods table in ODM2.  Additionally, LabMethods in ODM1 do have Organization information associated with them and so I need to create appropriate Organization records in ODM2 and associate them with the ODM1.LabMethods that I add to the ODM2.Methods table.
 
 First, I created the ODM2 Organizations for the ODM1 analytical labs:
 
-1. Set ODM2.Organizations.OrganizationTypeCV = 'Analytical Laboratory'
-2. Set ODM2.Organizations.OrganizationCode = ODM1.LabMethods.LabName - there is no OrganizationCode in ODM1, so just used the LabName
+1. Set ODM2.Organizations.OrganizationTypeCV = 'Analytical laboratory'
+2. Set ODM2.Organizations.OrganizationCode = ODM1.LabMethods.LabName - there is no OrganizationCode in ODM 1.1.1, so just used the LabName
 3. Set ODM2.Organizations.OrganizationName = ODM1.LabMethods.LabName
 4. Set ODM2.Organizations.OrganizationDescription = ODM1.LabMethods.LabOrganization
-5. Set ODM2.Organizations.OrganizationLink = NULL - doesn't exist for analytical labs in ODM1
-6. Set ODM2.Organizations.ParentOrganizationID = NULL - doesn't exist in ODM1
+5. Set ODM2.Organizations.OrganizationLink = NULL - doesn't exist for analytical labs in ODM 1.1.1
+6. Set ODM2.Organizations.ParentOrganizationID = NULL - doesn't exist in ODM 1.1.1
 
-Then, I added the ODM1 LabMethods to the ODM2 Methods table:
+Then, I added the ODM 1.1.1 LabMethods to the ODM2 Methods table:
 
-1. Set ODM2.Methods.MethodID = ODM1.LabMethods.LabMethodID + @MaxMethodID + 1 - I started with the maximum MethodID that was already in the ODM2.Methods table and then added it to the LabMethodID from ODM1 and added 1 (because there is a LabMethodID of 0 in ODM1 for 'Unknown')
-2. Set ODM2.Methods.MethodTypeCV = 'Laboratory Analytical Method'
-3. Set ODM2.Methods.MethodCode = ODM1.LabMethods.LabMethodID + @MaxMethodID + 1 - MethodCode doesn't exist in ODM1, so I just set the MethodCode = ID
+1. Set ODM2.Methods.MethodID = ODM1.LabMethods.LabMethodID + @MaxMethodID + 1 - I started with the maximum MethodID that was already in the ODM2.Methods table and then added it to the LabMethodID from ODM 1.1.1 and added 1 (because there is a LabMethodID of 0 in ODM 1.1.1 for 'Unknown')
+2. Set ODM2.Methods.MethodTypeCV = 'Specimen analysis'
+3. Set ODM2.Methods.MethodCode = ODM1.LabMethods.LabMethodID + @MaxMethodID + 1 - MethodCode doesn't exist in ODM1, so I just set the MethodCode = MethodID
 4. Set ODM2.Methods.MethodName = ODM1.LabMethods.LabMethodName
 5. Set ODM2.Methods.MethodDescription = ODM1.LabMethods.LabMethodDescription
 6. Set ODM2.Methods.MethodLink = ODM1.LabMethods.LabMethodLink
 7. Set ODM2.Methods.OrganizationID = ODM2.Organizations.OrganizationID - used the OrganizationIDs for the Analytical Laboratory Organizations that I just created.
 
 #### People
-There is no separate People table in ODM1. However, there is a contact person for each organization in the ODM1.Sources table. So, I created a record in the ODM2.People table for each person in the ODM1.Sources table. *I used a substring function that splits the person's name into first and last.  This may not work for all names - especially in cases where someone has input a middle name or initial*.  The mapping may be imperfect for some ODM1 databases.
+There is no separate People table in ODM 1.1.1. However, there is a contact person for each organization in the ODM1.Sources table. So, I created a record in the ODM2.People table for each person in the ODM1.Sources table. *I used a substring function that splits the person's name into first and last.  This may not work for all names - especially in cases where someone has input a middle name or initial*.  The mapping may be imperfect for some ODM1 databases.
 
-1. Set ODM2Core.People.PersonFirstName = CAST(SUBSTRING(ODM1.Sources.ContactName, 1, CHARINDEX(' ', ODM1.Sources.ContactName) - 1) AS VARCHAR(255))
-2. Set ODM2Core.People.PersonLastName = CAST(SUBSTRING(ODM1.Sources.ContactName, CHARINDEX(' ', ODM1.Sources.ContactName) + 1, 8000) AS VARCHAR(255))
+1. Set ODM2.People.PersonFirstName = CAST(SUBSTRING(ODM1.Sources.ContactName, 1, CHARINDEX(' ', ODM1.Sources.ContactName) - 1) AS VARCHAR(255))
+2. Set ODM2.People.PersonLastName = CAST(SUBSTRING(ODM1.Sources.ContactName, CHARINDEX(' ', ODM1.Sources.ContactName) + 1, 8000) AS VARCHAR(255))
 
 #### Affiliations
-There is no Affiliations entity in ODM1. So, I just mapped the PersonIDs to the Organizations from which they came in the ODM1 database.
+There is no Affiliations entity in ODM 1.1.1. So, I just mapped the PersonIDs to the Organizations from which they came in the ODM 1.1.1 database.
 
-1. Set ODM2Core.Affiliations.PersonID = ODM2Core.People.PersonID 
-2. Set ODM2Core.Affiliations.OrganizationID = ODM1.Sources.SourceID
-3. Set ODM2Core.Affiliations.IsPrimaryOrganizationContact = 1 - this is essentially what inclusion of this person in the the ODM1 Sources table meant.
-4. Set ODM2Core.Affiliations.AffiliationStartDate = the current system date. *This is required and ODM1 does not have this information. So, it is set to the current system date.* 
-5. Set ODM2Core.Affiliations.AffiliationEndDate = NULL - *ODM1 does not have thins information, but it's nullable*
-6. Set ODM2Core.Affiliations.PrimaryPhone = ODM1.Sources.Phone
-7. Set ODM2Core.Affiliations.PrimaryEmail = ODM1.Sources.Email
-8. Set ODM2Core.Affiliations.PrimaryAddress = ODM1.Sources.Address + ODM1.Sources.City + ODM1.Sources.State + ODM1.Sources.State + ODM1.Sources.Zipcode
-9. Set ODM2Core.Affiliations.PersonLink - NULL - doesn't exist in ODM1 so set to NULL.
+1. Set ODM2.Affiliations.PersonID = ODM2.People.PersonID 
+2. Set ODM2.Affiliations.OrganizationID = ODM1.Sources.SourceID
+3. Set ODM2.Affiliations.IsPrimaryOrganizationContact = 1 - this is essentially what inclusion of this person in the the ODM 1.1.1 Sources table meant.
+4. Set ODM2.Affiliations.AffiliationStartDate = the current system date. *This is required and ODM1 does not have this information. So, it is set to the current system date.* 
+5. Set ODM2.Affiliations.AffiliationEndDate = NULL - *ODM1 does not have thins information, but it's nullable*
+6. Set ODM2.Affiliations.PrimaryPhone = ODM1.Sources.Phone
+7. Set ODM2.Affiliations.PrimaryEmail = ODM1.Sources.Email
+8. Set ODM2.Affiliations.PrimaryAddress = ODM1.Sources.Address + ODM1.Sources.City + ODM1.Sources.State + ODM1.Sources.State + ODM1.Sources.Zipcode
+9. Set ODM2.Affiliations.PersonLink - NULL - doesn't exist in ODM 1.1.1 so set to NULL.
 
 #### Actions for Sensor-Based Data 
-Since I am not dealing with any of my equipment or field visit data yet, I am just going to add an "Observation Action" for each of the sensor-based time series in my ODM1 database. This could be a little problematic in the future as I really want my "Deployment Actions" associated with the Results, but for now I'm not going to do this. Since there is a 1:1 correspondence between Actions and Results for my sensor-based data, I can use the SeriesIDs from the ODM1.SeriesCatalog table for both ActionIDs and ResultIDs in my ODM2 database. But, I first have to filter out any time series in the ODM1 SeriesCatalog table that are for sample based data (e.g., they have values with a SampleID that is not NULL).
+Since I am not dealing with any of my equipment or field visit data yet, I am just going to add an "Observation" Action for each of the sensor-based time series in my ODM 1.1.1 database. This could be a little problematic in the future as I really want my "Instrument deployment" Actions associated with the Results, but for now I'm not going to do this. Since there is a 1:1 correspondence between Actions and Results for my sensor-based data, I can use the SeriesIDs from the ODM1.SeriesCatalog table for both ActionIDs and ResultIDs in my ODM2 database. But, I first have to filter out any time series in the ODM 1.1.1 SeriesCatalog table that are for sample based data (e.g., they have values with a SampleID that is not NULL).
 
 1. Set ODM2.Actions.ActionID = ODM1.SeriesCatalog.SeriesID
-2. Set ODM2.Actions.ActionTypeCV = 'Observation Action' - *this may be problematic in the future*.
+2. Set ODM2.Actions.ActionTypeCV = 'Observation' - *this may be problematic in the future*.
 3. Set ODM2.Actions.BeginDateTime = ODM1.SeriesCatalog.BeginDateTime
 4. Calculated ODM2.Actions.BeginDateTimeUTCOffset from ODM1.SeriesCatalog.BeginDateTime and ODM1.SeriesCatalog.BeginDateTimeUTC
 5. Set ODM2.Actions.EndDateTime = ODM1.SeriesCatalog.EndDateTime
 6. Calculated ODM2.Actions.EndDateTimeUTCOffset from ODM1.SeriesCatalog.EndDateTime and ODM1.SeriesCatalog.EndDateTimeUTC
-7. Set ODM2.Actions.ActionDescription = 'Sensor deployment and observation' - this attribute doesn't exist in ODM1
-8. Set ODM2.Actions.ActionFileLink = NULL - this attribute doesn't exist in ODM1
+7. Set ODM2.Actions.ActionDescription = 'Sensor deployment and observation. This is a generic Observation Action created for a Time Series Result loaded into ODM2	from an ODM 1.1.1 database.' - this attribute doesn't exist in ODM 1.1.1
+8. Set ODM2.Actions.ActionFileLink = NULL - this attribute doesn't exist in ODM 1.1.1
 
 #### ActionBy records for Sensor-Based Data
-Since there really isn't any information in ODM1 about who performed any of the Actions, I will assume that the contact person from each of the ODM1 Sources is the Observer and the lead of the ODM2 Observation Act.  This part only works correctly because the Sensor deployment and observation Actions are the only Actions I have added so far.
+Since there really isn't any information in ODM 1.1.1 about who performed any of the Actions, I will assume that the contact person from each of the ODM 1.1.1 Sources is the Observer and the lead of the ODM2 Observation Action.  This part only works correctly because the Instrument deployment and Observation Actions are the only Actions I have added so far.
 
 1. Set ODM2.ActionBy.ActionID = ODM2.Actions.ActionID = ODM1.SeriesCatalog.SeriesID
 2. Set ODM2.ActionBy.AffiliationID = ODM2.Affiliations.AffiliationID = ODM1.Sources.SourceID
@@ -172,63 +174,65 @@ Since there really isn't any information in ODM1 about who performed any of the 
 4. Set ODM2.ActionBy.RoleDescription = 'Observer'
 
 #### FeatureActions for Sensor-Based Data
-Since I used the ODM1 SiteID as the SamplingFeatureID in ODM2 and the ODM1 SeriesID for ActionID in ODM2, I can create this table by just querying the SiteID and SeriesID from the ODM1 SeriesCatalog table. But, I have to select DISTINCT time series that do not have DataValues associated with samples (e.g., only sensor-based data)
+Since I used the ODM 1.1.1 SiteID as the SamplingFeatureID in ODM2 and the ODM 1.1.1 SeriesID for ActionID in ODM2, I can create this table by just querying the SiteID and SeriesID from the ODM 1.1.1 SeriesCatalog table. But, I have to select DISTINCT time series that do not have DataValues associated with samples (e.g., only sensor-based data)
 
-1.  Set ODM2Core.FeatureActions.SamplingFeatureID = ODM1.SeriesCatalog.SiteID
-2.  Set ODM2Core.FeatureActions.ActionID = ODM1.SeriesCatalog.SeriesID
-
-#### ResultTypeCV for Sensor-Based Data
-Before I can create records in the ODM2 Results table I have to create a record in the ResultTypeCV table for the appropriate ResultType. Eventually, this table should be pre-populated, but for now, I just created the Time Series Coverage ResultType in the script.
+1.  Set ODM2.FeatureActions.SamplingFeatureID = ODM1.SeriesCatalog.SiteID
+2.  Set ODM2.FeatureActions.ActionID = ODM1.SeriesCatalog.SeriesID
 
 #### Results for Sensor-Based Data
-Similar to Actions, I can just use the SeriesIDs from the ODM1 SeriesCatalog table to identify the Results for sensor-based data from the ODM1 database.  But, I first have to set the default value of the ResultUUID field in the ODM2Core.Results table to be a NEWSEQUENTIALID(). 
+Similar to Actions, I can just use the SeriesIDs from the ODM 1.1.1 SeriesCatalog table to identify the Results for sensor-based data from the ODM 1.1.1 database.  But, I first have to set the default value of the ResultUUID field in the ODM2Core.Results table to be a NEWSEQUENTIALID(). 
 
-1. Set ODM2Core.Results.ResultID = ODM1.SeriesCatalog.SeriesID
-2. Set ODM2Core.Results.ResultUUID = NEWSEQUENTIALID() - this is a SQL Server Function to generate a GUID, and I did this by setting the default value of the Attribute rather than creating a GUID on the fly (i.e., SQL Server generates the GUIS for me)
-3. Set ODM2Core.Results.FeatureActionID = ODM2Core.FeatureActions.FeatureActionID - this is set for each combination of SiteID and SeriesID from the SeriesCatalog table in ODM1, so have to join on the SeriesCatalog
-4. Set ODM2Core.Results.ResultTypeCV = 'Time Series Coverage'
-5. Set ODM2Core.Results.VariableID = ODM1.SeriesCatalog.VariableID
-6. Set ODM2Core.Results.UnitsID = ODM1.SeriesCatalog.VariableUnitsID
-7. Set ODM2Core.Results.TaxonomicClassifierID = NULL - doesn't exist in ODM1 and don't need it for sensor-based data
-8. Set ODM2Core.Results.ProcessingLevelID = ODM1.SeriesCatalog.QualityControlLevelID
-9. Set ODM2Core.Results.ResultDateTime = current system date, e.g., the time the result was added to the database.
+1. Set ODM2.Results.ResultID = ODM1.SeriesCatalog.SeriesID
+2. Set ODM2.Results.ResultUUID = NEWSEQUENTIALID() - this is a SQL Server Function to generate a UUID, and I did this by setting the default value of the Attribute rather than creating a UUID on the fly (i.e., SQL Server generates the UUIDS for me)
+3. Set ODM2.Results.FeatureActionID = ODM2Core.FeatureActions.FeatureActionID - this is set for each combination of SiteID and SeriesID from the SeriesCatalog table in ODM 1.1.1, so have to join on the SeriesCatalog
+4. Set ODM2.Results.ResultTypeCV = 'Time series coverage'
+5. Set ODM2.Results.VariableID = ODM1.SeriesCatalog.VariableID
+6. Set ODM2.Results.UnitsID = ODM2.Units.UnitsID - had to match the Units by name
+7. Set ODM2.Results.TaxonomicClassifierID = NULL - doesn't exist in ODM 1.1.1 and don't need it for sensor-based data
+8. Set ODM2.Results.ProcessingLevelID = ODM1.SeriesCatalog.QualityControlLevelID
+9. Set ODM2.Results.ResultDateTime = current system date, e.g., the time the result was added to the database.
 10. Calculated the ResultDateTimeUTCOffset from the current system date and the current system date as UTC
-11. Set ODM2Core.Results.ValidDateTime = NULL
-12. Set ODM2Core.Results.ValidDateTimeUTCOffset = NULL
-13. Set ODM2Core.Results.StatusCV = 'Unknown' - ODM1 doesn't have any information about this, so I set to 'Unknown'.
-14. Set ODM2Core.Results.SampledMediumCV = ODM1.SeriesCatalog.SampleMedium
-15. Set ODM2Core.Results.ValueCount = ODM1.SeriesCatalog.ValueCount
-16. Set ODM2Core.Results.IntendedObservationSpacing = 'Unknown' - this doesn't exist in ODM1 and since there is no info, just set to 'Unknown'
+11. Set ODM2.Results.ValidDateTime = NULL
+12. Set ODM2.Results.ValidDateTimeUTCOffset = NULL
+13. Set ODM2.Results.StatusCV = 'Unknown' - ODM 1.1.1 doesn't have any information about this, so I set to 'Unknown'.
+14. Set ODM2.Results.SampledMediumCV = ODM1.SeriesCatalog.SampleMedium - had to make sure that the terms in the SampleMedium field in the Variables table of my ODM 1.1.1 database match terms in the ODM2 MediumCV
+15. Set ODM2.Results.ValueCount = ODM1.SeriesCatalog.ValueCount
+16. Set ODM2.Results.IntendedObservationSpacing = 'Unknown' - this doesn't exist in ODM 1.1.1 and since there is no info, just set to 'Unknown'
 
 #### TimeSeriesResults for Sensor-Based Data
-Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Result for each sensor-based time series, I can use the SeriesIDs to create the records in the ODM2 TimeSeriesResult table. Since ODM1 only had a single OffsetValue, I need to create a new SpatialReference that represents the offset and then I will use just the ODM2 ZLocation to represent the ODM1 offset.
+Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Result for each sensor-based time series, I can use the SeriesIDs to create the records in the ODM2 TimeSeriesResult table. Since ODM 1.1.1 only had a single OffsetValue, I need to create a new SpatialReference that represents the offset and then I will use just the ODM2 ZLocation to represent the ODM1 offset. This may be problematic and may need to be adjusted after the fact.
 
-1.  Set ODM2Results.TimeSeriesResults.ResultID = ODM1.SeriesCatalog.SeriesID
-2.  Set ODM2Results.TimeSeriesResults.XLocation = NULL - doesn't exist in ODM1
-3.  Set ODM2Results.TimeSeriesResults.XLocationUnitsID = Null - doesn't exist in ODM1
-4.  Set ODM2Results.TimeSeriesResults.YLocation = NULL - doesn't exist in ODM1
-5.  Set ODM2Results.TimeSeriesResults.YLocationUnitsID = NULL - doesn't exist in ODM1
-6.  Set ODM2Results.TimeSeriesResults.ZLocation = ODM1.DataValues.OffsetValue
-7.  Set ODM2Results.TimeSeriesResults.ZLocationUnitsID = ODM1.OffsetTypes.OffsetUnitsID
-8.  Set ODM2Results.TimeSeriesResults.SpatialReferenceID = ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID - Here I have to get the SpatialReferenceID for the ODM1 OffsetTypes that I added to ODM2 as SpatialReferences
-9.  Set ODM2Results.TimeSeriesResults.IntendedTimeSpacing = NULL - doesn't exist in ODM1
-10.  Set ODM2Results.TimeSeriesResults.IntendedTimeSpacingUnitsID = NULL - doesn't exist in ODM1
+1.  Set ODM2.TimeSeriesResults.ResultID = ODM1.SeriesCatalog.SeriesID
+2.  Set ODM2.TimeSeriesResults.XLocation = NULL - doesn't exist in ODM 1.1.1
+3.  Set ODM2.TimeSeriesResults.XLocationUnitsID = Null - doesn't exist in ODM 1.1.1
+4.  Set ODM2.TimeSeriesResults.YLocation = NULL - doesn't exist in ODM 1.1.1
+5.  Set ODM2.TimeSeriesResults.YLocationUnitsID = NULL - doesn't exist in ODM 1.1.1
+6.  Set ODM2.TimeSeriesResults.ZLocation = ODM1.DataValues.OffsetValue
+7.  Set ODM2.TimeSeriesResults.ZLocationUnitsID = ODM2.Units.UnitsID - had to match to ODM 1.1.1 OffsetUnitsID by matching UnitsName 
+8.  Set ODM2.TimeSeriesResults.SpatialReferenceID = ODM2SamplingFeatures.SpatialReferences.SpatialReferenceID - Here I have to get the SpatialReferenceID for the ODM 1.1.1 OffsetTypes that I added to ODM2 as SpatialReferences
+9.  Set ODM2.TimeSeriesResults.IntendedTimeSpacing = NULL - doesn't exist in ODM 1.1.1
+10.  Set ODM2.TimeSeriesResults.IntendedTimeSpacingUnitsID = NULL - doesn't exist in ODM 1.1.1
 11. Set ODM2Results.TimeSeriesResults.AggregationStatisticCV = ODM1.SeriesCatalog.DataType
 
-**NOTE**:  Not all ODM1 offsets are in the vertical direction and so mapping them all to the ZLocation may be incorrect for some Results.  This will have to be corrected after the fact because there is no way to interpret the ODM1 Offset.
+**NOTE**:  Not all ODM 1.1.1 offsets are in the vertical direction and so mapping them all to the ZLocation may be incorrect for some Results.  This will have to be corrected after the fact because there is no way to interpret the ODM 1.1.1 Offset.
 
 #### TimeSeriesResultValues for Sensor-Based Data
-Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Result for each sensor-based time series, I can use the SeriesIDs to identify the DataValues coming out of my ODM1 database. This operation has to filter out any DataValues that have a sample associated with them (I only want sensor-based data).  But, *while sufficient for my data, this simple filter may not be sufficient for all ODM1 databases*. For now, I am assuming that DataValues only have Z offsets (see above).  Again, *while sufficient for my data, this simple filter may not be sufficient for all ODM1 databases that may have different types of offsets*.  Finally, I am preserving ValueIDs from the ODM1 database so I can go back later and add ODM2 Annotations for ODM1 Qualifiers.
+Given that I have used the ODM1.SeriesCatalog.SeriesID to identify the ODM2 Result for each sensor-based time series, I can use the SeriesIDs to identify the DataValues coming out of my ODM 1.1.1 database. This operation has to filter out any DataValues that have a SampleID associated with them (I only want sensor-based data).  But, *while sufficient for my data, this simple filter may not be sufficient for all ODM 1.1.1 databases*. For now, I am assuming that DataValues only have Z offsets (see above).  Again, *while sufficient for my data, this simple filter may not be sufficient for all ODM 1.1.1 databases that may have different types of offsets*.  Finally, I am preserving ValueIDs from the ODM 1.1.1 database so I can go back later and add ODM2 Annotations for ODM 1.1.1 Qualifiers.
 
-1. Set ODM2Results.TimeSeriesResultValues.ValueID = ODM1.DataValues.ValueID
-2. Set ODM2Results.TimeSeriesResultValues.ResultID = ODM1.SeriesCatalog.SeriesID
-3. Set ODM2Results.TimeSeriesResultValues.DataValue = ODM1.DataValues.DataValue
-4. Set ODM2Results.TimeSeriesResultValues.ValueDateTime = ODM1.DataValues.LocalDateTime
-5. Set ODM2Results.TimeSeriesResultValues.ValueDateTimeUTCOffset = ODM1.DataValues.UTCOffset
-6. Set ODM2Results.TimeSeriesResultValues.CensorCodeCV = ODM1.DataValues.CensorCode
-7. Set ODM2Results.TimeSeriesResultValues.QualityCodeCV = Unknown - doesn't exist in ODM1 but is required
-12. Set ODM2Results.TimeSeriesResultValues.TimeAggregationInterval = ODM1.SeriesCatalog.TimeSupport
-13. Set ODM2Results.TimeSeriesResultValues.TimeAggregationIntervalUnitsID = ODM1.SeriesCatalog.TimeUnitsID
+1. Set ODM2.TimeSeriesResultValues.ValueID = ODM1.DataValues.ValueID
+2. Set ODM2.TimeSeriesResultValues.ResultID = ODM1.SeriesCatalog.SeriesID
+3. Set ODM2.TimeSeriesResultValues.DataValue = ODM1.DataValues.DataValue
+4. Set ODM2.TimeSeriesResultValues.ValueDateTime = ODM1.DataValues.LocalDateTime
+5. Set ODM2.TimeSeriesResultValues.ValueDateTimeUTCOffset = ODM1.DataValues.UTCOffset
+6. Set ODM2.TimeSeriesResultValues.CensorCodeCV = ODM1.DataValues.CensorCode - had to ensure that all CensorCodes used in my ODM 1.1.1 database matched allowable terms from the ODM2 CensorCodeCV prior to running this.
+7. Set ODM2.TimeSeriesResultValues.QualityCodeCV = 'Unknown' - doesn't exist in ODM 1.1.1 but is required
+12. Set ODM2.TimeSeriesResultValues.TimeAggregationInterval = ODM1.SeriesCatalog.TimeSupport
+13. Set ODM2.TimeSeriesResultValues.TimeAggregationIntervalUnitsID = ODM2.Units.UnitsID - had to match this to the TimeUnitsID from the ODM 1.1.1 SeriesCatalog table by UnitsName.
+
+
+
+
+
 
 
 ## Implementation Notes for Sample-Based Data ##
