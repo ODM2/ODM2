@@ -359,7 +359,7 @@ SELECT DISTINCT sc.SiteID AS SamplingFeatureID, sc.SeriesID AS ActionID
 FROM LittleBearRiverODM.dbo.SeriesCatalog sc, 
 	LittleBearRiverODM.dbo.DataValues dv
 WHERE sc.SiteID = dv.SiteID AND sc.VariableID = dv.VariableID 
-	AND sc.MethodID = dv.MethodID, AND sc.SourceID = dv.SourceID 
+	AND sc.MethodID = dv.MethodID AND sc.SourceID = dv.SourceID 
 	AND sc.QualityControlLevelID = dv.QualityControlLevelID	AND dv.SampleID IS NULL 
 ORDER BY SamplingFeatureID, ActionID;
 
@@ -765,7 +765,6 @@ ORDER BY ValueID;
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --Clean up by dropping the temporary tables that are no longer needed
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-DROP TABLE #tempSpecimenInfo;
 DROP TABLE #tempUnitsInfo;
 DROP TABLE #tempLabMethodInfo;
 DROP TABLE #tempInsertedSpecimens;
