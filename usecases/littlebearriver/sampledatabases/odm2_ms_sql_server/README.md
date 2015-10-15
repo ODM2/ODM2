@@ -12,11 +12,21 @@ To attach the database to Microsoft SQL Server, do the following:
 6. Navigate to your SQL Server data directory and select "ODM2.mdf"
 7. Click the "OK" button on the "Attach Databases" form
 
+To use the MSQL Dump File (SQL script) instead, do the following:
+
+1. Download the .sql script file
+2. Create a new database called 'ODM2' in your SQL Server instance
+3. Open the script and run it on your 'ODM2' database
+
+**NOTE**: The sample database and SQL dump file in this folder were created using Microsoft SQL Server 2008 R2. 
+
 ### Details ###
-The database in this folder was produced using the following steps:
+The database and SQL dump script in this folder were produced using the following steps:
 
 1. Download the ODM2 for Microsoft SQL Server blank schema script from the GitHub repository
 2. Open and execute the script in SQL Server Management Studio - this creates a new database called ODM2 that contains all of the ODM2 structure, but no data
 3. Execute the Python script for loading the ODM2 controlled vocabularies into the database
 4. Execute the the SQL script from the Little Bear River data use case folder to copy data from a sample ODM 1.1.1 database for the Little Bear River to the new ODM2 database.
+5. Script the database to the .sql dump file
+6. Detach the database and copy the database files
 
