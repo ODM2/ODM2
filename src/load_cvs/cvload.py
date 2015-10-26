@@ -86,6 +86,18 @@ class CVDatasetType(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
+class CvDataQualityType(Base):
+    __tablename__ = 'cv_dataqualitytype'
+    __table_args__ = {u'schema': 'odm2'}
+
+    Term = Column('term', String(255), nullable=False)
+    Name = Column('name', String(255), primary_key=True)
+    Definition = Column('definition', String(1000))
+    Category = Column('category', String(255))
+    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
+    def __repr__(self):
+        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+
 
 class CVDirectiveType(Base):
     __tablename__ = 'cv_directivetype'
@@ -465,6 +477,7 @@ vocab= [("actiontype", CVActionType),
         ("censorcode", CVCensorCode),
         ("directivetype", CVDirectiveType),
         ("datasettype",CVDatasetType),
+        ("dataqualitytype",CvDataQualityType),
         ("organizationtype", CVOrganizationType),
         ("status", CVStatus),
         ("annotationtype", CVAnnotationType),
