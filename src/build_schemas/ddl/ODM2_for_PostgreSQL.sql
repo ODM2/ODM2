@@ -135,7 +135,8 @@ create table ODM2.Datasets (
 	datasettypecv varchar (255) NOT NULL,
 	datasetcode varchar (50) NOT NULL,
 	datasettitle varchar (255) NOT NULL,
-	datasetabstract varchar (500) NOT NULL
+	datasetabstract varchar (500) NOT NULL,
+	UNIQUE (DatasetCode)
 );
 create table ODM2.DatasetsResults (
 	bridgeid serial  NOT NULL primary key,
@@ -154,7 +155,8 @@ create table ODM2.Methods (
 	methodname varchar (255) NOT NULL,
 	methoddescription varchar (500) NULL,
 	methodlink varchar (255) NULL,
-	organizationid integer  NULL
+	organizationid integer  NULL,
+	UNIQUE (MethodCode)
 );
 create table ODM2.Organizations (
 	organizationid serial  NOT NULL primary key,
@@ -163,7 +165,8 @@ create table ODM2.Organizations (
 	organizationname varchar (255) NOT NULL,
 	organizationdescription varchar (500) NULL,
 	organizationlink varchar (255) NULL,
-	parentorganizationid integer  NULL
+	parentorganizationid integer  NULL,
+	UNIQUE (OrganizationCode)
 );
 create table ODM2.People (
 	personid serial  NOT NULL primary key,
@@ -175,7 +178,8 @@ create table ODM2.ProcessingLevels (
 	processinglevelid serial  NOT NULL primary key,
 	processinglevelcode varchar (50) NOT NULL,
 	definition varchar (500) NULL,
-	explanation varchar (500) NULL
+	explanation varchar (500) NULL,
+	UNIQUE (ProcessingLevelCode)
 );
 create table ODM2.RelatedActions (
 	relationid serial  NOT NULL primary key,
@@ -210,7 +214,8 @@ create table ODM2.SamplingFeatures (
 	samplingfeaturegeotypecv varchar (255) NULL,
 	featuregeometry geometry  NULL,
 	elevation_m double precision  NULL,
-	elevationdatumcv varchar (255) NULL
+	elevationdatumcv varchar (255) NULL,
+	UNIQUE (SamplingFeatureCode)
 );
 create table ODM2.TaxonomicClassifiers (
 	taxonomicclassifierid serial  NOT NULL primary key,
@@ -234,7 +239,8 @@ create table ODM2.Variables (
 	variablenamecv varchar (255) NOT NULL,
 	variabledefinition varchar (500) NULL,
 	speciationcv varchar (255) NULL,
-	nodatavalue double precision  NOT NULL
+	nodatavalue double precision  NOT NULL,
+	UNIQUE (VariableCode)
 );
 /***************************************************************************/
 /****************************** CREATE ODM2CV ******************************/
@@ -440,7 +446,8 @@ create table ODM2.DataQuality (
 	dataqualityvalue double precision  NULL,
 	dataqualityvalueunitsid integer  NULL,
 	dataqualitydescription varchar (500) NULL,
-	dataqualitylink varchar (255) NULL
+	dataqualitylink varchar (255) NULL,
+	UNIQUE (DataQualityCode)
 );
 create table ODM2.ReferenceMaterials (
 	referencematerialid serial  NOT NULL primary key,
@@ -451,7 +458,8 @@ create table ODM2.ReferenceMaterials (
 	referencematerialpurchasedate timestamp  NULL,
 	referencematerialexpirationdate timestamp  NULL,
 	referencematerialcertificatelink varchar (255) NULL,
-	samplingfeatureid integer  NULL
+	samplingfeatureid integer  NULL,
+	UNIQUE (ReferenceMaterialCode)
 );
 create table ODM2.ReferenceMaterialValues (
 	referencematerialvalueid integer  NOT NULL primary key,
@@ -532,7 +540,8 @@ create table ODM2.Equipment (
 	equipmentpurchasedate timestamp  NOT NULL,
 	equipmentpurchaseordernumber varchar (50) NULL,
 	equipmentdescription varchar (500) NULL,
-	equipmentdocumentationlink varchar (255) NULL
+	equipmentdocumentationlink varchar (255) NULL,
+	UNIQUE (EquipmentCode)
 );
 create table ODM2.EquipmentModels (
 	equipmentmodelid serial  NOT NULL primary key,
@@ -791,7 +800,8 @@ create table ODM2.CategoricalResultValues (
 	resultid bigint  NOT NULL,
 	datavalue varchar (255) NOT NULL,
 	valuedatetime timestamp  NOT NULL,
-	valuedatetimeutcoffset integer  NOT NULL
+	valuedatetimeutcoffset integer  NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset)
 );
 create table ODM2.MeasurementResults (
 	resultid bigint  NOT NULL primary key,
@@ -813,7 +823,8 @@ create table ODM2.MeasurementResultValues (
 	resultid bigint  NOT NULL,
 	datavalue double precision  NOT NULL,
 	valuedatetime timestamp  NOT NULL,
-	valuedatetimeutcoffset integer  NOT NULL
+	valuedatetimeutcoffset integer  NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset)
 );
 create table ODM2.PointCoverageResults (
 	resultid bigint  NOT NULL primary key,
@@ -839,7 +850,8 @@ create table ODM2.PointCoverageResultValues (
 	ylocation double precision  NOT NULL,
 	ylocationunitsid integer  NOT NULL,
 	censorcodecv varchar (255) NOT NULL,
-	qualitycodecv varchar (255) NOT NULL
+	qualitycodecv varchar (255) NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, CensorCodeCV, QualityCodeCV)
 );
 create table ODM2.ProfileResults (
 	resultid bigint  NOT NULL primary key,
@@ -866,7 +878,8 @@ create table ODM2.ProfileResultValues (
 	censorcodecv varchar (255) NOT NULL,
 	qualitycodecv varchar (255) NOT NULL,
 	timeaggregationinterval double precision  NOT NULL,
-	timeaggregationintervalunitsid integer  NOT NULL
+	timeaggregationintervalunitsid integer  NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 create table ODM2.SectionResults (
 	resultid bigint  NOT NULL primary key,
@@ -897,7 +910,8 @@ create table ODM2.SectionResultValues (
 	qualitycodecv varchar (255) NOT NULL,
 	aggregationstatisticcv varchar (255) NOT NULL,
 	timeaggregationinterval double precision  NOT NULL,
-	timeaggregationintervalunitsid integer  NOT NULL
+	timeaggregationintervalunitsid integer  NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XAggregationInterval, XLocationUnitsID, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 create table ODM2.SpectraResults (
 	resultid bigint  NOT NULL primary key,
@@ -924,7 +938,8 @@ create table ODM2.SpectraResultValues (
 	censorcodecv varchar (255) NOT NULL,
 	qualitycodecv varchar (255) NOT NULL,
 	timeaggregationinterval double precision  NOT NULL,
-	timeaggregationintervalunitsid integer  NOT NULL
+	timeaggregationintervalunitsid integer  NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ExcitationWavelength, EmissionWavelength, WavelengthUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 create table ODM2.TimeSeriesResults (
 	resultid bigint  NOT NULL primary key,
@@ -948,7 +963,8 @@ create table ODM2.TimeSeriesResultValues (
 	censorcodecv varchar (255) NOT NULL,
 	qualitycodecv varchar (255) NOT NULL,
 	timeaggregationinterval double precision  NOT NULL,
-	timeaggregationintervalunitsid integer  NOT NULL
+	timeaggregationintervalunitsid integer  NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 create table ODM2.TrajectoryResults (
 	resultid bigint  NOT NULL primary key,
@@ -977,7 +993,8 @@ create table ODM2.TrajectoryResultValues (
 	censorcodecv varchar (255) NOT NULL,
 	qualitycodecv varchar (255) NOT NULL,
 	timeaggregationinterval double precision  NOT NULL,
-	timeaggregationintervalunitsid integer  NOT NULL
+	timeaggregationintervalunitsid integer  NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 create table ODM2.TransectResults (
 	resultid bigint  NOT NULL primary key,
@@ -1007,7 +1024,8 @@ create table ODM2.TransectResultValues (
 	qualitycodecv varchar (255) NOT NULL,
 	aggregationstatisticcv varchar (255) NOT NULL,
 	timeaggregationinterval double precision  NOT NULL,
-	timeaggregationintervalunitsid integer  NOT NULL
+	timeaggregationintervalunitsid integer  NOT NULL,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, TransectDistance, TransectDistanceAggregationInterval, TransectDistanceUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 /***************************************************************************/
 /*********************** CREATE ODM2SAMPLINGFEATURES ***********************/
@@ -1073,7 +1091,8 @@ create table ODM2.Models (
 	modelname varchar (255) NOT NULL,
 	modeldescription varchar (500) NULL,
 	version varchar (255) NULL,
-	modellink varchar (255) NULL
+	modellink varchar (255) NULL,
+	UNIQUE (ModelCode)
 );
 create table ODM2.RelatedModels (
 	relatedid serial  NOT NULL primary key,

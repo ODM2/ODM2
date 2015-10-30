@@ -150,7 +150,8 @@ CREATE TABLE Datasets (
 	DatasetTypeCV VARCHAR (255)  NOT NULL,
 	DatasetCode VARCHAR (50)  NOT NULL,
 	DatasetTitle VARCHAR (255)  NOT NULL,
-	DatasetAbstract VARCHAR (500)  NOT NULL
+	DatasetAbstract VARCHAR (500)  NOT NULL,
+	CONSTRAINT uc_DatasetCode UNIQUE (DatasetCode)
 );
 
 CREATE TABLE DatasetsResults (
@@ -172,7 +173,8 @@ CREATE TABLE Methods (
 	MethodName VARCHAR (255)  NOT NULL,
 	MethodDescription VARCHAR (500)  NULL,
 	MethodLink VARCHAR (255)  NULL,
-	OrganizationID INT   NULL
+	OrganizationID INT   NULL,
+	CONSTRAINT uc_MethodCode UNIQUE (MethodCode)
 );
 
 CREATE TABLE Organizations (
@@ -182,7 +184,8 @@ CREATE TABLE Organizations (
 	OrganizationName VARCHAR (255)  NOT NULL,
 	OrganizationDescription VARCHAR (500)  NULL,
 	OrganizationLink VARCHAR (255)  NULL,
-	ParentOrganizationID INT   NULL
+	ParentOrganizationID INT   NULL,
+	CONSTRAINT uc_OrganizationCode UNIQUE (OrganizationCode)
 );
 
 CREATE TABLE People (
@@ -196,7 +199,8 @@ CREATE TABLE ProcessingLevels (
 	ProcessingLevelID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ProcessingLevelCode VARCHAR (50)  NOT NULL,
 	Definition VARCHAR (500)  NULL,
-	Explanation VARCHAR (500)  NULL
+	Explanation VARCHAR (500)  NULL,
+	CONSTRAINT uc_ProcessingLevelCode UNIQUE (ProcessingLevelCode)
 );
 
 CREATE TABLE RelatedActions (
@@ -234,7 +238,8 @@ CREATE TABLE SamplingFeatures (
 	SamplingFeatureGeotypeCV VARCHAR (255)  NULL,
 	FeatureGeometry geometry   NULL,
 	Elevation_m FLOAT   NULL,
-	ElevationDatumCV VARCHAR (255)  NULL
+	ElevationDatumCV VARCHAR (255)  NULL,
+	CONSTRAINT uc_SamplingFeatureCode UNIQUE (SamplingFeatureCode)
 );
 
 CREATE TABLE TaxonomicClassifiers (
@@ -261,7 +266,8 @@ CREATE TABLE Variables (
 	VariableNameCV VARCHAR (255)  NOT NULL,
 	VariableDefinition VARCHAR (500)  NULL,
 	SpeciationCV VARCHAR (255)  NULL,
-	NoDataValue DOUBLE   NOT NULL
+	NoDataValue DOUBLE   NOT NULL,
+	CONSTRAINT uc_VariableCode UNIQUE (VariableCode)
 );
 
 /***************************************************************************/
@@ -497,7 +503,8 @@ CREATE TABLE DataQuality (
 	DataQualityValue FLOAT   NULL,
 	DataQualityValueUnitsID INT   NULL,
 	DataQualityDescription VARCHAR (500)  NULL,
-	DataQualityLink VARCHAR (255)  NULL
+	DataQualityLink VARCHAR (255)  NULL,
+	CONSTRAINT uc_DataQualityCode UNIQUE (DataQualityCode)
 );
 
 CREATE TABLE ReferenceMaterials (
@@ -509,7 +516,8 @@ CREATE TABLE ReferenceMaterials (
 	ReferenceMaterialPurchaseDate DATETIME   NULL,
 	ReferenceMaterialExpirationDate DATETIME   NULL,
 	ReferenceMaterialCertificateLink VARCHAR (255)  NULL,
-	SamplingFeatureID INT   NULL
+	SamplingFeatureID INT   NULL,
+	CONSTRAINT uc_ReferenceMaterialCode UNIQUE (ReferenceMaterialCode)
 );
 
 CREATE TABLE ReferenceMaterialValues (
@@ -601,7 +609,8 @@ CREATE TABLE Equipment (
 	EquipmentPurchaseDate DATETIME   NOT NULL,
 	EquipmentPurchaseOrderNumber VARCHAR (50)  NULL,
 	EquipmentDescription VARCHAR (500)  NULL,
-	EquipmentDocumentationLink VARCHAR (255)  NULL
+	EquipmentDocumentationLink VARCHAR (255)  NULL,
+	CONSTRAINT uc_EquipmentCode UNIQUE (EquipmentCode)
 );
 
 CREATE TABLE EquipmentModels (
@@ -901,7 +910,8 @@ CREATE TABLE CategoricalResultValues (
 	ResultID BIGINT   NOT NULL,
 	DataValue VARCHAR (255)  NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL
+	ValueDateTimeUTCOffset INT   NOT NULL,
+	CONSTRAINT uc_CategoricalResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset)
 );
 
 CREATE TABLE MeasurementResults (
@@ -925,7 +935,8 @@ CREATE TABLE MeasurementResultValues (
 	ResultID BIGINT   NOT NULL,
 	DataValue FLOAT   NOT NULL,
 	ValueDateTime DATETIME   NOT NULL,
-	ValueDateTimeUTCOffset INT   NOT NULL
+	ValueDateTimeUTCOffset INT   NOT NULL,
+	CONSTRAINT uc_MeasurementResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset)
 );
 
 CREATE TABLE PointCoverageResults (
@@ -953,7 +964,8 @@ CREATE TABLE PointCoverageResultValues (
 	YLocation FLOAT   NOT NULL,
 	YLocationUnitsID INT   NOT NULL,
 	CensorCodeCV VARCHAR (255)  NOT NULL,
-	QualityCodeCV VARCHAR (255)  NOT NULL
+	QualityCodeCV VARCHAR (255)  NOT NULL,
+	CONSTRAINT uc_PointCoverageResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, CensorCodeCV, QualityCodeCV)
 );
 
 CREATE TABLE ProfileResults (
@@ -982,7 +994,8 @@ CREATE TABLE ProfileResultValues (
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL
+	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	CONSTRAINT uc_ProfileResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE SectionResults (
@@ -1015,7 +1028,8 @@ CREATE TABLE SectionResultValues (
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL
+	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	CONSTRAINT uc_SectionResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XAggregationInterval, XLocationUnitsID, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE SpectraResults (
@@ -1044,7 +1058,8 @@ CREATE TABLE SpectraResultValues (
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval DOUBLE   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL
+	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	CONSTRAINT uc_SpectraResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ExcitationWavelength, EmissionWavelength, WavelengthUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE TimeSeriesResults (
@@ -1070,7 +1085,8 @@ CREATE TABLE TimeSeriesResultValues (
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL
+	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	CONSTRAINT uc_TimeSeriesResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE TrajectoryResults (
@@ -1101,7 +1117,8 @@ CREATE TABLE TrajectoryResultValues (
 	CensorCodeCV VARCHAR (255)  NOT NULL,
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL
+	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	CONSTRAINT uc_TrajectoryResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval)
 );
 
 CREATE TABLE TransectResults (
@@ -1133,7 +1150,8 @@ CREATE TABLE TransectResultValues (
 	QualityCodeCV VARCHAR (255)  NOT NULL,
 	AggregationStatisticCV VARCHAR (255)  NOT NULL,
 	TimeAggregationInterval FLOAT   NOT NULL,
-	TimeAggregationIntervalUnitsID INT   NOT NULL
+	TimeAggregationIntervalUnitsID INT   NOT NULL,
+	CONSTRAINT uc_TransectResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, TransectDistance, TransectDistanceAggregationInterval, TransectDistanceUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 /***************************************************************************/
@@ -1209,7 +1227,8 @@ CREATE TABLE Models (
 	ModelName VARCHAR (255)  NOT NULL,
 	ModelDescription VARCHAR (500)  NULL,
 	Version VARCHAR (255)  NULL,
-	ModelLink VARCHAR (255)  NULL
+	ModelLink VARCHAR (255)  NULL,
+	CONSTRAINT uc_ModelCode UNIQUE (ModelCode)
 );
 
 CREATE TABLE RelatedModels (

@@ -82,6 +82,15 @@ def parse_xml(input_file):
                                              childSch=c.attrib['sch'], childTbl=c.attrib['nm'], childCol=r.attrib['cdCl'] )
                 tbl_obj.add_foreignkey(foreignKey)
 
+            # get the unique constraints
+            ucs = table.find('UniqueConstraints')
+            for uc in ucs.getchildren():
+                clns = uc.find('ClNs')
+                name = uc.get('nm')
+                vals = clns.text.split(',')
+                constraint = base.UniqueConstraint(name, vals)
+                tbl_obj.uniqueconstraint(constraint)
+
             # add table object to the schema object
             sch_obj.add_table(tbl_obj)
 
@@ -94,41 +103,37 @@ def BUILD_MSSSQL_DDL(opts, ddl_objs, use_schemas):
     #---------------------------------#
     #-------- Write MsSQL DDL --------#
     #---------------------------------#
-    sys.stdout.write('> Building MsSQL DDL...')
+    print '> Building MsSQL DDL...'
     outdir = os.path.join(os.path.abspath(opts.output), 'ODM2_for_MSSQL.sql')
     with open(outdir, 'w') as f:
         f.write(translator.MSSQL(opts, ddl_objs).build_ddl())
-    sys.stdout.write('done\n')
 
 def BUILD_POSTGRES_DDL(opts, ddl_objs, use_schemas):
     #--------------------------------------#
     #-------- Write PostgreSQL DDL --------#
     #--------------------------------------#
-    sys.stdout.write('> Building PostgreSQL DDL...')
+    print '> Building PostgreSQL DDL...'
     outdir = os.path.join(os.path.abspath(opts.output), 'ODM2_for_PostgreSQL.sql')
     with open(outdir, 'w') as f:
         f.write(translator.POSTGRESQL(opts, ddl_objs).build_ddl())
-    sys.stdout.write('done\n')
 
 def BUILD_MYSQL_DDL(opts, ddl_objs, use_schemas):
     #---------------------------------#
     #-------- Write MySQL DDL --------#
     #---------------------------------#
-    sys.stdout.write('> Building MySQL DDL...')
+    print '> Building MySQL DDL...'
     outdir = os.path.join(os.path.abspath(opts.output), 'ODM2_for_MySQL.sql')
     with open(outdir, 'w') as f:
         f.write(translator.MYSQL(opts, ddl_objs).build_ddl())
-    sys.stdout.write('done\n')
 
 def BUILD_SQLITE_DDL(opts, ddl_objs, use_schemas):
     #----------------------------------#
     #-------- Write SQLite DDL --------#
     #----------------------------------#
-    sys.stdout.write('> Building SQLite DDL...')
+    print '> Building SQLite DDL...'
     outdir = os.path.join(os.path.abspath(opts.output), 'ODM2_for_SQLite.sql')
     with open(outdir, 'w') as f:
         f.write(translator.SQLITE(opts, ddl_objs).build_ddl())
-    sys.stdout.write('done\n')
 
 def BUILD_ALL(opts, ddl_objs, use_schemas):
 
@@ -141,7 +146,6 @@ def BUILD_ALL(opts, ddl_objs, use_schemas):
     BUILD_SQLITE_DDL(opts, ddl_objs, use_schemas)
 
 
-print 'done'
 
 
 def parse_args(arg):
@@ -152,9 +156,8 @@ def parse_args(arg):
         return
 
     # parse XML
-    sys.stdout.write('> Parsing XML...')
+    print '> Parsing XML...'
     objs = parse_xml(arg.xml)
-    sys.stdout.write('done\n')
 
     # build DDLs
     if arg.database.lower() == 'mssql': BUILD_MSSSQL_DDL(arg, objs, use_schemas)
@@ -173,8 +176,6 @@ def main(argv):
     print '   Warning: Use at your own risk!   '
     print '\nPlease enter a command or type "-h, --help" for a list of commands'
 
-    arg = None
-
     usage = "Usage: %s [options]" % basename(__file__).split('.')[0]
 
     parser = OptionParser(usage = usage )
@@ -185,19 +186,10 @@ def main(argv):
     parser.add_option('-o','--output', help='The output directory for the DDL script',default=join(dirname(__file__),'ddl'))
     parser.add_option('-g','--global-schema', help='Specifies the name of a single (global) schema to be used',default='ODM2')
 
-    # while True:
-
-        # # get the users command
-        # arg = raw_input("> ").split(' ')
 
     try:
 
-        (opts,cmd) = parser.parse_args(arg)
-
-        # if arg[0] =='exit' or arg[0] == 'quit':
-        #     break
-
-        # if cmd[0] == 'build_ddl':
+        (opts,cmd) = parser.parse_args()
 
         # make sure XML path is given
         if opts.xml is None:
@@ -221,9 +213,8 @@ def main(argv):
 
     except Exception, e:
         print e
-        pass
 
-        #print '> Operation Completed Successfully.'
+
 
 
 if __name__ == '__main__':

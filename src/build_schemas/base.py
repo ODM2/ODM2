@@ -20,6 +20,7 @@ class Table():
         self.__pk = pk
         self.__colums = []
         self.__foreignkeys = []
+        self.__uniqueconstraints = None
 
     def name(self):
         return self.__name
@@ -29,12 +30,31 @@ class Table():
         self.__colums.append(column)
     def get_columns(self):
         return self.__colums
-
     def add_foreignkey(self, fk):
         self.__foreignkeys.append(fk)
-
     def get_foreignkeys(self):
         return self.__foreignkeys
+    def uniqueconstraint(self, uc=None):
+        if uc is not None:
+            self.__uniqueconstraints = uc
+        return self.__uniqueconstraints
+
+class UniqueConstraint():
+    def __init__(self, name, vals=None):
+        self.__name = name
+        self.__classnames = []
+
+        if vals is not None:
+            for v in vals:
+                self.add_classnames(v)
+
+    def name(self):
+        return self.__name
+    def add_classnames(self, name):
+        self.__classnames.append(name)
+    def get_classnames(self):
+        return self.__classnames
+
 
 class Column():
     def __init__(self, name, datatype, primarykey=False, autoincrement= False, length=None, scale=None, unsigned=False, id=None, nullable=False,default=None):

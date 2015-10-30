@@ -71,6 +71,12 @@ class MSSQL():
         # add primary key
         ddl += '\n\tPRIMARY KEY (%s)' % tbl.pk().attrib['ClNs']
 
+        # add constraints
+        uc = tbl.uniqueconstraint()
+        if uc is not None:
+            uc_name = uc.name()
+            ddl += ',\n\tCONSTRAINT %s UNIQUE (%s) ' % (uc_name, ','.join(uc.get_classnames()))
+
         return ddl + '\n)'
 
     def _column2mssql(self, column):
@@ -102,6 +108,22 @@ class MSSQL():
                                  '\nON UPDATE NO ACTION ON DELETE NO ACTION' \
                                 % (self.__global_schema+'.', fk.childTbl, fk.name, fk.childCol, self.__global_schema+'.', fk.parentTbl, fk.parentCol)
 
+        return ddl_text
+
+    def _unique2mssql(self, schema, use_schemas=True):
+        print 'TODO: CHECK!'
+        ddl_text = ''
+        for tbl in schema.get_tables():
+            uc = tbl.get_uniqueconstraints()
+            if len(uc) > 0:
+                tblname = tbl.name()
+                if use_schemas:
+                    tblname = schema.name() + tblname
+
+                for constraint in uc:
+                    ddl_text += '\n\nALTER TABLE %s ADD CONSTRAINT %s' \
+                            '\nUNIQUE (%s)' \
+                            % (tblname, constraint.name(), ','.join(constraint.get_classnames()))
         return ddl_text
 
 class POSTGRESQL():
@@ -145,7 +167,6 @@ class POSTGRESQL():
         for obj in self.__schemas:
             ddl_text += self._foreignkey2postgres(obj,self.__use_schemas)
 
-
         return ddl_text
 
     def _column2postgres(self, column):
@@ -180,6 +201,11 @@ class POSTGRESQL():
 
         for col in tbl.get_columns():
             ddl += self._column2postgres(col)
+
+        # add constraints
+        uc = tbl.uniqueconstraint()
+        if uc is not None:
+            ddl += '\n\tUNIQUE (%s) ' % (','.join(uc.get_classnames()))
 
         return ddl[:-1] + '\n);'
 
@@ -274,6 +300,19 @@ class MYSQL():
         for col in tbl.get_columns():
             ddl += self._column2mysql(col)
 
+        # add constraints
+        uc = tbl.uniqueconstraint()
+        if uc is not None:
+            constraints = uc.get_classnames()
+            constraint_string = ''
+            if len(constraints) > 16:
+                print '\n\tWARNING: Table "%s" contains more than 16 constraints which is not allowed in MySQL Server.  \n\tI will use the first 16 values that I encounter, which may result unintended functionality. \n\tIt is recommended that you revisit the database *.xml file and adjust these constraints to satisfy MySQL limitations.\n' % (tbl.name())
+                constraint_string = ','.join(constraints[:16])
+            else:
+                constraint_string = ','.join(constraints)
+            uc_name = uc.name()
+            ddl += '\n\tCONSTRAINT %s UNIQUE (%s) ' % (uc_name, constraint_string)
+
         return ddl[:-1] + '\n);\n'
 
     def _column2mysql(self, column):
@@ -308,6 +347,20 @@ class MYSQL():
                                 % ('', fk.childTbl, fk.name, fk.childCol, '', fk.parentTbl, fk.parentCol)
 
         return ddl_text
+
+    # def _unique2mysql(self, schema, use_schemas=True):
+    #     ddl_text = ''
+    #     for tbl in schema.get_tables():
+    #         uc = tbl.uniqueconstraint()
+    #         if uc is not None:
+    #             tblname = tbl.name()
+    #             if use_schemas:
+    #                 tblname = schema.name() + tblname
+    #
+    #             ddl_text += '\n\nALTER TABLE %s ADD CONSTRAINT %s' \
+    #                     '\nUNIQUE (%s)' \
+    #                     % (tblname, uc.name(), ','.join(uc.get_classnames()))
+    #     return ddl_text
 
 class SQLITE():
     def __init__(self, options, dbwrenchObj):
@@ -344,13 +397,20 @@ class SQLITE():
 
         ddl = ('\nCREATE TABLE %s (' % tbl.name())
 
+        # add table columns
         for col in tbl.get_columns():
             ddl += self._column2sqlite(col)
 
+        # add foreign keys
         for fk in tbl.get_foreignkeys():
             ddl +=  '\n\tFOREIGN KEY (%s) REFERENCES %s (%s)' \
                     '\n\tON UPDATE NO ACTION ON DELETE NO ACTION,' \
                     % (fk.childCol, fk.parentTbl, fk.parentCol)
+
+        # add constraints
+        uc = tbl.uniqueconstraint()
+        if uc is not None:
+            ddl += '\n\tUNIQUE (%s) ' % (','.join(uc.get_classnames()))
 
         return ddl[:-1] + '\n);\n'
 
@@ -373,6 +433,7 @@ class SQLITE():
         ddl = '\n\t%s %s %s %s %s %s' % (name, type, ln, au, nu, pk)
 
         return ddl.rstrip(' ')+','
+
 
 def write_title_comment(title):
     # center the text

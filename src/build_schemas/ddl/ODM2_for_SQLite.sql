@@ -220,7 +220,8 @@ CREATE TABLE Datasets (
 	DatasetTitle VARCHAR (255)  NOT NULL,
 	DatasetAbstract VARCHAR (500)  NOT NULL,
 	FOREIGN KEY (DatasetTypeCV) REFERENCES CV_DatasetType (Name)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (DatasetCode)
 );
 
 CREATE TABLE DatasetsResults (
@@ -254,7 +255,8 @@ CREATE TABLE Methods (
 	FOREIGN KEY (MethodTypeCV) REFERENCES CV_MethodType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (OrganizationID) REFERENCES Organizations (OrganizationID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (MethodCode)
 );
 
 CREATE TABLE Organizations (
@@ -268,7 +270,8 @@ CREATE TABLE Organizations (
 	FOREIGN KEY (OrganizationTypeCV) REFERENCES CV_OrganizationType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ParentOrganizationID) REFERENCES Organizations (OrganizationID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (OrganizationCode)
 );
 
 CREATE TABLE People (
@@ -282,7 +285,8 @@ CREATE TABLE ProcessingLevels (
 	ProcessingLevelID INTEGER   NOT NULL PRIMARY KEY,
 	ProcessingLevelCode VARCHAR (50)  NOT NULL,
 	Definition VARCHAR (500)  NULL,
-	Explanation VARCHAR (500)  NULL
+	Explanation VARCHAR (500)  NULL,
+	UNIQUE (ProcessingLevelCode)
 );
 
 CREATE TABLE RelatedActions (
@@ -348,7 +352,8 @@ CREATE TABLE SamplingFeatures (
 	FOREIGN KEY (SamplingFeatureGeotypeCV) REFERENCES CV_SamplingFeatureGeoType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureTypeCV) REFERENCES CV_SamplingFeatureType (Name)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (SamplingFeatureCode)
 );
 
 CREATE TABLE TaxonomicClassifiers (
@@ -387,7 +392,8 @@ CREATE TABLE Variables (
 	FOREIGN KEY (VariableNameCV) REFERENCES CV_VariableName (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (VariableTypeCV) REFERENCES CV_VariableType (Name)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (VariableCode)
 );
 
 /***************************************************************************/
@@ -625,7 +631,8 @@ CREATE TABLE DataQuality (
 	FOREIGN KEY (DataQualityTypeCV) REFERENCES CV_DataQualityType (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (DataQualityValueUnitsID) REFERENCES Units (UnitsID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (DataQualityCode)
 );
 
 CREATE TABLE ReferenceMaterials (
@@ -643,7 +650,8 @@ CREATE TABLE ReferenceMaterials (
 	FOREIGN KEY (ReferenceMaterialOrganizationID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ReferenceMaterialCode)
 );
 
 CREATE TABLE ReferenceMaterialValues (
@@ -786,7 +794,8 @@ CREATE TABLE Equipment (
 	FOREIGN KEY (EquipmentVendorID) REFERENCES Organizations (OrganizationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (EquipmentOwnerID) REFERENCES People (PersonID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (EquipmentCode)
 );
 
 CREATE TABLE EquipmentModels (
@@ -1225,7 +1234,8 @@ CREATE TABLE CategoricalResultValues (
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES CategoricalResults (ResultID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset)
 );
 
 CREATE TABLE MeasurementResults (
@@ -1269,7 +1279,8 @@ CREATE TABLE MeasurementResultValues (
 	ValueDateTime DATETIME   NOT NULL,
 	ValueDateTimeUTCOffset INTEGER   NOT NULL,
 	FOREIGN KEY (ResultID) REFERENCES MeasurementResults (ResultID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset)
 );
 
 CREATE TABLE PointCoverageResults (
@@ -1319,7 +1330,8 @@ CREATE TABLE PointCoverageResultValues (
 	FOREIGN KEY (XLocationUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (YLocationUnitsID) REFERENCES Units (UnitsID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, CensorCodeCV, QualityCodeCV)
 );
 
 CREATE TABLE ProfileResults (
@@ -1372,7 +1384,8 @@ CREATE TABLE ProfileResultValues (
 	FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES ProfileResults (ResultID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE SectionResults (
@@ -1433,7 +1446,8 @@ CREATE TABLE SectionResultValues (
 	FOREIGN KEY (XLocationUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XAggregationInterval, XLocationUnitsID, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE SpectraResults (
@@ -1486,7 +1500,8 @@ CREATE TABLE SpectraResultValues (
 	FOREIGN KEY (ResultID) REFERENCES SpectraResults (ResultID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (WavelengthUnitsID) REFERENCES Units (UnitsID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ExcitationWavelength, EmissionWavelength, WavelengthUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE TimeSeriesResults (
@@ -1534,7 +1549,8 @@ CREATE TABLE TimeSeriesResultValues (
 	FOREIGN KEY (QualityCodeCV) REFERENCES CV_QualityCode (Name)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ResultID) REFERENCES TimeSeriesResults (ResultID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE TrajectoryResults (
@@ -1591,7 +1607,8 @@ CREATE TABLE TrajectoryResultValues (
 	FOREIGN KEY (YLocationUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 CREATE TABLE TransectResults (
@@ -1651,7 +1668,8 @@ CREATE TABLE TransectResultValues (
 	FOREIGN KEY (XLocationUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (YLocationUnitsID) REFERENCES Units (UnitsID)
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, TransectDistance, TransectDistanceAggregationInterval, TransectDistanceUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
 );
 
 /***************************************************************************/
@@ -1763,7 +1781,8 @@ CREATE TABLE Models (
 	ModelName VARCHAR (255)  NOT NULL,
 	ModelDescription VARCHAR (500)  NULL,
 	Version VARCHAR (255)  NULL,
-	ModelLink VARCHAR (255)  NULL
+	ModelLink VARCHAR (255)  NULL,
+	UNIQUE (ModelCode)
 );
 
 CREATE TABLE RelatedModels (
