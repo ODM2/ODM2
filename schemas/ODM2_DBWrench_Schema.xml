@@ -2034,7 +2034,7 @@
       <Cm>"Accepted" property values for a Reference Material, which can be certified by an agency or vendor, established in the literature by the research community, or developed for "in house" use only by a laboratory.</Cm>
       <TblOpts/>
       <Pk ClNs="ReferenceMaterialValueID" nm="pkReferenceMaterialValues"/>
-      <Cl au="0" df="" nm="ReferenceMaterialValueID" nu="0">
+      <Cl au="1" df="" nm="ReferenceMaterialValueID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The primary key for ReferenceMaterialValues</Cm>
       </Cl>
@@ -2058,12 +2058,12 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The units for the ReferenceMaterialValue and ReferenceMaterialAccuracy</Cm>
       </Cl>
-      <Cl au="0" df="" nm="CitationID" nu="0">
+      <Cl au="0" df="" nm="CitationID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The attribution for source that established the ReferenceMaterialValue and ReferenceMaterialAccuracy</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ReferenceMaterialValues_Citations" prLkCl="CitationID" upAc="3">
-        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="0"/>
+        <PrTb mn="0" nm="Citations" oe="1" sch="ODM2Provenance" zr="1"/>
         <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
@@ -7716,7 +7716,8 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
