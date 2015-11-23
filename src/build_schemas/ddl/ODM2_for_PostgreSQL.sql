@@ -462,13 +462,13 @@ create table ODM2.ReferenceMaterials (
 	UNIQUE (ReferenceMaterialCode)
 );
 create table ODM2.ReferenceMaterialValues (
-	referencematerialvalueid integer  NOT NULL primary key,
+	referencematerialvalueid serial  NOT NULL primary key,
 	referencematerialid integer  NOT NULL,
 	referencematerialvalue double precision  NOT NULL,
 	referencematerialaccuracy double precision  NULL,
 	variableid integer  NOT NULL,
 	unitsid integer  NOT NULL,
-	citationid integer  NOT NULL
+	citationid integer  NULL
 );
 create table ODM2.ResultNormalizationValues (
 	resultid bigint  NOT NULL primary key,

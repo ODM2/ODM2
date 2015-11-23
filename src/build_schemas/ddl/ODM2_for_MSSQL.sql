@@ -529,13 +529,13 @@ CREATE TABLE ODM2.ReferenceMaterials (
 	CONSTRAINT uc_ReferenceMaterialCode UNIQUE (ReferenceMaterialCode) 
 )
 CREATE TABLE ODM2.ReferenceMaterialValues (
-	ReferenceMaterialValueID int   NOT NULL,
+	ReferenceMaterialValueID int  IDENTITY (1,1) NOT NULL,
 	ReferenceMaterialID int   NOT NULL,
 	ReferenceMaterialValue float   NOT NULL,
 	ReferenceMaterialAccuracy float   NULL,
 	VariableID int   NOT NULL,
 	UnitsID int   NOT NULL,
-	CitationID int   NOT NULL,
+	CitationID int   NULL,
 	PRIMARY KEY (ReferenceMaterialValueID)
 )
 CREATE TABLE ODM2.ResultNormalizationValues (

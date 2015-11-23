@@ -661,7 +661,7 @@ CREATE TABLE ReferenceMaterialValues (
 	ReferenceMaterialAccuracy FLOAT   NULL,
 	VariableID INTEGER   NOT NULL,
 	UnitsID INTEGER   NOT NULL,
-	CitationID INTEGER   NOT NULL,
+	CitationID INTEGER   NULL,
 	FOREIGN KEY (CitationID) REFERENCES Citations (CitationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ReferenceMaterialID) REFERENCES ReferenceMaterials (ReferenceMaterialID)

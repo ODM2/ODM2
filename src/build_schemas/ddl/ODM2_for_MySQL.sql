@@ -521,13 +521,13 @@ CREATE TABLE ReferenceMaterials (
 );
 
 CREATE TABLE ReferenceMaterialValues (
-	ReferenceMaterialValueID INT   NOT NULL PRIMARY KEY,
+	ReferenceMaterialValueID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ReferenceMaterialID INT   NOT NULL,
 	ReferenceMaterialValue FLOAT   NOT NULL,
 	ReferenceMaterialAccuracy FLOAT   NULL,
 	VariableID INT   NOT NULL,
 	UnitsID INT   NOT NULL,
-	CitationID INT   NOT NULL
+	CitationID INT   NULL
 );
 
 CREATE TABLE ResultNormalizationValues (
