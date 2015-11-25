@@ -2,11 +2,11 @@ This folder contains a Python script for automatically loading CV terms from the
 
 This script should be run from the command line.  The following is an example:
 
-python cvload.py mysql+pymysql://ODM:odm@localhost/odm2
+python cvload.py mysql+pymysql://ODM:odm@localhost:3306/odm2
 
 The connection string can be any format supported by sqlalchemy.  For example: 
 
-{database type}+{driver name}://{username}:{password}@{server address}/{database name}
+{database type}+{driver name}://{username}:{password}@{server address}:{port number}/{database name}
 
 This script has the following dependencies:
 Python 2.7 
