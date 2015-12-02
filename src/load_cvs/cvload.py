@@ -86,7 +86,7 @@ class CVDatasetType(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
-class CvDataQualityType(Base):
+class CVDataQualityType(Base):
     __tablename__ = 'cv_dataqualitytype'
     __table_args__ = {u'schema': 'odm2'}
 
@@ -227,20 +227,6 @@ class CVResultType(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
-'''
-class CVSampledMedium(Base):
-    __tablename__ = 'cv_sampledmedium'
-    __table_args__ = {u'schema': 'odm2'}
-
-    Term = Column('term', String(255), nullable=False)
-    Name = Column('name', String(255), primary_key=True)
-    Definition = Column('definition', String(1000))
-    Category = Column('category', String(255))
-    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
-
-    def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
-'''
 
 class CVSamplingFeatureGeoType(Base):
     __tablename__ = 'cv_samplingfeaturegeotype'
@@ -294,19 +280,6 @@ class CVSpeciation(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
-'''
-class CVSpecimenMedium(Base):
-    __tablename__ = 'cv_specimenmedium'
-    __table_args__ = {u'schema': 'odm2'}
-
-    Term = Column('term', String(255), nullable=False)
-    Name = Column('name', String(255), primary_key=True)
-    Definition = Column('definition', String(1000))
-    Category = Column('category', String(255))
-    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
-    def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
-'''
 
 class CVSpecimenType(Base):
     __tablename__ = 'cv_specimentype'
@@ -334,20 +307,6 @@ class CVSiteType(Base):
     def __repr__(self):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
-'''
-class CVReferenceMaterialMedium(Base):
-    __tablename__ = 'cv_referencematerialmedium'
-    __table_args__ = {u'schema': 'odm2'}
-
-    Term = Column('term', String(255), nullable=False)
-    Name = Column('name', String(255), primary_key=True)
-    Definition = Column('definition', String(1000))
-    Category = Column('category', String(255))
-    SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
-
-    def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
-'''
 
 class CVStatus(Base):
     __tablename__ = 'cv_status'
@@ -416,7 +375,34 @@ class CVVariableType(Base):
     SourceVocabularyUri = Column('sourcevocabularyuri', String(255))
 
     def __repr__(self):
-        return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
+        return "<CV('%s', '%s', '%s', '%s')>" % (self.Term, self.Name, self.Definition, self.Category)
+
+def _changeSchema(schema):
+    import inspect
+    import sys
+    #get a list of all of the classes in the module
+    clsmembers = inspect.getmembers(sys.modules[__name__], lambda member: inspect.isclass(member) and member.__module__ == __name__)
+
+    for name, Tbl in clsmembers:
+        import sqlalchemy.ext.declarative.api as api
+        if isinstance(Tbl, api.DeclarativeMeta):
+            Tbl.__table__.schema = schema
+
+
+def _getSchema(engine):
+    from sqlalchemy.engine import reflection
+
+    insp=reflection.Inspector.from_engine(engine)
+
+    for name in insp.get_schema_names():
+        if 'odm2'== name.lower():
+            return name
+    else:
+        return insp.default_schema_name
+
+def setSchema(engine):
+    s = _getSchema(engine)
+    _changeSchema(s)
 
 
 # -----------------------------------------------------------------------------
@@ -437,7 +423,8 @@ parser.add_argument(
         help="Format: {engine}+{driver}://{user}:{pass}@{address}/{db}\n"
         "mysql+pymysql://ODM:odm@localhost/odm2\n"
         "mssql+pyodbc://ODM:123@localhost/odm2\n"
-        "postgresql+psycopg2://ODM:odm@test.uwrl.usu.edu/odm2\n",
+        "postgresql+psycopg2://ODM:odm@test.uwrl.usu.edu/odm2\n"
+        "sqlite+pysqlite:///path/to/file",
         default=True, type=str, dest='conn_string')
 parser.add_argument('-d', '--debug', 
         help="Debugging program without committing anything to"
@@ -451,10 +438,13 @@ args = parser.parse_args()
 ## Verify connection string 
 conn_string = args.conn_string
 
+
+
 engine = None
 session = None
 try:
     engine = create_engine(conn_string, encoding='utf-8')
+    setSchema(engine)
     session = sessionmaker(bind=engine)()
 except Exception as e:
     print (e)
@@ -477,7 +467,7 @@ vocab= [("actiontype", CVActionType),
         ("censorcode", CVCensorCode),
         ("directivetype", CVDirectiveType),
         ("datasettype",CVDatasetType),
-        ("dataqualitytype",CvDataQualityType),
+        ("dataqualitytype",CVDataQualityType),
         ("organizationtype", CVOrganizationType),
         ("status", CVStatus),
         ("annotationtype", CVAnnotationType),
