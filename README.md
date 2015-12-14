@@ -46,6 +46,7 @@ This work was supported by National Science Foundation Grant [EAR-1224638](http:
 ODM2 draws heavily form our prior work with the CUAHSI Hydrologic information system and ODM 1.1.1 (Horsburgh et al., 2008; Horsburgh and Tarboton, 2008), our experiences workin on the Critical Zone Observatory Integrated Data Management System (CZOData), and our experiences with the EarthChem systems (e.g., Lehnert et al., 2007; Lehnert et al., 2009). It also extensively uses concepts from the Open Geospatial Consortium's Observations & Measurements standard (Cox, 2007a; Cox, 2007b; Cox, 2011a; Cox, 2011b; ISO, 2011).
 
 ### References ###
+[See a full list of ODM2 related references](https://github.com/ODM2/ODM2/wiki/References)
 
 Cox, S.J.D. (2007a). Observations and Measurements - Part 1 - Observation schema, OGC Implementation Specification, OGC 07-022r1. 73 + xi. http://portal.opengeospatial.org/files/22466.
  
