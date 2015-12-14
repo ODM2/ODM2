@@ -7916,19 +7916,11 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Provenance</TreePath>
-    <TreePath>/Schemas (12)/ODM2Provenance/Tables (10)</TreePath>
-    <TreePath>/Schemas (12)/ODM2SamplingFeatures</TreePath>
-    <TreePath>/Schemas (12)/ODM2SamplingFeatures/Tables (6)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
 </Db>
