@@ -443,7 +443,8 @@ conn_string = args.conn_string
 engine = None
 session = None
 try:
-    engine = create_engine(conn_string, encoding='utf-8')
+    # engine = create_engine(conn_string, encoding='utf-8')
+    engine = create_engine(conn_string, encoding='unicode_escape')
     setSchema(engine)
     session = sessionmaker(bind=engine)()
 except Exception as e:
@@ -517,7 +518,8 @@ for count, (key, value) in enumerate(vocab):
             try:
                 obj.Term = voc.attrib[rdf%"about"].split('/')[-1]
                 obj.Name = voc.find(skos%"prefLabel").text
-                obj.Definition = voc.find(skos%"definition").text.encode('UTF-8') if voc.find(skos%"definition") is not None else None
+                # obj.Definition = voc.find(skos%"definition").text.encode('UTF-8') if voc.find(skos%"definition") is not None else None
+                obj.Definition = voc.find(skos%"definition").text.encode('unicode_escape') if voc.find(skos%"definition") is not None else None
                 obj.Category = category = voc.find(odm2%"category").text if voc.find(odm2 % "category") is not None else None
                 obj.SourceVocabularyUri = voc.attrib[rdf%"about"]
                 objs.append(obj)
