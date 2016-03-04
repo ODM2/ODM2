@@ -15,3 +15,11 @@ Database Driver (choose the one for your database)
 * mysql: pymysql 
 * mssql: pyodbc
 * postgresql: psycopg2
+
+For SQLite, the connection string looks like the following:
+
+sqlite:///{database name}
+
+For example:
+
+sqlite:///ODM2.sqlite

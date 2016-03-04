@@ -5,8 +5,8 @@
  Created on: 11-13-2014
 
  Requirements:
- 1.  Expects ODM2_for_SQLite.sql in the same directory as
-     the script file
+ 1.  Expects ODM2_for_SQLite.sql in the src/blank_schema_scripts/sqlite folder
+ 2.  Expects cvload.py in the src/load_cvs folder
 
  Outputs:
  1.  Creates a SQLite database called ODM2.sqlite in the same
