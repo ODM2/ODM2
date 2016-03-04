@@ -1023,7 +1023,11 @@
       </Cl>
       <Cl au="0" df="" nm="FeatureGeometry" nu="1">
         <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>The location geometry of the sampling feature on the Earth. Can be a Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc) or Solid/Volume (although often limited to 2D geometries). </Cm>
+        <Cm>The location geometry of the sampling feature on the Earth expressed using a geometry data type. Can be a Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc) or Solid/Volume (although often limited to 2D geometries). </Cm>
+      </Cl>
+      <Cl au="0" df="" nm="FeatureGeometryWKT" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="8000" sc="null" sg="1" un="0"/>
+        <Cm>The location geometry of the sampling feature on the Earth expressed as well known text (WKT). Can be a Point, Curve (profile, trajectory, etc.), Surface (flat polygons, etc.), or Solid/Volume (although often limited to 2D geometries).</Cm>
       </Cl>
       <Cl au="0" df="" nm="Elevation_m" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
@@ -5480,7 +5484,7 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="276" y="27"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="268" y="17"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="850" y="75"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1160" y="261"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="908" y="496"/>
@@ -6231,12 +6235,12 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="192" x2="192" y1="716" y2="752"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="192" x2="192" y1="730" y2="752"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="167" x2="167" y1="716" y2="858"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="167" x2="167" y1="730" y2="858"/>
       </positionableLines>
     </FkGl>
     <Notes>
