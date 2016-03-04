@@ -213,6 +213,7 @@ create table ODM2.SamplingFeatures (
 	samplingfeaturedescription varchar (500) NULL,
 	samplingfeaturegeotypecv varchar (255) NULL,
 	featuregeometry geometry  NULL,
+	featuregeometrywkt varchar (8000) NULL,
 	elevation_m double precision  NULL,
 	elevationdatumcv varchar (255) NULL,
 	UNIQUE (SamplingFeatureCode)

@@ -247,6 +247,7 @@ CREATE TABLE ODM2.SamplingFeatures (
 	SamplingFeatureDescription varchar (500)  NULL,
 	SamplingFeatureGeotypeCV varchar (255)  NULL,
 	FeatureGeometry geometry   NULL,
+	FeatureGeometryWKT varchar (8000)  NULL,
 	Elevation_m float   NULL,
 	ElevationDatumCV varchar (255)  NULL,
 	PRIMARY KEY (SamplingFeatureID),

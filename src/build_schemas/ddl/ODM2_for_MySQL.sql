@@ -237,6 +237,7 @@ CREATE TABLE SamplingFeatures (
 	SamplingFeatureDescription VARCHAR (500)  NULL,
 	SamplingFeatureGeotypeCV VARCHAR (255)  NULL,
 	FeatureGeometry geometry   NULL,
+	FeatureGeometryWKT VARCHAR (8000)  NULL,
 	Elevation_m FLOAT   NULL,
 	ElevationDatumCV VARCHAR (255)  NULL,
 	CONSTRAINT uc_SamplingFeatureCode UNIQUE (SamplingFeatureCode)
