@@ -5,6 +5,10 @@ The next version of the Observations Data Model.
 
 For more information about the ODM2 development project, visit the [wiki](https://github.com/ODM2/ODM2/wiki). 
 
+Have a look at the ODM2 paper in Environmental Modelling & Software. It's open access!
+
+Horsburgh, J. S., Aufdenkampe, A. K., Mayorga, E., Lehnert, K. A., Hsu, L., Song, L., Spackman Jones, A., Damiano, S. G., Tarboton, D. G., Valentine, D., Zaslavsky, I., Whitenack, T. (2016). Observations Data Model 2: A community information model for spatially discrete Earth observations, Environmental Modelling & Software, 79, 55-74, [http://dx.doi.org/10.1016/j.envsoft.2016.01.010](http://dx.doi.org/10.1016/j.envsoft.2016.01.010)
+
 ##  Getting Started with ODM2 ##
 
 SQL scripts for generating blank ODM2 databases can be found at the following locations:
