@@ -470,7 +470,7 @@
         <Cm>Indicator of whether the affiliated person was the lead for the action</Cm>
       </Cl>
       <Cl au="0" df="" nm="RoleDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for a role played by a person in performing an action</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_ActionPeople_Actions" prLkCl="ActionID" upAc="3">
@@ -519,7 +519,7 @@
         <Cm>The UTCOffset of for the EndDateTime</Cm>
       </Cl>
       <Cl au="0" df="" nm="ActionDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text that describes the action</Cm>
       </Cl>
       <Cl au="0" df="" nm="ActionFileLink" nu="1">
@@ -621,7 +621,7 @@
         <Cm>A text title for the dataset</Cm>
       </Cl>
       <Cl au="0" df="" nm="DatasetAbstract" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>A text abstract describing the dataset</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Datasets_CV_DatasetTypeCV" prLkCl="Name" upAc="3">
@@ -714,7 +714,7 @@
         <Cm>Full text name of the method</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Full text description of the method</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodLink" nu="1">
@@ -763,7 +763,7 @@
         <Cm>The full text name of the organization</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>A text description of the organization</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationLink" nu="1">
@@ -827,11 +827,11 @@
         <Cm>Text code identifying the level of processing the Result has been subject to</Cm>
       </Cl>
       <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text defintion of the processing level</Cm>
       </Cl>
       <Cl au="0" df="" nm="Explanation" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text explanation of the processing level</Cm>
       </Cl>
       <UniqueConstraints>
@@ -1014,7 +1014,7 @@
         <Cm>Sampling Feature name (free text).</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text describing the sampling feature.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureGeotypeCV" nu="1">
@@ -1079,7 +1079,7 @@
         <Cm>Taxonomic classification using a common name</Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Description or remarks about Taxonomic Classifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ParentTaxonomicClassifierID" nu="1">
@@ -1152,7 +1152,7 @@
         <Cm>Controlled vocabulary for the name of the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableDefinition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text definition of the variable</Cm>
       </Cl>
       <Cl au="0" df="" nm="SpeciationCV" nu="1">
@@ -1944,7 +1944,7 @@
         <Cm>Units for the DataQualityValue</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataQualityDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text description of the DataQuality metadata</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataQualityLink" nu="1">
@@ -2260,7 +2260,7 @@
         <Cm>Text column label</Cm>
       </Cl>
       <Cl au="0" df="" nm="ColumnDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text description of the contents of the column</Cm>
       </Cl>
       <Cl au="0" df="" nm="MeasurementEquation" nu="1">
@@ -2336,7 +2336,7 @@
         <Cm>Text name of the datalogger file</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataLoggerFileDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text description of the datalogger file</Cm>
       </Cl>
       <Cl au="0" df="" nm="DataLoggerFileLink" nu="1">
@@ -2371,7 +2371,7 @@
         <Cm>Text name of the datalogger program file</Cm>
       </Cl>
       <Cl au="0" df="" nm="ProgramDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text description of the datalogger program file</Cm>
       </Cl>
       <Cl au="0" df="" nm="ProgramVersion" nu="1">
@@ -2437,7 +2437,7 @@
         <Cm>A text string identifying the purchase order used to purchase the piece of equipment</Cm>
       </Cl>
       <Cl au="0" df="" nm="EquipmentDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text notes about the specific piece of equipment</Cm>
       </Cl>
       <Cl au="0" df="" nm="EquipmentDocumentationLink" nu="1">
@@ -2492,7 +2492,7 @@
         <Cm>Text name of the equipment model</Cm>
       </Cl>
       <Cl au="0" df="" nm="ModelDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text description of the equipment model</Cm>
       </Cl>
       <Cl au="0" df="" nm="IsInstrument" nu="0">
@@ -2763,7 +2763,7 @@
         <Cm>Text name of the extension property</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text description of the extension property</Cm>
       </Cl>
       <Cl au="0" df="" nm="PropertyDataTypeCV" nu="0">
@@ -2972,7 +2972,7 @@
         <Cm>Foreign Key identifer for the organization overseeing or affiliated with the identifier system</Cm>
       </Cl>
       <Cl au="0" df="" nm="ExternalIdentifierSystemDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Description of identifier system.</Cm>
       </Cl>
       <Cl au="0" df="" nm="ExternalIdentifierSystemURL" nu="1">
@@ -3290,7 +3290,7 @@
         <Cm>Directive type, such as project, intended analyte/analysis for a Specimen, etc.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DirectiveDescription" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text description of the directive or purpose under which the action was taken.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Directives_CV_DirectiveType" prLkCl="Name" upAc="3">
@@ -5083,7 +5083,7 @@
         <Cm>Text name of the spatial reference system</Cm>
       </Cl>
       <Cl au="0" df="" nm="SRSDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text notes describing the spatial reference system</Cm>
       </Cl>
       <Cl au="0" df="" nm="SRSLink" nu="1">
@@ -5188,7 +5188,7 @@
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="RoleDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_ModelAffiliations_Affiliations" prLkCl="AffiliationID" upAc="3">
         <PrTb mn="0" nm="Affiliations" oe="1" sch="ODM2Core" zr="0"/>
@@ -5216,7 +5216,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ModelDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="Version" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -5273,7 +5273,7 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="SimulationDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="SimulationStartDateTime" nu="0">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
