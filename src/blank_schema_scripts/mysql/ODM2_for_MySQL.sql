@@ -116,7 +116,7 @@ CREATE TABLE ActionBy (
 	ActionID INT   NOT NULL,
 	AffiliationID INT   NOT NULL,
 	IsActionLead TINYINT(1)   NOT NULL,
-	RoleDescription VARCHAR (500)  NULL
+	RoleDescription VARCHAR (5000)  NULL
 );
 
 CREATE TABLE Actions (
@@ -127,7 +127,7 @@ CREATE TABLE Actions (
 	BeginDateTimeUTCOffset INT   NOT NULL,
 	EndDateTime DATETIME   NULL,
 	EndDateTimeUTCOffset INT   NULL,
-	ActionDescription VARCHAR (500)  NULL,
+	ActionDescription VARCHAR (5000)  NULL,
 	ActionFileLink VARCHAR (255)  NULL
 );
 
@@ -150,7 +150,7 @@ CREATE TABLE Datasets (
 	DatasetTypeCV VARCHAR (255)  NOT NULL,
 	DatasetCode VARCHAR (50)  NOT NULL,
 	DatasetTitle VARCHAR (255)  NOT NULL,
-	DatasetAbstract VARCHAR (500)  NOT NULL,
+	DatasetAbstract VARCHAR (5000)  NOT NULL,
 	CONSTRAINT uc_DatasetCode UNIQUE (DatasetCode)
 );
 
@@ -171,7 +171,7 @@ CREATE TABLE Methods (
 	MethodTypeCV VARCHAR (255)  NOT NULL,
 	MethodCode VARCHAR (50)  NOT NULL,
 	MethodName VARCHAR (255)  NOT NULL,
-	MethodDescription VARCHAR (500)  NULL,
+	MethodDescription VARCHAR (5000)  NULL,
 	MethodLink VARCHAR (255)  NULL,
 	OrganizationID INT   NULL,
 	CONSTRAINT uc_MethodCode UNIQUE (MethodCode)
@@ -182,7 +182,7 @@ CREATE TABLE Organizations (
 	OrganizationTypeCV VARCHAR (255)  NOT NULL,
 	OrganizationCode VARCHAR (50)  NOT NULL,
 	OrganizationName VARCHAR (255)  NOT NULL,
-	OrganizationDescription VARCHAR (500)  NULL,
+	OrganizationDescription VARCHAR (5000)  NULL,
 	OrganizationLink VARCHAR (255)  NULL,
 	ParentOrganizationID INT   NULL,
 	CONSTRAINT uc_OrganizationCode UNIQUE (OrganizationCode)
@@ -198,8 +198,8 @@ CREATE TABLE People (
 CREATE TABLE ProcessingLevels (
 	ProcessingLevelID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ProcessingLevelCode VARCHAR (50)  NOT NULL,
-	Definition VARCHAR (500)  NULL,
-	Explanation VARCHAR (500)  NULL,
+	Definition VARCHAR (5000)  NULL,
+	Explanation VARCHAR (5000)  NULL,
 	CONSTRAINT uc_ProcessingLevelCode UNIQUE (ProcessingLevelCode)
 );
 
@@ -234,7 +234,7 @@ CREATE TABLE SamplingFeatures (
 	SamplingFeatureTypeCV VARCHAR (255)  NOT NULL,
 	SamplingFeatureCode VARCHAR (50)  NOT NULL,
 	SamplingFeatureName VARCHAR (255)  NULL,
-	SamplingFeatureDescription VARCHAR (500)  NULL,
+	SamplingFeatureDescription VARCHAR (5000)  NULL,
 	SamplingFeatureGeotypeCV VARCHAR (255)  NULL,
 	FeatureGeometry geometry   NULL,
 	FeatureGeometryWKT VARCHAR (8000)  NULL,
@@ -248,7 +248,7 @@ CREATE TABLE TaxonomicClassifiers (
 	TaxonomicClassifierTypeCV VARCHAR (255)  NOT NULL,
 	TaxonomicClassifierName VARCHAR (255)  NOT NULL,
 	TaxonomicClassifierCommonName VARCHAR (255)  NULL,
-	TaxonomicClassifierDescription VARCHAR (500)  NULL,
+	TaxonomicClassifierDescription VARCHAR (5000)  NULL,
 	ParentTaxonomicClassifierID INT   NULL
 );
 
@@ -503,7 +503,7 @@ CREATE TABLE DataQuality (
 	DataQualityCode VARCHAR (255)  NOT NULL,
 	DataQualityValue FLOAT   NULL,
 	DataQualityValueUnitsID INT   NULL,
-	DataQualityDescription VARCHAR (500)  NULL,
+	DataQualityDescription VARCHAR (5000)  NULL,
 	DataQualityLink VARCHAR (255)  NULL,
 	CONSTRAINT uc_DataQualityCode UNIQUE (DataQualityCode)
 );
@@ -572,7 +572,7 @@ CREATE TABLE DataloggerFileColumns (
 	DataLoggerFileID INT   NOT NULL,
 	InstrumentOutputVariableID INT   NOT NULL,
 	ColumnLabel VARCHAR (50)  NOT NULL,
-	ColumnDescription VARCHAR (500)  NULL,
+	ColumnDescription VARCHAR (5000)  NULL,
 	MeasurementEquation VARCHAR (255)  NULL,
 	ScanInterval FLOAT   NULL,
 	ScanIntervalUnitsID INT   NULL,
@@ -585,7 +585,7 @@ CREATE TABLE DataLoggerFiles (
 	DataLoggerFileID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ProgramID INT   NOT NULL,
 	DataLoggerFileName VARCHAR (255)  NOT NULL,
-	DataLoggerFileDescription VARCHAR (500)  NULL,
+	DataLoggerFileDescription VARCHAR (5000)  NULL,
 	DataLoggerFileLink VARCHAR (255)  NULL
 );
 
@@ -593,7 +593,7 @@ CREATE TABLE DataloggerProgramFiles (
 	ProgramID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	AffiliationID INT   NOT NULL,
 	ProgramName VARCHAR (255)  NOT NULL,
-	ProgramDescription VARCHAR (500)  NULL,
+	ProgramDescription VARCHAR (5000)  NULL,
 	ProgramVersion VARCHAR (50)  NULL,
 	ProgramFileLink VARCHAR (255)  NULL
 );
@@ -609,7 +609,7 @@ CREATE TABLE Equipment (
 	EquipmentVendorID INT   NOT NULL,
 	EquipmentPurchaseDate DATETIME   NOT NULL,
 	EquipmentPurchaseOrderNumber VARCHAR (50)  NULL,
-	EquipmentDescription VARCHAR (500)  NULL,
+	EquipmentDescription VARCHAR (5000)  NULL,
 	EquipmentDocumentationLink VARCHAR (255)  NULL,
 	CONSTRAINT uc_EquipmentCode UNIQUE (EquipmentCode)
 );
@@ -619,7 +619,7 @@ CREATE TABLE EquipmentModels (
 	ModelManufacturerID INT   NOT NULL,
 	ModelPartNumber VARCHAR (50)  NULL,
 	ModelName VARCHAR (255)  NOT NULL,
-	ModelDescription VARCHAR (500)  NULL,
+	ModelDescription VARCHAR (5000)  NULL,
 	IsInstrument TINYINT(1)   NOT NULL,
 	ModelSpecificationsFileLink VARCHAR (255)  NULL,
 	ModelLink VARCHAR (255)  NULL
@@ -681,7 +681,7 @@ CREATE TABLE CitationExtensionPropertyValues (
 CREATE TABLE ExtensionProperties (
 	PropertyID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	PropertyName VARCHAR (255)  NOT NULL,
-	PropertyDescription VARCHAR (500)  NULL,
+	PropertyDescription VARCHAR (5000)  NULL,
 	PropertyDataTypeCV VARCHAR (255)  NOT NULL,
 	PropertyUnitsID INT   NULL
 );
@@ -731,7 +731,7 @@ CREATE TABLE ExternalIdentifierSystems (
 	ExternalIdentifierSystemID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ExternalIdentifierSystemName VARCHAR (255)  NOT NULL,
 	IdentifierSystemOrganizationID INT   NOT NULL,
-	ExternalIdentifierSystemDescription VARCHAR (500)  NULL,
+	ExternalIdentifierSystemDescription VARCHAR (5000)  NULL,
 	ExternalIdentifierSystemURL VARCHAR (255)  NULL
 );
 
@@ -805,7 +805,7 @@ CREATE TABLE ActionDirectives (
 CREATE TABLE Directives (
 	DirectiveID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	DirectiveTypeCV VARCHAR (255)  NOT NULL,
-	DirectiveDescription VARCHAR (500)  NOT NULL
+	DirectiveDescription VARCHAR (5000)  NOT NULL
 );
 
 CREATE TABLE SpecimenBatchPostions (
@@ -1191,7 +1191,7 @@ CREATE TABLE SpatialReferences (
 	SpatialReferenceID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	SRSCode VARCHAR (50)  NULL,
 	SRSName VARCHAR (255)  NOT NULL,
-	SRSDescription VARCHAR (500)  NULL,
+	SRSDescription VARCHAR (5000)  NULL,
 	SRSLink VARCHAR (255)  NULL
 );
 
@@ -1219,14 +1219,14 @@ CREATE TABLE ModelAffiliations (
 	ModelID INT   NOT NULL,
 	AffiliationID INT   NOT NULL,
 	IsPrimary TINYINT(1)   NOT NULL,
-	RoleDescription VARCHAR (500)  NULL
+	RoleDescription VARCHAR (5000)  NULL
 );
 
 CREATE TABLE Models (
 	ModelID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ModelCode VARCHAR (50)  NOT NULL,
 	ModelName VARCHAR (255)  NOT NULL,
-	ModelDescription VARCHAR (500)  NULL,
+	ModelDescription VARCHAR (5000)  NULL,
 	Version VARCHAR (255)  NULL,
 	ModelLink VARCHAR (255)  NULL,
 	CONSTRAINT uc_ModelCode UNIQUE (ModelCode)
@@ -1243,7 +1243,7 @@ CREATE TABLE Simulations (
 	SimulationID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	ActionID INT   NOT NULL,
 	SimulationName VARCHAR (255)  NOT NULL,
-	SimulationDescription VARCHAR (500)  NULL,
+	SimulationDescription VARCHAR (5000)  NULL,
 	SimulationStartDateTime DATETIME   NOT NULL,
 	SimulationStartDateTimeUTCOffset INT   NOT NULL,
 	SimulationEndDateTime DATETIME   NOT NULL,
