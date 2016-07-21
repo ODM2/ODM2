@@ -57,7 +57,7 @@
 </td><td> </td><td> </td><td>Sampling Feature name (free text).</td><td> </td>
 </tr>
 <tr class="altRow">
-<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureDescription.html">SamplingFeatureDescription</a></td><td>VarChar(500)</td><td>
+<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_SamplingFeatureDescription.html">SamplingFeatureDescription</a></td><td>VarChar(5000)</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>Text describing the sampling feature.</td><td> </td>
@@ -75,15 +75,21 @@
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_FeatureGeometry.html">FeatureGeometry</a></td><td>Geometry</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
-</td><td> </td><td> </td><td>The location geometry of the sampling feature on the Earth. Can be a Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc) or Solid/Volume (although often limited to 2D geometries). </td><td> </td>
+</td><td> </td><td> </td><td>The location geometry of the sampling feature on the Earth expressed using a geometry data type. Can be a Point, Curve (profile, trajectory, etc), Surface (flat polygons, etc) or Solid/Volume (although often limited to 2D geometries). </td><td> </td>
 </tr>
 <tr>
+<td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_FeatureGeometryWKT.html">FeatureGeometryWKT</a></td><td>VarChar(8000)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>The location geometry of the sampling feature on the Earth expressed as well known text (WKT). Can be a Point, Curve (profile, trajectory, etc.), Surface (flat polygons, etc.), or Solid/Volume (although often limited to 2D geometries).</td><td> </td>
+</tr>
+<tr class="altRow">
 <td> </td><td><a href="../columns/ODM2Core_SamplingFeatures_Elevation_m.html">Elevation_m</a></td><td>Float</td><td>
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
 </td><td> </td><td> </td><td>The elevation of the sampling feature in meters, or in the case of Specimen, the elevation from where the SamplingFeature.Specimen was collected</td><td> </td>
 </tr>
-<tr class="altRow">
+<tr>
 <td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_SamplingFeatures_ElevationDatumCV.html">ElevationDatumCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol">
 <p class="boolImg">
 <img src="../images/ok12d.gif"></p>
@@ -181,6 +187,9 @@
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2LabAnalyses.html">ODM2LabAnalyses</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2OverviewSimplified.html">ODM2OverviewSimplified</a></td>
 </tr>
 <tr>
 <td><a href="../diagrams/ODM2SamplingFeatures.html">ODM2SamplingFeatures</a></td>
