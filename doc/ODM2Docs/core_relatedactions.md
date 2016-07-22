@@ -6,7 +6,7 @@ In many cases, observations result from several related **Actions**. These Actio
 ODM2 users have two options for describing what could be considered to be "composite" Methods - that is, procedures that are made up of multiple Actions.
 
 1. Create a single, "composite" **Method** that is a narrative of all of the Actions performed. This single Method would then be used with a single "Observation Action" that is linked to the **Result**.
-2. Create a series of **Actions** that are recorded separately, each with thier own granular **Method** description. The relationships among the Actions would then be recorded in the **RelatedActions** entity.
+2. Create a series of **Actions** that are recorded separately, each with their own granular **Method** description. The relationships among the Actions would then be recorded in the **RelatedActions** entity.
 
 Sequencing of and relationships between Actions can be specified in the **RelatedActions** entity, and the order of Actions can then be traversed by following the sequence of Actions. Examples of of how to use the RelatedActions entity follow.
 
@@ -34,7 +34,7 @@ In this linear workflow, the Result can be linked all the way back to the site v
 
 This example involves a hierarchy of Actions that all originate from a single visit to a monitoring Site.  There are actually multiple linear workflows within this example, where a workflow is a path from the first Action (the site visit) to an independent Result. There is also a partial workflow where a sample was collected, but then no further Actions were taken.
 
-In this example, even though each of the samples may have been collected at the same location and time, each of the Results may be very different because the sample preservation and preparation Actions are different. However, as in the previous example, each of the Results can be traced all the way back to the site visit during which the samples were collected by tracing up the heirarchy using each Action's immediate parent. 
+In this example, even though each of the samples may have been collected at the same location and time, each of the Results may be very different because the sample preservation and preparation Actions are different. However, as in the previous example, each of the Results can be traced all the way back to the site visit during which the samples were collected by tracing up the hierarchy using each Action's immediate parent. 
 
 ### Simple Sensor Example
 
@@ -45,11 +45,11 @@ In this example, even though each of the samples may have been collected at the 
 
 ![Simple Sensor Workflow](images/simplesensorexample.png)
 
-This simple sensor example implies that during a single site visit Action a technician deploys a datalogger and sensor, generating a time series Result. During that same site visit, the technican then retrives the sensor and datalogger, ending data collection. This scenario would fit short duration sensor deployments, but will not cover sensor deployments that span multiple site visits. The following example describes how more complex sensor deployments can be represented.
+This simple sensor example implies that during a single site visit Action a technician deploys a datalogger and sensor, generating a time series Result. During that same site visit, the technican then retrieves the sensor and datalogger, ending data collection. This scenario would fit short duration sensor deployments, but will not cover sensor deployments that span multiple site visits. The following example describes how more complex sensor deployments can be represented.
 
 ### Complex Sensor Example
 
-More often, deployment of in situ sensors involves ongoing data collection, and additional site visit Actions will be required over time for sensor cleaning, maintenance, and calibration. Additionally, other field Actions such as manual stage readings or discharge measurements may be performed as part of subsequent site visits. Representing the sequence of Actions related to a sensor deployment and Result involves potentially multiple separate heirarchies of Actions, all of which must be related to the initial sensor deployment (because the sensor deployment is the Action to which the Result should be linked).  For example:
+More often, deployment of in situ sensors involves ongoing data collection, and additional site visit Actions will be required over time for sensor cleaning, maintenance, and calibration. Additionally, other field Actions such as manual stage readings or discharge measurements may be performed as part of subsequent site visits. Representing the sequence of Actions related to a sensor deployment and Result involves potentially multiple separate hierarchies of Actions, all of which must be related to the initial sensor deployment (because the sensor deployment is the Action to which the Result should be linked).  For example:
 
 1. The technician completes steps 1-3 in the simple sensor example above (ActionID = 1, 2, and 3)
 2. The technician performs a separate site visit (ActionID = 4)
@@ -60,4 +60,4 @@ More often, deployment of in situ sensors involves ongoing data collection, and 
 
 ![Complex Sensor Workflow](images/complexsensorexample.png)
 
-This example demonstrates that not all relationships among Actions will be simple parent/child relationships that result in linear workflows. Instead, multiple types of relationships are required, which is why the RelatedActions entity contains the RelationshipTypeCV attribute. A user wishing to retrieve all activities related to the sensor deployment that created a time series Result would not only get the relationship with the site visit during which the original deployment was created, but also all subsequent Actions that have been related (e.g., sensor cleaning and calibration activites or any other activies for which a formal relationship has been created). 
+This example demonstrates that not all relationships among Actions will be simple parent/child relationships that result in linear workflows. Instead, multiple types of relationships are required, which is why the RelatedActions entity contains the RelationshipTypeCV attribute. A user wishing to retrieve all activities related to the sensor deployment that created a time series Result would not only get the relationship with the site visit during which the original deployment was created, but also all subsequent Actions that have been related (e.g., sensor cleaning and calibration activities or any other activies for which a formal relationship has been created). 
