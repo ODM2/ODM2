@@ -275,7 +275,7 @@ CREATE TABLE ODM2.Variables (
 	VariableTypeCV varchar (255)  NOT NULL,
 	VariableCode varchar (50)  NOT NULL,
 	VariableNameCV varchar (255)  NOT NULL,
-	VariableDefinition varchar (500)  NULL,
+	VariableDefinition varchar (5000)  NULL,
 	SpeciationCV varchar (255)  NULL,
 	NoDataValue float   NOT NULL,
 	PRIMARY KEY (VariableID),

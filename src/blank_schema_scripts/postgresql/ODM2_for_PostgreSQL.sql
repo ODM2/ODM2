@@ -135,7 +135,7 @@ create table ODM2.Datasets (
 	datasettypecv varchar (255) NOT NULL,
 	datasetcode varchar (50) NOT NULL,
 	datasettitle varchar (255) NOT NULL,
-	datasetabstract  varchar (5000) NOT NULL,
+	datasetabstract varchar (5000) NOT NULL,
 	UNIQUE (DatasetCode)
 );
 create table ODM2.DatasetsResults (
@@ -177,8 +177,8 @@ create table ODM2.People (
 create table ODM2.ProcessingLevels (
 	processinglevelid serial  NOT NULL primary key,
 	processinglevelcode varchar (50) NOT NULL,
-	definition  varchar (5000) NULL,
-	explanation  varchar (5000) NULL,
+	definition varchar (5000) NULL,
+	explanation varchar (5000) NULL,
 	UNIQUE (ProcessingLevelCode)
 );
 create table ODM2.RelatedActions (
@@ -238,7 +238,7 @@ create table ODM2.Variables (
 	variabletypecv varchar (255) NOT NULL,
 	variablecode varchar (50) NOT NULL,
 	variablenamecv varchar (255) NOT NULL,
-	variabledefinition varchar (500) NULL,
+	variabledefinition varchar (5000) NULL,
 	speciationcv varchar (255) NULL,
 	nodatavalue double precision  NOT NULL,
 	UNIQUE (VariableCode)

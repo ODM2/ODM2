@@ -385,7 +385,7 @@ CREATE TABLE Variables (
 	VariableTypeCV VARCHAR (255)  NOT NULL,
 	VariableCode VARCHAR (50)  NOT NULL,
 	VariableNameCV VARCHAR (255)  NOT NULL,
-	VariableDefinition VARCHAR (500)  NULL,
+	VariableDefinition VARCHAR (5000)  NULL,
 	SpeciationCV VARCHAR (255)  NULL,
 	NoDataValue DOUBLE   NOT NULL,
 	FOREIGN KEY (SpeciationCV) REFERENCES CV_Speciation (Name)
