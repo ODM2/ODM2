@@ -74,6 +74,13 @@ class MSSQL():
         # add constraints
         uc = tbl.uniqueconstraint()
         if uc is not None:
+            constraints = uc.get_classnames()
+            constraint_string = ''
+            if len(constraints) > 16:
+                print '\n\tWARNING: Table "%s" contains more than 16 constraints which is not allowed in SQL Server.  \n\tI will use the first 16 values that I encounter, which may result unintended functionality. \n\tIt is recommended that you revisit the database *.xml file and adjust these constraints to satisfy SQL Server limitations.\n' % (tbl.name())
+                constraint_string = ','.join(constraints[:16])
+            else:
+                constraint_string = ','.join(constraints)
             uc_name = uc.name()
             ddl += ',\n\tCONSTRAINT %s UNIQUE (%s) ' % (uc_name, ','.join(uc.get_classnames()))
 

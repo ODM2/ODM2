@@ -126,7 +126,7 @@ CREATE TABLE ODM2.ActionBy (
 	ActionID int   NOT NULL,
 	AffiliationID int   NOT NULL,
 	IsActionLead bit   NOT NULL,
-	RoleDescription varchar (500)  NULL,
+	RoleDescription varchar (5000)  NULL,
 	PRIMARY KEY (BridgeID)
 )
 CREATE TABLE ODM2.Actions (
@@ -137,7 +137,7 @@ CREATE TABLE ODM2.Actions (
 	BeginDateTimeUTCOffset int   NOT NULL,
 	EndDateTime datetime   NULL,
 	EndDateTimeUTCOffset int   NULL,
-	ActionDescription varchar (500)  NULL,
+	ActionDescription varchar (5000)  NULL,
 	ActionFileLink varchar (255)  NULL,
 	PRIMARY KEY (ActionID)
 )
@@ -160,7 +160,7 @@ CREATE TABLE ODM2.Datasets (
 	DatasetTypeCV varchar (255)  NOT NULL,
 	DatasetCode varchar (50)  NOT NULL,
 	DatasetTitle varchar (255)  NOT NULL,
-	DatasetAbstract varchar (500)  NOT NULL,
+	DatasetAbstract varchar (5000)  NOT NULL,
 	PRIMARY KEY (DatasetID),
 	CONSTRAINT uc_DatasetCode UNIQUE (DatasetCode) 
 )
@@ -181,7 +181,7 @@ CREATE TABLE ODM2.Methods (
 	MethodTypeCV varchar (255)  NOT NULL,
 	MethodCode varchar (50)  NOT NULL,
 	MethodName varchar (255)  NOT NULL,
-	MethodDescription varchar (500)  NULL,
+	MethodDescription varchar (5000)  NULL,
 	MethodLink varchar (255)  NULL,
 	OrganizationID int   NULL,
 	PRIMARY KEY (MethodID),
@@ -192,7 +192,7 @@ CREATE TABLE ODM2.Organizations (
 	OrganizationTypeCV varchar (255)  NOT NULL,
 	OrganizationCode varchar (50)  NOT NULL,
 	OrganizationName varchar (255)  NOT NULL,
-	OrganizationDescription varchar (500)  NULL,
+	OrganizationDescription varchar (5000)  NULL,
 	OrganizationLink varchar (255)  NULL,
 	ParentOrganizationID int   NULL,
 	PRIMARY KEY (OrganizationID),
@@ -208,8 +208,8 @@ CREATE TABLE ODM2.People (
 CREATE TABLE ODM2.ProcessingLevels (
 	ProcessingLevelID int  IDENTITY (1,1) NOT NULL,
 	ProcessingLevelCode varchar (50)  NOT NULL,
-	Definition varchar (500)  NULL,
-	Explanation varchar (500)  NULL,
+	Definition varchar (5000)  NULL,
+	Explanation varchar (5000)  NULL,
 	PRIMARY KEY (ProcessingLevelID),
 	CONSTRAINT uc_ProcessingLevelCode UNIQUE (ProcessingLevelCode) 
 )
@@ -244,7 +244,7 @@ CREATE TABLE ODM2.SamplingFeatures (
 	SamplingFeatureTypeCV varchar (255)  NOT NULL,
 	SamplingFeatureCode varchar (50)  NOT NULL,
 	SamplingFeatureName varchar (255)  NULL,
-	SamplingFeatureDescription varchar (500)  NULL,
+	SamplingFeatureDescription varchar (5000)  NULL,
 	SamplingFeatureGeotypeCV varchar (255)  NULL,
 	FeatureGeometry geometry   NULL,
 	FeatureGeometryWKT varchar (8000)  NULL,
@@ -258,7 +258,7 @@ CREATE TABLE ODM2.TaxonomicClassifiers (
 	TaxonomicClassifierTypeCV varchar (255)  NOT NULL,
 	TaxonomicClassifierName varchar (255)  NOT NULL,
 	TaxonomicClassifierCommonName varchar (255)  NULL,
-	TaxonomicClassifierDescription varchar (500)  NULL,
+	TaxonomicClassifierDescription varchar (5000)  NULL,
 	ParentTaxonomicClassifierID int   NULL,
 	PRIMARY KEY (TaxonomicClassifierID)
 )
@@ -275,7 +275,7 @@ CREATE TABLE ODM2.Variables (
 	VariableTypeCV varchar (255)  NOT NULL,
 	VariableCode varchar (50)  NOT NULL,
 	VariableNameCV varchar (255)  NOT NULL,
-	VariableDefinition varchar (500)  NULL,
+	VariableDefinition varchar (5000)  NULL,
 	SpeciationCV varchar (255)  NULL,
 	NoDataValue float   NOT NULL,
 	PRIMARY KEY (VariableID),
@@ -511,7 +511,7 @@ CREATE TABLE ODM2.DataQuality (
 	DataQualityCode varchar (255)  NOT NULL,
 	DataQualityValue float   NULL,
 	DataQualityValueUnitsID int   NULL,
-	DataQualityDescription varchar (500)  NULL,
+	DataQualityDescription varchar (5000)  NULL,
 	DataQualityLink varchar (255)  NULL,
 	PRIMARY KEY (DataQualityID),
 	CONSTRAINT uc_DataQualityCode UNIQUE (DataQualityCode) 
@@ -579,7 +579,7 @@ CREATE TABLE ODM2.DataloggerFileColumns (
 	DataLoggerFileID int   NOT NULL,
 	InstrumentOutputVariableID int   NOT NULL,
 	ColumnLabel varchar (50)  NOT NULL,
-	ColumnDescription varchar (500)  NULL,
+	ColumnDescription varchar (5000)  NULL,
 	MeasurementEquation varchar (255)  NULL,
 	ScanInterval float   NULL,
 	ScanIntervalUnitsID int   NULL,
@@ -592,7 +592,7 @@ CREATE TABLE ODM2.DataLoggerFiles (
 	DataLoggerFileID int  IDENTITY (1,1) NOT NULL,
 	ProgramID int   NOT NULL,
 	DataLoggerFileName varchar (255)  NOT NULL,
-	DataLoggerFileDescription varchar (500)  NULL,
+	DataLoggerFileDescription varchar (5000)  NULL,
 	DataLoggerFileLink varchar (255)  NULL,
 	PRIMARY KEY (DataLoggerFileID)
 )
@@ -600,7 +600,7 @@ CREATE TABLE ODM2.DataloggerProgramFiles (
 	ProgramID int  IDENTITY (1,1) NOT NULL,
 	AffiliationID int   NOT NULL,
 	ProgramName varchar (255)  NOT NULL,
-	ProgramDescription varchar (500)  NULL,
+	ProgramDescription varchar (5000)  NULL,
 	ProgramVersion varchar (50)  NULL,
 	ProgramFileLink varchar (255)  NULL,
 	PRIMARY KEY (ProgramID)
@@ -616,7 +616,7 @@ CREATE TABLE ODM2.Equipment (
 	EquipmentVendorID int   NOT NULL,
 	EquipmentPurchaseDate datetime   NOT NULL,
 	EquipmentPurchaseOrderNumber varchar (50)  NULL,
-	EquipmentDescription varchar (500)  NULL,
+	EquipmentDescription varchar (5000)  NULL,
 	EquipmentDocumentationLink varchar (255)  NULL,
 	PRIMARY KEY (EquipmentID),
 	CONSTRAINT uc_EquipmentCode UNIQUE (EquipmentCode) 
@@ -626,7 +626,7 @@ CREATE TABLE ODM2.EquipmentModels (
 	ModelManufacturerID int   NOT NULL,
 	ModelPartNumber varchar (50)  NULL,
 	ModelName varchar (255)  NOT NULL,
-	ModelDescription varchar (500)  NULL,
+	ModelDescription varchar (5000)  NULL,
 	IsInstrument bit   NOT NULL,
 	ModelSpecificationsFileLink varchar (255)  NULL,
 	ModelLink varchar (255)  NULL,
@@ -687,7 +687,7 @@ CREATE TABLE ODM2.CitationExtensionPropertyValues (
 CREATE TABLE ODM2.ExtensionProperties (
 	PropertyID int  IDENTITY (1,1) NOT NULL,
 	PropertyName varchar (255)  NOT NULL,
-	PropertyDescription varchar (500)  NULL,
+	PropertyDescription varchar (5000)  NULL,
 	PropertyDataTypeCV varchar (255)  NOT NULL,
 	PropertyUnitsID int   NULL,
 	PRIMARY KEY (PropertyID)
@@ -736,7 +736,7 @@ CREATE TABLE ODM2.ExternalIdentifierSystems (
 	ExternalIdentifierSystemID int  IDENTITY (1,1) NOT NULL,
 	ExternalIdentifierSystemName varchar (255)  NOT NULL,
 	IdentifierSystemOrganizationID int   NOT NULL,
-	ExternalIdentifierSystemDescription varchar (500)  NULL,
+	ExternalIdentifierSystemDescription varchar (5000)  NULL,
 	ExternalIdentifierSystemURL varchar (255)  NULL,
 	PRIMARY KEY (ExternalIdentifierSystemID)
 )
@@ -809,7 +809,7 @@ CREATE TABLE ODM2.ActionDirectives (
 CREATE TABLE ODM2.Directives (
 	DirectiveID int  IDENTITY (1,1) NOT NULL,
 	DirectiveTypeCV varchar (255)  NOT NULL,
-	DirectiveDescription varchar (500)  NOT NULL,
+	DirectiveDescription varchar (5000)  NOT NULL,
 	PRIMARY KEY (DirectiveID)
 )
 CREATE TABLE ODM2.SpecimenBatchPostions (
@@ -1192,7 +1192,7 @@ CREATE TABLE ODM2.SpatialReferences (
 	SpatialReferenceID int  IDENTITY (1,1) NOT NULL,
 	SRSCode varchar (50)  NULL,
 	SRSName varchar (255)  NOT NULL,
-	SRSDescription varchar (500)  NULL,
+	SRSDescription varchar (5000)  NULL,
 	SRSLink varchar (255)  NULL,
 	PRIMARY KEY (SpatialReferenceID)
 )
@@ -1219,14 +1219,14 @@ CREATE TABLE ODM2.ModelAffiliations (
 	ModelID int   NOT NULL,
 	AffiliationID int   NOT NULL,
 	IsPrimary bit   NOT NULL,
-	RoleDescription varchar (500)  NULL,
+	RoleDescription varchar (5000)  NULL,
 	PRIMARY KEY (BridgeID)
 )
 CREATE TABLE ODM2.Models (
 	ModelID int  IDENTITY (1,1) NOT NULL,
 	ModelCode varchar (50)  NOT NULL,
 	ModelName varchar (255)  NOT NULL,
-	ModelDescription varchar (500)  NULL,
+	ModelDescription varchar (5000)  NULL,
 	Version varchar (255)  NULL,
 	ModelLink varchar (255)  NULL,
 	PRIMARY KEY (ModelID),
@@ -1243,7 +1243,7 @@ CREATE TABLE ODM2.Simulations (
 	SimulationID int  IDENTITY (1,1) NOT NULL,
 	ActionID int   NOT NULL,
 	SimulationName varchar (255)  NOT NULL,
-	SimulationDescription varchar (500)  NULL,
+	SimulationDescription varchar (5000)  NULL,
 	SimulationStartDateTime datetime   NOT NULL,
 	SimulationStartDateTimeUTCOffset int   NOT NULL,
 	SimulationEndDateTime datetime   NOT NULL,

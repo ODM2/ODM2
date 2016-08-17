@@ -104,7 +104,7 @@ create table ODM2.ActionBy (
 	actionid integer  NOT NULL,
 	affiliationid integer  NOT NULL,
 	isactionlead boolean  NOT NULL,
-	roledescription varchar (500) NULL
+	roledescription varchar (5000) NULL
 );
 create table ODM2.Actions (
 	actionid serial  NOT NULL primary key,
@@ -114,7 +114,7 @@ create table ODM2.Actions (
 	begindatetimeutcoffset integer  NOT NULL,
 	enddatetime timestamp  NULL,
 	enddatetimeutcoffset integer  NULL,
-	actiondescription varchar (500) NULL,
+	actiondescription varchar (5000) NULL,
 	actionfilelink varchar (255) NULL
 );
 create table ODM2.Affiliations (
@@ -135,7 +135,7 @@ create table ODM2.Datasets (
 	datasettypecv varchar (255) NOT NULL,
 	datasetcode varchar (50) NOT NULL,
 	datasettitle varchar (255) NOT NULL,
-	datasetabstract varchar (500) NOT NULL,
+	datasetabstract varchar (5000) NOT NULL,
 	UNIQUE (DatasetCode)
 );
 create table ODM2.DatasetsResults (
@@ -153,7 +153,7 @@ create table ODM2.Methods (
 	methodtypecv varchar (255) NOT NULL,
 	methodcode varchar (50) NOT NULL,
 	methodname varchar (255) NOT NULL,
-	methoddescription varchar (500) NULL,
+	methoddescription varchar (5000) NULL,
 	methodlink varchar (255) NULL,
 	organizationid integer  NULL,
 	UNIQUE (MethodCode)
@@ -163,7 +163,7 @@ create table ODM2.Organizations (
 	organizationtypecv varchar (255) NOT NULL,
 	organizationcode varchar (50) NOT NULL,
 	organizationname varchar (255) NOT NULL,
-	organizationdescription varchar (500) NULL,
+	organizationdescription varchar (5000) NULL,
 	organizationlink varchar (255) NULL,
 	parentorganizationid integer  NULL,
 	UNIQUE (OrganizationCode)
@@ -177,8 +177,8 @@ create table ODM2.People (
 create table ODM2.ProcessingLevels (
 	processinglevelid serial  NOT NULL primary key,
 	processinglevelcode varchar (50) NOT NULL,
-	definition varchar (500) NULL,
-	explanation varchar (500) NULL,
+	definition varchar (5000) NULL,
+	explanation varchar (5000) NULL,
 	UNIQUE (ProcessingLevelCode)
 );
 create table ODM2.RelatedActions (
@@ -210,7 +210,7 @@ create table ODM2.SamplingFeatures (
 	samplingfeaturetypecv varchar (255) NOT NULL,
 	samplingfeaturecode varchar (50) NOT NULL,
 	samplingfeaturename varchar (255) NULL,
-	samplingfeaturedescription varchar (500) NULL,
+	samplingfeaturedescription varchar (5000) NULL,
 	samplingfeaturegeotypecv varchar (255) NULL,
 	featuregeometry geometry  NULL,
 	featuregeometrywkt varchar (8000) NULL,
@@ -223,7 +223,7 @@ create table ODM2.TaxonomicClassifiers (
 	taxonomicclassifiertypecv varchar (255) NOT NULL,
 	taxonomicclassifiername varchar (255) NOT NULL,
 	taxonomicclassifiercommonname varchar (255) NULL,
-	taxonomicclassifierdescription varchar (500) NULL,
+	taxonomicclassifierdescription varchar (5000) NULL,
 	parenttaxonomicclassifierid integer  NULL
 );
 create table ODM2.Units (
@@ -238,7 +238,7 @@ create table ODM2.Variables (
 	variabletypecv varchar (255) NOT NULL,
 	variablecode varchar (50) NOT NULL,
 	variablenamecv varchar (255) NOT NULL,
-	variabledefinition varchar (500) NULL,
+	variabledefinition varchar (5000) NULL,
 	speciationcv varchar (255) NULL,
 	nodatavalue double precision  NOT NULL,
 	UNIQUE (VariableCode)
@@ -446,7 +446,7 @@ create table ODM2.DataQuality (
 	dataqualitycode varchar (255) NOT NULL,
 	dataqualityvalue double precision  NULL,
 	dataqualityvalueunitsid integer  NULL,
-	dataqualitydescription varchar (500) NULL,
+	dataqualitydescription varchar (5000) NULL,
 	dataqualitylink varchar (255) NULL,
 	UNIQUE (DataQualityCode)
 );
@@ -506,7 +506,7 @@ create table ODM2.DataloggerFileColumns (
 	dataloggerfileid integer  NOT NULL,
 	instrumentoutputvariableid integer  NOT NULL,
 	columnlabel varchar (50) NOT NULL,
-	columndescription varchar (500) NULL,
+	columndescription varchar (5000) NULL,
 	measurementequation varchar (255) NULL,
 	scaninterval double precision  NULL,
 	scanintervalunitsid integer  NULL,
@@ -518,14 +518,14 @@ create table ODM2.DataLoggerFiles (
 	dataloggerfileid serial  NOT NULL primary key,
 	programid integer  NOT NULL,
 	dataloggerfilename varchar (255) NOT NULL,
-	dataloggerfiledescription varchar (500) NULL,
+	dataloggerfiledescription varchar (5000) NULL,
 	dataloggerfilelink varchar (255) NULL
 );
 create table ODM2.DataloggerProgramFiles (
 	programid serial  NOT NULL primary key,
 	affiliationid integer  NOT NULL,
 	programname varchar (255) NOT NULL,
-	programdescription varchar (500) NULL,
+	programdescription varchar (5000) NULL,
 	programversion varchar (50) NULL,
 	programfilelink varchar (255) NULL
 );
@@ -540,7 +540,7 @@ create table ODM2.Equipment (
 	equipmentvendorid integer  NOT NULL,
 	equipmentpurchasedate timestamp  NOT NULL,
 	equipmentpurchaseordernumber varchar (50) NULL,
-	equipmentdescription varchar (500) NULL,
+	equipmentdescription varchar (5000) NULL,
 	equipmentdocumentationlink varchar (255) NULL,
 	UNIQUE (EquipmentCode)
 );
@@ -549,7 +549,7 @@ create table ODM2.EquipmentModels (
 	modelmanufacturerid integer  NOT NULL,
 	modelpartnumber varchar (50) NULL,
 	modelname varchar (255) NOT NULL,
-	modeldescription varchar (500) NULL,
+	modeldescription varchar (5000) NULL,
 	isinstrument boolean  NOT NULL,
 	modelspecificationsfilelink varchar (255) NULL,
 	modellink varchar (255) NULL
@@ -603,7 +603,7 @@ create table ODM2.CitationExtensionPropertyValues (
 create table ODM2.ExtensionProperties (
 	propertyid serial  NOT NULL primary key,
 	propertyname varchar (255) NOT NULL,
-	propertydescription varchar (500) NULL,
+	propertydescription varchar (5000) NULL,
 	propertydatatypecv varchar (255) NOT NULL,
 	propertyunitsid integer  NULL
 );
@@ -646,7 +646,7 @@ create table ODM2.ExternalIdentifierSystems (
 	externalidentifiersystemid serial  NOT NULL primary key,
 	externalidentifiersystemname varchar (255) NOT NULL,
 	identifiersystemorganizationid integer  NOT NULL,
-	externalidentifiersystemdescription varchar (500) NULL,
+	externalidentifiersystemdescription varchar (5000) NULL,
 	externalidentifiersystemurl varchar (255) NULL
 );
 create table ODM2.MethodExternalIdentifiers (
@@ -710,7 +710,7 @@ create table ODM2.ActionDirectives (
 create table ODM2.Directives (
 	directiveid serial  NOT NULL primary key,
 	directivetypecv varchar (255) NOT NULL,
-	directivedescription varchar (500) NOT NULL
+	directivedescription varchar (5000) NOT NULL
 );
 create table ODM2.SpecimenBatchPostions (
 	featureactionid integer  NOT NULL primary key,
@@ -1060,7 +1060,7 @@ create table ODM2.SpatialReferences (
 	spatialreferenceid serial  NOT NULL primary key,
 	srscode varchar (50) NULL,
 	srsname varchar (255) NOT NULL,
-	srsdescription varchar (500) NULL,
+	srsdescription varchar (5000) NULL,
 	srslink varchar (255) NULL
 );
 create table ODM2.Specimens (
@@ -1084,13 +1084,13 @@ create table ODM2.ModelAffiliations (
 	modelid integer  NOT NULL,
 	affiliationid integer  NOT NULL,
 	isprimary boolean  NOT NULL,
-	roledescription varchar (500) NULL
+	roledescription varchar (5000) NULL
 );
 create table ODM2.Models (
 	modelid serial  NOT NULL primary key,
 	modelcode varchar (50) NOT NULL,
 	modelname varchar (255) NOT NULL,
-	modeldescription varchar (500) NULL,
+	modeldescription varchar (5000) NULL,
 	version varchar (255) NULL,
 	modellink varchar (255) NULL,
 	UNIQUE (ModelCode)
@@ -1105,7 +1105,7 @@ create table ODM2.Simulations (
 	simulationid serial  NOT NULL primary key,
 	actionid integer  NOT NULL,
 	simulationname varchar (255) NOT NULL,
-	simulationdescription varchar (500) NULL,
+	simulationdescription varchar (5000) NULL,
 	simulationstartdatetime timestamp  NOT NULL,
 	simulationstartdatetimeutcoffset integer  NOT NULL,
 	simulationenddatetime timestamp  NOT NULL,
