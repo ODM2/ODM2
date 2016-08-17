@@ -4744,7 +4744,7 @@
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_TrajectoryResultValues">
-          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
+          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval</ClNs>
         </UnCon>
       </UniqueConstraints>
       <SchTrHis/>

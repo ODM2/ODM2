@@ -1122,7 +1122,7 @@ CREATE TABLE ODM2.TrajectoryResultValues (
 	TimeAggregationInterval float   NOT NULL,
 	TimeAggregationIntervalUnitsID int   NOT NULL,
 	PRIMARY KEY (ValueID),
-	CONSTRAINT uc_TrajectoryResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID) 
+	CONSTRAINT uc_TrajectoryResultValues UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval) 
 )
 CREATE TABLE ODM2.TransectResults (
 	ResultID bigint   NOT NULL,
