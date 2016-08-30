@@ -5,10 +5,10 @@ The following are all software applications under development to provide functio
 
 **ODM2 Blank RDBMS Schemas**: SQL Scripts for generating blank ODM2 databases
 * Support for multiple RDBMS
-** MS SQL Server
-** MySQL
-** PostgreSQL
-** SQLite
+    * MS SQL Server
+    * MySQL
+    * PostgreSQL
+    * SQLite
 * SQL scripts to create blank instances of ODM2 databases
 * SQL script(s) to convert ODM 1.1.1 databases to ODM2 databases
 * [https://github.com/ODM2/ODM2](https://github.com/ODM2/ODM2) 
@@ -31,9 +31,9 @@ The following are all software applications under development to provide functio
 
 **ODM2 YAML Observations Data Archive (YODA) Format and Excel Templates**:  A text-based data exchange format for ODM2 Datasets based on YAML.
 * Multiple profiles for ODM2 Result types, 
-** Time series
-** Specimen time series
-** Specimen datasets
+    * Time series
+    * Specimen time series
+    * Specimen datasets
 * Excel based template(s) for data entry and then export as YODA files
 * [https://github.com/ODM2/YODA-File](https://github.com/ODM2/YODA-File) 
 * [https://github.com/ODM2/YODA-Tools](https://github.com/ODM2/YODA-Tools) 
