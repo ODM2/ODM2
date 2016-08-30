@@ -20,7 +20,7 @@ SQL scripts for generating blank ODM2 databases can be found at the following lo
 
 ###  View Documentation of ODM2 Concepts ###
 
-For more information on ODM2 concepts, examples, best practices, etc., visit the [Documentation](https://github.com/ODM2/ODM2/wiki/documentation) page on the wiki.
+For more information on ODM2 concepts, examples, best practices, the ODM2 software ecosystem, etc., visit the [**Documentation**](https://github.com/ODM2/ODM2/wiki/documentation) page on the wiki.
 
 ###  View Diagrams and Documentation of the ODM2 Schema ###
 
