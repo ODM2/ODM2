@@ -91,6 +91,6 @@ The following are all software applications under development to provide functio
 
 **ODM2 Admin**: A web-based Django/Python admin app for an ODM2 database instance. 
 * Provides data input capabilities
-* Includes simple data visualizations
+* Includes simple data visualizations for time series and environmental specimens
 * Functionality for managing data derived from environmental specimens
 * [https://github.com/miguelcleon/ODM2-Admin](https://github.com/miguelcleon/ODM2-Admin)
