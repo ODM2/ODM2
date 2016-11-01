@@ -2,7 +2,7 @@
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>/Users/jeff/Desktop/ODM2_Current</DocFolder>
+  <DocFolder>/Users/anthony/Databases/ODM2_DBWrench-DocPages/ODM2_ActionsSamplingFeatures_Dev_branch</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
@@ -680,7 +680,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Action that was performed</Cm>
       </Cl>
-      <Cl au="0" df="" nm="RelatedFeatures.RelationID" nu="1">
+      <Cl au="0" df="" nm="RelatedFeaturesRelationID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the the relationship that identifies the parent SamplingFeature. This is useful when the Action is used to create a new SamplingFeature from a parent.</Cm>
       </Cl>
@@ -692,7 +692,7 @@
       <Fk deAc="3" nm="fk_FeatureActions_RelatedFeatures" prLkCl="RelationID" upAc="3">
         <PrTb mn="0" nm="RelatedFeatures" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <CdTb mn="1" nm="FeatureActions" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="RelatedFeatures.RelationID" prCl="RelationID"/>
+        <ClPr cdCl="RelatedFeaturesRelationID" prCl="RelationID"/>
       </Fk>
       <Fk deAc="3" nm="fk_FeatureActions_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -6068,7 +6068,7 @@
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2OverviewSimplified">
-    <RnCf ClkAct="false" FtSz="12" lkStgy="RightAngleStrategy" zm="1.0">
+    <RnCf ClkAct="false" FtSz="12" lkStgy="RightAngleStrategy" zm="0.9">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -6175,7 +6175,7 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.Results.fk_Results_FeatureActions" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1020" x2="1050" y1="497" y2="497"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1016" x2="1050" y1="497" y2="497"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Results.fk_Results_ProcessingLevels" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
@@ -6711,7 +6711,7 @@ Types</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="502">
+  <RnmMgr NxRnmId="503">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7926,6 +7926,7 @@ Types</Note>
       <Rnm id="500" nNm="CV_DatasetType" oNm="CV_DatasetTypeCV"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureActions" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="502" nNm="RelatedFeaturesRelationID" oNm="RelatedFeatures.RelationID"/>
       <Rnm id="501" nNm="RelatedFeatures.RelationID" oNm="RelationID"/>
     </RnmCh>
   </RnmMgr>
@@ -7936,18 +7937,18 @@ Types</Note>
       <BoolOpt lbl="Foreign Keys" nm="doc.fks" on="1" spl="0"/>
       <BoolOpt lbl="Indexes" nm="doc.indexes" on="1" spl="1"/>
       <BoolOpt lbl="Overwrite CSS File" nm="doc.overwrite.css" on="1" spl="0"/>
-      <BoolOpt lbl="Procedures" nm="doc.procs" on="0" spl="1"/>
-      <BoolOpt lbl="Schemas" nm="doc.schemas" on="1" spl="0"/>
+      <BoolOpt lbl="Procedures" nm="doc.procs" on="1" spl="1"/>
+      <BoolOpt lbl="Schemas" nm="doc.schemas" on="0" spl="1"/>
       <BoolOpt lbl="Sequences" nm="doc.sequences" on="1" spl="0"/>
-      <BoolOpt lbl="Tables" nm="doc.tables" on="1" spl="0"/>
+      <BoolOpt lbl="Tables" nm="doc.tables" on="0" spl="1"/>
       <BoolOpt lbl="Triggers" nm="doc.triggers" on="0" spl="1"/>
       <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
