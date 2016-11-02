@@ -238,7 +238,10 @@ CREATE TABLE FeatureActions (
 	FeatureActionID INTEGER   NOT NULL PRIMARY KEY,
 	SamplingFeatureID INTEGER   NOT NULL,
 	ActionID INTEGER   NOT NULL,
+	RelatedFeaturesRelationID INTEGER   NULL,
 	FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
+	ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (RelatedFeaturesRelationID) REFERENCES RelatedFeatures (RelationID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (SamplingFeatureID) REFERENCES SamplingFeatures (SamplingFeatureID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -1609,7 +1612,7 @@ CREATE TABLE TrajectoryResultValues (
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (ZLocationUnitsID) REFERENCES Units (UnitsID)
 	ON UPDATE NO ACTION ON DELETE NO ACTION,
-	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval)
 );
 
 CREATE TABLE TransectResults (

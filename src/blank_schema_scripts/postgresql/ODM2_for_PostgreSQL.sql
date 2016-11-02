@@ -146,7 +146,8 @@ create table ODM2.DatasetsResults (
 create table ODM2.FeatureActions (
 	featureactionid serial  NOT NULL primary key,
 	samplingfeatureid integer  NOT NULL,
-	actionid integer  NOT NULL
+	actionid integer  NOT NULL,
+	relatedfeaturesrelationid integer  NULL
 );
 create table ODM2.Methods (
 	methodid serial  NOT NULL primary key,
@@ -995,7 +996,7 @@ create table ODM2.TrajectoryResultValues (
 	qualitycodecv varchar (255) NOT NULL,
 	timeaggregationinterval double precision  NOT NULL,
 	timeaggregationintervalunitsid integer  NOT NULL,
-	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID)
+	UNIQUE (ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, ZLocation, ZLocationUnitsID, TrajectoryDistance, TrajectoryDistanceAggregationInterval, TrajectoryDistanceUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval)
 );
 create table ODM2.TransectResults (
 	resultid bigint  NOT NULL primary key,
@@ -1278,6 +1279,10 @@ on update no Action on delete cascade;
 
 alter table ODM2.FeatureActions add constraint fk_FeatureActions_Actions
 foreign key (ActionID) References ODM2.Actions (ActionID)
+on update no Action on delete cascade;
+
+alter table ODM2.FeatureActions add constraint fk_FeatureActions_RelatedFeatures
+foreign key (RelatedFeaturesRelationID) References ODM2.RelatedFeatures (RelationID)
 on update no Action on delete cascade;
 
 alter table ODM2.FeatureActions add constraint fk_FeatureActions_SamplingFeatures

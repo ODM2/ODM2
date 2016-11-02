@@ -174,6 +174,7 @@ CREATE TABLE ODM2.FeatureActions (
 	FeatureActionID int  IDENTITY (1,1) NOT NULL,
 	SamplingFeatureID int   NOT NULL,
 	ActionID int   NOT NULL,
+	RelatedFeaturesRelationID int   NULL,
 	PRIMARY KEY (FeatureActionID)
 )
 CREATE TABLE ODM2.Methods (
@@ -1417,6 +1418,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.FeatureActions ADD CONSTRAINT fk_FeatureActions_Actions
 FOREIGN KEY (ActionID) REFERENCES ODM2.Actions (ActionID)
+ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE ODM2.FeatureActions ADD CONSTRAINT fk_FeatureActions_RelatedFeatures
+FOREIGN KEY (RelatedFeaturesRelationID) REFERENCES ODM2.RelatedFeatures (RelationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION
 
 ALTER TABLE ODM2.FeatureActions ADD CONSTRAINT fk_FeatureActions_SamplingFeatures

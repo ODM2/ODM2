@@ -163,7 +163,8 @@ CREATE TABLE DatasetsResults (
 CREATE TABLE FeatureActions (
 	FeatureActionID INT  AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	SamplingFeatureID INT   NOT NULL,
-	ActionID INT   NOT NULL
+	ActionID INT   NOT NULL,
+	RelatedFeaturesRelationID INT   NULL
 );
 
 CREATE TABLE Methods (
@@ -1417,6 +1418,10 @@ ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE FeatureActions ADD CONSTRAINT fk_FeatureActions_Actions
 FOREIGN KEY (ActionID) REFERENCES Actions (ActionID)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE FeatureActions ADD CONSTRAINT fk_FeatureActions_RelatedFeatures
+FOREIGN KEY (RelatedFeaturesRelationID) REFERENCES RelatedFeatures (RelationID)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 ALTER TABLE FeatureActions ADD CONSTRAINT fk_FeatureActions_SamplingFeatures
