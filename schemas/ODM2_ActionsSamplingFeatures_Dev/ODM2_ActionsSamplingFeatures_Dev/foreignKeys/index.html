@@ -1,0 +1,898 @@
+<HTML>
+<Header>
+<Title>ODM2 Foreign Keys</Title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<Link href="../css/doc.css" rel="stylesheet" type="text/css">
+</Header>
+<Body>
+<table class="logo">
+<tr>
+<td class="logo">ODM2 [ODM2_DBWrench_Schema.xml]</td>
+</tr>
+</table>
+<table class="horzMenu">
+<tr>
+<td class="horzMenu"><a class="horzMenu" href="../index.html"> Home</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../tables/index.html">Tables</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../schemas/index.html">Schemas</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../diagrams/index.html">Diagrams</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../foreignKeys/index.html">Foreign Keys</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../indexes/index.html">Indexes</a></td><td class="horzMenuFiller"></td>
+</tr>
+</table>
+<hr>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="Header">Name</td><td class="Header">Parent Table</td><td class="Header">Child Table</td><td class="Header">Parent Columns</td><td class="Header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_ActionAnnotations_fk_ActionAnnotations_Actions.html">fk_ActionAnnotations_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Annotations_ActionAnnotations.html">ODM2Annotations.ActionAnnotations</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_ActionAnnotations_fk_ActionAnnotations_Annotations.html">fk_ActionAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_ActionAnnotations.html">ODM2Annotations.ActionAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_Annotations_fk_Annotations_Citations.html">fk_Annotations_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_Annotations_fk_Annotations_CV_AnnotationType.html">fk_Annotations_CV_AnnotationType</a></td><td><a href="../tables/ODM2CV_CV_AnnotationType.html">ODM2CV.CV_AnnotationType</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td>Name</td><td>AnnotationTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_Annotations_fk_Annotations_People.html">fk_Annotations_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td>PersonID</td><td>AnnotatorID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_CategoricalResultValueAnnotations_fk_CategoricalResultValueAnnotations_Annotations.html">fk_CategoricalResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_CategoricalResultValueAnnotations.html">ODM2Annotations.CategoricalResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_CategoricalResultValueAnnotations_fk_CategoricalResultValueAnnotations_CategoricalResultValues.html">fk_CategoricalResultValueAnnotations_CategoricalResultValues</a></td><td><a href="../tables/ODM2Results_CategoricalResultValues.html">ODM2Results.CategoricalResultValues</a></td><td><a href="../tables/ODM2Annotations_CategoricalResultValueAnnotations.html">ODM2Annotations.CategoricalResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_EquipmentAnnotations_fk_EquipmentAnnotations_Annotations.html">fk_EquipmentAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_EquipmentAnnotations.html">ODM2Annotations.EquipmentAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_EquipmentAnnotations_fk_EquipmentAnnotations_Equipment.html">fk_EquipmentAnnotations_Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Annotations_EquipmentAnnotations.html">ODM2Annotations.EquipmentAnnotations</a></td><td>EquipmentID</td><td>EquipmentID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_MeasurementResultValueAnnotations_fk_MeasurementResultValueAnnotations_MeasurementResultValues.html">fk_MeasurementResultValueAnnotations_MeasurementResultValues</a></td><td><a href="../tables/ODM2Results_MeasurementResultValues.html">ODM2Results.MeasurementResultValues</a></td><td><a href="../tables/ODM2Annotations_MeasurementResultValueAnnotations.html">ODM2Annotations.MeasurementResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_MeasurementResultValueAnnotations_fk_ResultValueAnnotations_Annotations.html">fk_ResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_MeasurementResultValueAnnotations.html">ODM2Annotations.MeasurementResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_MethodAnnotations_fk_MethodAnnotations_Annotations.html">fk_MethodAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_MethodAnnotations.html">ODM2Annotations.MethodAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_MethodAnnotations_fk_MethodAnnotations_Methods.html">fk_MethodAnnotations_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Annotations_MethodAnnotations.html">ODM2Annotations.MethodAnnotations</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_PointCoverageResultValueAnnotations_fk_PointCoverageResultValueAnnotations_Annotations.html">fk_PointCoverageResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_PointCoverageResultValueAnnotations.html">ODM2Annotations.PointCoverageResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_PointCoverageResultValueAnnotations_fk_PointCoverageResultValueAnnotations_PointCoverageResultValues.html">fk_PointCoverageResultValueAnnotations_PointCoverageResultValues</a></td><td><a href="../tables/ODM2Results_PointCoverageResultValues.html">ODM2Results.PointCoverageResultValues</a></td><td><a href="../tables/ODM2Annotations_PointCoverageResultValueAnnotations.html">ODM2Annotations.PointCoverageResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_ProfileResultValueAnnotations_fk_ProfileResultValueAnnotations_Annotations.html">fk_ProfileResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_ProfileResultValueAnnotations.html">ODM2Annotations.ProfileResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_ProfileResultValueAnnotations_fk_ProfileResultValueAnnotations_ProfileResultValues.html">fk_ProfileResultValueAnnotations_ProfileResultValues</a></td><td><a href="../tables/ODM2Results_ProfileResultValues.html">ODM2Results.ProfileResultValues</a></td><td><a href="../tables/ODM2Annotations_ProfileResultValueAnnotations.html">ODM2Annotations.ProfileResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_ResultAnnotations_fk_ResultAnnotations_Annotations.html">fk_ResultAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_ResultAnnotations.html">ODM2Annotations.ResultAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_ResultAnnotations_fk_ResultAnnotations_Results.html">fk_ResultAnnotations_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Annotations_ResultAnnotations.html">ODM2Annotations.ResultAnnotations</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_SamplingFeatureAnnotations_fk_SamplingFeatureAnnotations_Annotations.html">fk_SamplingFeatureAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_SamplingFeatureAnnotations.html">ODM2Annotations.SamplingFeatureAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_SamplingFeatureAnnotations_fk_SamplingFeatureAnnotations_SamplingFeatures.html">fk_SamplingFeatureAnnotations_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2Annotations_SamplingFeatureAnnotations.html">ODM2Annotations.SamplingFeatureAnnotations</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_SectionResultValueAnnotations_fk_SectionResultValueAnnotations_Annotations.html">fk_SectionResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_SectionResultValueAnnotations.html">ODM2Annotations.SectionResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_SectionResultValueAnnotations_fk_SectionResultValueAnnotations_SectionResultValues.html">fk_SectionResultValueAnnotations_SectionResultValues</a></td><td><a href="../tables/ODM2Results_SectionResultValues.html">ODM2Results.SectionResultValues</a></td><td><a href="../tables/ODM2Annotations_SectionResultValueAnnotations.html">ODM2Annotations.SectionResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_SpectraResultValueAnnotations_fk_SpectraResultValueAnnotations_Annotations.html">fk_SpectraResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_SpectraResultValueAnnotations.html">ODM2Annotations.SpectraResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_SpectraResultValueAnnotations_fk_SpectraResultValueAnnotations_SpectraResultValues.html">fk_SpectraResultValueAnnotations_SpectraResultValues</a></td><td><a href="../tables/ODM2Results_SpectraResultValues.html">ODM2Results.SpectraResultValues</a></td><td><a href="../tables/ODM2Annotations_SpectraResultValueAnnotations.html">ODM2Annotations.SpectraResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_TimeSeriesResultValueAnnotations_fk_TimeSeriesResultValueAnnotations_Annotations.html">fk_TimeSeriesResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_TimeSeriesResultValueAnnotations.html">ODM2Annotations.TimeSeriesResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_TimeSeriesResultValueAnnotations_fk_TimeSeriesResultValueAnnotations_TimeSeriesResultValues.html">fk_TimeSeriesResultValueAnnotations_TimeSeriesResultValues</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td><a href="../tables/ODM2Annotations_TimeSeriesResultValueAnnotations.html">ODM2Annotations.TimeSeriesResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_TrajectoryResultValueAnnotations_fk_TrajectoryResultValueAnnotations_Annotations.html">fk_TrajectoryResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_TrajectoryResultValueAnnotations.html">ODM2Annotations.TrajectoryResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_TrajectoryResultValueAnnotations_fk_TrajectoryResultValueAnnotations_TrajectoryResultValues.html">fk_TrajectoryResultValueAnnotations_TrajectoryResultValues</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td><a href="../tables/ODM2Annotations_TrajectoryResultValueAnnotations.html">ODM2Annotations.TrajectoryResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Annotations_TransectResultValueAnnotations_fk_TransectResultValueAnnotations_Annotations.html">fk_TransectResultValueAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Annotations_TransectResultValueAnnotations.html">ODM2Annotations.TransectResultValueAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Annotations_TransectResultValueAnnotations_fk_TransectResultValueAnnotations_TransectResultValues.html">fk_TransectResultValueAnnotations_TransectResultValues</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td><a href="../tables/ODM2Annotations_TransectResultValueAnnotations.html">ODM2Annotations.TransectResultValueAnnotations</a></td><td>ValueID</td><td>ValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_ActionBy_fk_ActionPeople_Actions.html">fk_ActionPeople_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_ActionBy.html">ODM2Core.ActionBy</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_ActionBy_fk_ActionPeople_Affiliations.html">fk_ActionPeople_Affiliations</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td><a href="../tables/ODM2Core_ActionBy.html">ODM2Core.ActionBy</a></td><td>AffiliationID</td><td>AffiliationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Actions_fk_Actions_CV_ActionType.html">fk_Actions_CV_ActionType</a></td><td><a href="../tables/ODM2CV_CV_ActionType.html">ODM2CV.CV_ActionType</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td>Name</td><td>ActionTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Actions_fk_Actions_Methods.html">fk_Actions_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Affiliations_fk_Affiliations_Organizations.html">fk_Affiliations_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td>OrganizationID</td><td>OrganizationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Affiliations_fk_Affiliations_People.html">fk_Affiliations_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td>PersonID</td><td>PersonID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Datasets_fk_Datasets_CV_DatasetTypeCV.html">fk_Datasets_CV_DatasetTypeCV</a></td><td><a href="../tables/ODM2CV_CV_DatasetType.html">ODM2CV.CV_DatasetType</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td>Name</td><td>DatasetTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_DatasetsResults_fk_DataSetsResults_DataSets.html">fk_DataSetsResults_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Core_DatasetsResults.html">ODM2Core.DatasetsResults</a></td><td>DatasetID</td><td>DatasetID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_DatasetsResults_fk_DataSetsResults_Results.html">fk_DataSetsResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Core_DatasetsResults.html">ODM2Core.DatasetsResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_FeatureActions_fk_FeatureActions_Actions.html">fk_FeatureActions_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_FeatureActions.html">ODM2Core.FeatureActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_FeatureActions_fk_FeatureActions_RelatedFeatures.html">fk_FeatureActions_RelatedFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_RelatedFeatures.html">ODM2SamplingFeatures.RelatedFeatures</a></td><td><a href="../tables/ODM2Core_FeatureActions.html">ODM2Core.FeatureActions</a></td><td>RelationID</td><td>RelatedFeaturesRelationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_FeatureActions_fk_FeatureActions_SamplingFeatures.html">fk_FeatureActions_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2Core_FeatureActions.html">ODM2Core.FeatureActions</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Methods_fk_Methods_CV_MethodType.html">fk_Methods_CV_MethodType</a></td><td><a href="../tables/ODM2CV_CV_MethodType.html">ODM2CV.CV_MethodType</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td>Name</td><td>MethodTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Methods_fk_Methods_Organizations.html">fk_Methods_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td>OrganizationID</td><td>OrganizationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Organizations_fk_Organizations_CV_OrganizationType.html">fk_Organizations_CV_OrganizationType</a></td><td><a href="../tables/ODM2CV_CV_OrganizationType.html">ODM2CV.CV_OrganizationType</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td>Name</td><td>OrganizationTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Organizations_fk_Organizations_Organizations.html">fk_Organizations_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td>OrganizationID</td><td>ParentOrganizationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_RelatedActions_fk_RelatedActions_Actions.html">fk_RelatedActions_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_RelatedActions.html">ODM2Core.RelatedActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_RelatedActions_fk_RelatedActions_Actions_AreRelated.html">fk_RelatedActions_Actions_AreRelated</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Core_RelatedActions.html">ODM2Core.RelatedActions</a></td><td>ActionID</td><td>RelatedActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_RelatedActions_fk_RelatedActions_CV_RelationshipType.html">fk_RelatedActions_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Core_RelatedActions.html">ODM2Core.RelatedActions</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_Medium.html">fk_Results_CV_Medium</a></td><td><a href="../tables/ODM2CV_CV_Medium.html">ODM2CV.CV_Medium</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>SampledMediumCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_ResultType.html">fk_Results_CV_ResultType</a></td><td><a href="../tables/ODM2CV_CV_ResultType.html">ODM2CV.CV_ResultType</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>ResultTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_CV_Status.html">fk_Results_CV_Status</a></td><td><a href="../tables/ODM2CV_CV_Status.html">ODM2CV.CV_Status</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>Name</td><td>StatusCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_FeatureActions.html">fk_Results_FeatureActions</a></td><td><a href="../tables/ODM2Core_FeatureActions.html">ODM2Core.FeatureActions</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>FeatureActionID</td><td>FeatureActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_ProcessingLevels.html">fk_Results_ProcessingLevels</a></td><td><a href="../tables/ODM2Core_ProcessingLevels.html">ODM2Core.ProcessingLevels</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>ProcessingLevelID</td><td>ProcessingLevelID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_TaxonomicClassifiers.html">fk_Results_TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>TaxonomicClassifierID</td><td>TaxonomicClassifierID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_Units.html">fk_Results_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>UnitsID</td><td>UnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Results_fk_Results_Variables.html">fk_Results_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_SamplingFeatures_fk_SamplingFeatures_CV_ElevationDatum.html">fk_SamplingFeatures_CV_ElevationDatum</a></td><td><a href="../tables/ODM2CV_CV_ElevationDatum.html">ODM2CV.CV_ElevationDatum</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td>Name</td><td>ElevationDatumCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_SamplingFeatures_fk_SamplingFeatures_CV_SamplingFeatureGeoType.html">fk_SamplingFeatures_CV_SamplingFeatureGeoType</a></td><td><a href="../tables/ODM2CV_CV_SamplingFeatureGeoType.html">ODM2CV.CV_SamplingFeatureGeoType</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td>Name</td><td>SamplingFeatureGeotypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_SamplingFeatures_fk_SamplingFeatures_CV_SamplingFeatureType.html">fk_SamplingFeatures_CV_SamplingFeatureType</a></td><td><a href="../tables/ODM2CV_CV_SamplingFeatureType.html">ODM2CV.CV_SamplingFeatureType</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td>Name</td><td>SamplingFeatureTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_TaxonomicClassifiers_fk_ParentTaxon_Taxon.html">fk_ParentTaxon_Taxon</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td>TaxonomicClassifierID</td><td>ParentTaxonomicClassifierID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_TaxonomicClassifiers_fk_TaxonomicClassifiers_CV_TaxonomicClassifierType.html">fk_TaxonomicClassifiers_CV_TaxonomicClassifierType</a></td><td><a href="../tables/ODM2CV_CV_TaxonomicClassifierType.html">ODM2CV.CV_TaxonomicClassifierType</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td>Name</td><td>TaxonomicClassifierTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Units_fk_Units_CV_UnitsType.html">fk_Units_CV_UnitsType</a></td><td><a href="../tables/ODM2CV_CV_UnitsType.html">ODM2CV.CV_UnitsType</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td>Name</td><td>UnitsTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Variables_fk_Variables_CV_Speciation.html">fk_Variables_CV_Speciation</a></td><td><a href="../tables/ODM2CV_CV_Speciation.html">ODM2CV.CV_Speciation</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>Name</td><td>SpeciationCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Core_Variables_fk_Variables_CV_VariableName.html">fk_Variables_CV_VariableName</a></td><td><a href="../tables/ODM2CV_CV_VariableName.html">ODM2CV.CV_VariableName</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>Name</td><td>VariableNameCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Variables_fk_Variables_CV_VariableType.html">fk_Variables_CV_VariableType</a></td><td><a href="../tables/ODM2CV_CV_VariableType.html">ODM2CV.CV_VariableType</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>Name</td><td>VariableTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_DataQuality_fk_DataQuality_CV_DataQualityType.html">fk_DataQuality_CV_DataQualityType</a></td><td><a href="../tables/ODM2CV_CV_DataQualityType.html">ODM2CV.CV_DataQualityType</a></td><td><a href="../tables/ODM2DataQuality_DataQuality.html">ODM2DataQuality.DataQuality</a></td><td>Name</td><td>DataQualityTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2DataQuality_DataQuality_fk_DataQuality_Units.html">fk_DataQuality_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2DataQuality_DataQuality.html">ODM2DataQuality.DataQuality</a></td><td>UnitsID</td><td>DataQualityValueUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterials_fk_ReferenceMaterials_CV_Medium.html">fk_ReferenceMaterials_CV_Medium</a></td><td><a href="../tables/ODM2CV_CV_Medium.html">ODM2CV.CV_Medium</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td>Name</td><td>ReferenceMaterialMediumCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterials_fk_ReferenceMaterials_Organizations.html">fk_ReferenceMaterials_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td>OrganizationID</td><td>ReferenceMaterialOrganizationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterials_fk_ReferenceMaterials_SamplingFeatures.html">fk_ReferenceMaterials_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterialValues_fk_ReferenceMaterialValues_Citations.html">fk_ReferenceMaterialValues_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterialValues.html">ODM2DataQuality.ReferenceMaterialValues</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterialValues_fk_ReferenceMaterialValues_ReferenceMaterials.html">fk_ReferenceMaterialValues_ReferenceMaterials</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterialValues.html">ODM2DataQuality.ReferenceMaterialValues</a></td><td>ReferenceMaterialID</td><td>ReferenceMaterialID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterialValues_fk_ReferenceMaterialValues_Units.html">fk_ReferenceMaterialValues_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterialValues.html">ODM2DataQuality.ReferenceMaterialValues</a></td><td>UnitsID</td><td>UnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_ReferenceMaterialValues_fk_ReferenceMaterialValues_Variables.html">fk_ReferenceMaterialValues_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterialValues.html">ODM2DataQuality.ReferenceMaterialValues</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2DataQuality_ResultNormalizationValues_fk_ResultNormalizationValues_ReferenceMaterialValues.html">fk_ResultNormalizationValues_ReferenceMaterialValues</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterialValues.html">ODM2DataQuality.ReferenceMaterialValues</a></td><td><a href="../tables/ODM2DataQuality_ResultNormalizationValues.html">ODM2DataQuality.ResultNormalizationValues</a></td><td>ReferenceMaterialValueID</td><td>NormalizedByReferenceMaterialValueID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_ResultNormalizationValues_fk_ResultNormalizationValues_Results.html">fk_ResultNormalizationValues_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2DataQuality_ResultNormalizationValues.html">ODM2DataQuality.ResultNormalizationValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2DataQuality_ResultsDataQuality_fk_ResultsDataQuality_DataQuality.html">fk_ResultsDataQuality_DataQuality</a></td><td><a href="../tables/ODM2DataQuality_DataQuality.html">ODM2DataQuality.DataQuality</a></td><td><a href="../tables/ODM2DataQuality_ResultsDataQuality.html">ODM2DataQuality.ResultsDataQuality</a></td><td>DataQualityID</td><td>DataQualityID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2DataQuality_ResultsDataQuality_fk_ResultsDataQuality_Results.html">fk_ResultsDataQuality_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2DataQuality_ResultsDataQuality.html">ODM2DataQuality.ResultsDataQuality</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationActions_fk_CalibrationActions_Actions.html">fk_CalibrationActions_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationActions_fk_CalibrationActions_InstrumentOutputVariables.html">fk_CalibrationActions_InstrumentOutputVariables</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td>InstrumentOutputVariableID</td><td>InstrumentOutputVariableID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationReferenceEquipment_fk_CalibrationReferenceEquipment_CalibrationActions.html">fk_CalibrationReferenceEquipment_CalibrationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationReferenceEquipment.html">ODM2Equipment.CalibrationReferenceEquipment</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationReferenceEquipment_fk_CalibrationReferenceEquipment_Equipment.html">fk_CalibrationReferenceEquipment_Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_CalibrationReferenceEquipment.html">ODM2Equipment.CalibrationReferenceEquipment</a></td><td>EquipmentID</td><td>EquipmentID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationStandards_fk_CalibrationStandards_CalibrationActions.html">fk_CalibrationStandards_CalibrationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationActions.html">ODM2Equipment.CalibrationActions</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandards.html">ODM2Equipment.CalibrationStandards</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_CalibrationStandards_fk_FieldCalibrationStandards_ReferenceMaterials.html">fk_FieldCalibrationStandards_ReferenceMaterials</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td><a href="../tables/ODM2Equipment_CalibrationStandards.html">ODM2Equipment.CalibrationStandards</a></td><td>ReferenceMaterialID</td><td>ReferenceMaterialID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerFileColumns_fk_DataloggerFileColumns_CV_AggregationStatistic.html">fk_DataloggerFileColumns_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Equipment_DataloggerFileColumns.html">ODM2Equipment.DataloggerFileColumns</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerFileColumns_fk_DataloggerFileColumns_DataLoggerFiles.html">fk_DataloggerFileColumns_DataLoggerFiles</a></td><td><a href="../tables/ODM2Equipment_DataLoggerFiles.html">ODM2Equipment.DataLoggerFiles</a></td><td><a href="../tables/ODM2Equipment_DataloggerFileColumns.html">ODM2Equipment.DataloggerFileColumns</a></td><td>DataLoggerFileID</td><td>DataLoggerFileID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerFileColumns_fk_DataloggerFileColumns_InstrumentOutputVariables.html">fk_DataloggerFileColumns_InstrumentOutputVariables</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td><a href="../tables/ODM2Equipment_DataloggerFileColumns.html">ODM2Equipment.DataloggerFileColumns</a></td><td>InstrumentOutputVariableID</td><td>InstrumentOutputVariableID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerFileColumns_fk_DataloggerFileColumns_RecordingUnits.html">fk_DataloggerFileColumns_RecordingUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Equipment_DataloggerFileColumns.html">ODM2Equipment.DataloggerFileColumns</a></td><td>UnitsID</td><td>RecordingIntervalUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerFileColumns_fk_DataloggerFileColumns_Results.html">fk_DataloggerFileColumns_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Equipment_DataloggerFileColumns.html">ODM2Equipment.DataloggerFileColumns</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerFileColumns_fk_DataloggerFileColumns_ScanUnits.html">fk_DataloggerFileColumns_ScanUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Equipment_DataloggerFileColumns.html">ODM2Equipment.DataloggerFileColumns</a></td><td>UnitsID</td><td>ScanIntervalUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_DataLoggerFiles_fk_DataLoggerFiles_DataloggerProgramFiles.html">fk_DataLoggerFiles_DataloggerProgramFiles</a></td><td><a href="../tables/ODM2Equipment_DataloggerProgramFiles.html">ODM2Equipment.DataloggerProgramFiles</a></td><td><a href="../tables/ODM2Equipment_DataLoggerFiles.html">ODM2Equipment.DataLoggerFiles</a></td><td>ProgramID</td><td>ProgramID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_DataloggerProgramFiles_fk_DataloggerProgramFiles_Affiliations.html">fk_DataloggerProgramFiles_Affiliations</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td><a href="../tables/ODM2Equipment_DataloggerProgramFiles.html">ODM2Equipment.DataloggerProgramFiles</a></td><td>AffiliationID</td><td>AffiliationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_CV_EquipmentType.html">fk_Equipment_CV_EquipmentType</a></td><td><a href="../tables/ODM2CV_CV_EquipmentType.html">ODM2CV.CV_EquipmentType</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>Name</td><td>EquipmentTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_EquipmentModels.html">fk_Equipment_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>EquipmentModelID</td><td>EquipmentModelID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_Organizations.html">fk_Equipment_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>OrganizationID</td><td>EquipmentVendorID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_Equipment_fk_Equipment_People.html">fk_Equipment_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td>PersonID</td><td>EquipmentOwnerID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_EquipmentModels_fk_EquipmentModels_Organizations.html">fk_EquipmentModels_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td>OrganizationID</td><td>ModelManufacturerID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_EquipmentUsed_fk_EquipmentActions_Actions.html">fk_EquipmentActions_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Equipment_EquipmentUsed.html">ODM2Equipment.EquipmentUsed</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_EquipmentUsed_fk_EquipmentActions_Equipment.html">fk_EquipmentActions_Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_EquipmentUsed.html">ODM2Equipment.EquipmentUsed</a></td><td>EquipmentID</td><td>EquipmentID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_EquipmentModels.html">fk_InstrumentOutputVariables_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>EquipmentModelID</td><td>ModelID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_Methods.html">fk_InstrumentOutputVariables_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>MethodID</td><td>InstrumentMethodID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_Units.html">fk_InstrumentOutputVariables_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>UnitsID</td><td>InstrumentRawOutputUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputVariables_fk_InstrumentOutputVariables_Variables.html">fk_InstrumentOutputVariables_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputVariables.html">ODM2Equipment.InstrumentOutputVariables</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_MaintenanceActions_fk_MaintenanceActions_Actions.html">fk_MaintenanceActions_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Equipment_MaintenanceActions.html">ODM2Equipment.MaintenanceActions</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_RelatedEquipment_fk_RelatedEquipment_CV_RelationshipType.html">fk_RelatedEquipment_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Equipment_RelatedEquipment.html">ODM2Equipment.RelatedEquipment</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Equipment_RelatedEquipment_fk_RelatedEquipment_Equipment.html">fk_RelatedEquipment_Equipment</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_RelatedEquipment.html">ODM2Equipment.RelatedEquipment</a></td><td>EquipmentID</td><td>EquipmentID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_RelatedEquipment_fk_RelatedEquipment_Equipment_AreRelated.html">fk_RelatedEquipment_Equipment_AreRelated</a></td><td><a href="../tables/ODM2Equipment_Equipment.html">ODM2Equipment.Equipment</a></td><td><a href="../tables/ODM2Equipment_RelatedEquipment.html">ODM2Equipment.RelatedEquipment</a></td><td>EquipmentID</td><td>RelatedEquipmentID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExtensionProperties_ActionExtensionPropertyValues_fk_ActionExtensionPropertyValues_Actions.html">fk_ActionExtensionPropertyValues_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2ExtensionProperties_ActionExtensionPropertyValues.html">ODM2ExtensionProperties.ActionExtensionPropertyValues</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_ActionExtensionPropertyValues_fk_ActionExtensionPropertyValues_ExtensionProperties.html">fk_ActionExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ActionExtensionPropertyValues.html">ODM2ExtensionProperties.ActionExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExtensionProperties_CitationExtensionPropertyValues_fk_CitationExtensionPropertyValues_Citations.html">fk_CitationExtensionPropertyValues_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2ExtensionProperties_CitationExtensionPropertyValues.html">ODM2ExtensionProperties.CitationExtensionPropertyValues</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_CitationExtensionPropertyValues_fk_CitationExtensionPropertyValues_ExtensionProperties.html">fk_CitationExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_CitationExtensionPropertyValues.html">ODM2ExtensionProperties.CitationExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExtensionProperties_ExtensionProperties_fk_ExtensionProperties_CV_PropertyDataType.html">fk_ExtensionProperties_CV_PropertyDataType</a></td><td><a href="../tables/ODM2CV_CV_PropertyDataType.html">ODM2CV.CV_PropertyDataType</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td>Name</td><td>PropertyDataTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_ExtensionProperties_fk_ExtensionProperties_Units.html">fk_ExtensionProperties_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td>UnitsID</td><td>PropertyUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExtensionProperties_MethodExtensionPropertyValues_fk_MethodExtensionPropertyValues_ExtensionProperties.html">fk_MethodExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_MethodExtensionPropertyValues.html">ODM2ExtensionProperties.MethodExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_MethodExtensionPropertyValues_fk_MethodExtensionPropertyValues_Methods.html">fk_MethodExtensionPropertyValues_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2ExtensionProperties_MethodExtensionPropertyValues.html">ODM2ExtensionProperties.MethodExtensionPropertyValues</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExtensionProperties_ResultExtensionPropertyValues_fk_ResultExtensionPropertyValues_ExtensionProperties.html">fk_ResultExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ResultExtensionPropertyValues.html">ODM2ExtensionProperties.ResultExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_ResultExtensionPropertyValues_fk_ResultExtensionPropertyValues_Results.html">fk_ResultExtensionPropertyValues_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2ExtensionProperties_ResultExtensionPropertyValues.html">ODM2ExtensionProperties.ResultExtensionPropertyValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExtensionProperties_SamplingFeatureExtensionPropertyValues_fk_SamplingFeatureExtensionPropertyValues_ExtensionProperties.html">fk_SamplingFeatureExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_SamplingFeatureExtensionPropertyValues.html">ODM2ExtensionProperties.SamplingFeatureExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_SamplingFeatureExtensionPropertyValues_fk_SamplingFeatureExtensionPropertyValues_SamplingFeatures.html">fk_SamplingFeatureExtensionPropertyValues_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2ExtensionProperties_SamplingFeatureExtensionPropertyValues.html">ODM2ExtensionProperties.SamplingFeatureExtensionPropertyValues</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExtensionProperties_VariableExtensionPropertyValues_fk_VariableExtensionPropertyValues_ExtensionProperties.html">fk_VariableExtensionPropertyValues_ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_ExtensionProperties.html">ODM2ExtensionProperties.ExtensionProperties</a></td><td><a href="../tables/ODM2ExtensionProperties_VariableExtensionPropertyValues.html">ODM2ExtensionProperties.VariableExtensionPropertyValues</a></td><td>PropertyID</td><td>PropertyID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExtensionProperties_VariableExtensionPropertyValues_fk_VariableExtensionPropertyValues_Variables.html">fk_VariableExtensionPropertyValues_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2ExtensionProperties_VariableExtensionPropertyValues.html">ODM2ExtensionProperties.VariableExtensionPropertyValues</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_CitationExternalIdentifiers_fk_CitationExternalIdentifiers_Citations.html">fk_CitationExternalIdentifiers_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2ExternalIdentifiers_CitationExternalIdentifiers.html">ODM2ExternalIdentifiers.CitationExternalIdentifiers</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_CitationExternalIdentifiers_fk_CitationExternalIdentifiers_ExternalIdentifierSystems.html">fk_CitationExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_CitationExternalIdentifiers.html">ODM2ExternalIdentifiers.CitationExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_ExternalIdentifierSystems_fk_ExternalIdentifierSystems_Organizations.html">fk_ExternalIdentifierSystems_Organizations</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td>OrganizationID</td><td>IdentifierSystemOrganizationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_MethodExternalIdentifiers_fk_MethodExternalIdentifiers_ExternalIdentifierSystems.html">fk_MethodExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_MethodExternalIdentifiers.html">ODM2ExternalIdentifiers.MethodExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_MethodExternalIdentifiers_fk_MethodExternalIdentifiers_Methods.html">fk_MethodExternalIdentifiers_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2ExternalIdentifiers_MethodExternalIdentifiers.html">ODM2ExternalIdentifiers.MethodExternalIdentifiers</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_PersonExternalIdentifiers_fk_PersonExternalIdentifiers_ExternalIdentifierSystems.html">fk_PersonExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_PersonExternalIdentifiers.html">ODM2ExternalIdentifiers.PersonExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_PersonExternalIdentifiers_fk_PersonExternalIdentifiers_People.html">fk_PersonExternalIdentifiers_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2ExternalIdentifiers_PersonExternalIdentifiers.html">ODM2ExternalIdentifiers.PersonExternalIdentifiers</a></td><td>PersonID</td><td>PersonID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_ReferenceMaterialExternalIdentifiers_fk_RefMaterialExtIdentifiers_ExtIdentifierSystems.html">fk_RefMaterialExtIdentifiers_ExtIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ReferenceMaterialExternalIdentifiers.html">ODM2ExternalIdentifiers.ReferenceMaterialExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_ReferenceMaterialExternalIdentifiers_fk_RefMaterialExtIdentifiers_RefMaterials.html">fk_RefMaterialExtIdentifiers_RefMaterials</a></td><td><a href="../tables/ODM2DataQuality_ReferenceMaterials.html">ODM2DataQuality.ReferenceMaterials</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ReferenceMaterialExternalIdentifiers.html">ODM2ExternalIdentifiers.ReferenceMaterialExternalIdentifiers</a></td><td>ReferenceMaterialID</td><td>ReferenceMaterialID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_SamplingFeatureExternalIdentifiers_fk_SamplingFeatureExternalIdentifiers_ExternalIdentifierSystems.html">fk_SamplingFeatureExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_SamplingFeatureExternalIdentifiers.html">ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_SamplingFeatureExternalIdentifiers_fk_SamplingFeatureExternalIdentifiers_SamplingFeatures.html">fk_SamplingFeatureExternalIdentifiers_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2ExternalIdentifiers_SamplingFeatureExternalIdentifiers.html">ODM2ExternalIdentifiers.SamplingFeatureExternalIdentifiers</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_SpatialReferenceExternalIdentifiers_fk_SpatialReferenceExternalIdentifiers_ExternalIdentifierSystems.html">fk_SpatialReferenceExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_SpatialReferenceExternalIdentifiers.html">ODM2ExternalIdentifiers.SpatialReferenceExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_SpatialReferenceExternalIdentifiers_fk_SpatialReferenceExternalIdentifiers_SpatialReferences.html">fk_SpatialReferenceExternalIdentifiers_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2ExternalIdentifiers_SpatialReferenceExternalIdentifiers.html">ODM2ExternalIdentifiers.SpatialReferenceExternalIdentifiers</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers_fk_TaxonomicClassifierExtIDs_ExtIDSystems.html">fk_TaxonomicClassifierExtIDs_ExtIDSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers.html">ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers_fk_TaxonomicClassifierExtIDs_TaxonomicClassifiers.html">fk_TaxonomicClassifierExtIDs_TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2ExternalIdentifiers_TaxonomicClassifierExternalIdentifiers.html">ODM2ExternalIdentifiers.TaxonomicClassifierExternalIdentifiers</a></td><td>TaxonomicClassifierID</td><td>TaxonomicClassifierID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_VariableExternalIdentifiers_fk_VariableExternalIdentifiers_ExternalIdentifierSystems.html">fk_VariableExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_VariableExternalIdentifiers.html">ODM2ExternalIdentifiers.VariableExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_VariableExternalIdentifiers_fk_VariableExternalIdentifiers_Variables.html">fk_VariableExternalIdentifiers_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2ExternalIdentifiers_VariableExternalIdentifiers.html">ODM2ExternalIdentifiers.VariableExternalIdentifiers</a></td><td>VariableID</td><td>VariableID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2LabAnalyses_ActionDirectives_fk_ActionDirectives_Actions.html">fk_ActionDirectives_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2LabAnalyses_ActionDirectives.html">ODM2LabAnalyses.ActionDirectives</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2LabAnalyses_ActionDirectives_fk_ActionDirectives_Directives.html">fk_ActionDirectives_Directives</a></td><td><a href="../tables/ODM2LabAnalyses_Directives.html">ODM2LabAnalyses.Directives</a></td><td><a href="../tables/ODM2LabAnalyses_ActionDirectives.html">ODM2LabAnalyses.ActionDirectives</a></td><td>DirectiveID</td><td>DirectiveID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2LabAnalyses_Directives_fk_Directives_CV_DirectiveType.html">fk_Directives_CV_DirectiveType</a></td><td><a href="../tables/ODM2CV_CV_DirectiveType.html">ODM2CV.CV_DirectiveType</a></td><td><a href="../tables/ODM2LabAnalyses_Directives.html">ODM2LabAnalyses.Directives</a></td><td>Name</td><td>DirectiveTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2LabAnalyses_SpecimenBatchPostions_fk_SpecimenBatchPostions_FeatureActions.html">fk_SpecimenBatchPostions_FeatureActions</a></td><td><a href="../tables/ODM2Core_FeatureActions.html">ODM2Core.FeatureActions</a></td><td><a href="../tables/ODM2LabAnalyses_SpecimenBatchPostions.html">ODM2LabAnalyses.SpecimenBatchPostions</a></td><td>FeatureActionID</td><td>FeatureActionID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_AuthorLists_fk_AuthorLists_Citations.html">fk_AuthorLists_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Provenance_AuthorLists.html">ODM2Provenance.AuthorLists</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_AuthorLists_fk_AuthorLists_People.html">fk_AuthorLists_People</a></td><td><a href="../tables/ODM2Core_People.html">ODM2Core.People</a></td><td><a href="../tables/ODM2Provenance_AuthorLists.html">ODM2Provenance.AuthorLists</a></td><td>PersonID</td><td>PersonID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_DatasetCitations_fk_DataSetCitations_Citations.html">fk_DataSetCitations_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Provenance_DatasetCitations.html">ODM2Provenance.DatasetCitations</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_DatasetCitations_fk_DatasetCitations_CV_RelationshipType.html">fk_DatasetCitations_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Provenance_DatasetCitations.html">ODM2Provenance.DatasetCitations</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_DatasetCitations_fk_DataSetCitations_DataSets.html">fk_DataSetCitations_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_DatasetCitations.html">ODM2Provenance.DatasetCitations</a></td><td>DatasetID</td><td>DataSetID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_MethodCitations_fk_MethodCitations_Citations.html">fk_MethodCitations_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Provenance_MethodCitations.html">ODM2Provenance.MethodCitations</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_MethodCitations_fk_MethodCitations_CV_RelationshipType.html">fk_MethodCitations_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Provenance_MethodCitations.html">ODM2Provenance.MethodCitations</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_MethodCitations_fk_MethodCitations_Methods.html">fk_MethodCitations_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Provenance_MethodCitations.html">ODM2Provenance.MethodCitations</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedAnnotations_fk_RelatedAnnotations_Annotations.html">fk_RelatedAnnotations_Annotations</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Provenance_RelatedAnnotations.html">ODM2Provenance.RelatedAnnotations</a></td><td>AnnotationID</td><td>AnnotationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_RelatedAnnotations_fk_RelatedAnnotations_Annotations_AreRelated.html">fk_RelatedAnnotations_Annotations_AreRelated</a></td><td><a href="../tables/ODM2Annotations_Annotations.html">ODM2Annotations.Annotations</a></td><td><a href="../tables/ODM2Provenance_RelatedAnnotations.html">ODM2Provenance.RelatedAnnotations</a></td><td>AnnotationID</td><td>RelatedAnnotationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedAnnotations_fk_RelatedAnnotations_CV_RelationshipType.html">fk_RelatedAnnotations_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Provenance_RelatedAnnotations.html">ODM2Provenance.RelatedAnnotations</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_RelatedCitations_fk_RelatedCitations_Citations.html">fk_RelatedCitations_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Provenance_RelatedCitations.html">ODM2Provenance.RelatedCitations</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedCitations_fk_RelatedCitations_Citations_AreRelated.html">fk_RelatedCitations_Citations_AreRelated</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2Provenance_RelatedCitations.html">ODM2Provenance.RelatedCitations</a></td><td>CitationID</td><td>RelatedCitationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_RelatedCitations_fk_RelatedCitations_CV_RelationshipType.html">fk_RelatedCitations_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Provenance_RelatedCitations.html">ODM2Provenance.RelatedCitations</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedDatasets_fk_RelatedDatasets_CV_RelationshipType.html">fk_RelatedDatasets_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Provenance_RelatedDatasets.html">ODM2Provenance.RelatedDatasets</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_RelatedDatasets_fk_RelatedDatasets_DataSets.html">fk_RelatedDatasets_DataSets</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_RelatedDatasets.html">ODM2Provenance.RelatedDatasets</a></td><td>DatasetID</td><td>DataSetID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedDatasets_fk_RelatedDatasets_DataSets_AreRelated.html">fk_RelatedDatasets_DataSets_AreRelated</a></td><td><a href="../tables/ODM2Core_Datasets.html">ODM2Core.Datasets</a></td><td><a href="../tables/ODM2Provenance_RelatedDatasets.html">ODM2Provenance.RelatedDatasets</a></td><td>DatasetID</td><td>RelatedDatasetID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_RelatedResults_fk_RelatedResults_CV_RelationshipType.html">fk_RelatedResults_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Provenance_RelatedResults.html">ODM2Provenance.RelatedResults</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_RelatedResults_fk_RelatedResults_Results.html">fk_RelatedResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_RelatedResults.html">ODM2Provenance.RelatedResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_RelatedResults_fk_RelatedResults_Results_AreRelated.html">fk_RelatedResults_Results_AreRelated</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_RelatedResults.html">ODM2Provenance.RelatedResults</a></td><td>ResultID</td><td>RelatedResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Provenance_ResultDerivationEquations_fk_ResultDerivationEquations_DerivationEquations.html">fk_ResultDerivationEquations_DerivationEquations</a></td><td><a href="../tables/ODM2Provenance_DerivationEquations.html">ODM2Provenance.DerivationEquations</a></td><td><a href="../tables/ODM2Provenance_ResultDerivationEquations.html">ODM2Provenance.ResultDerivationEquations</a></td><td>DerivationEquationID</td><td>DerivationEquationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Provenance_ResultDerivationEquations_fk_ResultDerivationEquations_Results.html">fk_ResultDerivationEquations_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Provenance_ResultDerivationEquations.html">ODM2Provenance.ResultDerivationEquations</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_CategoricalResults_fk_CategoricalResults_CV_QualityCode.html">fk_CategoricalResults_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_CategoricalResults.html">ODM2Results.CategoricalResults</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_CategoricalResults_fk_CategoricalResults_Results.html">fk_CategoricalResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_CategoricalResults.html">ODM2Results.CategoricalResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_CategoricalResults_fk_CategoricalResults_SpatialReferences.html">fk_CategoricalResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_CategoricalResults.html">ODM2Results.CategoricalResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_CategoricalResultValues_fk_CategoricalResultValues_CategoricalResults.html">fk_CategoricalResultValues_CategoricalResults</a></td><td><a href="../tables/ODM2Results_CategoricalResults.html">ODM2Results.CategoricalResults</a></td><td><a href="../tables/ODM2Results_CategoricalResultValues.html">ODM2Results.CategoricalResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_AIUnits.html">fk_MeasurementResults_AIUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_CV_AggregationStatistic.html">fk_MeasurementResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_CV_CensorCode.html">fk_MeasurementResults_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_CV_QualityCode.html">fk_MeasurementResults_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_Results.html">fk_MeasurementResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_SpatialReferences.html">fk_MeasurementResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_XUnits.html">fk_MeasurementResults_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_YUnits.html">fk_MeasurementResults_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_MeasurementResults_fk_MeasurementResults_ZUnits.html">fk_MeasurementResults_ZUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_MeasurementResultValues_fk_MeasurementResultValues_MeasurementResults.html">fk_MeasurementResultValues_MeasurementResults</a></td><td><a href="../tables/ODM2Results_MeasurementResults.html">ODM2Results.MeasurementResults</a></td><td><a href="../tables/ODM2Results_MeasurementResultValues.html">ODM2Results.MeasurementResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResults_fk_PointCoverageResults_CV_AggregationStatistic.html">fk_PointCoverageResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_PointCoverageResults.html">ODM2Results.PointCoverageResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResults_fk_PointCoverageResults_Results.html">fk_PointCoverageResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_PointCoverageResults.html">ODM2Results.PointCoverageResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResults_fk_PointCoverageResults_SpatialReferences.html">fk_PointCoverageResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_PointCoverageResults.html">ODM2Results.PointCoverageResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResults_fk_PointCoverageResults_XUnits.html">fk_PointCoverageResults_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_PointCoverageResults.html">ODM2Results.PointCoverageResults</a></td><td>UnitsID</td><td>IntendedXSpacingUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResults_fk_PointCoverageResults_YUnits.html">fk_PointCoverageResults_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_PointCoverageResults.html">ODM2Results.PointCoverageResults</a></td><td>UnitsID</td><td>IntendedYSpacingUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResults_fk_PointCoverageResults_ZUnits.html">fk_PointCoverageResults_ZUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_PointCoverageResults.html">ODM2Results.PointCoverageResults</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResultValues_fk_PointCoverageResultValues_CV_CensorCode.html">fk_PointCoverageResultValues_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_PointCoverageResultValues.html">ODM2Results.PointCoverageResultValues</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResultValues_fk_PointCoverageResultValues_CV_QualityCode.html">fk_PointCoverageResultValues_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_PointCoverageResultValues.html">ODM2Results.PointCoverageResultValues</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResultValues_fk_PointCoverageResultValues_PointCoverageResults.html">fk_PointCoverageResultValues_PointCoverageResults</a></td><td><a href="../tables/ODM2Results_PointCoverageResults.html">ODM2Results.PointCoverageResults</a></td><td><a href="../tables/ODM2Results_PointCoverageResultValues.html">ODM2Results.PointCoverageResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResultValues_fk_PointCoverageResultValues_XUnits.html">fk_PointCoverageResultValues_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_PointCoverageResultValues.html">ODM2Results.PointCoverageResultValues</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_PointCoverageResultValues_fk_PointCoverageResultValues_YUnits.html">fk_PointCoverageResultValues_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_PointCoverageResultValues.html">ODM2Results.PointCoverageResultValues</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_ProfileResults_fk_ProfileResults_CV_AggregationStatistic.html">fk_ProfileResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_ProfileResults_fk_ProfileResults_DUnits.html">fk_ProfileResults_DUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td>UnitsID</td><td>IntendedZSpacingUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_ProfileResults_fk_ProfileResults_Results.html">fk_ProfileResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_ProfileResults_fk_ProfileResults_SpatialReferences.html">fk_ProfileResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_ProfileResults_fk_ProfileResults_TUnits.html">fk_ProfileResults_TUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td>UnitsID</td><td>IntendedTimeSpacingUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_ProfileResults_fk_ProfileResults_XUnits.html">fk_ProfileResults_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_ProfileResults_fk_ProfileResults_YUnits.html">fk_ProfileResults_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_ProfileResultValues_fk_ProfileResultValues_AIUnits.html">fk_ProfileResultValues_AIUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_ProfileResultValues.html">ODM2Results.ProfileResultValues</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_ProfileResultValues_fk_ProfileResultValues_CV_CensorCode.html">fk_ProfileResultValues_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_ProfileResultValues.html">ODM2Results.ProfileResultValues</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_ProfileResultValues_fk_ProfileResultValues_CV_QualityCode.html">fk_ProfileResultValues_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_ProfileResultValues.html">ODM2Results.ProfileResultValues</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_ProfileResultValues_fk_ProfileResultValues_DUnits.html">fk_ProfileResultValues_DUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_ProfileResultValues.html">ODM2Results.ProfileResultValues</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_ProfileResultValues_fk_ProfileResultValues_ProfileResults.html">fk_ProfileResultValues_ProfileResults</a></td><td><a href="../tables/ODM2Results_ProfileResults.html">ODM2Results.ProfileResults</a></td><td><a href="../tables/ODM2Results_ProfileResultValues.html">ODM2Results.ProfileResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SectionResults_fk_SectionResults_CV_AggregationStatistic.html">fk_SectionResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SectionResults_fk_SectionResults_Results.html">fk_SectionResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SectionResults_fk_SectionResults_SpatialReferences.html">fk_SectionResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SectionResults_fk_SectionResults_TMUnits.html">fk_SectionResults_TMUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td>UnitsID</td><td>IntendedTimeSpacingUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SectionResults_fk_SectionResults_Units.html">fk_SectionResults_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SectionResults_fk_SectionResults_XUnits.html">fk_SectionResults_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td>UnitsID</td><td>IntendedXSpacingUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SectionResults_fk_SectionResults_ZUnits.html">fk_SectionResults_ZUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td>UnitsID</td><td>IntendedZSpacingUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SectionResultValues_fk_SectionResultValues_AIUnits.html">fk_SectionResultValues_AIUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SectionResultValues.html">ODM2Results.SectionResultValues</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SectionResultValues_fk_SectionResultValues_CV_AggregationStatistic.html">fk_SectionResultValues_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_SectionResultValues.html">ODM2Results.SectionResultValues</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SectionResultValues_fk_SectionResultValues_CV_CensorCode.html">fk_SectionResultValues_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_SectionResultValues.html">ODM2Results.SectionResultValues</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SectionResultValues_fk_SectionResultValues_CV_QualityCode.html">fk_SectionResultValues_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_SectionResultValues.html">ODM2Results.SectionResultValues</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SectionResultValues_fk_SectionResultValues_SectionResults.html">fk_SectionResultValues_SectionResults</a></td><td><a href="../tables/ODM2Results_SectionResults.html">ODM2Results.SectionResults</a></td><td><a href="../tables/ODM2Results_SectionResultValues.html">ODM2Results.SectionResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SectionResultValues_fk_SectionResultValues_XUnits.html">fk_SectionResultValues_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SectionResultValues.html">ODM2Results.SectionResultValues</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SectionResultValues_fk_SectionResultValues_ZUnits.html">fk_SectionResultValues_ZUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SectionResultValues.html">ODM2Results.SectionResultValues</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_CV_AggregationStatistic.html">fk_SpectraResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_Results.html">fk_SpectraResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_SpatialReferences.html">fk_SpectraResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_Units.html">fk_SpectraResults_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>UnitsID</td><td>IntendedWavelengthSpacingUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_XUnits.html">fk_SpectraResults_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_YUnits.html">fk_SpectraResults_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SpectraResults_fk_SpectraResults_ZUnits.html">fk_SpectraResults_ZUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SpectraResultValues_fk_SpectraResultValues_AIUnits.html">fk_SpectraResultValues_AIUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResultValues.html">ODM2Results.SpectraResultValues</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SpectraResultValues_fk_SpectraResultValues_CV_CensorCode.html">fk_SpectraResultValues_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_SpectraResultValues.html">ODM2Results.SpectraResultValues</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SpectraResultValues_fk_SpectraResultValues_CV_QualityCode.html">fk_SpectraResultValues_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_SpectraResultValues.html">ODM2Results.SpectraResultValues</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_SpectraResultValues_fk_SpectraResultValues_SpectraResults.html">fk_SpectraResultValues_SpectraResults</a></td><td><a href="../tables/ODM2Results_SpectraResults.html">ODM2Results.SpectraResults</a></td><td><a href="../tables/ODM2Results_SpectraResultValues.html">ODM2Results.SpectraResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_SpectraResultValues_fk_SpectraResultValues_WUnits.html">fk_SpectraResultValues_WUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_SpectraResultValues.html">ODM2Results.SpectraResultValues</a></td><td>UnitsID</td><td>WavelengthUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResults_fk_TimeSeriesResults_CV_AggregationStatistic.html">fk_TimeSeriesResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResults_fk_TimeSeriesResults_Results.html">fk_TimeSeriesResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResults_fk_TimeSeriesResults_SpatialReferences.html">fk_TimeSeriesResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResults_fk_TimeSeriesResults_TUnits.html">fk_TimeSeriesResults_TUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td>UnitsID</td><td>IntendedTimeSpacingUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResults_fk_TimeSeriesResults_XUnits.html">fk_TimeSeriesResults_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResults_fk_TimeSeriesResults_YUnits.html">fk_TimeSeriesResults_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResults_fk_TimeSeriesResults_ZUnits.html">fk_TimeSeriesResults_ZUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_AIUnits.html">fk_TimeSeriesResultValues_AIUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_CV_CensorCode.html">fk_TimeSeriesResultValues_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_CV_QualityCode.html">fk_TimeSeriesResultValues_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TimeSeriesResultValues_fk_TimeSeriesResultValues_TimeSeriesResults.html">fk_TimeSeriesResultValues_TimeSeriesResults</a></td><td><a href="../tables/ODM2Results_TimeSeriesResults.html">ODM2Results.TimeSeriesResults</a></td><td><a href="../tables/ODM2Results_TimeSeriesResultValues.html">ODM2Results.TimeSeriesResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResults_fk_TrajectoryResults_CV_AggregationStatistic.html">fk_TrajectoryResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_TrajectoryResults.html">ODM2Results.TrajectoryResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResults_fk_TrajectoryResults_Results.html">fk_TrajectoryResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_TrajectoryResults.html">ODM2Results.TrajectoryResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResults_fk_TrajectoryResults_SpatialReferences.html">fk_TrajectoryResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_TrajectoryResults.html">ODM2Results.TrajectoryResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResults_fk_TrajectoryResults_TSUnits.html">fk_TrajectoryResults_TSUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TrajectoryResults.html">ODM2Results.TrajectoryResults</a></td><td>UnitsID</td><td>IntendedTrajectorySpacingUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResults_fk_TrajectoryResults_TUnits.html">fk_TrajectoryResults_TUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TrajectoryResults.html">ODM2Results.TrajectoryResults</a></td><td>UnitsID</td><td>IntendedTimeSpacingUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResultValues_fk_TrajectoryResultValues_AIUnits.html">fk_TrajectoryResultValues_AIUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResultValues_fk_TrajectoryResultValues_CV_CensorCode.html">fk_TrajectoryResultValues_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResultValues_fk_TrajectoryResultValues_CV_QualityCode.html">fk_TrajectoryResultValues_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResultValues_fk_TrajectoryResultValues_DistanceUnits.html">fk_TrajectoryResultValues_DistanceUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td>UnitsID</td><td>TrajectoryDistanceUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResultValues_fk_TrajectoryResultValues_TrajectoryResults.html">fk_TrajectoryResultValues_TrajectoryResults</a></td><td><a href="../tables/ODM2Results_TrajectoryResults.html">ODM2Results.TrajectoryResults</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResultValues_fk_TrajectoryResultValues_XUnits.html">fk_TrajectoryResultValues_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResultValues_fk_TrajectoryResultValues_YUnits.html">fk_TrajectoryResultValues_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TrajectoryResultValues_fk_TrajectoryResultValues_ZUnits.html">fk_TrajectoryResultValues_ZUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TrajectoryResultValues.html">ODM2Results.TrajectoryResultValues</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TransectResults_fk_TransectResults_CV_AggregationStatistic.html">fk_TransectResults_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TransectResults_fk_TransectResults_Results.html">fk_TransectResults_Results</a></td><td><a href="../tables/ODM2Core_Results.html">ODM2Core.Results</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TransectResults_fk_TransectResults_SpatialReferences.html">fk_TransectResults_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TransectResults_fk_TransectResults_TMUnits.html">fk_TransectResults_TMUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td>UnitsID</td><td>IntendedTimeSpacingUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TransectResults_fk_TransectResults_TSUnits.html">fk_TransectResults_TSUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td>UnitsID</td><td>IntendedTransectSpacingUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TransectResults_fk_TransectResults_Units.html">fk_TransectResults_Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td>UnitsID</td><td>ZLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TransectResultValues_fk_TransectResultValues_AIUnits.html">fk_TransectResultValues_AIUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td>UnitsID</td><td>TimeAggregationIntervalUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TransectResultValues_fk_TransectResultValues_CV_AggregationStatistic.html">fk_TransectResultValues_CV_AggregationStatistic</a></td><td><a href="../tables/ODM2CV_CV_AggregationStatistic.html">ODM2CV.CV_AggregationStatistic</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td>Name</td><td>AggregationStatisticCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TransectResultValues_fk_TransectResultValues_CV_CensorCode.html">fk_TransectResultValues_CV_CensorCode</a></td><td><a href="../tables/ODM2CV_CV_CensorCode.html">ODM2CV.CV_CensorCode</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td>Name</td><td>CensorCodeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TransectResultValues_fk_TransectResultValues_CV_QualityCode.html">fk_TransectResultValues_CV_QualityCode</a></td><td><a href="../tables/ODM2CV_CV_QualityCode.html">ODM2CV.CV_QualityCode</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td>Name</td><td>QualityCodeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TransectResultValues_fk_TransectResultValues_DistanceUnits.html">fk_TransectResultValues_DistanceUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td>UnitsID</td><td>TransectDistanceUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TransectResultValues_fk_TransectResultValues_TransectResults.html">fk_TransectResultValues_TransectResults</a></td><td><a href="../tables/ODM2Results_TransectResults.html">ODM2Results.TransectResults</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td>ResultID</td><td>ResultID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Results_TransectResultValues_fk_TransectResultValues_XUnits.html">fk_TransectResultValues_XUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td>UnitsID</td><td>XLocationUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Results_TransectResultValues_fk_TransectResultValues_YUnits.html">fk_TransectResultValues_YUnits</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2Results_TransectResultValues.html">ODM2Results.TransectResultValues</a></td><td>UnitsID</td><td>YLocationUnitsID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_RelatedFeatures_fk_FeatureParents_FeaturesParent.html">fk_FeatureParents_FeaturesParent</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_RelatedFeatures.html">ODM2SamplingFeatures.RelatedFeatures</a></td><td>SamplingFeatureID</td><td>RelatedFeatureID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_RelatedFeatures_fk_FeatureParents_SamplingFeatures.html">fk_FeatureParents_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_RelatedFeatures.html">ODM2SamplingFeatures.RelatedFeatures</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_RelatedFeatures_fk_FeatureParents_SpatialOffsets.html">fk_FeatureParents_SpatialOffsets</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td><a href="../tables/ODM2SamplingFeatures_RelatedFeatures.html">ODM2SamplingFeatures.RelatedFeatures</a></td><td>SpatialOffsetID</td><td>SpatialOffsetID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_RelatedFeatures_fk_RelatedFeatures_CV_RelationshipType.html">fk_RelatedFeatures_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2SamplingFeatures_RelatedFeatures.html">ODM2SamplingFeatures.RelatedFeatures</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Sites_fk_Sites_CV_SiteType.html">fk_Sites_CV_SiteType</a></td><td><a href="../tables/ODM2CV_CV_SiteType.html">ODM2CV.CV_SiteType</a></td><td><a href="../tables/ODM2SamplingFeatures_Sites.html">ODM2SamplingFeatures.Sites</a></td><td>Name</td><td>SiteTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Sites_fk_Sites_SamplingFeatures.html">fk_Sites_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_Sites.html">ODM2SamplingFeatures.Sites</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Sites_fk_Sites_SpatialReferences.html">fk_Sites_SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialReferences.html">ODM2SamplingFeatures.SpatialReferences</a></td><td><a href="../tables/ODM2SamplingFeatures_Sites.html">ODM2SamplingFeatures.Sites</a></td><td>SpatialReferenceID</td><td>SpatialReferenceID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_CV_SpatialOffsetType.html">fk_SpatialOffsets_CV_SpatialOffsetType</a></td><td><a href="../tables/ODM2CV_CV_SpatialOffsetType.html">ODM2CV.CV_SpatialOffsetType</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>Name</td><td>SpatialOffsetTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_Offset1Units.html">fk_SpatialOffsets_Offset1Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>UnitsID</td><td>Offset1UnitID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_Offset2Units.html">fk_SpatialOffsets_Offset2Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>UnitsID</td><td>Offset2UnitID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpatialOffsets_fk_SpatialOffsets_Offset3Units.html">fk_SpatialOffsets_Offset3Units</a></td><td><a href="../tables/ODM2Core_Units.html">ODM2Core.Units</a></td><td><a href="../tables/ODM2SamplingFeatures_SpatialOffsets.html">ODM2SamplingFeatures.SpatialOffsets</a></td><td>UnitsID</td><td>Offset3UnitID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Specimens_fk_Specimens_CV_Medium.html">fk_Specimens_CV_Medium</a></td><td><a href="../tables/ODM2CV_CV_Medium.html">ODM2CV.CV_Medium</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td>Name</td><td>SpecimenMediumCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Specimens_fk_Specimens_CV_SpecimenType.html">fk_Specimens_CV_SpecimenType</a></td><td><a href="../tables/ODM2CV_CV_SpecimenType.html">ODM2CV.CV_SpecimenType</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td>Name</td><td>SpecimenTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_Specimens_fk_Specimens_SamplingFeatures.html">fk_Specimens_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers_fk_SpecimenTaxonomicClassifiers_Citations.html">fk_SpecimenTaxonomicClassifiers_Citations</a></td><td><a href="../tables/ODM2Provenance_Citations.html">ODM2Provenance.Citations</a></td><td><a href="../tables/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers.html">ODM2SamplingFeatures.SpecimenTaxonomicClassifiers</a></td><td>CitationID</td><td>CitationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers_fk_SpecimenTaxonomicClassifiers_Specimens.html">fk_SpecimenTaxonomicClassifiers_Specimens</a></td><td><a href="../tables/ODM2SamplingFeatures_Specimens.html">ODM2SamplingFeatures.Specimens</a></td><td><a href="../tables/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers.html">ODM2SamplingFeatures.SpecimenTaxonomicClassifiers</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers_fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers.html">fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2SamplingFeatures_SpecimenTaxonomicClassifiers.html">ODM2SamplingFeatures.SpecimenTaxonomicClassifiers</a></td><td>TaxonomicClassifierID</td><td>TaxonomicClassifierID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Simulation_ModelAffiliations_fk_ModelAffiliations_Affiliations.html">fk_ModelAffiliations_Affiliations</a></td><td><a href="../tables/ODM2Core_Affiliations.html">ODM2Core.Affiliations</a></td><td><a href="../tables/ODM2Simulation_ModelAffiliations.html">ODM2Simulation.ModelAffiliations</a></td><td>AffiliationID</td><td>AffiliationID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Simulation_ModelAffiliations_fk_ModelAffiliations_Models.html">fk_ModelAffiliations_Models</a></td><td><a href="../tables/ODM2Simulation_Models.html">ODM2Simulation.Models</a></td><td><a href="../tables/ODM2Simulation_ModelAffiliations.html">ODM2Simulation.ModelAffiliations</a></td><td>ModelID</td><td>ModelID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Simulation_RelatedModels_fk_RelatedModels_CV_RelationshipType.html">fk_RelatedModels_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2Simulation_RelatedModels.html">ODM2Simulation.RelatedModels</a></td><td>Name</td><td>RelationshipTypeCV</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Simulation_RelatedModels_fk_RelatedModels_Models.html">fk_RelatedModels_Models</a></td><td><a href="../tables/ODM2Simulation_Models.html">ODM2Simulation.Models</a></td><td><a href="../tables/ODM2Simulation_RelatedModels.html">ODM2Simulation.RelatedModels</a></td><td>ModelID</td><td>ModelID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Simulation_Simulations_fk_Simulations_Actions.html">fk_Simulations_Actions</a></td><td><a href="../tables/ODM2Core_Actions.html">ODM2Core.Actions</a></td><td><a href="../tables/ODM2Simulation_Simulations.html">ODM2Simulation.Simulations</a></td><td>ActionID</td><td>ActionID</td>
+</tr>
+<tr class="altRow">
+<td><a href="../foreignKeys/ODM2Simulation_Simulations_fk_Simulations_Models.html">fk_Simulations_Models</a></td><td><a href="../tables/ODM2Simulation_Models.html">ODM2Simulation.Models</a></td><td><a href="../tables/ODM2Simulation_Simulations.html">ODM2Simulation.Simulations</a></td><td>ModelID</td><td>ModelID</td>
+</tr>
+</table>
+</Body>
+</HTML>
