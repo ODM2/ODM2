@@ -3223,7 +3223,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to ExternalIdentifierSystems</Cm>
       </Cl>
-      <Cl au="0" df="" nm="VariableExternalIdentifer" nu="0">
+      <Cl au="0" df="" nm="VariableExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique ID; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
@@ -6689,7 +6689,7 @@ Types</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="501">
+  <RnmMgr NxRnmId="502">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7902,6 +7902,9 @@ Types</Note>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
       <Rnm id="500" nNm="CV_DatasetType" oNm="CV_DatasetTypeCV"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="VariableExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="501" nNm="VariableExternalIdentifier" oNm="VariableExternalIdentifer"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
