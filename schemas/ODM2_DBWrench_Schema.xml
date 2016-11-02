@@ -2,7 +2,7 @@
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>/Users/anthony/Databases/ODM2_DBWrench-DocPages/ODM2_ActionsSamplingFeatures_Dev_branch</DocFolder>
+  <DocFolder>/Users/jeff/Desktop/ODM2_ActionsSamplingFeatures_Dev/ODM2_ActionsSamplingFeatures_Dev</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
@@ -7938,17 +7938,15 @@ Types</Note>
       <BoolOpt lbl="Indexes" nm="doc.indexes" on="1" spl="1"/>
       <BoolOpt lbl="Overwrite CSS File" nm="doc.overwrite.css" on="1" spl="0"/>
       <BoolOpt lbl="Procedures" nm="doc.procs" on="1" spl="1"/>
-      <BoolOpt lbl="Schemas" nm="doc.schemas" on="0" spl="1"/>
+      <BoolOpt lbl="Schemas" nm="doc.schemas" on="1" spl="1"/>
       <BoolOpt lbl="Sequences" nm="doc.sequences" on="1" spl="0"/>
-      <BoolOpt lbl="Tables" nm="doc.tables" on="0" spl="1"/>
-      <BoolOpt lbl="Triggers" nm="doc.triggers" on="0" spl="1"/>
+      <BoolOpt lbl="Tables" nm="doc.tables" on="1" spl="1"/>
+      <BoolOpt lbl="Triggers" nm="doc.triggers" on="1" spl="1"/>
       <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
