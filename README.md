@@ -9,6 +9,10 @@ Have a look at the ODM2 paper in Environmental Modelling & Software. It's open a
 
 Horsburgh, J. S., Aufdenkampe, A. K., Mayorga, E., Lehnert, K. A., Hsu, L., Song, L., Spackman Jones, A., Damiano, S. G., Tarboton, D. G., Valentine, D., Zaslavsky, I., Whitenack, T. (2016). Observations Data Model 2: A community information model for spatially discrete Earth observations, Environmental Modelling & Software, 79, 55-74, [http://dx.doi.org/10.1016/j.envsoft.2016.01.010](http://dx.doi.org/10.1016/j.envsoft.2016.01.010)
 
+If you are interested in learning more about how ODM2 supports different use cases, have a look at our recent paper in the Data Science Journal.
+
+Hsu, L., Mayorga, E., Horsburgh, J. S., Carter, M. R., Lehnert, K. A., Brantley, S. L. (2017), Enhancing Interoperability and Capabilities of Earth Science Data using the Observations Data Model 2 (ODM2), Data Science Journal, 16(4), 1-16, [http://dx.doi.org/10.5334/dsj-2017-004](http://dx.doi.org/10.5334/dsj-2017-004).
+
 ##  Getting Started with ODM2 ##
 
 SQL scripts for generating blank ODM2 databases can be found at the following locations:
@@ -27,8 +31,6 @@ For more information on ODM2 concepts, examples, best practices, the ODM2 softwa
 Schema diagrams for the current version of the ODM2 schema are at:
 
 * [Entity Relationship Diagrams](http://ODM2.github.io/ODM2/schemas/ODM2_Current/)
-* [UML (probably not yet fully in sync with ERD)](http://ODM2.github.io/ODM2/uml/index.htm)
-
 
 ##  Data Use Cases ##
 
