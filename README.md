@@ -31,8 +31,6 @@ For more information on ODM2 concepts, examples, best practices, the ODM2 softwa
 Schema diagrams for the current version of the ODM2 schema are at:
 
 * [Entity Relationship Diagrams](http://ODM2.github.io/ODM2/schemas/ODM2_Current/)
-* [UML (probably not yet fully in sync with ERD)](http://ODM2.github.io/ODM2/uml/index.htm)
-
 
 ##  Data Use Cases ##
 
