@@ -422,7 +422,7 @@ parser = MyParser(description=info, add_help=True)
 parser.add_argument(
         help="Format: {engine}+{driver}://{user}:{pass}@{address}/{db}\n"
         "mysql+pymysql://ODM:odm@localhost/odm2\n"
-        "mssql+pyodbc://ODM:123@localhost/odm2\n"
+        "mssql+pyodbc://ODM:123@localhost/odm2?driver=SQL+Server+Native+Client+11.0\n"
         "postgresql+psycopg2://ODM:odm@test.uwrl.usu.edu/odm2\n"
         "sqlite+pysqlite:///path/to/file",
         default=True, type=str, dest='conn_string')
@@ -526,7 +526,7 @@ for count, (key, value) in enumerate(vocab):
             except Exception as e:
                 session.rollback()
                 if obj.Name is not None:
-                    print "issue loading single object %s: %s " %(obj.Name, e)
+                    print ("issue loading single object %s: %s " %(obj.Name, e))
                 pass
         session.add_all(objs)
         if not args.debug:
