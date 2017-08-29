@@ -10,7 +10,9 @@ except ImportError:
 import xml.etree.ElementTree as ET
 import argparse
 
-
+import pymysql
+import pyodbc
+import psycopg2
 
 # ################################################################################
 # CV  Objects
@@ -421,7 +423,7 @@ info = "A simple script that loads up cvterms into a blank ODM2 database"
 parser = MyParser(description=info, add_help=True)
 parser.add_argument(
         help="Format: {engine}+{driver}://{user}:{pass}@{address}/{db}\n"
-        "mysql+pymysql://ODM:odm@localhost/odm2\n"
+        "mysql+pymysql://ODM:odm@localhost/odm2\n\n"
         "mssql+pyodbc://ODM:123@localhost/odm2?driver=SQL+Server+Native+Client+11.0\n"
         "postgresql+psycopg2://ODM:odm@test.uwrl.usu.edu/odm2\n"
         "sqlite+pysqlite:///path/to/file",
