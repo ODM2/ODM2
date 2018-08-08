@@ -4942,6 +4942,24 @@
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about sampling features, including sites and specimens." nm="ODM2SamplingFeatures">
+    <Tbl UsSo="1" nm="FeaturesOfInterest">
+      <TblOpts/>
+      <Pk ClNs="FeatureOfInterestID" nm="pkFeaturesOfInterest"/>
+      <Cl au="0" df="" nm="FeatureOfInterestID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="FeatureOfInterestTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="FeatureOfInterestName" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="FeatureOfInterestDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="RelatedFeatures">
       <Cm>Describes parrent/child relationships among Sampling Features</Cm>
       <TblOpts/>
@@ -4990,6 +5008,42 @@
       <SchTrHis>
         <StPr stA="ODM2Sensors" stB="FeatureParents"/>
       </SchTrHis>
+    </Tbl>
+    <Tbl UsSo="1" nm="SampledFeatures">
+      <TblOpts/>
+      <Pk ClNs="BridgeID" nm="pkSampledFeatures"/>
+      <Cl au="0" df="" nm="BridgeID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foregn key identifier of a Sampling Feature</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="RelationshipTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>CV term describing the relationship between FeaturesOfInterst and SamplingFeatures (e.g., "IsSampleOf").</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="FeatureOfInterestID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foregn key identifier of a Feature of Interest</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_SampledFeatures_CV_RelationshipType" prLkCl="Name" upAc="3">
+        <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="SampledFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SampledFeatures_FeatureOfInterest" prLkCl="FeatureOfInterestID" upAc="3">
+        <PrTb mn="0" nm="FeaturesOfInterest" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
+        <CdTb mn="1" nm="SampledFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="FeatureOfInterestID" prCl="FeatureOfInterestID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SampledFeatures_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
+        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
+        <CdTb mn="1" nm="SampledFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="Sites">
       <Cm>Describes sampling features that are point sites</Cm>
@@ -6523,14 +6577,16 @@ Types</Note>
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="419" y="375"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="713" y="140"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="714" y="251"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="1040" y="151"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="408" y="483"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="440" y="603"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="576" y="15"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="417" y="134"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="353" y="407"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="647" y="161"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="648" y="272"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="974" y="172"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="353" y="511"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="383" y="634"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="510" y="36"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="351" y="155"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeaturesOfInterest" x="17" y="156"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SampledFeatures" x="16" y="282"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_RelatedFeatures" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -6550,6 +6606,12 @@ Types</Note>
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.SampledFeatures.fk_SampledFeatures_FeatureOfInterest" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.SampledFeatures.fk_SampledFeatures_SamplingFeatures" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="" positioner="">
@@ -6722,7 +6784,7 @@ Types</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="504">
+  <RnmMgr NxRnmId="512">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7942,6 +8004,28 @@ Types</Note>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="VariableExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="503" nNm="VariableExternalIdentifier" oNm="VariableExternalIdentifer"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="506" nNm="FeatureOfInterestID" oNm="FeatureID"/>
+      <Rnm id="504" nNm="FeatureID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SampledFeatures" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="505" nNm="BridgeID" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="507" nNm="FeatureOfInterestTypeCV" oNm="FeatureTypeCV"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="508" nNm="FeatureOfInterestName" oNm="FeatureName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="509" nNm="FeatureOfInterestDescription" oNm="FeatureDescription"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SampledFeatures" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="510" nNm="RelationshipTypeCV" oNm="Name"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
+      <Rnm id="511" nNm="FeaturesOfInterest" oNm="FeatureOfInterest"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
