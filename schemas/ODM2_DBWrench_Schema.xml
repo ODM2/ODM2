@@ -1046,6 +1046,18 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>The code for the vertical geodetic datum that specifies the zero point for the Sampling Feature Elevation.</Cm>
       </Cl>
+      <Cl au="0" df="" nm="Latitude" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Latitude of centroid of SamplingFeature</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Longitude" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Longitude of centroid of SamplingFeature</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</Cm>
+      </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_CV_ElevationDatum" prLkCl="Name" upAc="3">
         <PrTb mn="0" nm="CV_ElevationDatum" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
@@ -1060,6 +1072,11 @@
         <PrTb mn="0" nm="CV_SamplingFeatureType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SamplingFeatureTypeCV" prCl="Name"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
+        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
+        <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_SamplingFeatureCode">
@@ -5008,11 +5025,6 @@
         <CdTb mn="0" nm="Sites" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Sites_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
-        <CdTb mn="1" nm="Sites" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -5940,6 +5952,9 @@
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1402" y="443"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1608" y="173"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SpatialReferenceExternalIdentifiers" x="393" y="207"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -6250,12 +6265,12 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="192" x2="192" y1="730" y2="752"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="192" x2="192" y1="772" y2="752"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="167" x2="167" y1="730" y2="861"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="167" x2="167" y1="772" y2="861"/>
       </positionableLines>
     </FkGl>
     <Notes>
@@ -6508,19 +6523,21 @@ Types</Note>
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="117" y="130"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="330" y="323"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="46" y="331"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="413" y="136"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="584" y="324"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="740" y="147"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="35" y="439"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="67" y="559"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="276" y="11"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="419" y="375"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="713" y="140"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="714" y="251"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="1040" y="151"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="408" y="483"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="440" y="603"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="576" y="15"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="417" y="134"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_RelatedFeatures" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon" parentEdge="" positioner="">
@@ -6533,12 +6550,6 @@ Types</Note>
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Sites.fk_Sites_SpatialReferences" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="" positioner="">
@@ -7949,7 +7960,8 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
