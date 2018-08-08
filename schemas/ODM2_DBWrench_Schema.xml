@@ -549,7 +549,7 @@
       </Cl>
       <Cl au="0" df="" nm="PersonID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifer for a person</Cm>
+        <Cm>Foreign key identifier for a person</Cm>
       </Cl>
       <Cl au="0" df="" nm="OrganizationID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2422,7 +2422,7 @@
       </Cl>
       <Cl au="0" df="" nm="EquipmentOwnerID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifer for the person that owns the piece of equipment</Cm>
+        <Cm>Foreign key identifier for the person that owns the piece of equipment</Cm>
       </Cl>
       <Cl au="0" df="" nm="EquipmentVendorID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2928,7 +2928,7 @@
       </Cl>
       <Cl au="0" df="" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Forign key of the Citation linked to the external identifer</Cm>
+        <Cm>Forign key of the Citation linked to the external identifier</Cm>
       </Cl>
       <Cl au="0" df="" nm="ExternalIdentifierSystemID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2969,7 +2969,7 @@
       </Cl>
       <Cl au="0" df="" nm="IdentifierSystemOrganizationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign Key identifer for the organization overseeing or affiliated with the identifier system</Cm>
+        <Cm>Foreign Key identifier for the organization overseeing or affiliated with the identifier system</Cm>
       </Cl>
       <Cl au="0" df="" nm="ExternalIdentifierSystemDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
@@ -3309,7 +3309,7 @@
       <Pk ClNs="FeatureActionID" nm="pkSpecimenBatchPostions"/>
       <Cl au="0" df="" nm="FeatureActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foriegn key identifer for the Specimen Preparation or Analysis Batch</Cm>
+        <Cm>Foriegn key identifier for the Specimen Preparation or Analysis Batch</Cm>
       </Cl>
       <Cl au="0" df="" nm="BatchPositionNumber" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -5892,7 +5892,7 @@
     <Notes/>
     <Zones/>
   </Dgm>
-  <Dgm nm="ODM2ExternalIdentifers">
+  <Dgm nm="ODM2ExternalIdentifiers">
     <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
@@ -7328,8 +7328,8 @@ Types</Note>
       <Rnm id="248" nNm="ODMVocabulary" oNm="Vocabulary"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="320" nNm="SamplingFeatureExternalIdentiferID" oNm="SamplingFeatureIdentiferID"/>
-      <Rnm id="297" nNm="SamplingFeatureIdentiferID" oNm="SamplingFeatureUniqueID"/>
+      <Rnm id="320" nNm="SamplingFeatureExternalIdentifierID" oNm="SamplingFeatureIdentifierID"/>
+      <Rnm id="297" nNm="SamplingFeatureIdentifierID" oNm="SamplingFeatureUniqueID"/>
       <Rnm id="249" nNm="SamplingFeatureUniqueID" oNm="UniversalSamplingFeatureID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
@@ -7440,7 +7440,7 @@ Types</Note>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="314" nNm="PersonExternalIdenifierURN" oNm="PersonExternaIDURN"/>
-      <Rnm id="309" nNm="PersonExternaIDURN" oNm="PersonIdentiferURN"/>
+      <Rnm id="309" nNm="PersonExternaIDURN" oNm="PersonIdentifierURN"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ExternalIdentifierSystems" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="318" nNm="ExternalIdentifierSystemID" oNm="ExternalIdentifierID"/>
@@ -7458,7 +7458,7 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="VariableExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="323" nNm="VariableID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetExternalIdentifers" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetExternalIdentifiers" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="325" nNm="DataSetID" oNm="DataSet"/>
       <Rnm id="324" nNm="DataSet" oNm="Id"/>
     </RnmCh>
@@ -7467,8 +7467,8 @@ Types</Note>
       <Rnm id="327" nNm="ExternalIdentifierSystemURNResolverURL" oNm="ExternalIdentifierSystemURNresolverURL"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatureExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="497" nNm="SamplingFeatureExternalIdentifierURI" oNm="SamplingFeatureExternalIdentiferURI"/>
-      <Rnm id="328" nNm="SamplingFeatureExternalIdentiferURI" oNm="SamplingFeatureExternalIdentiferURN"/>
+      <Rnm id="497" nNm="SamplingFeatureExternalIdentifierURI" oNm="SamplingFeatureExternalIdentifierURI"/>
+      <Rnm id="328" nNm="SamplingFeatureExternalIdentifierURI" oNm="SamplingFeatureExternalIdentifierURN"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="PersonExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="480" nNm="PersonExternalIdentifierURI" oNm="PersonExternalIdenifierURI"/>
@@ -7500,8 +7500,8 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifierExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="338" nNm="TaxonomicClassifierID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetExternalIdentifers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="339" nNm="DataSetExternalIdentiferURI" oNm="DataSetExternalIdentiferURN"/>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataSetExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="339" nNm="DataSetExternalIdentifierURI" oNm="DataSetExternalIdentifierURN"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="340" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
@@ -7895,16 +7895,16 @@ Types</Note>
       <Rnm id="496" nNm="DatasetID" oNm="DataSetID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="498" nNm="CitationExternalIdentifierURI" oNm="CitationExternalIdentiferURI"/>
+      <Rnm id="498" nNm="CitationExternalIdentifierURI" oNm="CitationExternalIdentifierURI"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="CitationExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="499" nNm="CitationExternalIdentifier" oNm="CitationExternalIdentifer"/>
+      <Rnm id="499" nNm="CitationExternalIdentifier" oNm="CitationExternalIdentifier"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
       <Rnm id="500" nNm="CV_DatasetType" oNm="CV_DatasetTypeCV"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="VariableExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
-      <Rnm id="501" nNm="VariableExternalIdentifier" oNm="VariableExternalIdentifer"/>
+      <Rnm id="501" nNm="VariableExternalIdentifier" oNm="VariableExternalIdentifier"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -7928,6 +7928,8 @@ Types</Note>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2ExternalIdentifiers</TreePath>
+    <TreePath>/Schemas (12)/ODM2ExternalIdentifiers/Tables (9)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
   <SqlTexts/>
