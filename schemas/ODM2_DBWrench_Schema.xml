@@ -498,6 +498,14 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>CV term describing the type of action (e.g., observation, sample collection, sample analysis)</Cm>
       </Cl>
+      <Cl au="0" df="" nm="ActionName" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A name for an Action or activity.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ActionDescription" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Text that describes the action</Cm>
+      </Cl>
       <Cl au="0" df="" nm="MethodID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the method used to complete the action</Cm>
@@ -517,10 +525,6 @@
       <Cl au="0" df="" nm="EndDateTimeUTCOffset" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The UTCOffset of for the EndDateTime</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ActionDescription" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Text that describes the action</Cm>
       </Cl>
       <Cl au="0" df="" nm="ActionFileLink" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -5011,9 +5015,10 @@
     </Tbl>
     <Tbl UsSo="1" nm="SampledFeatures">
       <TblOpts/>
-      <Pk ClNs="BridgeID" nm="pkSampledFeatures"/>
-      <Cl au="0" df="" nm="BridgeID" nu="0">
+      <Pk ClNs="RelationID" nm="pkSampledFeatures"/>
+      <Cl au="0" df="" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key for a relationship table</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -5559,22 +5564,22 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="268" y="17"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="859" y="74"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1127" y="261"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="908" y="496"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="407" y="469"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="593" y="165"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="340" y="318"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="44" y="110"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="39" y="272"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="371" y="201"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1141" y="40"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1132" y="179"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="771" y="349"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1041" y="380"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="622" y="497"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="593" y="52"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="218" y="434"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="886" y="371"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1203" y="266"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="942" y="82"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="536" y="59"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="527" y="257"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="254" y="59"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="34" y="99"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="36" y="224"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="325" y="257"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1210" y="424"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1213" y="572"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="745" y="59"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1157" y="67"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="662" y="443"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="525" y="545"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -5634,7 +5639,7 @@
     </FkGl>
     <Notes/>
     <Zones>
-      <Zone bkCl="ffece9d8" h="539" nm="Observations" w="312" x="571" y="19"/>
+      <Zone bkCl="ffece9d8" h="675" nm="Observations  = Actions + Results" w="431" x="510" y="214"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
@@ -6158,8 +6163,8 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="790" y="292"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="777" y="480"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="792" y="284"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="777" y="484"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="1050" y="304"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="157" y="547"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="183" y="752"/>
@@ -6168,7 +6173,7 @@
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="419" y="567"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1464" y="133"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1340" y="281"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="792" y="130"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="791" y="126"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1033" y="137"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="165" y="162"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="227" y="331"/>
@@ -6185,7 +6190,7 @@
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DatasetCitations" x="1367" y="364"/>
     <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="790" x2="716" y1="406" y2="406"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="792" x2="716" y1="398" y2="398"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
@@ -6195,7 +6200,7 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Actions.fk_Actions_Methods" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="825" x2="825" y1="257" y2="292"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="824" x2="824" y1="253" y2="284"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
@@ -6220,13 +6225,13 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="826" x2="826" y1="447" y2="480"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="828" x2="828" y1="453" y2="484"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.FeatureActions.fk_FeatureActions_RelatedFeatures" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="727" x2="727" y1="751" y2="540"/>
-        <positionableLine lineRole="CHILD_LINE" x1="777" x2="731" y1="536" y2="536"/>
+        <positionableLine lineRole="PARENT_LINE" x1="727" x2="727" y1="751" y2="544"/>
+        <positionableLine lineRole="CHILD_LINE" x1="777" x2="731" y1="540" y2="540"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
@@ -6236,7 +6241,7 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.Methods.fk_Methods_Organizations" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="621" x2="792" y1="175" y2="175"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="621" x2="791" y1="175" y2="175"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Core.Organizations.fk_Organizations_Organizations" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
@@ -6244,7 +6249,7 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.Results.fk_Results_FeatureActions" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1016" x2="1050" y1="497" y2="497"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1016" x2="1050" y1="501" y2="501"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Results.fk_Results_ProcessingLevels" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
@@ -6784,7 +6789,7 @@ Types</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="512">
+  <RnmMgr NxRnmId="513">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -8010,6 +8015,7 @@ Types</Note>
       <Rnm id="504" nNm="FeatureID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SampledFeatures" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="512" nNm="RelationID" oNm="BridgeID"/>
       <Rnm id="505" nNm="BridgeID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
@@ -8044,13 +8050,15 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
+    <TreePath>/Diagrams (13)/ODM2Core</TreePath>
+    <TreePath>/Diagrams (13)/ODM2Core/Zones (1)</TreePath>
   </TreePaths>
   <SqlTexts/>
 </Db>
