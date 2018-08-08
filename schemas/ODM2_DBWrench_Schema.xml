@@ -3232,7 +3232,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign Key to ExternalIdentifierSystems</Cm>
       </Cl>
-      <Cl au="0" df="" nm="VariableExternalIdentifer" nu="0">
+      <Cl au="0" df="" nm="VariableExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A resolvable, globally unique ID; could be a Uniform Resource Name (URN).</Cm>
       </Cl>
@@ -5901,7 +5901,7 @@
     <Notes/>
     <Zones/>
   </Dgm>
-  <Dgm nm="ODM2ExternalIdentifers">
+  <Dgm nm="ODM2ExternalIdentifiers">
     <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
@@ -6711,7 +6711,7 @@ Types</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="503">
+  <RnmMgr NxRnmId="504">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7928,6 +7928,9 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeatureActions" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="502" nNm="RelatedFeaturesRelationID" oNm="RelatedFeatures.RelationID"/>
       <Rnm id="501" nNm="RelatedFeatures.RelationID" oNm="RelationID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="VariableExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
+      <Rnm id="503" nNm="VariableExternalIdentifier" oNm="VariableExternalIdentifer"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
