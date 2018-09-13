@@ -3,9 +3,9 @@ ODM2
 
 The next version of the Observations Data Model.
 
-For more information about the ODM2 development project, visit the [wiki](https://github.com/ODM2/ODM2/wiki). 
+For more information about the ODM2 development project, visit the [wiki](https://github.com/ODM2/ODM2/wiki).
 
-Have a look at the ODM2 paper in Environmental Modelling & Software. It's open access!
+Have a look at the ODM2 paper in Environmental Modeling & Software. It's open access!
 
 Horsburgh, J. S., Aufdenkampe, A. K., Mayorga, E., Lehnert, K. A., Hsu, L., Song, L., Spackman Jones, A., Damiano, S. G., Tarboton, D. G., Valentine, D., Zaslavsky, I., Whitenack, T. (2016). Observations Data Model 2: A community information model for spatially discrete Earth observations, Environmental Modelling & Software, 79, 55-74, [http://dx.doi.org/10.1016/j.envsoft.2016.01.010](http://dx.doi.org/10.1016/j.envsoft.2016.01.010)
 
@@ -47,7 +47,7 @@ We are working to develop a community information model to extend interoperabili
 
 ## Credits ##
 
-This work was supported by National Science Foundation Grant [EAR-1224638](http://www.nsf.gov/awardsearch/showAward?AWD_ID=1224638). Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. 
+This work was supported by National Science Foundation Grant [EAR-1224638](http://www.nsf.gov/awardsearch/showAward?AWD_ID=1224638). Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
 
 ODM2 draws heavily form our prior work with the CUAHSI Hydrologic information system and ODM 1.1.1 (Horsburgh et al., 2008; Horsburgh and Tarboton, 2008), our experiences workin on the Critical Zone Observatory Integrated Data Management System (CZOData), and our experiences with the EarthChem systems (e.g., Lehnert et al., 2007; Lehnert et al., 2009). It also extensively uses concepts from the Open Geospatial Consortium's Observations & Measurements standard (Cox, 2007a; Cox, 2007b; Cox, 2011a; Cox, 2011b; ISO, 2011).
 
@@ -55,16 +55,16 @@ ODM2 draws heavily form our prior work with the CUAHSI Hydrologic information sy
 [See a full list of ODM2 related references](https://github.com/ODM2/ODM2/wiki/References)
 
 Cox, S.J.D. (2007a). Observations and Measurements - Part 1 - Observation schema, OGC Implementation Specification, OGC 07-022r1. 73 + xi. http://portal.opengeospatial.org/files/22466.
- 
+
 Cox, S.J.D. (2007b). Observations and Measurements – Part 2 - Sampling Features, OGC Implementation Specification, OGC 07-002r3. 36 + ix. http://portal.opengeospatial.org/files/22467.
- 
+
 Cox, S.J.D. (2011a). Geographic Information - Observations and Measurements, OGC Abstract Specification Topic 20 (same as ISO 19156:2011), OGC 10-004r3. 54. http://dx.doi.org/10.13140/2.1.1142.3042.
- 
+
 Cox, S.J.D. (2011b). Observations and Measurements - XML Implementation, OGC Implementation Standard, OGC 10-025r1. 66 + x. http://portal.opengeospatial.org/files/41510 (accessed September 16, 2014).
 
 Horsburgh, J.S., D.G. Tarboton, D.R. Maidment, and I. Zaslavsky (2008). A relational model for environmental and water resources data, Water Resources Research, 44, W05406, http://dx.doi.org/10.1029/2007WR006392.
 
-Horsburgh, J.S., D.G. Tarboton (2008). CUAHSI Community Observations Data Model (ODM) Version 1.1.1 Design Specifications, CUAHSI Open Source Software Tools, http://www.codeplex.com/Download?ProjectName=HydroServer&DownloadId=349176. 
+Horsburgh, J.S., D.G. Tarboton (2008). CUAHSI Community Observations Data Model (ODM) Version 1.1.1 Design Specifications, CUAHSI Open Source Software Tools, http://www.codeplex.com/Download?ProjectName=HydroServer&DownloadId=349176.
 
 ISO 19156:2011 - Geographic information -- Observations and Measurements, International Standard (2011), International Organization for Standardization, Geneva. http://dx.doi.org/10.13140/2.1.1142.3042.
 

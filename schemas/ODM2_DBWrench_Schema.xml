@@ -1704,33 +1704,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="CV_SiteType">
-      <Cm>Table containing terms used in the SiteType controlled vocabulary.</Cm>
-      <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_SiteType"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="CV_SpatialOffsetType">
       <Cm>Table containing terms used in the SpatialOffsetType controlled vocabulary.</Cm>
       <TblOpts/>
@@ -5050,43 +5023,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="Sites">
-      <Cm>Describes sampling features that are point sites</Cm>
-      <TblOpts/>
-      <Pk ClNs="SamplingFeatureID" nm="pkSites"/>
-      <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the Sampling Feature that is the Site</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SiteTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A CV term describing the site type</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Latitude" nu="0">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Latitude of the site</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Longitude" nu="0">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Longitude of the site</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SpatialReferenceID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_Sites_CV_SiteType" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_SiteType" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="Sites" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="SiteTypeCV" prCl="Name"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Sites_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
-        <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="Sites" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="SpatialOffsets">
       <Cm>An explicit spatial relationship between a sampling feature relative to it's parent.</Cm>
       <TblOpts/>
@@ -5681,7 +5617,6 @@
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ResultType" x="623" y="157"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureGeoType" x="620" y="389"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureType" x="622" y="508"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SiteType" x="620" y="624"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpatialOffsetType" x="622" y="739"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Speciation" x="913" y="43"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenType" x="915" y="155"/>
@@ -6167,7 +6102,6 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="777" y="484"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="1050" y="304"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="157" y="547"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Sites" x="183" y="752"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="159" y="861"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="426" y="751"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="419" y="567"/>
@@ -6320,11 +6254,6 @@
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
         <positionableLine lineRole="SINGLE_LINE" x1="455" x2="455" y1="708" y2="751"/>
-      </positionableLines>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.Sites.fk_Sites_SamplingFeatures" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
-      <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="192" x2="192" y1="772" y2="752"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
@@ -8051,11 +7980,19 @@ Types</Note>
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2CV</TreePath>
+    <TreePath>/Schemas (12)/ODM2CV/Tables (26)</TreePath>
+    <TreePath>/Schemas (12)/ODM2SamplingFeatures</TreePath>
+    <TreePath>/Schemas (12)/ODM2SamplingFeatures/Tables (7)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
     <TreePath>/Diagrams (13)/ODM2Core</TreePath>
     <TreePath>/Diagrams (13)/ODM2Core/Zones (1)</TreePath>
