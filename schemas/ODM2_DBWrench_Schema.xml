@@ -530,10 +530,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A URL or path to a file created by or used by the Action, such as instrument output or configuration.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Actions_CV_ActionType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Actions_CV_ActionType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_ActionType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Actions" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ActionTypeCV" prCl="Name"/>
+        <ClPr cdCl="ActionTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Actions_Methods" prLkCl="MethodID" upAc="3">
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
@@ -628,10 +628,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>A text abstract describing the dataset</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Datasets_CV_DatasetTypeCV" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Datasets_CV_DatasetTypeCV" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_DatasetType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Datasets" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="DatasetTypeCV" prCl="Name"/>
+        <ClPr cdCl="DatasetTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_DatasetCode">
@@ -738,10 +738,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Organization with which the method is affiliated</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Methods_CV_MethodType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Methods_CV_MethodType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_MethodType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Methods" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="MethodTypeCV" prCl="Name"/>
+        <ClPr cdCl="MethodTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Methods_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="1"/>
@@ -787,10 +787,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key of the parent organization of the current organization</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Organizations_CV_OrganizationType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Organizations_CV_OrganizationType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_OrganizationType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Organizations" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="OrganizationTypeCV" prCl="Name"/>
+        <ClPr cdCl="OrganizationTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Organizations_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="1"/>
@@ -884,10 +884,10 @@
         <CdTb mn="1" nm="RelatedActions" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="RelatedActionID" prCl="ActionID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_RelatedActions_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedActions_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="RelatedActions" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis>
@@ -959,20 +959,20 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Number of data values contained within the result</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Results_CV_Medium" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Results_CV_Medium" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SampledMediumCV" prCl="Name"/>
+        <ClPr cdCl="SampledMediumCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Results_CV_ResultType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Results_CV_ResultType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_ResultType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ResultTypeCV" prCl="Name"/>
+        <ClPr cdCl="ResultTypeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Results_CV_Status" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Results_CV_Status" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Status" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="StatusCV" prCl="Name"/>
+        <ClPr cdCl="StatusCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_FeatureActions" prLkCl="FeatureActionID" upAc="3">
         <PrTb mn="0" nm="FeatureActions" oe="1" sch="ODM2Core" zr="0"/>
@@ -1062,20 +1062,20 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_SamplingFeatures_CV_ElevationDatum" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SamplingFeatures_CV_ElevationDatum" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_ElevationDatum" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ElevationDatumCV" prCl="Name"/>
+        <ClPr cdCl="ElevationDatumCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SamplingFeatures_CV_SamplingFeatureGeoType" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_SamplingFeatureGeoType" oe="1" sch="ODM2CV" zr="1"/>
+      <Fk deAc="3" nm="fk_SamplingFeatures_CV_SamplingFeatureGeoType" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_SamplingFeatureGeoType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SamplingFeatureGeotypeCV" prCl="Name"/>
+        <ClPr cdCl="SamplingFeatureTypeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SamplingFeatures_CV_SamplingFeatureType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SamplingFeatures_CV_SamplingFeatureType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_SamplingFeatureType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SamplingFeatureTypeCV" prCl="Name"/>
+        <ClPr cdCl="SamplingFeatureTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
         <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
@@ -1121,10 +1121,10 @@
         <CdTb mn="1" nm="TaxonomicClassifiers" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ParentTaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TaxonomicClassifiers_CV_TaxonomicClassifierType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TaxonomicClassifiers_CV_TaxonomicClassifierType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_TaxonomicClassifierType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TaxonomicClassifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="TaxonomicClassifierTypeCV" prCl="Name"/>
+        <ClPr cdCl="TaxonomicClassifierTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1153,10 +1153,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A link to the system from which the Unit was retreived or a URI for the definition of the Unit within that system.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Units_CV_UnitsType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Units_CV_UnitsType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_UnitsType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Units" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="UnitsTypeCV" prCl="Name"/>
+        <ClPr cdCl="UnitsTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -1193,20 +1193,20 @@
         <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A numeric value indicating no data.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Variables_CV_Speciation" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Variables_CV_Speciation" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Speciation" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SpeciationCV" prCl="Name"/>
+        <ClPr cdCl="SpeciationCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Variables_CV_VariableName" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Variables_CV_VariableName" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_VariableName" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="VariableNameCV" prCl="Name"/>
+        <ClPr cdCl="VariableNameCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Variables_CV_VariableType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Variables_CV_VariableType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_VariableType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="VariableTypeCV" prCl="Name"/>
+        <ClPr cdCl="VariableTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_VariableCode">
@@ -1221,7 +1221,7 @@
     <Tbl UsSo="1" nm="CV_ActionType">
       <Cm>Table containing terms used in the ActionType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_ActionType"/>
+      <Pk ClNs="Term" nm="pkCV_ActionType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1248,7 +1248,7 @@
     <Tbl UsSo="1" nm="CV_AggregationStatistic">
       <Cm>Table containing terms used in the AggregationStatistic controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_AggregationStatistic"/>
+      <Pk ClNs="Term" nm="pkCV_AggregationStatistic"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1275,7 +1275,7 @@
     <Tbl UsSo="1" nm="CV_AnnotationType">
       <Cm>Table containing terms used in the AnnotationType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_AnnotationType"/>
+      <Pk ClNs="Term" nm="pkCV_AnnotationType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1302,7 +1302,7 @@
     <Tbl UsSo="1" nm="CV_CensorCode">
       <Cm>Table containing terms used in the CensorCode controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_CensorCode"/>
+      <Pk ClNs="Term" nm="pkCV_CensorCode"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1329,7 +1329,7 @@
     <Tbl UsSo="1" nm="CV_DataQualityType">
       <Cm>Table containing terms used in the DataQualityType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_DataQualityType"/>
+      <Pk ClNs="Term" nm="pkCV_DataQualityType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1356,7 +1356,7 @@
     <Tbl UsSo="1" nm="CV_DatasetType">
       <Cm>Table containing terms used in the DatasetType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_DatasetType"/>
+      <Pk ClNs="Term" nm="pkCV_DatasetType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1383,7 +1383,7 @@
     <Tbl UsSo="1" nm="CV_DirectiveType">
       <Cm>Table containing terms used in the DirectiveType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_DirectiveType"/>
+      <Pk ClNs="Term" nm="pkCV_DirectiveType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1410,7 +1410,7 @@
     <Tbl UsSo="1" nm="CV_ElevationDatum">
       <Cm>Table containing terms used in the ElevationDatum controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_ElevationDatum"/>
+      <Pk ClNs="Term" nm="pkCV_ElevationDatum"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1437,7 +1437,7 @@
     <Tbl UsSo="1" nm="CV_EquipmentType">
       <Cm>Table containing terms used in the EquipmentType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_EquipmentType"/>
+      <Pk ClNs="Term" nm="pkCV_EquipmentType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1464,7 +1464,7 @@
     <Tbl UsSo="1" nm="CV_Medium">
       <Cm>Table containing terms used in the Medium controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_Medium"/>
+      <Pk ClNs="Term" nm="pkCV_Medium"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1491,7 +1491,7 @@
     <Tbl UsSo="1" nm="CV_MethodType">
       <Cm>Table containing terms used in the MethodType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_MethodType"/>
+      <Pk ClNs="Term" nm="pkCV_MethodType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1518,7 +1518,7 @@
     <Tbl UsSo="1" nm="CV_OrganizationType">
       <Cm>Table containing terms used in the OrganizationType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_OrganizationType"/>
+      <Pk ClNs="Term" nm="pkCV_OrganizationType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1545,7 +1545,7 @@
     <Tbl UsSo="1" nm="CV_PropertyDataType">
       <Cm>Table containing terms used in the PropertyDataType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_PropertyDataType"/>
+      <Pk ClNs="Term" nm="pkCV_PropertyDataType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1572,7 +1572,7 @@
     <Tbl UsSo="1" nm="CV_QualityCode">
       <Cm>Table containing terms used in the QualityCode controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_QualityCode"/>
+      <Pk ClNs="Term" nm="pkCV_QualityCode"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1599,7 +1599,7 @@
     <Tbl UsSo="1" nm="CV_RelationshipType">
       <Cm>Table containing terms used in the RelationshipType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_RelationshipType"/>
+      <Pk ClNs="Term" nm="pkCV_RelationshipType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1626,7 +1626,7 @@
     <Tbl UsSo="1" nm="CV_ResultType">
       <Cm>Table containing terms used in the ResultType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_ResultType"/>
+      <Pk ClNs="Term" nm="pkCV_ResultType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1653,7 +1653,7 @@
     <Tbl UsSo="1" nm="CV_SamplingFeatureGeoType">
       <Cm>Table containing terms used in the SamplingFeatureGeoType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_SamplingFeatureGeoType"/>
+      <Pk ClNs="Term" nm="pkCV_SamplingFeatureGeoType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1680,7 +1680,7 @@
     <Tbl UsSo="1" nm="CV_SamplingFeatureType">
       <Cm>Table containing terms used in the SamplingFeatureType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_SamplingFeatureType"/>
+      <Pk ClNs="Term" nm="pkCV_SamplingFeatureType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1707,7 +1707,7 @@
     <Tbl UsSo="1" nm="CV_SpatialOffsetType">
       <Cm>Table containing terms used in the SpatialOffsetType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_SpatialOffsetType"/>
+      <Pk ClNs="Term" nm="pkCV_SpatialOffsetType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1734,7 +1734,7 @@
     <Tbl UsSo="1" nm="CV_Speciation">
       <Cm>Table containing terms used in the Speciation controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_Speciation"/>
+      <Pk ClNs="Term" nm="pkCV_Speciation"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1761,7 +1761,7 @@
     <Tbl UsSo="1" nm="CV_SpecimenType">
       <Cm>Table containing terms used in the SpecimenType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_SpecimenType"/>
+      <Pk ClNs="Term" nm="pkCV_SpecimenType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1788,7 +1788,7 @@
     <Tbl UsSo="1" nm="CV_Status">
       <Cm>Table containing terms used in the Status controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_Status"/>
+      <Pk ClNs="Term" nm="pkCV_Status"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1815,7 +1815,7 @@
     <Tbl UsSo="1" nm="CV_TaxonomicClassifierType">
       <Cm>Table containing terms used in the TaxonomicClassifierType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_TaxonomicClassifierType"/>
+      <Pk ClNs="Term" nm="pkCV_TaxonomicClassifierType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1842,7 +1842,7 @@
     <Tbl UsSo="1" nm="CV_UnitsType">
       <Cm>Table containing terms used in the UnitsType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_UnitsType"/>
+      <Pk ClNs="Term" nm="pkCV_UnitsType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1869,7 +1869,7 @@
     <Tbl UsSo="1" nm="CV_VariableName">
       <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_VariableName"/>
+      <Pk ClNs="Term" nm="pkCV_VariableName"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1896,7 +1896,7 @@
     <Tbl UsSo="1" nm="CV_VariableType">
       <Cm>Table containing terms used in the VariableType controlled vocabulary.</Cm>
       <TblOpts/>
-      <Pk ClNs="Name" nm="pkCV_VariableType"/>
+      <Pk ClNs="Term" nm="pkCV_VariableType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -3776,40 +3776,16 @@
       <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="CensorCodeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="QualityCodeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="AggregationStatisticCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="TimeAggregationInterval" nu="0">
+      <Cl au="0" df="" nm="TimeAggregationInterval" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="0">
+      <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_MeasurementResults_AIUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_MeasurementResults_CV_AggregationStatistic" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_MeasurementResults_CV_CensorCode" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Name"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_MeasurementResults_CV_QualityCode" prLkCl="Name" upAc="3">
-        <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
       </Fk>
       <Fk deAc="3" nm="fk_MeasurementResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -3857,9 +3833,41 @@
       <Cl au="0" df="" nm="ValueDateTimeUTCOffset" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="AggregationStatisticCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="CensorCodeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="QualityCodeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_MeasurementResultValues_CV_AggregationStatistic" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_MeasurementResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_MeasurementResultValues_CV_QualityCode" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_MeasurementResultValues_CV_ResultType" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_ResultType" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
+      </Fk>
       <Fk deAc="3" nm="fk_MeasurementResultValues_MeasurementResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="MeasurementResults" oe="1" sch="ODM2Results" zr="0"/>
-        <CdTb mn="0" nm="MeasurementResultValues" oe="1" sch="ODM2Results" zr="1"/>
+        <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints>
@@ -4574,10 +4582,10 @@
         <CdTb mn="1" nm="TimeSeriesResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TimeSeriesResultValues_CV_CensorCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TimeSeriesResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TimeSeriesResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Name"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResultValues_CV_QualityCode" prLkCl="Name" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
@@ -4976,10 +4984,10 @@
         <CdTb mn="1" nm="RelatedFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SpatialOffsetID" prCl="SpatialOffsetID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_RelatedFeatures_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedFeatures_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="RelatedFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis>
@@ -5005,10 +5013,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foregn key identifier of a Feature of Interest</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_SampledFeatures_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SampledFeatures_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SampledFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SampledFeatures_FeatureOfInterest" prLkCl="FeatureOfInterestID" upAc="3">
         <PrTb mn="0" nm="FeaturesOfInterest" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
@@ -5059,10 +5067,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Units for 3rd SpatialOffset, which is defined by SpatialOffsetType</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_SpatialOffsets_CV_SpatialOffsetType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SpatialOffsets_CV_SpatialOffsetType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_SpatialOffsetType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SpatialOffsets" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="SpatialOffsetTypeCV" prCl="Name"/>
+        <ClPr cdCl="SpatialOffsetTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpatialOffsets_Offset1Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -5129,15 +5137,15 @@
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A boolean indicating whether the specimen was collected in the field</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Specimens_CV_Medium" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Specimens_CV_Medium" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Specimens" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="SpecimenMediumCV" prCl="Name"/>
+        <ClPr cdCl="SpecimenTypeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Specimens_CV_SpecimenType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Specimens_CV_SpecimenType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_SpecimenType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Specimens" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="SpecimenTypeCV" prCl="Name"/>
+        <ClPr cdCl="SpecimenTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Specimens_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -6215,7 +6223,7 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.MeasurementResultValues.fk_MeasurementResultValues_MeasurementResults" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="802" x2="802" y1="818" y2="857"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="802" x2="802" y1="776" y2="857"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.ProfileResults.fk_ProfileResults_Results" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
@@ -6718,7 +6726,7 @@ Types</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="513">
+  <RnmMgr NxRnmId="516">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -7962,6 +7970,15 @@ Types</Note>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
       <Rnm id="511" nNm="FeaturesOfInterest" oNm="FeatureOfInterest"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MeasurementResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="513" nNm="CensorCodeCV" oNm="Term"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MeasurementResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="514" nNm="QualityCodeCV" oNm="Term"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="MeasurementResultValues" SupCls="Schema" SupNme="ODM2Results">
+      <Rnm id="515" nNm="AggregationStatisticCV" oNm="Term"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -7979,20 +7996,18 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
     <TreePath>/Schemas (12)/ODM2CV</TreePath>
-    <TreePath>/Schemas (12)/ODM2CV/Tables (26)</TreePath>
-    <TreePath>/Schemas (12)/ODM2SamplingFeatures</TreePath>
-    <TreePath>/Schemas (12)/ODM2SamplingFeatures/Tables (7)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
     <TreePath>/Diagrams (13)/ODM2Core</TreePath>
     <TreePath>/Diagrams (13)/ODM2Core/Zones (1)</TreePath>
