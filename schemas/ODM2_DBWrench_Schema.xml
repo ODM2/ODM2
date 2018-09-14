@@ -75,10 +75,10 @@
         <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Annotations_CV_AnnotationType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Annotations_CV_AnnotationType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AnnotationType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Annotations" oe="0" sch="ODM2Annotations" zr="1"/>
-        <ClPr cdCl="AnnotationTypeCV" prCl="Name"/>
+        <ClPr cdCl="AnnotationTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Annotations_People" prLkCl="PersonID" upAc="3">
         <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="1"/>
@@ -1032,7 +1032,7 @@
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureGeotypeCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Dimensionality of SamplingFeature; point2d, line2d, etc.</Cm>
+        <Cm>Dimensionality of SamplingFeature: point2d, line2d, etc.</Cm>
       </Cl>
       <Cl au="0" df="" nm="FeatureGeometry" nu="1">
         <DT arr="0" ds="Geometry" en="" id="779" ln="null" sc="null" sg="1" un="0"/>
@@ -1954,10 +1954,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>URL or path to a file or other resource supporting the DataQuality metadata</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_DataQuality_CV_DataQualityType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_DataQuality_CV_DataQualityType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_DataQualityType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="DataQuality" oe="0" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="DataQualityTypeCV" prCl="Name"/>
+        <ClPr cdCl="DataQualityTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataQuality_Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
@@ -2013,10 +2013,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A foreign key to SamplingFeatures.  Only required when the ReferenceMaterial is Analyzed as if it were an unknown specimen.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_ReferenceMaterials_CV_Medium" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_ReferenceMaterials_CV_Medium" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="ReferenceMaterials" oe="0" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="ReferenceMaterialMediumCV" prCl="Name"/>
+        <ClPr cdCl="ReferenceMaterialMediumCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_ReferenceMaterials_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
@@ -2289,10 +2289,10 @@
       <Cl au="0" df="" nm="AggregationStatisticCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_DataloggerFileColumns_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_DataloggerFileColumns_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataloggerFileColumns_DataLoggerFiles" prLkCl="DataLoggerFileID" upAc="3">
         <PrTb mn="0" nm="DataLoggerFiles" oe="1" sch="ODM2Equipment" zr="0"/>
@@ -2447,10 +2447,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A file name, path, or URL to a photo of the specific piece of equipment</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Equipment_CV_EquipmentType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Equipment_CV_EquipmentType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_EquipmentType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Equipment" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="EquipmentTypeCV" prCl="Name"/>
+        <ClPr cdCl="EquipmentTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Equipment_EquipmentModels" prLkCl="EquipmentModelID" upAc="3">
         <PrTb mn="0" nm="EquipmentModels" oe="1" sch="ODM2Equipment" zr="0"/>
@@ -2665,10 +2665,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>UTCOffset of the ending date/time</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_RelatedEquipment_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedEquipment_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="RelatedEquipment" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_RelatedEquipment_Equipment" prLkCl="EquipmentID" upAc="3">
         <PrTb mn="0" nm="Equipment" oe="1" sch="ODM2Equipment" zr="0"/>
@@ -2777,10 +2777,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the units of the property value</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_ExtensionProperties_CV_PropertyDataType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_ExtensionProperties_CV_PropertyDataType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_PropertyDataType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
-        <ClPr cdCl="PropertyDataTypeCV" prCl="Name"/>
+        <ClPr cdCl="PropertyDataTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_ExtensionProperties_Units" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
@@ -2939,7 +2939,7 @@
       </Cl>
       <Cl au="0" df="" nm="CitationExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID, such as a DOI; could be a Uniform Resource Name (URN).</Cm>
+        <Cm>A resolvable, globally unique ID, such as a DOI. Could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="CitationExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -3009,7 +3009,7 @@
       </Cl>
       <Cl au="0" df="" nm="MethodExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID, such as a NEMI method number; could be a Uniform Resource Name (URN).</Cm>
+        <Cm>A resolvable, globally unique ID, such as a NEMI method number. Could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="MethodExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -3048,7 +3048,7 @@
       </Cl>
       <Cl au="0" df="" nm="PersonExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID, such as an IGSN; could be a Uniform Resource Name (URN).</Cm>
+        <Cm>A resolvable, globally unique ID, such as an IGSN. Could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="PersonExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -3086,7 +3086,7 @@
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID, such as NBS-19; could be a Uniform Resource Name (URN).</Cm>
+        <Cm>A resolvable, globally unique ID, such as NBS-19. Could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="ReferenceMaterialExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -3122,7 +3122,7 @@
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID, such as an IGSN; could be a Uniform Resource Name (URN).</Cm>
+        <Cm>A resolvable, globally unique ID, such as an IGSN. Could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -3192,7 +3192,7 @@
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID, such as a GBIF ID; could be a Uniform Resource Name (URN).</Cm>
+        <Cm>A resolvable, globally unique ID, such as a GBIF ID. Could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -3228,7 +3228,7 @@
       </Cl>
       <Cl au="0" df="" nm="VariableExternalIdentifier" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A resolvable, globally unique ID; could be a Uniform Resource Name (URN).</Cm>
+        <Cm>A resolvable, globally unique ID. Could be a Uniform Resource Name (URN).</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableExternalIdentifierURI" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -3296,10 +3296,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text description of the directive or purpose under which the action was taken.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Directives_CV_DirectiveType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_Directives_CV_DirectiveType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_DirectiveType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Directives" oe="0" sch="ODM2LabAnalyses" zr="1"/>
-        <ClPr cdCl="DirectiveTypeCV" prCl="Name"/>
+        <ClPr cdCl="DirectiveTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis>
@@ -3418,10 +3418,10 @@
         <CdTb mn="1" nm="DatasetCitations" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_DatasetCitations_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_DatasetCitations_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="DatasetCitations" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataSetCitations_DataSets" prLkCl="DatasetID" upAc="3">
         <PrTb mn="0" nm="Datasets" oe="1" sch="ODM2Core" zr="0"/>
@@ -3470,10 +3470,10 @@
         <CdTb mn="1" nm="MethodCitations" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="CitationID" prCl="CitationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_MethodCitations_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_MethodCitations_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="MethodCitations" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_MethodCitations_Methods" prLkCl="MethodID" upAc="3">
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
@@ -3509,10 +3509,10 @@
         <CdTb mn="1" nm="RelatedAnnotations" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="RelatedAnnotationID" prCl="AnnotationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_RelatedAnnotations_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedAnnotations_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="RelatedAnnotations" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -3547,10 +3547,10 @@
         <CdTb mn="1" nm="RelatedCitations" oe="0" sch="ODM2Provenance" zr="1"/>
         <ClPr cdCl="RelatedCitationID" prCl="CitationID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_RelatedCitations_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedCitations_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="RelatedCitations" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -3579,10 +3579,10 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>Text version number/code that can be specified if the DataSet is an explicit version of another DataSet and where the RelationshipTypeCV = "isNewVersionOf".</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_RelatedDatasets_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedDatasets_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="RelatedDatasets" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_RelatedDatasets_DataSets" prLkCl="DatasetID" upAc="3">
         <PrTb mn="0" nm="Datasets" oe="1" sch="ODM2Core" zr="0"/>
@@ -3625,10 +3625,10 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Integer sequence number indicating the order in which a RelatedResults appears in a DerivationEquation (i.e. 1 for x1, 2 for x2...) and where a Result "isDerivedFrom" one or more  RelatedResults.</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_RelatedResults_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedResults_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="RelatedResults" oe="0" sch="ODM2Provenance" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_RelatedResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -3701,10 +3701,10 @@
       <Cl au="0" df="" nm="QualityCodeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_CategoricalResults_CV_QualityCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_CategoricalResults_CV_QualityCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="CategoricalResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_CategoricalResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -3913,10 +3913,10 @@
       <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_PointCoverageResults_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_PointCoverageResults_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_PointCoverageResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -3982,15 +3982,15 @@
       <Cl au="0" df="" nm="QualityCodeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_PointCoverageResultValues_CV_CensorCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_PointCoverageResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="PointCoverageResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Name"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_PointCoverageResultValues_CV_QualityCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_PointCoverageResultValues_CV_QualityCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="PointCoverageResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_PointCoverageResultValues_PointCoverageResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="PointCoverageResults" oe="1" sch="ODM2Results" zr="0"/>
@@ -4051,10 +4051,10 @@
       <Cl au="0" df="" nm="AggregationStatisticCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_ProfileResults_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_ProfileResults_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResults_DUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
@@ -4134,15 +4134,15 @@
         <CdTb mn="1" nm="ProfileResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_ProfileResultValues_CV_CensorCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_ProfileResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="ProfileResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Name"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_ProfileResultValues_CV_QualityCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_ProfileResultValues_CV_QualityCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="ProfileResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResultValues_DUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -4197,10 +4197,10 @@
       <Cl au="0" df="" nm="AggregationStatisticCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_SectionResults_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SectionResults_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SectionResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -4291,20 +4291,20 @@
         <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SectionResultValues_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SectionResultValues_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SectionResultValues_CV_CensorCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SectionResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Name"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SectionResultValues_CV_QualityCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SectionResultValues_CV_QualityCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SectionResultValues_SectionResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="SectionResults" oe="1" sch="ODM2Results" zr="0"/>
@@ -4364,10 +4364,10 @@
       <Cl au="0" df="" nm="AggregationStatisticCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_SpectraResults_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SpectraResults_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpectraResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -4446,15 +4446,15 @@
         <CdTb mn="1" nm="SpectraResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SpectraResultValues_CV_CensorCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SpectraResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SpectraResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Name"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SpectraResultValues_CV_QualityCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_SpectraResultValues_CV_QualityCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SpectraResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SpectraResultValues_SpectraResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="SpectraResults" oe="1" sch="ODM2Results" zr="0"/>
@@ -4509,10 +4509,10 @@
       <Cl au="0" df="" nm="AggregationStatisticCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_TimeSeriesResults_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TimeSeriesResults_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -4587,10 +4587,10 @@
         <CdTb mn="1" nm="TimeSeriesResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="CensorCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TimeSeriesResultValues_CV_QualityCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TimeSeriesResultValues_CV_QualityCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TimeSeriesResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResultValues_TimeSeriesResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="TimeSeriesResults" oe="1" sch="ODM2Results" zr="0"/>
@@ -4628,10 +4628,10 @@
       <Cl au="0" df="" nm="AggregationStatisticCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_TrajectoryResults_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TrajectoryResults_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_TrajectoryResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -4718,15 +4718,15 @@
         <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TrajectoryResultValues_CV_CensorCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TrajectoryResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Name"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TrajectoryResultValues_CV_QualityCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TrajectoryResultValues_CV_QualityCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_TrajectoryResultValues_DistanceUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -4790,10 +4790,10 @@
       <Cl au="0" df="" nm="AggregationStatisticCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_TransectResults_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TransectResults_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_TransectResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
@@ -4882,20 +4882,20 @@
         <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TransectResultValues_CV_AggregationStatistic" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TransectResultValues_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="AggregationStatisticCV" prCl="Name"/>
+        <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TransectResultValues_CV_CensorCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TransectResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Name"/>
+        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TransectResultValues_CV_QualityCode" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_TransectResultValues_CV_QualityCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="QualityCodeCV" prCl="Name"/>
+        <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_TransectResultValues_DistanceUnits" prLkCl="UnitsID" upAc="3">
         <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
@@ -5271,10 +5271,10 @@
       <Cl au="0" df="" nm="RelatedModelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_RelatedModels_CV_RelationshipType" prLkCl="Name" upAc="3">
+      <Fk deAc="3" nm="fk_RelatedModels_CV_RelationshipType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_RelationshipType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="RelatedModels" oe="0" sch="ODM2Simulation" zr="1"/>
-        <ClPr cdCl="RelationshipTypeCV" prCl="Name"/>
+        <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_RelatedModels_Models" prLkCl="ModelID" upAc="3">
         <PrTb mn="0" nm="Models" oe="1" sch="ODM2Simulation" zr="0"/>
@@ -5360,7 +5360,7 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="398" y="549"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="400" y="564"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="829" y="374"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="902" y="47"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="685" y="72"/>
@@ -5664,7 +5664,7 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="599" y="91"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="332" y="233"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="336" y="27"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="50" y="221"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="56" y="161"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="51" y="418"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="906" y="249"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="927" y="80"/>
@@ -7996,13 +7996,19 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Simulation" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
