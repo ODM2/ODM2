@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><Db flnm="ODM2_DBWrench_Schema" nm="ODM2" ver="1.3.4">
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="ODM2_DBWrench_Schema_930" nm="ODM2" ver="1.3.4">
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
@@ -6,9 +6,9 @@
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkActionAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;ActionAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
@@ -34,9 +34,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Annotations">
       <Cm>Contains text annotations added to one or more records within various ODM2 tables.  Annotations can be used to record notes about a particular SamplingFeature, Action, Result, etc. or to create groups of records such as Specimens, Sites, People, etc.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="AnnotationID" nm="pkAnnotations"/>
-      <Cl au="1" df="" nm="AnnotationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;Annotations_AnnotationID_seq&quot;'::regclass)" nm="AnnotationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for Annotations.</Cm>
       </Cl>
@@ -90,9 +90,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="CategoricalResultValueAnnotations">
       <Cm>Annotations for Categorical ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkCategoricalResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;CategoricalResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
@@ -116,9 +116,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="EquipmentAnnotations">
       <Cm>Bridge table linking Annotations to Equipment</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkEquipmentAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;EquipmentAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="EquipmentID" nu="0">
@@ -142,9 +142,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="MeasurementResultValueAnnotations">
       <Cm>Annotations for Measurement ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkMeasurementResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;MeasurementResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -171,9 +171,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="MethodAnnotations">
       <Cm>Notes for or groups of one or more Methods.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkMethodAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;MethodAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -200,9 +200,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="PointCoverageResultValueAnnotations">
       <Cm>Annotations for Point Coverage ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkPointCoverageResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;PointCoverageResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
@@ -226,9 +226,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="ProfileResultValueAnnotations">
       <Cm>Annotations for Profile ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkProfileResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;ProfileResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
@@ -252,9 +252,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="ResultAnnotations">
       <Cm>Notes for or groups of one or more Results [sets].</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkResultAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;ResultAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -289,9 +289,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="SamplingFeatureAnnotations">
       <Cm>Notes for or groups of one or more Sampling Features.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkSamplingFeatureAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;SamplingFeatureAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -318,9 +318,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="SectionResultValueAnnotations">
       <Cm>Annotations for Section ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkSectionResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;SectionResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
@@ -344,9 +344,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="SpectraResultValueAnnotations">
       <Cm>Annotations for Spectra ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkSpectraResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;SpectraResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
@@ -370,9 +370,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="TimeSeriesResultValueAnnotations">
       <Cm>Annotations for Time Series ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkTimeSeriesResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;TimeSeriesResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
@@ -396,9 +396,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="TrajectoryResultValueAnnotations">
       <Cm>Annotations for Trajectory ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkTrajectoryResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;TrajectoryResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
@@ -422,9 +422,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="TransectResultValueAnnotations">
       <Cm>Annotations for Transect ResultValues</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkTransectResultValueAnnotations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Annotations&quot;.&quot;TransectResultValueAnnotations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ValueID" nu="0">
@@ -446,14 +446,59 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ActionAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Annotations_AnnotationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="CategoricalResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="EquipmentAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="MeasurementResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="MethodAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="PointCoverageResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ProfileResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ResultAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SamplingFeatureAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SectionResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SpectraResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="TimeSeriesResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="TrajectoryResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="TransectResultValueAnnotations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="The core of ODM2.  Every ODM2 instance will implement the Core." nm="ODM2Core">
     <Tbl UsSo="1" nm="ActionBy">
       <Cm>Affiliates people with actions and describes thier role in the action.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkActionBy"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;ActionBy_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -488,9 +533,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Actions">
       <Cm>Describes actions (e.g., observation, sample collection, sample analysis, field visits, field activities, etc.)</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ActionID" nm="pkActions"/>
-      <Cl au="1" df="" nm="ActionID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;Actions_ActionID_seq&quot;'::regclass)" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primariy key identifier</Cm>
       </Cl>
@@ -545,9 +590,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Affiliations">
       <Cm>Describes affiliations of people with organizations.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="AffiliationID" nm="pkAffiliations"/>
-      <Cl au="1" df="" nm="AffiliationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;Affiliations_AffiliationID_seq&quot;'::regclass)" nm="AffiliationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primay key identifier</Cm>
       </Cl>
@@ -602,9 +647,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Datasets">
       <Cm>Describes groupings of observation results that can be considered "datasets"</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="DatasetID" nm="pkDatasets"/>
-      <Cl au="1" df="" nm="DatasetID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;Datasets_DatasetID_seq&quot;'::regclass)" nm="DatasetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier.</Cm>
       </Cl>
@@ -642,9 +687,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="DatasetsResults">
       <Cm>Lists the Results that are grouped into a DataSet</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkDatasetsResults"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;DatasetsResults_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -670,9 +715,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="FeatureActions">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="FeatureActionID" nm="pkFeatureActions"/>
-      <Cl au="1" df="" nm="FeatureActionID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;FeatureActions_FeatureActionID_seq&quot;'::regclass)" nm="FeatureActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -686,7 +731,7 @@
       </Cl>
       <Cl au="0" df="" nm="RelatedFeaturesRelationID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the the relationship that identifies the parent SamplingFeature. This is useful when the Action is used to create a new SamplingFeature from a parent.</Cm>
+        <Cm>Foreign key identifier for  the relationship that identifies the parent SamplingFeature. This is useful when the Action is used to create a new SamplingFeature from a parent.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_FeatureActions_Actions" prLkCl="ActionID" upAc="3">
         <PrTb mn="0" nm="Actions" oe="1" sch="ODM2Core" zr="0"/>
@@ -708,9 +753,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Methods">
       <Cm>Describes methods used to perform actions recorded in ODM (e.g., observation methods, sample analysis methods, sample preparation methods, etc.)</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="MethodID" nm="pkMethods"/>
-      <Cl au="1" df="" nm="MethodID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;Methods_MethodID_seq&quot;'::regclass)" nm="MethodID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -757,9 +802,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Organizations">
       <Cm>Describes organizations - as in research groups, companies, universities, etc.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="OrganizationID" nm="pkOrganizations"/>
-      <Cl au="1" df="" nm="OrganizationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;Organizations_OrganizationID_seq&quot;'::regclass)" nm="OrganizationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -806,9 +851,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="People">
       <Cm>Describes people.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="PersonID" nm="pkPeople"/>
-      <Cl au="1" df="" nm="PersonID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;People_PersonID_seq&quot;'::regclass)" nm="PersonID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier.</Cm>
       </Cl>
@@ -829,9 +874,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="ProcessingLevels">
       <Cm>Describes the processing level of Results</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ProcessingLevelID" nm="pkProcessingLevels"/>
-      <Cl au="1" df="" nm="ProcessingLevelID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;ProcessingLevels_ProcessingLevelID_seq&quot;'::regclass)" nm="ProcessingLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -856,9 +901,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="RelatedActions">
       <Cm>Describes Actions that are related to one another.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelationID" nm="pkRelatedActions"/>
-      <Cl au="1" df="" nm="RelationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;RelatedActions_RelationID_seq&quot;'::regclass)" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
       </Cl>
@@ -897,14 +942,14 @@
     </Tbl>
     <Tbl UsSo="1" nm="Results">
       <Cm>Describes the results of observation actions (e.g., groups of one or more numeric data values that result from an observation action)</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkResults"/>
-      <Cl au="1" df="" nm="ResultID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;Results_ResultID_seq&quot;'::regclass)" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultUUID" nu="0">
-        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="36" sc="null" sg="1" un="0"/>
         <Cm>A universally unique identifier for the Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="FeatureActionID" nu="0">
@@ -922,10 +967,6 @@
       <Cl au="0" df="" nm="UnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the Units of the result</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for a TaxonomicClassifier for the variable (if one exists)</Cm>
       </Cl>
       <Cl au="0" df="" nm="ProcessingLevelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -957,7 +998,11 @@
       </Cl>
       <Cl au="0" df="" nm="ValueCount" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Number of data values contained within the result</Cm>
+        <Cm>Number of data values contained within the result. For instance we could have a timeseries data with 1000s of results or a chemical analysis with a sd</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="NoDataValue" nu="1">
+        <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>A numeric value indicating no data.</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_Results_CV_Medium" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="0"/>
@@ -984,13 +1029,8 @@
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="ProcessingLevelID" prCl="ProcessingLevelID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Results_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
-        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_Results_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Units" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="UnitsID" prCl="UnitsID"/>
       </Fk>
@@ -1004,14 +1044,14 @@
     </Tbl>
     <Tbl UsSo="1" nm="SamplingFeatures">
       <Cm>Describes the sampling features on which observations are made.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="SamplingFeatureID" nm="pkSamplingFeatures"/>
-      <Cl au="1" df="" nm="SamplingFeatureID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;SamplingFeatures_SamplingFeatureID_seq&quot;'::regclass)" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureUUID" nu="0">
-        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="VarChar" en="" id="12" ln="36" sc="null" sg="1" un="0"/>
         <Cm>A universally unique identifier for the sampling feature.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureTypeCV" nu="0">
@@ -1058,9 +1098,9 @@
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Longitude of centroid of SamplingFeature</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SpatialReferenceID" nu="1">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier for the Spatial Reference System that describes the latitude and longitude coordinates</Cm>
+      <Cl au="0" df="" nm="EPSG" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+        <Cm>EPSG of the Spatial Reference System that describes the latitude and longitude coordinates. This refers to codes obtained from http://www.epsg.org/ and maintained in epsg db</Cm>
       </Cl>
       <Fk deAc="3" nm="fk_SamplingFeatures_CV_ElevationDatum" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_ElevationDatum" oe="1" sch="ODM2CV" zr="1"/>
@@ -1068,19 +1108,14 @@
         <ClPr cdCl="ElevationDatumCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SamplingFeatures_CV_SamplingFeatureGeoType" prLkCl="Term" upAc="3">
-        <PrTb mn="0" nm="CV_SamplingFeatureGeoType" oe="1" sch="ODM2CV" zr="0"/>
+        <PrTb mn="0" nm="CV_SamplingFeatureGeoType" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SamplingFeatureTypeCV" prCl="Term"/>
+        <ClPr cdCl="SamplingFeatureGeotypeCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_SamplingFeatures_CV_SamplingFeatureType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_SamplingFeatureType" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SamplingFeatureTypeCV" prCl="Term"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SamplingFeatures_SpatialReferences" prLkCl="SpatialReferenceID" upAc="3">
-        <PrTb mn="0" nm="SpatialReferences" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
-        <CdTb mn="1" nm="SamplingFeatures" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_SamplingFeatureCode">
@@ -1089,138 +1124,161 @@
       </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="TaxonomicClassifiers">
-      <TblOpts/>
-      <Pk ClNs="TaxonomicClassifierID" nm="pkTaxonomicClassifiers"/>
-      <Cl au="1" df="" nm="TaxonomicClassifierID" nu="0">
+    <Tbl UsSo="1" nm="Species">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="SpeciesID" nm="pkSpecies"/>
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;TaxonomicClassifiers_TaxonomicClassifierID_seq&quot;'::regclass)" nm="SpeciesID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierTypeCV" nu="0">
+      <Cl au="0" df="" nm="SpeciesTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled Vocabulary for the type of taxonomy</Cm>
+        <Cm>Controlled Vocabulary for the type ofspecies</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierName" nu="0">
+      <Cl au="0" df="" nm="SpeciesName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Taxonomic classification</Cm>
+        <Cm>Species classification</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierCommonName" nu="1">
+      <Cl au="0" df="" nm="SpeciesCommonName" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Taxonomic classification using a common name</Cm>
+        <Cm>Species  classification using a common name</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierDescription" nu="1">
+      <Cl au="0" df="" nm="SpeciesDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Description or remarks about Taxonomic Classifier</Cm>
+        <Cm>Description or remarks about Species Classifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ParentTaxonomicClassifierID" nu="1">
+      <Cl au="0" df="" nm="ParentSpeciesID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>ID of the Classifier that is one higher level in the taxonomic hiearchy</Cm>
+        <Cm>ID of theSpecies that is one higher level in the taxonomic hiearchy</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_ParentTaxon_Taxon" prLkCl="TaxonomicClassifierID" upAc="3">
-        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TaxonomicClassifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="ParentTaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
+      <Cl au="0" df="" nm="SpeciesURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <Cm>A URI which provides information on the species
+</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_Species_CV_SpeciesClassifierType" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_SpeciesType" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="Species" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="SpeciesTypeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TaxonomicClassifiers_CV_TaxonomicClassifierType" prLkCl="Term" upAc="3">
-        <PrTb mn="0" nm="CV_TaxonomicClassifierType" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="TaxonomicClassifiers" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="TaxonomicClassifierTypeCV" prCl="Term"/>
-      </Fk>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="Units">
-      <Cm>Describes units of measure for varibles and time</Cm>
-      <TblOpts/>
-      <Pk ClNs="UnitsID" nm="pkUnits"/>
-      <Cl au="1" df="" nm="UnitsID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Primary key identifier</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="UnitsTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term that defines the unit type</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="UnitsAbbreviation" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Text abbreviation for the unit</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="UnitsName" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Text name for the unit</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="UnitsLink" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the system from which the Unit was retreived or a URI for the definition of the Unit within that system.</Cm>
-      </Cl>
-      <Fk deAc="3" nm="fk_Units_CV_UnitsType" prLkCl="Term" upAc="3">
-        <PrTb mn="0" nm="CV_UnitsType" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="Units" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="UnitsTypeCV" prCl="Term"/>
+      <Fk deAc="3" nm="fk_Species_Species" prLkCl="SpeciesID" upAc="3">
+        <PrTb mn="0" nm="Species" oe="1" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="Species" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="ParentSpeciesID" prCl="SpeciesID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="Variables">
       <Cm>Stores information about measured properties.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="VariableID" nm="pkVariables"/>
-      <Cl au="1" df="" nm="VariableID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Core&quot;.&quot;Variables_VariableID_seq&quot;'::regclass)" nm="VariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="VariableTypeCV" nu="0">
+      <Cl au="0" df="" nm="VariableTerm" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary for the type of variable</Cm>
       </Cl>
-      <Cl au="0" df="" nm="VariableCode" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Unique text code for the variable</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="VariableNameCV" nu="0">
+      <Cl au="0" df="" nm="VariableName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary for the name of the variable</Cm>
+        <Cm>The Human Readable name for the parameter</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableDefinition" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
         <Cm>Text definition of the variable</Cm>
       </Cl>
-      <Cl au="0" df="" nm="SpeciationCV" nu="1">
+      <Cl au="0" df="" nm="SampleMedium" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Speciation for the variable (e.g., expressed as P or as PO4)</Cm>
+        <Cm>Controlled vocabulary for sample medium</Cm>
       </Cl>
-      <Cl au="0" df="" nm="NoDataValue" nu="0">
-        <DT arr="0" ds="Double" en="" id="8" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>A numeric value indicating no data.</Cm>
+      <Cl au="0" df="" nm="QuantityKindCV" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary for the type of variable</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Variables_CV_Speciation" prLkCl="Term" upAc="3">
-        <PrTb mn="0" nm="CV_Speciation" oe="1" sch="ODM2CV" zr="1"/>
+      <Cl au="0" df="" nm="SpeciesID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Species for the variable </Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SpeciationID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Speciation for the variable </Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VariableLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <Cm>Link to additional information on the variable</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_Variables_CV_Medium" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="SpeciationCV" prCl="Term"/>
+        <ClPr cdCl="SampleMedium" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Variables_CV_VariableName" prLkCl="Term" upAc="3">
-        <PrTb mn="0" nm="CV_VariableName" oe="1" sch="ODM2CV" zr="0"/>
+      <Fk deAc="3" nm="fk_Variables_CV_QuantityKind" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_QuantityKind" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="VariableNameCV" prCl="Term"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Variables_CV_VariableType" prLkCl="Term" upAc="3">
-        <PrTb mn="0" nm="CV_VariableType" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="VariableTypeCV" prCl="Term"/>
+        <ClPr cdCl="QuantityKindCV" prCl="Term"/>
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_VariableCode">
-          <ClNs>VariableCode</ClNs>
+          <ClNs>VariableLink</ClNs>
         </UnCon>
       </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ActionBy_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Actions_ActionID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Affiliations_AffiliationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Datasets_DatasetID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="DatasetsResults_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="FeatureActions_FeatureActionID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Methods_MethodID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Organizations_OrganizationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="People_PersonID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ProcessingLevels_ProcessingLevelID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="RelatedActions_RelationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Results_ResultID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SamplingFeatures_SamplingFeatureID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="TaxonomicClassifiers_TaxonomicClassifierID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Units_UnitsID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Variables_VariableID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Controlled vocabularies for ODM2." nm="ODM2CV">
     <Tbl UsSo="1" nm="CV_ActionType">
       <Cm>Table containing terms used in the ActionType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_ActionType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1247,7 +1305,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_AggregationStatistic">
       <Cm>Table containing terms used in the AggregationStatistic controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_AggregationStatistic"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1274,7 +1332,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_AnnotationType">
       <Cm>Table containing terms used in the AnnotationType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_AnnotationType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1301,7 +1359,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_CensorCode">
       <Cm>Table containing terms used in the CensorCode controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_CensorCode"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1328,7 +1386,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_DataQualityType">
       <Cm>Table containing terms used in the DataQualityType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_DataQualityType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1355,7 +1413,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_DatasetType">
       <Cm>Table containing terms used in the DatasetType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_DatasetType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1382,7 +1440,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_DirectiveType">
       <Cm>Table containing terms used in the DirectiveType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_DirectiveType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1409,7 +1467,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_ElevationDatum">
       <Cm>Table containing terms used in the ElevationDatum controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_ElevationDatum"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1436,7 +1494,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_EquipmentType">
       <Cm>Table containing terms used in the EquipmentType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_EquipmentType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1461,9 +1519,51 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="CV_FeaturesOfInterestType">
+      <Cm>Table containing terms used in the FeatureOfInterestType controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_FeaturesOfInterestType"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CV_LBNLICPMSMapper">
+      <Cm>Table which contains a mapping between LBNL Parameter names and official variable names</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="LBNLTerm" nm="pkCV_LBNLICPMSMapper"/>
+      <Cl au="0" df="" nm="LBNLTerm" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>LBNL ICPMS name</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="VariableTerm" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Variable Term  that the LBNL ICPMS data gets mapped onto</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="CV_Medium">
       <Cm>Table containing terms used in the Medium controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_Medium"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1490,7 +1590,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_MethodType">
       <Cm>Table containing terms used in the MethodType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_MethodType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1517,7 +1617,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_OrganizationType">
       <Cm>Table containing terms used in the OrganizationType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_OrganizationType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1544,7 +1644,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_PropertyDataType">
       <Cm>Table containing terms used in the PropertyDataType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_PropertyDataType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1571,7 +1671,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_QualityCode">
       <Cm>Table containing terms used in the QualityCode controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_QualityCode"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1596,9 +1696,88 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="CV_QuantityKind">
+      <Cm>Table containing terms used in the QuantityKind  controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_QuantityKind"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Provenance" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The organization or source which defines this term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ProvenanceURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived or which provides further information</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Note" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <Cm>An optional note about this quantitykind unit</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DefaultUnit" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The default unit</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DefaultUnitAbbreviation" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Abbreviation for the default unit</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionSymbol" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The dimension symbol. This should align with the other units (dimension_length and so on)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionUnitless" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>an integer (between -10 and 10, indicating the unitless dimensionality)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionLength" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>an integer (between -10 and 10, indicating the length dimensionality)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionMass" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>an integer (between -10 and 10, indicating the mass  dimensionality)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionTime" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>an integer (between -10 and 10, indicating the time dimensionality)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionCurrent" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>an integer (between -10 and 10, indicating the current dimensionality)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionTemperature" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>an integer (between -10 and 10, indicating the temperature dimensionality)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionAmount" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>an integer (between -10 and 10, indicating the amount dimensionality)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="DimensionLight" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>an integer (between -10 and 10, indicating the light dimensionality)</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="CV_RelationshipType">
       <Cm>Table containing terms used in the RelationshipType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_RelationshipType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1625,7 +1804,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_ResultType">
       <Cm>Table containing terms used in the ResultType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_ResultType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1652,7 +1831,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_SamplingFeatureGeoType">
       <Cm>Table containing terms used in the SamplingFeatureGeoType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_SamplingFeatureGeoType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1679,7 +1858,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_SamplingFeatureType">
       <Cm>Table containing terms used in the SamplingFeatureType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_SamplingFeatureType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1706,7 +1885,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_SpatialOffsetType">
       <Cm>Table containing terms used in the SpatialOffsetType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_SpatialOffsetType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1733,8 +1912,35 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_Speciation">
       <Cm>Table containing terms used in the Speciation controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_Speciation"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CV_SpeciesType">
+      <Cm>Table containing terms used in the SpeciesType controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_SpeciesType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1760,7 +1966,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_SpecimenType">
       <Cm>Table containing terms used in the SpecimenType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_SpecimenType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1787,62 +1993,8 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_Status">
       <Cm>Table containing terms used in the Status controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_Status"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CV_TaxonomicClassifierType">
-      <Cm>Table containing terms used in the TaxonomicClassifierType controlled vocabulary.</Cm>
-      <TblOpts/>
-      <Pk ClNs="Term" nm="pkCV_TaxonomicClassifierType"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CV_UnitsType">
-      <Cm>Table containing terms used in the UnitsType controlled vocabulary.</Cm>
-      <TblOpts/>
-      <Pk ClNs="Term" nm="pkCV_UnitsType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Controlled vocabulary term</Cm>
@@ -1868,7 +2020,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="CV_VariableName">
       <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_VariableName"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1893,9 +2045,51 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="CV_VariableNamenew">
+      <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_VariableNamenew"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ObjectMedium" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ObjectSpecies" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Chemical species associated with the variable</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ObjectSpeciation" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Chemical Speciation of the variable</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="LBNLSFAMapper" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Mapping from the SFA parameter to the variable parameter</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="CV_VariableType">
       <Cm>Table containing terms used in the VariableType controlled vocabulary.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="Term" nm="pkCV_VariableType"/>
       <Cl au="0" df="" nm="Term" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1920,11 +2114,56 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="Units">
+      <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="UnitsID" nm="pkUnits"/>
+      <Cl au="0" df="" nm="UnitsID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary key identifier</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="UnitsName" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.t</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="QuantityKindCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key on Unitstype</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="UnitsAbbreviation" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Abbreviation of unit</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="UnitsLink" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="1000" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ConversionMultiplier" nu="0">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ConversionOffset" nu="0">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_Units_CV_QuantityKind" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_QuantityKind" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="Units" oe="0" sch="ODM2CV" zr="1"/>
+        <ClPr cdCl="QuantityKindCV" prCl="Term"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes related to data quality." nm="ODM2DataQuality">
     <Tbl UsSo="1" nm="DataQuality">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="DataQualityID" nm="pkDataQuality"/>
       <Cl au="0" df="" nm="DataQualityID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -1959,11 +2198,6 @@
         <CdTb mn="1" nm="DataQuality" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="DataQualityTypeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_DataQuality_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="DataQuality" oe="0" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="DataQualityValueUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_DataQualityCode">
           <ClNs>DataQualityCode</ClNs>
@@ -1975,9 +2209,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="ReferenceMaterials">
       <Cm>Describes materials that are used for the calibration of an instrument, the assessment of a measurement method, or for assigning values to unknown specimens.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ReferenceMaterialID" nm="pkReferenceMaterials"/>
-      <Cl au="1" df="" nm="ReferenceMaterialID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2DataQuality&quot;.&quot;ReferenceMaterials_ReferenceMaterialID_seq&quot;'::regclass)" nm="ReferenceMaterialID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The primary key to the Reference Material used to calibrate an instrument, assess a measurement method, or assign values to unknown specimens</Cm>
       </Cl>
@@ -2039,9 +2273,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="ReferenceMaterialValues">
       <Cm>"Accepted" property values for a Reference Material, which can be certified by an agency or vendor, established in the literature by the research community, or developed for "in house" use only by a laboratory.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ReferenceMaterialValueID" nm="pkReferenceMaterialValues"/>
-      <Cl au="1" df="" nm="ReferenceMaterialValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2DataQuality&quot;.&quot;ReferenceMaterialValues_ReferenceMaterialValueID_seq&quot;'::regclass)" nm="ReferenceMaterialValueID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>The primary key for ReferenceMaterialValues</Cm>
       </Cl>
@@ -2079,11 +2313,6 @@
         <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
         <ClPr cdCl="ReferenceMaterialID" prCl="ReferenceMaterialID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_ReferenceMaterialValues_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
-        <ClPr cdCl="UnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_ReferenceMaterialValues_Variables" prLkCl="VariableID" upAc="3">
         <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="ReferenceMaterialValues" oe="0" sch="ODM2DataQuality" zr="1"/>
@@ -2094,7 +2323,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="ResultNormalizationValues">
       <Cm>Extends the Results table with a foreign key to NormalizationReferenceMaterialValues when the optional DataQuality schema is implemented.  In a database implementation, we would not implement this as a separate table from Results.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkResultNormalizationValues"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -2117,9 +2346,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ResultsDataQuality">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkResultsDataQuality"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2DataQuality&quot;.&quot;ResultsDataQuality_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -2146,12 +2375,21 @@
         <StPr stA="ODM2Core" stB="ResultsDataQuality"/>
       </SchTrHis>
     </Tbl>
+    <Seq incr="1" nm="ReferenceMaterials_ReferenceMaterialID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ReferenceMaterialValues_ReferenceMaterialValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ResultsDataQuality_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes of equipment used to make observations (e.g., sensors and instruments)." nm="ODM2Equipment">
     <Tbl UsSo="1" nm="CalibrationActions">
       <Cm>Information about calibration Actions</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ActionID" nm="pkCalibrationActions"/>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2180,9 +2418,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="CalibrationReferenceEquipment">
       <Cm>Information about equipment used as referenece for a calibration</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkCalibrationReferenceEquipment"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;CalibrationReferenceEquipment_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier </Cm>
       </Cl>
@@ -2209,9 +2447,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="CalibrationStandards">
       <Cm>Bridge table linking field calibrations to the reference materials used</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkCalibrationStandards"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;CalibrationStandards_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2240,9 +2478,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="DataloggerFileColumns">
       <Cm>Information about columns in datalogger files</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="DataloggerFileColumnID" nm="pkDataloggerFileColumns"/>
-      <Cl au="1" df="" nm="DataloggerFileColumnID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;DataloggerFileColumns_DataloggerFileColumnID_seq&quot;'::regclass)" nm="DataloggerFileColumnID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2304,29 +2542,19 @@
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="InstrumentOutputVariableID" prCl="InstrumentOutputVariableID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_DataloggerFileColumns_RecordingUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="RecordingIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_DataloggerFileColumns_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_DataloggerFileColumns_ScanUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="ScanIntervalUnitsID" prCl="UnitsID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="DataLoggerFiles">
       <Cm>Destibes datalogger files created by a deployment action</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="DataLoggerFileID" nm="pkDataLoggerFiles"/>
-      <Cl au="1" df="" nm="DataLoggerFileID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;DataLoggerFiles_DataLoggerFileID_seq&quot;'::regclass)" nm="DataLoggerFileID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2359,9 +2587,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="DataloggerProgramFiles">
       <Cm>Information about datalogger program files</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ProgramID" nm="pkDataloggerProgramFiles"/>
-      <Cl au="1" df="" nm="ProgramID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;DataloggerProgramFiles_ProgramID_seq&quot;'::regclass)" nm="ProgramID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2397,9 +2625,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Equipment">
       <Cm>Descriptions of specific pieces of equipment.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="EquipmentID" nm="pkEquipment"/>
-      <Cl au="1" df="" nm="EquipmentID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;Equipment_EquipmentID_seq&quot;'::regclass)" nm="EquipmentID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2410,10 +2638,6 @@
       <Cl au="0" df="" nm="EquipmentName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A text name for the piece of equipment</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="EquipmentTypeCV" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>CV term describing the equipment type (e.g., sensor, datalogger, solar panel, etc.)</Cm>
       </Cl>
       <Cl au="0" df="" nm="EquipmentModelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2447,11 +2671,6 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A file name, path, or URL to a photo of the specific piece of equipment</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_Equipment_CV_EquipmentType" prLkCl="Term" upAc="3">
-        <PrTb mn="0" nm="CV_EquipmentType" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="Equipment" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="EquipmentTypeCV" prCl="Term"/>
-      </Fk>
       <Fk deAc="3" nm="fk_Equipment_EquipmentModels" prLkCl="EquipmentModelID" upAc="3">
         <PrTb mn="0" nm="EquipmentModels" oe="1" sch="ODM2Equipment" zr="0"/>
         <CdTb mn="1" nm="Equipment" oe="0" sch="ODM2Equipment" zr="1"/>
@@ -2476,9 +2695,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="EquipmentModels">
       <Cm>Describes models of sensors, loggers, and related equipment used in making observations.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="EquipmentModelID" nm="pkEquipmentModels"/>
-      <Cl au="1" df="" nm="EquipmentModelID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;EquipmentModels_EquipmentModelID_seq&quot;'::regclass)" nm="EquipmentModelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2493,6 +2712,9 @@
       <Cl au="0" df="" nm="ModelName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>Text name of the equipment model</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="EquipmentTypeCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ModelDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
@@ -2510,6 +2732,11 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A URL to a website or file having a description of the equipment model</Cm>
       </Cl>
+      <Fk deAc="3" nm="fk_EquipmentModels_CV_EquipmentType" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_EquipmentType" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="EquipmentModels" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="EquipmentTypeCV" prCl="Term"/>
+      </Fk>
       <Fk deAc="3" nm="fk_EquipmentModels_Organizations" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="EquipmentModels" oe="0" sch="ODM2Equipment" zr="1"/>
@@ -2519,9 +2746,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="EquipmentUsed">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkEquipmentUsed"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;EquipmentUsed_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -2548,13 +2775,13 @@
     </Tbl>
     <Tbl UsSo="1" nm="InstrumentOutputVariables">
       <Cm>Information about the Variables that an instrument is capable of measuring</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="InstrumentOutputVariableID" nm="pkInstrumentOutputVariables"/>
-      <Cl au="1" df="" nm="InstrumentOutputVariableID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;InstrumentOutputVariables_InstrumentOutputVariableID_seq&quot;'::regclass)" nm="InstrumentOutputVariableID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ModelID" nu="0">
+      <Cl au="0" df="" nm="EquipmentModelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Equipment Model</Cm>
       </Cl>
@@ -2581,17 +2808,12 @@
       <Fk deAc="3" nm="fk_InstrumentOutputVariables_EquipmentModels" prLkCl="EquipmentModelID" upAc="3">
         <PrTb mn="0" nm="EquipmentModels" oe="1" sch="ODM2Equipment" zr="0"/>
         <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="ModelID" prCl="EquipmentModelID"/>
+        <ClPr cdCl="EquipmentModelID" prCl="EquipmentModelID"/>
       </Fk>
       <Fk deAc="3" nm="fk_InstrumentOutputVariables_Methods" prLkCl="MethodID" upAc="3">
         <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="InstrumentMethodID" prCl="MethodID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_InstrumentOutputVariables_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="InstrumentRawOutputUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_InstrumentOutputVariables_Variables" prLkCl="VariableID" upAc="3">
         <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
@@ -2603,7 +2825,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="MaintenanceActions">
       <Cm>Information about maintenance Actions performed on Equipment</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ActionID" nm="pkMaintenanceActions"/>
       <Cl au="0" df="" nm="ActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -2631,9 +2853,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="RelatedEquipment">
       <Cm>Information about relationships among Equipment</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelationID" nm="pkRelatedEquipment"/>
-      <Cl au="1" df="" nm="RelationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;RelatedEquipment_RelationID_seq&quot;'::regclass)" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2683,13 +2905,43 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="CalibrationReferenceEquipment_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="CalibrationStandards_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="DataloggerFileColumns_DataloggerFileColumnID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="DataLoggerFiles_DataLoggerFileID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="DataloggerProgramFiles_ProgramID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Equipment_EquipmentID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="EquipmentModels_EquipmentModelID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="EquipmentUsed_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="InstrumentOutputVariables_InstrumentOutputVariableID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="RelatedEquipment_RelationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="A general extensibility mechanism for any entity/object/table in ODM2." nm="ODM2ExtensionProperties">
     <Tbl UsSo="1" nm="ActionExtensionPropertyValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkActionExtensionPropertyValues"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExtensionProperties&quot;.&quot;ActionExtensionPropertyValues_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -2720,9 +2972,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="CitationExtensionPropertyValues">
       <Cm>Values for Citation Extension Properties</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkCitationExtensionPropertyValues"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExtensionProperties&quot;.&quot;CitationExtensionPropertyValues_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -2755,9 +3007,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="ExtensionProperties">
       <Cm>Describes extension properties added to objects in an ODM database</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="PropertyID" nm="pkExtensionProperties"/>
-      <Cl au="1" df="" nm="PropertyID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExtensionProperties&quot;.&quot;ExtensionProperties_PropertyID_seq&quot;'::regclass)" nm="PropertyID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
@@ -2782,19 +3034,14 @@
         <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
         <ClPr cdCl="PropertyDataTypeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_ExtensionProperties_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="ExtensionProperties" oe="0" sch="ODM2ExtensionProperties" zr="1"/>
-        <ClPr cdCl="PropertyUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="MethodExtensionPropertyValues">
       <Cm>Links extnsion properties to a Method</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkMethodExtensionPropertyValues"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExtensionProperties&quot;.&quot;MethodExtensionPropertyValues_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -2825,9 +3072,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="ResultExtensionPropertyValues">
       <Cm>Links extension properties to a Result</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkResultExtensionPropertyValues"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExtensionProperties&quot;.&quot;ResultExtensionPropertyValues_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -2857,9 +3104,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SamplingFeatureExtensionPropertyValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkSamplingFeatureExtensionPropertyValues"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExtensionProperties&quot;.&quot;SamplingFeatureExtensionPropertyValues_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -2889,9 +3136,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="VariableExtensionPropertyValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkVariableExtensionPropertyValues"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExtensionProperties&quot;.&quot;VariableExtensionPropertyValues_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -2920,13 +3167,34 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ActionExtensionPropertyValues_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="CitationExtensionPropertyValues_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ExtensionProperties_PropertyID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="MethodExtensionPropertyValues_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ResultExtensionPropertyValues_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SamplingFeatureExtensionPropertyValues_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="VariableExtensionPropertyValues_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes for linking ODM2 entities (e.g., Sites, Methods, etc.) to external identifier systems." nm="ODM2ExternalIdentifiers">
     <Tbl UsSo="1" nm="CitationExternalIdentifiers">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkCitationExternalIdentifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;CitationExternalIdentifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="CitationID" nu="0">
@@ -2960,9 +3228,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="ExternalIdentifierSystems">
       <Cm>A single table for connecting various primary keys with points to outside systems.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ExternalIdentifierSystemID" nm="pkExternalIdentifierSystems"/>
-      <Cl au="1" df="" nm="ExternalIdentifierSystemID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;ExternalIdentifierSystems_ExternalIdentifierSystemID_seq&quot;'::regclass)" nm="ExternalIdentifierSystemID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2993,9 +3261,9 @@
       </SchTrHis>
     </Tbl>
     <Tbl UsSo="1" nm="MethodExternalIdentifiers">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkMethodExternalIdentifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;MethodExternalIdentifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3032,9 +3300,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="PersonExternalIdentifiers">
       <Cm>Cross reference "linking" table to allow many to many </Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkPersonExternalIdentifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;PersonExternalIdentifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3070,9 +3338,9 @@
       </SchTrHis>
     </Tbl>
     <Tbl UsSo="1" nm="ReferenceMaterialExternalIdentifiers">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkReferenceMaterialExternalIdentifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;ReferenceMaterialExternalIdentifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3106,9 +3374,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SamplingFeatureExternalIdentifiers">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkSamplingFeatureExternalIdentifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;SamplingFeatureExternalIdentifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3144,9 +3412,9 @@
       </SchTrHis>
     </Tbl>
     <Tbl UsSo="1" nm="SpatialReferenceExternalIdentifiers">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkSpatialReferenceExternalIdentifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;SpatialReferenceExternalIdentifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3176,9 +3444,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TaxonomicClassifierExternalIdentifiers">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkTaxonomicClassifierExternalIdentifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;TaxonomicClassifierExternalIdentifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3203,18 +3471,18 @@
         <CdTb mn="1" nm="TaxonomicClassifierExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
         <ClPr cdCl="ExternalIdentifierSystemID" prCl="ExternalIdentifierSystemID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TaxonomicClassifierExtIDs_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
-        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
+      <Fk deAc="3" nm="fk_TaxonomicClassifierExtIDs_TaxonomicClassifiers" prLkCl="SpeciesID" upAc="3">
+        <PrTb mn="0" nm="Species" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="TaxonomicClassifierExternalIdentifiers" oe="0" sch="ODM2ExternalIdentifiers" zr="1"/>
-        <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
+        <ClPr cdCl="TaxonomicClassifierID" prCl="SpeciesID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="VariableExternalIdentifiers">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkVariableExternalIdentifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2ExternalIdentifiers&quot;.&quot;VariableExternalIdentifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3249,13 +3517,40 @@
         <StPr stA="ODM2Core" stB="VariableExternalIdentifiers"/>
       </SchTrHis>
     </Tbl>
+    <Seq incr="1" nm="CitationExternalIdentifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ExternalIdentifierSystems_ExternalIdentifierSystemID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="MethodExternalIdentifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="PersonExternalIdentifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ReferenceMaterialExternalIdentifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SamplingFeatureExternalIdentifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SpatialReferenceExternalIdentifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="TaxonomicClassifierExternalIdentifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="VariableExternalIdentifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about samples and laboratory analyses for ex-situ data." nm="ODM2LabAnalyses">
     <Tbl UsSo="1" nm="ActionDirectives">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkActionDirectives"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2LabAnalyses&quot;.&quot;ActionDirectives_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3282,9 +3577,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Directives">
       <Cm>Describes the directive or purpose under which actions are made.  Directives can be projects, intended analyses for a specimen, etc.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="DirectiveID" nm="pkDirectives"/>
-      <Cl au="1" df="" nm="DirectiveID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2LabAnalyses&quot;.&quot;Directives_DirectiveID_seq&quot;'::regclass)" nm="DirectiveID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier.</Cm>
       </Cl>
@@ -3306,10 +3601,10 @@
         <StPr stA="ODM2Core" stB="Directives"/>
       </SchTrHis>
     </Tbl>
-    <Tbl UsSo="1" nm="SpecimenBatchPostions">
+    <Tbl UsSo="1" nm="SpecimenBatchPositions">
       <Cm>Extends the FeatureActions table with a foreign key when the optional LabAnalyses schema is implemented.  In a database implementation, we would not implement this as a separate table from FeatureActions, but rather just add the additional field(s).</Cm>
-      <TblOpts/>
-      <Pk ClNs="FeatureActionID" nm="pkSpecimenBatchPostions"/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="FeatureActionID" nm="pkSpecimenBatchPositions"/>
       <Cl au="0" df="" nm="FeatureActionID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foriegn key identifer for the Specimen Preparation or Analysis Batch</Cm>
@@ -3324,20 +3619,26 @@
       </Cl>
       <Fk deAc="3" nm="fk_SpecimenBatchPostions_FeatureActions" prLkCl="FeatureActionID" upAc="3">
         <PrTb mn="0" nm="FeatureActions" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="SpecimenBatchPostions" oe="1" sch="ODM2LabAnalyses" zr="1"/>
+        <CdTb mn="0" nm="SpecimenBatchPositions" oe="1" sch="ODM2LabAnalyses" zr="1"/>
         <ClPr cdCl="FeatureActionID" prCl="FeatureActionID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ActionDirectives_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Directives_DirectiveID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes for creating and storing provenance information and versions of observations in ODM2." nm="ODM2Provenance">
     <Tbl UsSo="1" nm="AuthorLists">
       <Cm>Relationship between Citations and their Authors</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkAuthorLists"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;AuthorLists_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3368,9 +3669,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="Citations">
       <Cm>Information about Citations</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="CitationID" nm="pkCitations"/>
-      <Cl au="1" df="" nm="CitationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;Citations_CitationID_seq&quot;'::regclass)" nm="CitationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -3395,9 +3696,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="DatasetCitations">
       <Cm>Relationship between DataSets and Citations</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkDatasetCitations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;DatasetCitations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3433,9 +3734,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="DerivationEquations">
       <Cm>DerivationEquations include calibration equations, normalizations, etc. on one or more RelatedResults to produce a DerivedResult.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="DerivationEquationID" nm="pkDerivationEquations"/>
-      <Cl au="1" df="" nm="DerivationEquationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;DerivationEquations_DerivationEquationID_seq&quot;'::regclass)" nm="DerivationEquationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for DerivationEquations, which include calibration equations, normalizations, etc. on one or more RelatedResults to produce a DerivedResult.</Cm>
       </Cl>
@@ -3447,9 +3748,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="MethodCitations">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkMethodCitations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;MethodCitations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -3485,9 +3786,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="RelatedAnnotations">
       <Cm>Stores information about relationships among Annotations</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelationID" nm="pkRelatedAnnotations"/>
-      <Cl au="1" df="" nm="RelationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;RelatedAnnotations_RelationID_seq&quot;'::regclass)" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="AnnotationID" nu="0">
@@ -3519,9 +3820,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="RelatedCitations">
       <Cm>Information about relationships among citations</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelationID" nm="pkRelatedCitations"/>
-      <Cl au="1" df="" nm="RelationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;RelatedCitations_RelationID_seq&quot;'::regclass)" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
       </Cl>
@@ -3557,9 +3858,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="RelatedDatasets">
       <Cm>Information about relationships among DataSets</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelationID" nm="pkRelatedDatasets"/>
-      <Cl au="1" df="" nm="RelationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;RelatedDatasets_RelationID_seq&quot;'::regclass)" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
       </Cl>
@@ -3599,9 +3900,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="RelatedResults">
       <Cm>Information about relationships among Results</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelationID" nm="pkRelatedResults"/>
-      <Cl au="1" df="" nm="RelationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Provenance&quot;.&quot;RelatedResults_RelationID_seq&quot;'::regclass)" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
       </Cl>
@@ -3645,7 +3946,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="ResultDerivationEquations">
       <Cm>Relationship between Results and Equations used to derive them</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkResultDerivationEquations"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -3668,11 +3969,38 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="AuthorLists_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Citations_CitationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="DatasetCitations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="DerivationEquations_DerivationEquationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="MethodCitations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="RelatedAnnotations_RelationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="RelatedCitations_RelationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="RelatedDatasets_RelationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="RelatedResults_RelationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="The resulting values of observations in ODM2." nm="ODM2Results">
     <Tbl UsSo="1" nm="CategoricalResults">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkCategoricalResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -3720,9 +4048,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="CategoricalResultValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkCategoricalResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;CategoricalResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -3750,7 +4078,7 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="MeasurementResults">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkMeasurementResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -3782,11 +4110,6 @@
       <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_MeasurementResults_AIUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_MeasurementResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="0" nm="MeasurementResults" oe="1" sch="ODM2Results" zr="1"/>
@@ -3797,28 +4120,13 @@
         <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_MeasurementResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_MeasurementResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_MeasurementResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="MeasurementResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="MeasurementResultValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkMeasurementResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;MeasurementResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -3860,11 +4168,6 @@
         <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_MeasurementResultValues_CV_ResultType" prLkCl="Term" upAc="3">
-        <PrTb mn="0" nm="CV_ResultType" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="CensorCodeCV" prCl="Term"/>
-      </Fk>
       <Fk deAc="3" nm="fk_MeasurementResultValues_MeasurementResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="MeasurementResults" oe="1" sch="ODM2Results" zr="0"/>
         <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
@@ -3878,7 +4181,7 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="PointCoverageResults">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkPointCoverageResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -3928,28 +4231,13 @@
         <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_PointCoverageResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedXSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_PointCoverageResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedYSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_PointCoverageResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="PointCoverageResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="PointCoverageResultValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkPointCoverageResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;PointCoverageResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -3997,16 +4285,6 @@
         <CdTb mn="1" nm="PointCoverageResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_PointCoverageResultValues_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="PointCoverageResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_PointCoverageResultValues_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="PointCoverageResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_PointCoverageResultValues">
           <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XLocationUnitsID, YLocation, YLocationUnitsID, CensorCodeCV, QualityCodeCV</ClNs>
@@ -4016,7 +4294,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="ProfileResults">
       <Cm>Information about Profile Results</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkProfileResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -4056,11 +4334,6 @@
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="AggregationStatisticCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_ProfileResults_DUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedZSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_ProfileResults_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="0" nm="ProfileResults" oe="1" sch="ODM2Results" zr="1"/>
@@ -4071,29 +4344,14 @@
         <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_ProfileResults_TUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ProfileResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ProfileResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="ProfileResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ProfileResultValues">
       <Cm>Numeric values of Depth Profile Results.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkProfileResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;ProfileResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -4129,11 +4387,6 @@
       <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_ProfileResultValues_AIUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ProfileResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_ProfileResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="ProfileResultValues" oe="0" sch="ODM2Results" zr="1"/>
@@ -4143,11 +4396,6 @@
         <PrTb mn="0" nm="CV_QualityCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="ProfileResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="QualityCodeCV" prCl="Term"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_ProfileResultValues_DUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="ProfileResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <Fk deAc="3" nm="fk_ProfileResultValues_ProfileResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="ProfileResults" oe="1" sch="ODM2Results" zr="0"/>
@@ -4162,7 +4410,7 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SectionResults">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkSectionResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -4212,33 +4460,13 @@
         <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SectionResults_TMUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SectionResults_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SectionResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedXSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SectionResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SectionResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedZSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SectionResultValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkSectionResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;SectionResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -4286,11 +4514,6 @@
       <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_SectionResultValues_AIUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_SectionResultValues_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
@@ -4311,16 +4534,6 @@
         <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SectionResultValues_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SectionResultValues_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SectionResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_SectionResultValues">
           <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, XLocation, XAggregationInterval, XLocationUnitsID, ZLocation, ZAggregationInterval, ZLocationUnitsID, CensorCodeCV, QualityCodeCV, AggregationStatisticCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
@@ -4329,7 +4542,7 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SpectraResults">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkSpectraResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -4379,33 +4592,13 @@
         <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SpectraResults_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedWavelengthSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SpectraResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SpectraResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SpectraResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SpectraResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SpectraResultValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkSpectraResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;SpectraResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -4441,11 +4634,6 @@
       <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_SpectraResultValues_AIUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SpectraResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_SpectraResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SpectraResultValues" oe="0" sch="ODM2Results" zr="1"/>
@@ -4461,11 +4649,6 @@
         <CdTb mn="1" nm="SpectraResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SpectraResultValues_WUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SpectraResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="WavelengthUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_SpectraResultValues">
           <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset, ExcitationWavelength, EmissionWavelength, WavelengthUnitsID, CensorCodeCV, QualityCodeCV, TimeAggregationInterval, TimeAggregationIntervalUnitsID</ClNs>
@@ -4474,7 +4657,7 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TimeSeriesResults">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkTimeSeriesResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -4524,33 +4707,13 @@
         <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TimeSeriesResults_TUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TimeSeriesResults_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TimeSeriesResults_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TimeSeriesResults_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TimeSeriesResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TimeSeriesResultValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkTimeSeriesResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;TimeSeriesResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -4577,11 +4740,6 @@
       <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_TimeSeriesResultValues_AIUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TimeSeriesResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_TimeSeriesResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TimeSeriesResultValues" oe="0" sch="ODM2Results" zr="1"/>
@@ -4605,7 +4763,7 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TrajectoryResults">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkTrajectoryResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -4643,23 +4801,13 @@
         <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TrajectoryResults_TSUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedTrajectorySpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TrajectoryResults_TUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TrajectoryResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TrajectoryResultValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkTrajectoryResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;TrajectoryResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -4713,11 +4861,6 @@
       <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_TrajectoryResultValues_AIUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_TrajectoryResultValues_CV_CensorCode" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_CensorCode" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
@@ -4728,30 +4871,10 @@
         <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TrajectoryResultValues_DistanceUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TrajectoryDistanceUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_TrajectoryResultValues_TrajectoryResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="TrajectoryResults" oe="1" sch="ODM2Results" zr="0"/>
         <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TrajectoryResultValues_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TrajectoryResultValues_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TrajectoryResultValues_ZUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TrajectoryResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_TrajectoryResultValues">
@@ -4761,7 +4884,7 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TransectResults">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ResultID" nm="pkTransectResults"/>
       <Cl au="0" df="" nm="ResultID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
@@ -4805,28 +4928,13 @@
         <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="SpatialReferenceID" prCl="SpatialReferenceID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TransectResults_TMUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedTimeSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TransectResults_TSUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="IntendedTransectSpacingUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TransectResults_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="TransectResults" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="ZLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="TransectResultValues">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ValueID" nm="pkTransectResultValues"/>
-      <Cl au="1" df="" nm="ValueID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Results&quot;.&quot;TransectResultValues_ValueID_seq&quot;'::regclass)" nm="ValueID" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ResultID" nu="0">
@@ -4877,11 +4985,6 @@
       <Cl au="0" df="" nm="TimeAggregationIntervalUnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_TransectResultValues_AIUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TimeAggregationIntervalUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_TransectResultValues_CV_AggregationStatistic" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_AggregationStatistic" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
@@ -4897,25 +5000,10 @@
         <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="QualityCodeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_TransectResultValues_DistanceUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="TransectDistanceUnitsID" prCl="UnitsID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_TransectResultValues_TransectResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="TransectResults" oe="1" sch="ODM2Results" zr="0"/>
         <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TransectResultValues_XUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="XLocationUnitsID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_TransectResultValues_YUnits" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="TransectResultValues" oe="0" sch="ODM2Results" zr="1"/>
-        <ClPr cdCl="YLocationUnitsID" prCl="UnitsID"/>
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_TransectResultValues">
@@ -4924,32 +5012,64 @@
       </UniqueConstraints>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="CategoricalResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="MeasurementResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="PointCoverageResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ProfileResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SectionResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SpectraResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="TimeSeriesResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="TrajectoryResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="TransectResultValues_ValueID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Information about sampling features, including sites and specimens." nm="ODM2SamplingFeatures">
     <Tbl UsSo="1" nm="FeaturesOfInterest">
-      <TblOpts/>
-      <Pk ClNs="FeatureOfInterestID" nm="pkFeaturesOfInterest"/>
-      <Cl au="0" df="" nm="FeatureOfInterestID" nu="0">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="FeaturesOfInterestID" nm="pkFeaturesOfInterest"/>
+      <Cl au="1" df="" nm="FeaturesOfInterestID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="FeatureOfInterestTypeCV" nu="0">
+      <Cl au="0" df="" nm="FeaturesOfInterestTypeCV" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="FeatureOfInterestName" nu="0">
+      <Cl au="0" df="" nm="FeaturesOfInterestName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="FeatureOfInterestDescription" nu="1">
+      <Cl au="0" df="" nm="FeaturesOfInterestDescription" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
       </Cl>
+      <Fk deAc="3" nm="fk_featuresofinterest_cv_featureofinteresttype" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_FeaturesOfInterestType" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="FeaturesOfInterest" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="FeaturesOfInterestTypeCV" prCl="Term"/>
+      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="RelatedFeatures">
       <Cm>Describes parrent/child relationships among Sampling Features</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelationID" nm="pkRelatedFeatures"/>
-      <Cl au="1" df="" nm="RelationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2SamplingFeatures&quot;.&quot;RelatedFeatures_RelationID_seq&quot;'::regclass)" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a relationship table (i.e. named "Related...").</Cm>
       </Cl>
@@ -4995,7 +5115,7 @@
       </SchTrHis>
     </Tbl>
     <Tbl UsSo="1" nm="SampledFeatures">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelationID" nm="pkSampledFeatures"/>
       <Cl au="0" df="" nm="RelationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -5018,10 +5138,10 @@
         <CdTb mn="1" nm="SampledFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="RelationshipTypeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SampledFeatures_FeatureOfInterest" prLkCl="FeatureOfInterestID" upAc="3">
+      <Fk deAc="3" nm="fk_SampledFeatures_FeatureOfInterest" prLkCl="FeaturesOfInterestID" upAc="3">
         <PrTb mn="0" nm="FeaturesOfInterest" oe="1" sch="ODM2SamplingFeatures" zr="0"/>
         <CdTb mn="1" nm="SampledFeatures" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="FeatureOfInterestID" prCl="FeatureOfInterestID"/>
+        <ClPr cdCl="FeatureOfInterestID" prCl="FeaturesOfInterestID"/>
       </Fk>
       <Fk deAc="3" nm="fk_SampledFeatures_SamplingFeatures" prLkCl="SamplingFeatureID" upAc="3">
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
@@ -5033,9 +5153,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="SpatialOffsets">
       <Cm>An explicit spatial relationship between a sampling feature relative to it's parent.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="SpatialOffsetID" nm="pkSpatialOffsets"/>
-      <Cl au="1" df="" nm="SpatialOffsetID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2SamplingFeatures&quot;.&quot;SpatialOffsets_SpatialOffsetID_seq&quot;'::regclass)" nm="SpatialOffsetID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary Key of SpatialOffset</Cm>
       </Cl>
@@ -5072,29 +5192,14 @@
         <CdTb mn="1" nm="SpatialOffsets" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SpatialOffsetTypeCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SpatialOffsets_Offset1Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="SpatialOffsets" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="Offset1UnitID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SpatialOffsets_Offset2Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SpatialOffsets" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="Offset2UnitID" prCl="UnitsID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_SpatialOffsets_Offset3Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="SpatialOffsets" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="Offset3UnitID" prCl="UnitsID"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="SpatialReferences">
       <Cm>Describes spatial reference systems used to reference the coordinates for sites</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="SpatialReferenceID" nm="pkSpatialReferences"/>
-      <Cl au="1" df="" nm="SpatialReferenceID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2SamplingFeatures&quot;.&quot;SpatialReferences_SpatialReferenceID_seq&quot;'::regclass)" nm="SpatialReferenceID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Unique identifier</Cm>
       </Cl>
@@ -5119,7 +5224,7 @@
     </Tbl>
     <Tbl UsSo="1" nm="Specimens">
       <Cm>Equivalent to O&amp;M Sampling Feature Type "Specimen".  Describes physical samples or specimens.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="SamplingFeatureID" nm="pkSpecimens"/>
       <Cl au="0" df="" nm="SamplingFeatureID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -5157,9 +5262,9 @@
     </Tbl>
     <Tbl UsSo="1" nm="SpecimenTaxonomicClassifiers">
       <Cm>This cross-reference table allows Taxonomic Classification of Specimens as an annotation, rather than as a Result.</Cm>
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkSpecimenTaxonomicClassifiers"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2SamplingFeatures&quot;.&quot;SpecimenTaxonomicClassifiers_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key for a bridge table, enabling many-to-many joins.</Cm>
       </Cl>
@@ -5185,21 +5290,33 @@
         <CdTb mn="1" nm="SpecimenTaxonomicClassifiers" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
-        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="0"/>
+      <Fk deAc="3" nm="fk_SpecimenTaxonomicClassifiers_TaxonomicClassifiers" prLkCl="SpeciesID" upAc="3">
+        <PrTb mn="0" nm="Species" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="SpecimenTaxonomicClassifiers" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
+        <ClPr cdCl="TaxonomicClassifierID" prCl="SpeciesID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="RelatedFeatures_RelationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SpatialOffsets_SpatialOffsetID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SpatialReferences_SpatialReferenceID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="SpecimenTaxonomicClassifiers_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Sch Cm="" nm="ODM2Simulation">
     <Tbl UsSo="1" nm="ModelAffiliations">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="BridgeID" nm="pkModelAffiliations"/>
-      <Cl au="1" df="" nm="BridgeID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Simulation&quot;.&quot;ModelAffiliations_BridgeID_seq&quot;'::regclass)" nm="BridgeID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ModelID" nu="0">
@@ -5228,9 +5345,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="Models">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="ModelID" nm="pkModels"/>
-      <Cl au="1" df="" nm="ModelID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Simulation&quot;.&quot;Models_ModelID_seq&quot;'::regclass)" nm="ModelID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ModelCode" nu="0">
@@ -5257,9 +5374,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="RelatedModels">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="RelatedID" nm="pkRelatedModels"/>
-      <Cl au="1" df="" nm="RelatedID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Simulation&quot;.&quot;RelatedModels_RelatedID_seq&quot;'::regclass)" nm="RelatedID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ModelID" nu="0">
@@ -5285,9 +5402,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="Simulations">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="SimulationID" nm="pkSimulations"/>
-      <Cl au="1" df="" nm="SimulationID" nu="0">
+      <Cl au="1" df="nextval('&quot;ODM2Simulation&quot;.&quot;Simulations_SimulationID_seq&quot;'::regclass)" nm="SimulationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="ActionID" nu="0">
@@ -5336,6 +5453,18 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ModelAffiliations_BridgeID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Models_ModelID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="RelatedModels_RelatedID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="Simulations_SimulationID_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
@@ -5511,7 +5640,6 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="218" y="434"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="886" y="371"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1203" y="266"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="942" y="82"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="536" y="59"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="527" y="257"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="254" y="59"/>
@@ -5521,7 +5649,7 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1210" y="424"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1213" y="572"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="745" y="59"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1157" y="67"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Species" x="1046" y="68"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="662" y="443"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="525" y="545"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="" positioner="">
@@ -5569,16 +5697,10 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_ProcessingLevels" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_TaxonomicClassifiers" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Units" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Species.fk_Species_Species" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <Notes/>
@@ -5617,23 +5739,27 @@
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DirectiveType" x="35" y="745"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ElevationDatum" x="321" y="37"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_EquipmentType" x="323" y="153"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_MethodType" x="325" y="268"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_OrganizationType" x="327" y="386"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_PropertyDataType" x="324" y="503"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QualityCode" x="324" y="621"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_RelationshipType" x="621" y="41"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ResultType" x="623" y="157"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureGeoType" x="620" y="389"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureType" x="622" y="508"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_MethodType" x="325" y="359"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_OrganizationType" x="317" y="475"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_PropertyDataType" x="311" y="602"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QualityCode" x="320" y="733"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_RelationshipType" x="617" y="150"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ResultType" x="619" y="260"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureGeoType" x="603" y="492"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureType" x="610" y="617"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpatialOffsetType" x="622" y="739"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Speciation" x="913" y="43"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenType" x="915" y="155"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Status" x="916" y="271"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_TaxonomicClassifierType" x="916" y="391"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_UnitsType" x="915" y="508"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableName" x="915" y="626"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableType" x="625" y="280"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Medium" x="326" y="740"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenType" x="905" y="40"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Status" x="903" y="171"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpeciesType" x="907" y="293"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QuantityKind" x="924" y="404"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableType" x="621" y="377"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Medium" x="641" y="40"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_FeaturesOfInterestType" x="314" y="256"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="Units" x="935" y="688"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_LBNLICPMSMapper" x="1176" y="181"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2CV.Units.fk_Units_CV_QuantityKind" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <Notes/>
     <Zones/>
   </Dgm>
@@ -5946,7 +6072,7 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="858" y="119"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="762" y="0"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1088" y="116"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1325" y="46"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Species" x="1325" y="46"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="TaxonomicClassifierExternalIdentifiers" x="1214" y="328"/>
     <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="515" y="99"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="43" y="172"/>
@@ -5954,10 +6080,7 @@
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1402" y="443"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1608" y="173"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SpatialReferenceExternalIdentifiers" x="393" y="207"/>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Species.fk_Species_Species" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures" parentEdge="" positioner="">
@@ -6046,7 +6169,7 @@
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="Directives" x="312" y="353"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentUsed" x="276" y="271"/>
     <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="ActionDirectives" x="371" y="443"/>
-    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchPostions" x="440" y="674"/>
+    <TbGl bkCl="ffd7cdb8" sch="ODM2LabAnalyses" tbl="SpecimenBatchPositions" x="440" y="674"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="322" y="763"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Actions.fk_Actions_Methods" parentEdge="" positioner="">
       <positionableLines/>
@@ -6075,7 +6198,7 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2LabAnalyses.ActionDirectives.fk_ActionDirectives_Directives" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2LabAnalyses.SpecimenBatchPostions.fk_SpecimenBatchPostions_FeatureActions" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2LabAnalyses.SpecimenBatchPositions.fk_SpecimenBatchPostions_FeatureActions" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="" positioner="">
@@ -6106,79 +6229,80 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="792" y="284"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="777" y="484"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="786" y="267"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="780" y="449"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="1050" y="304"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="157" y="547"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="159" y="861"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="426" y="751"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="152" y="569"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="155" y="861"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="416" y="750"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="419" y="567"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1464" y="133"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1340" y="281"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1506" y="136"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1341" y="273"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="791" y="126"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1033" y="137"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="165" y="162"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="227" y="331"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="169" y="294"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="544" y="393"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="399" y="156"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="764" y="857"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="766" y="823"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResults" x="772" y="607"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResults" x="1332" y="591"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1378" y="754"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="1060" y="591"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="1079" y="805"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1226" y="162"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1416" y="466"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DatasetCitations" x="1367" y="364"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResults" x="1360" y="587"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1426" y="796"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="1077" y="607"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="1102" y="815"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1237" y="159"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1426" y="455"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DatasetCitations" x="1370" y="360"/>
     <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="792" x2="716" y1="398" y2="398"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="786" x2="716" y1="398" y2="398"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="486" x2="544" y1="458" y2="458"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="428" x2="544" y1="440" y2="440"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Actions.fk_Actions_Methods" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="824" x2="824" y1="253" y2="284"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="824" x2="824" y1="253" y2="267"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="471" x2="471" y1="283" y2="331"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="404" x2="404" y1="283" y2="294"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Affiliations.fk_Affiliations_People" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="269" x2="269" y1="247" y2="331"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="269" x2="269" y1="247" y2="294"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_DataSets" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1485" x2="1485" y1="246" y2="281"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1527" x2="1527" y1="249" y2="273"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_Results" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1284" x2="1340" y1="317" y2="317"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1284" x2="1341" y1="317" y2="317"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="828" x2="828" y1="453" y2="484"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="822" x2="822" y1="436" y2="449"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.FeatureActions.fk_FeatureActions_RelatedFeatures" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="727" x2="727" y1="751" y2="544"/>
-        <positionableLine lineRole="CHILD_LINE" x1="777" x2="731" y1="540" y2="540"/>
+        <positionableLine lineRole="PARENT_LINE" x1="717" x2="717" y1="750" y2="509"/>
+        <positionableLine lineRole="CHILD_LINE" x1="780" x2="721" y1="505" y2="505"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="405" x2="777" y1="553" y2="553"/>
+        <positionableLine lineRole="PARENT_LINE" x1="400" x2="781" y1="578" y2="578"/>
+        <positionableLine lineRole="CHILD_LINE" x1="785" x2="785" y1="534" y2="574"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.Methods.fk_Methods_Organizations" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
@@ -6191,28 +6315,29 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.Results.fk_Results_FeatureActions" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1016" x2="1050" y1="501" y2="501"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1019" x2="1050" y1="466" y2="466"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Results.fk_Results_ProcessingLevels" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1249" x2="1249" y1="247" y2="304"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1260" x2="1260" y1="244" y2="304"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1074" x2="1074" y1="264" y2="304"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1074" x2="1074" y1="292" y2="304"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Provenance.DatasetCitations.fk_DataSetCitations_Citations" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="1416" x2="1391" y1="471" y2="471"/>
-        <positionableLine lineRole="CHILD_LINE" x1="1387" x2="1387" y1="449" y2="467"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1426" x2="1394" y1="460" y2="460"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1390" x2="1390" y1="445" y2="456"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Provenance.DatasetCitations.fk_DataSetCitations_DataSets" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Provenance.DatasetCitations.fk_DataSetCitations_DataSets" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1606" x2="1606" y1="246" y2="364"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1644" x2="1644" y1="249" y2="361"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1639" x2="1640" y1="365" y2="365"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.MeasurementResults.fk_MeasurementResults_Results" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
@@ -6223,65 +6348,65 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.MeasurementResultValues.fk_MeasurementResultValues_MeasurementResults" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="802" x2="802" y1="776" y2="857"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="802" x2="802" y1="776" y2="823"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.ProfileResults.fk_ProfileResults_Results" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="1284" x2="1333" y1="517" y2="517"/>
-        <positionableLine lineRole="CHILD_LINE" x1="1337" x2="1337" y1="591" y2="521"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1284" x2="1361" y1="517" y2="517"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1365" x2="1365" y1="587" y2="521"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.ProfileResultValues.fk_ProfileResultValues_ProfileResults" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1573" x2="1573" y1="774" y2="754"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1601" x2="1601" y1="770" y2="796"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.TimeSeriesResults.fk_TimeSeriesResults_Results" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1270" x2="1270" y1="543" y2="591"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1270" x2="1270" y1="543" y2="607"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.TimeSeriesResultValues.fk_TimeSeriesResultValues_TimeSeriesResults" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1089" x2="1089" y1="774" y2="805"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1108" x2="1108" y1="790" y2="815"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="405" x2="431" y1="716" y2="716"/>
-        <positionableLine lineRole="CHILD_LINE" x1="435" x2="435" y1="751" y2="720"/>
+        <positionableLine lineRole="PARENT_LINE" x1="400" x2="421" y1="738" y2="738"/>
+        <positionableLine lineRole="CHILD_LINE" x1="425" x2="425" y1="750" y2="742"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SamplingFeatures" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="405" x2="431" y1="716" y2="716"/>
-        <positionableLine lineRole="CHILD_LINE" x1="435" x2="435" y1="751" y2="720"/>
+        <positionableLine lineRole="PARENT_LINE" x1="400" x2="421" y1="738" y2="738"/>
+        <positionableLine lineRole="CHILD_LINE" x1="425" x2="425" y1="750" y2="742"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="455" x2="455" y1="708" y2="751"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="455" x2="455" y1="708" y2="750"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="167" x2="167" y1="772" y2="861"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="166" x2="166" y1="794" y2="861"/>
       </positionableLines>
     </FkGl>
     <Notes>
-      <Note bkCl="ffffffe6" x="1592" y="626">plus
+      <Note bkCl="ffffffe6" x="1644" y="618">plus
 many
 other
 Result
 Types</Note>
     </Notes>
     <Zones>
-      <Zone bkCl="ff009999" h="338" nm="Datasets &amp; Citations" w="469" x="1316" y="103"/>
+      <Zone bkCl="ff009999" h="396" nm="Datasets &amp; Citations" w="469" x="1320" y="103"/>
       <Zone bkCl="ffece9d8" h="554" nm="Observations = Actions + Results" w="468" x="754" y="104"/>
-      <Zone bkCl="ffff9999" h="604" nm="People, Organizations &amp; Affliliations" w="408" x="140" y="103"/>
-      <Zone bkCl="ffccccff" h="902" nm="Result Types &amp; Values" w="381" x="754" y="580"/>
-      <Zone bkCl="ffccffcc" h="603" nm="Sampling Features" w="437" x="141" y="522"/>
+      <Zone bkCl="ffff9999" h="608" nm="People, Organizations &amp; Affliliations" w="409" x="144" y="104"/>
+      <Zone bkCl="ffccccff" h="961" nm="Result Types &amp; Values" w="484" x="757" y="562"/>
+      <Zone bkCl="ffccffcc" h="608" nm="Sampling Features" w="513" x="143" y="532"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2Provenance">
@@ -6524,7 +6649,7 @@ Types</Note>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="648" y="272"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="974" y="172"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpecimenTaxonomicClassifiers" x="353" y="511"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="383" y="634"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Species" x="383" y="634"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="510" y="36"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="351" y="155"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeaturesOfInterest" x="17" y="156"/>
@@ -6535,10 +6660,7 @@ Types</Note>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.SamplingFeatures.fk_SamplingFeatures_SpatialReferences" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Species.fk_Species_Species" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent" parentEdge="" positioner="">
@@ -6596,7 +6718,6 @@ Types</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="153" y="689"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="323" y="244"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="307" y="604"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Units" x="612" y="217"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="531" y="613"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="886" y="707"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="527" y="475"/>
@@ -6606,7 +6727,7 @@ Types</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="454" y="102"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="291" y="107"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="102" y="204"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="98" y="506"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Species" x="98" y="506"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="734" y="598"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="490" y="734"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="591" y="312"/>
@@ -6669,16 +6790,10 @@ Types</Note>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_ProcessingLevels" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_TaxonomicClassifiers" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Units" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.TaxonomicClassifiers.fk_ParentTaxon_Taxon" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Species.fk_Species_Species" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets" parentEdge="" positioner="">
@@ -6688,21 +6803,6 @@ Types</Note>
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.TimeSeriesResults.fk_TimeSeriesResults_Results" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.TimeSeriesResults.fk_TimeSeriesResults_TUnits" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.TimeSeriesResults.fk_TimeSeriesResults_XUnits" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.TimeSeriesResults.fk_TimeSeriesResults_YUnits" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.TimeSeriesResults.fk_TimeSeriesResults_ZUnits" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.TimeSeriesResultValues.fk_TimeSeriesResultValues_AIUnits" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Results.TimeSeriesResultValues.fk_TimeSeriesResultValues_TimeSeriesResults" parentEdge="" positioner="">
@@ -6726,7 +6826,7 @@ Types</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="516">
+  <RnmMgr NxRnmId="599">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -6862,6 +6962,7 @@ Types</Note>
       <Rnm id="48" nNm="CalibrationStandardValuesID" oNm="CalibrationStandardVariableValueID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="590" nNm="QuantityKindCV" oNm="VariableTypeCV"/>
       <Rnm id="132" nNm="VariableTypeCV" oNm="VariableType"/>
       <Rnm id="50" nNm="VariableType" oNm="GeneralCategory"/>
     </RnmCh>
@@ -7067,6 +7168,10 @@ Types</Note>
       <Rnm id="125" nNm="UnitID" oNm="UnitsID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="586" nNm="UnitsID" oNm="UnitsTerm"/>
+      <Rnm id="579" nNm="UnitsTerm" oNm="UnitsID"/>
+      <Rnm id="536" nNm="UnitsID" oNm="UnitsCV"/>
+      <Rnm id="533" nNm="UnitsCV" oNm="UnitsID"/>
       <Rnm id="176" nNm="UnitsID" oNm="UnitID"/>
       <Rnm id="126" nNm="UnitID" oNm="UnitsID"/>
     </RnmCh>
@@ -7322,6 +7427,7 @@ Types</Note>
       <Rnm id="232" nNm="ObservationResultX" oNm="Value"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SamplingFeatures" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="516" nNm="EPSG" oNm="SpatialReferenceID"/>
       <Rnm id="235" nNm="SpatialReferenceID" oNm="CRS"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
@@ -7370,6 +7476,7 @@ Types</Note>
       <Rnm id="249" nNm="SamplingFeatureUniqueID" oNm="UniversalSamplingFeatureID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="589" nNm="SpeciationID" oNm="SpeciationCV"/>
       <Rnm id="250" nNm="SpeciationCV" oNm="Speciation"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Datasets" SupCls="Schema" SupNme="ODM2Core">
@@ -7527,10 +7634,14 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ActionExtensionPropertyValues" SupCls="Schema" SupNme="ODM2Extensions">
       <Rnm id="335" nNm="ActionID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Species" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="580" nNm="SpeciesID" oNm="SpeciesClassifierID"/>
+      <Rnm id="573" nNm="SpeciesClassifierID" oNm="TaxonomicClassifierID"/>
       <Rnm id="336" nNm="TaxonomicClassifierID" oNm="Id"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Species" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="583" nNm="SpeciesCommonName" oNm="SpeciesClassifierCommonName"/>
+      <Rnm id="576" nNm="SpeciesClassifierCommonName" oNm="TaxonomicClassifierCommonName"/>
       <Rnm id="343" nNm="TaxonomicClassifierCommonName" oNm="TaxonCommonName"/>
       <Rnm id="337" nNm="TaxonCommonName" oNm="TaxonomicClassifierCommonName"/>
     </RnmCh>
@@ -7543,11 +7654,15 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="MethodExternalIdentifiers" SupCls="Schema" SupNme="ODM2ExternalIdentifiers">
       <Rnm id="340" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Species" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="582" nNm="SpeciesName" oNm="SpeciesClassifierName"/>
+      <Rnm id="575" nNm="SpeciesClassifierName" oNm="TaxonomicClassifierName"/>
       <Rnm id="342" nNm="TaxonomicClassifierName" oNm="TaxonomicClassiferName"/>
       <Rnm id="341" nNm="TaxonomicClassiferName" oNm="TaxonName"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Species" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="584" nNm="SpeciesDescription" oNm="SpeciesClassifierDescription"/>
+      <Rnm id="577" nNm="SpeciesClassifierDescription" oNm="TaxonomicClassifierDescription"/>
       <Rnm id="356" nNm="TaxonomicClassifierDescription" oNm="TaxonomicClassifierNotes"/>
       <Rnm id="344" nNm="TaxonomicClassifierNotes" oNm="TaxonNotes"/>
     </RnmCh>
@@ -7675,10 +7790,11 @@ Types</Note>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
       <Rnm id="391" nNm="SpecimenBatchLines" oNm="BatchSpecimenLines"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenBatchPostions" SupCls="Schema" SupNme="ODM2LabAnalyses">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenBatchPositions" SupCls="Schema" SupNme="ODM2LabAnalyses">
       <Rnm id="393" nNm="FeatureActionID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2LabAnalyses" SupCls="" SupNme="">
+      <Rnm id="534" nNm="SpecimenBatchPositions" oNm="SpecimenBatchPostions"/>
       <Rnm id="396" nNm="SpecimenBatchPostions" oNm="FeatureActionBatches"/>
       <Rnm id="395" nNm="FeatureActionBatches" oNm="FeatureActionSequences"/>
       <Rnm id="394" nNm="FeatureActionSequences" oNm="FeatureActionID"/>
@@ -7948,6 +8064,7 @@ Types</Note>
       <Rnm id="503" nNm="VariableExternalIdentifier" oNm="VariableExternalIdentifer"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="518" nNm="FeaturesOfInterestID" oNm="FeatureOfInterestID"/>
       <Rnm id="506" nNm="FeatureOfInterestID" oNm="FeatureID"/>
       <Rnm id="504" nNm="FeatureID" oNm="Id"/>
     </RnmCh>
@@ -7956,12 +8073,15 @@ Types</Note>
       <Rnm id="505" nNm="BridgeID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="519" nNm="FeaturesOfInterestTypeCV" oNm="FeatureOfInterestTypeCV"/>
       <Rnm id="507" nNm="FeatureOfInterestTypeCV" oNm="FeatureTypeCV"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="520" nNm="FeaturesOfInterestName" oNm="FeatureOfInterestName"/>
       <Rnm id="508" nNm="FeatureOfInterestName" oNm="FeatureName"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="FeaturesOfInterest" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="521" nNm="FeaturesOfInterestDescription" oNm="FeatureOfInterestDescription"/>
       <Rnm id="509" nNm="FeatureOfInterestDescription" oNm="FeatureDescription"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="SampledFeatures" SupCls="Schema" SupNme="ODM2SamplingFeatures">
@@ -7978,6 +8098,147 @@ Types</Note>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="MeasurementResultValues" SupCls="Schema" SupNme="ODM2Results">
       <Rnm id="515" nNm="AggregationStatisticCV" oNm="Term"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="517" nNm="CV_FeaturesOfInterestType" oNm="CV_FeatureOfInterestType"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_VariableNamenew" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="524" nNm="ObjectMedium" oNm="objectMedium"/>
+      <Rnm id="522" nNm="objectMedium" oNm="object_medium"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="523" nNm="EquipmentModelID" oNm="ModelID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_VariableNamenew" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="525" nNm="ObjectSpecies" oNm="objectSpecies"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_VariableNamenew" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="526" nNm="ObjectSpeciation" oNm="objectSpeciation"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_VariableNamenew" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="537" nNm="LBNLSFAMapper" oNm="LBNLSfaMapper"/>
+      <Rnm id="527" nNm="LBNLSfaMapper" oNm="lbnlsfaMapper"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="528" nNm="CV_VariableNamenew" oNm="CV_VariableName_new"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="529" nNm="UnitsName" oNm="Name"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="541" nNm="QuantityKindCV" oNm="QuantitKindCV"/>
+      <Rnm id="540" nNm="QuantitKindCV" oNm="QuantitKindTypeCV"/>
+      <Rnm id="539" nNm="QuantitKindTypeCV" oNm="UnitsTypeCV"/>
+      <Rnm id="530" nNm="UnitsTypeCV" oNm="Definition"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="531" nNm="UnitsAbbreviation" oNm="Category"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="532" nNm="UnitsLink" oNm="SourceVocabularyURI"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="535" nNm="Units" oNm="CV_Units"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="538" nNm="CV_QuantityKind" oNm="CV_UnitsType"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Core" SupCls="" SupNme="">
+      <Rnm id="542" nNm="Species" oNm="TaxonomicClassifiers"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="588" nNm="CV_SpeciesType" oNm="CV_SpeciesClassifierType"/>
+      <Rnm id="543" nNm="CV_SpeciesClassifierType" oNm="CV_TaxonomicClassifierType"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="558" nNm="Provenance" oNm="provenance"/>
+      <Rnm id="544" nNm="provenance" oNm="SourceVocabularyURI"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="559" nNm="ProvenanceURI" oNm="provenanceuri"/>
+      <Rnm id="546" nNm="provenanceuri" oNm="provenance_uri"/>
+      <Rnm id="545" nNm="provenance_uri" oNm="provenane_uri"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="561" nNm="DefaultUnit" oNm="defaultunit"/>
+      <Rnm id="547" nNm="defaultunit" oNm="default_unit"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="562" nNm="DefaultUnitAbbreviation" oNm="defaultunitabbreviation"/>
+      <Rnm id="548" nNm="defaultunitabbreviation" oNm="default_unit_abbreviation"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="563" nNm="DimensionSymbol" oNm="dimensionsymbol"/>
+      <Rnm id="549" nNm="dimensionsymbol" oNm="dimension_symbol"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="564" nNm="DimensionUnitless" oNm="dimensionunitless"/>
+      <Rnm id="550" nNm="dimensionunitless" oNm="dimension_unitless"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="565" nNm="DimensionLength" oNm="dimensionlength"/>
+      <Rnm id="551" nNm="dimensionlength" oNm="dimension_length"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="566" nNm="DimensionMass" oNm="dimensionmass"/>
+      <Rnm id="552" nNm="dimensionmass" oNm="dimension_mass"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="567" nNm="DimensionTime" oNm="dimensiontime"/>
+      <Rnm id="553" nNm="dimensiontime" oNm="dimension_time"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="568" nNm="DimensionCurrent" oNm="dimensioncurrent"/>
+      <Rnm id="554" nNm="dimensioncurrent" oNm="dimension_current"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="569" nNm="DimensionTemperature" oNm="dimensiontemperature"/>
+      <Rnm id="555" nNm="dimensiontemperature" oNm="dimension_temperature"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="570" nNm="DimensionAmount" oNm="dimensionamount"/>
+      <Rnm id="556" nNm="dimensionamount" oNm="dimension_amount"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="571" nNm="DimensionLight" oNm="dimensionlight"/>
+      <Rnm id="557" nNm="dimensionlight" oNm="dimension_light"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_QuantityKind" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="560" nNm="Note" oNm="note"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="585" nNm="SpeciesID" oNm="SpeciesClassifierID"/>
+      <Rnm id="572" nNm="SpeciesClassifierID" oNm="TaxonomicClassifierID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Species" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="581" nNm="SpeciesTypeCV" oNm="SpeciesClassifierTypeCV"/>
+      <Rnm id="574" nNm="SpeciesClassifierTypeCV" oNm="TaxonomicClassifierTypeCV"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Species" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="587" nNm="ParentSpeciesID" oNm="ParentSpeciesClassifierID"/>
+      <Rnm id="578" nNm="ParentSpeciesClassifierID" oNm="ParentTaxonomicClassifierID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="591" nNm="SampledMediumCV" oNm="MediumCV"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="592" nNm="SampleMedium" oNm="samplemedium"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="593" nNm="VariableLink" oNm="VariableCode"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="594" nNm="CV_LBNLICPMSMapper" oNm="CV_LBNLMapper"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_LBNLICPMSMapper" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="595" nNm="LBNLTerm" oNm="Term"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_LBNLICPMSMapper" SupCls="Schema" SupNme="ODM2CV">
+      <Rnm id="598" nNm="VariableTerm" oNm="Variablename"/>
+      <Rnm id="596" nNm="Variablename" oNm="Name"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Species" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="597" nNm="SpeciesURI" oNm="speciesuri"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -7996,27 +8257,23 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Simulation" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2CV</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
-    <TreePath>/Diagrams (13)/ODM2Core</TreePath>
-    <TreePath>/Diagrams (13)/ODM2Core/Zones (1)</TreePath>
   </TreePaths>
   <SqlTexts/>
 </Db>
