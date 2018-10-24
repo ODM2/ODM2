@@ -1915,33 +1915,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="CV_Speciation">
-      <Cm>Table containing terms used in the Speciation controlled vocabulary.</Cm>
-      <TblOpts>WITHOUT OIDS</TblOpts>
-      <Pk ClNs="Term" nm="pkCV_Speciation"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <Tbl UsSo="1" nm="CV_SpecimenType">
       <Cm>Table containing terms used in the SpecimenType controlled vocabulary.</Cm>
       <TblOpts>WITHOUT OIDS</TblOpts>
@@ -4003,7 +3976,7 @@
       </Cl>
       <Fk deAc="3" nm="fk_CategoricalResultValues_CategoricalResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="CategoricalResults" oe="1" sch="ODM2Results" zr="0"/>
-        <CdTb mn="0" nm="CategoricalResultValues" oe="1" sch="ODM2Results" zr="1"/>
+        <CdTb mn="1" nm="CategoricalResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints>
@@ -8222,16 +8195,13 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2CV</TreePath>
-    <TreePath>/Schemas (12)/ODM2CV/Tables (28)</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
   <SqlTexts/>
