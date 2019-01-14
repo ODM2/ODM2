@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><Db flnm="ODM2_DBWrench_Schema" nm="ODM2" ver="1.3.4">
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="ODM2_DBWrench_Schema_jan6_2019" nm="ODM2" ver="1.3.4">
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>/Users/jeff/Desktop/ODM2_ActionsSamplingFeatures_Dev/ODM2_ActionsSamplingFeatures_Dev</DocFolder>
+  <DocFolder>/home/roelof/Desktop/ODM2_ActionsSamplingFeatures_Dev/ODM2_ActionsSamplingFeatures_Dev</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
@@ -1021,7 +1021,7 @@
         <ClPr cdCl="ProcessingLevelID" prCl="ProcessingLevelID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Results_Units" prLkCl="UnitsID" upAc="3">
-        <PrTb mn="0" nm="Units" oe="1" sch="ODM2CV" zr="0"/>
+        <PrTb mn="0" nm="CV_Units" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Results" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="UnitsID" prCl="UnitsID"/>
       </Fk>
@@ -1124,13 +1124,13 @@
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierTerm" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Classifier term identifying the object of the variable, such as a "species", typically from a biological, chemical, geological or other kind of taxonomy and often associated with an External Identification System. </Cm>
+        <Cm>Classifier term identifying the object of the variable, such as a "species", typically from a biological, chemical, geological or other kind of taxonomy and often associated with an External Idenfication System.</Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierName" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Classifier name identifying the object of the variable, such as a "species", typically from a biological, chemical, geological or other kind of taxonomy and often associated with an External Idenfication System. </Cm>
+        <Cm>Classifier name identifying the object of the variable, such as a "species", typically from a biological, chemical, geological or other kind of taxonomy and often associated with an External Idenfication System.</Cm>
       </Cl>
-      <Cl au="0" df="" nm="TaxonomicClassifierAlternateName" nu="1">
+      <Cl au="1" df="" nm="TaxonomicClassifierAlternateName" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A common or alternate name for a classification.</Cm>
       </Cl>
@@ -1164,11 +1164,10 @@
       </Cl>
       <Cl au="0" df="" nm="VariableTerm" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The term that identifies the variable or parameter and does not contain spaces nor special characters</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableName" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The Human Readable name for the variable or parameter</Cm>
+        <Cm>The Human Readable name for the parameter</Cm>
       </Cl>
       <Cl au="0" df="" nm="VariableDefinition" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
@@ -1176,11 +1175,11 @@
       </Cl>
       <Cl au="0" df="" nm="VariableDomainCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
+        <Cm>CV for the Variable Domain</Cm>
       </Cl>
-      <Cl au="0" df="" nm="MediumCV" nu="1">
+      <Cl au="0" df="" nm="SampledMediumCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term for the medium of the object of the variable.</Cm>
+        <Cm>Controlled vocabulary for sampled Medium</Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -1201,7 +1200,7 @@
       <Fk deAc="3" nm="fk_Variables_CV_Medium" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="1"/>
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="MediumCV" prCl="Term"/>
+        <ClPr cdCl="SampledMediumCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Variables_CV_QuantityKind" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QuantityKind" oe="1" sch="ODM2CV" zr="1"/>
@@ -1213,15 +1212,15 @@
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="VariableDomainCV" prCl="Term"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Variables_Species" prLkCl="TaxonomicClassifierID" upAc="3">
-        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="1"/>
-        <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
-        <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_VariablesSpeciation_Species" prLkCl="TaxonomicClassifierID" upAc="3">
+      <Fk deAc="3" nm="fk_Variables_speciationid_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
         <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="SpeciationID" prCl="TaxonomicClassifierID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Variables_TaxonomicClassifiers" prLkCl="TaxonomicClassifierID" upAc="3">
+        <PrTb mn="0" nm="TaxonomicClassifiers" oe="1" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="Variables" oe="0" sch="ODM2Core" zr="1"/>
+        <ClPr cdCl="TaxonomicClassifierID" prCl="TaxonomicClassifierID"/>
       </Fk>
       <UniqueConstraints>
         <UnCon nm="uc_VariableCode">
@@ -1915,6 +1914,33 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="CV_SpecimenCollection">
+      <Cm>Table containing terms used in the Specimen Collection controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_SpecimenCollection"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="CV_SpecimenType">
       <Cm>Table containing terms used in the SpecimenType controlled vocabulary.</Cm>
       <TblOpts>WITHOUT OIDS</TblOpts>
@@ -1996,37 +2022,10 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="CV_VariableDomain">
-      <Cm>Table containing terms used in the VariableDomain controlled vocabulary.</Cm>
-      <TblOpts>WITHOUT OIDS</TblOpts>
-      <Pk ClNs="Term" nm="pkCV_VariableDomain"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="Units">
+    <Tbl UsSo="1" nm="CV_Units">
       <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
       <TblOpts>WITHOUT OIDS</TblOpts>
-      <Pk ClNs="UnitsID" nm="pkUnits"/>
+      <Pk ClNs="UnitsID" nm="pkCV_Units"/>
       <Cl au="0" df="" nm="UnitsID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
@@ -2062,9 +2061,132 @@
       </Cl>
       <Fk deAc="3" nm="fk_Units_CV_QuantityKind" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_QuantityKind" oe="1" sch="ODM2CV" zr="0"/>
-        <CdTb mn="1" nm="Units" oe="0" sch="ODM2CV" zr="1"/>
+        <CdTb mn="1" nm="CV_Units" oe="0" sch="ODM2CV" zr="1"/>
         <ClPr cdCl="QuantityKindCV" prCl="Term"/>
       </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CV_VariableDomain">
+      <Cm>Table containing terms used in the VariableDomain controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_VariableDomain"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CV_VariableName">
+      <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_VariableName"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CV_VariableNamenew">
+      <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_VariableNamenew"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ObjectMedium" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ObjectSpecies" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Chemical species associated with the variable</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ObjectSpeciation" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Chemical Speciation of the variable</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="LBNLSFAMapper" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Mapping from the SFA parameter to the variable parameter</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="CV_VariableType">
+      <Cm>Table containing terms used in the VariableType controlled vocabulary.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="Term" nm="pkCV_VariableType"/>
+      <Cl au="0" df="" nm="Term" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Controlled vocabulary term</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Definition" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Definition of vocabulary term.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="Category" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A category within which the term falls.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
+      </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -2317,10 +2439,10 @@
         <CdTb mn="0" nm="CalibrationActions" oe="1" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="ActionID" prCl="ActionID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_CalibrationActions_InstrumentOutputVariables" prLkCl="InstrumentOutputVariableID" upAc="3">
-        <PrTb mn="0" nm="InstrumentOutputVariables" oe="1" sch="ODM2Equipment" zr="0"/>
+      <Fk deAc="3" nm="fk_CalibrationActions_InstrumentOutputVariables" prLkCl="InstrumentOutputQuantityKindID" upAc="3">
+        <PrTb mn="0" nm="InstrumentOutputQuantityKind" oe="1" sch="ODM2Equipment" zr="0"/>
         <CdTb mn="1" nm="CalibrationActions" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="InstrumentOutputVariableID" prCl="InstrumentOutputVariableID"/>
+        <ClPr cdCl="InstrumentOutputVariableID" prCl="InstrumentOutputQuantityKindID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -2401,7 +2523,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the datalogger file in which the column appears</Cm>
       </Cl>
-      <Cl au="0" df="" nm="InstrumentOutputVariableID" nu="0">
+      <Cl au="0" df="" nm="InstrumentOutputQuantityKindID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the instrument output variable recorded in the column</Cm>
       </Cl>
@@ -2446,10 +2568,10 @@
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="DataLoggerFileID" prCl="DataLoggerFileID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_DataloggerFileColumns_InstrumentOutputVariables" prLkCl="InstrumentOutputVariableID" upAc="3">
-        <PrTb mn="0" nm="InstrumentOutputVariables" oe="1" sch="ODM2Equipment" zr="0"/>
+      <Fk deAc="3" nm="fk_DataloggerFileColumns_InstrumentOutputQuantityKind" prLkCl="InstrumentOutputQuantityKindID" upAc="3">
+        <PrTb mn="0" nm="InstrumentOutputQuantityKind" oe="1" sch="ODM2Equipment" zr="0"/>
         <CdTb mn="1" nm="DataloggerFileColumns" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="InstrumentOutputVariableID" prCl="InstrumentOutputVariableID"/>
+        <ClPr cdCl="InstrumentOutputQuantityKindID" prCl="InstrumentOutputQuantityKindID"/>
       </Fk>
       <Fk deAc="3" nm="fk_DataloggerFileColumns_Results" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="Results" oe="1" sch="ODM2Core" zr="1"/>
@@ -2552,7 +2674,7 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the model of the equipment</Cm>
       </Cl>
-      <Cl au="0" df="" nm="EquipmentSerialNumber" nu="0">
+      <Cl au="0" df="" nm="EquipmentSerialNumber" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>Manufacturer's serial number for the specific piece of equipment</Cm>
       </Cl>
@@ -2560,11 +2682,11 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifer for the person that owns the piece of equipment</Cm>
       </Cl>
-      <Cl au="0" df="" nm="EquipmentVendorID" nu="0">
+      <Cl au="0" df="" nm="EquipmentVendorID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier for the vendor organization for the piece of equipment</Cm>
       </Cl>
-      <Cl au="0" df="" nm="EquipmentPurchaseDate" nu="0">
+      <Cl au="0" df="" nm="EquipmentPurchaseDate" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Date that the piece of equipment was purchased</Cm>
       </Cl>
@@ -2586,7 +2708,7 @@
         <ClPr cdCl="EquipmentModelID" prCl="EquipmentModelID"/>
       </Fk>
       <Fk deAc="3" nm="fk_Equipment_Organizations" prLkCl="OrganizationID" upAc="3">
-        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
+        <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="1"/>
         <CdTb mn="1" nm="Equipment" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="EquipmentVendorID" prCl="OrganizationID"/>
       </Fk>
@@ -2637,9 +2759,12 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>File name, path, or URL to a specifications file for the equipment</Cm>
       </Cl>
-      <Cl au="0" df="" nm="ModelLink" nu="1">
+      <Cl au="0" df="" nm="ModelDescriptionURL" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
         <Cm>A URL to a website or file having a description of the equipment model</Cm>
+      </Cl>
+      <Cl au="0" df="A Boolean which tells whether the instrument is retired" nm="IsRetired" nu="1">
+        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_EquipmentModels_CV_EquipmentType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_EquipmentType" oe="1" sch="ODM2CV" zr="0"/>
@@ -2682,11 +2807,11 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="InstrumentOutputVariables">
-      <Cm>Information about the Variables that an instrument is capable of measuring</Cm>
+    <Tbl UsSo="1" nm="InstrumentOutputQuantityKind">
+      <Cm>Information about the QuantityKind that an instrument is capable of measuring</Cm>
       <TblOpts>WITHOUT OIDS</TblOpts>
-      <Pk ClNs="InstrumentOutputVariableID" nm="pkInstrumentOutputVariables"/>
-      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;InstrumentOutputVariables_InstrumentOutputVariableID_seq&quot;'::regclass)" nm="InstrumentOutputVariableID" nu="0">
+      <Pk ClNs="InstrumentOutputQuantityKindID" nm="pkInstrumentOutputQuantityKind"/>
+      <Cl au="1" df="nextval('&quot;ODM2Equipment&quot;.&quot;InstrumentOutputVariables_InstrumentOutputVariableID_seq&quot;'::regclass)" nm="InstrumentOutputQuantityKindID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Primary key identifier</Cm>
       </Cl>
@@ -2694,13 +2819,9 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the Equipment Model</Cm>
       </Cl>
-      <Cl au="0" df="" nm="VariableID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the Variable output by the Equipment Model</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="InstrumentMethodID" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-        <Cm>Foreign key identifier of the Method used to output the Variable from the Equipment Model</Cm>
+      <Cl au="0" df="" nm="QuantityKind" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>Foreign key identifier of the QuantityKind measured by the Equipment</Cm>
       </Cl>
       <Cl au="0" df="" nm="InstrumentResolution" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -2714,20 +2835,37 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Foreign key identifier of the raw output Units associated with the output variable</Cm>
       </Cl>
-      <Fk deAc="3" nm="fk_InstrumentOutputVariables_EquipmentModels" prLkCl="EquipmentModelID" upAc="3">
-        <PrTb mn="0" nm="EquipmentModels" oe="1" sch="ODM2Equipment" zr="0"/>
-        <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="EquipmentModelID" prCl="EquipmentModelID"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_InstrumentOutputVariables_Methods" prLkCl="MethodID" upAc="3">
-        <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
+      <Cl au="0" df="" nm="InstrumentStandardOutputVariable" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>In many cases the instrument generated a standard variable (e.g. air temperature or soil moisture) in addition to its quantitykind output. This is an optional link, but provided here</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="InstrumentMethodID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_InstrumentOutputQuantityKind_Methods" prLkCl="MethodID" upAc="3">
+        <PrTb mn="0" nm="Methods" oe="1" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="InstrumentOutputQuantityKind" oe="0" sch="ODM2Equipment" zr="1"/>
         <ClPr cdCl="InstrumentMethodID" prCl="MethodID"/>
       </Fk>
-      <Fk deAc="3" nm="fk_InstrumentOutputVariables_Variables" prLkCl="VariableID" upAc="3">
-        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="1" nm="InstrumentOutputVariables" oe="0" sch="ODM2Equipment" zr="1"/>
-        <ClPr cdCl="VariableID" prCl="VariableID"/>
+      <Fk deAc="3" nm="fk_InstrumentOutputQuantityKind_Variables" prLkCl="VariableID" upAc="3">
+        <PrTb mn="0" nm="Variables" oe="1" sch="ODM2Core" zr="1"/>
+        <CdTb mn="1" nm="InstrumentOutputQuantityKind" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="InstrumentStandardOutputVariable" prCl="VariableID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_InstrumentOutputVariables_CV_QuantityKind" prLkCl="Term" upAc="3">
+        <PrTb mn="0" nm="CV_QuantityKind" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="InstrumentOutputQuantityKind" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="QuantityKind" prCl="Term"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_InstrumentOutputVariables_CV_Units" prLkCl="UnitsID" upAc="3">
+        <PrTb mn="0" nm="CV_Units" oe="1" sch="ODM2CV" zr="0"/>
+        <CdTb mn="1" nm="InstrumentOutputQuantityKind" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="InstrumentRawOutputUnitsID" prCl="UnitsID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_InstrumentOutputVariables_EquipmentModels" prLkCl="EquipmentModelID" upAc="3">
+        <PrTb mn="0" nm="EquipmentModels" oe="1" sch="ODM2Equipment" zr="0"/>
+        <CdTb mn="1" nm="InstrumentOutputQuantityKind" oe="0" sch="ODM2Equipment" zr="1"/>
+        <ClPr cdCl="EquipmentModelID" prCl="EquipmentModelID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -3976,7 +4114,7 @@
       </Cl>
       <Fk deAc="3" nm="fk_CategoricalResultValues_CategoricalResults" prLkCl="ResultID" upAc="3">
         <PrTb mn="0" nm="CategoricalResults" oe="1" sch="ODM2Results" zr="0"/>
-        <CdTb mn="1" nm="CategoricalResultValues" oe="0" sch="ODM2Results" zr="1"/>
+        <CdTb mn="0" nm="CategoricalResultValues" oe="1" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
       <UniqueConstraints>
@@ -4082,11 +4220,7 @@
         <CdTb mn="1" nm="MeasurementResultValues" oe="0" sch="ODM2Results" zr="1"/>
         <ClPr cdCl="ResultID" prCl="ResultID"/>
       </Fk>
-      <UniqueConstraints>
-        <UnCon nm="uc_MeasurementResultValues">
-          <ClNs>ResultID, DataValue, ValueDateTime, ValueDateTimeUTCOffset</ClNs>
-        </UnCon>
-      </UniqueConstraints>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="PointCoverageResults">
@@ -5131,6 +5265,41 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Tbl UsSo="1" nm="SpecimenCollection">
+      <Cm>This has the specimen collection information</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="SpecimenCollectionID" nm="pkSpecimenCollection"/>
+      <Cl au="1" df="" nm="SpecimenCollectionID" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Primary Key for the Specimen Collection</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SpecimenCollectionCV" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>A CV term defining the specimen collection</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SpecimenCollectionFile" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="SpecimenCollectionName" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
+        <Cm>The name of the specimen collection</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="SpecimenCollectionNote" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
+        <Cm>Note describing details on the specimen collection</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="ParentSpecimenCollectionID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>The ID of the Parent Specimen Collection</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_SpecimenCollection_SpecimenCollection" prLkCl="SpecimenCollectionID" upAc="3">
+        <PrTb mn="0" nm="SpecimenCollection" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
+        <CdTb mn="1" nm="SpecimenCollection" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="ParentSpecimenCollectionID" prCl="SpecimenCollectionID"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="Specimens">
       <Cm>Equivalent to O&amp;M Sampling Feature Type "Specimen".  Describes physical samples or specimens.</Cm>
       <TblOpts>WITHOUT OIDS</TblOpts>
@@ -5151,10 +5320,13 @@
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A boolean indicating whether the specimen was collected in the field</Cm>
       </Cl>
+      <Cl au="0" df="" nm="SpecimenCollectionID" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Fk deAc="3" nm="fk_Specimens_CV_Medium" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Medium" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="Specimens" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
-        <ClPr cdCl="SpecimenTypeCV" prCl="Term"/>
+        <ClPr cdCl="SpecimenMediumCV" prCl="Term"/>
       </Fk>
       <Fk deAc="3" nm="fk_Specimens_CV_SpecimenType" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_SpecimenType" oe="1" sch="ODM2CV" zr="0"/>
@@ -5165,6 +5337,11 @@
         <PrTb mn="0" nm="SamplingFeatures" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="0" nm="Specimens" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
         <ClPr cdCl="SamplingFeatureID" prCl="SamplingFeatureID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Specimens_SpecimenCollection" prLkCl="SpecimenCollectionID" upAc="3">
+        <PrTb mn="0" nm="SpecimenCollection" oe="1" sch="ODM2SamplingFeatures" zr="1"/>
+        <CdTb mn="1" nm="Specimens" oe="0" sch="ODM2SamplingFeatures" zr="1"/>
+        <ClPr cdCl="SpecimenCollectionID" prCl="SpecimenCollectionID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -5377,7 +5554,7 @@
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5547,8 +5724,8 @@
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="218" y="434"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="886" y="415"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1205" y="295"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="883" y="409"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1203" y="266"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="536" y="59"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="527" y="257"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="254" y="59"/>
@@ -5557,8 +5734,8 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="325" y="257"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1210" y="424"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1213" y="572"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="883" y="222"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="873" y="55"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="895" y="236"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="847" y="44"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="662" y="443"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="525" y="545"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="" positioner="">
@@ -5609,10 +5786,10 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_Species" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_speciationid_TaxonomicClassifiers" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_VariablesSpeciation_Species" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_TaxonomicClassifiers" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <Notes/>
@@ -5651,7 +5828,7 @@
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DirectiveType" x="35" y="745"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ElevationDatum" x="321" y="37"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_EquipmentType" x="323" y="153"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_MethodType" x="325" y="359"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_MethodType" x="317" y="366"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_OrganizationType" x="317" y="475"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_PropertyDataType" x="311" y="602"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QualityCode" x="320" y="733"/>
@@ -5662,14 +5839,16 @@
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpatialOffsetType" x="622" y="739"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenType" x="905" y="40"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Status" x="903" y="171"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_TaxonomicClassifierDomain" x="1178" y="417"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QuantityKind" x="924" y="404"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableDomain" x="1179" y="300"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_TaxonomicClassifierDomain" x="1211" y="381"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QuantityKind" x="947" y="420"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableType" x="621" y="377"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Medium" x="641" y="40"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_FeaturesOfInterestType" x="314" y="256"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="Units" x="935" y="688"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_LBNLICPMSMapper" x="1176" y="181"/>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2CV.Units.fk_Units_CV_QuantityKind" parentEdge="" positioner="">
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Units" x="980" y="724"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_LBNLICPMSMapper" x="1162" y="42"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenCollection" x="907" y="302"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableDomain" x="1197" y="217"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2CV.CV_Units.fk_Units_CV_QuantityKind" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <Notes/>
@@ -5766,9 +5945,9 @@
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentModels" x="475" y="36"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="592" y="633"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="EquipmentUsed" x="397" y="520"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="757" y="309"/>
-    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputVariables" x="828" y="33"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1268" y="45"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="756" y="345"/>
+    <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="InstrumentOutputQuantityKind" x="828" y="33"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1239" y="39"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="MaintenanceActions" x="163" y="656"/>
     <TbGl bkCl="fffad28d" sch="ODM2Equipment" tbl="RelatedEquipment" x="28" y="328"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="612" y="820"/>
@@ -5834,7 +6013,7 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.DataloggerFileColumns.fk_DataloggerFileColumns_DataLoggerFiles" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.DataloggerFileColumns.fk_DataloggerFileColumns_InstrumentOutputVariables" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.DataloggerFileColumns.fk_DataloggerFileColumns_InstrumentOutputQuantityKind" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.DataloggerFileColumns.fk_DataloggerFileColumns_Results" parentEdge="" positioner="">
@@ -5852,13 +6031,13 @@
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.EquipmentUsed.fk_EquipmentActions_Equipment" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_EquipmentModels" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.InstrumentOutputQuantityKind.fk_InstrumentOutputQuantityKind_Methods" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Methods" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.InstrumentOutputQuantityKind.fk_InstrumentOutputQuantityKind_Variables" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.InstrumentOutputVariables.fk_InstrumentOutputVariables_Variables" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.InstrumentOutputQuantityKind.fk_InstrumentOutputVariables_EquipmentModels" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Equipment.MaintenanceActions.fk_MaintenanceActions_Actions" parentEdge="" positioner="">
@@ -5984,18 +6163,18 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="858" y="119"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="762" y="0"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1088" y="116"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1355" y="115"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="1325" y="46"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="TaxonomicClassifierExternalIdentifiers" x="1214" y="328"/>
     <TbGl bkCl="ffff9999" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="515" y="99"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="43" y="172"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="ReferenceMaterialExternalIdentifiers" x="67" y="441"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="CitationExternalIdentifiers" x="1402" y="443"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1672" y="211"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1608" y="173"/>
     <TbGl bkCl="ffffcc33" sch="ODM2ExternalIdentifiers" tbl="SpatialReferenceExternalIdentifiers" x="393" y="207"/>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_Species" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_speciationid_TaxonomicClassifiers" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_VariablesSpeciation_Species" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_TaxonomicClassifiers" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures" parentEdge="" positioner="">
@@ -6144,43 +6323,44 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="793" y="282"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="792" y="486"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="1064" y="319"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="786" y="267"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="780" y="449"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="1050" y="304"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="152" y="569"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="155" y="876"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="421" y="773"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="421" y="579"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1515" y="125"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1359" y="279"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="806" y="121"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1037" y="120"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="155" y="861"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="416" y="750"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="419" y="567"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1506" y="136"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1341" y="273"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="791" y="126"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1033" y="137"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="165" y="162"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="169" y="294"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="497" y="331"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="544" y="393"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="399" y="156"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="771" y="848"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResults" x="774" y="633"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResults" x="1365" y="612"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1431" y="821"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="1082" y="632"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="1107" y="840"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1258" y="143"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1462" y="455"/>
-    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DatasetCitations" x="1397" y="360"/>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="766" y="823"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResults" x="772" y="607"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResults" x="1360" y="587"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1426" y="796"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="1077" y="607"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="1102" y="815"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1237" y="159"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="Citations" x="1426" y="455"/>
+    <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="DatasetCitations" x="1370" y="360"/>
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="793" x2="669" y1="374" y2="374"/>
+        <positionableLine lineRole="PARENT_LINE" x1="786" x2="722" y1="377" y2="377"/>
+        <positionableLine lineRole="CHILD_LINE" x1="718" x2="718" y1="393" y2="381"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.ActionBy.fk_ActionPeople_Affiliations" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="428" x2="497" y1="391" y2="391"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="433" x2="544" y1="440" y2="440"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Actions.fk_Actions_Methods" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="903" x2="903" y1="248" y2="282"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="824" x2="824" y1="253" y2="267"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
@@ -6195,34 +6375,34 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_DataSets" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1536" x2="1536" y1="238" y2="279"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1527" x2="1527" y1="249" y2="273"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.DatasetsResults.fk_DataSetsResults_Results" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1298" x2="1359" y1="332" y2="332"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1290" x2="1341" y1="317" y2="317"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="798" x2="798" y1="451" y2="486"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="822" x2="822" y1="436" y2="449"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.FeatureActions.fk_FeatureActions_RelatedFeatures" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="726" x2="726" y1="773" y2="570"/>
-        <positionableLine lineRole="CHILD_LINE" x1="792" x2="730" y1="566" y2="566"/>
+        <positionableLine lineRole="PARENT_LINE" x1="717" x2="717" y1="750" y2="509"/>
+        <positionableLine lineRole="CHILD_LINE" x1="780" x2="721" y1="505" y2="505"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Core.FeatureActions.fk_FeatureActions_SamplingFeatures" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="395" x2="395" y1="569" y2="570"/>
-        <positionableLine lineRole="CHILD_LINE" x1="792" x2="399" y1="566" y2="566"/>
+        <positionableLine lineRole="PARENT_LINE" x1="410" x2="781" y1="578" y2="578"/>
+        <positionableLine lineRole="CHILD_LINE" x1="785" x2="785" y1="534" y2="574"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.Methods.fk_Methods_Organizations" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="621" x2="806" y1="175" y2="175"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="629" x2="791" y1="175" y2="175"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Core.Organizations.fk_Organizations_Organizations" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
@@ -6230,97 +6410,96 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Core.Results.fk_Results_FeatureActions" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1031" x2="1064" y1="491" y2="491"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1028" x2="1050" y1="466" y2="466"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Results.fk_Results_ProcessingLevels" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1286" x2="1286" y1="228" y2="319"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1260" x2="1260" y1="244" y2="304"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1078" x2="1078" y1="289" y2="319"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1074" x2="1074" y1="306" y2="304"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Provenance.DatasetCitations.fk_DataSetCitations_Citations" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="1462" x2="1425" y1="460" y2="460"/>
-        <positionableLine lineRole="CHILD_LINE" x1="1421" x2="1421" y1="445" y2="456"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1426" x2="1394" y1="460" y2="460"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1390" x2="1390" y1="445" y2="456"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Provenance.DatasetCitations.fk_DataSetCitations_DataSets" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1632" x2="1632" y1="238" y2="360"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1648" x2="1648" y1="249" y2="360"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Results.MeasurementResults.fk_MeasurementResults_Results" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.MeasurementResults.fk_MeasurementResults_Results" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="1070" x2="1070" y1="544" y2="634"/>
-        <positionableLine lineRole="CHILD_LINE" x1="1047" x2="1066" y1="638" y2="638"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1055" x2="1055" y1="529" y2="607"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.MeasurementResultValues.fk_MeasurementResultValues_MeasurementResults" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="804" x2="804" y1="802" y2="848"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="802" x2="802" y1="776" y2="823"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.ProfileResults.fk_ProfileResults_Results" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="1298" x2="1366" y1="532" y2="532"/>
-        <positionableLine lineRole="CHILD_LINE" x1="1370" x2="1370" y1="612" y2="536"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1290" x2="1361" y1="517" y2="517"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1365" x2="1365" y1="587" y2="521"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.ProfileResultValues.fk_ProfileResultValues_ProfileResults" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1606" x2="1606" y1="795" y2="821"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1601" x2="1601" y1="770" y2="796"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.TimeSeriesResults.fk_TimeSeriesResults_Results" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1284" x2="1284" y1="544" y2="632"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1270" x2="1270" y1="529" y2="607"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Results.TimeSeriesResultValues.fk_TimeSeriesResultValues_TimeSeriesResults" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1113" x2="1113" y1="815" y2="840"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1108" x2="1108" y1="790" y2="815"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_FeaturesParent" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="400" x2="426" y1="738" y2="738"/>
-        <positionableLine lineRole="CHILD_LINE" x1="430" x2="430" y1="773" y2="742"/>
+        <positionableLine lineRole="PARENT_LINE" x1="410" x2="421" y1="738" y2="738"/>
+        <positionableLine lineRole="CHILD_LINE" x1="425" x2="425" y1="750" y2="742"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SamplingFeatures" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="400" x2="426" y1="738" y2="738"/>
-        <positionableLine lineRole="CHILD_LINE" x1="430" x2="430" y1="773" y2="742"/>
+        <positionableLine lineRole="PARENT_LINE" x1="410" x2="421" y1="738" y2="738"/>
+        <positionableLine lineRole="CHILD_LINE" x1="425" x2="425" y1="750" y2="742"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.RelatedFeatures.fk_FeatureParents_SpatialOffsets" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="457" x2="457" y1="720" y2="773"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="455" x2="455" y1="708" y2="750"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="166" x2="166" y1="794" y2="876"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="166" x2="166" y1="794" y2="861"/>
       </positionableLines>
     </FkGl>
     <Notes>
-      <Note bkCl="ffffffe6" x="1649" y="643">plus
+      <Note bkCl="ffffffe6" x="1644" y="618">plus
 many
 other
 Result
 Types</Note>
     </Notes>
     <Zones>
-      <Zone bkCl="ff009999" h="395" nm="Datasets &amp; Citations" w="460" x="1323" y="97"/>
-      <Zone bkCl="ffece9d8" h="555" nm="Observations = Actions + Results" w="484" x="761" y="96"/>
-      <Zone bkCl="ffff9999" h="608" nm="People, Organizations &amp; Affliliations" w="429" x="145" y="96"/>
-      <Zone bkCl="ffccccff" h="961" nm="Result Types &amp; Values" w="442" x="760" y="586"/>
-      <Zone bkCl="ffccffcc" h="608" nm="Sampling Features" w="496" x="143" y="532"/>
+      <Zone bkCl="ff009999" h="396" nm="Datasets &amp; Citations" w="469" x="1320" y="103"/>
+      <Zone bkCl="ffece9d8" h="554" nm="Observations = Actions + Results" w="468" x="754" y="104"/>
+      <Zone bkCl="ffff9999" h="608" nm="People, Organizations &amp; Affliliations" w="409" x="144" y="104"/>
+      <Zone bkCl="ffccccff" h="961" nm="Result Types &amp; Values" w="484" x="757" y="562"/>
+      <Zone bkCl="ffccffcc" h="608" nm="Sampling Features" w="513" x="143" y="532"/>
     </Zones>
   </Dgm>
   <Dgm nm="ODM2Provenance">
@@ -6558,7 +6737,7 @@ Types</Note>
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="353" y="407"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="348" y="392"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="RelatedFeatures" x="647" y="161"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialReferences" x="648" y="272"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SpatialOffsets" x="974" y="172"/>
@@ -6568,6 +6747,7 @@ Types</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="351" y="155"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="FeaturesOfInterest" x="17" y="156"/>
     <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="SampledFeatures" x="16" y="282"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2SamplingFeatures" tbl="SpecimenCollection" x="785" y="420"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_RelatedFeatures" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -6589,7 +6769,13 @@ Types</Note>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.SampledFeatures.fk_SampledFeatures_SamplingFeatures" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.SpecimenCollection.fk_SpecimenCollection_SpecimenCollection" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SamplingFeatures" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.Specimens.fk_Specimens_SpecimenCollection" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2SamplingFeatures.SpecimenTaxonomicClassifiers.fk_SpecimenTaxonomicClassifiers_Specimens" parentEdge="" positioner="">
@@ -6613,7 +6799,7 @@ Types</Note>
         <Fg ky="Length" vl="0"/>
         <Fg ky="Name" vl="1"/>
         <Fg ky="Nullable" vl="0"/>
-        <Fg ky="Schema Name" vl="1"/>
+        <Fg ky="Schema Name" vl="0"/>
         <Fg ky="Signed" vl="0"/>
       </VbCfg>
     </RnCf>
@@ -6646,7 +6832,7 @@ Types</Note>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="662" y="100"/>
     <TbGl bkCl="ff6666ff" sch="ODM2Annotations" tbl="TimeSeriesResultValueAnnotations" x="879" y="115"/>
     <TbGl bkCl="ff6666ff" sch="ODM2Annotations" tbl="Annotations" x="1159" y="132"/>
-    <TbGl bkCl="ff3399ff" sch="ODM2Simulation" tbl="ModelAffiliations" x="1111" y="554"/>
+    <TbGl bkCl="ff3399ff" sch="ODM2Simulation" tbl="ModelAffiliations" x="1146" y="533"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.Annotations.fk_Annotations_People" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -6704,10 +6890,10 @@ Types</Note>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_Variables" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_Species" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_speciationid_TaxonomicClassifiers" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_VariablesSpeciation_Species" parentEdge="" positioner="">
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Variables.fk_Variables_TaxonomicClassifiers" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Provenance.RelatedDatasets.fk_RelatedDatasets_DataSets" parentEdge="" positioner="">
@@ -6740,7 +6926,7 @@ Types</Note>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="617">
+  <RnmMgr NxRnmId="627">
     <RnmCh ObjCls="Schema" ParCls="Database" ParNme="ODM2" SupCls="" SupNme="">
       <Rnm id="1" nNm="ODM2Core" oNm="schemaA"/>
     </RnmCh>
@@ -6862,6 +7048,8 @@ Types</Note>
       <Rnm id="44" nNm="ModelID" oNm="EquipmentModelID"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Equipment" SupCls="" SupNme="">
+      <Rnm id="620" nNm="InstrumentOutputQuantityKind" oNm="InstrumentOutput"/>
+      <Rnm id="619" nNm="InstrumentOutput" oNm="InstrumentOutputVariables"/>
       <Rnm id="56" nNm="InstrumentOutputVariables" oNm="SensorOutputVariables"/>
       <Rnm id="51" nNm="SensorOutputVariables" oNm="InstrumentOutputVariables"/>
       <Rnm id="45" nNm="InstrumentOutputVariables" oNm="SensorOutputVariables"/>
@@ -6892,23 +7080,24 @@ Types</Note>
       <Rnm id="152" nNm="CalibrationActionID" oNm="CalibrationEventID"/>
       <Rnm id="55" nNm="CalibrationEventID" oNm="CalibrationStandardID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputQuantityKind" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="625" nNm="InstrumentOutputQuantityKindID" oNm="InstrumentOutputVariableID"/>
       <Rnm id="57" nNm="InstrumentOutputVariableID" oNm="SensorOutputVariableID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputQuantityKind" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="64" nNm="Resolution" oNm="InstrumentResolution"/>
       <Rnm id="58" nNm="InstrumentResolution" oNm="SensorResolution"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputQuantityKind" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="65" nNm="Accuracy" oNm="InstrumentAccuracy"/>
       <Rnm id="59" nNm="InstrumentAccuracy" oNm="SensorAccuracy"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputQuantityKind" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="66" nNm="UnitsID" oNm="OutputUnitsID"/>
       <Rnm id="63" nNm="OutputUnitsID" oNm="InstrumentOutputUnitsID"/>
       <Rnm id="60" nNm="InstrumentOutputUnitsID" oNm="SensorRawOutputUnitsID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputQuantityKind" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="61" nNm="InstrumentID" oNm="ModelID"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2Sensors" SupCls="" SupNme="">
@@ -7069,7 +7258,7 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Results" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="121" nNm="CreationDateTimeUTCOffset" oNm="ResultDateTimeUTCOffset"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_Units" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="172" nNm="UnitsTypeCV" oNm="UnitTypeCV"/>
       <Rnm id="128" nNm="UnitTypeCV" oNm="UnitsTypeCV"/>
       <Rnm id="123" nNm="UnitsTypeCV" oNm="UnitsType"/>
@@ -7077,7 +7266,7 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="124" nNm="UnitTypeCV" oNm="RequiredUnitTypeCV"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_Units" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="171" nNm="UnitsID" oNm="UnitID"/>
       <Rnm id="125" nNm="UnitID" oNm="UnitsID"/>
     </RnmCh>
@@ -7089,11 +7278,11 @@ Types</Note>
       <Rnm id="176" nNm="UnitsID" oNm="UnitID"/>
       <Rnm id="126" nNm="UnitID" oNm="UnitsID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_Units" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="174" nNm="UnitsName" oNm="UnitName"/>
       <Rnm id="127" nNm="UnitName" oNm="UnitsName"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2Core">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_Units" SupCls="Schema" SupNme="ODM2Core">
       <Rnm id="173" nNm="UnitsAbbreviation" oNm="UnitAbbreviation"/>
       <Rnm id="129" nNm="UnitAbbreviation" oNm="UnitsAbbreviation"/>
     </RnmCh>
@@ -7163,7 +7352,7 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ConfigurationActions" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="156" nNm="ConfigurationActionID" oNm="ConfigurationEventID"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputQuantityKind" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="157" nNm="ConfigurationActionID" oNm="ConfigurationEventID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="ConfigurationActions" SupCls="Schema" SupNme="ODM2Equipment">
@@ -7549,14 +7738,13 @@ Types</Note>
       <Rnm id="335" nNm="ActionID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="604" nNm="TaxonomicClassifierID" oNm="SpeciesID"/>
+      <Rnm id="607" nNm="TaxonomicClassifierID" oNm="SpeciesID"/>
       <Rnm id="580" nNm="SpeciesID" oNm="SpeciesClassifierID"/>
       <Rnm id="573" nNm="SpeciesClassifierID" oNm="TaxonomicClassifierID"/>
       <Rnm id="336" nNm="TaxonomicClassifierID" oNm="Id"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="612" nNm="TaxonomicClassifierAlternateName" oNm="TaxonomicClassifierCommonName"/>
-      <Rnm id="601" nNm="TaxonomicClassifierCommonName" oNm="SpeciesCommonName"/>
+      <Rnm id="610" nNm="TaxonomicClassifierAlternateName" oNm="SpeciesCommonName"/>
       <Rnm id="583" nNm="SpeciesCommonName" oNm="SpeciesClassifierCommonName"/>
       <Rnm id="576" nNm="SpeciesClassifierCommonName" oNm="TaxonomicClassifierCommonName"/>
       <Rnm id="343" nNm="TaxonomicClassifierCommonName" oNm="TaxonCommonName"/>
@@ -7572,15 +7760,14 @@ Types</Note>
       <Rnm id="340" nNm="MethodExternalIdentifierURI" oNm="MethodExternalIdentifierURN"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="600" nNm="TaxonomicClassifierName" oNm="SpeciesName"/>
+      <Rnm id="609" nNm="TaxonomicClassifierName" oNm="SpeciesName"/>
       <Rnm id="582" nNm="SpeciesName" oNm="SpeciesClassifierName"/>
       <Rnm id="575" nNm="SpeciesClassifierName" oNm="TaxonomicClassifierName"/>
       <Rnm id="342" nNm="TaxonomicClassifierName" oNm="TaxonomicClassiferName"/>
       <Rnm id="341" nNm="TaxonomicClassiferName" oNm="TaxonName"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="611" nNm="TaxonomicClassifierDefinition" oNm="TaxonomicClassifierDescription"/>
-      <Rnm id="602" nNm="TaxonomicClassifierDescription" oNm="SpeciesDescription"/>
+      <Rnm id="611" nNm="TaxonomicClassifierDefinition" oNm="SpeciesDescription"/>
       <Rnm id="584" nNm="SpeciesDescription" oNm="SpeciesClassifierDescription"/>
       <Rnm id="577" nNm="SpeciesClassifierDescription" oNm="TaxonomicClassifierDescription"/>
       <Rnm id="356" nNm="TaxonomicClassifierDescription" oNm="TaxonomicClassifierNotes"/>
@@ -8026,7 +8213,7 @@ Types</Note>
       <Rnm id="524" nNm="ObjectMedium" oNm="objectMedium"/>
       <Rnm id="522" nNm="objectMedium" oNm="object_medium"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputVariables" SupCls="Schema" SupNme="ODM2Equipment">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputQuantityKind" SupCls="Schema" SupNme="ODM2Equipment">
       <Rnm id="523" nNm="EquipmentModelID" oNm="ModelID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_VariableNamenew" SupCls="Schema" SupNme="ODM2CV">
@@ -8042,22 +8229,23 @@ Types</Note>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
       <Rnm id="528" nNm="CV_VariableNamenew" oNm="CV_VariableName_new"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2CV">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_Units" SupCls="Schema" SupNme="ODM2CV">
       <Rnm id="529" nNm="UnitsName" oNm="Name"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2CV">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_Units" SupCls="Schema" SupNme="ODM2CV">
       <Rnm id="541" nNm="QuantityKindCV" oNm="QuantitKindCV"/>
       <Rnm id="540" nNm="QuantitKindCV" oNm="QuantitKindTypeCV"/>
       <Rnm id="539" nNm="QuantitKindTypeCV" oNm="UnitsTypeCV"/>
       <Rnm id="530" nNm="UnitsTypeCV" oNm="Definition"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2CV">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_Units" SupCls="Schema" SupNme="ODM2CV">
       <Rnm id="531" nNm="UnitsAbbreviation" oNm="Category"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Units" SupCls="Schema" SupNme="ODM2CV">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="CV_Units" SupCls="Schema" SupNme="ODM2CV">
       <Rnm id="532" nNm="UnitsLink" oNm="SourceVocabularyURI"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="617" nNm="CV_Units" oNm="Units"/>
       <Rnm id="535" nNm="Units" oNm="CV_Units"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
@@ -8068,8 +8256,7 @@ Types</Note>
       <Rnm id="542" nNm="Species" oNm="TaxonomicClassifiers"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
-      <Rnm id="613" nNm="CV_TaxonomicClassifierDomain" oNm="CV_TaxonomicClassifierType"/>
-      <Rnm id="607" nNm="CV_TaxonomicClassifierType" oNm="CV_SpeciesType"/>
+      <Rnm id="614" nNm="CV_TaxonomicClassifierDomain" oNm="CV_SpeciesType"/>
       <Rnm id="588" nNm="CV_SpeciesType" oNm="CV_SpeciesClassifierType"/>
       <Rnm id="543" nNm="CV_SpeciesClassifierType" oNm="CV_TaxonomicClassifierType"/>
     </RnmCh>
@@ -8134,12 +8321,12 @@ Types</Note>
       <Rnm id="572" nNm="SpeciesClassifierID" oNm="TaxonomicClassifierID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="610" nNm="TaxonomicClassifierDomainCV" oNm="TaxonomicClassifierTypeCV"/>
-      <Rnm id="603" nNm="TaxonomicClassifierTypeCV" oNm="SpeciesTypeCV"/>
+      <Rnm id="608" nNm="TaxonomicClassifierTerm" oNm="SpeciesTypeCV"/>
       <Rnm id="581" nNm="SpeciesTypeCV" oNm="SpeciesClassifierTypeCV"/>
       <Rnm id="574" nNm="SpeciesClassifierTypeCV" oNm="TaxonomicClassifierTypeCV"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
+      <Rnm id="612" nNm="TaxonomicClassifierDomainCV" oNm="ParentSpeciesID"/>
       <Rnm id="587" nNm="ParentSpeciesID" oNm="ParentSpeciesClassifierID"/>
       <Rnm id="578" nNm="ParentSpeciesClassifierID" oNm="ParentTaxonomicClassifierID"/>
     </RnmCh>
@@ -8147,11 +8334,12 @@ Types</Note>
       <Rnm id="591" nNm="SampledMediumCV" oNm="MediumCV"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="616" nNm="MediumCV" oNm="SampleMedium"/>
+      <Rnm id="624" nNm="SampledMediumCV" oNm="SampledMedium"/>
+      <Rnm id="622" nNm="SampledMedium" oNm="SampleMedium"/>
       <Rnm id="592" nNm="SampleMedium" oNm="samplemedium"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="608" nNm="VariableSourceURI" oNm="VariableLink"/>
+      <Rnm id="616" nNm="VariableSourceURI" oNm="VariableLink"/>
       <Rnm id="593" nNm="VariableLink" oNm="VariableCode"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
@@ -8165,18 +8353,35 @@ Types</Note>
       <Rnm id="596" nNm="Variablename" oNm="Name"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="TaxonomicClassifiers" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="609" nNm="TaxonomicClassifierSourceURI" oNm="TaxonomicClassifierURI"/>
-      <Rnm id="605" nNm="TaxonomicClassifierURI" oNm="SpeciesURI"/>
+      <Rnm id="613" nNm="TaxonomicClassifierSourceURI" oNm="SpeciesURI"/>
       <Rnm id="597" nNm="SpeciesURI" oNm="speciesuri"/>
     </RnmCh>
-    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="599" nNm="TaxonomicClassifierID" oNm="SpeciesID"/>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
+      <Rnm id="601" nNm="CV_SpecimenCollection" oNm="CV_MethodType_dup"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2SamplingFeatures" SupCls="" SupNme="">
+      <Rnm id="603" nNm="SpecimenCollection" oNm="Specimens_dup"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenCollection" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="604" nNm="SpecimenCollectionID" oNm="SamplingFeatureID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="SpecimenCollection" SupCls="Schema" SupNme="ODM2SamplingFeatures">
+      <Rnm id="605" nNm="SpecimenCollectionCV" oNm="SpecimenTypeCV"/>
     </RnmCh>
     <RnmCh ObjCls="Table" ParCls="Schema" ParNme="ODM2CV" SupCls="" SupNme="">
-      <Rnm id="614" nNm="CV_VariableDomain" oNm="CV_VariableType"/>
+      <Rnm id="615" nNm="CV_VariableDomain" oNm="CV_TaxonomicClassifierDomain_dup"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="InstrumentOutputQuantityKind" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="618" nNm="QuantityKind" oNm="VariableID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="DataloggerFileColumns" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="621" nNm="InstrumentOutputQuantityKindID" oNm="InstrumentOutputVariableID"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Variables" SupCls="Schema" SupNme="ODM2Core">
-      <Rnm id="615" nNm="VariableDomainCV" oNm="Term"/>
+      <Rnm id="623" nNm="TaxonomicClassifierID" oNm="SpeciesID"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="EquipmentModels" SupCls="Schema" SupNme="ODM2Equipment">
+      <Rnm id="626" nNm="ModelDescriptionURL" oNm="ModelLink"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -8195,33 +8400,24 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Provenance" selected="0"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Simulation" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExtensionProperties" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Equipment" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (15)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Methods</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Methods/Unique Constraints (1)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Organizations</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Organizations/Unique Constraints (1)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Variables</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Variables/Unique Constraints (1)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Views (0)</TreePath>
-    <TreePath>/Schemas (12)/ODM2Core/Procedures (0)</TreePath>
-    <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
-    <TreePath>/Schemas (12)/ODM2Results</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
-    <TreePath>/Diagrams (13)/ODM2Annotations</TreePath>
-    <TreePath>/Diagrams (13)/ODM2Simulation</TreePath>
-    <TreePath>/Diagrams (13)/ODM2Simulation/Notes (0)</TreePath>
-    <TreePath>/Diagrams (13)/ODM2Simulation/Zones (0)</TreePath>
   </TreePaths>
   <SqlTexts/>
 </Db>
