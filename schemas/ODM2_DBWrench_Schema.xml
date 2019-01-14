@@ -1124,7 +1124,7 @@
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierTerm" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Classifier term identifying the object of the variable, such as a "species", typically from a biological, chemical, geological or other kind of taxonomy and often associated with an External Idenfication System. </Cm>
+        <Cm>Classifier term identifying the object of the variable, such as a "species", typically from a biological, chemical, geological or other kind of taxonomy and often associated with an External Identification System. </Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierName" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
@@ -1180,7 +1180,7 @@
       </Cl>
       <Cl au="0" df="" nm="MediumCV" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary for sample medium</Cm>
+        <Cm>Controlled vocabulary term for the medium of the object of the variable.</Cm>
       </Cl>
       <Cl au="0" df="" nm="TaxonomicClassifierID" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
@@ -8195,14 +8195,33 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2SamplingFeatures" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2ExternalIdentifiers" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (15)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Methods</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Methods/Unique Constraints (1)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Organizations</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Organizations/Unique Constraints (1)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Variables</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Tables (15)/Variables/Unique Constraints (1)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Views (0)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core/Procedures (0)</TreePath>
+    <TreePath>/Schemas (12)/ODM2DataQuality</TreePath>
+    <TreePath>/Schemas (12)/ODM2Results</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
+    <TreePath>/Diagrams (13)/ODM2Annotations</TreePath>
+    <TreePath>/Diagrams (13)/ODM2Simulation</TreePath>
+    <TreePath>/Diagrams (13)/ODM2Simulation/Notes (0)</TreePath>
+    <TreePath>/Diagrams (13)/ODM2Simulation/Zones (0)</TreePath>
   </TreePaths>
   <SqlTexts/>
 </Db>
