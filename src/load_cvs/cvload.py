@@ -24,7 +24,7 @@ Base = declarative_base()
 metadata = Base.metadata
 
 class CVActionType(Base):
-    __tablename__ = 'cv_actiontype'
+    __tablename__ = 'CV_ActionType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -38,7 +38,7 @@ class CVActionType(Base):
 
 
 class CVAggregationStatistic(Base):
-    __tablename__ = 'cv_aggregationstatistic'
+    __tablename__ = 'CV_AggregationStatistic'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -51,7 +51,7 @@ class CVAggregationStatistic(Base):
 
 
 class CVAnnotationType(Base):
-    __tablename__ = 'cv_annotationtype'
+    __tablename__ = 'CV_AnnotationType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -64,7 +64,7 @@ class CVAnnotationType(Base):
 
 
 class CVCensorCode(Base):
-    __tablename__ = 'cv_censorcode'
+    __tablename__ = 'CV_CensorCode'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -77,7 +77,7 @@ class CVCensorCode(Base):
 
 
 class CVDatasetType(Base):
-    __tablename__ = 'cv_datasettype'
+    __tablename__ = 'CV_DatasetType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -89,7 +89,7 @@ class CVDatasetType(Base):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 class CVDataQualityType(Base):
-    __tablename__ = 'cv_dataqualitytype'
+    __tablename__ = 'CV_DataqualityType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -102,7 +102,7 @@ class CVDataQualityType(Base):
 
 
 class CVDirectiveType(Base):
-    __tablename__ = 'cv_directivetype'
+    __tablename__ = 'CV_DirectiveType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -115,7 +115,7 @@ class CVDirectiveType(Base):
 
 
 class CVElevationDatum(Base):
-    __tablename__ = 'cv_elevationdatum'
+    __tablename__ = 'CV_ElevationDatum'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -128,7 +128,7 @@ class CVElevationDatum(Base):
 
 
 class CVEquipmentType(Base):
-    __tablename__ = 'cv_equipmenttype'
+    __tablename__ = 'CV_EquipmentType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -140,7 +140,7 @@ class CVEquipmentType(Base):
         return "<CV('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 class CVMediumType(Base):
-    __tablename__ = 'cv_medium'
+    __tablename__ = 'CV_Medium'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -152,7 +152,7 @@ class CVMediumType(Base):
         return "<CVMedium('%s', '%s', '%s', '%s')>" %(self.Term, self.Name, self.Definition, self.Category)
 
 class CVMethodType(Base):
-    __tablename__ = 'cv_methodtype'
+    __tablename__ = 'CV_MethodType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -165,7 +165,7 @@ class CVMethodType(Base):
 
 
 class CVOrganizationType(Base):
-    __tablename__ = 'cv_organizationtype'
+    __tablename__ = 'CV_OrganizationType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -178,7 +178,7 @@ class CVOrganizationType(Base):
 
 
 class CVPropertyDataType(Base):
-    __tablename__ = 'cv_propertydatatype'
+    __tablename__ = 'CV_PropertyDataType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -191,7 +191,7 @@ class CVPropertyDataType(Base):
 
 
 class CVQualityCode(Base):
-     __tablename__ = 'cv_qualitycode'
+     __tablename__ = 'CV_QualityCode'
      __table_args__ = {u'schema': 'odm2'}
 
      Term = Column('term', String(255), nullable=False)
@@ -205,7 +205,7 @@ class CVQualityCode(Base):
 
 
 class CVRelationshipType(Base):
-    __tablename__ = 'cv_relationshiptype'
+    __tablename__ = 'CV_RelationshipType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -218,7 +218,7 @@ class CVRelationshipType(Base):
 
 
 class CVResultType(Base):
-    __tablename__ = 'cv_resulttype'
+    __tablename__ = 'CV_ResultType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -231,7 +231,7 @@ class CVResultType(Base):
 
 
 class CVSamplingFeatureGeoType(Base):
-    __tablename__ = 'cv_samplingfeaturegeotype'
+    __tablename__ = 'CV_SamplingFeatureGeoType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -245,7 +245,7 @@ class CVSamplingFeatureGeoType(Base):
 
 
 class CVSamplingFeatureType(Base):
-    __tablename__ = 'cv_samplingfeaturetype'
+    __tablename__ = 'CV_SamplingFeatureType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -258,7 +258,7 @@ class CVSamplingFeatureType(Base):
 
 
 class CVSpatialOffsetType(Base):
-    __tablename__ = 'cv_spatialoffsettype'
+    __tablename__ = 'CV_SpatialOffsetType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -271,7 +271,7 @@ class CVSpatialOffsetType(Base):
 
 
 class CVSpeciation(Base):
-    __tablename__ = 'cv_speciation'
+    __tablename__ = 'CV_Speciation'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -284,7 +284,7 @@ class CVSpeciation(Base):
 
 
 class CVSpecimenType(Base):
-    __tablename__ = 'cv_specimentype'
+    __tablename__ = 'CV_SpecimenType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -297,7 +297,7 @@ class CVSpecimenType(Base):
 
 
 class CVSiteType(Base):
-    __tablename__ = 'cv_sitetype'
+    __tablename__ = 'CV_SiteType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -311,7 +311,7 @@ class CVSiteType(Base):
 
 
 class CVStatus(Base):
-    __tablename__ = 'cv_status'
+    __tablename__ = 'CV_Status'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -325,7 +325,7 @@ class CVStatus(Base):
 
 
 class CVTaxonomicClassifierType(Base):
-    __tablename__ = 'cv_taxonomicclassifiertype'
+    __tablename__ = 'CV_TaxonomicClassifierType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -339,7 +339,7 @@ class CVTaxonomicClassifierType(Base):
 
 
 class CVUnitsType(Base):
-    __tablename__ = 'cv_unitstype'
+    __tablename__ = 'CV_UnitsType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -353,7 +353,7 @@ class CVUnitsType(Base):
 
 
 class CVVariableName(Base):
-    __tablename__ = 'cv_variablename'
+    __tablename__ = 'CV_VariableName'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -367,7 +367,7 @@ class CVVariableName(Base):
 
 
 class CVVariableType(Base):
-    __tablename__ = 'cv_variabletype'
+    __tablename__ = 'CV_VariableType'
     __table_args__ = {u'schema': 'odm2'}
 
     Term = Column('term', String(255), nullable=False)
@@ -419,7 +419,7 @@ class MyParser(argparse.ArgumentParser):
             sys.exit(2)
 
 # handle argument parsing
-info = "A simple script that loads up cvterms into a blank ODM2 database"
+info = "A simple script that loads up cvterms into a blank ODM2 Dbase"
 parser = MyParser(description=info, add_help=True)
 parser.add_argument(
         help="Format: {engine}+{driver}://{user}:{pass}@{address}/{db}\n"
