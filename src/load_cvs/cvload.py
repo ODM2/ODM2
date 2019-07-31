@@ -419,7 +419,7 @@ class MyParser(argparse.ArgumentParser):
             sys.exit(2)
 
 # handle argument parsing
-info = "A simple script that loads up cvterms into a blank ODM2 Dbase"
+info = "A simple script that loads up cvterms into a blank ODM2 Database"
 parser = MyParser(description=info, add_help=True)
 parser.add_argument(
         help="Format: {engine}+{driver}://{user}:{pass}@{address}/{db}\n"
