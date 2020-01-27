@@ -1,0 +1,225 @@
+p {
+    font-family: "Verdana", "Helvetica", sans-serif; 
+    /*font-size: 9pt;*/
+    font-size: 0.70em;
+}
+
+a {
+    font-family: "Verdana", "Helvetica", sans-serif; 
+    text-decoration: none;
+    color: #475294;
+    /*color: #0469b3;  */
+    /*font-size: 9pt;*/
+    font-size: 0.70em;
+}
+
+pre {
+    font-size: 1.20em;
+}
+
+div.hr {
+    height: 2px; 
+    color: blue;
+    background-color: blue;
+    width: 650px;
+    margin: 10px 0px 10px 0px;
+}
+
+a:visited {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p.mainBanner {
+    font-size: 9pt;
+    font-weight: bold;
+    /*color: #ef8861;*/
+}
+
+p.boolImg {
+    text-align: center;
+}
+
+p.boolImgHorz {
+    text-align: left;
+}
+
+span.plain {
+    font-weight: normal;
+}
+
+a.horzMenu {
+    color: #293D6B;
+    font-size: 8pt;
+    /*font-weight: bold;*/
+    /*font-weight: normal;
+    color: #ffffff; */
+}
+
+hr {
+    width: 650px; 
+    text-align: left;/*this will align it for IE*/
+    margin-left: 0; /*this will align it left for Mozilla*/
+    margin-right: auto;
+    height: 2px
+}
+
+h3 {
+    font-family: "Verdana", "Helvetica", sans-serif;
+    color: #ef8861;
+    font-weight: normal;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+img.logo {
+    width: 70px;
+    height: 25px;
+}
+
+tr.altRow {
+    background-color: #F9F9F9;
+}
+
+td {
+    font: normal 0.70em verdana, arial, helvetica;
+    padding: 2px 4px 2px 4px;
+    /*border: 1px solid #d7d7d7;*/
+    border: 1px solid #AACCEE;
+    border-collapse: collapse; 
+}
+
+td.title_nm {
+    font-weight: bold;
+    padding: 4px 0px 5px 10px;
+    /*background-color: #EBF3FB; */
+    background-color: #ECF2FB;
+    text-align: left;
+    border: 0px;
+}
+
+td.watermark_right {
+    font-size: 0.65em;
+    color: gray;
+    /*background-color: #EBF3FB;*/
+    background-color: #ECF2FB; /*  very light blue */
+    text-align: right;
+    border: 0px;
+    padding: 0px 10px 0px 0px;
+}
+
+td a {
+    font-size: 1em;
+}
+
+td.banner {
+    font-weight: bold;
+    padding: 3px 4px 3px 4px;
+    /*background-color: #D6E2F5;  /* sky blue */
+    /*background-color: #E5ECF9;  /* light sky blue */
+    /*background-color: #ebf4f3; /* light green */
+    /*background-color: #F6F8FB; /* very, very light blue */
+    background-color: #D8DEEA;
+    text-align: center;
+}
+
+td.header {
+    text-align: center;
+    /*background-color: #ececec; /* light grey */
+    /*background-color: #F6F8FB; /*very, very light blue */
+    background-color: #ECF2FB; /*  very light blue */
+    /*background-color: #F8FFFE; /* light green */
+}
+
+td.logo {
+    font-weight: bold;
+    /*background-color: #D6E2F5;*/
+    background-color: #C8D7E3;
+    text-align: right;
+}
+
+td.pageTitle {
+    font-weight: bold;
+    background-color: #EBF3FB; 
+    text-align: center;
+}
+
+td.diagramThumb {
+    text-align: center;
+}
+
+td.key {
+    width: 150px;
+    /*background-color: #ebf4f3; /* military light green*/
+    background-color: #F8FFFE; /* very light green */
+    /*background-color: #F4F9F4;  /* light yellowish-green*/
+    vertical-align: top;
+}
+
+td.value {
+    vertical-align: top;
+    text-align: left;
+}
+
+td.PkCol {
+    background-color: #fffded;
+}
+
+td.FkCol {
+    /*background-color: #ebf4f3; /* greenish blue */
+    background-color: #F8FFFE; /* very light green */
+}
+
+td.horzMenu {
+    background-color: #C8D7E3;
+    color: gray;
+    text-align: center;
+    padding: 2px 0px 3px 0px;
+    border-width: 0px;
+}
+
+td.horzMenuFiller {
+    width: 170px;
+    background-color: #C8D7E3;
+    color: #ffffff;
+    border-width: 0px;
+}
+
+table.flat {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #AACCEE;
+    /*background-color: white; */
+    border-collapse: collapse;
+    width: 650;
+    margin: 0px 0px 8px 0px;
+    /*background-color: #AACCEE;*/
+}
+
+table.horzMenu {
+    border: solid #99AFC4;
+    border-width: 0px 2px 2px 2px;
+    border-collapse: collapse;
+    /*background-color: #99AFC4;*/
+    /*background-color: #ffffff;*/
+    width: 650;
+}
+
+table.logo {
+    height: 32px;
+    width: 650;
+    background-color: #99AFC4;
+}
+
+table.pageTitle {
+    height: 28px;
+    width: 650;
+    border-width: 2px 0px 2px 0px;
+    border-style: solid;
+    border-color: #AACCEE;
+    border-collapse: collapse;
+}
+

@@ -1,0 +1,106 @@
+<HTML>
+<Header>
+<Title>SampledFeatures - Table</Title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<Link href="../css/doc.css" rel="stylesheet" type="text/css">
+</Header>
+<Body>
+<table class="logo">
+<tr>
+<td class="logo">ODM2 [ODM2_DBWrench_Schema.xml]</td>
+</tr>
+</table>
+<table class="horzMenu">
+<tr>
+<td class="horzMenu"><a class="horzMenu" href="../index.html"> Home</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../tables/index.html">Tables</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../schemas/index.html">Schemas</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../diagrams/index.html">Diagrams</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../foreignKeys/index.html">Foreign Keys</a></td><td class="horzMenu">|</td><td class="horzMenu"><a class="horzMenu" href="../indexes/index.html">Indexes</a></td><td class="horzMenuFiller"></td>
+</tr>
+</table>
+<hr>
+<table class="pageTitle">
+<tr>
+<td class="title_nm">SampledFeatures</td><td class="watermark_right">(Table)</td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="8">Columns</td>
+</tr>
+<tr>
+<td class="Header">PK</td><td class="Header">Name</td><td class="Header">Data Type</td><td class="Header">NULLs</td><td class="Header">A/N</td><td class="Header">Default</td><td class="Header">Comment</td><td class="Header">FK</td>
+</tr>
+<tr>
+<td class="PkCol">
+<p class="boolImg">
+<img src="../images/pkb16.gif"></p>
+</td><td class="PkCol"><a href="../columns/ODM2SamplingFeatures_SampledFeatures_RelationID.html">RelationID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol">Primary key for a relationship table</td><td class="PkCol"> </td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_SampledFeatures_SamplingFeatureID.html">SamplingFeatureID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foregn key identifier of a Sampling Feature</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_SampledFeatures_RelationshipTypeCV.html">RelationshipTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV term describing the relationship between FeaturesOfInterst and SamplingFeatures (e.g., "IsSampleOf").</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2SamplingFeatures_SampledFeatures_FeatureOfInterestID.html">FeatureOfInterestID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foregn key identifier of a Feature of Interest</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Indexes<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="5">Foreign Keys</td>
+</tr>
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SampledFeatures_fk_SampledFeatures_CV_RelationshipType.html">fk_SampledFeatures_CV_RelationshipType</a></td><td><a href="../tables/ODM2CV_CV_RelationshipType.html">ODM2CV.CV_RelationshipType</a></td><td><a href="../tables/ODM2SamplingFeatures_SampledFeatures.html">ODM2SamplingFeatures.SampledFeatures</a></td><td>Term</td><td>RelationshipTypeCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SampledFeatures_fk_SampledFeatures_FeatureOfInterest.html">fk_SampledFeatures_FeatureOfInterest</a></td><td><a href="../tables/ODM2SamplingFeatures_FeaturesOfInterest.html">ODM2SamplingFeatures.FeaturesOfInterest</a></td><td><a href="../tables/ODM2SamplingFeatures_SampledFeatures.html">ODM2SamplingFeatures.SampledFeatures</a></td><td>FeaturesOfInterestID</td><td>FeatureOfInterestID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2SamplingFeatures_SampledFeatures_fk_SampledFeatures_SamplingFeatures.html">fk_SampledFeatures_SamplingFeatures</a></td><td><a href="../tables/ODM2Core_SamplingFeatures.html">ODM2Core.SamplingFeatures</a></td><td><a href="../tables/ODM2SamplingFeatures_SampledFeatures.html">ODM2SamplingFeatures.SampledFeatures</a></td><td>SamplingFeatureID</td><td>SamplingFeatureID</td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Parent Relations<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Triggers<span class="plain"> (none)</span></td>
+</tr>
+</table>
+<br>
+<table class="flat">
+<tr>
+<td class="banner" colspan="1">Used in Diagrams</td>
+</tr>
+<tr>
+<td class="Header">Diagram Name</td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2SamplingFeatures.html">ODM2SamplingFeatures</a></td>
+</tr>
+</table>
+</Body>
+</HTML>
