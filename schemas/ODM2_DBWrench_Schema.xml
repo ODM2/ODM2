@@ -605,7 +605,7 @@
         <Cm>Primary key identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DatasetUUID" nu="0">
-        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A universally unique identifier for the dataset.</Cm>
       </Cl>
       <Cl au="0" df="" nm="DatasetTypeCV" nu="0">
@@ -891,7 +891,7 @@
         <Cm>Primary key identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="ResultUUID" nu="0">
-        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A universally unique identifier for the Result</Cm>
       </Cl>
       <Cl au="0" df="" nm="FeatureActionID" nu="0">
@@ -998,7 +998,7 @@
         <Cm>Primary key identifier.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureUUID" nu="0">
-        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+        <DT arr="0" ds="UUID" en="" id="774" ln="null" sc="null" sg="1" un="0"/>
         <Cm>A universally unique identifier for the sampling feature.</Cm>
       </Cl>
       <Cl au="0" df="" nm="SamplingFeatureTypeCV" nu="0">
@@ -7925,16 +7925,12 @@ Types</Note>
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="1"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2LabAnalyses" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (3)</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (3)/Directives</TreePath>
-    <TreePath>/Schemas (12)/ODM2LabAnalyses/Tables (3)/SpecimenBatchPositions</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
   <SqlTexts/>
