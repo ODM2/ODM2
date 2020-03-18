@@ -6248,6 +6248,7 @@ many
 other
 Result
 Types</Note>
+      <Note bkCl="ffffff99" x="749" y="47">ODM2 v2.0.1 as of 2020-03-18</Note>
     </Notes>
     <Zones>
       <Zone bkCl="ff00cccc" h="435" nm="Datasets &amp; Citations" w="560" x="1314" y="104"/>
@@ -7924,11 +7925,12 @@ Types</Note>
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2OverviewSimplified" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (12)</TreePath>
+    <TreePath>/Schemas (12)/ODM2Core</TreePath>
     <TreePath>/Diagrams (13)</TreePath>
   </TreePaths>
   <SqlTexts/>
