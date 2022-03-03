@@ -2286,102 +2286,6 @@
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
-    <Tbl UsSo="1" nm="CV_VariableName">
-      <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
-      <TblOpts>WITHOUT OIDS</TblOpts>
-      <Pk ClNs="Term" nm="pkCV_VariableName"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CV_VariableNamenew">
-      <Cm>Table containing terms used in the VariableName controlled vocabulary.</Cm>
-      <TblOpts>WITHOUT OIDS</TblOpts>
-      <Pk ClNs="Term" nm="pkCV_VariableNamenew"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ObjectMedium" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="ObjectSpecies" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Chemical species associated with the variable</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="ObjectSpeciation" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Chemical Speciation of the variable</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="LBNLSFAMapper" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
-        <Cm>Mapping from the SFA parameter to the variable parameter</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
-    <Tbl UsSo="1" nm="CV_VariableType">
-      <Cm>Table containing terms used in the VariableType controlled vocabulary.</Cm>
-      <TblOpts>WITHOUT OIDS</TblOpts>
-      <Pk ClNs="Term" nm="pkCV_VariableType"/>
-      <Cl au="0" df="" nm="Term" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>Controlled vocabulary term</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Name" nu="0">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>The human readable version of the vocabulary term. May be the same as the term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Definition" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="5000" sc="null" sg="1" un="0"/>
-        <Cm>Definition of vocabulary term.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="Category" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A category within which the term falls.</Cm>
-      </Cl>
-      <Cl au="0" df="" nm="SourceVocabularyURI" nu="1">
-        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
-        <Cm>A link to the source vocabulary from which the term was derived.</Cm>
-      </Cl>
-      <UniqueConstraints/>
-      <SchTrHis/>
-    </Tbl>
     <CustomTypes/>
   </Sch>
   <Sch Cm="Entities and attributes related to data quality." nm="ODM2DataQuality">
@@ -5779,7 +5683,7 @@
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5801,10 +5705,10 @@
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="Annotations" x="400" y="564"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="829" y="374"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="ResultAnnotations" x="831" y="402"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="902" y="47"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="685" y="72"/>
-    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="690" y="293"/>
+    <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MethodAnnotations" x="685" y="291"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="MeasurementResultValueAnnotations" x="890" y="542"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="135" y="48"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="416" y="48"/>
@@ -5819,8 +5723,8 @@
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="TransectResultValueAnnotations" x="915" y="1059"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="TrajectoryResultValueAnnotations" x="919" y="1147"/>
     <TbGl bkCl="fffb85e0" sch="ODM2Annotations" tbl="SpectraResultValueAnnotations" x="924" y="1242"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResultValues" x="1483" y="544"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="1481" y="419"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="CategoricalResultValues" x="1348" y="547"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="MeasurementResultValues" x="1481" y="366"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="PointCoverageResultValues" x="1787" y="792"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="ProfileResultValues" x="1488" y="715"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="SectionResultValues" x="1484" y="933"/>
@@ -5952,7 +5856,7 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="196" y="145"/>
     <TbGl bkCl="ff4c78ff" sch="ODM2Auth" tbl="Roles" x="945" y="558"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="881" y="44"/>
-    <TbGl bkCl="ff009900" sch="ODM2Provenance" tbl="OrganizationsSamplingFeatures" x="646" y="270"/>
+    <TbGl bkCl="ff009900" sch="ODM2Provenance" tbl="OrganizationsSamplingFeatures" x="635" y="235"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="515" y="433"/>
     <TbGl bkCl="ffcc00ff" sch="ODM2CV" tbl="CV_Permission" x="1245" y="847"/>
     <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="OrganizationsPermissions" x="1156" y="317"/>
@@ -6025,9 +5929,9 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations" parentEdge="WEST" positioner="ThreeLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="881" x2="595" y1="84" y2="84"/>
-        <positionableLine lineRole="CHILD_LINE" x1="551" x2="587" y1="223" y2="223"/>
-        <positionableLine lineRole="MIDDLE_LINE" x1="591" x2="591" y1="219" y2="88"/>
+        <positionableLine lineRole="PARENT_LINE" x1="881" x2="742" y1="84" y2="84"/>
+        <positionableLine lineRole="CHILD_LINE" x1="551" x2="734" y1="223" y2="223"/>
+        <positionableLine lineRole="MIDDLE_LINE" x1="738" x2="738" y1="219" y2="88"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Affiliations.fk_Affiliations_People" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
@@ -6040,19 +5944,19 @@
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Provenance.OrganizationsSamplingFeatures.fk_OrganizationsSamplingFeatures_Organizations" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="927" x2="927" y1="198" y2="270"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="927" x2="927" y1="198" y2="235"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Provenance.OrganizationsSamplingFeatures.fk_SamplingFeatures_OrganizationSamplingFeatures" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="726" x2="726" y1="433" y2="376"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="726" x2="726" y1="433" y2="341"/>
       </positionableLines>
     </FkGl>
     <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -6084,7 +5988,7 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="325" y="257"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1210" y="424"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1213" y="572"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="894" y="207"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1195" y="9"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="847" y="44"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="662" y="475"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="479" y="620"/>
@@ -6148,7 +6052,7 @@
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -6191,7 +6095,6 @@
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Status" x="904" y="171"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_TaxonomicClassifierDomain" x="1212" y="381"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QuantityKind" x="948" y="420"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableType" x="622" y="377"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Medium" x="642" y="40"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_FeaturesOfInterestType" x="315" y="256"/>
     <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Units" x="960" y="758"/>
@@ -8812,23 +8715,20 @@ Types</Note>
   </DbDocOptionMgr>
   <OpenEditors>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Auth" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Auth" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (13)</TreePath>
     <TreePath>/Schemas (13)/ODM2Auth</TreePath>
     <TreePath>/Schemas (13)/ODM2Auth/Tables (5)</TreePath>
-    <TreePath>/Schemas (13)/ODM2Auth/Tables (5)/Accounts</TreePath>
-    <TreePath>/Schemas (13)/ODM2Auth/Tables (5)/Accounts/Columns (7)</TreePath>
+    <TreePath>/Schemas (13)/ODM2Core</TreePath>
+    <TreePath>/Schemas (13)/ODM2CV</TreePath>
+    <TreePath>/Schemas (13)/ODM2CV/Tables (29)</TreePath>
     <TreePath>/Diagrams (14)</TreePath>
-    <TreePath>/Diagrams (14)/ODM2Annotations</TreePath>
-    <TreePath>/Diagrams (14)/ODM2Core</TreePath>
-    <TreePath>/Diagrams (14)/ODM2CV</TreePath>
-    <TreePath>/Diagrams (14)/ODM2Results</TreePath>
-    <TreePath>/Diagrams (14)/ODM2SamplingFeatures</TreePath>
   </TreePaths>
   <SqlTexts/>
 </Db>
