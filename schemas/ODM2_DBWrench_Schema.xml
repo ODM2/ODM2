@@ -2,7 +2,7 @@
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
-  <DocFolder>\Users\aaufdenkampe\Documents\Python\ODM2.1-Docs</DocFolder>
+  <DocFolder>C:\Users\ptomasula\Repositories\ODM2\doc\ODM2_1</DocFolder>
   <Sch Cm="Annotations are used to add comments or qualifiers to entity instances in ODM2." nm="ODM2Annotations">
     <Tbl UsSo="1" nm="ActionAnnotations">
       <Cm>Notes for or groups of one or more Actions.</Cm>
@@ -8720,13 +8720,13 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Simulation" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Auth" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2CV" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Simulation" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="ODM2.ODM2Auth" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
