@@ -500,7 +500,7 @@
       <Cl au="1" df="'&quot;ODM2Auth&quot;.&quot;Accounts_AccountID_seq&quot;'::regclass)" nm="AccountId" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Usename" nu="0">
+      <Cl au="0" df="" nm="Username" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="Active" nu="1">
@@ -608,11 +608,6 @@
       <Cl au="0" df="" nm="OrganizationID" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_Affilations_Roles" prLkCl="RoleID" upAc="3">
-        <PrTb mn="0" nm="Affiliations" oe="1" sch="ODM2Core" zr="0"/>
-        <CdTb mn="0" nm="Roles" oe="1" sch="ODM2Auth" zr="0"/>
-        <ClPr cdCl="RoleID" prCl="RoleID"/>
-      </Fk>
       <Fk deAc="3" nm="fk_Organizations_Roles" prLkCl="OrganizationID" upAc="3">
         <PrTb mn="0" nm="Organizations" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Roles" oe="0" sch="ODM2Auth" zr="1"/>
@@ -639,7 +634,7 @@
       <Cl au="0" df="" nm="HasPermission" nu="0">
         <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_CV_Permission_OrganizationsPermissions" prLkCl="Term" upAc="3">
+      <Fk deAc="3" nm="fk_CV_Permission_SamplingFeaturePermissions" prLkCl="Term" upAc="3">
         <PrTb mn="0" nm="CV_Permission" oe="1" sch="ODM2CV" zr="0"/>
         <CdTb mn="1" nm="SamplingFeaturesPermissions" oe="0" sch="ODM2Auth" zr="1"/>
         <ClPr cdCl="PermissionCV" prCl="Term"/>
@@ -818,6 +813,11 @@
         <PrTb mn="0" nm="People" oe="1" sch="ODM2Core" zr="0"/>
         <CdTb mn="1" nm="Affiliations" oe="0" sch="ODM2Core" zr="1"/>
         <ClPr cdCl="PersonID" prCl="PersonID"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_Affiliations_Roles" prLkCl="RoleID" upAc="3">
+        <PrTb mn="0" nm="Roles" oe="1" sch="ODM2Auth" zr="1"/>
+        <CdTb mn="0" nm="Affiliations" oe="1" sch="ODM2Core" zr="0"/>
+        <ClPr cdCl="RoleID" prCl="RoleID"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -5683,7 +5683,7 @@
     <CustomTypes/>
   </Sch>
   <Dgm nm="ODM2Annotations">
-    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="0.25">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5847,116 +5847,115 @@
       </VbCfg>
     </RnCf>
     <DiaProps>
-      <Show AllCols="1" FkCols="1" FkNms="1" PkCols="1"/>
+      <Show AllCols="1" FkCols="1" FkNms="0" PkCols="1"/>
       <ErNotation>DbwErNotation</ErNotation>
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="203" y="16"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="196" y="145"/>
-    <TbGl bkCl="ff4c78ff" sch="ODM2Auth" tbl="Roles" x="945" y="558"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="881" y="44"/>
-    <TbGl bkCl="ff009900" sch="ODM2Provenance" tbl="OrganizationsSamplingFeatures" x="635" y="235"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="515" y="433"/>
-    <TbGl bkCl="ffcc00ff" sch="ODM2CV" tbl="CV_Permission" x="1245" y="847"/>
-    <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="OrganizationsPermissions" x="1156" y="317"/>
-    <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="ResultsPermissions" x="1538" y="473"/>
-    <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="SamplingFeaturesPermissions" x="507" y="797"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="1443" y="91"/>
-    <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="Accounts" x="59" y="441"/>
-    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Auth.OrganizationsPermissions.fk_CV_Permission_OrganizationsPermissions" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="256" y="261"/>
+    <TbGl bkCl="ff4c78ff" sch="ODM2Auth" tbl="Roles" x="489" y="634"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="715" y="221"/>
+    <TbGl bkCl="ff009900" sch="ODM2Provenance" tbl="OrganizationsSamplingFeatures" x="674" y="27"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="1052" y="146"/>
+    <TbGl bkCl="ffcc00ff" sch="ODM2CV" tbl="CV_Permission" x="1131" y="639"/>
+    <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="OrganizationsPermissions" x="703" y="441"/>
+    <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="ResultsPermissions" x="1453" y="438"/>
+    <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="SamplingFeaturesPermissions" x="1070" y="442"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="1434" y="153"/>
+    <TbGl bkCl="ff6699ff" sch="ODM2Auth" tbl="Accounts" x="137" y="556"/>
+    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Auth.OrganizationsPermissions.fk_CV_Permission_OrganizationsPermissions" parentEdge="WEST" positioner="ThreeLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1301" x2="1301" y1="847" y2="439"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1131" x2="1016" y1="644" y2="644"/>
+        <positionableLine lineRole="CHILD_LINE" x1="964" x2="1008" y1="518" y2="518"/>
+        <positionableLine lineRole="MIDDLE_LINE" x1="1012" x2="1012" y1="522" y2="640"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Auth.OrganizationsPermissions.fk_Organizations_OrganizationPermissions" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Auth.OrganizationsPermissions.fk_Organizations_OrganizationPermissions" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1181" x2="1181" y1="198" y2="317"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1012" x2="1012" y1="375" y2="442"/>
+        <positionableLine lineRole="CHILD_LINE" x1="964" x2="1008" y1="446" y2="446"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Auth.OrganizationsPermissions.fk_Roles_OrganizationRoles" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Auth.OrganizationsPermissions.fk_Roles_OrganizationRoles" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1175" x2="1175" y1="558" y2="439"/>
+        <positionableLine lineRole="PARENT_LINE" x1="752" x2="800" y1="672" y2="672"/>
+        <positionableLine lineRole="CHILD_LINE" x1="804" x2="804" y1="563" y2="668"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Auth.ResultsPermissions.fk_CV_Permission_ResultPermissions" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Auth.ResultsPermissions.fk_CV_Permission_ResultPermissions" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="1395" x2="1395" y1="847" y2="593"/>
-        <positionableLine lineRole="CHILD_LINE" x1="1538" x2="1399" y1="589" y2="589"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1356" x2="1530" y1="703" y2="703"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1534" x2="1534" y1="560" y2="699"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Auth.ResultsPermissions.fk_Result_ResultPermissions" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1649" x2="1649" y1="357" y2="473"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1519" x2="1519" y1="419" y2="438"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="ODM2Auth.ResultsPermissions.fk_Roles_ResultPermissions" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Auth.ResultsPermissions.fk_Roles_ResultPermissions" parentEdge="NORTH" positioner="ThreeLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1208" x2="1538" y1="565" y2="565"/>
+        <positionableLine lineRole="PARENT_LINE" x1="693" x2="693" y1="634" y2="610"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1458" x2="1458" y1="560" y2="602"/>
+        <positionableLine lineRole="MIDDLE_LINE" x1="1454" x2="697" y1="606" y2="606"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Auth.Roles.fk_Affilations_Roles" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Auth.Roles.fk_Organizations_Roles" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="551" x2="946" y1="364" y2="364"/>
-        <positionableLine lineRole="CHILD_LINE" x1="950" x2="950" y1="558" y2="368"/>
+        <positionableLine lineRole="PARENT_LINE" x1="715" x2="649" y1="370" y2="370"/>
+        <positionableLine lineRole="CHILD_LINE" x1="645" x2="645" y1="634" y2="374"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Auth.Roles.fk_Organizations_Roles" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Auth.SamplingFeaturesPermissions.fk_CV_Permission_SamplingFeaturePermissions" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1082" x2="1082" y1="198" y2="558"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1190" x2="1190" y1="639" y2="564"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Auth.SamplingFeaturesPermissions.fk_CV_Permission_OrganizationsPermissions" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Auth.SamplingFeaturesPermissions.fk_Roles_SamplingFeaturePermissions" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="1245" x2="793" y1="892" y2="892"/>
-      </positionableLines>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Auth.SamplingFeaturesPermissions.fk_Roles_SamplingFeaturePermissions" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
-      <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="1076" x2="1076" y1="664" y2="842"/>
-        <positionableLine lineRole="CHILD_LINE" x1="793" x2="1072" y1="846" y2="846"/>
+        <positionableLine lineRole="PARENT_LINE" x1="752" x2="1071" y1="672" y2="672"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1075" x2="1075" y1="564" y2="668"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Auth.SamplingFeaturesPermissions.fk_SamplingFeatures_SamplingFeaturesPermissions" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="682" x2="682" y1="699" y2="797"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1252" x2="1252" y1="412" y2="442"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Core.Affiliations.fk_Affiliations_Accounts" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="249" x2="249" y1="441" y2="379"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="327" x2="327" y1="556" y2="495"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations" parentEdge="WEST" positioner="ThreeLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="EAST" nm="ODM2Core.Affiliations.fk_Affiliations_Organizations" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="881" x2="742" y1="84" y2="84"/>
-        <positionableLine lineRole="CHILD_LINE" x1="551" x2="734" y1="223" y2="223"/>
-        <positionableLine lineRole="MIDDLE_LINE" x1="738" x2="738" y1="219" y2="88"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="715" x2="611" y1="309" y2="309"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Core.Affiliations.fk_Affiliations_People" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Core.Affiliations.fk_Affiliations_Roles" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="346" x2="346" y1="122" y2="145"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="539" x2="539" y1="634" y2="495"/>
       </positionableLines>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Core.Organizations.fk_Organizations_Organizations" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
       <positionableLines/>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="ODM2Provenance.OrganizationsSamplingFeatures.fk_OrganizationsSamplingFeatures_Organizations" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Provenance.OrganizationsSamplingFeatures.fk_OrganizationsSamplingFeatures_Organizations" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="927" x2="927" y1="198" y2="235"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1035" x2="1035" y1="221" y2="133"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Provenance.OrganizationsSamplingFeatures.fk_SamplingFeatures_OrganizationSamplingFeatures" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="ODM2Provenance.OrganizationsSamplingFeatures.fk_SamplingFeatures_OrganizationSamplingFeatures" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="726" x2="726" y1="433" y2="341"/>
+        <positionableLine lineRole="PARENT_LINE" x1="1052" x2="1039" y1="151" y2="151"/>
+        <positionableLine lineRole="CHILD_LINE" x1="1035" x2="1035" y1="133" y2="147"/>
       </positionableLines>
     </FkGl>
     <Notes/>
     <Zones/>
   </Dgm>
   <Dgm nm="ODM2Core">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
         <Fg ky="Check" vl="0"/>
@@ -5978,8 +5977,8 @@
       <svg path=""/>
     </DiaProps>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="158" y="539"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="883" y="409"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1203" y="266"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="901" y="469"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ProcessingLevels" x="1149" y="231"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Methods" x="536" y="59"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="527" y="257"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="254" y="59"/>
@@ -5988,8 +5987,8 @@
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="325" y="257"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="1210" y="424"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="1213" y="572"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="1195" y="9"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="847" y="44"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="900" y="240"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="778" y="50"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="662" y="475"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="479" y="620"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.ActionBy.fk_ActionPeople_Actions" parentEdge="" positioner="">
@@ -6052,62 +6051,6 @@
     </Zones>
   </Dgm>
   <Dgm nm="ODM2CV">
-    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.25">
-      <VbCfg>
-        <Fg ky="Auto Number" vl="0"/>
-        <Fg ky="Check" vl="0"/>
-        <Fg ky="Comment" vl="0"/>
-        <Fg ky="Data Type" vl="0"/>
-        <Fg ky="Default" vl="0"/>
-        <Fg ky="ENUM Values" vl="0"/>
-        <Fg ky="Length" vl="0"/>
-        <Fg ky="Name" vl="1"/>
-        <Fg ky="Nullable" vl="0"/>
-        <Fg ky="Schema Name" vl="1"/>
-        <Fg ky="Signed" vl="0"/>
-      </VbCfg>
-    </RnCf>
-    <DiaProps>
-      <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
-      <ErNotation>DbwErNotation</ErNotation>
-      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
-      <svg path=""/>
-    </DiaProps>
-    <TbGl bkCl="ffccccff" sch="ODM2CV" tbl="CV_ActionType" x="39" y="37"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_AggregationStatistic" x="37" y="152"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_AnnotationType" x="36" y="269"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_CensorCode" x="37" y="388"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DataQualityType" x="37" y="508"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DatasetType" x="38" y="628"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DirectiveType" x="36" y="745"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ElevationDatum" x="322" y="37"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_EquipmentType" x="324" y="153"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_MethodType" x="318" y="366"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_OrganizationType" x="318" y="475"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_PropertyDataType" x="312" y="602"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QualityCode" x="321" y="733"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_RelationshipType" x="618" y="150"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ResultType" x="620" y="260"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureGeoType" x="604" y="492"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureType" x="611" y="617"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpatialOffsetType" x="623" y="739"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenType" x="906" y="40"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Status" x="904" y="171"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_TaxonomicClassifierDomain" x="1212" y="381"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QuantityKind" x="948" y="420"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Medium" x="642" y="40"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_FeaturesOfInterestType" x="315" y="256"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Units" x="960" y="758"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_LBNLICPMSMapper" x="1163" y="41"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenCollection" x="908" y="302"/>
-    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableDomain" x="1198" y="217"/>
-    <FkGl bkCl="ff000000" childEdge="" nm="ODM2CV.CV_Units.fk_Units_CV_QuantityKind" parentEdge="" positioner="">
-      <positionableLines/>
-    </FkGl>
-    <Notes/>
-    <Zones/>
-  </Dgm>
-  <Dgm nm="ODM2DataQuality">
     <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
       <VbCfg>
         <Fg ky="Auto Number" vl="0"/>
@@ -6129,16 +6072,73 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="682" y="479"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="342" y="385"/>
+    <TbGl bkCl="ff6565ff" sch="ODM2CV" tbl="CV_ActionType" x="42" y="18"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_AggregationStatistic" x="34" y="141"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_AnnotationType" x="36" y="269"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_CensorCode" x="37" y="388"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DataQualityType" x="37" y="508"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DatasetType" x="38" y="628"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_DirectiveType" x="36" y="745"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ElevationDatum" x="323" y="21"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_EquipmentType" x="324" y="153"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_MethodType" x="324" y="398"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_OrganizationType" x="319" y="529"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_PropertyDataType" x="319" y="656"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QualityCode" x="923" y="418"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_RelationshipType" x="624" y="176"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_ResultType" x="624" y="309"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureGeoType" x="601" y="438"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SamplingFeatureType" x="608" y="568"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpatialOffsetType" x="620" y="687"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenType" x="906" y="40"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Status" x="904" y="171"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_TaxonomicClassifierDomain" x="1181" y="273"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_QuantityKind" x="914" y="556"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Medium" x="642" y="40"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_FeaturesOfInterestType" x="316" y="279"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_Units" x="1166" y="562"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_LBNLICPMSMapper" x="1163" y="41"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_SpecimenCollection" x="900" y="292"/>
+    <TbGl bkCl="ff6666ff" sch="ODM2CV" tbl="CV_VariableDomain" x="1174" y="134"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2CV.CV_Units.fk_Units_CV_QuantityKind" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <Notes/>
+    <Zones/>
+  </Dgm>
+  <Dgm nm="ODM2DataQuality">
+    <RnCf ClkAct="false" FtSz="11" lkStgy="OffsetDirect" zm="0.75">
+      <VbCfg>
+        <Fg ky="Auto Number" vl="0"/>
+        <Fg ky="Check" vl="0"/>
+        <Fg ky="Comment" vl="0"/>
+        <Fg ky="Data Type" vl="0"/>
+        <Fg ky="Default" vl="0"/>
+        <Fg ky="ENUM Values" vl="0"/>
+        <Fg ky="Length" vl="0"/>
+        <Fg ky="Name" vl="1"/>
+        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Schema Name" vl="1"/>
+        <Fg ky="Signed" vl="0"/>
+      </VbCfg>
+    </RnCf>
+    <DiaProps>
+      <Show AllCols="1" FkCols="0" FkNms="0" PkCols="0"/>
+      <ErNotation>DbwErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
+      <svg path=""/>
+    </DiaProps>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterialValues" x="694" y="524"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ReferenceMaterials" x="346" y="380"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Results" x="599" y="91"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="332" y="233"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="336" y="27"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="SamplingFeatures" x="56" y="161"/>
-    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="51" y="418"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="906" y="249"/>
-    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="927" y="80"/>
+    <TbGl bkCl="ffccffcc" sch="ODM2SamplingFeatures" tbl="Specimens" x="33" y="467"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultsDataQuality" x="976" y="248"/>
+    <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="DataQuality" x="932" y="26"/>
     <TbGl bkCl="ff99ffff" sch="ODM2DataQuality" tbl="ResultNormalizationValues" x="664" y="392"/>
+    <TbGl bkCl="ff4c78ff" sch="ODM2CV" tbl="CV_DataQualityType" x="1299" y="29"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.FeatureActions.fk_FeatureActions_Actions" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -6146,6 +6146,9 @@
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Core.Results.fk_Results_FeatureActions" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="ODM2DataQuality.DataQuality.fk_DataQuality_CV_DataQualityType" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2DataQuality.ReferenceMaterials.fk_ReferenceMaterials_SamplingFeatures" parentEdge="" positioner="">
@@ -7081,20 +7084,20 @@ Types</Note>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Actions" x="886" y="707"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Organizations" x="527" y="475"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="People" x="1140" y="412"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="881" y="423"/>
-    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="932" y="577"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Affiliations" x="863" y="402"/>
+    <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="ActionBy" x="952" y="604"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Datasets" x="454" y="102"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="DatasetsResults" x="291" y="107"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="Variables" x="102" y="204"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="TaxonomicClassifiers" x="98" y="506"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="RelatedActions" x="734" y="598"/>
     <TbGl bkCl="ffff9999" sch="ODM2Core" tbl="FeatureActions" x="490" y="734"/>
-    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="591" y="312"/>
+    <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResults" x="599" y="235"/>
     <TbGl bkCl="ffccccff" sch="ODM2Results" tbl="TimeSeriesResultValues" x="877" y="232"/>
     <TbGl bkCl="ff009999" sch="ODM2Provenance" tbl="RelatedDatasets" x="662" y="100"/>
     <TbGl bkCl="ff6666ff" sch="ODM2Annotations" tbl="TimeSeriesResultValueAnnotations" x="879" y="115"/>
     <TbGl bkCl="ff6666ff" sch="ODM2Annotations" tbl="Annotations" x="1159" y="132"/>
-    <TbGl bkCl="ff3399ff" sch="ODM2Simulation" tbl="ModelAffiliations" x="1146" y="533"/>
+    <TbGl bkCl="ff3399ff" sch="ODM2Simulation" tbl="ModelAffiliations" x="1158" y="527"/>
     <FkGl bkCl="ff000000" childEdge="" nm="ODM2Annotations.Annotations.fk_Annotations_People" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
@@ -8697,6 +8700,9 @@ Types</Note>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Accounts" SupCls="Schema" SupNme="ODM2Auth">
       <Rnm nNm="AccountFirstName" oNm="FirstName"/>
     </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Accounts" SupCls="Schema" SupNme="ODM2Auth">
+      <Rnm nNm="Username" oNm="Usename"/>
+    </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
     <BasicOptionMgr>
@@ -8714,21 +8720,19 @@ Types</Note>
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="1"/>
     <OpenEditor ClsNm="Diagram" fqn="null.ODM2CV" selected="0"/>
-    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Auth" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2DataQuality" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Core" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Simulation" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Annotations" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Results" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.ODM2Auth" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (13)</TreePath>
-    <TreePath>/Schemas (13)/ODM2Auth</TreePath>
-    <TreePath>/Schemas (13)/ODM2Auth/Tables (5)</TreePath>
-    <TreePath>/Schemas (13)/ODM2Core</TreePath>
-    <TreePath>/Schemas (13)/ODM2CV</TreePath>
-    <TreePath>/Schemas (13)/ODM2CV/Tables (29)</TreePath>
     <TreePath>/Diagrams (14)</TreePath>
+    <TreePath>/Diagrams (14)/ODM2CV</TreePath>
   </TreePaths>
   <SqlTexts/>
 </Db>
