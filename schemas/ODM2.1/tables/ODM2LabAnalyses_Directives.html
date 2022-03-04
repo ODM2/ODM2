@@ -1,0 +1,73 @@
+<HTML>
+<header>
+<title>Directives - Table</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+</header>
+<body>
+<div class="logo">
+<p>ODM2 [ODM2_DBWrench_Schema.xml]</p>
+</div>
+<div class="horzMenu">
+<a class="horzMenu" href="../index.html"> Home</a><a class="horzMenu" href="../tables/index.html">Tables</a><a class="horzMenu" href="../schemas/index.html">Schemas</a><a class="horzMenu" href="../diagrams/index.html">Diagrams</a><a class="horzMenu" href="../foreignKeys/index.html">Foreign Keys</a><a class="horzMenu" href="../indexes/index.html">Indexes</a>
+</div>
+<h1>Table: Directives</h1>
+<div class="paragraph">
+<p>Describes the directive or purpose under which actions are made.  Directives can be projects, intended analyses for a specimen, etc.</p>
+</div>
+<h2>Columns</h2>
+<table class="flat">
+<tr>
+<td class="header">PK</td><td class="header">Name</td><td class="header">Data Type</td><td class="header">NULL</td><td class="header">Auto</td><td class="header">Default</td><td class="header">Comment</td><td class="header">FK</td>
+</tr>
+<tr>
+<td class="PkCol">
+<p class="boolImg">
+<img src="../images/pkb16.gif"></p>
+</td><td class="PkCol"><a href="../columns/ODM2LabAnalyses_Directives_DirectiveID.html">DirectiveID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="PkCol">nextval('"ODM2LabAnalyses"."Directives_DirectiveID_seq"'::regclass)</td><td class="PkCol">Unique identifier.</td><td class="PkCol"> </td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2LabAnalyses_Directives_DirectiveTypeCV.html">DirectiveTypeCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Directive type, such as project, intended analyte/analysis for a Specimen, etc.</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2LabAnalyses_Directives_DirectiveDescription.html">DirectiveDescription</a></td><td>VarChar(5000)</td><td> </td><td> </td><td> </td><td>Text description of the directive or purpose under which the action was taken.</td><td> </td>
+</tr>
+</table>
+<br>
+<h2>Indexes</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Foreign Keys</h2>
+<table class="flat">
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2LabAnalyses_Directives_fk_Directives_CV_DirectiveType.html">fk_Directives_CV_DirectiveType</a></td><td><a href="../tables/ODM2CV_CV_DirectiveType.html">ODM2CV.CV_DirectiveType</a></td><td><a href="../tables/ODM2LabAnalyses_Directives.html">ODM2LabAnalyses.Directives</a></td><td>Term</td><td>DirectiveTypeCV</td>
+</tr>
+</table>
+<br>
+<h2>Triggers</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Used in Diagrams</h2>
+<table class="flat">
+<tr>
+<td class="header">Diagram Name</td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2LabAnalyses.html">ODM2LabAnalyses</a></td>
+</tr>
+</table>
+</body>
+</HTML>

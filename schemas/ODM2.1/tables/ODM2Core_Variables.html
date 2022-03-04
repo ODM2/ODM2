@@ -1,0 +1,161 @@
+<HTML>
+<header>
+<title>Variables - Table</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+</header>
+<body>
+<div class="logo">
+<p>ODM2 [ODM2_DBWrench_Schema.xml]</p>
+</div>
+<div class="horzMenu">
+<a class="horzMenu" href="../index.html"> Home</a><a class="horzMenu" href="../tables/index.html">Tables</a><a class="horzMenu" href="../schemas/index.html">Schemas</a><a class="horzMenu" href="../diagrams/index.html">Diagrams</a><a class="horzMenu" href="../foreignKeys/index.html">Foreign Keys</a><a class="horzMenu" href="../indexes/index.html">Indexes</a>
+</div>
+<h1>Table: Variables</h1>
+<div class="paragraph">
+<p>Stores information about measured properties.</p>
+</div>
+<h2>Columns</h2>
+<table class="flat">
+<tr class="altRow">
+<td class="header">PK</td><td class="header">Name</td><td class="header">Data Type</td><td class="header">NULL</td><td class="header">Auto</td><td class="header">Default</td><td class="header">Comment</td><td class="header">FK</td>
+</tr>
+<tr>
+<td class="PkCol">
+<p class="boolImg">
+<img src="../images/pkb16.gif"></p>
+</td><td class="PkCol"><a href="../columns/ODM2Core_Variables_VariableID.html">VariableID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="PkCol">nextval('"ODM2Core"."Variables_VariableID_seq"'::regclass)</td><td class="PkCol">Primary key identifier</td><td class="PkCol"> </td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Core_Variables_VariableTerm.html">VariableTerm</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td> </td><td> </td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2Core_Variables_VariableName.html">VariableName</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>The Human Readable name for the parameter</td><td> </td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Core_Variables_VariableDefinition.html">VariableDefinition</a></td><td>VarChar(5000)</td><td> </td><td> </td><td> </td><td>Text definition of the variable</td><td> </td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Variables_VariableDomainCV.html">VariableDomainCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">CV for the Variable Domain</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr class="altRow">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Variables_SampledMediumCV.html">SampledMediumCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Controlled vocabulary for sampled Medium</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Variables_TaxonomicClassifierID.html">TaxonomicClassifierID</a></td><td class="FkCol">Integer</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Classifier describing object "species" or other classification of the variable and from a biological, chemical, geological or other kind of taxonomy. Typically associated with an External Idenfication System. </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr class="altRow">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Variables_SpeciationID.html">SpeciationID</a></td><td class="FkCol">Integer</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Speciation for the variable </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Core_Variables_QuantityKindCV.html">QuantityKindCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Controlled vocabulary for the type of variable</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Core_Variables_VariableSourceURI.html">VariableSourceURI</a></td><td>VarChar(1000)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>Link to additional information on the variable</td><td> </td>
+</tr>
+</table>
+<br>
+<h2>Indexes</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Foreign Keys</h2>
+<table class="flat">
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Variables_fk_Variables_CV_Medium.html">fk_Variables_CV_Medium</a></td><td><a href="../tables/ODM2CV_CV_Medium.html">ODM2CV.CV_Medium</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>Term</td><td>SampledMediumCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Variables_fk_Variables_CV_QuantityKind.html">fk_Variables_CV_QuantityKind</a></td><td><a href="../tables/ODM2CV_CV_QuantityKind.html">ODM2CV.CV_QuantityKind</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>Term</td><td>QuantityKindCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Variables_fk_Variables_CV_VariableDomain.html">fk_Variables_CV_VariableDomain</a></td><td><a href="../tables/ODM2CV_CV_VariableDomain.html">ODM2CV.CV_VariableDomain</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>Term</td><td>VariableDomainCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Variables_fk_Variables_speciationid_TaxonomicClassifiers.html">fk_Variables_speciationid_TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>TaxonomicClassifierID</td><td>SpeciationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Core_Variables_fk_Variables_TaxonomicClassifiers.html">fk_Variables_TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_TaxonomicClassifiers.html">ODM2Core.TaxonomicClassifiers</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>TaxonomicClassifierID</td><td>TaxonomicClassifierID</td>
+</tr>
+</table>
+<br>
+<h2>Triggers</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Unique Constraints</h2>
+<table class="flat">
+<tr>
+<td class="header">Name</td><td class="header">Table</td><td class="header">Columns</td>
+</tr>
+<tr>
+<td><a href="../uniqueconstraints/ODM2Core_Variables_uc_VariableCode.html">uc_VariableCode</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td>VariableSourceURI</td>
+</tr>
+</table>
+<br>
+<h2>Used in Diagrams</h2>
+<table class="flat">
+<tr>
+<td class="header">Diagram Name</td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Core.html">ODM2Core</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Equipment.html">ODM2Equipment</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2ExtensionProperties.html">ODM2ExtensionProperties</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2ExternalIdentifiers.html">ODM2ExternalIdentifiers</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2OverviewSimplified.html">ODM2OverviewSimplified</a></td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Simulation.html">ODM2Simulation</a></td>
+</tr>
+</table>
+</body>
+</HTML>
