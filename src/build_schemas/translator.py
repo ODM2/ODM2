@@ -77,7 +77,7 @@ class MSSQL():
             constraints = uc.get_classnames()
             constraint_string = ''
             if len(constraints) > 16:
-                print '\n\tWARNING: Table "%s" contains more than 16 constraints which is not allowed in SQL Server.  \n\tI will use the first 16 values that I encounter, which may result unintended functionality. \n\tIt is recommended that you revisit the database *.xml file and adjust these constraints to satisfy SQL Server limitations.\n' % (tbl.name())
+                print ('\n\tWARNING: Table "%s" contains more than 16 constraints which is not allowed in SQL Server.  \n\tI will use the first 16 values that I encounter, which may result unintended functionality. \n\tIt is recommended that you revisit the database *.xml file and adjust these constraints to satisfy SQL Server limitations.\n' % (tbl.name()))
                 constraint_string = ','.join(constraints[:16])
             else:
                 constraint_string = ','.join(constraints)
@@ -118,7 +118,7 @@ class MSSQL():
         return ddl_text
 
     def _unique2mssql(self, schema, use_schemas=True):
-        print 'TODO: CHECK!'
+        print( 'TODO: CHECK!')
         ddl_text = ''
         for tbl in schema.get_tables():
             uc = tbl.get_uniqueconstraints()
@@ -313,7 +313,7 @@ class MYSQL():
             constraints = uc.get_classnames()
             constraint_string = ''
             if len(constraints) > 16:
-                print '\n\tWARNING: Table "%s" contains more than 16 constraints which is not allowed in MySQL Server.  \n\tI will use the first 16 values that I encounter, which may result unintended functionality. \n\tIt is recommended that you revisit the database *.xml file and adjust these constraints to satisfy MySQL limitations.\n' % (tbl.name())
+                print( '\n\tWARNING: Table "%s" contains more than 16 constraints which is not allowed in MySQL Server.  \n\tI will use the first 16 values that I encounter, which may result unintended functionality. \n\tIt is recommended that you revisit the database *.xml file and adjust these constraints to satisfy MySQL limitations.\n' % (tbl.name()))
                 constraint_string = ','.join(constraints[:16])
             else:
                 constraint_string = ','.join(constraints)
