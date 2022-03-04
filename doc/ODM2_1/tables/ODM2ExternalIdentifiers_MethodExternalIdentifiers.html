@@ -1,0 +1,88 @@
+<HTML>
+<header>
+<title>MethodExternalIdentifiers - Table</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+</header>
+<body>
+<div class="logo">
+<p>ODM2 [ODM2_DBWrench_Schema.xml]</p>
+</div>
+<div class="horzMenu">
+<a class="horzMenu" href="../index.html"> Home</a><a class="horzMenu" href="../tables/index.html">Tables</a><a class="horzMenu" href="../schemas/index.html">Schemas</a><a class="horzMenu" href="../diagrams/index.html">Diagrams</a><a class="horzMenu" href="../foreignKeys/index.html">Foreign Keys</a><a class="horzMenu" href="../indexes/index.html">Indexes</a>
+</div>
+<h1>Table: MethodExternalIdentifiers</h1>
+<div class="paragraph">
+<p></p>
+</div>
+<h2>Columns</h2>
+<table class="flat">
+<tr>
+<td class="header">PK</td><td class="header">Name</td><td class="header">Data Type</td><td class="header">NULL</td><td class="header">Auto</td><td class="header">Default</td><td class="header">Comment</td><td class="header">FK</td>
+</tr>
+<tr>
+<td class="PkCol">
+<p class="boolImg">
+<img src="../images/pkb16.gif"></p>
+</td><td class="PkCol"><a href="../columns/ODM2ExternalIdentifiers_MethodExternalIdentifiers_BridgeID.html">BridgeID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="PkCol">nextval('"ODM2ExternalIdentifiers"."MethodExternalIdentifiers_BridgeID_seq"'::regclass)</td><td class="PkCol">Primary key for a bridge table, enabling many-to-many joins.</td><td class="PkCol"> </td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2ExternalIdentifiers_MethodExternalIdentifiers_MethodID.html">MethodID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign Key to SamplingFeatures</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2ExternalIdentifiers_MethodExternalIdentifiers_ExternalIdentifierSystemID.html">ExternalIdentifierSystemID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign Key to ExternalIdentifierSystems</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2ExternalIdentifiers_MethodExternalIdentifiers_MethodExternalIdentifier.html">MethodExternalIdentifier</a></td><td>VarChar(255)</td><td> </td><td> </td><td> </td><td>A resolvable, globally unique ID, such as a NEMI method number. Could be a Uniform Resource Name (URN).</td><td> </td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2ExternalIdentifiers_MethodExternalIdentifiers_MethodExternalIdentifierURI.html">MethodExternalIdentifierURI</a></td><td>VarChar(255)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>Uniform Resource Identifier (URI), preferably in the form of a persistent URL that is self-documenting and maintained by the external identifier system.</td><td> </td>
+</tr>
+</table>
+<br>
+<h2>Indexes</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Foreign Keys</h2>
+<table class="flat">
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_MethodExternalIdentifiers_fk_MethodExternalIdentifiers_ExternalIdentifierSystems.html">fk_MethodExternalIdentifiers_ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_ExternalIdentifierSystems.html">ODM2ExternalIdentifiers.ExternalIdentifierSystems</a></td><td><a href="../tables/ODM2ExternalIdentifiers_MethodExternalIdentifiers.html">ODM2ExternalIdentifiers.MethodExternalIdentifiers</a></td><td>ExternalIdentifierSystemID</td><td>ExternalIdentifierSystemID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2ExternalIdentifiers_MethodExternalIdentifiers_fk_MethodExternalIdentifiers_Methods.html">fk_MethodExternalIdentifiers_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2ExternalIdentifiers_MethodExternalIdentifiers.html">ODM2ExternalIdentifiers.MethodExternalIdentifiers</a></td><td>MethodID</td><td>MethodID</td>
+</tr>
+</table>
+<br>
+<h2>Triggers</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Used in Diagrams</h2>
+<table class="flat">
+<tr>
+<td class="header">Diagram Name</td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2ExternalIdentifiers.html">ODM2ExternalIdentifiers</a></td>
+</tr>
+</table>
+</body>
+</HTML>

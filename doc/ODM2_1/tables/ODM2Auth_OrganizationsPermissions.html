@@ -1,0 +1,91 @@
+<HTML>
+<header>
+<title>OrganizationsPermissions - Table</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+</header>
+<body>
+<div class="logo">
+<p>ODM2 [ODM2_DBWrench_Schema.xml]</p>
+</div>
+<div class="horzMenu">
+<a class="horzMenu" href="../index.html"> Home</a><a class="horzMenu" href="../tables/index.html">Tables</a><a class="horzMenu" href="../schemas/index.html">Schemas</a><a class="horzMenu" href="../diagrams/index.html">Diagrams</a><a class="horzMenu" href="../foreignKeys/index.html">Foreign Keys</a><a class="horzMenu" href="../indexes/index.html">Indexes</a>
+</div>
+<h1>Table: OrganizationsPermissions</h1>
+<div class="paragraph">
+<p></p>
+</div>
+<h2>Columns</h2>
+<table class="flat">
+<tr class="altRow">
+<td class="header">PK</td><td class="header">Name</td><td class="header">Data Type</td><td class="header">NULL</td><td class="header">Auto</td><td class="header">Default</td><td class="header">Comment</td><td class="header">FK</td>
+</tr>
+<tr>
+<td class="PkCol">
+<p class="boolImg">
+<img src="../images/pkb16.gif"></p>
+</td><td class="PkCol"><a href="../columns/ODM2Auth_OrganizationsPermissions_BridgeID.html">BridgeID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="PkCol">'"ODM2Auth"."OrganizationsPermissions_BridgeID_seq"'::regclass)</td><td class="PkCol"> </td><td class="PkCol"> </td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Auth_OrganizationsPermissions_OrganizationID.html">OrganizationID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Auth_OrganizationsPermissions_PermissionCV.html">PermissionCV</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Auth_OrganizationsPermissions_RoleID.html">RoleID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2Auth_OrganizationsPermissions_HasPermission.html">HasPermission</a></td><td>Boolean</td><td> </td><td> </td><td>False</td><td> </td><td> </td>
+</tr>
+</table>
+<br>
+<h2>Indexes</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Foreign Keys</h2>
+<table class="flat">
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Auth_OrganizationsPermissions_fk_CV_Permission_OrganizationsPermissions.html">fk_CV_Permission_OrganizationsPermissions</a></td><td><a href="../tables/ODM2CV_CV_Permission.html">ODM2CV.CV_Permission</a></td><td><a href="../tables/ODM2Auth_OrganizationsPermissions.html">ODM2Auth.OrganizationsPermissions</a></td><td>Term</td><td>PermissionCV</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Auth_OrganizationsPermissions_fk_Organizations_OrganizationPermissions.html">fk_Organizations_OrganizationPermissions</a></td><td><a href="../tables/ODM2Core_Organizations.html">ODM2Core.Organizations</a></td><td><a href="../tables/ODM2Auth_OrganizationsPermissions.html">ODM2Auth.OrganizationsPermissions</a></td><td>OrganizationID</td><td>OrganizationID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Auth_OrganizationsPermissions_fk_Roles_OrganizationRoles.html">fk_Roles_OrganizationRoles</a></td><td><a href="../tables/ODM2Auth_Roles.html">ODM2Auth.Roles</a></td><td><a href="../tables/ODM2Auth_OrganizationsPermissions.html">ODM2Auth.OrganizationsPermissions</a></td><td>RoleID</td><td>RoleID</td>
+</tr>
+</table>
+<br>
+<h2>Triggers</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Used in Diagrams</h2>
+<table class="flat">
+<tr>
+<td class="header">Diagram Name</td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Auth.html">ODM2Auth</a></td>
+</tr>
+</table>
+</body>
+</HTML>

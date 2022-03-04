@@ -1,0 +1,124 @@
+<HTML>
+<header>
+<title>InstrumentOutputQuantityKind - Table</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+</header>
+<body>
+<div class="logo">
+<p>ODM2 [ODM2_DBWrench_Schema.xml]</p>
+</div>
+<div class="horzMenu">
+<a class="horzMenu" href="../index.html"> Home</a><a class="horzMenu" href="../tables/index.html">Tables</a><a class="horzMenu" href="../schemas/index.html">Schemas</a><a class="horzMenu" href="../diagrams/index.html">Diagrams</a><a class="horzMenu" href="../foreignKeys/index.html">Foreign Keys</a><a class="horzMenu" href="../indexes/index.html">Indexes</a>
+</div>
+<h1>Table: InstrumentOutputQuantityKind</h1>
+<div class="paragraph">
+<p>Information about the QuantityKind that an instrument is capable of measuring</p>
+</div>
+<h2>Columns</h2>
+<table class="flat">
+<tr>
+<td class="header">PK</td><td class="header">Name</td><td class="header">Data Type</td><td class="header">NULL</td><td class="header">Auto</td><td class="header">Default</td><td class="header">Comment</td><td class="header">FK</td>
+</tr>
+<tr>
+<td class="PkCol">
+<p class="boolImg">
+<img src="../images/pkb16.gif"></p>
+</td><td class="PkCol"><a href="../columns/ODM2Equipment_InstrumentOutputQuantityKind_InstrumentOutputQuantityKindID.html">InstrumentOutputQuantityKindID</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="PkCol">nextval('"ODM2Equipment"."InstrumentOutputVariables_InstrumentOutputVariableID_seq"'::regclass)</td><td class="PkCol">Primary key identifier</td><td class="PkCol"> </td>
+</tr>
+<tr class="altRow">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_InstrumentOutputQuantityKind_EquipmentModelID.html">EquipmentModelID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the Equipment Model</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_InstrumentOutputQuantityKind_QuantityKind.html">QuantityKind</a></td><td class="FkCol">VarChar(255)</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the QuantityKind measured by the Equipment</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr class="altRow">
+<td> </td><td><a href="../columns/ODM2Equipment_InstrumentOutputQuantityKind_InstrumentResolution.html">InstrumentResolution</a></td><td>VarChar(255)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>Text description of the resolution of the output variable</td><td> </td>
+</tr>
+<tr>
+<td> </td><td><a href="../columns/ODM2Equipment_InstrumentOutputQuantityKind_InstrumentAccuracy.html">InstrumentAccuracy</a></td><td>VarChar(255)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td>Text description of the accuracy of the output variable</td><td> </td>
+</tr>
+<tr class="altRow">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_InstrumentOutputQuantityKind_InstrumentRawOutputUnitsID.html">InstrumentRawOutputUnitsID</a></td><td class="FkCol">Integer</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">Foreign key identifier of the raw output Units associated with the output variable</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr>
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_InstrumentOutputQuantityKind_InstrumentStandardOutputVariable.html">InstrumentStandardOutputVariable</a></td><td class="FkCol">Integer</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">In many cases the instrument generated a standard variable (e.g. air temperature or soil moisture) in addition to its quantitykind output. This is an optional link, but provided here</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+<tr class="altRow">
+<td class="FkCol"> </td><td class="FkCol"><a href="../columns/ODM2Equipment_InstrumentOutputQuantityKind_InstrumentMethodID.html">InstrumentMethodID</a></td><td class="FkCol">Integer</td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol"> </td><td class="FkCol">
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td>
+</tr>
+</table>
+<br>
+<h2>Indexes</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Foreign Keys</h2>
+<table class="flat">
+<tr>
+<td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputQuantityKind_fk_InstrumentOutputQuantityKind_Methods.html">fk_InstrumentOutputQuantityKind_Methods</a></td><td><a href="../tables/ODM2Core_Methods.html">ODM2Core.Methods</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputQuantityKind.html">ODM2Equipment.InstrumentOutputQuantityKind</a></td><td>MethodID</td><td>InstrumentMethodID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputQuantityKind_fk_InstrumentOutputQuantityKind_Variables.html">fk_InstrumentOutputQuantityKind_Variables</a></td><td><a href="../tables/ODM2Core_Variables.html">ODM2Core.Variables</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputQuantityKind.html">ODM2Equipment.InstrumentOutputQuantityKind</a></td><td>VariableID</td><td>InstrumentStandardOutputVariable</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputQuantityKind_fk_InstrumentOutputVariables_CV_QuantityKind.html">fk_InstrumentOutputVariables_CV_QuantityKind</a></td><td><a href="../tables/ODM2CV_CV_QuantityKind.html">ODM2CV.CV_QuantityKind</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputQuantityKind.html">ODM2Equipment.InstrumentOutputQuantityKind</a></td><td>Term</td><td>QuantityKind</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputQuantityKind_fk_InstrumentOutputVariables_CV_Units.html">fk_InstrumentOutputVariables_CV_Units</a></td><td><a href="../tables/ODM2CV_CV_Units.html">ODM2CV.CV_Units</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputQuantityKind.html">ODM2Equipment.InstrumentOutputQuantityKind</a></td><td>UnitsID</td><td>InstrumentRawOutputUnitsID</td>
+</tr>
+<tr>
+<td><a href="../foreignKeys/ODM2Equipment_InstrumentOutputQuantityKind_fk_InstrumentOutputVariables_EquipmentModels.html">fk_InstrumentOutputVariables_EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_EquipmentModels.html">ODM2Equipment.EquipmentModels</a></td><td><a href="../tables/ODM2Equipment_InstrumentOutputQuantityKind.html">ODM2Equipment.InstrumentOutputQuantityKind</a></td><td>EquipmentModelID</td><td>EquipmentModelID</td>
+</tr>
+</table>
+<br>
+<h2>Triggers</h2>
+<div class="paragraph">
+<p>(none)</p>
+</div>
+<br>
+<h2>Used in Diagrams</h2>
+<table class="flat">
+<tr>
+<td class="header">Diagram Name</td>
+</tr>
+<tr>
+<td><a href="../diagrams/ODM2Equipment.html">ODM2Equipment</a></td>
+</tr>
+</table>
+</body>
+</HTML>

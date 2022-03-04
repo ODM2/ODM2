@@ -1,0 +1,49 @@
+/* Created on : Jul 23, 2016, 10:38:37 AM
+    Author     : harnekrandhawa
+*/
+
+@charset "utf-8";
+body { margin:0; padding:0; width:100%; color:#666666; font:normal 12px/1.8em Arial, Helvetica, sans-serif;}
+html { padding:0; margin:0; background:#fff url(../images/blue_ribbon.png) top repeat-x;}
+p { margin:0; font:normal 12px/1.8em Arial, Helvetica, sans-serif;}
+h1 { font-family: "Verdana", "Helvetica", sans-serif; color: #5ba256; font-weight: normal;
+    margin:0 auto; width:970px; padding:25px 0px 25px 0px; }
+h2 { font-family: "Verdana", "Helvetica", sans-serif; color: #5ba256; font-weight: normal;
+    margin:0 auto; width:970px; padding:15px 0px 10px 0px; }
+h3 { font-family: "Verdana", "Helvetica", sans-serif; color: #5ba256; font-weight: normal;
+    margin:0 auto; width:970px; padding:15px 0px 10px 0px; }
+hr { margin: 10px 0px 10px 0px; border:none; height:3px; background-color:#5ba256; color:#5ba256;}
+a { color:#3175b0; text-decoration:none;}
+a:hover { text-decoration: underline; }
+a:visited { text-decoration: none }
+pre { font-size: 1.20em; }
+table.flat { width:970px; border: 1px solid #AACCEE;
+            border-collapse:separate; margin:auto; border-radius:0px; border-spacing:0; }
+td.key { width:150px; vertical-align:top; border-right: 1px solid #AACCEE;
+        border-bottom: 1px solid #AACCEE; font-weight:bolder; }
+td.value { vertical-align:top; text-align:left; }
+.paragraph {margin:0 auto; padding:3px 0 0 0; width:970px; }
+.logo {  margin:0 auto; padding:3px 0 0 0; width:970px; }
+.logo p { color:gray; text-align:right; font-size:1.7em;}
+.horzMenu {margin:0 auto; padding: 10px 8px 8px 0px; width:960px;} /* not sure why this is 10 less to keep it left aligned */
+.horzMenu a { font-weight:bold; font-size:1.15em; padding-right:30px; color:white; }
+table.pageTitle { height: 28px; width: 95%; border-width: 0px; border-style: solid; border-color: #AACCEE; border-collapse: collapse; }
+td.header { text-align: center; padding:5px 4px 5px 4px; background-color: #ECF2FB; font-weight: bolder;}
+p.mainBanner { font-weight: bold; }
+p.boolImg { text-align:center; padding-bottom:1px; }
+p.boolImgHorz { text-align:left; padding-bottom:1px; }
+span.plain { font-weight: normal; }
+img.logo { width: 70px; height: 25px; }
+tr.altRow { background-color: #F9F9F9; }
+td { font: normal 0.8em verdana, arial, helvetica; padding: 2px 4px 2px 4px; border: 1px solid lightgray; border-collapse: collapse; }
+td.title_nm { font-weight: bold; padding: 4px 0px 5px 10px; background-color: #ECF2FB; text-align: left; border: 0px; }
+td.watermark_right { font-size: 0.65em; color: gray; background-color: #ECF2FB;  text-align: right; border: 0px; padding: 0px 10px 0px 0px; }
+td.banner { font-weight: bold; padding: 3px 4px 3px 4px; background-color: #D8DEEA; text-align: center; }
+td.logo { font-weight: bold; background-color: #C8D7E3; text-align: right; }
+td.pageTitle { font-weight: bold; background-color: #EBF3FB; text-align: center; }
+td.diagramThumb { text-align: center; }
+td.PkCol { background-color: #fffded; }
+td.FkCol { background-color: #F8FFFE; }
+td.horzMenu { background-color: #C8D7E3; color: gray; text-align: center; padding: 2px 0px 3px 0px; border-width: 0px; }
+td.horzMenuFiller { width: 170px; background-color: #C8D7E3; color: #ffffff; border-width: 0px; }
+
